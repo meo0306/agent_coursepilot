@@ -1,0 +1,2 @@
+"""CoursePilot graph nodes."""
+

@@ -13,6 +13,7 @@ from schema.models import OpenAIModelName
 
 
 def test_invoke(test_client, mock_agent) -> None:
+    
     QUESTION = "What is the weather in Tokyo?"
     ANSWER = "The weather in Tokyo is 70 degrees."
     mock_agent.ainvoke.return_value = [("values", {"messages": [AIMessage(content=ANSWER)]})]

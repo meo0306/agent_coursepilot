@@ -24,6 +24,7 @@ from langsmith import uuid7
 
 from agents import DEFAULT_AGENT, AgentGraph, get_agent, get_all_agent_info, load_agent
 from core import settings
+from coursepilot.api import api_router as coursepilot_router
 from memory import initialize_database, initialize_store
 from schema import (
     ChatHistory,
@@ -429,3 +430,4 @@ async def health_check():
 
 
 app.include_router(router)
+app.include_router(coursepilot_router, dependencies=[Depends(verify_bearer)])

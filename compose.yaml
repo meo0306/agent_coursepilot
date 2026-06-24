@@ -1,5 +1,6 @@
 services:
   postgres:
+  # 数据库容器
     image: postgres:16
     ports:
       - "5432:5432"
@@ -8,7 +9,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
       - POSTGRES_DB=${POSTGRES_DB:-agent_service}
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data  # 持久化数据库数据，避免容器重启丢失数据
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 5s
@@ -16,6 +17,7 @@ services:
       retries: 5
 
   agent_service:
+  # FastAPI 后端容器
     build:
       context: .
       dockerfile: docker/Dockerfile.service
@@ -27,18 +29,30 @@ services:
       postgres:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/info"]
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8080/info', timeout=5).read()",
+        ]
       interval: 5s
       timeout: 5s
       retries: 5
     # Volume mount of development-only credentials since compose watch doesn't sync ignored files and doesn't do initial sync when the service starts
+    # 把 ./storage 和 ./chroma_db 挂载进容器，以防上传文件和向量库数据因为容器重启丢失
     volumes:
       - ./privatecredentials:/privatecredentials
+      - ./storage:/app/storage
+      - ./chroma_db:/app/chroma_db
     develop:
       watch:
         - path: src/agents/
           action: sync+restart
           target: /app/agents/
+        - path: src/coursepilot/  # 让 Docker watch 监听 src/coursepilot/
+          action: sync+restart
+          target: /app/coursepilot/
         - path: src/schema/
           action: sync+restart
           target: /app/schema/
@@ -51,7 +65,9 @@ services:
         - path: src/memory/
           action: sync+restart
           target: /app/memory/
+
   streamlit_app:
+  # Streamlit 前端容器
     build:
       context: .
       dockerfile: docker/Dockerfile.app
@@ -60,7 +76,13 @@ services:
     depends_on:
       - agent_service
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501/healthz"]
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8501/healthz', timeout=5).read()",
+        ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -71,6 +93,9 @@ services:
         - path: src/client/
           action: sync+restart
           target: /app/client/
+        - path: src/coursepilot/
+          action: sync+restart
+          target: /app/coursepilot/
         - path: src/schema/
           action: sync+restart
           target: /app/schema/

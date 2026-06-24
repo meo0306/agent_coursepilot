@@ -1,0 +1,2 @@
+"""CoursePilot LangGraph workflow package."""
+

@@ -187,6 +187,12 @@ cython_debug/
 *.db
 *.sqlite3
 *.bin
+chroma_db/*
+!chroma_db/.gitkeep
+
+# CoursePilot runtime storage
+storage/*
+!storage/.gitkeep
 
 # Private Credentials, ignore everything in the folder but the .gitkeep file
 privatecredentials/*

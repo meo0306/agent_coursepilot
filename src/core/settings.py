@@ -135,6 +135,15 @@ class Settings(BaseSettings):
     POSTGRES_MIN_CONNECTIONS_PER_POOL: int = 1
     POSTGRES_MAX_CONNECTIONS_PER_POOL: int = 1
 
+    # CoursePilot business configuration
+    # CoursePilot独立配置
+    COURSEPILOT_DATABASE_URL: str | None = None # 允许 CoursePilot 使用单独数据库 URL
+    COURSEPILOT_STORAGE_DIR: str = "./storage"  # 上传文件和导出文件的本地目录
+    COURSEPILOT_CHROMA_DIR: str = "./chroma_db" # Chroma 向量库持久化目录
+    COURSEPILOT_MAX_REPAIR_ROUNDS: int = 2  # LLM 输出 JSON 失败时最多修复 2 轮
+    COURSEPILOT_DUPLICATE_THRESHOLD: float = 0.85   # 试题重复度默认阈值 0.85
+    COURSEPILOT_ENABLED: bool = True    # 给后续开关 CoursePilot 功能留入口
+
     # MongoDB Configuration
     MONGO_HOST: str | None = None
     MONGO_PORT: int | None = None

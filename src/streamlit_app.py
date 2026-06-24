@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 
 from client import AgentClient, AgentClientError
+from coursepilot.ui.knowledge_base_page import render_knowledge_base_page
 from schema import ChatHistory, ChatMessage
 from schema.task_data import TaskData, TaskDataStatus
 from voice import VoiceManager
@@ -95,6 +96,16 @@ async def main() -> None:
             st.markdown("The service might be booting up. Try again in a few seconds.")
             st.stop()
     agent_client: AgentClient = st.session_state.agent_client
+
+    with st.sidebar:
+        app_mode = st.radio(
+            "App mode",
+            options=["CoursePilot Knowledge Base", "Agent Chat"],
+            index=0,
+        )
+    if app_mode == "CoursePilot Knowledge Base":
+        render_knowledge_base_page(agent_client.base_url, agent_client._headers)
+        return
 
     # Initialize voice manager (once per session)
     if "voice_manager" not in st.session_state:

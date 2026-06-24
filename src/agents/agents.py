@@ -6,6 +6,7 @@ from langgraph.pregel import Pregel
 from agents.bg_task_agent.bg_task_agent import bg_task_agent
 from agents.chatbot import chatbot
 from agents.command_agent import command_agent
+from agents.coursepilot.graphs.lesson_graph import coursepilot_lesson_agent
 from agents.github_mcp_agent.github_mcp_agent import github_mcp_agent
 from agents.interrupt_agent import interrupt_agent
 from agents.knowledge_base_agent import kb_agent
@@ -60,6 +61,10 @@ agents: dict[str, Agent] = {
     "github-mcp-agent": Agent(
         description="A GitHub agent with MCP tools for repository management and development workflows.",
         graph_like=github_mcp_agent,
+    ),
+    "coursepilot-lesson-agent": Agent(
+        description="CoursePilot lesson planning agent with structured lesson workflow.",
+        graph_like=coursepilot_lesson_agent,
     ),
 }
 

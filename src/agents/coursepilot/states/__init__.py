@@ -1,0 +1,2 @@
+"""CoursePilot graph state definitions."""
+
