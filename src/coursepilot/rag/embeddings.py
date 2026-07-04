@@ -1,3 +1,7 @@
+"""
+本地、确定性的 embedding 实现
+不依赖 OpenAI、Qwen 或其他在线 embedding API
+"""
 import hashlib
 import math
 import re

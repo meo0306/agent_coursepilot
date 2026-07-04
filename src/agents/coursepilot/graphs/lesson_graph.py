@@ -1,5 +1,5 @@
 """
-本脚本功能：
+课程设计 Agent workflow
 """
 from typing import Literal
 

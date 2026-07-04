@@ -1,8 +1,15 @@
+"""
+文本切分
+把解析器输出的 ParsedDocument 切成多个适合 RAG 检索和向量化的 Chunk
+段落切分 + 长段落滑窗 + chunk 间 overlap
+"""
 import re
 from uuid import uuid4
 
 from coursepilot.rag.types import Chunk, ParsedDocument
 
+# 标题识别正则
+# 作用是在切块时识别当前段落是不是章节标题，然后给后续 chunk 填 chapter、section、title metadata
 HEADING_RE = re.compile(
     r"^\s*((第[一二三四五六七八九十百\d]+[章节篇])|(\d+(?:\.\d+){0,3})|"
     r"(chapter\s+\d+))[\s:：、.-]*(.*)$",
@@ -12,8 +19,8 @@ HEADING_RE = re.compile(
 
 class Chunker:
     def __init__(self, chunk_size: int = 1000, overlap: int = 150):
-        self.chunk_size = chunk_size
-        self.overlap = overlap
+        self.chunk_size = chunk_size    # 目标 chunk 最大字符数
+        self.overlap = overlap  # 相邻 chunk 之间保留 150 个字符重叠
 
     def split(
         self,
@@ -23,7 +30,13 @@ class Chunker:
         document_id: str,
         source_type: str,
     ) -> list[Chunk]:
+        """ 
+        chunker对外主入口
+        接收解析后的文档和metadata
+        输出切分后的chunks
+        """
         chunks: list[Chunk] = []
+        # 遍历ParsedDocument所有section，把 section.content 切成多个 Chunk，汇总所有 Chunk 返回
         for section in parsed.sections:
             chunks.extend(
                 self._split_section(
@@ -47,24 +60,18 @@ class Chunker:
         page: int | None,
         initial_title: str | None,
     ) -> list[Chunk]:
+        """核心切块函数，负责处理单个 section """
         chapter: str | None = None
         section_name: str | None = None
         title = initial_title
-        buffer = ""
-        chunks: list[Chunk] = []
-
+        buffer = "" # 正在累积的 chunk 内容
+        chunks: list[Chunk] = []    # 已经生成的 chunk 列表
+        # 把 section 拆成段落，然后逐段处理
         for paragraph in self._paragraphs(content):
-            heading = HEADING_RE.match(paragraph)
-            if heading:
-                title = paragraph[:512]
-                token = heading.group(1)
-                if token.startswith("第") and ("章" in token or "篇" in token):
-                    chapter = paragraph[:255]
-                    section_name = None
-                else:
-                    section_name = paragraph[:255]
-
+            # 进行长度控制
             if len(buffer) + len(paragraph) + 2 > self.chunk_size and buffer:
+                # 如果当前 buffer 再加上新段落会超过 chunk_size
+                # 先把已有 buffer 做成一个 Chunk，
                 chunks.append(
                     self._make_chunk(
                         buffer,
@@ -77,10 +84,21 @@ class Chunker:
                         title=title,
                     )
                 )
+                # buffer 保留末尾 overlap 个字符
                 buffer = buffer[-self.overlap :] if self.overlap > 0 else ""
-
+            # 尝试识别标题
+            heading = HEADING_RE.match(paragraph)
+            if heading:
+                title = paragraph[:512]
+                token = heading.group(1)
+                if token.startswith("第") and ("章" in token or "篇" in token):
+                    chapter = paragraph[:255]
+                    section_name = None
+                else:
+                    section_name = paragraph[:255]
+            # 拼接新段落
             buffer = f"{buffer}\n\n{paragraph}".strip()
-
+        # 循环结束后，如还有buffer，生成最后一个chunk
         if buffer:
             chunks.append(
                 self._make_chunk(
@@ -97,14 +115,21 @@ class Chunker:
         return chunks
 
     def _paragraphs(self, content: str) -> list[str]:
+        """
+        
+        """
+        # 按空行分段
         paragraphs = [part.strip() for part in re.split(r"\n\s*\n|\r\n\s*\r\n", content)]
         normalized: list[str] = []
         for paragraph in paragraphs:
+            # 过滤空段
             if not paragraph:
                 continue
+            # 如果长度不超过 chunk_size，直接保留
             if len(paragraph) <= self.chunk_size:
                 normalized.append(paragraph)
                 continue
+            # 如果段落过长，按 chunk_size 切分，保留 overlap
             normalized.extend(
                 paragraph[start : start + self.chunk_size]
                 for start in range(0, len(paragraph), self.chunk_size - self.overlap)
@@ -123,6 +148,7 @@ class Chunker:
         page: int | None,
         title: str | None,
     ) -> Chunk:
+        """统一创建 Chunk 对象"""
         return Chunk(
             id=str(uuid4()),
             content=content.strip(),
@@ -137,9 +163,14 @@ class Chunker:
         )
 
     def _extract_keywords(self, content: str) -> list[str]:
+        """
+        从 chunk 内容里抽取最多 10 个候选关键词
+        轻量启发式抽取
+        """
         candidates = re.findall(r"[\u4e00-\u9fffA-Za-z][\u4e00-\u9fffA-Za-z0-9_-]{2,20}", content)
         seen: set[str] = set()
         keywords: list[str] = []
+
         for candidate in candidates:
             if candidate in seen:
                 continue

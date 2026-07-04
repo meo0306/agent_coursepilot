@@ -16,6 +16,7 @@ from coursepilot.schemas.lesson_schema import (
 
 
 def chat_response(state: LessonGraphState) -> LessonGraphState:
+    """聊天入口，如果用户通过普通聊天方式调用这个 agent，返回一条 AIMessage，提示用户使用 API 生成教案"""
     return {
         "messages": [
             AIMessage(
@@ -30,6 +31,7 @@ def chat_response(state: LessonGraphState) -> LessonGraphState:
 
 
 def extract_knowledge_points(state: LessonGraphState) -> LessonGraphState:
+    """知识点提取"""
     contexts = state.get("retrieved_contexts", [])
     points: list[str] = []
     seen: set[str] = set()

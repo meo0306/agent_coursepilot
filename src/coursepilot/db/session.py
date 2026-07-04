@@ -1,5 +1,5 @@
 """
-创建 CoursePilot 数据库连接和 FastAPI session dependency
+创建 CoursePilot 业务数据库连接和 FastAPI session dependency
 
 """
 
@@ -63,6 +63,7 @@ CoursePilotSessionLocal = sessionmaker(
 
 def get_session() -> Generator[Session, None, None]:
     # 给 FastAPI 路由用的 dependency。每次请求拿到一个数据库 session，请求结束后自动关闭。
+    # 不用在每个接口里手动创建和关闭数据库连接，FastAPI 自动按请求生命周期管理
     # FastAPI dependencies can yield a session and reliably close it after the
     # request. The bind is resolved lazily so tests can monkeypatch settings.
     with CoursePilotSessionLocal(bind=get_coursepilot_engine()) as session:

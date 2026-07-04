@@ -1,3 +1,6 @@
+"""
+写入 ChromaVectorStore
+"""
 import re
 from pathlib import Path
 
@@ -9,17 +12,20 @@ from coursepilot.rag.types import Chunk
 
 
 def collection_name_for_course(course_id: str) -> str:
+    """课程 collection 命名"""
     safe_id = re.sub(r"[^A-Za-z0-9_-]", "_", course_id)
     return f"coursepilot_{safe_id}"[:63]
 
 
 class ChromaVectorStore:
     def __init__(self, persist_directory: str | None = None):
-        self.persist_directory = persist_directory or settings.COURSEPILOT_CHROMA_DIR
+        """Chroma 持久化向量存储"""
+        self.persist_directory = persist_directory or settings.COURSEPILOT_CHROMA_DIR   # 指定持久化目录
         Path(self.persist_directory).mkdir(parents=True, exist_ok=True)
-        self.embeddings = HashingEmbeddings()
+        self.embeddings = HashingEmbeddings()   # 使用本地确定性 embedding 实现
 
     def collection_for_course(self, course_id: str) -> Chroma:
+        """获取课程对应的 Chroma collection"""
         return Chroma(
             collection_name=collection_name_for_course(course_id),
             persist_directory=self.persist_directory,
@@ -27,23 +33,53 @@ class ChromaVectorStore:
         )
 
     def add_chunks(self, chunks: list[Chunk]) -> str:
+        """将 chunk 列表写入 Chroma collection"""
         if not chunks:
             raise ValueError("No chunks to add to Chroma")
 
         course_id = chunks[0].course_id
         collection_name = collection_name_for_course(course_id)
         store = self.collection_for_course(course_id)
+        # 写入 chunk
         store.add_texts(
-            texts=[chunk.content for chunk in chunks],
-            ids=[chunk.id for chunk in chunks],
-            metadatas=[self._metadata(chunk, collection_name) for chunk in chunks],
+            texts=[chunk.content for chunk in chunks],  # 检索正文
+            ids=[chunk.id for chunk in chunks], # ID
+            metadatas=[self._metadata(chunk, collection_name) for chunk in chunks], # 元数据
         )
         return collection_name
 
     def delete_chunks(self, course_id: str, chunk_ids: list[str]) -> None:
+        """从 Chroma collection 删除指定 chunk"""
         if not chunk_ids:
             return
         self.collection_for_course(course_id).delete(ids=chunk_ids)
+
+    def add_verified_texts(
+        self,
+        *,
+        course_id: str,
+        texts: list[str],
+        ids: list[str],
+        metadatas: list[dict[str, str | int | bool]],
+    ) -> str:
+        if not texts:
+            raise ValueError("No texts to add to Chroma")
+        collection_name = collection_name_for_course(course_id)
+        normalized_metadata = []
+        for metadata in metadatas:
+            normalized = {
+                "course_id": course_id,
+                "verified": True,
+                "chroma_collection": collection_name,
+                **metadata,
+            }
+            normalized_metadata.append({key: value for key, value in normalized.items() if value is not None})
+        self.collection_for_course(course_id).add_texts(
+            texts=texts,
+            ids=ids,
+            metadatas=normalized_metadata,
+        )
+        return collection_name
 
     def search(
         self,
@@ -55,12 +91,17 @@ class ChromaVectorStore:
         verified_only: bool | None = None,
         top_k: int = 5,
     ):
+        """
+        在指定课程的 Chroma collection 中执行向量相似度检索
+        """
+        # 构建过滤条件
         where = self._where_filter(
             course_id=course_id,
             chapter=chapter,
             source_type=source_type,
             verified_only=verified_only,
         )
+        # 根据 返回检索结果
         return self.collection_for_course(course_id).similarity_search_with_relevance_scores(
             query,
             k=top_k,
@@ -68,6 +109,7 @@ class ChromaVectorStore:
         )
 
     def _metadata(self, chunk: Chunk, collection_name: str) -> dict[str, str | int | bool]:
+        """填充 chunk 的元数据"""
         metadata: dict[str, str | int | bool] = {
             "chunk_id": chunk.id,
             "course_id": chunk.course_id,
@@ -94,14 +136,17 @@ class ChromaVectorStore:
         source_type: str | None,
         verified_only: bool | None,
     ) -> dict:
+        """构建检索过滤条件"""
+        # 默认带course_id 过滤
         filters: list[dict[str, str | bool]] = [{"course_id": course_id}]
+        # 如果有其他过滤条件，加入 filters
         if chapter:
             filters.append({"chapter": chapter})
         if source_type:
             filters.append({"source_type": source_type})
         if verified_only is not None:
             filters.append({"verified": verified_only})
+        # 如果只有一个过滤条件，直接返回该条件，否则返回 $and 组合
         if len(filters) == 1:
             return filters[0]
         return {"$and": filters}
-

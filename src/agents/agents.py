@@ -6,7 +6,11 @@ from langgraph.pregel import Pregel
 from agents.bg_task_agent.bg_task_agent import bg_task_agent
 from agents.chatbot import chatbot
 from agents.command_agent import command_agent
+
+from agents.coursepilot.graphs.exam_graph import coursepilot_exam_agent
 from agents.coursepilot.graphs.lesson_graph import coursepilot_lesson_agent
+from agents.coursepilot.graphs.ppt_graph import coursepilot_ppt_agent
+
 from agents.github_mcp_agent.github_mcp_agent import github_mcp_agent
 from agents.interrupt_agent import interrupt_agent
 from agents.knowledge_base_agent import kb_agent
@@ -65,6 +69,14 @@ agents: dict[str, Agent] = {
     "coursepilot-lesson-agent": Agent(
         description="CoursePilot lesson planning agent with structured lesson workflow.",
         graph_like=coursepilot_lesson_agent,
+    ),
+    "coursepilot-exam-agent": Agent(
+        description="CoursePilot exam generation agent with structured blueprint and question workflow.",
+        graph_like=coursepilot_exam_agent,
+    ),
+    "coursepilot-ppt-agent": Agent(
+        description="CoursePilot PPT generation agent with structured slide outline workflow.",
+        graph_like=coursepilot_ppt_agent,
     ),
 }
 

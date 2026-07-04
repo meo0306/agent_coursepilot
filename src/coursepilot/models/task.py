@@ -1,3 +1,6 @@
+"""
+保存生成任务的状态和中间结果
+"""
 from datetime import UTC, datetime
 from uuid import uuid4
 
@@ -28,6 +31,6 @@ class GenerationTask(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utc_now, onupdate=utc_now
     )
-
+    
     lesson_designs = relationship("LessonDesign", back_populates="task")
 

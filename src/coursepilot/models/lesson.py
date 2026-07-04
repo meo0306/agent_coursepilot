@@ -1,3 +1,7 @@
+"""
+保存教学设计草稿 JSON
+保存RAG 检索到的上下文和 validator 报告
+"""
 from datetime import UTC, datetime
 from uuid import uuid4
 

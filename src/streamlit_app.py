@@ -1,3 +1,6 @@
+"""
+入口默认进入 CoursePilot Knowledge Base
+"""
 import asyncio
 import os
 import urllib.parse
@@ -9,6 +12,7 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 
 from client import AgentClient, AgentClientError
+# 新增 import，把 CoursePilot 页面从主 app 中拆出去
 from coursepilot.ui.knowledge_base_page import render_knowledge_base_page
 from schema import ChatHistory, ChatMessage
 from schema.task_data import TaskData, TaskDataStatus
@@ -96,13 +100,16 @@ async def main() -> None:
             st.markdown("The service might be booting up. Try again in a few seconds.")
             st.stop()
     agent_client: AgentClient = st.session_state.agent_client
-
+    
+    # 在 Streamlit 侧边栏中添加一个单选框，让用户选择进入 CoursePilot Knowledge Base 页面或 Agent Chat 页面，默认 index=0，所以打开 Streamlit 先看到 CoursePilot 页面
+    coursepilot_default = isinstance(agent_client.base_url, str)
     with st.sidebar:
         app_mode = st.radio(
             "App mode",
             options=["CoursePilot Knowledge Base", "Agent Chat"],
-            index=0,
+            index=0 if coursepilot_default else 1,
         )
+    # 选中则渲染CoursePilot Knowledge Base 页面
     if app_mode == "CoursePilot Knowledge Base":
         render_knowledge_base_page(agent_client.base_url, agent_client._headers)
         return

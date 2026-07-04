@@ -14,17 +14,17 @@ from agents.safeguard import Safeguard, SafeguardOutput, SafetyAssessment
 from agents.tools import calculator
 from core import get_model, settings
 
-
+# 可以把 state 理解成 agent 执行过程中的共享数据包。每个节点读 state，也可以返回 state 的部分更新
 class AgentState(MessagesState, total=False):
     """`total=False` is PEP589 specs.
 
     documentation: https://typing.readthedocs.io/en/latest/spec/typeddict.html#totality
     """
+    # messages 来自 MessagesState 保存用户、AI、工具消息
+    safety: SafeguardOutput # 安全检查节点写入
+    remaining_steps: RemainingSteps # LangGraph 管理字段，避免工具循环无限执行
 
-    safety: SafeguardOutput
-    remaining_steps: RemainingSteps
-
-
+# 默认工具列表
 web_search = DuckDuckGoSearchResults(name="WebSearch")
 tools = [web_search, calculator]
 
@@ -36,6 +36,7 @@ if settings.OPENWEATHERMAP_API_KEY:
     )
     tools.append(OpenWeatherMapQueryRun(name="Weather", api_wrapper=wrapper))
 
+# 系统提示词
 current_date = datetime.now().strftime("%B %d, %Y")
 instructions = f"""
     You are a helpful research assistant with the ability to search the web and use other tools.
@@ -52,9 +53,10 @@ instructions = f"""
 
 
 def wrap_model(model: BaseChatModel) -> RunnableSerializable[AgentState, AIMessage]:
-    bound_model = model.bind_tools(tools)
+    # 模型包装：+tools + 系统提示词
+    bound_model = model.bind_tools(tools)   # 绑定工具到模型上，模型可以调用工具
     preprocessor = RunnableLambda(
-        lambda state: [SystemMessage(content=instructions)] + state["messages"],
+        lambda state: [SystemMessage(content=instructions)] + state["messages"],    # 每次调用模型时，都会把系统提示词放到历史消息最前面
         name="StateModifier",
     )
     return preprocessor | bound_model  # type: ignore[return-value]
@@ -96,15 +98,16 @@ async def block_unsafe_content(state: AgentState, config: RunnableConfig) -> Age
     return {"messages": [format_safety_message(safety)]}
 
 
-# Define the graph
+# 定义agent图结构
+# 定义节点
 agent = StateGraph(AgentState)
-agent.add_node("model", acall_model)
-agent.add_node("tools", ToolNode(tools))
-agent.add_node("guard_input", safeguard_input)
-agent.add_node("block_unsafe_content", block_unsafe_content)
-agent.set_entry_point("guard_input")
+agent.add_node("model", acall_model)    # 调用 LLM
+agent.add_node("tools", ToolNode(tools))    # 执行模型请求的工具调用
+agent.add_node("guard_input", safeguard_input)  # 先检查输入是否有 prompt injection 风险
+agent.add_node("block_unsafe_content", block_unsafe_content)    # 如果不安全，返回拦截消息
+agent.set_entry_point("guard_input")    # 入口节点是 guard_input，先检查输入安全性
 
-
+# 定义边
 # Check for unsafe input and block further processing if found
 def check_safety(state: AgentState) -> Literal["unsafe", "safe"]:
     safety: SafeguardOutput = state["safety"]

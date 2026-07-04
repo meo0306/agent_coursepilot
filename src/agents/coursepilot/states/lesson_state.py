@@ -3,7 +3,7 @@ from typing import Any, TypedDict
 from langchain_core.messages import AnyMessage
 
 
-class LessonGraphState(TypedDict, total=False):
+class LessonGraphState(TypedDict, total=False): # total=False 表示字段不是一开始都必须存在
     messages: list[AnyMessage]
     lesson_params: dict[str, Any]
     retrieved_contexts: list[dict[str, Any]]

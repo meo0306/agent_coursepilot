@@ -1,3 +1,7 @@
+"""
+保存导出的 DOCX 文件记录(不包含具体内容)
+用于追踪某个 DOCX 文件来自哪个课程、哪个任务
+"""
 from datetime import UTC, datetime
 from uuid import uuid4
 

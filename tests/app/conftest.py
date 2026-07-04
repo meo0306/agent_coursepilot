@@ -7,8 +7,10 @@ from schema.models import OpenAIModelName
 
 
 @pytest.fixture
-def mock_agent_client(mock_env):
+def mock_agent_client(mock_env, monkeypatch, tmp_path):
     """Fixture for creating a mock AgentClient with a clean environment."""
+    monkeypatch.setenv("HOME", str(tmp_path))
+    monkeypatch.setenv("USERPROFILE", str(tmp_path))
 
     mock_info = ServiceMetadata(
         default_agent="test-agent",

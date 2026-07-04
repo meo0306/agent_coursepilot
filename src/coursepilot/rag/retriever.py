@@ -1,3 +1,7 @@
+"""
+检索结果并返回引用信息
+向量相似度检索
+"""
 from coursepilot.rag.vector_store import ChromaVectorStore
 from coursepilot.schemas.kb_schema import KBSearchResult
 
@@ -16,6 +20,7 @@ class CoursePilotRetriever:
         verified_only: bool | None = None,
         top_k: int = 5,
     ) -> list[KBSearchResult]:
+        """检索课程知识库，返回前 top_k 个结果"""
         docs_with_scores = self.vector_store.search(
             course_id=course_id,
             query=query,

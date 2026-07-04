@@ -41,10 +41,10 @@ class AgentClient:
                 Default: True
         """
         self.base_url = base_url
-        self.auth_secret = os.getenv("AUTH_SECRET")
-        self.timeout = timeout
+        self.auth_secret = os.getenv("AUTH_SECRET") # 从环境变量 AUTH_SECRET 读取认证密钥
+        self.timeout = timeout  # HTTP 超时
         self.info: ServiceMetadata | None = None
-        self.agent: str | None = None
+        self.agent: str | None = None   # 默认 agent
         if get_info:
             self.retrieve_info()
         if agent:
@@ -58,6 +58,9 @@ class AgentClient:
         return headers
 
     def retrieve_info(self) -> None:
+        """
+        获取服务端支持哪些 agent 和模型，相当于对服务端/info的封装
+        """
         try:
             response = httpx.get(
                 f"{self.base_url}/info",
@@ -69,10 +72,13 @@ class AgentClient:
             raise AgentClientError(f"Error getting service info: {e}")
 
         self.info = ServiceMetadata.model_validate(response.json())
-        if not self.agent or self.agent not in [a.key for a in self.info.agents]:
+        if not self.agent or self.agent not in [a.key for a in self.info.agents]:   # 如果当前没有 agent，或者 agent 不在服务端返回的列表里，就切换到服务端默认 agent
             self.agent = self.info.default_agent
 
     def update_agent(self, agent: str, verify: bool = True) -> None:
+        """
+        切换到当前 agent
+        """
         if verify:
             if not self.info:
                 self.retrieve_info()
@@ -93,7 +99,7 @@ class AgentClient:
     ) -> ChatMessage:
         """
         Invoke the agent asynchronously. Only the final message is returned.
-
+        异步非流式调用，相当于对服务端 /invoke 的封装
         Args:
             message (str): The message to send to the agent
             model (str, optional): LLM model to use for the agent
@@ -104,9 +110,12 @@ class AgentClient:
         Returns:
             AnyMessage: The response from the agent
         """
+        # 检查当前是否有 agent
         if not self.agent:
             raise AgentClientError("No agent selected. Use update_agent() to select an agent.")
+        # 创建请求对象
         request = UserInput(message=message)
+        # 填写请求体信息
         if thread_id:
             request.thread_id = thread_id
         if model:
@@ -115,6 +124,8 @@ class AgentClient:
             request.agent_config = agent_config
         if user_id:
             request.user_id = user_id
+        # Use httpx.AsyncClient for asynchronous requests，async with means that the client will be closed automatically after the block is exited
+        # post到服务端 /{agent}/invoke 接口，传入请求体和认证头
         async with httpx.AsyncClient() as client:
             try:
                 response = await client.post(
@@ -126,7 +137,7 @@ class AgentClient:
                 response.raise_for_status()
             except httpx.HTTPError as e:
                 raise AgentClientError(f"Error: {e}")
-
+        # 格式校验后返回
         return ChatMessage.model_validate(response.json())
 
     def invoke(
@@ -139,7 +150,7 @@ class AgentClient:
     ) -> ChatMessage:
         """
         Invoke the agent synchronously. Only the final message is returned.
-
+        同步非流式调用
         Args:
             message (str): The message to send to the agent
             model (str, optional): LLM model to use for the agent
@@ -175,6 +186,13 @@ class AgentClient:
         return ChatMessage.model_validate(response.json())
 
     def _parse_stream_line(self, line: str) -> ChatMessage | str | None:
+        """
+        解析 SSE 流，和服务端 message_generator() 的输出一一对应
+        服务端流式返回的数据格式包含以下三种：
+        data: {"type": "token", "content": "..."}
+        data: {"type": "message", "content": {...}}
+        data: [DONE]
+        """
         line = line.strip()
         if line.startswith("data: "):
             data = line[6:]
@@ -184,6 +202,7 @@ class AgentClient:
                 parsed = json.loads(data)
             except Exception as e:
                 raise Exception(f"Error JSON parsing message from server: {e}")
+            # 按 type 分流
             match parsed["type"]:
                 case "message":
                     # Convert the JSON formatted message to an AnyMessage
@@ -210,7 +229,7 @@ class AgentClient:
     ) -> Generator[ChatMessage | str, None, None]:
         """
         Stream the agent's response synchronously.
-
+        同步流式调用
         Each intermediate message of the agent process is yielded as a ChatMessage.
         If stream_tokens is True (the default value), the response will also yield
         content tokens from streaming models as they are generated.
@@ -267,7 +286,7 @@ class AgentClient:
     ) -> AsyncGenerator[ChatMessage | str, None]:
         """
         Stream the agent's response asynchronously.
-
+        异步流式调用
         Each intermediate message of the agent process is yielded as an AnyMessage.
         If stream_tokens is True (the default value), the response will also yield
         content tokens from streaming modelsas they are generated.
@@ -321,7 +340,7 @@ class AgentClient:
     ) -> None:
         """
         Create a feedback record for a run.
-
+        请求 /feedback
         This is a simple wrapper for the LangSmith create_feedback API, so the
         credentials can be stored and managed in the service rather than the client.
         See: https://api.smith.langchain.com/redoc#tag/feedback/operation/create_feedback_api_v1_feedback_post
@@ -343,7 +362,7 @@ class AgentClient:
     def get_history(self, thread_id: str) -> ChatHistory:
         """
         Get chat history.
-
+        请求 /history
         Args:
             thread_id (str, optional): Thread ID for identifying a conversation
         """

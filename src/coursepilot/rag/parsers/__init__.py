@@ -1,4 +1,7 @@
-"""CoursePilot document parser modules."""
+"""
+CoursePilot document parser modules.
+该目录下定义多种类型文档解析器
+"""
 
 from pathlib import Path
 
@@ -19,6 +22,7 @@ PARSERS: tuple[BaseParser, ...] = (
 
 
 def get_parser(path: str | Path) -> BaseParser:
+    """ Parser 选择器: 根据文件路径获取对应的解析器实例 """
     suffix = Path(path).suffix.lower()
     for parser in PARSERS:
         if parser.supports(path):

@@ -24,6 +24,8 @@ from langsmith import uuid7
 
 from agents import DEFAULT_AGENT, AgentGraph, get_agent, get_all_agent_info, load_agent
 from core import settings
+
+# 把 CoursePilot 的业务路由导入 FastAPI 主服务
 from coursepilot.api import api_router as coursepilot_router
 from memory import initialize_database, initialize_store
 from schema import (
@@ -64,7 +66,7 @@ def verify_bearer(
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
 
-@asynccontextmanager
+@asynccontextmanager    # 把一个 async generator 函数变成 FastAPI 可以使用的异步上下文管理器
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
     Configurable lifespan that initializes the appropriate database checkpointer, store,
@@ -72,6 +74,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
     try:
         # Initialize both checkpointer (for short-term memory) and store (for long-term memory)
+        # yield 前：应用启动时执行
         async with initialize_database() as saver, initialize_store() as store:
             # Set up both components
             if hasattr(saver, "setup"):  # ignore: union-attr
@@ -95,7 +98,8 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
                 agent.checkpointer = saver
                 # Set store for long-term memory (cross-conversation knowledge)
                 agent.store = store
-            yield
+            yield   # yield 中：FastAPI 正常运行，开始接收请求
+        # yield 后：应用关闭时执行清理
     except Exception as e:
         logger.error(f"Error during database/store/agents initialization: {e}")
         raise
@@ -104,9 +108,10 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 app = FastAPI(lifespan=lifespan, generate_unique_id_function=custom_generate_unique_id)
 router = APIRouter(dependencies=[Depends(verify_bearer)])
 
-
+# 把下面这个 info() 函数注册成一个 HTTP GET 接口，路径是 /info
 @router.get("/info")
 async def info() -> ServiceMetadata:
+    # 获取服务端支持的agent和模型列表
     models = list(settings.AVAILABLE_MODELS)
     models.sort()
     return ServiceMetadata(
@@ -155,6 +160,7 @@ async def _handle_input(user_input: UserInput, agent: AgentGraph) -> tuple[dict[
 
     # Check for interrupts that need to be resumed
     state = await agent.aget_state(config=config)
+    # 
     interrupted_tasks = [
         task for task in state.tasks if hasattr(task, "interrupts") and task.interrupts
     ]
@@ -173,13 +179,13 @@ async def _handle_input(user_input: UserInput, agent: AgentGraph) -> tuple[dict[
 
     return kwargs, run_id
 
-
+# 两个装饰器叠在一起，表示同一个函数同时绑定两个 POST 路径
 @router.post("/{agent_id}/invoke", operation_id="invoke_with_agent_id")
 @router.post("/invoke")
 async def invoke(user_input: UserInput, agent_id: str = DEFAULT_AGENT) -> ChatMessage:
     """
     Invoke an agent with user input to retrieve a final response.
-
+    同步非流式调用
     If agent_id is not provided, the default agent will be used.
     Use thread_id to persist and continue a multi-turn conversation. run_id kwarg
     is also attached to messages for recording feedback.
@@ -194,6 +200,7 @@ async def invoke(user_input: UserInput, agent_id: str = DEFAULT_AGENT) -> ChatMe
     kwargs, run_id = await _handle_input(user_input, agent)
 
     try:
+        # Process the agent invocation and retrieve the final response
         response_events: list[tuple[str, Any]] = await agent.ainvoke(**kwargs, stream_mode=["updates", "values"])  # type: ignore # fmt: skip
         response_type, response = response_events[-1]
         if response_type == "values":
@@ -217,43 +224,57 @@ async def invoke(user_input: UserInput, agent_id: str = DEFAULT_AGENT) -> ChatMe
 
 async def message_generator(
     user_input: StreamInput, agent_id: str = DEFAULT_AGENT
-) -> AsyncGenerator[str, None]:
+) -> AsyncGenerator[str, None]: # 是一个异步生成器，会不断 yield 字符串。每个字符串就是 SSE 响应里的一段数据。
     """
     Generate a stream of messages from the agent.
 
     This is the workhorse method for the /stream endpoint.
     """
+    # 获取agent和输入参数
     agent: AgentGraph = get_agent(agent_id)
     kwargs, run_id = await _handle_input(user_input, agent)
 
     try:
         # Process streamed events from the graph and yield messages over the SSE stream.
+        # 调用LangGraph 的流式执行，要求返回三类事件：
+            # updates：图中节点执行完后的状态更新，比如某个节点新增了 messages。
+            # messages：LLM 生成过程中的 token/message chunk，适合做打字机效果。
+            # custom：自定义事件。
+        # subgraphs=True 表示如果 agent 内部有子图，也把子图里的事件一起流出来
         async for stream_event in agent.astream(
             **kwargs, stream_mode=["updates", "messages", "custom"], subgraphs=True
         ):
+            # 解析 LangGraph 返回的事件结构
+            # 前提：只处理 tuple 类型的流事件
             if not isinstance(stream_event, tuple):
                 continue
             # Handle different stream event structures based on subgraphs
+            # 读取基本的流事件结构
             if len(stream_event) == 3:
                 # With subgraphs=True: (node_path, stream_mode, event)
                 _, stream_mode, event = stream_event
             else:
                 # Without subgraphs: (stream_mode, event)
                 stream_mode, event = stream_event
+            
+            
+            # 处理不同的流事件结构
             new_messages = []
+            # 1.处理 updates 事件，主要是从图的节点更新中提取 messages
             if stream_mode == "updates":
                 for node, updates in event.items():
                     # A simple approach to handle agent interrupts.
                     # In a more sophisticated implementation, we could add
                     # some structured ChatMessage type to return the interrupt value.
                     if node == "__interrupt__":
+                        # 如果 LangGraph 触发了 interrupt，服务端会把 interrupt 的提示内容包装成一个 AIMessage，然后流给前端，等待用户补充信息。
                         interrupt: Interrupt
                         for interrupt in updates:
                             new_messages.append(AIMessage(content=interrupt.value))
                         continue
                     updates = updates or {}
                     update_messages = updates.get("messages", [])
-                    # special cases for using langgraph-supervisor library
+                    # special cases for using langgraph-supervisor library（多 agent 图）
                     if "supervisor" in node or "sub-agent" in node:
                         # the only tools that come from the actual agent are the handoff and handback tools
                         if isinstance(update_messages[-1], ToolMessage):
@@ -264,9 +285,11 @@ async def message_generator(
                                 # If this is a supervisor, we want to keep the last message only - the handoff result. The tool comes from the 'agent' node.
                                 update_messages = [update_messages[-1]]
                         else:
+                            # If the last message is not a ToolMessage, we drop it.
                             update_messages = []
-                    new_messages.extend(update_messages)
-
+                    new_messages.extend(update_messages)    # 如果某个节点返回了新的 AI 消息、工具消息等，它们会被收集到 new_messages
+            
+            # 2. 处理custom事件，主要是把自定义事件直接包装成 AIMessage
             if stream_mode == "custom":
                 new_messages = [event]
 
@@ -274,6 +297,7 @@ async def message_generator(
             # e.g. ('content', <str>), ('tool_calls', [ToolCall,...]), ('additional_kwargs', {...}), etc.
             # We accumulate only supported fields into `parts` and skip unsupported metadata.
             # More info at: https://langchain-ai.github.io/langgraph/cloud/how-tos/stream_messages/
+            # 把 LangGraph 的 message 整理成标准消息对象
             processed_messages = []
             current_message: dict[str, Any] = {}
             for message in new_messages:
@@ -292,20 +316,25 @@ async def message_generator(
             if current_message:
                 processed_messages.append(_create_ai_message(current_message))
 
+            # 转换成 ChatMessage 并流式返回给前端
             for message in processed_messages:
                 try:
-                    chat_message = langchain_to_chat_message(message)
+                    chat_message = langchain_to_chat_message(message)   # LangChain / LangGraph 内部消息类型有 AIMessage、HumanMessage、ToolMessage 等。项目对外统一用自己的 ChatMessage schema，所以这里调用 langchain_to_chat_message() 做转换
                     chat_message.run_id = str(run_id)
                 except Exception as e:
                     logger.error(f"Error parsing message: {e}")
                     yield f"data: {json.dumps({'type': 'error', 'content': 'Unexpected error'})}\n\n"
                     continue
-                # LangGraph re-sends the input message, which feels weird, so drop it
+                # LangGraph re-sends the input message（LangGraph 流式事件里可能会重新吐出用户输入）, which feels weird, so drop it
                 if chat_message.type == "human" and chat_message.content == user_input.message:
                     continue
+                # 核心输出路径：真正流给客户端的完整SSE格式消息
                 yield f"data: {json.dumps({'type': 'message', 'content': chat_message.model_dump()})}\n\n"
 
+
+            # 3. 处理messages 模式下的 token 流，
             if stream_mode == "messages":
+                # 先检查用户是否允许流式 token，如果不允许就跳过
                 if not user_input.stream_tokens:
                     continue
                 msg, metadata = event
@@ -315,15 +344,19 @@ async def message_generator(
                 # Drop them.
                 if not isinstance(msg, AIMessageChunk):
                     continue
-                content = remove_tool_calls(msg.content)
+                content = remove_tool_calls(msg.content)    # 去掉工具调用相关内容
                 if content:
                     # Empty content in the context of OpenAI usually means
                     # that the model is asking for a tool to be invoked.
                     # So we only print non-empty content.
+                    # 核心输出路径：token流
                     yield f"data: {json.dumps({'type': 'token', 'content': convert_message_content_to_string(content)})}\n\n"
+    
+    # 处理异常，保证 SSE 流式响应不会中断
     except Exception as e:
         logger.error(f"Error in message generator: {e}")
         yield f"data: {json.dumps({'type': 'error', 'content': 'Internal server error'})}\n\n"
+    # Finally block ensures that the client knows the stream is done
     finally:
         yield "data: [DONE]\n\n"
 
@@ -430,4 +463,5 @@ async def health_check():
 
 
 app.include_router(router)
+# 把 /api/coursepilot/* 挂到同一个 app 上，沿用原项目的鉴权逻辑，不改写原来的 /info、/invoke、/stream 
 app.include_router(coursepilot_router, dependencies=[Depends(verify_bearer)])
