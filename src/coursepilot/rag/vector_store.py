@@ -5,9 +5,10 @@ import re
 from pathlib import Path
 
 from langchain_chroma import Chroma
+from langchain_core.embeddings import Embeddings
 
 from core.settings import settings
-from coursepilot.rag.embeddings import HashingEmbeddings
+from coursepilot.rag.embeddings import get_coursepilot_embeddings
 from coursepilot.rag.types import Chunk
 
 
@@ -18,11 +19,12 @@ def collection_name_for_course(course_id: str) -> str:
 
 
 class ChromaVectorStore:
-    def __init__(self, persist_directory: str | None = None):
+    def __init__(self, persist_directory: str | None = None, embeddings: Embeddings | None = None):
         """Chroma 持久化向量存储"""
         self.persist_directory = persist_directory or settings.COURSEPILOT_CHROMA_DIR   # 指定持久化目录
         Path(self.persist_directory).mkdir(parents=True, exist_ok=True)
-        self.embeddings = HashingEmbeddings()   # 使用本地确定性 embedding 实现
+        # 如果没有传入 embeddings，则使用 get_coursepilot_embeddings() 获取默认的 embedding 实例
+        self.embeddings = embeddings or get_coursepilot_embeddings()
 
     def collection_for_course(self, course_id: str) -> Chroma:
         """获取课程对应的 Chroma collection"""
@@ -62,6 +64,7 @@ class ChromaVectorStore:
         ids: list[str],
         metadatas: list[dict[str, str | int | bool]],
     ) -> str:
+        """将已审核的文本写入 Chroma collection"""
         if not texts:
             raise ValueError("No texts to add to Chroma")
         collection_name = collection_name_for_course(course_id)
@@ -93,6 +96,7 @@ class ChromaVectorStore:
     ):
         """
         在指定课程的 Chroma collection 中执行向量相似度检索
+        return: list of (Chunk, score) tuples, where score is a float between 0 and 1
         """
         # 构建过滤条件
         where = self._where_filter(
@@ -101,12 +105,22 @@ class ChromaVectorStore:
             source_type=source_type,
             verified_only=verified_only,
         )
-        # 根据 返回检索结果
-        return self.collection_for_course(course_id).similarity_search_with_relevance_scores(
+        # 获取课程对应的 Chroma collection
+        store = self.collection_for_course(course_id)
+        # 如果 collection 为空，则直接返回空列表，说明没有任何 chunk 可供检索
+        if store._collection.count() == 0:
+            return []
+        # 否则，返回检索结果
+        docs_with_distances = store.similarity_search_with_score(
             query,
             k=top_k,
             filter=where,
         )
+        # 计算结果相似度评分
+        return [
+            (doc, 1.0 / (1.0 + max(float(distance), 0.0)))
+            for doc, distance in docs_with_distances
+        ]
 
     def _metadata(self, chunk: Chunk, collection_name: str) -> dict[str, str | int | bool]:
         """填充 chunk 的元数据"""

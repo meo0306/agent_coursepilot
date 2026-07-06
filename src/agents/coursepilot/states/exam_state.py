@@ -5,6 +5,9 @@ from langchain_core.messages import AnyMessage
 
 class ExamGraphState(TypedDict, total=False):
     messages: list[AnyMessage]
+    course_id: str
+    blueprint_id: str
+    workflow_phase: str
     exam_params: dict[str, Any]
     retrieved_contexts: list[dict[str, Any]]
     exam_blueprint: dict[str, Any]

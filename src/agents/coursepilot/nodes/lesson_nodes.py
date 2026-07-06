@@ -1,9 +1,11 @@
-import re
 from typing import Any
 
 from langchain_core.messages import AIMessage
+from pydantic import BaseModel, Field
 
 from agents.coursepilot.states.lesson_state import LessonGraphState
+from coursepilot.llm import generate_structured
+from coursepilot.rag.knowledge_points import KnowledgePointList, extract_keywords_deterministic
 from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.lesson_schema import (
     LessonDesignContent,
@@ -13,6 +15,11 @@ from coursepilot.schemas.lesson_schema import (
     TeachingProcessItem,
     TimeAllocation,
 )
+
+
+class SessionPlanSet(BaseModel):
+    # 课时计划集合
+    session_plan: list[SessionPlan] = Field(min_length=1)
 
 
 def chat_response(state: LessonGraphState) -> LessonGraphState:
@@ -31,44 +38,77 @@ def chat_response(state: LessonGraphState) -> LessonGraphState:
 
 
 def extract_knowledge_points(state: LessonGraphState) -> LessonGraphState:
-    """知识点提取"""
+    """从检索上下文中抽知识点"""
+    # 从 state 中获取检索到的上下文
     contexts = state.get("retrieved_contexts", [])
-    points: list[str] = []
-    seen: set[str] = set()
-    for context in contexts:
-        content = str(context.get("content", ""))
-        for token in re.findall(r"[\u4e00-\u9fffA-Za-z][\u4e00-\u9fffA-Za-z0-9_-]{2,20}", content):
-            if token in seen:
-                continue
-            seen.add(token)
-            points.append(token)
-            if len(points) >= 12:
-                return {"knowledge_points": points}
-    return {"knowledge_points": points}
+    # 把检索到的 chunk 内容合并，作为知识点抽取材料
+    content = "\n\n".join(str(context.get("content", "")) for context in contexts)
+    # 调用 LLM 生成知识点列表，如果失败则使用 deterministic fallback
+    result = generate_structured(
+        prompt_name="lesson/extract_knowledge_points",
+        output_schema=KnowledgePointList,
+        payload={
+            "lesson_params": state.get("lesson_params", {}),
+            "retrieved_contexts": contexts,
+            "max_points": 12,
+        },
+        # 无 LLM 时用正则关键词 fallback
+        fallback=lambda: KnowledgePointList(
+            knowledge_points=extract_keywords_deterministic(content, max_points=12)
+        ),
+    )
+    return {"knowledge_points": result.knowledge_points[:12]}
 
 
 def plan_sessions(state: LessonGraphState) -> LessonGraphState:
+    """根据知识点和参数规划每个课时"""
     params = LessonGenerationParams.model_validate(state.get("lesson_params", {}))
     points = state.get("knowledge_points", []) or [params.chapter_range]
-    plans: list[dict[str, Any]] = []
-    for index in range(1, params.total_sessions + 1):
-        session_points = _slice(points, index, params.total_sessions)
-        allocation = _allocation(params.session_duration)
-        plans.append(
-            SessionPlan(
-                session_index=index,
-                session_title=f"{params.chapter_range} - {session_points[0]}",
-                duration=params.session_duration,
-                knowledge_points=session_points,
-                teaching_focus=params.teaching_focus or f"Understand {session_points[0]}",
-                difficulty_points=session_points[-2:],
-                time_allocation=allocation,
-            ).model_dump(mode="json")
-        )
-    return {"session_plan": plans}
+    result = generate_structured(
+        prompt_name="lesson/plan_sessions",
+        output_schema=SessionPlanSet,
+        payload={
+            "lesson_params": state.get("lesson_params", {}),
+            "knowledge_points": points,
+            "retrieved_contexts": state.get("retrieved_contexts", []),
+        },
+        fallback=lambda: SessionPlanSet(
+            session_plan=[
+                SessionPlan(
+                    session_index=index,
+                    session_title=f"{params.chapter_range} - {_slice(points, index, params.total_sessions)[0]}",
+                    duration=params.session_duration,
+                    knowledge_points=_slice(points, index, params.total_sessions),
+                    teaching_focus=params.teaching_focus
+                    or f"Understand {_slice(points, index, params.total_sessions)[0]}",
+                    difficulty_points=_slice(points, index, params.total_sessions)[-2:],
+                    time_allocation=_allocation(params.session_duration),
+                )
+                for index in range(1, params.total_sessions + 1)
+            ]
+        ),
+    )
+    return {"session_plan": [plan.model_dump(mode="json") for plan in result.session_plan]}
 
 
 def generate_lesson_design(state: LessonGraphState) -> LessonGraphState:
+    """生成完整LessonDesignContent"""
+    design = generate_structured(
+        prompt_name="lesson/generate_lesson_design",
+        output_schema=LessonDesignContent,
+        payload={
+            "lesson_params": state.get("lesson_params", {}),
+            "retrieved_contexts": state.get("retrieved_contexts", []),
+            "knowledge_points": state.get("knowledge_points", []),
+            "session_plan": state.get("session_plan", []),
+        },
+        fallback=lambda: _deterministic_lesson_design(state),
+    )
+    return {"lesson_design": design.model_dump(mode="json")}
+
+
+def _deterministic_lesson_design(state: LessonGraphState) -> LessonDesignContent:
+    """fallback策略：根据 state 中的参数和计划生成一个确定性的 LessonDesignContent"""
     params = LessonGenerationParams.model_validate(state.get("lesson_params", {}))
     contexts = [KBSearchResult.model_validate(item) for item in state.get("retrieved_contexts", [])]
     points = state.get("knowledge_points", []) or [params.chapter_range]
@@ -118,7 +158,7 @@ def generate_lesson_design(state: LessonGraphState) -> LessonGraphState:
         session_plan=[SessionPlan.model_validate(item) for item in state.get("session_plan", [])],
         sessions=sessions,
     )
-    return {"lesson_design": design.model_dump(mode="json")}
+    return design
 
 
 def _allocation(duration: int) -> list[TimeAllocation]:
@@ -139,4 +179,3 @@ def _slice(points: list[str], index: int, total: int) -> list[str]:
     start = (index - 1) * bucket
     end = len(points) if index == total else start + bucket
     return points[start:end][:5] or points[:1]
-

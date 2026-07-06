@@ -10,7 +10,7 @@ from coursepilot.schemas.exam_schema import (
     QuestionGenerationResponse,
 )
 from coursepilot.schemas.question_schema import QuestionRead
-from coursepilot.services.exam_service import ExamService
+from coursepilot.services.exam_service import BlueprintNotConfirmedError, ExamService
 
 router = APIRouter(tags=["coursepilot-exams"])
 
@@ -50,8 +50,13 @@ def confirm_exam_blueprint(blueprint_id: str, session: Session = Depends(get_ses
 
 @router.post("/exams/{blueprint_id}/generate", response_model=QuestionGenerationResponse)
 def generate_exam_questions(blueprint_id: str, session: Session = Depends(get_session)):
-    response = ExamService(session).generate_questions(blueprint_id)
+    try:
+        response = ExamService(session).generate_questions(blueprint_id)
+    except BlueprintNotConfirmedError as exc:
+        # 如果蓝图未确认，则返回 409 冲突错误
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
     if response is None:
+        # 如果蓝图不存在，则返回 404 错误
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Exam blueprint not found")
     return response
 

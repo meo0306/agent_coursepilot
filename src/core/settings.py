@@ -96,10 +96,12 @@ class Settings(BaseSettings):
     DEFAULT_MODEL: AllModelEnum | None = None  # type: ignore[assignment]
     AVAILABLE_MODELS: set[AllModelEnum] = set()  # type: ignore[assignment]
 
+    # 设置大模型API服务（openai兼容类型）
     # Set openai compatible api, mainly used for proof of concept
     COMPATIBLE_MODEL: str | None = None
     COMPATIBLE_API_KEY: SecretStr | None = None
     COMPATIBLE_BASE_URL: str | None = None
+
 
     OPENWEATHERMAP_API_KEY: SecretStr | None = None
 
@@ -143,6 +145,11 @@ class Settings(BaseSettings):
     COURSEPILOT_MAX_REPAIR_ROUNDS: int = 2  # LLM 输出 JSON 失败时最多修复 2 轮
     COURSEPILOT_DUPLICATE_THRESHOLD: float = 0.85   # 试题重复度默认阈值 0.85
     COURSEPILOT_ENABLED: bool = True    # 给后续开关 CoursePilot 功能留入口
+    COURSEPILOT_GENERATION_MODE: str = "auto"  # auto / llm / deterministic
+    COURSEPILOT_EMBEDDING_PROVIDER: str = "auto"  # auto / openai-compatible / hashing
+    COURSEPILOT_EMBEDDING_MODEL: str | None = None
+    COURSEPILOT_EMBEDDING_BASE_URL: str | None = None
+    COURSEPILOT_EMBEDDING_API_KEY: SecretStr | None = None
 
     # MongoDB Configuration
     MONGO_HOST: str | None = None

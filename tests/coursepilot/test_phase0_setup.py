@@ -45,6 +45,8 @@ def test_coursepilot_settings_defaults():
     assert settings.COURSEPILOT_MAX_REPAIR_ROUNDS == 2
     assert settings.COURSEPILOT_DUPLICATE_THRESHOLD == 0.85
     assert settings.COURSEPILOT_ENABLED is True
+    assert settings.COURSEPILOT_GENERATION_MODE == "auto"
+    assert settings.COURSEPILOT_EMBEDDING_PROVIDER == "auto"
 
 
 def test_coursepilot_db_base_uses_prefixed_metadata():

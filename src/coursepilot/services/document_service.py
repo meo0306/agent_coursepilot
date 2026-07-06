@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 from core.settings import settings
 from coursepilot.models import Course, Document
 
-SUPPORTED_UPLOAD_SUFFIXES = {".pdf", ".docx", ".txt", ".md", ".markdown", ".xlsx", ".doc"}
+SUPPORTED_UPLOAD_SUFFIXES = {".pdf", ".docx", ".txt", ".md", ".markdown", ".xlsx"}
 
 
 class DocumentService:
@@ -41,6 +41,8 @@ class DocumentService:
         file_name = Path(file.filename or "").name
         #校验后缀
         suffix = Path(file_name).suffix.lower() # 文件类型（后缀）
+        if suffix == ".doc":    # 不支持上传.doc
+            raise ValueError("Unsupported legacy .doc file. Please convert it to .docx before upload.")
         if suffix not in SUPPORTED_UPLOAD_SUFFIXES:
             raise ValueError(f"Unsupported file type: {suffix or '<none>'}")    # 不支持文件返回error
         # 创建目录
@@ -66,4 +68,3 @@ class DocumentService:
         self.session.commit()
         self.session.refresh(document)
         return document
-

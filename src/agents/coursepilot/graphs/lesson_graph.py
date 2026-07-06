@@ -5,6 +5,7 @@ from typing import Literal
 
 from langgraph.graph import END, StateGraph
 
+from core.settings import settings
 from agents.coursepilot.nodes.lesson_nodes import (
     chat_response,
     extract_knowledge_points,
@@ -30,7 +31,7 @@ def route_entry(state: LessonGraphState) -> Literal["chat", "workflow"]:
 def should_repair(state: LessonGraphState) -> Literal["repair", "done"]:
     """
     Determines whether the lesson design should be repaired based on the validation report.
-    基于验证报告确定课程设计是否需要修复。
+    基于校验报告确定课程设计是否需要修复。
     """
     report = state.get("validation_report", {})
     passed = all(
@@ -44,7 +45,7 @@ def should_repair(state: LessonGraphState) -> Literal["repair", "done"]:
             "citation_valid",
         ]
     )
-    if not passed and int(report.get("repair_attempts", 0)) < 2:
+    if not passed and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS:
         return "repair"
     return "done"
 
@@ -81,6 +82,6 @@ graph.add_conditional_edges(
         "done": END,
     },
 )
-graph.add_edge("reflect_and_revise", END)
+graph.add_edge("reflect_and_revise", "validate_lesson_design")
 
 coursepilot_lesson_agent = graph.compile()

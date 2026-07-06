@@ -1,11 +1,19 @@
-from coursepilot.rag.embeddings import HashingEmbeddings
+"""
+检测问题列表中重复问题
+使用嵌入向量来计算问题之间的相似度，并根据设定的阈值来判断哪些问题是重复的。
+"""
+
+from langchain_core.embeddings import Embeddings
+
+from coursepilot.rag.embeddings import get_coursepilot_embeddings
 from coursepilot.schemas.question_schema import QuestionItem
 
 
 class DuplicateDetector:
-    def __init__(self, threshold: float = 0.85):
+    """检测问题列表中重复问题"""
+    def __init__(self, threshold: float = 0.85, embeddings: Embeddings | None = None):
         self.threshold = threshold
-        self.embeddings = HashingEmbeddings()
+        self.embeddings = embeddings or get_coursepilot_embeddings()
 
     def detect(self, questions: list[QuestionItem]) -> tuple[float, list[tuple[int, int]]]:
         if len(questions) < 2:
@@ -22,4 +30,3 @@ class DuplicateDetector:
         total_pairs = len(questions) * (len(questions) - 1) / 2
         duplicate_rate = len(duplicate_pairs) / total_pairs if total_pairs else 0.0
         return duplicate_rate, duplicate_pairs
-

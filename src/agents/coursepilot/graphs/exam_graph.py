@@ -2,6 +2,7 @@ from typing import Literal
 
 from langgraph.graph import END, StateGraph
 
+from core.settings import settings
 from agents.coursepilot.nodes.exam_nodes import (
     chat_response,
     generate_exam_questions,
@@ -13,13 +14,19 @@ from agents.coursepilot.nodes.retrieve_nodes import retrieve_course_context
 from agents.coursepilot.states.exam_state import ExamGraphState
 
 
-def route_entry(state: ExamGraphState) -> Literal["chat", "workflow"]:
+def route_entry(state: ExamGraphState) -> Literal["chat", "workflow", "questions"]:
+    """入口函数，根据 state 中的 workflow_phase 和 exam_blueprint 判断当前应该进入哪个节点"""
+    # 已经有确认后的蓝图，直接进入出题阶段
+    if state.get("workflow_phase") == "questions" and "exam_blueprint" in state:
+        return "questions"
+    # 如果传入 exam_params，表示要创建蓝图
     if "exam_params" in state:
         return "workflow"
     return "chat"
 
 
 def should_repair(state: ExamGraphState) -> Literal["repair", "done"]:
+    """根据 state 中的 validation_report 判断是否需要进入 repair 节点"""
     report = state.get("validation_report", {})
     passed = all(
         report.get(key, False)
@@ -35,9 +42,17 @@ def should_repair(state: ExamGraphState) -> Literal["repair", "done"]:
             "duplicate_valid",
         ]
     )
-    if not passed and int(report.get("repair_attempts", 0)) < 2:
+    if not passed and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS:
         return "repair"
     return "done"
+
+
+def after_blueprint(state: ExamGraphState) -> Literal["generate", "done"]:
+    """根据 state 中的 workflow_phase 判断是否需要进入 generate 节点"""
+    # create_blueprint API 只生成蓝图，不直接出题，给教师留下审核/确认蓝图的步骤
+    if state.get("workflow_phase") == "blueprint":
+        return "done"
+    return "generate"
 
 
 graph = StateGraph(ExamGraphState)
@@ -56,11 +71,19 @@ graph.add_conditional_edges(
     {
         "chat": "chat_response",
         "workflow": "retrieve_course_context",
+        "questions": "generate_exam_questions",
     },
 )
 graph.add_edge("chat_response", END)
 graph.add_edge("retrieve_course_context", "plan_exam_blueprint")
-graph.add_edge("plan_exam_blueprint", "generate_exam_questions")
+graph.add_conditional_edges(
+    "plan_exam_blueprint",
+    after_blueprint,
+    {
+        "generate": "generate_exam_questions",
+        "done": END,
+    },
+)
 graph.add_edge("generate_exam_questions", "validate_exam_questions")
 graph.add_conditional_edges(
     "validate_exam_questions",

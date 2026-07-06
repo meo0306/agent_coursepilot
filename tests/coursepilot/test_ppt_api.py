@@ -2,6 +2,10 @@ from pathlib import Path
 
 from pptx import Presentation
 
+from core import settings
+from coursepilot.schemas.ppt_schema import SlideValidationReport
+import coursepilot.services.ppt_service as ppt_service_module
+
 
 def _create_course_with_lesson(client):
     course = client.post("/api/coursepilot/courses", json={"course_name": "AI"}).json()
@@ -31,7 +35,7 @@ def _create_course_with_lesson(client):
     return course, lesson.json()["lesson_id"]
 
 
-def test_ppt_generate_export_review_and_write_back(coursepilot_client):
+def test_ppt_generate_export_review_and_write_back(coursepilot_client, monkeypatch):
     course, lesson_id = _create_course_with_lesson(coursepilot_client)
 
     generated = coursepilot_client.post(
@@ -48,6 +52,12 @@ def test_ppt_generate_export_review_and_write_back(coursepilot_client):
     read = coursepilot_client.get(f"/api/coursepilot/ppt/{outline_id}")
     assert read.status_code == 200
     assert read.json()["id"] == outline_id
+
+    class FailingAgent:
+        def invoke(self, *_args, **_kwargs):
+            raise AssertionError("PPT export should not invoke the graph")
+
+    monkeypatch.setattr(ppt_service_module, "coursepilot_ppt_agent", FailingAgent())
 
     export = coursepilot_client.post(f"/api/coursepilot/ppt/{outline_id}/export")
     assert export.status_code == 200
@@ -109,3 +119,42 @@ def test_ppt_generate_requires_lesson(coursepilot_client):
     )
 
     assert response.status_code == 404
+
+
+def test_ppt_export_rejects_invalid_outline_without_writing_file(coursepilot_client, monkeypatch):
+    course, lesson_id = _create_course_with_lesson(coursepilot_client)
+
+    generated = coursepilot_client.post(
+        f"/api/coursepilot/lessons/{lesson_id}/ppt/generate",
+        json={"slide_count": 6, "style_template": "standard", "include_references": True},
+    )
+    assert generated.status_code == 200
+    outline_id = generated.json()["outline_id"]
+
+    def fail_validation(self, outline, *, expected_slide_count=None, total_sessions=None):
+        return SlideValidationReport(
+            slide_count_valid=False,
+            slide_type_valid=True,
+            content_not_empty=True,
+            source_session_valid=True,
+            citation_valid=True,
+            errors=["forced failure"],
+        )
+
+    monkeypatch.setattr(ppt_service_module.PPTValidator, "validate", fail_validation)
+
+    export = coursepilot_client.post(f"/api/coursepilot/ppt/{outline_id}/export")
+    assert export.status_code == 400
+    assert "validation failed" in export.json()["detail"]
+
+    expected_path = (
+        Path(settings.COURSEPILOT_STORAGE_DIR)
+        / "exports"
+        / course["id"]
+        / f"ppt_outline_{outline_id}.pptx"
+    )
+    assert not expected_path.exists()
+
+    read = coursepilot_client.get(f"/api/coursepilot/ppt/{outline_id}")
+    assert read.status_code == 200
+    assert read.json()["status"] == "needs_review"

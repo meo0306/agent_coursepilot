@@ -54,3 +54,32 @@ def test_ppt_graph_structured_workflow():
     assert len(result["slide_outline"]["slides"]) == 4
     assert result["validation_report"]["slide_count_valid"] is True
     assert result["validation_report"]["citation_valid"] is True
+    assert "export_file" not in result
+    assert "pptx_file_path" not in result
+
+
+def test_ppt_graph_does_not_export_pptx(tmp_path):
+    output_path = tmp_path / "slides.pptx"
+    result = coursepilot_ppt_agent.invoke(
+        {
+            "slide_outline": {
+                "course_name": "AI",
+                "chapter": "Search",
+                "lesson_id": "lesson-1",
+                "slides": [
+                    {
+                        "slide_index": 1,
+                        "slide_type": "title",
+                        "title": "AI Search",
+                        "bullet_points": ["1 session"],
+                    }
+                ],
+            },
+            "pptx_output_path": str(output_path),
+        }
+    )
+
+    assert "messages" in result
+    assert "export_file" not in result
+    assert "pptx_file_path" not in result
+    assert not output_path.exists()

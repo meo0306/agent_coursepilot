@@ -6,6 +6,7 @@
 import re
 from uuid import uuid4
 
+from coursepilot.rag.knowledge_points import KnowledgePointExtractor
 from coursepilot.rag.types import Chunk, ParsedDocument
 
 # 标题识别正则
@@ -21,6 +22,7 @@ class Chunker:
     def __init__(self, chunk_size: int = 1000, overlap: int = 150):
         self.chunk_size = chunk_size    # 目标 chunk 最大字符数
         self.overlap = overlap  # 相邻 chunk 之间保留 150 个字符重叠
+        self.knowledge_point_extractor = KnowledgePointExtractor()
 
     def split(
         self,
@@ -116,7 +118,7 @@ class Chunker:
 
     def _paragraphs(self, content: str) -> list[str]:
         """
-        
+        将内容按段落分割
         """
         # 按空行分段
         paragraphs = [part.strip() for part in re.split(r"\n\s*\n|\r\n\s*\r\n", content)]
@@ -165,18 +167,6 @@ class Chunker:
     def _extract_keywords(self, content: str) -> list[str]:
         """
         从 chunk 内容里抽取最多 10 个候选关键词
-        轻量启发式抽取
+        生产环境优先走 LLM 抽取，测试或未配置模型时使用 deterministic fallback
         """
-        candidates = re.findall(r"[\u4e00-\u9fffA-Za-z][\u4e00-\u9fffA-Za-z0-9_-]{2,20}", content)
-        seen: set[str] = set()
-        keywords: list[str] = []
-
-        for candidate in candidates:
-            if candidate in seen:
-                continue
-            seen.add(candidate)
-            keywords.append(candidate)
-            if len(keywords) >= 10:
-                break
-        return keywords
-
+        return self.knowledge_point_extractor.extract(content, max_points=10)

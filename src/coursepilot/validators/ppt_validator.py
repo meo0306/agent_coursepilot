@@ -1,3 +1,6 @@
+"""
+PPT 验证器
+"""
 from coursepilot.schemas.ppt_schema import SlideOutlineContent, SlideValidationReport
 
 
@@ -11,6 +14,7 @@ class PPTValidator:
         expected_slide_count: int | None = None,
         total_sessions: int | None = None,
     ) -> SlideValidationReport:
+        """校验内容包括：幻灯片数量、幻灯片类型、内容完整性、来源会话、引用"""
         errors: list[str] = []
 
         slide_count_valid = True

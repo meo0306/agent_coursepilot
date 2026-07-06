@@ -1,3 +1,16 @@
+from langchain_core.embeddings import Embeddings
+
+from coursepilot.rag.vector_store import ChromaVectorStore
+
+
+class RaisingEmbeddings(Embeddings):
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        return [[0.0] for _ in texts]
+
+    def embed_query(self, text: str) -> list[float]:
+        raise AssertionError("empty collections should not embed the query")
+
+
 def test_build_kb_and_search_returns_course_scoped_chunks(coursepilot_client):
     course = coursepilot_client.post(
         "/api/coursepilot/courses",
@@ -43,20 +56,33 @@ def test_build_kb_and_search_returns_course_scoped_chunks(coursepilot_client):
     assert any("heuristic search" in result["content"] for result in results)
 
 
-def test_build_kb_marks_unsupported_doc_as_failed(coursepilot_client):
+def test_upload_rejects_legacy_doc(coursepilot_client):
     course = coursepilot_client.post(
         "/api/coursepilot/courses",
         json={"course_name": "AI"},
     ).json()
-    document = coursepilot_client.post(
+    response = coursepilot_client.post(
         f"/api/coursepilot/courses/{course['id']}/documents/upload",
         files={"file": ("legacy.doc", b"legacy word file")},
         data={"source_type": "syllabus"},
-    ).json()
+    )
 
-    response = coursepilot_client.post(f"/api/coursepilot/documents/{document['id']}/build-kb")
+    assert response.status_code == 400
+    assert "convert it to .docx" in response.json()["detail"]
 
-    assert response.status_code == 200
-    assert response.json()["parse_status"] == "failed"
-    assert "Unsupported parser" in response.json()["error_message"]
+
+def test_empty_vector_collection_returns_no_results_without_embedding(tmp_path):
+    vector_store = ChromaVectorStore(
+        persist_directory=str(tmp_path / "chroma"),
+        embeddings=RaisingEmbeddings(),
+    )
+
+    assert (
+        vector_store.search(
+            course_id="empty-course",
+            query="heuristic search",
+            top_k=5,
+        )
+        == []
+    )
 

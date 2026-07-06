@@ -2,6 +2,7 @@ from typing import Literal
 
 from langgraph.graph import END, StateGraph
 
+from core.settings import settings
 from agents.coursepilot.nodes.ppt_nodes import (
     chat_response,
     generate_slide_outline,
@@ -12,6 +13,8 @@ from agents.coursepilot.states.ppt_state import PPTGraphState
 
 
 def route_entry(state: PPTGraphState) -> Literal["chat", "workflow"]:
+    """入口函数，根据当前状态决定下一步的节点"""
+    # 如果传入 lesson_design，表示需要从教案生成 PPT 大纲
     if "lesson_design" in state:
         return "workflow"
     return "chat"
@@ -30,7 +33,7 @@ def should_repair(state: PPTGraphState) -> Literal["repair", "done"]:
             "citation_valid",
         ]
     )
-    if not passed and int(report.get("repair_attempts", 0)) < 2:
+    if not passed and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS:
         return "repair"
     return "done"
 

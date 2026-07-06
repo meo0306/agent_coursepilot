@@ -93,3 +93,19 @@ def test_exam_blueprint_requires_kb_context(coursepilot_client):
 
     assert response.status_code == 400
     assert "Build course documents" in response.json()["detail"]
+
+
+def test_exam_questions_require_confirmed_blueprint(coursepilot_client):
+    course = _create_course_with_kb(coursepilot_client)
+
+    blueprint = coursepilot_client.post(
+        f"/api/coursepilot/courses/{course['id']}/exams/blueprint",
+        json={"chapter_range": "Search"},
+    )
+    assert blueprint.status_code == 200
+    blueprint_id = blueprint.json()["blueprint_id"]
+
+    generated = coursepilot_client.post(f"/api/coursepilot/exams/{blueprint_id}/generate")
+
+    assert generated.status_code == 409
+    assert "must be confirmed" in generated.json()["detail"]
