@@ -102,7 +102,23 @@ class CoursePilotClient:
             )
             # 检查响应状态码，非 2xx 抛出异常
             response.raise_for_status()
+        except httpx.HTTPStatusError as exc:
+            detail = _response_detail(exc.response)
+            message = f"CoursePilot API error: {exc}"
+            if detail:
+                message = f"{message} - {detail}"
+            raise AgentClientError(message) from exc
         except httpx.HTTPError as exc:
             raise AgentClientError(f"CoursePilot API error: {exc}") from exc
         return response.json()
 
+
+def _response_detail(response: httpx.Response) -> str | None:
+    try:
+        payload = response.json()
+    except ValueError:
+        return response.text or None
+    if isinstance(payload, dict):
+        detail = payload.get("detail")
+        return str(detail) if detail is not None else None
+    return None

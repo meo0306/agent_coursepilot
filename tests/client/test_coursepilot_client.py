@@ -1,7 +1,9 @@
-from httpx import Request, Response
 from unittest.mock import patch
 
-from client import CoursePilotClient
+import pytest
+from httpx import Request, Response
+
+from client import AgentClientError, CoursePilotClient
 
 
 def test_coursepilot_client_wraps_course_api():
@@ -41,3 +43,17 @@ def test_coursepilot_client_upload_document():
     assert args[:2] == ("POST", "http://test/api/coursepilot/courses/course-1/documents/upload")
     assert kwargs["files"] == {"file": ("lesson.txt", b"content")}
     assert kwargs["data"] == {"source_type": "textbook"}
+
+
+def test_coursepilot_client_includes_error_detail():
+    response = Response(
+        400,
+        json={"detail": "missing thread_id"},
+        request=Request("POST", "http://test/api/coursepilot/courses/course-1/lessons/generate"),
+    )
+    client = CoursePilotClient(base_url="http://test")
+
+    with patch("httpx.request", return_value=response), pytest.raises(AgentClientError) as exc:
+        client.generate_lesson("course-1", {"chapter_range": "Search"})
+
+    assert "missing thread_id" in str(exc.value)

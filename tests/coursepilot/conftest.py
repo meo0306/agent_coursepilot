@@ -12,6 +12,12 @@ from coursepilot.db.session import get_session
 from service import app
 
 
+@pytest.fixture(autouse=True)
+def deterministic_coursepilot_runtime(monkeypatch) -> None:
+    monkeypatch.setattr(settings, "COURSEPILOT_GENERATION_MODE", "deterministic")
+    monkeypatch.setattr(settings, "COURSEPILOT_EMBEDDING_PROVIDER", "hashing")
+
+
 @pytest.fixture
 def coursepilot_client(tmp_path, monkeypatch) -> Generator[TestClient, None, None]:
     engine = create_engine(

@@ -31,8 +31,15 @@ class QuestionItem(BaseModel):
                 answers = {item.strip() for item in self.correct_answer.split(",") if item.strip()}
                 if not answers or not answers.issubset(set(self.options)):
                     raise ValueError("multiple_choice answer must match option keys")
-        if self.question_type == "judgement" and self.correct_answer not in {"true", "false", "正确", "错误"}:
-            raise ValueError("judgement answer must be true/false or 正确/错误")
+        if self.question_type == "judgement":
+            answer = self.correct_answer.strip()
+            lower_answer = answer.lower()
+            if lower_answer in {"true", "false"}:
+                self.correct_answer = lower_answer
+            elif answer in {"\u6b63\u786e", "\u9519\u8bef"}:
+                self.correct_answer = answer
+            else:
+                raise ValueError("judgement answer must be true/false or Chinese equivalents")
         return self
 
 
@@ -59,4 +66,3 @@ class QuestionRead(BaseModel):
 class QuestionSet(BaseModel):
     blueprint_id: str
     questions: list[QuestionItem]
-

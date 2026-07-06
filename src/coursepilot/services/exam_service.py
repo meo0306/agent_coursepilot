@@ -18,6 +18,7 @@ from coursepilot.schemas.exam_schema import (
 from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.lesson_schema import Reference
 from coursepilot.schemas.question_schema import QuestionItem, QuestionRead
+from coursepilot.services.graph_config import new_workflow_config
 from coursepilot.validators import QuestionValidator
 
 
@@ -45,7 +46,8 @@ class ExamService:
                     **params.model_dump(mode="json"),
                     "course_name": course.course_name,
                 },
-            }
+            },
+            config=new_workflow_config(namespace="exam-blueprint", course_id=course_id),
         )
         # 3. 处理结果：将检索到的上下文和生成的知识点保存到数据库
         contexts = [
@@ -123,7 +125,11 @@ class ExamService:
                 "blueprint_id": blueprint.id,
                 "workflow_phase": "questions",
                 "exam_blueprint": content.model_dump(mode="json"),
-            }
+            },
+            config=new_workflow_config(
+                namespace="exam-questions",
+                course_id=blueprint.course_id,
+            ),
         )
         questions = [QuestionItem.model_validate(item) for item in result.get("questions", [])]
         report = ExamValidationReport.model_validate(result["validation_report"])

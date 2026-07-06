@@ -123,6 +123,21 @@ def test_question_validator_passes_valid_question_set():
     assert report.duplicate_rate == 0
 
 
+def test_question_item_normalizes_judgement_answer_case():
+    question = QuestionItem(
+        question_type="judgement",
+        knowledge_point="state space",
+        difficulty="medium",
+        score=1,
+        question_text="State-space search can use a goal test.",
+        correct_answer="True",
+        explanation="A goal test is part of state-space search.",
+        references=[Reference(chunk_id="chunk-1")],
+    )
+
+    assert question.correct_answer == "true"
+
+
 def test_duplicate_detector_flags_similar_questions():
     questions = [
         QuestionItem(

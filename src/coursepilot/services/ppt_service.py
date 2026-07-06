@@ -14,6 +14,7 @@ from coursepilot.schemas.ppt_schema import (
     SlideOutlineContent,
     SlideValidationReport,
 )
+from coursepilot.services.graph_config import new_workflow_config
 from coursepilot.validators import PPTValidator
 
 
@@ -50,7 +51,8 @@ class PPTService:
                         "lesson_id": lesson.id,
                     },
                     "lesson_design": lesson_content.model_dump(mode="json"),
-                }
+                },
+                config=new_workflow_config(namespace="ppt", course_id=lesson.course_id),
             )
             outline_content = SlideOutlineContent.model_validate(result["slide_outline"])
             validation_report = SlideValidationReport.model_validate(result["validation_report"])

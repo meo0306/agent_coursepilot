@@ -39,9 +39,12 @@ def get_coursepilot_llm() -> ChatOpenAI:
     return ChatOpenAI(
         model=settings.COMPATIBLE_MODEL,
         temperature=0.2,
-        streaming=False,    # CoursePilot LLM 不支持流式输出
+        # CoursePilot LLM 不支持流式输出
+        streaming=False,  
         base_url=settings.COMPATIBLE_BASE_URL,
         api_key=api_key.get_secret_value() if api_key else None,
+        reasoning_effort="high",
+        extra_body={"thinking": {"type": "enabled"}},
     )
 
 
@@ -68,7 +71,7 @@ def generate_structured(
         "schema": output_schema.model_json_schema(),
     }
     # 构建可调用的 LLM 实例（可生成结构化输出）
-    runnable = get_coursepilot_llm().with_structured_output(output_schema)
+    runnable = get_coursepilot_llm().with_structured_output(output_schema, method="json_mode")
     
     # 输入系统消息和human消息，调用LLM生成结构化输出result
     result = runnable.invoke(
@@ -98,4 +101,3 @@ def _require_compatible_llm_config() -> None:
             "CoursePilot LLM mode requires COMPATIBLE_BASE_URL, COMPATIBLE_MODEL, "
             "and COMPATIBLE_API_KEY."
         )
-

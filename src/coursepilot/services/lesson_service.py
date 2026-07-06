@@ -22,6 +22,7 @@ from coursepilot.schemas.lesson_schema import (
     LessonRevisionResponse,
     TeachingProcessItem,
 )
+from coursepilot.services.graph_config import new_workflow_config
 from coursepilot.validators import LessonValidator
 
 
@@ -62,7 +63,8 @@ class LessonService:
                         **params.model_dump(mode="json"),
                         "course_name": course.course_name,
                     },
-                }
+                },
+                config=new_workflow_config(namespace="lesson", course_id=course_id),
             )
             contexts = [
                 KBSearchResult.model_validate(item)
