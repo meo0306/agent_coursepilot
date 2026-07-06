@@ -1,5 +1,3 @@
-from typing import Any
-
 from langchain_core.messages import AIMessage
 from pydantic import BaseModel, Field
 
@@ -15,6 +13,7 @@ from coursepilot.schemas.lesson_schema import (
     TeachingProcessItem,
     TimeAllocation,
 )
+from coursepilot.validators import LessonValidator
 
 
 class SessionPlanSet(BaseModel):
@@ -107,6 +106,44 @@ def generate_lesson_design(state: LessonGraphState) -> LessonGraphState:
     return {"lesson_design": design.model_dump(mode="json")}
 
 
+def validate_lesson_design(state: LessonGraphState) -> LessonGraphState:
+    """用 LessonValidator 做 schema、课时数、时间、引用等校验"""
+    params = LessonGenerationParams.model_validate(state.get("lesson_params", {}))
+    design = LessonDesignContent.model_validate(state["lesson_design"])
+    report = LessonValidator().validate(
+        design,
+        expected_sessions=params.total_sessions,
+        session_duration=params.session_duration,
+    )
+    report.repair_attempts = int(state.get("validation_report", {}).get("repair_attempts", 0))
+    return {"validation_report": report.model_dump(mode="json")}
+
+
+def reflect_and_revise(state: LessonGraphState) -> LessonGraphState:
+    """根据验证报告反思并修复课程设计"""
+    report = state.get("validation_report", {})
+    report["repair_attempts"] = int(report.get("repair_attempts", 0)) + 1
+    if "lesson_design" not in state:
+        return {"validation_report": report}
+
+    repaired = generate_structured(
+        prompt_name="repair/fix_json",
+        output_schema=LessonDesignContent,
+        payload={
+            "target_schema": "LessonDesignContent",
+            "validation_report": report,
+            "lesson_design": state.get("lesson_design", {}),
+            "lesson_params": state.get("lesson_params", {}),
+            "retrieved_contexts": state.get("retrieved_contexts", []),
+        },
+        fallback=lambda: _deterministic_repair(state),
+    )
+    return {
+        "lesson_design": repaired.model_dump(mode="json"),
+        "validation_report": report,
+    }
+
+
 def _deterministic_lesson_design(state: LessonGraphState) -> LessonDesignContent:
     """fallback策略：根据 state 中的参数和计划生成一个确定性的 LessonDesignContent"""
     params = LessonGenerationParams.model_validate(state.get("lesson_params", {}))
@@ -159,6 +196,30 @@ def _deterministic_lesson_design(state: LessonGraphState) -> LessonDesignContent
         sessions=sessions,
     )
     return design
+
+
+def _deterministic_repair(state: LessonGraphState) -> LessonDesignContent:
+    """fallback策略：根据 state 中的课程设计和检索上下文生成一个确定性的 LessonDesignContent"""
+    content = LessonDesignContent.model_validate(state["lesson_design"])
+    contexts = state.get("retrieved_contexts", [])
+    fallback_ref = None
+    if contexts:
+        first = contexts[0]
+        fallback_ref = Reference(
+            chunk_id=first.get("chunk_id", "manual-context"),
+            source_type=first.get("source_type"),
+            chapter=first.get("chapter"),
+            page=first.get("page"),
+        )
+    fallback_ref = fallback_ref or Reference(chunk_id="manual-context")
+    for session in content.sessions:
+        if not session.references:
+            session.references = [fallback_ref]
+        if not session.teaching_objectives:
+            session.teaching_objectives = [f"Explain {session.session_title}"]
+        if not session.key_points:
+            session.key_points = content.knowledge_points[:1] or [content.chapter]
+    return content
 
 
 def _allocation(duration: int) -> list[TimeAllocation]:

@@ -11,10 +11,10 @@ from agents.coursepilot.nodes.lesson_nodes import (
     extract_knowledge_points,
     generate_lesson_design,
     plan_sessions,
+    reflect_and_revise,
+    validate_lesson_design,
 )
-from agents.coursepilot.nodes.repair_nodes import reflect_and_revise
 from agents.coursepilot.nodes.retrieve_nodes import retrieve_course_context
-from agents.coursepilot.nodes.validation_nodes import validate_lesson_design
 from agents.coursepilot.states.lesson_state import LessonGraphState
 
 
