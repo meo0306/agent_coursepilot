@@ -76,6 +76,8 @@ def test_exam_blueprint_generate_questions_and_export(coursepilot_client):
     }
 
     student_file = next(item for item in files if item["file_role"] == "student_exam")
+    assert "student_exam" in student_file["file_name"]
+    assert blueprint_id not in student_file["file_name"]
     assert Path(student_file["file_path"]).exists()
     student_text = "\n".join(paragraph.text for paragraph in Document(student_file["file_path"]).paragraphs)
     assert "Answer: __________________" in student_text

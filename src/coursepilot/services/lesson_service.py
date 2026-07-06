@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from agents.coursepilot.graphs.lesson_graph import coursepilot_lesson_agent
 from core.settings import settings
-from coursepilot.llm import generate_structured
+from coursepilot.llm import collect_coursepilot_llm_metadata, generate_structured
 from coursepilot.exporters import LessonDocxExporter
 from coursepilot.models import Course, ExportFile, GenerationTask, LessonDesign
 from coursepilot.schemas.kb_schema import KBSearchResult
@@ -22,7 +22,13 @@ from coursepilot.schemas.lesson_schema import (
     LessonRevisionResponse,
     TeachingProcessItem,
 )
-from coursepilot.services.graph_config import new_workflow_config
+from coursepilot.services.file_naming import readable_export_filename
+from coursepilot.services.graph_config import new_workflow_config, workflow_thread_id
+from coursepilot.services.workflow_tracking import (
+    finish_graph_invocation,
+    merge_llm_metadata,
+    start_graph_invocation,
+)
 from coursepilot.validators import LessonValidator
 
 
@@ -55,17 +61,27 @@ class LessonService:
         self.session.refresh(task)
 
         # 3. 执行任务：检索课程知识库上下文，生成教学设计
+        config = new_workflow_config(namespace="lesson", course_id=course_id)
+        thread_id = workflow_thread_id(config)
+        task.intermediate_outputs_json = start_graph_invocation(
+            task_outputs=task.intermediate_outputs_json,
+            namespace="lesson",
+            thread_id=thread_id,
+        )
+        self.session.commit()
+        collector = None
         try:
-            result = coursepilot_lesson_agent.invoke(
-                {
-                    "course_id": course_id,
-                    "lesson_params": {
-                        **params.model_dump(mode="json"),
-                        "course_name": course.course_name,
+            with collect_coursepilot_llm_metadata(thread_id=thread_id) as collector:
+                result = coursepilot_lesson_agent.invoke(
+                    {
+                        "course_id": course_id,
+                        "lesson_params": {
+                            **params.model_dump(mode="json"),
+                            "course_name": course.course_name,
+                        },
                     },
-                },
-                config=new_workflow_config(namespace="lesson", course_id=course_id),
-            )
+                    config=config,
+                )
             contexts = [
                 KBSearchResult.model_validate(item)
                 for item in result.get("retrieved_contexts", [])
@@ -73,7 +89,8 @@ class LessonService:
             # 后校验，用于兜底检查：如果没有检索到上下文，不允许生成教学设计
             if not contexts:
                 raise ValueError(
-                    "No course knowledge base context found. Build course documents before generating a lesson design."
+                    "No course knowledge base context found. "
+                    "Build course documents before generating a lesson design."
                 )
             
             # 3.4 结构化教学设计和校验报告写入数据库
@@ -90,11 +107,18 @@ class LessonService:
             )
             # 更新任务状态，并把检索上下文保存到任务中，方便后续审核“生成依据是什么”
             task.status = "completed" if validation_report.passed else "needs_review"
-            task.intermediate_outputs_json = {
+            outputs = dict(task.intermediate_outputs_json or {})
+            outputs.update({
                 "retrieved_contexts": [c.model_dump(mode="json") for c in contexts],
                 "knowledge_points": result.get("knowledge_points", []),
                 "session_plan": result.get("session_plan", []),
-            }
+            })
+            outputs = finish_graph_invocation(
+                task_outputs=outputs,
+                thread_id=thread_id,
+                status="success",
+            )
+            task.intermediate_outputs_json = merge_llm_metadata(outputs, collector)
             task.validation_report_json = validation_report.model_dump(mode="json")
             # 保存教学设计记录到数据库
             self.session.add(lesson)
@@ -111,6 +135,15 @@ class LessonService:
         except Exception as exc:
             task.status = "failed"
             task.error_message = str(exc)
+            outputs = finish_graph_invocation(
+                task_outputs=task.intermediate_outputs_json,
+                thread_id=thread_id,
+                status="failed",
+                error_message=str(exc),
+            )
+            if collector is not None:
+                outputs = merge_llm_metadata(outputs, collector)
+            task.intermediate_outputs_json = outputs
             self.session.commit()   # 如果报错，提交以往过程数据
             raise
 
@@ -197,7 +230,14 @@ class LessonService:
         content = LessonDesignContent.model_validate(lesson.content_json)
         # 指定路径和文件名
         export_dir = Path(settings.COURSEPILOT_STORAGE_DIR) / "exports" / lesson.course_id
-        file_name = f"lesson_design_{lesson.id}.docx"
+        course = self.session.get(Course, lesson.course_id)
+        file_name = readable_export_filename(
+            course_name=course.course_name if course else content.course_name,
+            topic=lesson.chapter,
+            role="lesson_design",
+            unique_id=lesson.id,
+            extension="docx",
+        )
         output_path = export_dir / file_name
         # 写入 DOCX 文件
         LessonDocxExporter().export(content, output_path)

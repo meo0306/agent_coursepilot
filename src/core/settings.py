@@ -146,6 +146,8 @@ class Settings(BaseSettings):
     COURSEPILOT_DUPLICATE_THRESHOLD: float = 0.85   # 试题重复度默认阈值 0.85
     COURSEPILOT_ENABLED: bool = True    # 给后续开关 CoursePilot 功能留入口
     COURSEPILOT_GENERATION_MODE: str = "auto"  # auto / llm / deterministic
+    COURSEPILOT_LLM_TIMEOUT_SECONDS: float = 30.0
+    COURSEPILOT_LLM_MAX_RETRIES: int = 2
     COURSEPILOT_EMBEDDING_PROVIDER: str = "auto"  # auto / openai-compatible / hashing
     COURSEPILOT_EMBEDDING_MODEL: str | None = None
     COURSEPILOT_EMBEDDING_BASE_URL: str | None = None

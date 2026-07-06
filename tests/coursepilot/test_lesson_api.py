@@ -60,6 +60,8 @@ def test_lesson_generate_revise_and_export(coursepilot_client):
     assert export.status_code == 200
     export_file = export.json()
     assert export_file["file_role"] == "lesson_docx"
+    assert "lesson_design" in export_file["file_name"]
+    assert lesson_id not in export_file["file_name"]
     assert Path(export_file["file_path"]).exists()
     doc = Document(export_file["file_path"])
     assert doc.paragraphs

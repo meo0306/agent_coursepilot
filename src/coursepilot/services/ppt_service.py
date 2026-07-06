@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from agents.coursepilot.graphs.ppt_graph import coursepilot_ppt_agent
 from core.settings import settings
 from coursepilot.exporters import PPTXExporter
+from coursepilot.llm import collect_coursepilot_llm_metadata
 from coursepilot.models import ExportFile, GenerationTask, LessonDesign, SlideOutline
 from coursepilot.schemas.lesson_schema import LessonDesignContent
 from coursepilot.schemas.ppt_schema import (
@@ -14,7 +15,13 @@ from coursepilot.schemas.ppt_schema import (
     SlideOutlineContent,
     SlideValidationReport,
 )
-from coursepilot.services.graph_config import new_workflow_config
+from coursepilot.services.file_naming import readable_export_filename
+from coursepilot.services.graph_config import new_workflow_config, workflow_thread_id
+from coursepilot.services.workflow_tracking import (
+    finish_graph_invocation,
+    merge_llm_metadata,
+    start_graph_invocation,
+)
 from coursepilot.validators import PPTValidator
 
 
@@ -41,19 +48,29 @@ class PPTService:
         self.session.commit()
         self.session.refresh(task)
 
+        config = new_workflow_config(namespace="ppt", course_id=lesson.course_id)
+        thread_id = workflow_thread_id(config)
+        task.intermediate_outputs_json = start_graph_invocation(
+            task_outputs=task.intermediate_outputs_json,
+            namespace="ppt",
+            thread_id=thread_id,
+        )
+        self.session.commit()
+        collector = None
         try:
             lesson_content = LessonDesignContent.model_validate(lesson.content_json)
-            result = coursepilot_ppt_agent.invoke(
-                {
-                    "course_id": lesson.course_id,
-                    "ppt_params": {
-                        **params.model_dump(mode="json"),
-                        "lesson_id": lesson.id,
+            with collect_coursepilot_llm_metadata(thread_id=thread_id) as collector:
+                result = coursepilot_ppt_agent.invoke(
+                    {
+                        "course_id": lesson.course_id,
+                        "ppt_params": {
+                            **params.model_dump(mode="json"),
+                            "lesson_id": lesson.id,
+                        },
+                        "lesson_design": lesson_content.model_dump(mode="json"),
                     },
-                    "lesson_design": lesson_content.model_dump(mode="json"),
-                },
-                config=new_workflow_config(namespace="ppt", course_id=lesson.course_id),
-            )
+                    config=config,
+                )
             outline_content = SlideOutlineContent.model_validate(result["slide_outline"])
             validation_report = SlideValidationReport.model_validate(result["validation_report"])
             outline = SlideOutline(
@@ -66,6 +83,12 @@ class PPTService:
             )
             task.status = "completed" if validation_report.passed else "needs_review"
             task.validation_report_json = validation_report.model_dump(mode="json")
+            outputs = finish_graph_invocation(
+                task_outputs=task.intermediate_outputs_json,
+                thread_id=thread_id,
+                status="success",
+            )
+            task.intermediate_outputs_json = merge_llm_metadata(outputs, collector)
             self.session.add(outline)
             self.session.commit()
             self.session.refresh(outline)
@@ -79,6 +102,15 @@ class PPTService:
         except Exception as exc:
             task.status = "failed"
             task.error_message = str(exc)
+            outputs = finish_graph_invocation(
+                task_outputs=task.intermediate_outputs_json,
+                thread_id=thread_id,
+                status="failed",
+                error_message=str(exc),
+            )
+            if collector is not None:
+                outputs = merge_llm_metadata(outputs, collector)
+            task.intermediate_outputs_json = outputs
             self.session.commit()
             raise
 
@@ -109,7 +141,13 @@ class PPTService:
             raise ValueError("PPT outline validation failed before export")
         # 生成 PPTX 文件并保存到数据库
         export_dir = Path(settings.COURSEPILOT_STORAGE_DIR) / "exports" / outline.course_id
-        file_name = f"ppt_outline_{outline.id}.pptx"
+        file_name = readable_export_filename(
+            course_name=lesson_content.course_name,
+            topic=content.chapter,
+            role="ppt_outline",
+            unique_id=outline.id,
+            extension="pptx",
+        )
         output_path = export_dir / file_name
         path = PPTXExporter().export(content, output_path)
 

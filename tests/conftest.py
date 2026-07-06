@@ -12,6 +12,7 @@ def pytest_addoption(parser):
 
 def pytest_configure(config):
     config.addinivalue_line("markers", "docker: mark test as requiring docker containers")
+    config.addinivalue_line("markers", "llm_integration: mark test as requiring a real LLM")
 
 
 def pytest_collection_modifyitems(config, items):

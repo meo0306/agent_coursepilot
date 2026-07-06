@@ -27,6 +27,7 @@ from core import settings
 
 # 把 CoursePilot 的业务路由导入 FastAPI 主服务
 from coursepilot.api import api_router as coursepilot_router
+from coursepilot.llm import check_coursepilot_llm_health
 from memory import initialize_database, initialize_store
 from schema import (
     ChatHistory,
@@ -73,6 +74,8 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     and agents with async loading - for example for starting up MCP clients.
     """
     try:
+        if settings.COURSEPILOT_GENERATION_MODE.lower() == "llm":
+            check_coursepilot_llm_health()
         # Initialize both checkpointer (for short-term memory) and store (for long-term memory)
         # yield 前：应用启动时执行
         async with initialize_database() as saver, initialize_store() as store:

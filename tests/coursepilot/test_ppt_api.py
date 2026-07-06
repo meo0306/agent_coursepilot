@@ -63,6 +63,8 @@ def test_ppt_generate_export_review_and_write_back(coursepilot_client, monkeypat
     assert export.status_code == 200
     export_payload = export.json()
     assert export_payload["file_role"] == "pptx"
+    assert "ppt_outline" in export_payload["file_name"]
+    assert outline_id not in export_payload["file_name"]
     assert Path(export_payload["file_path"]).exists()
     presentation = Presentation(export_payload["file_path"])
     assert len(presentation.slides) == 6
@@ -147,13 +149,8 @@ def test_ppt_export_rejects_invalid_outline_without_writing_file(coursepilot_cli
     assert export.status_code == 400
     assert "validation failed" in export.json()["detail"]
 
-    expected_path = (
-        Path(settings.COURSEPILOT_STORAGE_DIR)
-        / "exports"
-        / course["id"]
-        / f"ppt_outline_{outline_id}.pptx"
-    )
-    assert not expected_path.exists()
+    export_dir = Path(settings.COURSEPILOT_STORAGE_DIR) / "exports" / course["id"]
+    assert not list(export_dir.glob("*.pptx"))
 
     read = coursepilot_client.get(f"/api/coursepilot/ppt/{outline_id}")
     assert read.status_code == 200

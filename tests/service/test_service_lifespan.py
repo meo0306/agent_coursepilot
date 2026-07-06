@@ -48,6 +48,14 @@ async def test_lifespan(monkeypatch, caplog) -> None:
     def fake_get_agent(agent_key: str):
         return agents[agent_key]
 
+    health_checks = 0
+
+    def fake_health_check() -> None:
+        nonlocal health_checks
+        health_checks += 1
+
+    monkeypatch.setattr(service.settings, "COURSEPILOT_GENERATION_MODE", "deterministic")
+    monkeypatch.setattr(service, "check_coursepilot_llm_health", fake_health_check)
     monkeypatch.setattr(service, "initialize_database", fake_initialize_database)
     monkeypatch.setattr(service, "initialize_store", fake_initialize_store)
     monkeypatch.setattr(service, "load_agent", fake_load_agent)
@@ -72,6 +80,37 @@ async def test_lifespan(monkeypatch, caplog) -> None:
     assert agents["good"].store is fake_store
     assert agents["bad"].checkpointer is fake_saver
     assert agents["bad"].store is fake_store
+    assert health_checks == 0
 
     assert "Agent loaded: good" in caplog.text
     assert "Failed to load agent bad: boom" in caplog.text
+
+
+@pytest.mark.asyncio
+async def test_lifespan_runs_coursepilot_llm_health_check_in_llm_mode(monkeypatch) -> None:
+    from service import service
+
+    @asynccontextmanager
+    async def fake_initialize_database():
+        yield type("Saver", (), {})()
+
+    @asynccontextmanager
+    async def fake_initialize_store():
+        yield type("Store", (), {})()
+
+    health_checks = 0
+
+    def fake_health_check() -> None:
+        nonlocal health_checks
+        health_checks += 1
+
+    monkeypatch.setattr(service.settings, "COURSEPILOT_GENERATION_MODE", "llm")
+    monkeypatch.setattr(service, "check_coursepilot_llm_health", fake_health_check)
+    monkeypatch.setattr(service, "initialize_database", fake_initialize_database)
+    monkeypatch.setattr(service, "initialize_store", fake_initialize_store)
+    monkeypatch.setattr(service, "get_all_agent_info", lambda: [])
+
+    async with service.lifespan(FastAPI()):
+        pass
+
+    assert health_checks == 1
