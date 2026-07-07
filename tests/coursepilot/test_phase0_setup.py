@@ -46,6 +46,9 @@ def test_coursepilot_settings_defaults():
     assert settings.COURSEPILOT_DUPLICATE_THRESHOLD == 0.85
     assert settings.COURSEPILOT_ENABLED is True
     assert settings.COURSEPILOT_GENERATION_MODE == "auto"
+    assert settings.COURSEPILOT_LLM_HEALTH_CHECK_MODE == "http"
+    assert settings.COURSEPILOT_LLM_HEALTH_CHECK_TIMEOUT_SECONDS == 5.0
+    assert settings.COURSEPILOT_TOKENIZER_PATH.endswith("tokenizer.json")
     assert settings.COURSEPILOT_EMBEDDING_PROVIDER == "auto"
 
 

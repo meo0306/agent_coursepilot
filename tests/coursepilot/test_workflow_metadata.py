@@ -1,3 +1,5 @@
+import logging
+
 from pydantic import BaseModel
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -5,11 +7,16 @@ from sqlalchemy.pool import StaticPool
 
 import coursepilot.services.lesson_service as lesson_service_module
 from coursepilot.db.base import Base
-from coursepilot.llm import generate_structured
+from coursepilot.llm import LLMWorkflowCollector, generate_structured
 from coursepilot.models import Course, GenerationTask
 from coursepilot.schemas.lesson_schema import LessonGenerationParams
 from coursepilot.services.graph_config import new_workflow_config, workflow_thread_id
 from coursepilot.services.lesson_service import LessonService
+from coursepilot.services.workflow_tracking import (
+    finish_graph_invocation,
+    merge_llm_metadata,
+    start_graph_invocation,
+)
 
 
 class _ProbeOutput(BaseModel):
@@ -101,8 +108,101 @@ def test_new_workflow_config_uses_thread_id_as_trace_id():
     thread_id = workflow_thread_id(config)
 
     assert thread_id.startswith("coursepilot-lesson-")
+    assert config["configurable"]["course_id"] == "course-1"
+    assert "user_id" not in config["configurable"]
     assert config["metadata"]["coursepilot_thread_id"] == thread_id
     assert f"thread:{thread_id}" in config["tags"]
+
+
+def test_merge_llm_metadata_summarizes_all_task_invocations():
+    collector = LLMWorkflowCollector(thread_id="thread-2")
+    collector.record(
+        {
+            "prompt_name": "prompt/b",
+            "prompt_sha256": "hash-b",
+            "schema": "SchemaB",
+            "attempt_count": 1,
+            "attempts": [],
+            "fallback_used": True,
+            "fallback_reason": "timeout",
+            "error_category": "timeout",
+            "latency_ms": 20,
+            "usage": {
+                "input_tokens": 7,
+                "output_tokens": 0,
+                "total_tokens": 7,
+                "usage_source": "deepseek_v3_tokenizer",
+                "usage_estimated": True,
+            },
+        }
+    )
+    existing_outputs = {
+        "prompt_hashes": {
+            "prompt/a": {
+                "prompt_name": "prompt/a",
+                "prompt_sha256": "hash-a",
+                "schema": "SchemaA",
+            }
+        },
+        "llm_invocations": [
+            {
+                "prompt_name": "prompt/a",
+                "prompt_sha256": "hash-a",
+                "schema": "SchemaA",
+                "attempt_count": 1,
+                "attempts": [],
+                "fallback_used": False,
+                "fallback_reason": None,
+                "error_category": None,
+                "latency_ms": 10,
+                "usage": {
+                    "input_tokens": 3,
+                    "output_tokens": 2,
+                    "total_tokens": 5,
+                    "usage_source": "provider",
+                    "usage_estimated": False,
+                },
+            }
+        ],
+    }
+
+    outputs = merge_llm_metadata(existing_outputs, collector)
+
+    assert len(outputs["llm_invocations"]) == 2
+    assert outputs["prompt_hashes"]["prompt/a"]["prompt_sha256"] == "hash-a"
+    assert outputs["prompt_hashes"]["prompt/b"]["prompt_sha256"] == "hash-b"
+    assert outputs["llm_usage_summary"]["call_count"] == 2
+    assert outputs["llm_usage_summary"]["fallback_count"] == 1
+    assert outputs["llm_usage_summary"]["total_tokens"] == 12
+    assert outputs["llm_usage_summary"]["usage_source_counts"] == {
+        "provider": 1,
+        "deepseek_v3_tokenizer": 1,
+    }
+
+
+def test_finish_graph_invocation_logs_traceback(caplog):
+    outputs = start_graph_invocation(
+        task_outputs=None,
+        namespace="lesson",
+        thread_id="thread-failed",
+    )
+    caplog.set_level(logging.ERROR, logger="coursepilot.services.workflow_tracking")
+
+    try:
+        raise ValueError("graph exploded")
+    except ValueError as exc:
+        outputs = finish_graph_invocation(
+            task_outputs=outputs,
+            thread_id="thread-failed",
+            status="failed",
+            error_message=str(exc),
+            exc_info=exc,
+        )
+
+    assert outputs["graph_invocations"][0]["status"] == "failed"
+    assert outputs["graph_invocations"][0]["error_message"] == "graph exploded"
+    assert "Traceback" in caplog.text
+    assert "ValueError: graph exploded" in caplog.text
 
 
 def test_lesson_service_persists_graph_and_llm_metadata(monkeypatch):

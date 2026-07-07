@@ -1,3 +1,6 @@
+"""
+This module provides utilities for creating isolated LangGraph configurations for CoursePilot product workflows.
+"""
 from uuid import uuid4
 
 from langchain_core.runnables import RunnableConfig
@@ -11,7 +14,7 @@ def new_workflow_config(*, namespace: str, course_id: str | None = None) -> Runn
         "checkpoint_ns": namespace,
     }
     if course_id:
-        configurable["user_id"] = course_id
+        configurable["course_id"] = course_id
     return RunnableConfig(
         configurable=configurable,
         metadata={

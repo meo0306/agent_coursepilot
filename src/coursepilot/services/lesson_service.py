@@ -63,6 +63,8 @@ class LessonService:
         # 3. 执行任务：检索课程知识库上下文，生成教学设计
         config = new_workflow_config(namespace="lesson", course_id=course_id)
         thread_id = workflow_thread_id(config)
+        # graph invoke 前先写 running 记录并 commit。
+        # 如果 graph 启动后立刻失败，数据库里仍然能看到 thread_id。
         task.intermediate_outputs_json = start_graph_invocation(
             task_outputs=task.intermediate_outputs_json,
             namespace="lesson",
@@ -71,6 +73,7 @@ class LessonService:
         self.session.commit()
         collector = None
         try:
+            # 执行 graph 时包一层 collector：
             with collect_coursepilot_llm_metadata(thread_id=thread_id) as collector:
                 result = coursepilot_lesson_agent.invoke(
                     {
@@ -140,6 +143,7 @@ class LessonService:
                 thread_id=thread_id,
                 status="failed",
                 error_message=str(exc),
+                exc_info=exc,
             )
             if collector is not None:
                 outputs = merge_llm_metadata(outputs, collector)

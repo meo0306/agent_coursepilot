@@ -11,17 +11,23 @@ from functools import cache
 from hashlib import sha256
 from typing import Any, TypeVar
 
+import httpx
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field, ValidationError
 
 from core.settings import settings
 from coursepilot.prompts.loader import load_prompt
+from coursepilot.token_usage import (
+    USAGE_SOURCE_PROVIDER,
+    estimate_token_usage,
+)
 
 T = TypeVar("T", bound=BaseModel)
 
 logger = logging.getLogger(__name__)
 
+# 固定异常分类
 ERROR_CHOICES_NONE = "choices_none"
 ERROR_TIMEOUT = "timeout"
 ERROR_STRUCTURED_PARSE = "structured_parse_error"
@@ -37,6 +43,7 @@ Language policy:
 - 不要因为输入材料包含英文就把主体说明写成英文。
 """.strip()
 
+# 用 ContextVar 保存 collector，可以让任何 graph node 内部的 generate_structured() 自动记录到当前 workflow。
 _current_collector: ContextVar["LLMWorkflowCollector | None"] = ContextVar(
     "coursepilot_llm_workflow_collector",
     default=None,
@@ -44,7 +51,11 @@ _current_collector: ContextVar["LLMWorkflowCollector | None"] = ContextVar(
 
 
 class CoursePilotLLMCallError(RuntimeError):
-    """Internal wrapper carrying a stable CoursePilot LLM error category."""
+    """
+    Internal wrapper carrying a stable CoursePilot LLM error category.
+    单次 LangGraph workflow 中可能有多个节点调用 LLM。
+    这些调用发生在 graph 内部，service 层不能直接看到每一次调用。
+    """
 
     def __init__(
         self,
@@ -92,11 +103,14 @@ def collect_coursepilot_llm_metadata(
     thread_id: str | None = None,
 ) -> Generator[LLMWorkflowCollector, None, None]:
     """Collect generate_structured metadata within a graph invocation."""
+    # 每次 service 调用 graph 前创建一个 collector
     collector = LLMWorkflowCollector(thread_id=thread_id)
+    # ContextVar 让 graph 内部任意 generate_structured() 都能找到当前 collector
     token = _current_collector.set(collector)
     try:
         yield collector
     finally:
+        # graph invoke 结束后恢复上下文，避免串到下一次请求
         _current_collector.reset(token)
 
 
@@ -116,6 +130,7 @@ def get_coursepilot_llm() -> ChatOpenAI:
     """Return the cached OpenAI-compatible ChatOpenAI instance for CoursePilot."""
     _require_compatible_llm_config()
     api_key = settings.COMPATIBLE_API_KEY
+    # Keep provider retries disabled so CoursePilot can classify every failed attempt.
     return ChatOpenAI(
         model=settings.COMPATIBLE_MODEL,
         temperature=0.2,
@@ -137,13 +152,17 @@ def generate_structured(
     fallback: Callable[[], T],
 ) -> T:
     """Generate a Pydantic object through LLM structured output, with traced fallback."""
+    # 准备record
     started = time.perf_counter()
+    # 1. 加载 prompt，追加中文 policy，计算 prompt hash
     raw_prompt = load_prompt(prompt_name)
     system_prompt = build_coursepilot_system_prompt(raw_prompt)
     prompt_hash = hash_prompt(system_prompt)
+    # 其他元数据
     mode = settings.COURSEPILOT_GENERATION_MODE.lower()
     collector = _current_collector.get()
     thread_id = collector.thread_id if collector else None
+    # 2. 初始化本次调用元数据。
     record: dict[str, Any] = {
         "prompt_name": prompt_name,
         "prompt_sha256": prompt_hash,
@@ -158,7 +177,7 @@ def generate_structured(
         "latency_ms": None,
         "usage": None,
     }
-
+    # 3. 构造 LLM 消息，包含系统 prompt 和人类 payload。
     human_payload = {
         "input": payload,
         "schema": output_schema.model_json_schema(),
@@ -167,14 +186,15 @@ def generate_structured(
         SystemMessage(content=system_prompt),
         HumanMessage(content=json.dumps(human_payload, ensure_ascii=False, default=str)),
     ]
-
+    
+    # 4. 判断是否调用 LLM
     try:
         should_use_llm = use_coursepilot_llm()
     except Exception:
         record["latency_ms"] = _elapsed_ms(started)
         _record_invocation(record)
         raise
-
+    # 如果不使用 LLM，直接调用 fallback()，并记录 fallback_used。
     if not should_use_llm:
         result = _validate_fallback_result(output_schema, fallback())
         record.update(
@@ -186,22 +206,23 @@ def generate_structured(
         )
         _record_invocation(record)
         return result
-
+    # 5. 循环调用 LLM，直到成功或达到最大尝试次数。
     max_attempts = _max_llm_attempts()
     last_category: str | None = None
     last_error: BaseException | None = None
-
+    
     for attempt in range(1, max_attempts + 1):
         attempt_started = time.perf_counter()
         try:
             runnable = get_coursepilot_llm().with_structured_output(
                 output_schema,
                 method="json_mode",
+                # 能读取 usage、response metadata、finish_reason
                 include_raw=True,
             )
             raw_result = runnable.invoke(messages)
             parsed, raw_message = _parse_structured_result(raw_result, output_schema)
-            usage = extract_token_usage(raw_message)
+            usage = resolve_token_usage(raw_message, messages)
             record["attempts"].append(
                 {
                     "attempt": attempt,
@@ -219,15 +240,13 @@ def generate_structured(
             )
             _record_invocation(record)
             return parsed
+        # 捕获所有异常，分类记录，并在达到最大尝试次数后使用 fallback。
         except Exception as exc:
             category = _classify_exception(exc)
             last_category = category
             last_error = exc
-            usage = (
-                extract_token_usage(exc.raw)
-                if isinstance(exc, CoursePilotLLMCallError)
-                else None
-            )
+            raw_for_usage = exc.raw if isinstance(exc, CoursePilotLLMCallError) else None
+            usage = resolve_token_usage(raw_for_usage, messages)
             attempt_record = {
                 "attempt": attempt,
                 "status": "failed",
@@ -248,7 +267,7 @@ def generate_structured(
                 category,
                 exc,
             )
-
+    # 重试耗尽后调用 deterministic fallback
     result = _validate_fallback_result(output_schema, fallback())
     record.update(
         {
@@ -274,19 +293,78 @@ def generate_structured(
 
 
 class _HealthCheckOutput(BaseModel):
+    """Minimal schema for LLM health check structured output."""
     ok: bool = Field(description="Whether the health check passed.")
     message: str = Field(description="Short health check message.")
 
 
 def check_coursepilot_llm_health() -> None:
-    """Fail fast at service startup when forced LLM mode cannot call the provider."""
+    """Fail fast at service startup when forced LLM mode cannot reach the provider."""
+    # 当且仅当 COURSEPILOT_GENERATION_MODE=llm 时执行真实 LLM health check
     if settings.COURSEPILOT_GENERATION_MODE.lower() != "llm":
         return
-
+    # 检查 LLM 配置是否兼容
     _require_compatible_llm_config()
-    system_prompt = build_coursepilot_system_prompt(
-        "You are CoursePilot's startup health check. Return JSON only."
+    mode = settings.COURSEPILOT_LLM_HEALTH_CHECK_MODE.lower()
+    if mode == "config":
+        logger.info("CoursePilot LLM health check passed mode=config")
+        return
+    if mode == "http":
+        _check_coursepilot_llm_http_health()
+        return
+    if mode == "chat":
+        _check_coursepilot_llm_chat_health()
+        return
+    raise ValueError(
+        "COURSEPILOT_LLM_HEALTH_CHECK_MODE must be one of: config, http, chat"
     )
+
+
+def _check_coursepilot_llm_http_health() -> None:
+    """Probe the OpenAI-compatible models endpoint without generating tokens."""
+    api_key = settings.COMPATIBLE_API_KEY
+    models_url = f"{str(settings.COMPATIBLE_BASE_URL).rstrip('/')}/models"
+    headers = {
+        "Authorization": f"Bearer {api_key.get_secret_value()}",
+    } if api_key else {}
+    try:
+        response = httpx.get(
+            models_url,
+            headers=headers,
+            timeout=settings.COURSEPILOT_LLM_HEALTH_CHECK_TIMEOUT_SECONDS,
+        )
+    except Exception as exc:
+        raise RuntimeError(
+            f"CoursePilot LLM HTTP health check failed url={models_url}: {exc}"
+        ) from exc
+
+    status_code = response.status_code
+    if 200 <= status_code < 300:
+        logger.info(
+            "CoursePilot LLM health check passed mode=http status=%s url=%s",
+            status_code,
+            models_url,
+        )
+        return
+    if status_code in {404, 405, 501}:
+        logger.warning(
+            "CoursePilot LLM /models health endpoint unsupported status=%s url=%s; "
+            "passing config-level health check",
+            status_code,
+            models_url,
+        )
+        return
+    raise RuntimeError(
+        "CoursePilot LLM HTTP health check failed "
+        f"status={status_code} url={models_url}"
+    )
+
+
+def _check_coursepilot_llm_chat_health() -> None:
+    """Run a minimal structured output call when explicit chat health is requested."""
+
+    # 用最小 schema _HealthCheckOutput 做一次 structured output
+    system_prompt = "You are CoursePilot's startup health check. Return JSON only."
     human_payload = {
         "input": {"task": "Return ok=true and a short Chinese message."},
         "schema": _HealthCheckOutput.model_json_schema(),
@@ -311,7 +389,7 @@ def check_coursepilot_llm_health() -> None:
             logger.info(
                 "CoursePilot LLM health check passed model=%s usage=%s",
                 settings.COMPATIBLE_MODEL,
-                extract_token_usage(raw_message),
+                resolve_token_usage(raw_message, messages),
             )
             return
         except Exception as exc:
@@ -336,6 +414,8 @@ def hash_prompt(prompt: str) -> str:
 
 
 def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize a list of LLM invocation records into a usage summary."""
+    # 初始化 summary 结构
     summary = {
         "call_count": len(invocations),
         "successful_call_count": 0,
@@ -345,11 +425,13 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
         "input_tokens": None,
         "output_tokens": None,
         "total_tokens": None,
+        "usage_source_counts": {},
         "by_prompt": {},
     }
+    # 初始化 token 总计
     token_totals = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     saw_usage = False
-
+    # 遍历每次调用，统计成功/失败/回退次数、延迟、token 使用量，并按 prompt 分类
     for invocation in invocations:
         prompt_name = str(invocation.get("prompt_name", "unknown"))
         prompt_stats = summary["by_prompt"].setdefault(
@@ -363,6 +445,7 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
                 "input_tokens": None,
                 "output_tokens": None,
                 "total_tokens": None,
+                "usage_source_counts": {},
             },
         )
         prompt_stats["call_count"] += 1
@@ -384,10 +467,18 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
 
         usage = invocation.get("usage")
         if usage:
-            saw_usage = True
-            _add_usage(token_totals, usage)
-            _add_usage_to_prompt(prompt_stats, usage)
-
+            source = str(usage.get("usage_source") or "unknown")
+            summary["usage_source_counts"][source] = (
+                summary["usage_source_counts"].get(source, 0) + 1
+            )
+            prompt_stats["usage_source_counts"][source] = (
+                prompt_stats["usage_source_counts"].get(source, 0) + 1
+            )
+            if _has_token_counts(usage):
+                saw_usage = True
+                _add_usage(token_totals, usage)
+                _add_usage_to_prompt(prompt_stats, usage)
+    # 如果至少有一次调用返回了 usage，就把总计写入 summary，否则保持 None
     if saw_usage:
         summary.update(token_totals)
         for prompt_stats in summary["by_prompt"].values():
@@ -397,15 +488,32 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
     return summary
 
 
-def extract_token_usage(raw_message: BaseMessage | None) -> dict[str, int] | None:
+def resolve_token_usage(
+    raw_message: BaseMessage | None,
+    input_messages: list[BaseMessage],
+) -> dict[str, Any]:
+    """Return provider token usage, or estimate it from the request/response text."""
+    provider_usage = extract_token_usage(raw_message)
+    if provider_usage is not None:
+        return provider_usage
+    output_content = getattr(raw_message, "content", None) if raw_message is not None else None
+    return estimate_token_usage(input_messages, output_content)
+
+
+def extract_token_usage(raw_message: BaseMessage | None) -> dict[str, Any] | None:
+    """Extract token usage from a raw LLM message, if available."""
     if raw_message is None:
         return None
+    # 优先读取 LangChain 标准 usage_metadata
     usage = getattr(raw_message, "usage_metadata", None)
+    # 如果没有，再兼容 OpenAI-like response_metadata
     if usage is None:
         response_metadata = getattr(raw_message, "response_metadata", None) or {}
         usage = response_metadata.get("token_usage") or response_metadata.get("usage")
+    # provider 不返回 usage 时返回 None，不估算
     if not usage:
         return None
+    
     input_tokens = _usage_int(usage, "input_tokens", "prompt_tokens")
     output_tokens = _usage_int(usage, "output_tokens", "completion_tokens")
     total_tokens = _usage_int(usage, "total_tokens")
@@ -415,6 +523,8 @@ def extract_token_usage(raw_message: BaseMessage | None) -> dict[str, int] | Non
         "input_tokens": input_tokens or 0,
         "output_tokens": output_tokens or 0,
         "total_tokens": total_tokens or 0,
+        "usage_source": USAGE_SOURCE_PROVIDER,
+        "usage_estimated": False,
     }
 
 
@@ -422,11 +532,15 @@ def _parse_structured_result(
     raw_result: Any,
     output_schema: type[T],
 ) -> tuple[T, BaseMessage | None]:
+    """Parse the raw result from LLM structured output into a Pydantic object."""
+    # include_raw=True 时，LangChain 返回 dict:
+    # {"raw": ..., "parsed": ..., "parsing_error": ...}
     if not isinstance(raw_result, dict) or not {
         "raw",
         "parsed",
         "parsing_error",
     } <= set(raw_result):
+        # 兼容测试替身或旧行为：如果不是 include_raw 格式，就直接尝试 Pydantic 校验
         try:
             return _coerce_schema(output_schema, raw_result), None
         except ValidationError as exc:
@@ -435,15 +549,17 @@ def _parse_structured_result(
                 str(exc),
                 original=exc,
             ) from exc
-
+        
     raw_message = raw_result.get("raw")
     parsed = raw_result.get("parsed")
     parsing_error = raw_result.get("parsing_error")
+    # raw 为空通常对应 provider choices is None 或类似异常返回
     if raw_message is None:
         raise CoursePilotLLMCallError(
             ERROR_CHOICES_NONE,
             "LLM response did not include a raw message; provider choices may be None.",
         )
+    # 检查 finish_reason，如果不是 stop/end_turn/tool_calls，就认为疑似生成中断
     interruption_reason = _generation_interruption_reason(raw_message)
     if interruption_reason:
         raise CoursePilotLLMCallError(
@@ -451,6 +567,7 @@ def _parse_structured_result(
             interruption_reason,
             raw=raw_message,
         )
+    # LangChain structured parser 报错时归入 structured_parse_error
     if parsing_error is not None:
         wrapped = CoursePilotLLMCallError(
             ERROR_STRUCTURED_PARSE,
@@ -461,12 +578,14 @@ def _parse_structured_result(
         if isinstance(parsing_error, BaseException):
             raise wrapped from parsing_error
         raise wrapped
+    # parser 没报错但 parsed 是 None，也视为结构化解析失败
     if parsed is None:
         raise CoursePilotLLMCallError(
             ERROR_STRUCTURED_PARSE,
             "LLM structured output parser returned None.",
             raw=raw_message,
         )
+    # 用 Pydantic model_validate，防止结构看似成功但 schema 不合格
     try:
         return _coerce_schema(output_schema, parsed), raw_message
     except ValidationError as exc:
@@ -479,6 +598,7 @@ def _parse_structured_result(
 
 
 def _coerce_schema(output_schema: type[T], value: Any) -> T:
+    """Coerce a value into the given Pydantic schema, or raise ValidationError."""
     if isinstance(value, output_schema):
         return value
     return output_schema.model_validate(value)
@@ -489,20 +609,25 @@ def _validate_fallback_result(output_schema: type[T], value: Any) -> T:
 
 
 def _generation_interruption_reason(raw_message: BaseMessage) -> str | None:
+    """Return a human-readable reason if the LLM generation was interrupted."""
     response_metadata = getattr(raw_message, "response_metadata", None) or {}
     finish_reason = (
         response_metadata.get("finish_reason")
         or response_metadata.get("stop_reason")
         or response_metadata.get("finishReason")
     )
+    # 如果不是 stop/end_turn/tool_calls，就认为疑似生成中断
     if finish_reason and str(finish_reason).lower() not in {"stop", "end_turn", "tool_calls"}:
         return f"LLM generation ended with finish_reason={finish_reason}"
     return None
 
 
 def _classify_exception(exc: BaseException) -> str:
+    """Classify a CoursePilot LLM exception into a stable category string."""
+    # 如果前面已经包装成 CoursePilotLLMCallError，直接使用内部 category
     if isinstance(exc, CoursePilotLLMCallError):
         return exc.category
+    # Python 原生 TimeoutError 和消息里包含 timeout/timed out 的异常都归为 timeout
     if isinstance(exc, TimeoutError):
         return ERROR_TIMEOUT
     name = exc.__class__.__name__.lower()
@@ -510,17 +635,22 @@ def _classify_exception(exc: BaseException) -> str:
     message = str(exc).lower()
     if "timeout" in name or "timeout" in message or "timed out" in message:
         return ERROR_TIMEOUT
+    # provider 有时会把 choices is None 包在普通异常消息里
     if "choices" in message and "none" in message:
         return ERROR_CHOICES_NONE
+    # Pydantic schema 校验失败单独归类，和 JSON parse 错误区分
     if isinstance(exc, ValidationError):
         return ERROR_PYDANTIC_VALIDATION
+    # JSON 解析、structured parser 错误归为 structured_parse_error
     if "parsing" in name or "parse" in message or "json" in message:
         return ERROR_STRUCTURED_PARSE
+    # finish_reason 异常、content_filter、incomplete 等归为生成中断
     if any(
         token in message
         for token in ["finish_reason", "interrupted", "content_filter", "incomplete"]
     ):
         return ERROR_GENERATION_INTERRUPTED
+    # OpenAI-compatible provider、rate limit、API 类错误归为 provider error
     if "openai" in module or "api" in name or "rate" in name:
         return ERROR_PROVIDER
     return ERROR_UNKNOWN
@@ -541,6 +671,7 @@ def _elapsed_ms(started: float) -> int:
 
 
 def _usage_int(usage: Any, *keys: str) -> int | None:
+    """Extract an integer token usage value from a usage dict or object, trying multiple keys."""
     for key in keys:
         value = usage.get(key) if isinstance(usage, dict) else getattr(usage, key, None)
         if value is not None:
@@ -548,12 +679,19 @@ def _usage_int(usage: Any, *keys: str) -> int | None:
     return None
 
 
-def _add_usage(total: dict[str, int], usage: dict[str, int]) -> None:
+def _has_token_counts(usage: dict[str, Any]) -> bool:
+    return any(
+        usage.get(key) is not None
+        for key in ("input_tokens", "output_tokens", "total_tokens")
+    )
+
+
+def _add_usage(total: dict[str, int], usage: dict[str, Any]) -> None:
     for key in ("input_tokens", "output_tokens", "total_tokens"):
         total[key] += int(usage.get(key) or 0)
 
 
-def _add_usage_to_prompt(prompt_stats: dict[str, Any], usage: dict[str, int]) -> None:
+def _add_usage_to_prompt(prompt_stats: dict[str, Any], usage: dict[str, Any]) -> None:
     for key in ("input_tokens", "output_tokens", "total_tokens"):
         prompt_stats[key] = int(prompt_stats[key] or 0) + int(usage.get(key) or 0)
 
@@ -567,6 +705,7 @@ def _has_compatible_llm_config() -> bool:
 
 
 def _require_compatible_llm_config() -> None:
+    """Raise ValueError if the required LLM config is not set."""
     if not _has_compatible_llm_config():
         raise ValueError(
             "CoursePilot LLM mode requires COMPATIBLE_BASE_URL, COMPATIBLE_MODEL, "

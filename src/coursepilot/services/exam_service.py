@@ -126,6 +126,7 @@ class ExamService:
                 thread_id=thread_id,
                 status="failed",
                 error_message=str(exc),
+                exc_info=exc,
             )
             if collector is not None:
                 outputs = merge_llm_metadata(outputs, collector)
@@ -228,6 +229,7 @@ class ExamService:
                     thread_id=thread_id,
                     status="failed",
                     error_message=str(exc),
+                    exc_info=exc,
                 )
                 if collector is not None:
                     outputs = merge_llm_metadata(outputs, collector)

@@ -680,6 +680,7 @@ dependencies = [
     { name = "sqlalchemy" },
     { name = "streamlit" },
     { name = "tiktoken" },
+    { name = "tokenizers" },
     { name = "uvicorn" },
 ]
 
@@ -749,6 +750,7 @@ requires-dist = [
     { name = "sqlalchemy", specifier = "~=2.0.36" },
     { name = "streamlit", specifier = "~=1.52.0" },
     { name = "tiktoken", specifier = ">=0.8.0" },
+    { name = "tokenizers", specifier = "~=0.22.1" },
     { name = "uvicorn", specifier = "~=0.32.1" },
 ]
 

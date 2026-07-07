@@ -146,8 +146,13 @@ class Settings(BaseSettings):
     COURSEPILOT_DUPLICATE_THRESHOLD: float = 0.85   # 试题重复度默认阈值 0.85
     COURSEPILOT_ENABLED: bool = True    # 给后续开关 CoursePilot 功能留入口
     COURSEPILOT_GENERATION_MODE: str = "auto"  # auto / llm / deterministic
-    COURSEPILOT_LLM_TIMEOUT_SECONDS: float = 30.0
-    COURSEPILOT_LLM_MAX_RETRIES: int = 2
+    COURSEPILOT_LLM_TIMEOUT_SECONDS: float = 30.0   # LLM API 调用超时，单位秒
+    COURSEPILOT_LLM_MAX_RETRIES: int = 2    # LLM API 调用失败时最多重试 2 次(故最大请求次数3次)
+    COURSEPILOT_LLM_HEALTH_CHECK_MODE: str = "http"  # config / http / chat
+    COURSEPILOT_LLM_HEALTH_CHECK_TIMEOUT_SECONDS: float = 5.0
+    COURSEPILOT_TOKENIZER_PATH: str = (
+        "deepseek_v3_tokenizer/deepseek_v3_tokenizer/tokenizer.json"
+    )
     COURSEPILOT_EMBEDDING_PROVIDER: str = "auto"  # auto / openai-compatible / hashing
     COURSEPILOT_EMBEDDING_MODEL: str | None = None
     COURSEPILOT_EMBEDDING_BASE_URL: str | None = None
