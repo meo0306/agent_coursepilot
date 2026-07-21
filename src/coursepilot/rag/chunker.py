@@ -3,6 +3,7 @@
 把解析器输出的 ParsedDocument 切成多个适合 RAG 检索和向量化的 Chunk
 段落切分 + 长段落滑窗 + chunk 间 overlap
 """
+
 import re
 from uuid import uuid4
 
@@ -20,7 +21,7 @@ HEADING_RE = re.compile(
 
 class Chunker:
     def __init__(self, chunk_size: int = 1000, overlap: int = 150):
-        self.chunk_size = chunk_size    # 目标 chunk 最大字符数
+        self.chunk_size = chunk_size  # 目标 chunk 最大字符数
         self.overlap = overlap  # 相邻 chunk 之间保留 150 个字符重叠
         self.knowledge_point_extractor = KnowledgePointExtractor()
 
@@ -32,7 +33,7 @@ class Chunker:
         document_id: str,
         source_type: str,
     ) -> list[Chunk]:
-        """ 
+        """
         chunker对外主入口
         接收解析后的文档和metadata
         输出切分后的chunks
@@ -62,12 +63,12 @@ class Chunker:
         page: int | None,
         initial_title: str | None,
     ) -> list[Chunk]:
-        """核心切块函数，负责处理单个 section """
+        """核心切块函数，负责处理单个 section"""
         chapter: str | None = None
         section_name: str | None = None
         title = initial_title
-        buffer = "" # 正在累积的 chunk 内容
-        chunks: list[Chunk] = []    # 已经生成的 chunk 列表
+        buffer = ""  # 正在累积的 chunk 内容
+        chunks: list[Chunk] = []  # 已经生成的 chunk 列表
         # 把 section 拆成段落，然后逐段处理
         for paragraph in self._paragraphs(content):
             # 进行长度控制

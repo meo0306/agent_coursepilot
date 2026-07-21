@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Any, cast
 
 from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
@@ -7,7 +8,7 @@ from agents.coursepilot.graphs.exam_graph import coursepilot_exam_agent
 from core.settings import settings
 from coursepilot.exporters import ExamDocxExporter
 from coursepilot.llm import collect_coursepilot_llm_metadata
-from coursepilot.models import Course, ExamBlueprint, ExportFile, GenerationTask, Question
+from coursepilot.models import Course, ExamBlueprint, ExportFile, Question
 from coursepilot.schemas.exam_schema import (
     ExamBlueprintContent,
     ExamBlueprintResponse,
@@ -19,6 +20,11 @@ from coursepilot.schemas.exam_schema import (
 from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.lesson_schema import Reference
 from coursepilot.schemas.question_schema import QuestionItem, QuestionRead
+from coursepilot.services.async_task_service import (
+    complete_execution_task,
+    fail_execution_task,
+    prepare_execution_task,
+)
 from coursepilot.services.file_naming import readable_export_filename
 from coursepilot.services.graph_config import new_workflow_config, workflow_thread_id
 from coursepilot.services.workflow_tracking import (
@@ -38,20 +44,20 @@ class ExamService:
         self,
         course_id: str,
         params: ExamGenerationParams,
+        *,
+        task_id: str | None = None,
     ) -> ExamBlueprintResponse:
         course = self.session.get(Course, course_id)
         if course is None:
             raise ValueError(f"Course not found: {course_id}")
 
-        task = GenerationTask(
+        task = prepare_execution_task(
+            self.session,
+            task_id=task_id,
             course_id=course_id,
-            task_type="generate_exam_blueprint",
-            status="running",
-            input_params_json=params.model_dump(mode="json"),
+            task_type="exam_blueprint",
+            input_params=params.model_dump(mode="json"),
         )
-        self.session.add(task)
-        self.session.commit()
-        self.session.refresh(task)
 
         config = new_workflow_config(namespace="exam-blueprint", course_id=course_id)
         thread_id = workflow_thread_id(config)
@@ -65,7 +71,8 @@ class ExamService:
         collector = None
         try:
             with collect_coursepilot_llm_metadata(thread_id=thread_id) as collector:
-                result = coursepilot_exam_agent.invoke(
+                graph_input = cast(
+                    Any,
                     {
                         "course_id": course_id,
                         "workflow_phase": "blueprint",
@@ -74,11 +81,10 @@ class ExamService:
                             "course_name": course.course_name,
                         },
                     },
-                    config=config,
                 )
+                result = coursepilot_exam_agent.invoke(graph_input, config=config)
             contexts = [
-                KBSearchResult.model_validate(item)
-                for item in result.get("retrieved_contexts", [])
+                KBSearchResult.model_validate(item) for item in result.get("retrieved_contexts", [])
             ]
             if not contexts:
                 raise ValueError(
@@ -109,18 +115,19 @@ class ExamService:
                 blueprint_json=blueprint_content.model_dump(mode="json"),
             )
             self.session.add(blueprint)
-            self.session.commit()
-            self.session.refresh(blueprint)
-
-            return ExamBlueprintResponse(
+            self.session.flush()
+            response = ExamBlueprintResponse(
                 blueprint_id=blueprint.id,
                 task_id=task.id,
                 status=blueprint.status,
                 blueprint=blueprint_content,
             )
+            complete_execution_task(task, response)
+            self.session.commit()
+            self.session.refresh(blueprint)
+            return response
         except Exception as exc:
-            task.status = "failed"
-            task.error_message = str(exc)
+            fail_execution_task(task, exc)
             outputs = finish_graph_invocation(
                 task_outputs=task.intermediate_outputs_json,
                 thread_id=thread_id,
@@ -146,7 +153,12 @@ class ExamService:
     def get_blueprint(self, blueprint_id: str) -> ExamBlueprint | None:
         return self.session.get(ExamBlueprint, blueprint_id)
 
-    def generate_questions(self, blueprint_id: str) -> QuestionGenerationResponse | None:
+    def generate_questions(
+        self,
+        blueprint_id: str,
+        *,
+        task_id: str | None = None,
+    ) -> QuestionGenerationResponse | None:
         blueprint = self.get_blueprint(blueprint_id)
         if blueprint is None:
             return None
@@ -156,30 +168,35 @@ class ExamService:
             )
 
         content = ExamBlueprintContent.model_validate(blueprint.blueprint_json)
-        course = self.session.get(Course, blueprint.course_id)
         config = new_workflow_config(namespace="exam-questions", course_id=blueprint.course_id)
         thread_id = workflow_thread_id(config)
-        task = self.session.get(GenerationTask, blueprint.task_id)
-        if task is not None:
-            task.intermediate_outputs_json = start_graph_invocation(
-                task_outputs=task.intermediate_outputs_json,
-                namespace="exam-questions",
-                thread_id=thread_id,
-            )
-            self.session.commit()
+        task = prepare_execution_task(
+            self.session,
+            task_id=task_id,
+            course_id=blueprint.course_id,
+            task_type="exam_questions",
+            input_params={"blueprint_id": blueprint.id},
+        )
+        task.intermediate_outputs_json = start_graph_invocation(
+            task_outputs=task.intermediate_outputs_json,
+            namespace="exam-questions",
+            thread_id=thread_id,
+        )
+        self.session.commit()
 
         collector = None
         try:
             with collect_coursepilot_llm_metadata(thread_id=thread_id) as collector:
-                result = coursepilot_exam_agent.invoke(
+                graph_input = cast(
+                    Any,
                     {
                         "course_id": blueprint.course_id,
                         "blueprint_id": blueprint.id,
                         "workflow_phase": "questions",
                         "exam_blueprint": content.model_dump(mode="json"),
                     },
-                    config=config,
                 )
+                result = coursepilot_exam_agent.invoke(graph_input, config=config)
             questions = [QuestionItem.model_validate(item) for item in result.get("questions", [])]
             report = ExamValidationReport.model_validate(result["validation_report"])
 
@@ -204,37 +221,39 @@ class ExamService:
                     )
                 )
             blueprint.status = "questions_generated" if report.passed else "needs_review"
-            if task is not None:
-                outputs = finish_graph_invocation(
-                    task_outputs=task.intermediate_outputs_json,
-                    thread_id=thread_id,
-                    status="success",
-                )
-                task.status = "completed" if report.passed else "needs_review"
-                task.validation_report_json = report.model_dump(mode="json")
-                task.intermediate_outputs_json = merge_llm_metadata(outputs, collector)
-            self.session.commit()
-            return QuestionGenerationResponse(
+            outputs = finish_graph_invocation(
+                task_outputs=task.intermediate_outputs_json,
+                thread_id=thread_id,
+                status="success",
+            )
+            task.validation_report_json = report.model_dump(mode="json")
+            task.intermediate_outputs_json = merge_llm_metadata(outputs, collector)
+            response = QuestionGenerationResponse(
                 blueprint_id=blueprint.id,
                 status=blueprint.status,
                 questions=questions,
                 validation_report=report,
             )
+            complete_execution_task(
+                task,
+                response,
+                status="completed" if report.passed else "needs_review",
+            )
+            self.session.commit()
+            return response
         except Exception as exc:
-            if task is not None:
-                task.status = "failed"
-                task.error_message = str(exc)
-                outputs = finish_graph_invocation(
-                    task_outputs=task.intermediate_outputs_json,
-                    thread_id=thread_id,
-                    status="failed",
-                    error_message=str(exc),
-                    exc_info=exc,
-                )
-                if collector is not None:
-                    outputs = merge_llm_metadata(outputs, collector)
-                task.intermediate_outputs_json = outputs
-                self.session.commit()
+            fail_execution_task(task, exc)
+            outputs = finish_graph_invocation(
+                task_outputs=task.intermediate_outputs_json,
+                thread_id=thread_id,
+                status="failed",
+                error_message=str(exc),
+                exc_info=exc,
+            )
+            if collector is not None:
+                outputs = merge_llm_metadata(outputs, collector)
+            task.intermediate_outputs_json = outputs
+            self.session.commit()
             raise
 
     def list_questions(self, blueprint_id: str) -> list[QuestionRead] | None:

@@ -19,7 +19,9 @@ class ExamBlueprint(Base):
         String(36), ForeignKey("coursepilot_courses.id", ondelete="CASCADE"), nullable=False
     )
     task_id: Mapped[str] = mapped_column(
-        String(36), ForeignKey("coursepilot_generation_tasks.id", ondelete="CASCADE"), nullable=False
+        String(36),
+        ForeignKey("coursepilot_generation_tasks.id", ondelete="CASCADE"),
+        nullable=False,
     )
     chapter_range: Mapped[str] = mapped_column(String(255), nullable=False)
     status: Mapped[str] = mapped_column(String(32), nullable=False, default="draft")
@@ -29,5 +31,6 @@ class ExamBlueprint(Base):
         DateTime(timezone=True), default=utc_now, onupdate=utc_now
     )
 
-    questions = relationship("Question", back_populates="exam_blueprint", cascade="all, delete-orphan")
-
+    questions = relationship(
+        "Question", back_populates="exam_blueprint", cascade="all, delete-orphan"
+    )

@@ -47,6 +47,10 @@ class CoursePilotEvalInput(BaseModel):
 
 class CoursePilotEvalReport(BaseModel):
     rag_recall_at_k: float
+    rag_hit_at_k: float
+    rag_mrr: float
+    rag_ndcg: float
+    context_precision: float
     citation_coverage: float
     schema_pass_rate: float
     question_count_accuracy: float
@@ -59,6 +63,10 @@ class CoursePilotEvaluator:
     def evaluate(self, payload: CoursePilotEvalInput) -> CoursePilotEvalReport:
         return CoursePilotEvalReport(
             rag_recall_at_k=self.rag_recall_at_k(payload.retrieval_cases),
+            rag_hit_at_k=self.rag_hit_at_k(payload.retrieval_cases),
+            rag_mrr=self.rag_mrr(payload.retrieval_cases),
+            rag_ndcg=self.rag_ndcg(payload.retrieval_cases),
+            context_precision=self.context_precision(payload.retrieval_cases),
             citation_coverage=self.citation_coverage(payload.citation_cases),
             schema_pass_rate=self.schema_pass_rate(payload.schema_cases),
             question_count_accuracy=self.question_count_accuracy(payload.question_count_cases),
@@ -75,6 +83,61 @@ class CoursePilotEvaluator:
             expected = set(case.expected_chunk_ids)
             retrieved = set(case.retrieved_chunk_ids)
             scores.append(len(expected & retrieved) / len(expected))
+        return _mean(scores)
+
+    def rag_hit_at_k(self, cases: list[RetrievalCase]) -> float:
+        if not cases:
+            return 0.0
+        scores = []
+        for case in cases:
+            expected = set(case.expected_chunk_ids)
+            retrieved = set(case.retrieved_chunk_ids)
+            scores.append(1.0 if expected & retrieved else 0.0)
+        return _mean(scores)
+
+    def rag_mrr(self, cases: list[RetrievalCase]) -> float:
+        if not cases:
+            return 0.0
+        reciprocal_ranks = []
+        for case in cases:
+            expected = set(case.expected_chunk_ids)
+            rank = next(
+                (
+                    index
+                    for index, chunk_id in enumerate(case.retrieved_chunk_ids, start=1)
+                    if chunk_id in expected
+                ),
+                None,
+            )
+            reciprocal_ranks.append(0.0 if rank is None else 1.0 / rank)
+        return _mean(reciprocal_ranks)
+
+    def rag_ndcg(self, cases: list[RetrievalCase]) -> float:
+        if not cases:
+            return 0.0
+        scores = []
+        for case in cases:
+            expected = set(case.expected_chunk_ids)
+            dcg = 0.0
+            for index, chunk_id in enumerate(case.retrieved_chunk_ids, start=1):
+                if chunk_id in expected:
+                    dcg += 1.0 / _log2(index + 1)
+            ideal_hits = min(len(expected), len(case.retrieved_chunk_ids))
+            idcg = sum(1.0 / _log2(index + 1) for index in range(1, ideal_hits + 1))
+            scores.append(0.0 if idcg == 0 else dcg / idcg)
+        return _mean(scores)
+
+    def context_precision(self, cases: list[RetrievalCase]) -> float:
+        if not cases:
+            return 0.0
+        scores = []
+        for case in cases:
+            if not case.retrieved_chunk_ids:
+                scores.append(0.0)
+                continue
+            expected = set(case.expected_chunk_ids)
+            retrieved = set(case.retrieved_chunk_ids)
+            scores.append(len(expected & retrieved) / len(retrieved))
         return _mean(scores)
 
     def citation_coverage(self, cases: list[CitationCase]) -> float:
@@ -101,7 +164,8 @@ class CoursePilotEvaluator:
             matched = sum(
                 1
                 for question_type in question_types
-                if case.expected_counts.get(question_type, 0) == case.actual_counts.get(question_type, 0)
+                if case.expected_counts.get(question_type, 0)
+                == case.actual_counts.get(question_type, 0)
             )
             scores.append(matched / len(question_types))
         return _mean(scores)
@@ -127,3 +191,9 @@ def _mean(values: list[float]) -> float:
     if not values:
         return 0.0
     return sum(values) / len(values)
+
+
+def _log2(value: int) -> float:
+    import math
+
+    return math.log2(value)

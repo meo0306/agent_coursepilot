@@ -42,9 +42,8 @@ class KnowledgeChunk(Base):
     # Chroma 向量数据库相关字段
     chroma_collection: Mapped[str] = mapped_column(String(255), nullable=False)
     chroma_doc_id: Mapped[str] = mapped_column(String(255), nullable=False)
-    
+
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
 
     course = relationship("Course", back_populates="chunks")
     document = relationship("Document", back_populates="chunks")
-

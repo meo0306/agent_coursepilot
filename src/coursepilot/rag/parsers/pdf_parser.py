@@ -18,4 +18,3 @@ class PDFParser(BaseParser):
                 if content:
                     sections.append(ParsedSection(content=content, page=index))
         return ParsedDocument(source_path=str(path), sections=sections)
-

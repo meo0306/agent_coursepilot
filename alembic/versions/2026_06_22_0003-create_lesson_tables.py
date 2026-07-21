@@ -94,4 +94,3 @@ def downgrade() -> None:
     op.drop_table("coursepilot_export_files")
     op.drop_table("coursepilot_lesson_designs")
     op.drop_table("coursepilot_generation_tasks")
-

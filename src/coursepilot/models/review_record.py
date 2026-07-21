@@ -22,5 +22,7 @@ class ReviewRecord(Base):
     target_id: Mapped[str] = mapped_column(String(36), nullable=False)
     review_status: Mapped[str] = mapped_column(String(32), nullable=False)
     comment: Mapped[str | None] = mapped_column(Text, nullable=True)
-    write_back_status: Mapped[str] = mapped_column(String(32), nullable=False, default="not_written")
+    write_back_status: Mapped[str] = mapped_column(
+        String(32), nullable=False, default="not_written"
+    )
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)

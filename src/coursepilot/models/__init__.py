@@ -8,6 +8,7 @@ from coursepilot.models.course import Course
 from coursepilot.models.document import Document
 from coursepilot.models.exam import ExamBlueprint
 from coursepilot.models.export_file import ExportFile
+from coursepilot.models.idempotency_record import IdempotencyRecord
 from coursepilot.models.lesson import LessonDesign
 from coursepilot.models.question import Question
 from coursepilot.models.review_record import ReviewRecord
@@ -21,6 +22,7 @@ __all__ = [
     "ExamBlueprint",
     "ExportFile",
     "GenerationTask",
+    "IdempotencyRecord",
     "KnowledgeChunk",
     "LessonDesign",
     "Question",

@@ -24,7 +24,6 @@ RUN uv sync --frozen --only-group client
 COPY src/client/ ./client/
 COPY src/coursepilot/ ./coursepilot/
 COPY src/schema/ ./schema/
-COPY src/voice/ ./voice/
 COPY src/streamlit_app.py .
 
 CMD ["streamlit", "run", "streamlit_app.py"]

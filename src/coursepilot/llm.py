@@ -34,6 +34,7 @@ ERROR_STRUCTURED_PARSE = "structured_parse_error"
 ERROR_PYDANTIC_VALIDATION = "pydantic_validation_error"
 ERROR_GENERATION_INTERRUPTED = "generation_interrupted"
 ERROR_PROVIDER = "llm_provider_error"
+ERROR_DETERMINISTIC_FALLBACK_DISABLED = "deterministic_fallback_disabled"
 ERROR_UNKNOWN = "unknown_llm_error"
 
 _LANGUAGE_POLICY = """
@@ -174,6 +175,7 @@ def generate_structured(
         "fallback_used": False,
         "fallback_reason": None,
         "error_category": None,
+        "status": "running",
         "latency_ms": None,
         "usage": None,
     }
@@ -186,19 +188,39 @@ def generate_structured(
         SystemMessage(content=system_prompt),
         HumanMessage(content=json.dumps(human_payload, ensure_ascii=False, default=str)),
     ]
-    
+
     # 4. 判断是否调用 LLM
     try:
         should_use_llm = use_coursepilot_llm()
-    except Exception:
-        record["latency_ms"] = _elapsed_ms(started)
+    except Exception as exc:
+        record.update(
+            {
+                "status": "failed",
+                "error_category": _classify_exception(exc),
+                "latency_ms": _elapsed_ms(started),
+            }
+        )
         _record_invocation(record)
         raise
     # 如果不使用 LLM，直接调用 fallback()，并记录 fallback_used。
     if not should_use_llm:
+        if deterministic_fallback_disabled():
+            record.update(
+                {
+                    "status": "failed",
+                    "error_category": ERROR_DETERMINISTIC_FALLBACK_DISABLED,
+                    "latency_ms": _elapsed_ms(started),
+                }
+            )
+            _record_invocation(record)
+            raise CoursePilotLLMCallError(
+                ERROR_DETERMINISTIC_FALLBACK_DISABLED,
+                "Deterministic fallback is disabled, but CoursePilot is not using a real LLM.",
+            )
         result = _validate_fallback_result(output_schema, fallback())
         record.update(
             {
+                "status": "fallback",
                 "fallback_used": True,
                 "fallback_reason": "generation_mode_disabled",
                 "latency_ms": _elapsed_ms(started),
@@ -210,7 +232,7 @@ def generate_structured(
     max_attempts = _max_llm_attempts()
     last_category: str | None = None
     last_error: BaseException | None = None
-    
+
     for attempt in range(1, max_attempts + 1):
         attempt_started = time.perf_counter()
         try:
@@ -233,6 +255,7 @@ def generate_structured(
             )
             record.update(
                 {
+                    "status": "success",
                     "attempt_count": attempt,
                     "latency_ms": _elapsed_ms(started),
                     "usage": usage,
@@ -267,10 +290,36 @@ def generate_structured(
                 category,
                 exc,
             )
+    if deterministic_fallback_disabled():
+        record.update(
+            {
+                "status": "failed",
+                "attempt_count": max_attempts,
+                "error_category": last_category,
+                "latency_ms": _elapsed_ms(started),
+            }
+        )
+        _record_invocation(record)
+        logger.warning(
+            "CoursePilot LLM failed with deterministic fallback disabled prompt=%s "
+            "schema=%s thread_id=%s reason=%s attempts=%s last_error=%s",
+            prompt_name,
+            output_schema.__name__,
+            thread_id,
+            last_category,
+            max_attempts,
+            last_error,
+        )
+        raise CoursePilotLLMCallError(
+            last_category or ERROR_UNKNOWN,
+            "CoursePilot LLM attempts failed and deterministic fallback is disabled.",
+            original=last_error,
+        ) from last_error
     # 重试耗尽后调用 deterministic fallback
     result = _validate_fallback_result(output_schema, fallback())
     record.update(
         {
+            "status": "fallback",
             "attempt_count": max_attempts,
             "fallback_used": True,
             "fallback_reason": last_category,
@@ -294,6 +343,7 @@ def generate_structured(
 
 class _HealthCheckOutput(BaseModel):
     """Minimal schema for LLM health check structured output."""
+
     ok: bool = Field(description="Whether the health check passed.")
     message: str = Field(description="Short health check message.")
 
@@ -315,18 +365,20 @@ def check_coursepilot_llm_health() -> None:
     if mode == "chat":
         _check_coursepilot_llm_chat_health()
         return
-    raise ValueError(
-        "COURSEPILOT_LLM_HEALTH_CHECK_MODE must be one of: config, http, chat"
-    )
+    raise ValueError("COURSEPILOT_LLM_HEALTH_CHECK_MODE must be one of: config, http, chat")
 
 
 def _check_coursepilot_llm_http_health() -> None:
     """Probe the OpenAI-compatible models endpoint without generating tokens."""
     api_key = settings.COMPATIBLE_API_KEY
     models_url = f"{str(settings.COMPATIBLE_BASE_URL).rstrip('/')}/models"
-    headers = {
-        "Authorization": f"Bearer {api_key.get_secret_value()}",
-    } if api_key else {}
+    headers = (
+        {
+            "Authorization": f"Bearer {api_key.get_secret_value()}",
+        }
+        if api_key
+        else {}
+    )
     try:
         response = httpx.get(
             models_url,
@@ -355,8 +407,7 @@ def _check_coursepilot_llm_http_health() -> None:
         )
         return
     raise RuntimeError(
-        "CoursePilot LLM HTTP health check failed "
-        f"status={status_code} url={models_url}"
+        f"CoursePilot LLM HTTP health check failed status={status_code} url={models_url}"
     )
 
 
@@ -416,9 +467,10 @@ def hash_prompt(prompt: str) -> str:
 def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, Any]:
     """Summarize a list of LLM invocation records into a usage summary."""
     # 初始化 summary 结构
-    summary = {
+    summary: dict[str, Any] = {
         "call_count": len(invocations),
         "successful_call_count": 0,
+        "failed_call_count": 0,
         "failed_attempt_count": 0,
         "fallback_count": 0,
         "latency_ms": 0,
@@ -434,11 +486,12 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
     # 遍历每次调用，统计成功/失败/回退次数、延迟、token 使用量，并按 prompt 分类
     for invocation in invocations:
         prompt_name = str(invocation.get("prompt_name", "unknown"))
-        prompt_stats = summary["by_prompt"].setdefault(
+        prompt_stats: dict[str, Any] = summary["by_prompt"].setdefault(
             prompt_name,
             {
                 "call_count": 0,
                 "successful_call_count": 0,
+                "failed_call_count": 0,
                 "failed_attempt_count": 0,
                 "fallback_count": 0,
                 "latency_ms": 0,
@@ -452,7 +505,11 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
         latency_ms = int(invocation.get("latency_ms") or 0)
         summary["latency_ms"] += latency_ms
         prompt_stats["latency_ms"] += latency_ms
-        if invocation.get("fallback_used"):
+        invocation_status = invocation.get("status")
+        if invocation_status == "failed":
+            summary["failed_call_count"] += 1
+            prompt_stats["failed_call_count"] += 1
+        elif invocation.get("fallback_used"):
             summary["fallback_count"] += 1
             prompt_stats["fallback_count"] += 1
         else:
@@ -513,7 +570,7 @@ def extract_token_usage(raw_message: BaseMessage | None) -> dict[str, Any] | Non
     # provider 不返回 usage 时返回 None，不估算
     if not usage:
         return None
-    
+
     input_tokens = _usage_int(usage, "input_tokens", "prompt_tokens")
     output_tokens = _usage_int(usage, "output_tokens", "completion_tokens")
     total_tokens = _usage_int(usage, "total_tokens")
@@ -549,7 +606,7 @@ def _parse_structured_result(
                 str(exc),
                 original=exc,
             ) from exc
-        
+
     raw_message = raw_result.get("raw")
     parsed = raw_result.get("parsed")
     parsing_error = raw_result.get("parsing_error")
@@ -662,6 +719,10 @@ def _record_invocation(invocation: dict[str, Any]) -> None:
         collector.record(invocation)
 
 
+def deterministic_fallback_disabled() -> bool:
+    return bool(settings.COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK)
+
+
 def _max_llm_attempts() -> int:
     return 1 + max(0, int(settings.COURSEPILOT_LLM_MAX_RETRIES))
 
@@ -681,8 +742,7 @@ def _usage_int(usage: Any, *keys: str) -> int | None:
 
 def _has_token_counts(usage: dict[str, Any]) -> bool:
     return any(
-        usage.get(key) is not None
-        for key in ("input_tokens", "output_tokens", "total_tokens")
+        usage.get(key) is not None for key in ("input_tokens", "output_tokens", "total_tokens")
     )
 
 
@@ -698,9 +758,7 @@ def _add_usage_to_prompt(prompt_stats: dict[str, Any], usage: dict[str, Any]) ->
 
 def _has_compatible_llm_config() -> bool:
     return bool(
-        settings.COMPATIBLE_BASE_URL
-        and settings.COMPATIBLE_MODEL
-        and settings.COMPATIBLE_API_KEY
+        settings.COMPATIBLE_BASE_URL and settings.COMPATIBLE_MODEL and settings.COMPATIBLE_API_KEY
     )
 
 

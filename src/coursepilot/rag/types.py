@@ -1,6 +1,4 @@
-"""
-
-"""
+""" """
 
 from dataclasses import dataclass, field
 
@@ -33,4 +31,3 @@ class Chunk:
     title: str | None = None
     knowledge_points: list[str] = field(default_factory=list)
     verified: bool = False
-

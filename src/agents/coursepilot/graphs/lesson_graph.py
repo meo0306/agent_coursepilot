@@ -1,11 +1,11 @@
 """
 课程设计 Agent workflow
 """
+
 from typing import Literal
 
 from langgraph.graph import END, StateGraph
 
-from core.settings import settings
 from agents.coursepilot.nodes.lesson_nodes import (
     chat_response,
     extract_knowledge_points,
@@ -16,6 +16,7 @@ from agents.coursepilot.nodes.lesson_nodes import (
 )
 from agents.coursepilot.nodes.retrieve_nodes import retrieve_course_context
 from agents.coursepilot.states.lesson_state import LessonGraphState
+from core.settings import settings
 
 
 def route_entry(state: LessonGraphState) -> Literal["chat", "workflow"]:
@@ -45,9 +46,13 @@ def should_repair(state: LessonGraphState) -> Literal["repair", "done"]:
             "citation_valid",
         ]
     )
-    if not passed and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS:
+    if (
+        not passed
+        and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS
+    ):
         return "repair"
     return "done"
+
 
 # 构造
 graph = StateGraph(LessonGraphState)

@@ -16,6 +16,7 @@ down_revision: str | None = "0001_initial_coursepilot_base"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 
+
 # 更新
 def upgrade() -> None:
     op.create_table(
@@ -92,4 +93,3 @@ def downgrade() -> None:
     op.drop_table("coursepilot_chunks")
     op.drop_table("coursepilot_documents")
     op.drop_table("coursepilot_courses")
-

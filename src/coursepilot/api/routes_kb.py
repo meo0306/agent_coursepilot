@@ -15,4 +15,3 @@ def search_kb(
     session: Session = Depends(get_session),
 ):
     return KBSearchResponse(results=KnowledgeBaseService(session).search(course_id, payload))
-

@@ -3,6 +3,7 @@ Streamlit 前端界面
 用页面控件收集 CoursePilot 业务参数，然后通过 CoursePilotClient 调 FastAPI 后端接口，展示返回结果
 每次用户交互后，脚本通常会从上到下重新执行一次
 """
+
 from pathlib import Path
 
 import streamlit as st
@@ -45,7 +46,7 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
                 st.json(course)
             except AgentClientError as exc:
                 st.error(str(exc))
-    
+
     # 加载已创建的课程
     try:
         courses = client.list_courses()
@@ -82,7 +83,7 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             st.json(uploaded)
         except AgentClientError as exc:
             st.error(str(exc))
-    
+
     # 构建知识库
     # 获取已上传的文档列表
     try:
@@ -101,7 +102,7 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
                 st.json(build)
             except AgentClientError as exc:
                 st.error(str(exc))
-    
+
     # 功能1：检索知识库
     st.subheader("Search")
     query = st.text_input("Query")
@@ -120,14 +121,16 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
                 f"chunk=`{result['chunk_id']}` page={result.get('page')}"
             )
             st.write(result["content"][:1000])
-    
+
     # 功能2：生成课程设计/教案
-    st.subheader("Generate lesson design")  
+    st.subheader("Generate lesson design")
     # 把多个输入控件包成一个表单form
     with st.form("generate_lesson"):
         chapter_range = st.text_input("Chapter range", value="第1章")
         total_sessions = st.number_input("Total sessions", min_value=1, max_value=12, value=2)
-        session_duration = st.number_input("Session duration", min_value=15, max_value=240, value=45)
+        session_duration = st.number_input(
+            "Session duration", min_value=15, max_value=240, value=45
+        )
         teaching_template = st.text_input("Teaching template", value="standard")
         teaching_focus = st.text_input("Teaching focus")
         additional_requirements = st.text_area("Additional requirements")
@@ -138,12 +141,12 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             lesson_response = client.generate_lesson(
                 course_id,
                 {
-                "chapter_range": chapter_range,
-                "total_sessions": int(total_sessions),
-                "session_duration": int(session_duration),
-                "teaching_template": teaching_template,
-                "teaching_focus": teaching_focus or None,
-                "additional_requirements": additional_requirements or None,
+                    "chapter_range": chapter_range,
+                    "total_sessions": int(total_sessions),
+                    "session_duration": int(session_duration),
+                    "teaching_template": teaching_template,
+                    "teaching_focus": teaching_focus or None,
+                    "additional_requirements": additional_requirements or None,
                 },
             )
             st.success("Lesson design generated")
@@ -152,7 +155,7 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             st.json(lesson_response)
         except AgentClientError as exc:
             st.error(str(exc))
-    
+
     # 导出文档
     lesson_id = st.text_input(
         "Lesson ID",
@@ -186,7 +189,7 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             short_count = st.number_input("Short answer", min_value=0, max_value=20, value=2)
             short_score = st.number_input("Short score", min_value=1, max_value=50, value=10)
         additional_exam_requirements = st.text_area("Exam additional requirements")
-        
+
         create_blueprint = st.form_submit_button("Create exam blueprint")
     # 创建蓝图/大纲
     if create_blueprint:
@@ -213,11 +216,13 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             blueprint_response = client.create_exam_blueprint(course_id, payload)
             st.success("Exam blueprint created")
             # 保存blueprint_id
-            st.session_state["coursepilot_last_exam_blueprint_id"] = blueprint_response["blueprint_id"]
+            st.session_state["coursepilot_last_exam_blueprint_id"] = blueprint_response[
+                "blueprint_id"
+            ]
             st.json(blueprint_response)
         except AgentClientError as exc:
             st.error(str(exc))
-    
+
     # 调取当前blueprint_id
     exam_blueprint_id = st.text_input(
         "Exam blueprint ID",
@@ -256,7 +261,7 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             st.json(export_response)
         except AgentClientError as exc:
             st.error(str(exc))
-    
+
     # 功能4：生成PPT
     st.subheader("Generate PPT")
     # 获取用户输入基本配置
@@ -275,9 +280,9 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
             ppt_response = client.generate_ppt_outline(
                 ppt_lesson_id,
                 {
-                "slide_count": int(ppt_slide_count),
-                "style_template": ppt_style,
-                "include_references": include_references,
+                    "slide_count": int(ppt_slide_count),
+                    "style_template": ppt_style,
+                    "include_references": include_references,
                 },
             )
             st.success("PPT outline generated")
@@ -313,10 +318,10 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
         try:
             review_response = client.create_review(
                 {
-                "target_type": "ppt_outline",
-                "target_id": ppt_outline_id,
-                "review_status": "approved",
-                "comment": "Approved from Streamlit demo.",
+                    "target_type": "ppt_outline",
+                    "target_id": ppt_outline_id,
+                    "review_status": "approved",
+                    "comment": "Approved from Streamlit demo.",
                 }
             )
             st.success("PPT approved")
@@ -327,9 +332,12 @@ def render_knowledge_base_page(base_url: str, headers: dict[str, str] | None = N
 
     if write_back_ppt:
         review_id = st.session_state.get("coursepilot_last_review_id")
-        try:
-            write_back_response = client.write_back_review(review_id)
-            st.success("Approved PPT written back to knowledge base")
-            st.json(write_back_response)
-        except AgentClientError as exc:
-            st.error(str(exc))
+        if not isinstance(review_id, str) or not review_id:
+            st.warning("Approve a PPT outline before writing it back")
+        else:
+            try:
+                write_back_response = client.write_back_review(review_id)
+                st.success("Approved PPT written back to knowledge base")
+                st.json(write_back_response)
+            except AgentClientError as exc:
+                st.error(str(exc))

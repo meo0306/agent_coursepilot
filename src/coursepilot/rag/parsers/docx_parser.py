@@ -14,4 +14,3 @@ class DOCXParser(BaseParser):
         content = docx2txt.process(str(path)).strip()
         sections = [ParsedSection(content=content)] if content else []
         return ParsedDocument(source_path=str(path), sections=sections)
-

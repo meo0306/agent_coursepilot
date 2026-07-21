@@ -2,7 +2,6 @@ from typing import Literal
 
 from langgraph.graph import END, StateGraph
 
-from core.settings import settings
 from agents.coursepilot.nodes.exam_nodes import (
     chat_response,
     generate_exam_questions,
@@ -12,6 +11,7 @@ from agents.coursepilot.nodes.exam_nodes import (
 )
 from agents.coursepilot.nodes.retrieve_nodes import retrieve_course_context
 from agents.coursepilot.states.exam_state import ExamGraphState
+from core.settings import settings
 
 
 def route_entry(state: ExamGraphState) -> Literal["chat", "workflow", "questions"]:
@@ -42,7 +42,10 @@ def should_repair(state: ExamGraphState) -> Literal["repair", "done"]:
             "duplicate_valid",
         ]
     )
-    if not passed and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS:
+    if (
+        not passed
+        and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS
+    ):
         return "repair"
     return "done"
 

@@ -1,2 +1,1 @@
 """CoursePilot Streamlit UI modules."""
-

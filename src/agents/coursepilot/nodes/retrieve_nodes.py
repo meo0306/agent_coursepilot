@@ -1,8 +1,7 @@
+from collections.abc import Mapping
 from typing import Any
 
-from agents.coursepilot.states.lesson_state import LessonGraphState
 from coursepilot.rag.retriever import CoursePilotRetriever
-
 
 LESSON_CONTEXT_ERROR = (
     "No course knowledge base context found. "
@@ -13,7 +12,7 @@ EXAM_CONTEXT_ERROR = (
 )
 
 
-def retrieve_course_context(state: LessonGraphState) -> LessonGraphState:
+def retrieve_course_context(state: Any) -> dict[str, Any]:
     """检索课程知识库上下文"""
     # 如果 state 中已经有检索到的上下文，直接返回这些上下文
     if state.get("retrieved_contexts"):
@@ -36,7 +35,7 @@ def retrieve_course_context(state: LessonGraphState) -> LessonGraphState:
     return {"retrieved_contexts": [result.model_dump(mode="json") for result in results]}
 
 
-def _required_context_error(state: dict[str, Any]) -> str | None:
+def _required_context_error(state: Mapping[str, Any]) -> str | None:
     """
     返回在检索上下文是必需的情况下产品的工作流错误消息。
     """
@@ -48,7 +47,7 @@ def _required_context_error(state: dict[str, Any]) -> str | None:
     return None
 
 
-def _query_from_state(state: dict[str, Any]) -> tuple[str, int]:
+def _query_from_state(state: Mapping[str, Any]) -> tuple[str, int]:
     """从 state 中提取查询参数"""
     if "lesson_params" in state:
         params = state["lesson_params"]

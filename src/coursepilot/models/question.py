@@ -37,4 +37,3 @@ class Question(Base):
     )
 
     exam_blueprint = relationship("ExamBlueprint", back_populates="questions")
-

@@ -39,7 +39,10 @@ class QuestionValidator:
         blueprint_points = set(blueprint.knowledge_points)
 
         for question in questions:
-            if question.question_type in {"single_choice", "multiple_choice"} and not question.options:
+            if (
+                question.question_type in {"single_choice", "multiple_choice"}
+                and not question.options
+            ):
                 option_valid = False
             if not question.correct_answer:
                 answer_valid = False

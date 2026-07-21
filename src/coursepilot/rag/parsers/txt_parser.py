@@ -15,4 +15,3 @@ class TXTParser(BaseParser):
             content = path.read_text(encoding="gb18030").strip()
         sections = [ParsedSection(content=content)] if content else []
         return ParsedDocument(source_path=str(path), sections=sections)
-

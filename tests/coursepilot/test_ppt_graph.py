@@ -53,7 +53,15 @@ def test_ppt_graph_structured_workflow():
 
     assert len(result["slide_outline"]["slides"]) == 4
     assert result["validation_report"]["slide_count_valid"] is True
+    assert result["validation_report"]["source_session_valid"] is True
+    assert result["validation_report"]["citation_present"] is True
+    assert result["validation_report"]["citation_grounded"] is True
     assert result["validation_report"]["citation_valid"] is True
+    assert all(
+        slide["references"]
+        for slide in result["slide_outline"]["slides"]
+        if slide["slide_type"] != "title"
+    )
     assert "export_file" not in result
     assert "pptx_file_path" not in result
 

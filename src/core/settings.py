@@ -1,40 +1,23 @@
 from enum import StrEnum
-from json import loads
 from typing import Annotated, Any
 
 from dotenv import find_dotenv
-from pydantic import (
-    BeforeValidator,
-    Field,
-    HttpUrl,
-    SecretStr,
-    TypeAdapter,
-    computed_field,
-)
+from pydantic import BeforeValidator, Field, HttpUrl, SecretStr, TypeAdapter, computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from schema.models import (
     AllModelEnum,
-    AnthropicModelName,
-    AWSModelName,
-    AzureOpenAIModelName,
     DeepseekModelName,
     FakeModelName,
-    GoogleModelName,
-    GroqModelName,
-    OllamaModelName,
     OpenAICompatibleName,
     OpenAIModelName,
-    OpenRouterModelName,
     Provider,
-    VertexAIModelName,
 )
 
 
 class DatabaseType(StrEnum):
     SQLITE = "sqlite"
     POSTGRES = "postgres"
-    MONGO = "mongo"
 
 
 class LogLevel(StrEnum):
@@ -45,7 +28,6 @@ class LogLevel(StrEnum):
     CRITICAL = "CRITICAL"
 
     def to_logging_level(self) -> int:
-        """Convert to Python logging level constant."""
         import logging
 
         mapping = {
@@ -71,129 +53,84 @@ class Settings(BaseSettings):
         extra="ignore",
         validate_default=False,
     )
-    MODE: str | None = None
 
+    MODE: str | None = None
     HOST: str = "0.0.0.0"
     PORT: int = 8080
     GRACEFUL_SHUTDOWN_TIMEOUT: int = 30
     LOG_LEVEL: LogLevel = LogLevel.WARNING
-
     AUTH_SECRET: SecretStr | None = None
 
     OPENAI_API_KEY: SecretStr | None = None
     DEEPSEEK_API_KEY: SecretStr | None = None
-    ANTHROPIC_API_KEY: SecretStr | None = None
-    GOOGLE_API_KEY: SecretStr | None = None
-    GOOGLE_APPLICATION_CREDENTIALS: SecretStr | None = None
-    GROQ_API_KEY: SecretStr | None = None
-    USE_AWS_BEDROCK: bool = False
-    OLLAMA_MODEL: str | None = None
-    OLLAMA_BASE_URL: str | None = None
     USE_FAKE_MODEL: bool = False
-    OPENROUTER_API_KEY: str | None = None
 
-    # If DEFAULT_MODEL is None, it will be set in model_post_init
-    DEFAULT_MODEL: AllModelEnum | None = None  # type: ignore[assignment]
-    AVAILABLE_MODELS: set[AllModelEnum] = set()  # type: ignore[assignment]
-
-    # 设置大模型API服务（openai兼容类型）
-    # Set openai compatible api, mainly used for proof of concept
     COMPATIBLE_MODEL: str | None = None
     COMPATIBLE_API_KEY: SecretStr | None = None
-    COMPATIBLE_BASE_URL: str | None = None
+    COMPATIBLE_BASE_URL: Annotated[str, BeforeValidator(check_str_is_http)] | None = None
 
+    DEFAULT_MODEL: AllModelEnum | None = None
+    AVAILABLE_MODELS: set[AllModelEnum] = Field(default_factory=set)
 
-    OPENWEATHERMAP_API_KEY: SecretStr | None = None
-
-    # MCP Configuration
-    GITHUB_PAT: SecretStr | None = None
-    MCP_GITHUB_SERVER_URL: str = "https://api.githubcopilot.com/mcp/"
-
-    LANGCHAIN_TRACING_V2: bool = False
-    LANGCHAIN_PROJECT: str = "default"
-    LANGCHAIN_ENDPOINT: Annotated[str, BeforeValidator(check_str_is_http)] = (
-        "https://api.smith.langchain.com"
-    )
-    LANGCHAIN_API_KEY: SecretStr | None = None
-
-    LANGFUSE_TRACING: bool = False
-    LANGFUSE_HOST: Annotated[str, BeforeValidator(check_str_is_http)] = "https://cloud.langfuse.com"
-    LANGFUSE_PUBLIC_KEY: SecretStr | None = None
-    LANGFUSE_SECRET_KEY: SecretStr | None = None
-
-    # Database Configuration
-    DATABASE_TYPE: DatabaseType = (
-        DatabaseType.SQLITE
-    )  # Options: DatabaseType.SQLITE or DatabaseType.POSTGRES
+    DATABASE_TYPE: DatabaseType = DatabaseType.SQLITE
     SQLITE_DB_PATH: str = "checkpoints.db"
 
-    # PostgreSQL Configuration
     POSTGRES_USER: str | None = None
     POSTGRES_PASSWORD: SecretStr | None = None
     POSTGRES_HOST: str | None = None
     POSTGRES_PORT: int | None = None
     POSTGRES_DB: str | None = None
-    POSTGRES_APPLICATION_NAME: str = "agent-service-toolkit"
+    POSTGRES_APPLICATION_NAME: str = "coursepilot"
     POSTGRES_MIN_CONNECTIONS_PER_POOL: int = 1
     POSTGRES_MAX_CONNECTIONS_PER_POOL: int = 1
 
-    # CoursePilot business configuration
-    # CoursePilot独立配置
-    COURSEPILOT_DATABASE_URL: str | None = None # 允许 CoursePilot 使用单独数据库 URL
-    COURSEPILOT_STORAGE_DIR: str = "./storage"  # 上传文件和导出文件的本地目录
-    COURSEPILOT_CHROMA_DIR: str = "./chroma_db" # Chroma 向量库持久化目录
-    COURSEPILOT_MAX_REPAIR_ROUNDS: int = 2  # LLM 输出 JSON 失败时最多修复 2 轮
-    COURSEPILOT_DUPLICATE_THRESHOLD: float = 0.85   # 试题重复度默认阈值 0.85
-    COURSEPILOT_ENABLED: bool = True    # 给后续开关 CoursePilot 功能留入口
-    COURSEPILOT_GENERATION_MODE: str = "auto"  # auto / llm / deterministic
-    COURSEPILOT_LLM_TIMEOUT_SECONDS: float = 30.0   # LLM API 调用超时，单位秒
-    COURSEPILOT_LLM_MAX_RETRIES: int = 2    # LLM API 调用失败时最多重试 2 次(故最大请求次数3次)
-    COURSEPILOT_LLM_HEALTH_CHECK_MODE: str = "http"  # config / http / chat
+    COURSEPILOT_DATABASE_URL: str | None = None
+    COURSEPILOT_STORAGE_DIR: str = "./storage"
+    COURSEPILOT_CHROMA_DIR: str = "./chroma_db"
+    COURSEPILOT_MAX_REPAIR_ROUNDS: int = 2
+    COURSEPILOT_DUPLICATE_THRESHOLD: float = 0.85
+    COURSEPILOT_ENABLED: bool = True
+    COURSEPILOT_GENERATION_MODE: str = "auto"
+    COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK: bool = False
+    COURSEPILOT_LLM_TIMEOUT_SECONDS: float = 120.0
+    COURSEPILOT_LLM_MAX_RETRIES: int = 2
+    COURSEPILOT_LLM_HEALTH_CHECK_MODE: str = "http"
     COURSEPILOT_LLM_HEALTH_CHECK_TIMEOUT_SECONDS: float = 5.0
-    COURSEPILOT_TOKENIZER_PATH: str = (
-        "deepseek_v3_tokenizer/deepseek_v3_tokenizer/tokenizer.json"
-    )
-    COURSEPILOT_EMBEDDING_PROVIDER: str = "auto"  # auto / openai-compatible / hashing
+    COURSEPILOT_TOKENIZER_PATH: str = "deepseek_v3_tokenizer/deepseek_v3_tokenizer/tokenizer.json"
+    COURSEPILOT_EMBEDDING_PROVIDER: str = "auto"
     COURSEPILOT_EMBEDDING_MODEL: str | None = None
-    COURSEPILOT_EMBEDDING_BASE_URL: str | None = None
+    COURSEPILOT_EMBEDDING_BASE_URL: Annotated[str, BeforeValidator(check_str_is_http)] | None = None
     COURSEPILOT_EMBEDDING_API_KEY: SecretStr | None = None
+    COURSEPILOT_EMBEDDING_MAX_RETRIES: int = Field(default=4, ge=0)
+    COURSEPILOT_EMBEDDING_RETRY_BASE_SECONDS: float = Field(default=15.0, ge=0)
+    COURSEPILOT_EMBEDDING_RETRY_MAX_SECONDS: float = Field(default=120.0, ge=0)
+    COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE: str = "auto"
+    COURSEPILOT_IDEMPOTENCY_LEASE_SECONDS: int = 14400
+    COURSEPILOT_ASYNC_WORKER_ENABLED: bool = True
+    COURSEPILOT_ASYNC_WORKER_POLL_SECONDS: float = 1.0
+    COURSEPILOT_ASYNC_TASK_LEASE_SECONDS: int = 300
+    COURSEPILOT_ASYNC_WORKER_SHUTDOWN_TIMEOUT_SECONDS: int = 10
 
-    # MongoDB Configuration
-    MONGO_HOST: str | None = None
-    MONGO_PORT: int | None = None
-    MONGO_DB: str | None = None
-    MONGO_USER: str | None = None
-    MONGO_PASSWORD: SecretStr | None = None
-    MONGO_AUTH_SOURCE: str | None = None
-
-    # Azure OpenAI Settings
-    AZURE_OPENAI_API_KEY: SecretStr | None = None
-    AZURE_OPENAI_ENDPOINT: str | None = None
-    AZURE_OPENAI_API_VERSION: str = "2024-02-15-preview"
-    AZURE_OPENAI_DEPLOYMENT_MAP: dict[str, str] = Field(
-        default_factory=dict, description="Map of model names to Azure deployment IDs"
-    )
+    def __init__(self, **values: Any) -> None:
+        if values.get("_env_file") is None and "_env_file" in values:
+            values["_env_file"] = ""
+        super().__init__(**values)
 
     def model_post_init(self, __context: Any) -> None:
-        api_keys = {
-            Provider.OPENAI: self.OPENAI_API_KEY,
-            Provider.OPENAI_COMPATIBLE: self.COMPATIBLE_BASE_URL and self.COMPATIBLE_MODEL,
-            Provider.DEEPSEEK: self.DEEPSEEK_API_KEY,
-            Provider.ANTHROPIC: self.ANTHROPIC_API_KEY,
-            Provider.GOOGLE: self.GOOGLE_API_KEY,
-            Provider.VERTEXAI: self.GOOGLE_APPLICATION_CREDENTIALS,
-            Provider.GROQ: self.GROQ_API_KEY,
-            Provider.AWS: self.USE_AWS_BEDROCK,
-            Provider.OLLAMA: self.OLLAMA_MODEL,
-            Provider.FAKE: self.USE_FAKE_MODEL,
-            Provider.AZURE_OPENAI: self.AZURE_OPENAI_API_KEY,
-            Provider.OPENROUTER: self.OPENROUTER_API_KEY,
-        }
-        active_keys = [k for k, v in api_keys.items() if v]
-        if not active_keys:
-            raise ValueError("At least one LLM API key must be provided.")
+        active_providers = []
+        if self.OPENAI_API_KEY:
+            active_providers.append(Provider.OPENAI)
+        if self.COMPATIBLE_BASE_URL and self.COMPATIBLE_MODEL:
+            active_providers.append(Provider.OPENAI_COMPATIBLE)
+        if self.DEEPSEEK_API_KEY:
+            active_providers.append(Provider.DEEPSEEK)
+        if self.USE_FAKE_MODEL:
+            active_providers.append(Provider.FAKE)
 
-        for provider in active_keys:
+        if not active_providers:
+            active_providers.append(Provider.FAKE)
+
+        for provider in active_providers:
             match provider:
                 case Provider.OPENAI:
                     if self.DEFAULT_MODEL is None:
@@ -207,66 +144,12 @@ class Settings(BaseSettings):
                     if self.DEFAULT_MODEL is None:
                         self.DEFAULT_MODEL = DeepseekModelName.DEEPSEEK_CHAT
                     self.AVAILABLE_MODELS.update(set(DeepseekModelName))
-                case Provider.ANTHROPIC:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = AnthropicModelName.HAIKU_45
-                    self.AVAILABLE_MODELS.update(set(AnthropicModelName))
-                case Provider.GOOGLE:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = GoogleModelName.GEMINI_20_FLASH
-                    self.AVAILABLE_MODELS.update(set(GoogleModelName))
-                case Provider.VERTEXAI:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = VertexAIModelName.GEMINI_20_FLASH
-                    self.AVAILABLE_MODELS.update(set(VertexAIModelName))
-                case Provider.GROQ:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = GroqModelName.LLAMA_31_8B
-                    self.AVAILABLE_MODELS.update(set(GroqModelName))
-                case Provider.AWS:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = AWSModelName.BEDROCK_HAIKU
-                    self.AVAILABLE_MODELS.update(set(AWSModelName))
-                case Provider.OLLAMA:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = OllamaModelName.OLLAMA_GENERIC
-                    self.AVAILABLE_MODELS.update(set(OllamaModelName))
-                case Provider.OPENROUTER:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = OpenRouterModelName.GEMINI_25_FLASH
-                    self.AVAILABLE_MODELS.update(set(OpenRouterModelName))
                 case Provider.FAKE:
                     if self.DEFAULT_MODEL is None:
                         self.DEFAULT_MODEL = FakeModelName.FAKE
                     self.AVAILABLE_MODELS.update(set(FakeModelName))
-                case Provider.AZURE_OPENAI:
-                    if self.DEFAULT_MODEL is None:
-                        self.DEFAULT_MODEL = AzureOpenAIModelName.AZURE_GPT_4O_MINI
-                    self.AVAILABLE_MODELS.update(set(AzureOpenAIModelName))
-                    # Validate Azure OpenAI settings if Azure provider is available
-                    if not self.AZURE_OPENAI_API_KEY:
-                        raise ValueError("AZURE_OPENAI_API_KEY must be set")
-                    if not self.AZURE_OPENAI_ENDPOINT:
-                        raise ValueError("AZURE_OPENAI_ENDPOINT must be set")
-                    if not self.AZURE_OPENAI_DEPLOYMENT_MAP:
-                        raise ValueError("AZURE_OPENAI_DEPLOYMENT_MAP must be set")
-
-                    # Parse deployment map if it's a string
-                    if isinstance(self.AZURE_OPENAI_DEPLOYMENT_MAP, str):
-                        try:
-                            self.AZURE_OPENAI_DEPLOYMENT_MAP = loads(
-                                self.AZURE_OPENAI_DEPLOYMENT_MAP
-                            )
-                        except Exception as e:
-                            raise ValueError(f"Invalid AZURE_OPENAI_DEPLOYMENT_MAP JSON: {e}")
-
-                    # Validate required deployments exist
-                    required_models = {"gpt-4o", "gpt-4o-mini"}
-                    missing_models = required_models - set(self.AZURE_OPENAI_DEPLOYMENT_MAP.keys())
-                    if missing_models:
-                        raise ValueError(f"Missing required Azure deployments: {missing_models}")
                 case _:
-                    raise ValueError(f"Unknown provider: {provider}")
+                    raise ValueError(f"Unsupported provider: {provider}")
 
     @computed_field  # type: ignore[prop-decorator]
     @property

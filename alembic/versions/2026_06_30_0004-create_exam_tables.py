@@ -8,6 +8,7 @@ Create Date: 2026-06-30 00:04:00
 from collections.abc import Sequence
 
 import sqlalchemy as sa
+
 from alembic import op
 
 revision: str = "0004_create_exam_tables"
@@ -83,4 +84,3 @@ def downgrade() -> None:
     op.drop_index("ix_coursepilot_questions_blueprint_type", table_name="coursepilot_questions")
     op.drop_table("coursepilot_questions")
     op.drop_table("coursepilot_exam_blueprints")
-

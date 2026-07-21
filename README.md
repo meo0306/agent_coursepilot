@@ -1,231 +1,428 @@
-# 🧰 AI Agent Service Toolkit
+# CoursePilot
 
-[![build status](https://github.com/JoshuaC215/agent-service-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/JoshuaC215/agent-service-toolkit/actions/workflows/test.yml) [![codecov](https://codecov.io/github/JoshuaC215/agent-service-toolkit/graph/badge.svg?token=5MTJSYWD05)](https://codecov.io/github/JoshuaC215/agent-service-toolkit) [![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FJoshuaC215%2Fagent-service-toolkit%2Frefs%2Fheads%2Fmain%2Fpyproject.toml)](https://github.com/JoshuaC215/agent-service-toolkit/blob/main/pyproject.toml)
-[![GitHub License](https://img.shields.io/github/license/JoshuaC215/agent-service-toolkit)](https://github.com/JoshuaC215/agent-service-toolkit/blob/main/LICENSE) [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://agent-service-toolkit.streamlit.app/)
+CoursePilot is a teacher-facing course preparation assistant built around a
+workflow-first agent architecture. It helps instructors turn course source
+materials into a private knowledge base, then generate lesson designs, exams,
+answer materials, and PPT outlines with source-grounded retrieval, structured
+validation, export, review, and verified write-back.
 
-A full toolkit for running an AI agent service built with LangGraph, FastAPI and Streamlit.
+[中文说明](README.zh-CN.md)
 
-It includes a [LangGraph](https://langchain-ai.github.io/langgraph/) agent, a [FastAPI](https://fastapi.tiangolo.com/) service to serve it, a client to interact with the service, and a [Streamlit](https://streamlit.io/) app that uses the client to provide a chat interface. Data structures and settings are built with [Pydantic](https://github.com/pydantic/pydantic).
+## Core Capabilities
 
-This project offers a template for you to easily build and run your own agents using the LangGraph framework. It demonstrates a complete setup from agent definition to user interface, making it easier to get started with LangGraph-based projects by providing a full, robust toolkit.
+- Dynamic course knowledge base: upload course files, parse them, split them into
+  chunks, embed them, and search course-scoped Chroma collections.
+- Workflow-first agents: three LangGraph workflows cover lesson design, exam /
+  homework generation, and PPT outline generation.
+- Structured LLM generation: CoursePilot asks the model for JSON, validates it
+  with Pydantic schemas, and applies repair or deterministic fallback when
+  needed.
+- Source-grounded outputs: lesson plans, questions, and slide outlines retain
+  references to retrieved course context.
+- File exports: DOCX and PPTX files are rendered by exporters from structured
+  data. The LLM never writes Office files directly.
+- Human review loop: approved lesson designs, questions, and PPT outlines can be
+  written back into the verified knowledge base for later retrieval.
+- Operational metadata: workflow thread IDs, prompt hashes, LLM attempts, token
+  usage estimates, fallback counts, and validation reports are stored with
+  generation tasks.
 
-**[🎥 Watch a video walkthrough of the repo and app](https://www.youtube.com/watch?v=pdYVHw_YCNY)**
+## Product Workflow
 
-## Overview
+```text
+Create course
+  -> upload textbook / syllabus / knowledge graph files
+  -> build course-scoped Chroma knowledge base
+  -> search source-grounded course context
+  -> generate lesson designs, exam blueprints/questions, and PPT outlines
+  -> validate structured JSON and repair when needed
+  -> export DOCX/PPTX files
+  -> review generated content
+  -> write approved content back as verified knowledge
+```
 
-### [Try the app!](https://agent-service-toolkit.streamlit.app/)
+## Architecture
 
-<a href="https://agent-service-toolkit.streamlit.app/"><img src="media/app_screenshot.png" width="600"></a>
+```text
+FastAPI service
+  -> minimal prompt-entry Agent API
+  -> /api/coursepilot/* product API
+  -> CoursePilot services and database transactions
+  -> LangGraph lesson / exam / PPT workflows
+  -> PostgreSQL business tables
+  -> Chroma vector collections
+  -> local upload/export storage
 
-### Quickstart
+Streamlit app
+  -> CoursePilotClient
+  -> CoursePilot workflow page
+```
 
-Run directly in python
+The main implementation lives in these layers:
 
-```sh
-# At least one LLM API key is required
-echo 'OPENAI_API_KEY=your_openai_api_key' >> .env
+- `src/coursepilot/`: product APIs, services, schemas, ORM models, RAG, LLM
+  helpers, validators, exporters, and Streamlit UI modules.
+- `src/agents/coursepilot/`: LangGraph workflows for lesson, exam, and PPT
+  generation.
+- `src/service/`: FastAPI app, authentication, prompt-entry agent endpoints, and
+  CoursePilot router mounting.
+- `src/client/`: `CoursePilotClient` for product APIs and a minimal
+  `AgentClient` for prompt-entry agent calls.
+- `alembic/`: CoursePilot business database migrations.
 
-# uv is the recommended way to install agent-service-toolkit, but "pip install ." also works
-# For uv installation options, see: https://docs.astral.sh/uv/getting-started/installation/
-curl -LsSf https://astral.sh/uv/0.7.19/install.sh | sh
+## API Boundary
 
-# Install dependencies. "uv sync" creates .venv automatically
+CoursePilot has two intentionally separate API surfaces.
+
+### Product API
+
+`/api/coursepilot/*` is the real product API. It owns structured inputs,
+database writes, exports, review, and knowledge-base write-back.
+
+Representative endpoints:
+
+| Area | Endpoint | Purpose |
+| --- | --- | --- |
+| Courses | `POST /api/coursepilot/courses` | Create a course |
+| Documents | `POST /api/coursepilot/courses/{course_id}/documents/upload` | Upload course material |
+| Knowledge base | `POST /api/coursepilot/documents/{document_id}/build-kb` | Parse, chunk, embed, and index a document |
+| Knowledge base | `POST /api/coursepilot/courses/{course_id}/kb/search` | Search course context |
+| Lessons | `POST /api/coursepilot/courses/{course_id}/lessons/generate` | Generate a lesson design |
+| Lessons | `POST /api/coursepilot/lessons/{lesson_id}/export` | Export a lesson DOCX |
+| Exams | `POST /api/coursepilot/courses/{course_id}/exams/blueprint` | Generate an exam blueprint |
+| Exams | `POST /api/coursepilot/exams/{blueprint_id}/generate` | Generate questions after blueprint confirmation |
+| Exams | `POST /api/coursepilot/exams/{blueprint_id}/export` | Export student exam, answer key, explanation, and answer sheet |
+| PPT | `POST /api/coursepilot/lessons/{lesson_id}/ppt/generate` | Generate a PPT outline from a lesson design |
+| PPT | `POST /api/coursepilot/ppt/{outline_id}/export` | Export an editable PPTX |
+| Review | `POST /api/coursepilot/reviews` | Record teacher review status |
+| Review | `POST /api/coursepilot/reviews/{review_id}/write-back` | Write approved content back to verified knowledge |
+| Files | `GET /api/coursepilot/files/{file_id}/download` | Download an exported file |
+
+The full interactive API reference is available from FastAPI at `/docs` when
+the service is running.
+
+### Prompt-Entry Agent API
+
+The generic agent API is kept narrow for compatibility and prompt guidance:
+
+- `GET /info`
+- `POST /invoke` and `POST /{agent_id}/invoke`
+- `POST /stream` and `POST /{agent_id}/stream`
+- `POST /history`
+- `GET /health`
+
+Only three prompt-entry agents are registered:
+
+- `coursepilot-lesson-agent` (default)
+- `coursepilot-exam-agent`
+- `coursepilot-ppt-agent`
+
+These endpoints do not accept CoursePilot's structured lesson, exam, or PPT
+business parameters. Use `/api/coursepilot/*` for product workflows.
+
+## Quickstart
+
+### Requirements
+
+- Python 3.11, 3.12, or 3.13
+- `uv`
+- PostgreSQL for the CoursePilot product database
+- Docker and Docker Compose for containerized startup
+
+### Local Setup
+
+Install dependencies:
+
+```powershell
 uv sync --frozen
-source .venv/bin/activate
-python src/run_service.py
-
-# In another shell
-source .venv/bin/activate
-streamlit run src/streamlit_app.py
 ```
 
-Run with docker
+Create local configuration:
 
-```sh
-echo 'OPENAI_API_KEY=your_openai_api_key' >> .env
-docker compose watch
+```powershell
+Copy-Item .env.example .env
 ```
 
-### Architecture Diagram
+Configure PostgreSQL for CoursePilot in `.env`. Either set
+`COURSEPILOT_DATABASE_URL` directly or fill in the `POSTGRES_*` variables.
 
-<img src="media/agent_architecture.png" width="600">
+Apply business database migrations:
 
-### Key Features
-
-1. **LangGraph Agent and latest features**: A customizable agent built using the LangGraph framework. Implements the latest LangGraph v1.0 features including human in the loop with `interrupt()`, flow control with `Command`, long-term memory with `Store`, and `langgraph-supervisor`.
-1. **FastAPI Service**: Serves the agent with both streaming and non-streaming endpoints.
-1. **Advanced Streaming**: A novel approach to support both token-based and message-based streaming.
-1. **Streamlit Interface**: Provides a user-friendly chat interface for interacting with the agent, including voice input and output.
-1. **Multiple Agent Support**: Run multiple agents in the service and call by URL path. Available agents and models are described in `/info`
-1. **Asynchronous Design**: Utilizes async/await for efficient handling of concurrent requests.
-1. **Content Moderation**: Implements Safeguard for content moderation (requires Groq API key).
-1. **RAG Agent**: A basic RAG agent implementation using ChromaDB - see [docs](docs/RAG_Assistant.md).
-1. **Feedback Mechanism**: Includes a star-based feedback system integrated with LangSmith.
-1. **Docker Support**: Includes Dockerfiles and a docker compose file for easy development and deployment.
-1. **Testing**: Includes robust unit and integration tests for the full repo.
-
-### Key Files
-
-The repository is structured as follows:
-
-- `src/agents/`: Defines several agents with different capabilities
-- `src/schema/`: Defines the protocol schema
-- `src/core/`: Core modules including LLM definition and settings
-- `src/service/service.py`: FastAPI service to serve the agents
-- `src/client/client.py`: Client to interact with the agent service
-- `src/streamlit_app.py`: Streamlit app providing a chat interface
-- `tests/`: Unit and integration tests
-
-## Setup and Usage
-
-1. Clone the repository:
-
-   ```sh
-   git clone https://github.com/JoshuaC215/agent-service-toolkit.git
-   cd agent-service-toolkit
-   ```
-
-2. Set up environment variables:
-   Create a `.env` file in the root directory. At least one LLM API key or configuration is required. See the [`.env.example` file](./.env.example) for a full list of available environment variables, including a variety of model provider API keys, header-based authentication, LangSmith tracing, testing and development modes, and OpenWeatherMap API key.
-
-3. You can now run the agent service and the Streamlit app locally, either with Docker or just using Python. The Docker setup is recommended for simpler environment setup and immediate reloading of the services when you make changes to your code.
-
-### Additional setup for specific AI providers
-
-- [Setting up Ollama](docs/Ollama.md)
-- [Setting up VertexAI](docs/VertexAI.md)
-- [Setting up RAG with ChromaDB](docs/RAG_Assistant.md)
-
-### Building or customizing your own agent
-
-To customize the agent for your own use case:
-
-1. Add your new agent to the `src/agents` directory. You can copy `research_assistant.py` or `chatbot.py` and modify it to change the agent's behavior and tools.
-1. Import and add your new agent to the `agents` dictionary in `src/agents/agents.py`. Your agent can be called by `/<your_agent_name>/invoke` or `/<your_agent_name>/stream`.
-1. Adjust the Streamlit interface in `src/streamlit_app.py` to match your agent's capabilities.
-
-
-### Handling Private Credential files
-
-If your agents or chosen LLM require file-based credential files or certificates, the `privatecredentials/` has been provided for your development convenience. All contents, excluding the `.gitkeep` files, are ignored by git and docker's build process. See [Working with File-based Credentials](docs/File_Based_Credentials.md) for suggested use.
-
-
-### Docker Setup
-
-This project includes a Docker setup for easy development and deployment. The `compose.yaml` file defines three services: `postgres`, `agent_service` and `streamlit_app`. The `Dockerfile` for each service is in their respective directories.
-
-For local development, we recommend using [docker compose watch](https://docs.docker.com/compose/file-watch/). This feature allows for a smoother development experience by automatically updating your containers when changes are detected in your source code.
-
-1. Make sure you have Docker and Docker Compose (>= [v2.23.0](https://docs.docker.com/compose/release-notes/#2230)) installed on your system.
-
-2. Create a `.env` file from the `.env.example`. At minimum, you need to provide an LLM API key (e.g., OPENAI_API_KEY).
-   ```sh
-   cp .env.example .env
-   # Edit .env to add your API keys
-   ```
-
-3. Build and launch the services in watch mode:
-
-   ```sh
-   docker compose watch
-   ```
-
-   This will automatically:
-   - Start a PostgreSQL database service that the agent service connects to
-   - Start the agent service with FastAPI
-   - Start the Streamlit app for the user interface
-
-4. The services will now automatically update when you make changes to your code:
-   - Changes in the relevant python files and directories will trigger updates for the relevant services.
-   - NOTE: If you make changes to the `pyproject.toml` or `uv.lock` files, you will need to rebuild the services by running `docker compose up --build`.
-
-5. Access the Streamlit app by navigating to `http://localhost:8501` in your web browser.
-
-6. The agent service API will be available at `http://0.0.0.0:8080`. You can also use the OpenAPI docs at `http://0.0.0.0:8080/redoc`.
-
-7. Use `docker compose down` to stop the services.
-
-This setup allows you to develop and test your changes in real-time without manually restarting the services.
-
-### Building other apps on the AgentClient
-
-The repo includes a generic `src/client/client.AgentClient` that can be used to interact with the agent service. This client is designed to be flexible and can be used to build other apps on top of the agent. It supports both synchronous and asynchronous invocations, and streaming and non-streaming requests.
-
-See the `src/run_client.py` file for full examples of how to use the `AgentClient`. A quick example:
-
-```python
-from client import AgentClient
-client = AgentClient()
-
-response = client.invoke("Tell me a brief joke?")
-response.pretty_print()
-# ================================== Ai Message ==================================
-#
-# A man walked into a library and asked the librarian, "Do you have any books on Pavlov's dogs and Schrödinger's cat?"
-# The librarian replied, "It rings a bell, but I'm not sure if it's here or not."
-
+```powershell
+.\.venv\Scripts\python.exe -m alembic upgrade head
 ```
 
-### Development with LangGraph Studio
+Start the FastAPI service:
 
-The agent supports [LangGraph Studio](https://langchain-ai.github.io/langgraph/concepts/langgraph_studio/), the IDE for developing agents in LangGraph.
+```powershell
+.\.venv\Scripts\python.exe src\run_service.py
+```
 
-`langgraph-cli[inmem]` is installed with `uv sync`. You can simply add your `.env` file to the root directory as described above, and then launch LangGraph Studio with `langgraph dev`. Customize `langgraph.json` as needed. See the [local quickstart](https://langchain-ai.github.io/langgraph/cloud/how-tos/studio/quick_start/#local-development-server) to learn more.
+Start the Streamlit app in another terminal:
 
-### Local development without Docker
+```powershell
+.\.venv\Scripts\streamlit.exe run src\streamlit_app.py
+```
 
-You can also run the agent service and the Streamlit app locally without Docker, just using a Python virtual environment.
+Open:
 
-1. Create a virtual environment and install dependencies:
+- Streamlit app: `http://localhost:8501`
+- FastAPI docs: `http://localhost:8080/docs`
+- Health check: `http://localhost:8080/health`
 
-   ```sh
-   uv sync --frozen
-   source .venv/bin/activate
-   ```
+### Docker Compose
 
-2. Run the FastAPI server:
+Start PostgreSQL, FastAPI, and Streamlit:
 
-   ```sh
-   python src/run_service.py
-   ```
+```powershell
+docker compose up --build
+```
 
-3. In a separate terminal, run the Streamlit app:
+If the database volume is new, apply migrations against the Compose database:
 
-   ```sh
-   streamlit run src/streamlit_app.py
-   ```
+```powershell
+docker compose exec agent_service python -m alembic upgrade head
+```
 
-4. Open your browser and navigate to the URL provided by Streamlit (usually `http://localhost:8501`).
+Open the Streamlit app at `http://localhost:8501`.
 
-## Projects built with or inspired by agent-service-toolkit
+## Configuration
 
-The following are a few of the public projects that drew code or inspiration from this repo.
+Copy `.env.example` to `.env` and only set the values needed by your
+environment.
 
-- **[PolyRAG](https://github.com/QuentinFuxa/PolyRAG)** - Extends agent-service-toolkit with RAG capabilities over both PostgreSQL databases and PDF documents.
-- **[alexrisch/agent-web-kit](https://github.com/alexrisch/agent-web-kit)** - A Next.JS frontend for agent-service-toolkit
-- **[raushan-in/dapa](https://github.com/raushan-in/dapa)** - Digital Arrest Protection App (DAPA) enables users to report financial scams and frauds efficiently via a user-friendly platform.
+### Service and Auth
 
-**Please create a pull request editing the README or open a discussion with any new ones to be added!** Would love to include more projects.
+- `HOST`, `PORT`, `MODE`, `LOG_LEVEL`: web service runtime settings.
+- `AUTH_SECRET`: optional bearer token. When set, both prompt-entry and
+  CoursePilot product routes require `Authorization: Bearer <AUTH_SECRET>`.
 
-## Contributing
+### Models
 
-Contributions are welcome! Please feel free to submit a Pull Request. Currently the tests need to be run using the local development without Docker setup. To run the tests for the agent service:
+CoursePilot supports OpenAI, DeepSeek, OpenAI-compatible endpoints, and a fake
+model for local tests.
 
-1. Ensure you're in the project root directory and have activated your virtual environment.
+For production-style OpenAI-compatible generation:
 
-2. Install the development dependencies and pre-commit hooks:
+```env
+COMPATIBLE_BASE_URL=https://your-compatible-endpoint/v1
+COMPATIBLE_MODEL=your-chat-model
+COMPATIBLE_API_KEY=your-key
+COURSEPILOT_GENERATION_MODE=llm
+```
 
-   ```sh
-   uv sync --frozen
-   pre-commit install
-   ```
+Generation mode options:
 
-3. Run the tests using pytest:
+- `auto`: use a real configured model when available, otherwise use deterministic
+  fallback.
+- `llm`: require a real LLM path and run a startup health check.
+- `deterministic`: force local deterministic generation for tests and smoke
+  demos.
 
-   ```sh
-   pytest
-   ```
+### Databases and Storage
+
+- `DATABASE_TYPE` and `SQLITE_DB_PATH` configure LangGraph prompt-agent
+  persistence used by `/history`.
+- CoursePilot business data uses PostgreSQL through `COURSEPILOT_DATABASE_URL`
+  or the `POSTGRES_*` fallback variables.
+- `COURSEPILOT_STORAGE_DIR` stores uploaded and exported files.
+- `COURSEPILOT_CHROMA_DIR` stores Chroma vector collections.
+
+### Embeddings
+
+For production embeddings:
+
+```env
+COURSEPILOT_EMBEDDING_PROVIDER=openai-compatible
+COURSEPILOT_EMBEDDING_MODEL=your-embedding-model
+COURSEPILOT_EMBEDDING_BASE_URL=https://your-compatible-endpoint/v1
+COURSEPILOT_EMBEDDING_API_KEY=your-key
+```
+
+When embedding settings are absent, CoursePilot uses deterministic hashing
+embeddings for tests and local smoke demos.
+
+### LLM Reliability and Usage
+
+- `COURSEPILOT_LLM_TIMEOUT_SECONDS`: per-call timeout. Defaults to `120` seconds.
+- `COURSEPILOT_LLM_MAX_RETRIES`: retry count before fallback.
+- `COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK`: set to `true` for real
+  evaluations so failed LLM calls fail the sample instead of using
+  deterministic fallback output.
+- `COURSEPILOT_LLM_HEALTH_CHECK_MODE`: startup health check mode for `llm`
+  generation.
+- `COURSEPILOT_TOKENIZER_PATH`: DeepSeek tokenizer path used to estimate token
+  usage when provider usage metadata is unavailable.
+- `COURSEPILOT_EMBEDDING_MAX_RETRIES`: retries after embedding 429 responses.
+  Defaults to `4`.
+- `COURSEPILOT_EMBEDDING_RETRY_BASE_SECONDS`: first embedding 429 backoff.
+  Defaults to `15` seconds.
+- `COURSEPILOT_EMBEDDING_RETRY_MAX_SECONDS`: maximum embedding 429 backoff.
+  Defaults to `120` seconds.
+- `COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE`: chunk knowledge-point extraction mode
+  during ingestion. Supported values are `auto`, `llm`, and `deterministic`.
+- `COURSEPILOT_IDEMPOTENCY_LEASE_SECONDS`: in-progress protection window for
+  idempotent request records. It defaults to `14400` seconds.
+- `COURSEPILOT_ASYNC_WORKER_ENABLED`: start the database task worker in the API
+  process. Defaults to `true`.
+- `COURSEPILOT_ASYNC_WORKER_POLL_SECONDS`: idle poll interval. Defaults to `1`.
+- `COURSEPILOT_ASYNC_TASK_LEASE_SECONDS`: renewable task lease. Defaults to
+  `300` seconds.
+- `COURSEPILOT_ASYNC_WORKER_SHUTDOWN_TIMEOUT_SECONDS`: worker shutdown wait.
+  Defaults to `10` seconds.
+
+### P0 Async Tasks and Idempotency
+
+KB build, lesson generation, exam blueprint/question generation, and PPT
+outline generation now enqueue database-backed tasks and return `202 Accepted`
+with `task_id`, `status=pending`, and `status_url`. Poll
+`GET /api/coursepilot/tasks/{task_id}` until `completed`, `needs_review`, or
+`failed`; terminal responses contain `result` or `error_message`. Renewable
+worker leases allow an expired `running` task to be reclaimed after a process
+failure.
+
+These endpoints and course creation accept `Idempotency-Key`. The same key and
+payload returns the same task, while a changed payload returns `409`. A failed
+task is re-enqueued on the next same-key request so evaluation resume can retry.
+The high-level `CoursePilotClient` automatically enqueues, polls, and returns
+the final domain result; raw HTTP clients must poll explicitly.
+
+Run `python -m alembic upgrade head` after upgrading to create the idempotency
+table and add queue, lease, and result fields to `coursepilot_generation_tasks`.
+
+## Sample Data
+
+Sample course files are kept in `data/coursepilot_sample/`. The current sample
+set contains:
+
+- textbook / teaching material
+- knowledge graph XLSX
+
+These files are useful for local upload, knowledge-base build, retrieval, and
+generation smoke tests.
+
+## Tests and Evaluation
+
+Run the main test suite:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+Run lint and type checks:
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff format --check
+.\.venv\Scripts\python.exe -m ruff check
+.\.venv\Scripts\python.exe -m mypy src/
+```
+
+Run deterministic evaluation metrics:
+
+```powershell
+$env:PYTHONPATH='src'
+.\.venv\Scripts\python.exe -m coursepilot.evals.run_sample_eval --output storage\coursepilot_eval_report.json
+```
+
+Run a real-model evaluation with isolated Postgres and Chroma state:
+
+```powershell
+Copy-Item .env.eval.example .env.eval
+# Fill COMPATIBLE_* and embedding settings in .env.eval
+docker compose --env-file .env.eval -f compose.yaml -f compose.eval.yaml up --build
+```
+
+After the service starts, apply migrations to the isolated evaluation database
+in another terminal:
+
+```powershell
+docker compose --env-file .env.eval -f compose.yaml -f compose.eval.yaml exec -T agent_service python -m alembic upgrade head
+```
+
+Then run the evaluation runner:
+
+```powershell
+$env:PYTHONPATH='src'
+$env:COURSEPILOT_CHROMA_DIR='chroma_db_eval'
+.\.venv\Scripts\python.exe -m coursepilot.evals.run_real_eval `
+  --base-url http://localhost:8080 `
+  --sample-dir data\coursepilot_sample `
+  --chroma-dir chroma_db_eval `
+  --build-kb-timeout 7200 `
+  --generation-timeout 1800 `
+  --checkpoint storage_eval\coursepilot_real_eval_checkpoint.json `
+  --output storage_eval\coursepilot_real_eval_report.json
+```
+
+The runner atomically updates the checkpoint and partial report before and after
+each upload, KB build, retrieval, generation, and export step. After a failure,
+run the same command with the additional option:
+
+```powershell
+  --resume
+```
+
+Resume validates the environment options and sample-file SHA-256 values, then
+skips every `succeeded` step. Use `--force-resume` only after reviewing a
+configuration or sample-data mismatch. Increasing `--build-kb-timeout` does not
+invalidate a checkpoint; neither does changing `--generation-timeout`. When a checkpoint already exists, the runner requires
+`--resume`; use `--overwrite-checkpoint` only to explicitly discard it and start
+over. Without `--checkpoint`, the runner creates `<output-stem>.checkpoint.json`
+beside the report.
+
+The real evaluation environment enables
+`COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK=true`. If an LLM call,
+structured parse, or schema validation fails, the task fails and is reported
+instead of using deterministic fallback output.
+
+Real evaluation defaults to `COURSEPILOT_EMBEDDING_PROVIDER=openai-compatible`
+and `COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE=llm`. Each chunk invokes the LLM for
+knowledge-point extraction, and vectorization calls the `/embeddings` endpoint
+configured by `COURSEPILOT_EMBEDDING_BASE_URL`.
+
+The 27 MB sample textbook produces hundreds of chunks, so full ingestion can
+take substantially longer than 300 seconds and make hundreds of LLM calls.
+`--build-kb-timeout` and `--generation-timeout` control only how long the
+evaluation client polls; they do not stop server tasks or enable fallback. The
+matching environment variables are `COURSEPILOT_EVAL_BUILD_KB_TIMEOUT_SECONDS`
+and `COURSEPILOT_EVAL_GENERATION_TIMEOUT_SECONDS`.
+
+The evaluation client sends stable idempotency keys derived from checkpoint
+`run_id + step_id`. After a client timeout, lost response, or local process
+termination, the server task keeps running; resume retrieves the same `task_id`
+and continues polling without another LLM call. A task that explicitly failed
+is re-enqueued on the next same-key resume request.
+
+Real LLM integration tests are intentionally gated and skipped by default. Enable
+them only when a compatible model endpoint and API key are available.
+
+## Documentation
+
+Detailed product and engineering documents live in `CoursePilot_markdown_docs/`:
+
+- PRD and MVP acceptance criteria
+- Technical architecture
+- Development plan
+- Phase audit notes
+- LLM engineering, tracing, fallback, and usage-statistics notes
+
+The README is the project entry point; the documents folder contains the deeper
+design record.
+
+## Repository Layout
+
+```text
+src/coursepilot/          Product APIs, services, schemas, models, RAG, validators, exporters
+src/agents/coursepilot/   LangGraph lesson, exam, and PPT workflows
+src/service/              FastAPI app, auth, prompt-entry endpoints
+src/client/               CoursePilot product client and minimal Agent client
+src/memory/               LangGraph checkpoint/store persistence
+alembic/                  CoursePilot PostgreSQL migrations
+data/coursepilot_sample/  Sample course materials
+tests/coursepilot/        CoursePilot product and workflow tests
+CoursePilot_markdown_docs/ PRD, architecture, phase audits, and implementation notes
+```
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. See `LICENSE` for details.

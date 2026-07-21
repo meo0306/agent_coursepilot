@@ -2,7 +2,6 @@ from typing import Literal
 
 from langgraph.graph import END, StateGraph
 
-from core.settings import settings
 from agents.coursepilot.nodes.ppt_nodes import (
     chat_response,
     generate_slide_outline,
@@ -10,6 +9,7 @@ from agents.coursepilot.nodes.ppt_nodes import (
     validate_slide_outline,
 )
 from agents.coursepilot.states.ppt_state import PPTGraphState
+from core.settings import settings
 
 
 def route_entry(state: PPTGraphState) -> Literal["chat", "workflow"]:
@@ -30,10 +30,14 @@ def should_repair(state: PPTGraphState) -> Literal["repair", "done"]:
             "slide_type_valid",
             "content_not_empty",
             "source_session_valid",
-            "citation_valid",
+            "citation_present",
+            "citation_grounded",
         ]
     )
-    if not passed and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS:
+    if (
+        not passed
+        and int(report.get("repair_attempts", 0)) < settings.COURSEPILOT_MAX_REPAIR_ROUNDS
+    ):
         return "repair"
     return "done"
 

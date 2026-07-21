@@ -1,3 +1,5 @@
+from coursepilot.schemas.exam_schema import ExamBlueprintContent, QuestionGroupPlan
+from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.lesson_schema import (
     LessonDesignContent,
     LessonSession,
@@ -6,11 +8,14 @@ from coursepilot.schemas.lesson_schema import (
     TeachingProcessItem,
     TimeAllocation,
 )
-from coursepilot.schemas.exam_schema import ExamBlueprintContent, QuestionGroupPlan
-from coursepilot.schemas.kb_schema import KBSearchResult
-from coursepilot.schemas.question_schema import QuestionItem
 from coursepilot.schemas.ppt_schema import SlideItem, SlideOutlineContent
-from coursepilot.validators import LessonValidator, PPTValidator, QuestionValidator
+from coursepilot.schemas.question_schema import QuestionItem
+from coursepilot.validators import (
+    LessonValidator,
+    PPTValidator,
+    QuestionValidator,
+    inherit_session_references,
+)
 from coursepilot.validators.duplicate_detector import DuplicateDetector
 
 
@@ -44,9 +49,7 @@ def test_lesson_validator_passes_valid_design():
                 teaching_objectives=["Explain state space"],
                 key_points=["state space"],
                 difficult_points=["abstraction"],
-                teaching_process=[
-                    TeachingProcessItem(stage="Intro", minutes=5, content="case")
-                ],
+                teaching_process=[TeachingProcessItem(stage="Intro", minutes=5, content="case")],
                 references=[Reference(chunk_id="chunk-1")],
             )
         ],
@@ -198,6 +201,163 @@ def test_ppt_validator_passes_valid_outline():
         ],
     )
 
-    report = PPTValidator().validate(outline, expected_slide_count=3, total_sessions=1)
+    report = PPTValidator().validate(
+        outline,
+        expected_slide_count=3,
+        total_sessions=1,
+        valid_session_indices={1},
+        valid_chunk_ids={"chunk-1"},
+        session_reference_ids={1: {"chunk-1"}},
+    )
 
     assert report.passed is True
+    assert report.source_session_valid is True
+    assert report.citation_present is True
+    assert report.citation_grounded is True
+    assert report.citation_valid is True
+
+
+def test_ppt_validator_requires_session_for_session_bound_slides():
+    outline = SlideOutlineContent(
+        course_name="AI",
+        chapter="Search",
+        lesson_id="lesson-1",
+        slides=[
+            SlideItem(
+                slide_index=1,
+                slide_type="title",
+                title="AI Search",
+                bullet_points=["1 session"],
+            ),
+            SlideItem(
+                slide_index=2,
+                slide_type="content",
+                title="State Space",
+                bullet_points=["Define state space"],
+                references=[Reference(chunk_id="chunk-1")],
+            ),
+        ],
+    )
+
+    report = PPTValidator().validate(
+        outline,
+        total_sessions=1,
+        valid_session_indices={1},
+        valid_chunk_ids={"chunk-1"},
+        session_reference_ids={1: {"chunk-1"}},
+    )
+
+    assert report.source_session_valid is False
+    assert "source_session_valid failed" in report.errors
+
+    outline.slides[1].source_session_index = 2
+    missing_session = PPTValidator().validate(
+        outline,
+        total_sessions=2,
+        valid_session_indices={1},
+        valid_chunk_ids={"chunk-1"},
+        session_reference_ids={1: {"chunk-1"}},
+    )
+
+    assert missing_session.source_session_valid is False
+
+
+def test_ppt_validator_rejects_unknown_or_wrong_session_chunk():
+    outline = SlideOutlineContent(
+        course_name="AI",
+        chapter="Search",
+        lesson_id="lesson-1",
+        slides=[
+            SlideItem(
+                slide_index=1,
+                slide_type="title",
+                title="AI Search",
+                bullet_points=["2 sessions"],
+            ),
+            SlideItem(
+                slide_index=2,
+                slide_type="content",
+                title="State Space",
+                bullet_points=["Define state space"],
+                references=[Reference(chunk_id="chunk-2")],
+                source_session_index=1,
+            ),
+        ],
+    )
+
+    wrong_session = PPTValidator().validate(
+        outline,
+        total_sessions=2,
+        valid_session_indices={1, 2},
+        valid_chunk_ids={"chunk-1", "chunk-2"},
+        session_reference_ids={1: {"chunk-1"}, 2: {"chunk-2"}},
+    )
+    unknown_chunk = PPTValidator().validate(
+        outline,
+        total_sessions=2,
+        valid_session_indices={1, 2},
+        valid_chunk_ids={"chunk-1"},
+        session_reference_ids={1: {"chunk-1"}, 2: {"chunk-2"}},
+    )
+
+    assert wrong_session.citation_present is True
+    assert wrong_session.citation_grounded is False
+    assert unknown_chunk.citation_grounded is False
+    assert "citation_grounded failed" in wrong_session.errors
+
+
+def test_ppt_reference_inheritance_uses_matching_lesson_session():
+    lesson = LessonDesignContent(
+        course_name="AI",
+        chapter="Search",
+        total_sessions=1,
+        session_duration=45,
+        knowledge_points=["state space"],
+        session_plan=[
+            SessionPlan(
+                session_index=1,
+                session_title="Search",
+                duration=45,
+                knowledge_points=["state space"],
+                teaching_focus="state space",
+                time_allocation=[TimeAllocation(activity="Lecture", minutes=45)],
+            )
+        ],
+        sessions=[
+            LessonSession(
+                session_index=1,
+                session_title="Search",
+                teaching_objectives=["Explain state space"],
+                key_points=["state space"],
+                teaching_process=[
+                    TeachingProcessItem(stage="Lecture", minutes=45, content="State space")
+                ],
+                references=[Reference(chunk_id="chunk-1", source_type="textbook")],
+            )
+        ],
+    )
+    outline = SlideOutlineContent(
+        course_name="AI",
+        chapter="Search",
+        lesson_id="lesson-1",
+        slides=[
+            SlideItem(
+                slide_index=1,
+                slide_type="title",
+                title="AI Search",
+                bullet_points=["1 session"],
+            ),
+            SlideItem(
+                slide_index=2,
+                slide_type="objectives",
+                title="Objectives",
+                bullet_points=["Explain state space"],
+                source_session_index=1,
+            ),
+        ],
+    )
+
+    normalized = inherit_session_references(outline, lesson)
+
+    assert outline.slides[1].references == []
+    assert normalized.slides[1].references[0].chunk_id == "chunk-1"

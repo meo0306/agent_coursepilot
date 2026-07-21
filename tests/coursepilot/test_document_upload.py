@@ -32,4 +32,3 @@ def test_document_upload_rejects_unknown_type(coursepilot_client):
 
     assert response.status_code == 400
     assert "Unsupported file type" in response.json()["detail"]
-

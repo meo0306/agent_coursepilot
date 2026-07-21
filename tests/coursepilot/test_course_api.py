@@ -26,4 +26,3 @@ def test_course_crud(coursepilot_client):
 
     delete_response = coursepilot_client.delete(f"/api/coursepilot/courses/{course['id']}")
     assert delete_response.status_code == 204
-

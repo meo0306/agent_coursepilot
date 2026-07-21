@@ -43,9 +43,7 @@ def test_lesson_docx_exporter_writes_file(tmp_path):
                 session_title="Search",
                 teaching_objectives=["Explain state space"],
                 key_points=["state space"],
-                teaching_process=[
-                    TeachingProcessItem(stage="Intro", minutes=5, content="case")
-                ],
+                teaching_process=[TeachingProcessItem(stage="Intro", minutes=5, content="case")],
                 references=[Reference(chunk_id="chunk-1")],
             )
         ],

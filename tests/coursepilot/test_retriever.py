@@ -1,6 +1,7 @@
 from langchain_core.embeddings import Embeddings
 
 from coursepilot.rag.vector_store import ChromaVectorStore
+from tests.coursepilot.task_test_utils import submit_and_complete
 
 
 class RaisingEmbeddings(Embeddings):
@@ -32,17 +33,16 @@ def test_build_kb_and_search_returns_course_scoped_chunks(coursepilot_client):
         data={"source_type": "textbook"},
     ).json()
 
-    build_response = coursepilot_client.post(
-        f"/api/coursepilot/documents/{document['id']}/build-kb"
+    build_response = submit_and_complete(
+        coursepilot_client, f"/api/coursepilot/documents/{document['id']}/build-kb"
     )
-    other_build_response = coursepilot_client.post(
-        f"/api/coursepilot/documents/{other_document['id']}/build-kb"
+    other_build_response = submit_and_complete(
+        coursepilot_client, f"/api/coursepilot/documents/{other_document['id']}/build-kb"
     )
 
-    assert build_response.status_code == 200
-    assert build_response.json()["parse_status"] == "built"
-    assert build_response.json()["chunk_count"] >= 1
-    assert other_build_response.status_code == 200
+    assert build_response["parse_status"] == "built"
+    assert build_response["chunk_count"] >= 1
+    assert other_build_response["parse_status"] == "built"
 
     search_response = coursepilot_client.post(
         f"/api/coursepilot/courses/{course['id']}/kb/search",
@@ -85,4 +85,3 @@ def test_empty_vector_collection_returns_no_results_without_embedding(tmp_path):
         )
         == []
     )
-

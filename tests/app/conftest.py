@@ -2,30 +2,15 @@ from unittest.mock import patch
 
 import pytest
 
-from schema import AgentInfo, ServiceMetadata
-from schema.models import OpenAIModelName
-
 
 @pytest.fixture
-def mock_agent_client(mock_env, monkeypatch, tmp_path):
-    """Fixture for creating a mock AgentClient with a clean environment."""
+def mock_coursepilot_client(monkeypatch, tmp_path):
     monkeypatch.setenv("HOME", str(tmp_path))
     monkeypatch.setenv("USERPROFILE", str(tmp_path))
+    monkeypatch.setenv("AGENT_URL", "http://coursepilot.test")
+    monkeypatch.setenv("AUTH_SECRET", "test-secret")
 
-    mock_info = ServiceMetadata(
-        default_agent="test-agent",
-        agents=[
-            AgentInfo(key="test-agent", description="Test agent"),
-            AgentInfo(key="chatbot", description="Chatbot"),
-        ],
-        default_model=OpenAIModelName.GPT_5_NANO,
-        models=[OpenAIModelName.GPT_5_NANO, OpenAIModelName.GPT_5_MINI],
-    )
-
-    with (
-        patch("client.AgentClient") as mock_agent_client,
-        patch("voice.VoiceManager.from_env", return_value=None),
-    ):
-        mock_agent_client_instance = mock_agent_client.return_value
-        mock_agent_client_instance.info = mock_info
-        yield mock_agent_client_instance
+    with patch("coursepilot.ui.knowledge_base_page.CoursePilotClient") as mocked:
+        client = mocked.return_value
+        client.list_courses.return_value = []
+        yield client, mocked

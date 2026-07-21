@@ -24,4 +24,3 @@ class DocumentBuildResponse(BaseModel):
     parse_status: str
     chunk_count: int
     error_message: str | None = None
-

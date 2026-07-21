@@ -31,4 +31,3 @@ class XLSXParser(BaseParser):
         finally:
             workbook.close()
         return ParsedDocument(source_path=str(path), sections=sections)
-

@@ -166,9 +166,7 @@ def _deterministic_lesson_design(state: LessonGraphState) -> LessonDesignContent
             {
                 "session_index": plan.session_index,
                 "session_title": plan.session_title,
-                "teaching_objectives": [
-                    f"Explain {point}" for point in plan.knowledge_points[:3]
-                ],
+                "teaching_objectives": [f"Explain {point}" for point in plan.knowledge_points[:3]],
                 "key_points": plan.knowledge_points,
                 "difficult_points": plan.difficulty_points,
                 "teaching_process": [
@@ -180,7 +178,9 @@ def _deterministic_lesson_design(state: LessonGraphState) -> LessonDesignContent
                     for item in plan.time_allocation
                 ],
                 "interaction_design": [f"Discuss {plan.knowledge_points[0]} in groups."],
-                "blackboard_or_slide_suggestions": [f"Draw a concept map for {plan.session_title}."],
+                "blackboard_or_slide_suggestions": [
+                    f"Draw a concept map for {plan.session_title}."
+                ],
                 "homework_suggestion": [f"Summarize {plan.knowledge_points[0]} with an example."],
                 "references": [reference.model_dump(mode="json")],
             }

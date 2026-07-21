@@ -5,7 +5,12 @@ from langchain_core.messages import AIMessage
 
 from agents.coursepilot.states.exam_state import ExamGraphState
 from coursepilot.llm import generate_structured
-from coursepilot.schemas.exam_schema import ExamBlueprintContent, ExamGenerationParams, QuestionGroupPlan
+from coursepilot.schemas.exam_schema import (
+    ExamBlueprintContent,
+    ExamBlueprintLLMOutput,
+    ExamGenerationParams,
+    QuestionGroupPlan,
+)
 from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.lesson_schema import Reference
 from coursepilot.schemas.question_schema import QuestionItem, QuestionSet
@@ -28,19 +33,24 @@ def chat_response(state: ExamGraphState) -> ExamGraphState:
 
 def plan_exam_blueprint(state: ExamGraphState) -> ExamGraphState:
     """根据检索上下文和考试参数生成 ExamBlueprintContent"""
-    blueprint = generate_structured(
+    contexts = [KBSearchResult.model_validate(item) for item in state.get("retrieved_contexts", [])]
+    llm_output = generate_structured(
         prompt_name="exam/plan_exam_blueprint",
-        output_schema=ExamBlueprintContent,
+        output_schema=ExamBlueprintLLMOutput,
         payload={
             "exam_params": state.get("exam_params", {}),
             "retrieved_contexts": state.get("retrieved_contexts", []),
         },
         fallback=lambda: _deterministic_blueprint(state),
     )
+    blueprint = ExamBlueprintContent(
+        **llm_output.model_dump(mode="python"),
+        retrieved_contexts=contexts,
+    )
     return {"exam_blueprint": blueprint.model_dump(mode="json")}
 
 
-def _deterministic_blueprint(state: ExamGraphState) -> ExamBlueprintContent:
+def _deterministic_blueprint(state: ExamGraphState) -> ExamBlueprintLLMOutput:
     """fallback策略：根据传入的 exam_params 和检索上下文拼装成一个确定性的蓝图"""
     params = ExamGenerationParams.model_validate(state.get("exam_params", {}))
     contexts = [KBSearchResult.model_validate(item) for item in state.get("retrieved_contexts", [])]
@@ -61,13 +71,12 @@ def _deterministic_blueprint(state: ExamGraphState) -> ExamBlueprintContent:
                 difficulty=difficulty,
             )
         )
-    blueprint = ExamBlueprintContent(
+    blueprint = ExamBlueprintLLMOutput(
         course_name=str(state.get("exam_params", {}).get("course_name", "CoursePilot Course")),
         chapter_range=params.chapter_range,
         generation_type=params.generation_type,
         total_score=sum(group.total_score for group in groups),
         question_groups=groups,
-        retrieved_contexts=contexts,
         knowledge_points=knowledge_points,
     )
     return blueprint
@@ -80,6 +89,16 @@ def generate_exam_questions(state: ExamGraphState) -> ExamGraphState:
     blueprint = ExamBlueprintContent.model_validate(state.get("exam_blueprint", {}))
     questions: list[QuestionItem] = []
     for group in blueprint.question_groups:
+        current_offset = len(questions)
+
+        def fallback_question_set(current_group: QuestionGroupPlan = group) -> QuestionSet:
+            return QuestionSet(
+                blueprint_id=str(state.get("blueprint_id", "manual-blueprint")),
+                questions=_deterministic_questions_for_group(
+                    blueprint, current_group, current_offset
+                ),
+            )
+
         result = generate_structured(
             prompt_name=f"exam/generate_{group.question_type}",
             output_schema=QuestionSet,
@@ -88,10 +107,7 @@ def generate_exam_questions(state: ExamGraphState) -> ExamGraphState:
                 "question_group": group.model_dump(mode="json"),
                 "existing_questions": [question.model_dump(mode="json") for question in questions],
             },
-            fallback=lambda group=group: QuestionSet(
-                blueprint_id=str(state.get("blueprint_id", "manual-blueprint")),
-                questions=_deterministic_questions_for_group(blueprint, group, len(questions)),
-            ),
+            fallback=fallback_question_set,
         )
         questions.extend(result.questions[: group.count])
     return {"questions": [question.model_dump(mode="json") for question in questions]}
@@ -142,7 +158,11 @@ def _repair_missing_questions(
     for group in blueprint.question_groups:
         missing = expected[group.question_type] - actual.get(group.question_type, 0)
         for offset in range(max(0, missing)):
-            point = group.knowledge_points[offset % len(group.knowledge_points)] if group.knowledge_points else blueprint.chapter_range
+            point = (
+                group.knowledge_points[offset % len(group.knowledge_points)]
+                if group.knowledge_points
+                else blueprint.chapter_range
+            )
             questions.append(
                 _make_question(
                     question_type=group.question_type,
@@ -201,7 +221,12 @@ def _make_question(
             difficulty=difficulty,
             score=score,
             question_text=f"{stem}: which option best matches this knowledge point?",
-            options={"A": f"Core meaning of {point}", "B": "Unrelated concept", "C": "Random guess", "D": "Incorrect statement"},
+            options={
+                "A": f"Core meaning of {point}",
+                "B": "Unrelated concept",
+                "C": "Random guess",
+                "D": "Incorrect statement",
+            },
             correct_answer="A",
             explanation=f"The course context identifies {point} as the assessed knowledge point.",
             references=[reference],
@@ -213,7 +238,12 @@ def _make_question(
             difficulty=difficulty,
             score=score,
             question_text=f"{stem}: which statements are related to this knowledge point?",
-            options={"A": f"Understand {point}", "B": f"Apply {point}", "C": "Unrelated", "D": "Clearly wrong"},
+            options={
+                "A": f"Understand {point}",
+                "B": f"Apply {point}",
+                "C": "Unrelated",
+                "D": "Clearly wrong",
+            },
             correct_answer="A,B",
             explanation=f"A and B cover understanding and application of {point}.",
             references=[reference],
@@ -246,7 +276,9 @@ def _knowledge_points(contexts: list[KBSearchResult]) -> list[str]:
     points: list[str] = []
     seen: set[str] = set()
     for context in contexts:
-        for token in re.findall(r"[\u4e00-\u9fffA-Za-z][\u4e00-\u9fffA-Za-z0-9_-]{2,20}", context.content):
+        for token in re.findall(
+            r"[\u4e00-\u9fffA-Za-z][\u4e00-\u9fffA-Za-z0-9_-]{2,20}", context.content
+        ):
             if token in seen:
                 continue
             seen.add(token)

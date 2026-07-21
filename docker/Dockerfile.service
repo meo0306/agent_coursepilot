@@ -25,6 +25,7 @@ COPY src/service/ ./service/
 COPY src/run_service.py .
 # 新增
 COPY src/coursepilot/ ./coursepilot/
+COPY deepseek_v3_tokenizer/ ./deepseek_v3_tokenizer/
 COPY alembic.ini .
 COPY alembic/ ./alembic/
 

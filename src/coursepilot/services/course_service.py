@@ -1,6 +1,7 @@
 """
 课程 CRUD（创建、读取、更新、删除）
 """
+
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -14,11 +15,13 @@ class CourseService:
 
     def create_course(self, payload: CourseCreate) -> Course:
         """创建课程"""
-        course = Course(**payload.model_dump()) # Course(**...) 创建 ORM 对象，payload.model_dump()把 Pydantic 请求对象转成普通 dict
-        self.session.add(course)    # 把对象加入数据库事务
-        self.session.commit()   # 提交事务，真正写入数据库
-        self.session.refresh(course)    # 重新读取数据库生成的字段
-        return course   # 返回 ORM 对象给 FastAPI，FastAPI 再按 CourseRead schema 转成 JSON
+        course = Course(
+            **payload.model_dump()
+        )  # Course(**...) 创建 ORM 对象，payload.model_dump()把 Pydantic 请求对象转成普通 dict
+        self.session.add(course)  # 把对象加入数据库事务
+        self.session.commit()  # 提交事务，真正写入数据库
+        self.session.refresh(course)  # 重新读取数据库生成的字段
+        return course  # 返回 ORM 对象给 FastAPI，FastAPI 再按 CourseRead schema 转成 JSON
 
     def list_courses(self) -> list[Course]:
         """列出所有课程，按创建时间倒序排列"""
@@ -34,7 +37,9 @@ class CourseService:
         if course is None:
             return None
 
-        for key, value in payload.model_dump(exclude_unset=True).items():   # exclude_unset=True只更新用户真的传入的字段
+        for key, value in payload.model_dump(
+            exclude_unset=True
+        ).items():  # exclude_unset=True只更新用户真的传入的字段
             setattr(course, key, value)
         self.session.commit()
         self.session.refresh(course)
@@ -49,4 +54,3 @@ class CourseService:
         self.session.delete(course)
         self.session.commit()
         return True
-

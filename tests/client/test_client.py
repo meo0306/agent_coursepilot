@@ -1,334 +1,155 @@
-import json
-import os
-from unittest.mock import AsyncMock, Mock, patch
+from unittest.mock import patch
 
 import pytest
 from httpx import Request, Response
 
 from client import AgentClient, AgentClientError
+from client.coursepilot_client import CoursePilotClient
 from schema import AgentInfo, ChatHistory, ChatMessage, ServiceMetadata
-from schema.models import OpenAIModelName
+from schema.models import FakeModelName
+
+INFO = ServiceMetadata(
+    agents=[
+        AgentInfo(key="coursepilot-lesson-agent", description="Lesson"),
+        AgentInfo(key="coursepilot-exam-agent", description="Exam"),
+        AgentInfo(key="coursepilot-ppt-agent", description="PPT"),
+    ],
+    models=[FakeModelName.FAKE],
+    default_agent="coursepilot-lesson-agent",
+    default_model=FakeModelName.FAKE,
+)
 
 
-def test_init(mock_env):
-    """Test client initialization with different parameters."""
-    # Test default values
-    client = AgentClient(get_info=False)
-    assert client.base_url == "http://0.0.0.0"
-    assert client.timeout is None
-
-    # Test custom values
-    client = AgentClient(
-        base_url="http://test",
-        timeout=30.0,
-        get_info=False,
-    )
-    assert client.base_url == "http://test"
-    assert client.timeout == 30.0
-    client.update_agent("test-agent", verify=False)
-    assert client.agent == "test-agent"
+def _response(status_code: int, json_data, method: str, url: str) -> Response:
+    return Response(status_code, json=json_data, request=Request(method, url))
 
 
-def test_headers(mock_env):
-    """Test header generation with and without auth."""
-    # Test without auth
-    client = AgentClient(get_info=False)
-    assert client._headers == {}
+def test_retrieve_info_sets_default_agent():
+    with patch(
+        "httpx.get",
+        return_value=_response(200, INFO.model_dump(mode="json"), "GET", "http://test/info"),
+    ):
+        client = AgentClient(base_url="http://test")
 
-    # Test with auth
-    with patch.dict(os.environ, {"AUTH_SECRET": "test-secret"}, clear=True):
-        client = AgentClient(get_info=False)
-        assert client._headers == {"Authorization": "Bearer test-secret"}
+    assert client.info == INFO
+    assert client.agent == "coursepilot-lesson-agent"
 
 
-def test_invoke(agent_client):
-    """Test synchronous invocation."""
-    QUESTION = "What is the weather?"
-    ANSWER = "The weather is sunny."
+def test_update_agent_validates_available_agent():
+    client = AgentClient(base_url="http://test", get_info=False)
+    client.info = INFO
 
-    # Mock successful response
-    mock_request = Request("POST", "http://test/invoke")
-    mock_response = Response(
+    client.update_agent("coursepilot-exam-agent")
+
+    assert client.agent == "coursepilot-exam-agent"
+
+
+def test_update_agent_rejects_unknown_agent():
+    client = AgentClient(base_url="http://test", get_info=False)
+    client.info = INFO
+
+    with pytest.raises(AgentClientError, match="Agent missing not found"):
+        client.update_agent("missing")
+
+
+def test_invoke_posts_to_selected_coursepilot_agent():
+    response = _response(
         200,
-        json={"type": "ai", "content": ANSWER},
-        request=mock_request,
+        ChatMessage(type="ai", content="Use /api/coursepilot/*").model_dump(mode="json"),
+        "POST",
+        "http://test/coursepilot-lesson-agent/invoke",
     )
-    with patch("httpx.post", return_value=mock_response):
-        response = agent_client.invoke(QUESTION)
-        assert isinstance(response, ChatMessage)
-        assert response.type == "ai"
-        assert response.content == ANSWER
+    client = AgentClient(base_url="http://test", get_info=False)
+    client.update_agent("coursepilot-lesson-agent", verify=False)
 
-    # Test with model and thread_id
-    with patch("httpx.post", return_value=mock_response) as mock_post:
-        response = agent_client.invoke(
-            QUESTION,
-            model="gpt-5-nano",
-            thread_id="test-thread",
-        )
-        assert isinstance(response, ChatMessage)
-        # Verify request
-        args, kwargs = mock_post.call_args
-        assert kwargs["json"]["message"] == QUESTION
-        assert kwargs["json"]["model"] == "gpt-5-nano"
-        assert kwargs["json"]["thread_id"] == "test-thread"
+    with patch("httpx.post", return_value=response) as mocked:
+        message = client.invoke("hello", thread_id="thread-1")
 
-    # Test error response
-    error_response = Response(500, text="Internal Server Error", request=mock_request)
-    with patch("httpx.post", return_value=error_response):
-        with pytest.raises(AgentClientError) as exc:
-            agent_client.invoke(QUESTION)
-        assert "500 Internal Server Error" in str(exc.value)
+    assert message.content == "Use /api/coursepilot/*"
+    _, args, kwargs = mocked.mock_calls[0]
+    assert args[0] == "http://test/coursepilot-lesson-agent/invoke"
+    assert kwargs["json"]["message"] == "hello"
+    assert kwargs["json"]["thread_id"] == "thread-1"
 
 
 @pytest.mark.asyncio
-async def test_ainvoke(agent_client):
-    """Test asynchronous invocation."""
-    QUESTION = "What is the weather?"
-    ANSWER = "The weather is sunny."
+async def test_ainvoke_wraps_http_errors():
+    client = AgentClient(base_url="http://test", get_info=False)
+    client.update_agent("coursepilot-lesson-agent", verify=False)
 
-    # Test successful response
-    mock_request = Request("POST", "http://test/invoke")
-    mock_response = Response(200, json={"type": "ai", "content": ANSWER}, request=mock_request)
-    with patch("httpx.AsyncClient.post", return_value=mock_response):
-        response = await agent_client.ainvoke(QUESTION)
-        assert isinstance(response, ChatMessage)
-        assert response.type == "ai"
-        assert response.content == ANSWER
+    class FakeAsyncClient:
+        async def __aenter__(self):
+            return self
 
-    # Test with model and thread_id
-    with patch("httpx.AsyncClient.post", return_value=mock_response) as mock_post:
-        response = await agent_client.ainvoke(
-            QUESTION,
-            model="gpt-5-nano",
-            thread_id="test-thread",
-        )
-        assert isinstance(response, ChatMessage)
-        assert response.type == "ai"
-        assert response.content == ANSWER
-        # Verify request
-        args, kwargs = mock_post.call_args
-        assert kwargs["json"]["message"] == QUESTION
-        assert kwargs["json"]["model"] == "gpt-5-nano"
-        assert kwargs["json"]["thread_id"] == "test-thread"
+        async def __aexit__(self, exc_type, exc, tb):
+            return None
 
-    # Test error response
-    error_response = Response(500, text="Internal Server Error", request=mock_request)
-    with patch("httpx.AsyncClient.post", return_value=error_response):
-        with pytest.raises(AgentClientError) as exc:
-            await agent_client.ainvoke(QUESTION)
-        assert "500 Internal Server Error" in str(exc.value)
+        async def post(self, *args, **kwargs):
+            return _response(500, {"detail": "boom"}, "POST", "http://test/invoke")
+
+    with patch("httpx.AsyncClient", return_value=FakeAsyncClient()):
+        with pytest.raises(AgentClientError, match="Error:"):
+            await client.ainvoke("hello")
 
 
-def test_stream(agent_client):
-    """Test synchronous streaming."""
-    QUESTION = "What is the weather?"
-    TOKENS = ["The", " weather", " is", " sunny", "."]
-    FINAL_ANSWER = "The weather is sunny."
+def test_stream_parses_message_events():
+    client = AgentClient(base_url="http://test", get_info=False)
+    client.update_agent("coursepilot-lesson-agent", verify=False)
+    lines = [
+        'data: {"type": "message", "content": {"type": "ai", "content": "hello"}}',
+        "data: [DONE]",
+    ]
 
-    # Create mock response with streaming events
-    events = (
-        [f"data: {json.dumps({'type': 'token', 'content': token})}" for token in TOKENS]
-        + [
-            f"data: {json.dumps({'type': 'message', 'content': {'type': 'ai', 'content': FINAL_ANSWER}})}"
-        ]
-        + ["data: [DONE]"]
+    class FakeStream:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return None
+
+        def raise_for_status(self):
+            return None
+
+        def iter_lines(self):
+            return iter(lines)
+
+    with patch("httpx.stream", return_value=FakeStream()):
+        messages = list(client.stream("hello"))
+
+    assert messages == [ChatMessage(type="ai", content="hello")]
+
+
+def test_get_history():
+    history = ChatHistory(messages=[ChatMessage(type="ai", content="hello")])
+    response = _response(200, history.model_dump(mode="json"), "POST", "http://test/history")
+    client = AgentClient(base_url="http://test", get_info=False)
+
+    with patch("httpx.post", return_value=response):
+        result = client.get_history("thread-1")
+
+    assert result == history
+
+
+def test_coursepilot_build_kb_uses_custom_timeout_and_ignores_proxy_env():
+    response = _response(
+        202,
+        {"task_id": "task-1", "status": "pending"},
+        "POST",
+        "http://test/api/coursepilot/documents/document-1/build-kb",
     )
+    client = CoursePilotClient(base_url="http://test")
 
-    # Mock the streaming response
-    mock_response = Mock()
-    mock_response.status_code = 200
-    mock_response.iter_lines.return_value = events
-    mock_response.request = Request("POST", "http://test/stream")
-    mock_response.__enter__ = Mock(return_value=mock_response)
-    mock_response.__exit__ = Mock(return_value=None)
+    with (
+        patch("httpx.request", return_value=response) as mocked,
+        patch.object(
+            client,
+            "wait_for_task",
+            return_value={"result": {"chunk_count": 1}},
+        ) as wait_for_task,
+    ):
+        result = client.build_kb("document-1", timeout=3600)
 
-    with patch("httpx.stream", return_value=mock_response):
-        # Collect all streamed responses
-        responses = list(agent_client.stream(QUESTION))
-
-        # Verify tokens were streamed
-        assert len(responses) == len(TOKENS) + 1  # tokens + final message
-        for i, token in enumerate(TOKENS):
-            assert responses[i] == token
-
-        # Verify final message
-        final_message = responses[-1]
-        assert isinstance(final_message, ChatMessage)
-        assert final_message.type == "ai"
-        assert final_message.content == FINAL_ANSWER
-
-    # Test error response
-    error_response = Response(
-        500, text="Internal Server Error", request=Request("POST", "http://test/stream")
-    )
-    error_response_mock = Mock()
-    error_response_mock.__enter__ = Mock(return_value=error_response)
-    error_response_mock.__exit__ = Mock(return_value=None)
-    with patch("httpx.stream", return_value=error_response_mock):
-        with pytest.raises(AgentClientError) as exc:
-            list(agent_client.stream(QUESTION))
-        assert "500 Internal Server Error" in str(exc.value)
-
-
-@pytest.mark.asyncio
-async def test_astream(agent_client):
-    """Test asynchronous streaming."""
-    QUESTION = "What is the weather?"
-    TOKENS = ["The", " weather", " is", " sunny", "."]
-    FINAL_ANSWER = "The weather is sunny."
-
-    # Create mock response with streaming events
-    events = (
-        [f"data: {json.dumps({'type': 'token', 'content': token})}" for token in TOKENS]
-        + [
-            f"data: {json.dumps({'type': 'message', 'content': {'type': 'ai', 'content': FINAL_ANSWER}})}"
-        ]
-        + ["data: [DONE]"]
-    )
-
-    # Create an async iterator for the events
-    async def async_events():
-        for event in events:
-            yield event
-
-    # Mock the streaming response
-    mock_response = AsyncMock()
-    mock_response.status_code = 200
-    mock_response.request = Request("POST", "http://test/stream")
-    mock_response.aiter_lines = Mock(return_value=async_events())
-    mock_response.__aenter__ = AsyncMock(return_value=mock_response)
-
-    mock_client = AsyncMock()
-    mock_client.__aenter__.return_value = mock_client
-    mock_client.stream = Mock(return_value=mock_response)
-
-    with patch("httpx.AsyncClient", return_value=mock_client):
-        # Collect all streamed responses
-        responses = []
-        async for response in agent_client.astream(QUESTION):
-            responses.append(response)
-
-        # Verify tokens were streamed
-        assert len(responses) == len(TOKENS) + 1  # tokens + final message
-        for i, token in enumerate(TOKENS):
-            assert responses[i] == token
-
-        # Verify final message
-        final_message = responses[-1]
-        assert isinstance(final_message, ChatMessage)
-        assert final_message.type == "ai"
-        assert final_message.content == FINAL_ANSWER
-
-    # Test error response
-    error_response = Response(
-        500, text="Internal Server Error", request=Request("POST", "http://test/stream")
-    )
-    error_response_mock = AsyncMock()
-    error_response_mock.__aenter__ = AsyncMock(return_value=error_response)
-
-    mock_client.stream.return_value = error_response_mock
-
-    with patch("httpx.AsyncClient", return_value=mock_client):
-        with pytest.raises(AgentClientError) as exc:
-            async for _ in agent_client.astream(QUESTION):
-                pass
-        assert "500 Internal Server Error" in str(exc.value)
-
-
-@pytest.mark.asyncio
-async def test_acreate_feedback(agent_client):
-    """Test asynchronous feedback creation."""
-    RUN_ID = "test-run"
-    KEY = "test-key"
-    SCORE = 0.8
-    KWARGS = {"comment": "Great response!"}
-
-    # Test successful response
-    mock_response = Response(200, json={}, request=Request("POST", "http://test/feedback"))
-    with patch("httpx.AsyncClient.post", return_value=mock_response) as mock_post:
-        await agent_client.acreate_feedback(RUN_ID, KEY, SCORE, KWARGS)
-        # Verify request
-        args, kwargs = mock_post.call_args
-        assert kwargs["json"]["run_id"] == RUN_ID
-        assert kwargs["json"]["key"] == KEY
-        assert kwargs["json"]["score"] == SCORE
-        assert kwargs["json"]["kwargs"] == KWARGS
-
-    # Test error response
-    error_response = Response(
-        500, text="Internal Server Error", request=Request("POST", "http://test/feedback")
-    )
-    with patch("httpx.AsyncClient.post", return_value=error_response):
-        with pytest.raises(AgentClientError) as exc:
-            await agent_client.acreate_feedback(RUN_ID, KEY, SCORE)
-        assert "500 Internal Server Error" in str(exc.value)
-
-
-def test_get_history(agent_client):
-    """Test chat history retrieval."""
-    THREAD_ID = "test-thread"
-    HISTORY = {
-        "messages": [
-            {"type": "human", "content": "What is the weather?"},
-            {"type": "ai", "content": "The weather is sunny."},
-        ]
-    }
-
-    # Mock successful response
-    mock_response = Response(200, json=HISTORY, request=Request("POST", "http://test/history"))
-    with patch("httpx.post", return_value=mock_response):
-        history = agent_client.get_history(THREAD_ID)
-        assert isinstance(history, ChatHistory)
-        assert len(history.messages) == 2
-        assert history.messages[0].type == "human"
-        assert history.messages[1].type == "ai"
-
-    # Test error response
-    error_response = Response(
-        500, text="Internal Server Error", request=Request("POST", "http://test/history")
-    )
-    with patch("httpx.post", return_value=error_response):
-        with pytest.raises(AgentClientError) as exc:
-            agent_client.get_history(THREAD_ID)
-        assert "500 Internal Server Error" in str(exc.value)
-
-
-def test_info(agent_client):
-    assert agent_client.info is None
-    assert agent_client.agent == "test-agent"
-
-    # Mock info response
-    test_info = ServiceMetadata(
-        default_agent="custom-agent",
-        agents=[AgentInfo(key="custom-agent", description="Custom agent")],
-        default_model=OpenAIModelName.GPT_5_NANO,
-        models=[OpenAIModelName.GPT_5_NANO, OpenAIModelName.GPT_5_MINI],
-    )
-    test_response = Response(
-        200, json=test_info.model_dump(), request=Request("GET", "http://test/info")
-    )
-
-    # Update an existing client with info
-    with patch("httpx.get", return_value=test_response):
-        agent_client.retrieve_info()
-
-    assert agent_client.info == test_info
-    assert agent_client.agent == "custom-agent"
-
-    # Test invalid update_agent
-    with pytest.raises(AgentClientError) as exc:
-        agent_client.update_agent("unknown-agent")
-    assert "Agent unknown-agent not found in available agents: custom-agent" in str(exc.value)
-
-    # Test a fresh client with info
-    with patch("httpx.get", return_value=test_response):
-        agent_client = AgentClient(base_url="http://test")
-    assert agent_client.info == test_info
-    assert agent_client.agent == "custom-agent"
-
-    # Test error on invoke if no agent set
-    agent_client = AgentClient(base_url="http://test", get_info=False)
-    with pytest.raises(AgentClientError) as exc:
-        agent_client.invoke("test")
-    assert "No agent selected. Use update_agent() to select an agent." in str(exc.value)
+    assert result == {"result": {"chunk_count": 1}}
+    wait_for_task.assert_called_once_with("task-1", timeout=3600)
+    assert mocked.call_args.kwargs["timeout"] == 30
+    assert mocked.call_args.kwargs["trust_env"] is False

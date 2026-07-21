@@ -12,4 +12,3 @@ class MarkdownParser(BaseParser):
         content = path.read_text(encoding="utf-8").strip()
         sections = [ParsedSection(content=content)] if content else []
         return ParsedDocument(source_path=str(path), sections=sections)
-

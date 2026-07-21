@@ -6,7 +6,14 @@ review write-back service
 
 from sqlalchemy.orm import Session
 
-from coursepilot.models import Document, KnowledgeChunk, LessonDesign, Question, ReviewRecord, SlideOutline
+from coursepilot.models import (
+    Document,
+    KnowledgeChunk,
+    LessonDesign,
+    Question,
+    ReviewRecord,
+    SlideOutline,
+)
 from coursepilot.rag.vector_store import ChromaVectorStore, collection_name_for_course
 from coursepilot.schemas.lesson_schema import LessonDesignContent
 from coursepilot.schemas.ppt_schema import SlideOutlineContent
@@ -60,7 +67,7 @@ class ReviewService:
                 write_back_status=review.write_back_status,
             )
         # 2.3 如果审核记录的状态是 approved，则进行写回操作
-        # 
+        #
         review_document = self._create_review_document(review)
         chunks = self._chunks_for_review(review, review_document.id)
         texts = [chunk["text"] for chunk in chunks]
@@ -131,21 +138,21 @@ class ReviewService:
             outline = self.session.get(SlideOutline, review.target_id)
             if outline is None:
                 raise ValueError("PPT outline not found")
-            content = SlideOutlineContent.model_validate(outline.outline_json)
+            outline_content = SlideOutlineContent.model_validate(outline.outline_json)
             chunks = []
-            for slide in content.slides:
+            for slide in outline_content.slides:
                 # 每一页 slide 生成一个 chunk
                 chunk_id = f"review-{review.id}-slide-{slide.slide_index}"
                 chunks.append(
                     {
                         "id": chunk_id,
-                        "text": self._slide_text(content, slide.slide_index),
+                        "text": self._slide_text(outline_content, slide.slide_index),
                         "knowledge_points": slide.bullet_points[:10],
                         "metadata": {
                             "chunk_id": chunk_id,
                             "document_id": document_id,
                             "source_type": "reviewed_ppt",
-                            "chapter": content.chapter,
+                            "chapter": outline_content.chapter,
                             "section": f"slide-{slide.slide_index}",
                             "title": slide.title,
                             "verified": True,
@@ -158,14 +165,14 @@ class ReviewService:
             lesson = self.session.get(LessonDesign, review.target_id)
             if lesson is None:
                 raise ValueError("Lesson design not found")
-            content = LessonDesignContent.model_validate(lesson.content_json)
+            lesson_content = LessonDesignContent.model_validate(lesson.content_json)
             chunks = []
-            for session in content.sessions:
+            for session in lesson_content.sessions:
                 chunk_id = f"review-{review.id}-lesson-session-{session.session_index}"
                 text = "\n".join(
                     [
-                        content.course_name,
-                        content.chapter,
+                        lesson_content.course_name,
+                        lesson_content.chapter,
                         session.session_title,
                         *session.teaching_objectives,
                         *session.key_points,
@@ -181,7 +188,7 @@ class ReviewService:
                             "chunk_id": chunk_id,
                             "document_id": document_id,
                             "source_type": "reviewed_lesson",
-                            "chapter": content.chapter,
+                            "chapter": lesson_content.chapter,
                             "section": f"session-{session.session_index}",
                             "title": session.session_title,
                             "verified": True,
@@ -232,23 +239,25 @@ class ReviewService:
     def _resolve_course_id(self, target_type: str, target_id: str) -> str | None:
         """解析目标对象的课程ID"""
         if target_type == "ppt_outline":
-            target = self.session.get(SlideOutline, target_id)
+            outline = self.session.get(SlideOutline, target_id)
+            return outline.course_id if outline is not None else None
         elif target_type == "lesson_design":
-            target = self.session.get(LessonDesign, target_id)
+            lesson = self.session.get(LessonDesign, target_id)
+            return lesson.course_id if lesson is not None else None
         elif target_type == "question":
-            target = self.session.get(Question, target_id)
+            question = self.session.get(Question, target_id)
+            return question.course_id if question is not None else None
         else:
             return None
-        return target.course_id if target is not None else None
 
     def _apply_target_status(self, target_type: str, target_id: str, review_status: str) -> None:
         """根据审核状态更新目标对象的状态"""
         if target_type == "ppt_outline":
             target = self.session.get(SlideOutline, target_id)
         elif target_type == "lesson_design":
-            target = self.session.get(LessonDesign, target_id)
+            target = self.session.get(LessonDesign, target_id)  # type: ignore[assignment]
         elif target_type == "question":
-            target = self.session.get(Question, target_id)
+            target = self.session.get(Question, target_id)  # type: ignore[assignment]
         else:
             target = None
         if target is not None and hasattr(target, "status"):

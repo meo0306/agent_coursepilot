@@ -2,6 +2,7 @@
 检索结果并返回引用信息
 向量相似度检索
 """
+
 from coursepilot.rag.vector_store import ChromaVectorStore
 from coursepilot.schemas.kb_schema import KBSearchResult
 
@@ -48,4 +49,3 @@ class CoursePilotRetriever:
                 )
             )
         return results
-

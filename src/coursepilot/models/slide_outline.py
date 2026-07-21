@@ -19,7 +19,9 @@ class SlideOutline(Base):
         String(36), ForeignKey("coursepilot_courses.id", ondelete="CASCADE"), nullable=False
     )
     task_id: Mapped[str] = mapped_column(
-        String(36), ForeignKey("coursepilot_generation_tasks.id", ondelete="CASCADE"), nullable=False
+        String(36),
+        ForeignKey("coursepilot_generation_tasks.id", ondelete="CASCADE"),
+        nullable=False,
     )
     lesson_design_id: Mapped[str] = mapped_column(
         String(36), ForeignKey("coursepilot_lesson_designs.id", ondelete="CASCADE"), nullable=False

@@ -2,6 +2,8 @@ from pathlib import Path
 
 from docx import Document
 
+from tests.coursepilot.task_test_utils import execute_accepted_task, submit_and_complete
+
 
 def _create_course_with_kb(client):
     course = client.post("/api/coursepilot/courses", json={"course_name": "AI"}).json()
@@ -15,16 +17,19 @@ def _create_course_with_kb(client):
         },
         data={"source_type": "textbook"},
     ).json()
-    build = client.post(f"/api/coursepilot/documents/{document['id']}/build-kb")
-    assert build.status_code == 200
-    assert build.json()["parse_status"] == "built"
+    build = submit_and_complete(
+        client,
+        f"/api/coursepilot/documents/{document['id']}/build-kb",
+    )
+    assert build["parse_status"] == "built"
     return course
 
 
 def test_exam_blueprint_generate_questions_and_export(coursepilot_client):
     course = _create_course_with_kb(coursepilot_client)
 
-    blueprint = coursepilot_client.post(
+    blueprint_payload = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/courses/{course['id']}/exams/blueprint",
         json={
             "chapter_range": "Search",
@@ -43,9 +48,6 @@ def test_exam_blueprint_generate_questions_and_export(coursepilot_client):
             },
         },
     )
-
-    assert blueprint.status_code == 200
-    blueprint_payload = blueprint.json()
     blueprint_id = blueprint_payload["blueprint_id"]
     assert blueprint_payload["status"] == "draft"
     assert blueprint_payload["blueprint"]["total_score"] == 19
@@ -54,9 +56,10 @@ def test_exam_blueprint_generate_questions_and_export(coursepilot_client):
     assert confirm.status_code == 200
     assert confirm.json()["status"] == "confirmed"
 
-    generated = coursepilot_client.post(f"/api/coursepilot/exams/{blueprint_id}/generate")
-    assert generated.status_code == 200
-    generated_payload = generated.json()
+    generated_payload = submit_and_complete(
+        coursepilot_client,
+        f"/api/coursepilot/exams/{blueprint_id}/generate",
+    )
     assert generated_payload["validation_report"]["question_count_valid"] is True
     assert generated_payload["validation_report"]["score_valid"] is True
     assert len(generated_payload["questions"]) == 5
@@ -79,7 +82,9 @@ def test_exam_blueprint_generate_questions_and_export(coursepilot_client):
     assert "student_exam" in student_file["file_name"]
     assert blueprint_id not in student_file["file_name"]
     assert Path(student_file["file_path"]).exists()
-    student_text = "\n".join(paragraph.text for paragraph in Document(student_file["file_path"]).paragraphs)
+    student_text = "\n".join(
+        paragraph.text for paragraph in Document(student_file["file_path"]).paragraphs
+    )
     assert "Answer: __________________" in student_text
     assert "Explanation:" not in student_text
     assert "Answer: A" not in student_text
@@ -93,19 +98,21 @@ def test_exam_blueprint_requires_kb_context(coursepilot_client):
         json={"chapter_range": "Search"},
     )
 
-    assert response.status_code == 400
-    assert "Build course documents" in response.json()["detail"]
+    assert response.status_code == 202
+    task = execute_accepted_task(coursepilot_client, response)
+    assert task["status"] == "failed"
+    assert "Build course documents" in task["error_message"]
 
 
 def test_exam_questions_require_confirmed_blueprint(coursepilot_client):
     course = _create_course_with_kb(coursepilot_client)
 
-    blueprint = coursepilot_client.post(
+    blueprint = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/courses/{course['id']}/exams/blueprint",
         json={"chapter_range": "Search"},
     )
-    assert blueprint.status_code == 200
-    blueprint_id = blueprint.json()["blueprint_id"]
+    blueprint_id = blueprint["blueprint_id"]
 
     generated = coursepilot_client.post(f"/api/coursepilot/exams/{blueprint_id}/generate")
 

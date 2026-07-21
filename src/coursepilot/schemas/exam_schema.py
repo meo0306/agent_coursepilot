@@ -7,26 +7,30 @@ from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.question_schema import QuestionItem, QuestionType
 
 
+def _default_question_counts() -> dict[QuestionType, int]:
+    return {
+        "single_choice": 5,
+        "multiple_choice": 2,
+        "judgement": 3,
+        "short_answer": 2,
+    }
+
+
+def _default_score_per_question() -> dict[QuestionType, int]:
+    return {
+        "single_choice": 2,
+        "multiple_choice": 3,
+        "judgement": 1,
+        "short_answer": 10,
+    }
+
+
 class ExamGenerationParams(BaseModel):
     chapter_range: str = Field(min_length=1)
     generation_type: Literal["homework", "exam"] = "exam"
     total_score: int | None = Field(default=None, ge=1)
-    question_counts: dict[QuestionType, int] = Field(
-        default_factory=lambda: {
-            "single_choice": 5,
-            "multiple_choice": 2,
-            "judgement": 3,
-            "short_answer": 2,
-        }
-    )
-    score_per_question: dict[QuestionType, int] = Field(
-        default_factory=lambda: {
-            "single_choice": 2,
-            "multiple_choice": 3,
-            "judgement": 1,
-            "short_answer": 10,
-        }
-    )
+    question_counts: dict[QuestionType, int] = Field(default_factory=_default_question_counts)
+    score_per_question: dict[QuestionType, int] = Field(default_factory=_default_score_per_question)
     difficulty_distribution: dict[str, float] = Field(
         default_factory=lambda: {"easy": 0.3, "medium": 0.5, "hard": 0.2}
     )
@@ -56,14 +60,17 @@ class QuestionGroupPlan(BaseModel):
     difficulty: str = "medium"
 
 
-class ExamBlueprintContent(BaseModel):
+class ExamBlueprintLLMOutput(BaseModel):
     course_name: str
     chapter_range: str
     generation_type: str
     total_score: int
     question_groups: list[QuestionGroupPlan]
-    retrieved_contexts: list[KBSearchResult] = Field(default_factory=list)
     knowledge_points: list[str] = Field(default_factory=list)
+
+
+class ExamBlueprintContent(ExamBlueprintLLMOutput):
+    retrieved_contexts: list[KBSearchResult] = Field(default_factory=list)
 
 
 class ExamValidationReport(BaseModel):
@@ -83,18 +90,21 @@ class ExamValidationReport(BaseModel):
 
     @property
     def passed(self) -> bool:
-        return all(
-            [
-                self.schema_valid,
-                self.question_count_valid,
-                self.score_valid,
-                self.option_valid,
-                self.answer_valid,
-                self.explanation_valid,
-                self.knowledge_coverage_valid,
-                self.citation_valid,
-            ]
-        ) and self.duplicate_valid
+        return (
+            all(
+                [
+                    self.schema_valid,
+                    self.question_count_valid,
+                    self.score_valid,
+                    self.option_valid,
+                    self.answer_valid,
+                    self.explanation_valid,
+                    self.knowledge_coverage_valid,
+                    self.citation_valid,
+                ]
+            )
+            and self.duplicate_valid
+        )
 
 
 class ExamBlueprintRead(BaseModel):

@@ -22,8 +22,11 @@ NAMING_CONVENTION = {
 
 class Base(DeclarativeBase):
     """Base class for CoursePilot business tables."""
+
     # All CoursePilot ORM models inherit this Base instead of using any AST
     # memory/checkpointer metadata. That keeps business tables isolated and
     # lets Alembic target only CoursePilot tables.
     # CoursePilot 所有 ORM model 都继承这个 Base，和原 AST 的 LangGraph memory/checkpointer 表隔离。
-    metadata = MetaData(naming_convention=NAMING_CONVENTION)    # Alembic 会读取这里注册过的表，然后知道哪些表需要迁移
+    metadata = MetaData(
+        naming_convention=NAMING_CONVENTION
+    )  # Alembic 会读取这里注册过的表，然后知道哪些表需要迁移

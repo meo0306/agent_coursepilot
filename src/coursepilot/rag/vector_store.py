@@ -1,6 +1,7 @@
 """
 写入 ChromaVectorStore
 """
+
 import re
 from pathlib import Path
 
@@ -21,7 +22,9 @@ def collection_name_for_course(course_id: str) -> str:
 class ChromaVectorStore:
     def __init__(self, persist_directory: str | None = None, embeddings: Embeddings | None = None):
         """Chroma 持久化向量存储"""
-        self.persist_directory = persist_directory or settings.COURSEPILOT_CHROMA_DIR   # 指定持久化目录
+        self.persist_directory = (
+            persist_directory or settings.COURSEPILOT_CHROMA_DIR
+        )  # 指定持久化目录
         Path(self.persist_directory).mkdir(parents=True, exist_ok=True)
         # 如果没有传入 embeddings，则使用 get_coursepilot_embeddings() 获取默认的 embedding 实例
         self.embeddings = embeddings or get_coursepilot_embeddings()
@@ -45,8 +48,8 @@ class ChromaVectorStore:
         # 写入 chunk
         store.add_texts(
             texts=[chunk.content for chunk in chunks],  # 检索正文
-            ids=[chunk.id for chunk in chunks], # ID
-            metadatas=[self._metadata(chunk, collection_name) for chunk in chunks], # 元数据
+            ids=[chunk.id for chunk in chunks],  # ID
+            metadatas=[self._metadata(chunk, collection_name) for chunk in chunks],  # 元数据
         )
         return collection_name
 
@@ -76,7 +79,9 @@ class ChromaVectorStore:
                 "chroma_collection": collection_name,
                 **metadata,
             }
-            normalized_metadata.append({key: value for key, value in normalized.items() if value is not None})
+            normalized_metadata.append(
+                {key: value for key, value in normalized.items() if value is not None}
+            )
         self.collection_for_course(course_id).add_texts(
             texts=texts,
             ids=ids,
@@ -118,8 +123,7 @@ class ChromaVectorStore:
         )
         # 计算结果相似度评分
         return [
-            (doc, 1.0 / (1.0 + max(float(distance), 0.0)))
-            for doc, distance in docs_with_distances
+            (doc, 1.0 / (1.0 + max(float(distance), 0.0))) for doc, distance in docs_with_distances
         ]
 
     def _metadata(self, chunk: Chunk, collection_name: str) -> dict[str, str | int | bool]:

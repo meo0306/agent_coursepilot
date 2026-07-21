@@ -1,6 +1,7 @@
 """
 This module provides utilities for creating isolated LangGraph configurations for CoursePilot product workflows.
 """
+
 from uuid import uuid4
 
 from langchain_core.runnables import RunnableConfig

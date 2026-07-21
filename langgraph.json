@@ -2,7 +2,9 @@
     "python_version": "3.12",
     "dependencies": ["./src"],
     "graphs": {
-        "research_assistant": "./src/agents/research_assistant.py:research_assistant"
+        "coursepilot_lesson_agent": "./src/agents/coursepilot/graphs/lesson_graph.py:coursepilot_lesson_agent",
+        "coursepilot_exam_agent": "./src/agents/coursepilot/graphs/exam_graph.py:coursepilot_exam_agent",
+        "coursepilot_ppt_agent": "./src/agents/coursepilot/graphs/ppt_graph.py:coursepilot_ppt_agent"
     },
     "env": "./.env"
 }

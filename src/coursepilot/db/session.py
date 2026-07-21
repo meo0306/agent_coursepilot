@@ -36,8 +36,10 @@ def _build_postgres_url() -> str:
             "Missing CoursePilot PostgreSQL configuration: "
             f"{', '.join(missing)}. Set COURSEPILOT_DATABASE_URL or POSTGRES_* values."
         )
-    # 
-    password = settings.POSTGRES_PASSWORD.get_secret_value()
+    postgres_password = settings.POSTGRES_PASSWORD
+    if postgres_password is None:
+        raise ValueError("Missing CoursePilot PostgreSQL configuration: POSTGRES_PASSWORD.")
+    password = postgres_password.get_secret_value()
     return (
         f"postgresql+psycopg://{settings.POSTGRES_USER}:{password}"
         f"@{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}"
@@ -48,13 +50,15 @@ def _build_postgres_url() -> str:
 def get_coursepilot_engine() -> Engine:
     # Creating an Engine is relatively expensive and should be done once per
     # process. pool_pre_ping avoids reusing stale database connections.
-    return create_engine(_build_postgres_url(), pool_pre_ping=True) # `pool_pre_ping=True` 会检查连接是否可用，减少数据库空闲断连导致的问题。
+    return create_engine(
+        _build_postgres_url(), pool_pre_ping=True
+    )  # `pool_pre_ping=True` 会检查连接是否可用，减少数据库空闲断连导致的问题。
 
 
 CoursePilotSessionLocal = sessionmaker(
     # CoursePilot service methods manage transaction boundaries explicitly.
     # autocommit=False and autoflush=False keep database writes predictable.
-    # 
+    #
     autoflush=False,
     autocommit=False,
     expire_on_commit=False,

@@ -29,7 +29,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-target_metadata = Base.metadata # 告诉 Alembic迁移时以 CoursePilot 的 metadata 为准
+target_metadata = Base.metadata  # 告诉 Alembic迁移时以 CoursePilot 的 metadata 为准
 
 
 def run_migrations_offline() -> None:
@@ -48,7 +48,9 @@ def run_migrations_offline() -> None:
 
 def run_migrations_online() -> None:
     # Online mode connects to Postgres and applies migrations directly.
-    config.set_main_option("sqlalchemy.url", _build_postgres_url()) # 迁移命令会复用 `session.py` 里的数据库 URL 生成逻辑，避免 Alembic 和应用代码各写一套数据库配置。
+    config.set_main_option(
+        "sqlalchemy.url", _build_postgres_url()
+    )  # 迁移命令会复用 `session.py` 里的数据库 URL 生成逻辑，避免 Alembic 和应用代码各写一套数据库配置。
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",

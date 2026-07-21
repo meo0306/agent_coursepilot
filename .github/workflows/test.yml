@@ -1,4 +1,4 @@
-name: Build and test
+name: CoursePilot build and test
 
 on:
   push:
@@ -45,11 +45,6 @@ jobs:
       run: |
         uv run pytest --cov=src/ --cov-report=xml
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v5
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-
   test-docker:
     runs-on: ubuntu-latest
 
@@ -79,7 +74,7 @@ jobs:
           context: .
           push: false
           load: true
-          tags: agent-service-toolkit.service:${{ github.sha }}
+          tags: coursepilot.service:${{ github.sha }}
           file: docker/Dockerfile.service
 
       - name: Build app image
@@ -88,11 +83,11 @@ jobs:
           context: .
           push: false
           load: true
-          tags: agent-service-toolkit.app:${{ github.sha }}
+          tags: coursepilot.app:${{ github.sha }}
           file: docker/Dockerfile.app
 
       - name: Start service container
-        run: docker run -d --name service-container --network host -e USE_FAKE_MODEL=true -e PORT=80 agent-service-toolkit.service:${{ github.sha }}
+        run: docker run -d --name service-container --network host -e USE_FAKE_MODEL=true -e PORT=80 coursepilot.service:${{ github.sha }}
 
       - name: Confirm service starts correctly
         run: |
@@ -105,7 +100,7 @@ jobs:
           '
 
       - name: Run app container
-        run: docker run -d --name app-container --network host -e AGENT_URL=http://0.0.0.0 agent-service-toolkit.app:${{ github.sha }}
+        run: docker run -d --name app-container --network host -e AGENT_URL=http://0.0.0.0 coursepilot.app:${{ github.sha }}
 
       - name: Confirm app starts correctly
         run: |

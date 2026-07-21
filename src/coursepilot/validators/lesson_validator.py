@@ -1,6 +1,7 @@
 """
 教学设计校验器
 """
+
 from coursepilot.schemas.lesson_schema import LessonDesignContent, LessonValidationReport
 
 
@@ -31,7 +32,7 @@ class LessonValidator:
                 time_allocation_valid = False
                 errors.append(f"time allocation invalid for session {plan.session_index}")
 
-# TODO: 三类校验需要区分具体是哪个字段没填/哪个知识点没覆盖/哪个课时没有引用
+        # TODO: 三类校验需要区分具体是哪个字段没填/哪个知识点没覆盖/哪个课时没有引用
         # 校验必填字段是否完整：每个课时必须有教学目标、重点和教学过程
         required_fields_valid = all(
             session.teaching_objectives and session.key_points and session.teaching_process
@@ -60,4 +61,3 @@ class LessonValidator:
             citation_valid=citation_valid,
             errors=errors,
         )
-

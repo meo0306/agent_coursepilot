@@ -1,4 +1,5 @@
 from coursepilot.rag.vector_store import ChromaVectorStore
+from tests.coursepilot.task_test_utils import submit_and_complete
 
 
 def test_rejected_review_does_not_write_to_vector_store(coursepilot_client, monkeypatch):
@@ -36,20 +37,22 @@ def _create_course_with_kb(client):
         },
         data={"source_type": "textbook"},
     ).json()
-    build = client.post(f"/api/coursepilot/documents/{document['id']}/build-kb")
-    assert build.status_code == 200
+    submit_and_complete(
+        client,
+        f"/api/coursepilot/documents/{document['id']}/build-kb",
+    )
     return course
 
 
 def test_lesson_and_question_review_write_back_are_searchable(coursepilot_client):
     course = _create_course_with_kb(coursepilot_client)
 
-    lesson = coursepilot_client.post(
+    lesson = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/courses/{course['id']}/lessons/generate",
         json={"chapter_range": "Search", "total_sessions": 1, "session_duration": 45},
     )
-    assert lesson.status_code == 200
-    lesson_id = lesson.json()["lesson_id"]
+    lesson_id = lesson["lesson_id"]
     lesson_review = coursepilot_client.post(
         "/api/coursepilot/reviews",
         json={
@@ -70,17 +73,23 @@ def test_lesson_and_question_review_write_back_are_searchable(coursepilot_client
         json={"query": "state space Search", "verified_only": True, "top_k": 10},
     )
     assert lesson_search.status_code == 200
-    assert any(result["source_type"] == "reviewed_lesson" for result in lesson_search.json()["results"])
+    assert any(
+        result["source_type"] == "reviewed_lesson" for result in lesson_search.json()["results"]
+    )
 
-    blueprint = coursepilot_client.post(
+    blueprint = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/courses/{course['id']}/exams/blueprint",
         json={"chapter_range": "Search", "question_counts": {"single_choice": 1}},
     )
-    assert blueprint.status_code == 200
-    blueprint_id = blueprint.json()["blueprint_id"]
-    assert coursepilot_client.post(f"/api/coursepilot/exams/{blueprint_id}/confirm").status_code == 200
-    generated = coursepilot_client.post(f"/api/coursepilot/exams/{blueprint_id}/generate")
-    assert generated.status_code == 200
+    blueprint_id = blueprint["blueprint_id"]
+    assert (
+        coursepilot_client.post(f"/api/coursepilot/exams/{blueprint_id}/confirm").status_code == 200
+    )
+    submit_and_complete(
+        coursepilot_client,
+        f"/api/coursepilot/exams/{blueprint_id}/generate",
+    )
     question = coursepilot_client.get(f"/api/coursepilot/exams/{blueprint_id}/questions").json()[0]
 
     question_review = coursepilot_client.post(
@@ -104,6 +113,5 @@ def test_lesson_and_question_review_write_back_are_searchable(coursepilot_client
     )
     assert question_search.status_code == 200
     assert any(
-        result["source_type"] == "reviewed_question"
-        for result in question_search.json()["results"]
+        result["source_type"] == "reviewed_question" for result in question_search.json()["results"]
     )

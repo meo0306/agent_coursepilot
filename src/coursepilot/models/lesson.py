@@ -2,6 +2,7 @@
 保存教学设计草稿 JSON
 保存RAG 检索到的上下文和 validator 报告
 """
+
 from datetime import UTC, datetime
 from uuid import uuid4
 
@@ -23,7 +24,9 @@ class LessonDesign(Base):
         String(36), ForeignKey("coursepilot_courses.id", ondelete="CASCADE"), nullable=False
     )
     task_id: Mapped[str] = mapped_column(
-        String(36), ForeignKey("coursepilot_generation_tasks.id", ondelete="CASCADE"), nullable=False
+        String(36),
+        ForeignKey("coursepilot_generation_tasks.id", ondelete="CASCADE"),
+        nullable=False,
     )
     chapter: Mapped[str] = mapped_column(String(255), nullable=False)
     status: Mapped[str] = mapped_column(String(32), nullable=False, default="draft")
@@ -36,4 +39,3 @@ class LessonDesign(Base):
     )
 
     task = relationship("GenerationTask", back_populates="lesson_designs")
-

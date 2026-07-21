@@ -2,9 +2,10 @@ from pathlib import Path
 
 from pptx import Presentation
 
+import coursepilot.services.ppt_service as ppt_service_module
 from core import settings
 from coursepilot.schemas.ppt_schema import SlideValidationReport
-import coursepilot.services.ppt_service as ppt_service_module
+from tests.coursepilot.task_test_utils import submit_and_complete
 
 
 def _create_course_with_lesson(client):
@@ -19,10 +20,13 @@ def _create_course_with_lesson(client):
         },
         data={"source_type": "textbook"},
     ).json()
-    build = client.post(f"/api/coursepilot/documents/{document['id']}/build-kb")
-    assert build.status_code == 200
+    submit_and_complete(
+        client,
+        f"/api/coursepilot/documents/{document['id']}/build-kb",
+    )
 
-    lesson = client.post(
+    lesson = submit_and_complete(
+        client,
         f"/api/coursepilot/courses/{course['id']}/lessons/generate",
         json={
             "chapter_range": "Search",
@@ -31,21 +35,22 @@ def _create_course_with_lesson(client):
             "teaching_template": "standard",
         },
     )
-    assert lesson.status_code == 200
-    return course, lesson.json()["lesson_id"]
+    return course, lesson["lesson_id"]
 
 
 def test_ppt_generate_export_review_and_write_back(coursepilot_client, monkeypatch):
     course, lesson_id = _create_course_with_lesson(coursepilot_client)
 
-    generated = coursepilot_client.post(
+    payload = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/lessons/{lesson_id}/ppt/generate",
         json={"slide_count": 6, "style_template": "standard", "include_references": True},
     )
-    assert generated.status_code == 200
-    payload = generated.json()
     outline_id = payload["outline_id"]
     assert payload["validation_report"]["slide_count_valid"] is True
+    assert payload["validation_report"]["source_session_valid"] is True
+    assert payload["validation_report"]["citation_present"] is True
+    assert payload["validation_report"]["citation_grounded"] is True
     assert payload["validation_report"]["citation_valid"] is True
     assert len(payload["outline"]["slides"]) == 6
 
@@ -68,6 +73,11 @@ def test_ppt_generate_export_review_and_write_back(coursepilot_client, monkeypat
     assert Path(export_payload["file_path"]).exists()
     presentation = Presentation(export_payload["file_path"])
     assert len(presentation.slides) == 6
+    exported_outline = coursepilot_client.get(f"/api/coursepilot/ppt/{outline_id}").json()
+    assert exported_outline["status"] == "draft"
+    assert exported_outline["validation_report_json"]["source_session_valid"] is True
+    assert exported_outline["validation_report_json"]["citation_present"] is True
+    assert exported_outline["validation_report_json"]["citation_grounded"] is True
 
     rejected = coursepilot_client.post(
         "/api/coursepilot/reviews",
@@ -126,19 +136,21 @@ def test_ppt_generate_requires_lesson(coursepilot_client):
 def test_ppt_export_rejects_invalid_outline_without_writing_file(coursepilot_client, monkeypatch):
     course, lesson_id = _create_course_with_lesson(coursepilot_client)
 
-    generated = coursepilot_client.post(
+    generated = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/lessons/{lesson_id}/ppt/generate",
         json={"slide_count": 6, "style_template": "standard", "include_references": True},
     )
-    assert generated.status_code == 200
-    outline_id = generated.json()["outline_id"]
+    outline_id = generated["outline_id"]
 
-    def fail_validation(self, outline, *, expected_slide_count=None, total_sessions=None):
+    def fail_validation(self, outline, **_kwargs):
         return SlideValidationReport(
             slide_count_valid=False,
             slide_type_valid=True,
             content_not_empty=True,
             source_session_valid=True,
+            citation_present=True,
+            citation_grounded=True,
             citation_valid=True,
             errors=["forced failure"],
         )

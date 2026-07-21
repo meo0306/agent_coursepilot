@@ -34,4 +34,3 @@ def test_xlsx_parser(tmp_path):
 
     assert parsed.sections[0].title == "KnowledgeGraph"
     assert "search | is_a | algorithm" in parsed.sections[0].content
-

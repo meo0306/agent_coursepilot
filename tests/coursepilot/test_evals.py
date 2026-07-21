@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from coursepilot.evals import (
     AnswerCompletenessCase,
     CitationCase,
@@ -53,6 +55,10 @@ def test_coursepilot_evaluator_computes_core_metrics(tmp_path):
     report = CoursePilotEvaluator().evaluate(payload)
 
     assert report.rag_recall_at_k == 0.5
+    assert report.rag_hit_at_k == 1.0
+    assert report.rag_mrr == 1.0
+    assert report.rag_ndcg == pytest.approx(0.6131471927654584)
+    assert report.context_precision == 0.5
     assert report.citation_coverage == 0.5
     assert report.schema_pass_rate == 0.5
     assert report.question_count_accuracy == 0.5

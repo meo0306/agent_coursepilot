@@ -2,6 +2,7 @@
 保存导出的 DOCX 文件记录(不包含具体内容)
 用于追踪某个 DOCX 文件来自哪个课程、哪个任务
 """
+
 from datetime import UTC, datetime
 from uuid import uuid4
 
@@ -23,11 +24,12 @@ class ExportFile(Base):
         String(36), ForeignKey("coursepilot_courses.id", ondelete="CASCADE"), nullable=False
     )
     task_id: Mapped[str | None] = mapped_column(
-        String(36), ForeignKey("coursepilot_generation_tasks.id", ondelete="SET NULL"), nullable=True
+        String(36),
+        ForeignKey("coursepilot_generation_tasks.id", ondelete="SET NULL"),
+        nullable=True,
     )
     file_type: Mapped[str] = mapped_column(String(32), nullable=False)
     file_name: Mapped[str] = mapped_column(String(512), nullable=False)
     file_path: Mapped[str] = mapped_column(Text, nullable=False)
     file_role: Mapped[str] = mapped_column(String(100), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
-

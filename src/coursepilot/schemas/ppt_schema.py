@@ -53,6 +53,8 @@ class SlideValidationReport(BaseModel):
     slide_type_valid: bool
     content_not_empty: bool
     source_session_valid: bool
+    citation_present: bool
+    citation_grounded: bool
     citation_valid: bool
     errors: list[str] = Field(default_factory=list)
     repair_attempts: int = 0
@@ -66,7 +68,8 @@ class SlideValidationReport(BaseModel):
                 self.slide_type_valid,
                 self.content_not_empty,
                 self.source_session_valid,
-                self.citation_valid,
+                self.citation_present,
+                self.citation_grounded,
             ]
         )
 

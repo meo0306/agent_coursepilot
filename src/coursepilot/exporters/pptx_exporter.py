@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Any
 
 from pptx import Presentation
 
@@ -7,12 +8,12 @@ from coursepilot.schemas.ppt_schema import SlideItem, SlideOutlineContent
 
 class PPTXExporter:
     def export(self, outline: SlideOutlineContent, output_path: str | Path) -> Path:
-        presentation = Presentation()
+        presentation: Any = Presentation()
         for slide in outline.slides:
             self._add_slide(presentation, slide)
         return self._save(presentation, output_path)
 
-    def _add_slide(self, presentation: Presentation, slide_data: SlideItem) -> None:
+    def _add_slide(self, presentation: Any, slide_data: SlideItem) -> None:
         if slide_data.slide_type == "title":
             layout = presentation.slide_layouts[0]
             slide = presentation.slides.add_slide(layout)
@@ -42,8 +43,8 @@ class PPTXExporter:
             notes = slide.notes_slide.notes_text_frame
             notes.text = "\n".join(notes_parts)
 
-    def _save(self, presentation: Presentation, output_path: str | Path) -> Path:
+    def _save(self, presentation: Any, output_path: str | Path) -> Path:
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        presentation.save(output_path)
+        presentation.save(str(output_path))
         return output_path

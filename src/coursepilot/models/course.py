@@ -36,6 +36,7 @@ class Course(Base):
         DateTime(timezone=True), default=utc_now, onupdate=utc_now
     )
     # 与Document和KnowledgeChunk模型建立一对多关系，设置级联删除
-    documents = relationship("Document", back_populates="course", cascade="all, delete-orphan") # ORM 对象关系：可以通过 course.documents 拿到这个课程下的所有文档，cascade="all, delete-orphan"表示父对象操作会级联到子对象
+    documents = relationship(
+        "Document", back_populates="course", cascade="all, delete-orphan"
+    )  # ORM 对象关系：可以通过 course.documents 拿到这个课程下的所有文档，cascade="all, delete-orphan"表示父对象操作会级联到子对象
     chunks = relationship("KnowledgeChunk", back_populates="course", cascade="all, delete-orphan")
-

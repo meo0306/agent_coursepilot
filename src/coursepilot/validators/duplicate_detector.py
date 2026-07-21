@@ -11,6 +11,7 @@ from coursepilot.schemas.question_schema import QuestionItem
 
 class DuplicateDetector:
     """检测问题列表中重复问题"""
+
     def __init__(self, threshold: float = 0.85, embeddings: Embeddings | None = None):
         self.threshold = threshold
         self.embeddings = embeddings or get_coursepilot_embeddings()
@@ -19,7 +20,9 @@ class DuplicateDetector:
         if len(questions) < 2:
             return 0.0, []
 
-        vectors = self.embeddings.embed_documents([question.question_text for question in questions])
+        vectors = self.embeddings.embed_documents(
+            [question.question_text for question in questions]
+        )
         duplicate_pairs: list[tuple[int, int]] = []
         for i in range(len(vectors)):
             for j in range(i + 1, len(vectors)):

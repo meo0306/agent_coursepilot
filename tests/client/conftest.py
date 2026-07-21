@@ -7,5 +7,5 @@ from client import AgentClient
 def agent_client(mock_env):
     """Fixture for creating a test client with a clean environment."""
     ac = AgentClient(base_url="http://test", get_info=False)
-    ac.update_agent("test-agent", verify=False)
+    ac.update_agent("coursepilot-lesson-agent", verify=False)
     return ac

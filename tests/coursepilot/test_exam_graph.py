@@ -1,4 +1,8 @@
 from agents.coursepilot.graphs.exam_graph import coursepilot_exam_agent
+from agents.coursepilot.nodes import exam_nodes
+from coursepilot.prompts.loader import load_prompt
+from coursepilot.schemas.exam_schema import ExamBlueprintLLMOutput, QuestionGroupPlan
+from coursepilot.schemas.kb_schema import KBSearchResult
 
 
 def test_exam_graph_chat_entry():
@@ -47,3 +51,52 @@ def test_exam_graph_structured_workflow():
     assert len(result["questions"]) == 4
     assert result["validation_report"]["question_count_valid"] is True
     assert result["validation_report"]["citation_valid"] is True
+
+
+def test_exam_blueprint_injects_trusted_context_after_llm(monkeypatch):
+    context = {
+        "chunk_id": "chunk-1",
+        "course_id": "course-1",
+        "document_id": "doc-1",
+        "source_type": "textbook",
+        "chapter": "Search",
+        "content": "state space search",
+        "score": 0.9,
+        "verified": False,
+    }
+    captured = {}
+
+    def fake_generate_structured(*, output_schema, **_kwargs):
+        captured["schema"] = output_schema
+        return ExamBlueprintLLMOutput(
+            course_name="AI",
+            chapter_range="Search",
+            generation_type="exam",
+            total_score=2,
+            question_groups=[
+                QuestionGroupPlan(
+                    question_type="single_choice",
+                    count=1,
+                    score_each=2,
+                    total_score=2,
+                    knowledge_points=["state space search"],
+                )
+            ],
+            knowledge_points=["state space search"],
+        )
+
+    monkeypatch.setattr(exam_nodes, "generate_structured", fake_generate_structured)
+
+    result = exam_nodes.plan_exam_blueprint(
+        {
+            "exam_params": {"chapter_range": "Search"},
+            "retrieved_contexts": [context],
+        }
+    )
+
+    assert captured["schema"] is ExamBlueprintLLMOutput
+    assert "retrieved_contexts" not in ExamBlueprintLLMOutput.model_json_schema()["properties"]
+    assert result["exam_blueprint"]["retrieved_contexts"] == [
+        KBSearchResult.model_validate(context).model_dump(mode="json")
+    ]
+    assert "Do not return retrieved_contexts" in load_prompt("exam/plan_exam_blueprint")

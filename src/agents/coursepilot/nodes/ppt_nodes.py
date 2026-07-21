@@ -4,7 +4,7 @@ from agents.coursepilot.states.ppt_state import PPTGraphState
 from coursepilot.llm import generate_structured
 from coursepilot.schemas.lesson_schema import LessonDesignContent, Reference
 from coursepilot.schemas.ppt_schema import PPTGenerationParams, SlideItem, SlideOutlineContent
-from coursepilot.validators import PPTValidator
+from coursepilot.validators import PPTValidator, inherit_session_references, session_references
 
 
 def chat_response(state: PPTGraphState) -> PPTGraphState:
@@ -76,7 +76,9 @@ def _deterministic_slide_outline(state: PPTGraphState) -> SlideOutlineContent:
                 slide_index=len(slides) + 1,
                 slide_type="references",
                 title="Source References",
-                bullet_points=[f"{ref.source_type or 'source'} chunk={ref.chunk_id}" for ref in references[:8]],
+                bullet_points=[
+                    f"{ref.source_type or 'source'} chunk={ref.chunk_id}" for ref in references[:8]
+                ],
                 references=references[:8],
             )
         )
@@ -98,14 +100,34 @@ def validate_slide_outline(state: PPTGraphState) -> PPTGraphState:
     """校验页数、类型、内容、课时来源、引用等是否符合要求，返回 validation_report"""
     params = PPTGenerationParams.model_validate(state.get("ppt_params", {}))
     lesson = LessonDesignContent.model_validate(state.get("lesson_design", {}))
-    outline = SlideOutlineContent.model_validate(state.get("slide_outline", {}))
+    outline = inherit_session_references(
+        SlideOutlineContent.model_validate(state.get("slide_outline", {})),
+        lesson,
+    )
+    references_by_session = session_references(lesson)
+    valid_chunk_ids = set(state.get("valid_chunk_ids", []))
+    if "valid_chunk_ids" not in state:
+        valid_chunk_ids = {
+            reference.chunk_id
+            for references in references_by_session.values()
+            for reference in references
+        }
     report = PPTValidator().validate(
         outline,
         expected_slide_count=params.slide_count,
         total_sessions=lesson.total_sessions,
+        valid_session_indices=set(references_by_session),
+        valid_chunk_ids=valid_chunk_ids,
+        session_reference_ids={
+            session_index: {reference.chunk_id for reference in references}
+            for session_index, references in references_by_session.items()
+        },
     )
     report.repair_attempts = int(state.get("validation_report", {}).get("repair_attempts", 0))
-    return {"validation_report": report.model_dump(mode="json")}
+    return {
+        "slide_outline": outline.model_dump(mode="json"),
+        "validation_report": report.model_dump(mode="json"),
+    }
 
 
 def repair_slide_outline(state: PPTGraphState) -> PPTGraphState:

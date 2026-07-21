@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+from unittest.mock import patch
 
 from core.settings import Settings
 from coursepilot.db.base import Base
@@ -38,7 +40,8 @@ def test_coursepilot_agent_skeleton_exists():
 
 
 def test_coursepilot_settings_defaults():
-    settings = Settings(OPENAI_API_KEY="test-key", _env_file=None)
+    with patch.dict(os.environ, {}, clear=True):
+        settings = Settings(OPENAI_API_KEY="test-key", _env_file=None)
 
     assert settings.COURSEPILOT_STORAGE_DIR == "./storage"
     assert settings.COURSEPILOT_CHROMA_DIR == "./chroma_db"
@@ -46,10 +49,15 @@ def test_coursepilot_settings_defaults():
     assert settings.COURSEPILOT_DUPLICATE_THRESHOLD == 0.85
     assert settings.COURSEPILOT_ENABLED is True
     assert settings.COURSEPILOT_GENERATION_MODE == "auto"
+    assert settings.COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK is False
+    assert settings.COURSEPILOT_LLM_TIMEOUT_SECONDS == 120.0
     assert settings.COURSEPILOT_LLM_HEALTH_CHECK_MODE == "http"
     assert settings.COURSEPILOT_LLM_HEALTH_CHECK_TIMEOUT_SECONDS == 5.0
     assert settings.COURSEPILOT_TOKENIZER_PATH.endswith("tokenizer.json")
     assert settings.COURSEPILOT_EMBEDDING_PROVIDER == "auto"
+    assert settings.COURSEPILOT_EMBEDDING_MAX_RETRIES == 4
+    assert settings.COURSEPILOT_EMBEDDING_RETRY_BASE_SECONDS == 15.0
+    assert settings.COURSEPILOT_EMBEDDING_RETRY_MAX_SECONDS == 120.0
 
 
 def test_coursepilot_db_base_uses_prefixed_metadata():

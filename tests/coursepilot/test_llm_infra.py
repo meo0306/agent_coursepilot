@@ -4,9 +4,11 @@ import httpx
 import pytest
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_openai import OpenAIEmbeddings
+from openai import RateLimitError
 from pydantic import BaseModel, SecretStr
 
 from coursepilot.llm import (
+    CoursePilotLLMCallError,
     build_coursepilot_system_prompt,
     check_coursepilot_llm_health,
     collect_coursepilot_llm_metadata,
@@ -17,7 +19,11 @@ from coursepilot.llm import (
     summarize_llm_invocations,
 )
 from coursepilot.prompts.loader import load_prompt
-from coursepilot.rag.embeddings import HashingEmbeddings, get_coursepilot_embeddings
+from coursepilot.rag.embeddings import (
+    HashingEmbeddings,
+    RateLimitRetryEmbeddings,
+    get_coursepilot_embeddings,
+)
 from coursepilot.token_usage import estimate_token_usage, get_deepseek_tokenizer
 
 
@@ -95,8 +101,79 @@ def test_embedding_factory_openai_compatible(monkeypatch):
 
     embeddings = get_coursepilot_embeddings()
 
-    assert isinstance(embeddings, OpenAIEmbeddings)
-    assert embeddings.model == "text-embedding-test"
+    assert isinstance(embeddings, RateLimitRetryEmbeddings)
+    assert isinstance(embeddings.backend, OpenAIEmbeddings)
+    assert embeddings.backend.model == "text-embedding-test"
+    assert embeddings.backend.max_retries == 0
+
+
+def test_embedding_rate_limit_uses_long_exponential_backoff():
+    request = httpx.Request("POST", "https://example.test/v1/embeddings")
+    response = httpx.Response(429, request=request)
+    rate_limit_error = RateLimitError(
+        "rate limited",
+        response=response,
+        body=None,
+    )
+
+    class FlakyEmbeddings(HashingEmbeddings):
+        def __init__(self):
+            super().__init__()
+            self.calls = 0
+
+        def embed_query(self, text: str) -> list[float]:
+            self.calls += 1
+            if self.calls < 3:
+                raise rate_limit_error
+            return super().embed_query(text)
+
+    backend = FlakyEmbeddings()
+    delays = []
+    embeddings = RateLimitRetryEmbeddings(
+        backend,
+        max_retries=4,
+        base_delay_seconds=15,
+        max_delay_seconds=120,
+        sleep=delays.append,
+    )
+
+    result = embeddings.embed_query("search")
+
+    assert backend.calls == 3
+    assert delays == [15, 30]
+    assert result == backend._embed("search")
+
+
+def test_embedding_rate_limit_honors_retry_after_with_maximum():
+    request = httpx.Request("POST", "https://example.test/v1/embeddings")
+    response = httpx.Response(429, headers={"retry-after": "300"}, request=request)
+    rate_limit_error = RateLimitError(
+        "rate limited",
+        response=response,
+        body=None,
+    )
+
+    class OnceRateLimitedEmbeddings(HashingEmbeddings):
+        calls = 0
+
+        def embed_query(self, text: str) -> list[float]:
+            self.calls += 1
+            if self.calls == 1:
+                raise rate_limit_error
+            return super().embed_query(text)
+
+    delays = []
+    embeddings = RateLimitRetryEmbeddings(
+        OnceRateLimitedEmbeddings(),
+        max_retries=1,
+        base_delay_seconds=15,
+        max_delay_seconds=120,
+        sleep=delays.append,
+    )
+
+    embeddings.embed_query("search")
+
+    assert delays == [120]
 
 
 def test_coursepilot_llm_enables_deepseek_thinking(monkeypatch):
@@ -361,6 +438,86 @@ def test_deterministic_mode_still_records_prompt_metadata(monkeypatch):
     assert invocation["usage"] is None
     assert metadata["prompt_hashes"]["lesson/generate_lesson_design"]["prompt_sha256"]
     assert metadata["llm_usage_summary"]["fallback_count"] == 1
+
+
+def test_strict_mode_rejects_generation_mode_fallback(monkeypatch):
+    monkeypatch.setattr("coursepilot.llm.settings.COURSEPILOT_GENERATION_MODE", "deterministic")
+    monkeypatch.setattr(
+        "coursepilot.llm.settings.COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK",
+        True,
+    )
+
+    def forbidden_fallback():
+        raise AssertionError("fallback should not run in strict mode")
+
+    with collect_coursepilot_llm_metadata(thread_id="thread-strict-disabled") as collector:
+        with pytest.raises(CoursePilotLLMCallError, match="fallback is disabled"):
+            generate_structured(
+                prompt_name="lesson/generate_lesson_design",
+                output_schema=_StructuredOutput,
+                payload={"question": "hello"},
+                fallback=forbidden_fallback,
+            )
+
+    metadata = collector.to_task_metadata()
+    invocation = metadata["llm_invocations"][0]
+
+    assert invocation["status"] == "failed"
+    assert invocation["fallback_used"] is False
+    assert invocation["error_category"] == "deterministic_fallback_disabled"
+    assert metadata["llm_usage_summary"]["fallback_count"] == 0
+    assert metadata["llm_usage_summary"]["failed_call_count"] == 1
+
+
+def test_strict_mode_rejects_retry_exhaustion_fallback(monkeypatch):
+    class FakeRunnable:
+        def invoke(self, _messages):
+            raise TimeoutError("timed out")
+
+    class FakeLLM:
+        def with_structured_output(self, _schema, **_kwargs):
+            return FakeRunnable()
+
+    monkeypatch.setattr("coursepilot.llm.use_coursepilot_llm", lambda: True)
+    monkeypatch.setattr("coursepilot.llm.get_coursepilot_llm", lambda: FakeLLM())
+    monkeypatch.setattr("coursepilot.llm.settings.COURSEPILOT_LLM_MAX_RETRIES", 0)
+    monkeypatch.setattr(
+        "coursepilot.llm.settings.COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK",
+        True,
+    )
+    monkeypatch.setattr(
+        "coursepilot.llm.estimate_token_usage",
+        lambda _messages, _output: {
+            "input_tokens": 9,
+            "output_tokens": 0,
+            "total_tokens": 9,
+            "usage_source": "deepseek_v3_tokenizer",
+            "usage_estimated": True,
+        },
+    )
+
+    def forbidden_fallback():
+        raise AssertionError("fallback should not run in strict mode")
+
+    with collect_coursepilot_llm_metadata(thread_id="thread-strict-timeout") as collector:
+        with pytest.raises(CoursePilotLLMCallError, match="fallback is disabled"):
+            generate_structured(
+                prompt_name="lesson/generate_lesson_design",
+                output_schema=_StructuredOutput,
+                payload={"question": "hello"},
+                fallback=forbidden_fallback,
+            )
+
+    metadata = collector.to_task_metadata()
+    invocation = metadata["llm_invocations"][0]
+
+    assert invocation["status"] == "failed"
+    assert invocation["attempt_count"] == 1
+    assert invocation["fallback_used"] is False
+    assert invocation["error_category"] == "timeout"
+    assert invocation["attempts"][0]["error_category"] == "timeout"
+    assert metadata["llm_usage_summary"]["fallback_count"] == 0
+    assert metadata["llm_usage_summary"]["failed_call_count"] == 1
 
 
 def test_tokenizer_missing_marks_usage_unavailable(monkeypatch, tmp_path, caplog):

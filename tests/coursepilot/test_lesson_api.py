@@ -2,6 +2,8 @@ from pathlib import Path
 
 from docx import Document
 
+from tests.coursepilot.task_test_utils import execute_accepted_task, submit_and_complete
+
 
 def _create_course_with_kb(client):
     course = client.post("/api/coursepilot/courses", json={"course_name": "AI"}).json()
@@ -15,16 +17,19 @@ def _create_course_with_kb(client):
         },
         data={"source_type": "textbook"},
     ).json()
-    build = client.post(f"/api/coursepilot/documents/{document['id']}/build-kb")
-    assert build.status_code == 200
-    assert build.json()["parse_status"] == "built"
+    build = submit_and_complete(
+        client,
+        f"/api/coursepilot/documents/{document['id']}/build-kb",
+    )
+    assert build["parse_status"] == "built"
     return course
 
 
 def test_lesson_generate_revise_and_export(coursepilot_client):
     course = _create_course_with_kb(coursepilot_client)
 
-    generate = coursepilot_client.post(
+    payload = submit_and_complete(
+        coursepilot_client,
         f"/api/coursepilot/courses/{course['id']}/lessons/generate",
         json={
             "chapter_range": "Search",
@@ -33,9 +38,6 @@ def test_lesson_generate_revise_and_export(coursepilot_client):
             "teaching_template": "standard",
         },
     )
-
-    assert generate.status_code == 200
-    payload = generate.json()
     assert payload["status"] == "draft"
     assert payload["lesson_design"]["total_sessions"] == 2
     assert payload["validation_report"]["session_count_valid"] is True
@@ -75,6 +77,7 @@ def test_lesson_generate_requires_kb_context(coursepilot_client):
         json={"chapter_range": "Search", "total_sessions": 1, "session_duration": 45},
     )
 
-    assert response.status_code == 400
-    assert "Build course documents" in response.json()["detail"]
-
+    assert response.status_code == 202
+    task = execute_accepted_task(coursepilot_client, response)
+    assert task["status"] == "failed"
+    assert "Build course documents" in task["error_message"]

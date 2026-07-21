@@ -1,6 +1,7 @@
 """
 DOCX导出器
 """
+
 from pathlib import Path
 
 from docx import Document
@@ -42,18 +43,20 @@ class LessonDocxExporter:
                 doc.add_paragraph(point, style="List Bullet")
 
             doc.add_heading("Teaching Process", level=2)
-            for item in session.teaching_process:
-                doc.add_paragraph(f"{item.stage} ({item.minutes} min): {item.content}")
+            for process_item in session.teaching_process:
+                doc.add_paragraph(
+                    f"{process_item.stage} ({process_item.minutes} min): {process_item.content}"
+                )
 
             if session.interaction_design:
                 doc.add_heading("Interaction Design", level=2)
-                for item in session.interaction_design:
-                    doc.add_paragraph(item, style="List Bullet")
+                for interaction_item in session.interaction_design:
+                    doc.add_paragraph(interaction_item, style="List Bullet")
 
             if session.homework_suggestion:
                 doc.add_heading("Homework", level=2)
-                for item in session.homework_suggestion:
-                    doc.add_paragraph(item, style="List Bullet")
+                for homework_item in session.homework_suggestion:
+                    doc.add_paragraph(homework_item, style="List Bullet")
 
             doc.add_heading("References", level=2)
             for ref in session.references:
@@ -62,6 +65,5 @@ class LessonDocxExporter:
                     f"page={ref.page or '-'} | chunk={ref.chunk_id}"
                 )
 
-        doc.save(output_path)
+        doc.save(str(output_path))
         return output_path
-

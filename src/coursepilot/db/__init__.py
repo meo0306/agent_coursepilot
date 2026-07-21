@@ -1,2 +1,1 @@
 """CoursePilot database helpers."""
-

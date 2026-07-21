@@ -1,0 +1,33 @@
+services:
+  postgres:
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-coursepilot_eval}
+    volumes:
+      - postgres_eval_data:/var/lib/postgresql/data
+
+  agent_service:
+    environment:
+      DATABASE_TYPE: postgres
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-coursepilot_eval}
+      COURSEPILOT_DATABASE_URL: ${COURSEPILOT_DATABASE_URL:-}
+      COURSEPILOT_STORAGE_DIR: ./storage_eval
+      COURSEPILOT_CHROMA_DIR: ./chroma_db_eval
+      COURSEPILOT_GENERATION_MODE: llm
+      COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK: "true"
+      COURSEPILOT_EMBEDDING_PROVIDER: ${COURSEPILOT_EMBEDDING_PROVIDER:-openai-compatible}
+      COURSEPILOT_EMBEDDING_MODEL: ${COURSEPILOT_EMBEDDING_MODEL:-Qwen/Qwen3-Embedding-0.6B}
+      COURSEPILOT_EMBEDDING_BASE_URL: ${COURSEPILOT_EMBEDDING_BASE_URL:-}
+      COURSEPILOT_EMBEDDING_API_KEY: ${COURSEPILOT_EMBEDDING_API_KEY:-}
+      COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE: ${COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE:-llm}
+    volumes:
+      - ./storage_eval:/app/storage_eval
+      - ./chroma_db_eval:/app/chroma_db_eval
+
+volumes:
+  postgres_eval_data:

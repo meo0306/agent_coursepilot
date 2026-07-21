@@ -35,4 +35,3 @@ def test_lesson_graph_structured_workflow():
     assert result["lesson_design"]["total_sessions"] == 1
     assert result["validation_report"]["session_count_valid"] is True
     assert result["validation_report"]["citation_valid"] is True
-

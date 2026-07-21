@@ -22,7 +22,7 @@ PARSERS: tuple[BaseParser, ...] = (
 
 
 def get_parser(path: str | Path) -> BaseParser:
-    """ Parser 选择器: 根据文件路径获取对应的解析器实例 """
+    """Parser 选择器: 根据文件路径获取对应的解析器实例"""
     suffix = Path(path).suffix.lower()
     for parser in PARSERS:
         if parser.supports(path):
@@ -31,4 +31,3 @@ def get_parser(path: str | Path) -> BaseParser:
 
 
 __all__ = ["BaseParser", "UnsupportedParserError", "get_parser"]
-

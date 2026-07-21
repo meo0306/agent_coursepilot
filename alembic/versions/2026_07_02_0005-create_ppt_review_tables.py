@@ -8,6 +8,7 @@ Create Date: 2026-07-02 00:05:00
 from collections.abc import Sequence
 
 import sqlalchemy as sa
+
 from alembic import op
 
 revision: str = "0005_create_ppt_review_tables"

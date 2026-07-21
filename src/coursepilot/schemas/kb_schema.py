@@ -25,4 +25,3 @@ class KBSearchResult(BaseModel):
 
 class KBSearchResponse(BaseModel):
     results: list[KBSearchResult]
-
