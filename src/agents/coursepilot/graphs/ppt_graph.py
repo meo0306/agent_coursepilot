@@ -42,7 +42,12 @@ def should_repair(state: PPTGraphState) -> Literal["repair", "done"]:
     return "done"
 
 
-graph = StateGraph(PPTGraphState)
+graph = StateGraph[
+    PPTGraphState,
+    None,
+    PPTGraphState,
+    PPTGraphState,
+](PPTGraphState)
 graph.add_node("route", lambda state: {})
 graph.add_node("chat_response", chat_response)
 graph.add_node("generate_slide_outline", generate_slide_outline)

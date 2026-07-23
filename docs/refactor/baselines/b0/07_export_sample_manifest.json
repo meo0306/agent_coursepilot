@@ -1,0 +1,43 @@
+{
+  "contains_owner_sample_text": false,
+  "content_origin": "fixed_synthetic_fixture",
+  "files": [
+    {
+      "file_role": "lesson_docx",
+      "path": "export_samples/lesson_sample.docx",
+      "sha256": "820d8b42c11fef0702c442acad4ef82fc120eeccdfe26392eed173a3299caf5d",
+      "size_bytes": 36847
+    },
+    {
+      "file_role": "student_exam",
+      "path": "export_samples/student_exam_sample.docx",
+      "sha256": "6d299966d7807847d0f72c3d66e02894d874f7048a4b40264eb0a40c346139bf",
+      "size_bytes": 36752
+    },
+    {
+      "file_role": "teacher_answer",
+      "path": "export_samples/teacher_answer_sample.docx",
+      "sha256": "6d04b81a35a49c03ddf36b0a69b377577d465fa80aa6f09b6e8eca3b0b107679",
+      "size_bytes": 36750
+    },
+    {
+      "file_role": "detailed_explanation",
+      "path": "export_samples/explanation_sample.docx",
+      "sha256": "31f186cdbb4dfe0bdc8d993cb45f4af18715df8f3c5e94360285d66900c4fe69",
+      "size_bytes": 36805
+    },
+    {
+      "file_role": "answer_sheet",
+      "path": "export_samples/answer_sheet_sample.docx",
+      "sha256": "1dd4c96a195b94deba861de2ab33ef99b15fd0161d2d52967318eb8a2be50c21",
+      "size_bytes": 36678
+    },
+    {
+      "file_role": "pptx",
+      "path": "export_samples/ppt_sample.pptx",
+      "sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "size_bytes": 35689
+    }
+  ],
+  "schema_version": "coursepilot.p00.synthetic-export-manifest.v1"
+}

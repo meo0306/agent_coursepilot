@@ -140,6 +140,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.eval
 .python-version
 .venv
 env/
@@ -183,17 +184,34 @@ cython_debug/
 *.docx
 *.pdf
 
+# P00 local-only textbook fixtures (copyright/redistribution status unverified)
+/data/sample_files/*.docx
+/data/sample_files/*.pdf
+!docs/refactor/baselines/b0/export_samples/*.docx
+
+# Local environment snapshot supplied by the repository owner; never inspect or commit.
+/.env.origin
+
 # Chroma db
 *.db
 *.sqlite3
 *.bin
 chroma_db/*
 !chroma_db/.gitkeep
+chroma_db_eval/
 
 # CoursePilot runtime storage
 storage/*
 !storage/.gitkeep
+storage_eval/
 
 # Private Credentials, ignore everything in the folder but the .gitkeep file
 privatecredentials/*
 !privatecredentials/.gitkeep
+
+
+# other
+0722docs/
+improve_history
+PROJECT_LEARNING_NOTES.md
+workflow.mmd

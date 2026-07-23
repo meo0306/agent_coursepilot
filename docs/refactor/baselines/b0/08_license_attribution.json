@@ -1,0 +1,22 @@
+{
+  "follow_up_task": "Review package author/maintainer metadata in a later repository-packaging phase without removing the MIT notice or upstream attribution.",
+  "license": {
+    "copyright_notice": "Copyright (c) 2024 Joshua Carroll",
+    "path": "LICENSE",
+    "sha256": "15671b0a4f03704ae1875272fd812009c2bd17407acf086616559580a815d8a6",
+    "spdx": "MIT"
+  },
+  "p00_author_metadata_changed": false,
+  "package_authors": [
+    {
+      "email": "carroll.joshk@gmail.com",
+      "name": "Joshua Carroll"
+    }
+  ],
+  "readme_references": [
+    "README.md: MIT License",
+    "README.zh-CN.md: MIT License"
+  ],
+  "schema_version": "coursepilot.p00.license-attribution.v1",
+  "upstream_attribution_preserved": true
+}

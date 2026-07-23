@@ -163,11 +163,11 @@ class CoursePilotTaskWorker:
         if task.task_type == "build_kb":
             from coursepilot.services.kb_service import KnowledgeBaseService
 
-            result = KnowledgeBaseService(session).build_document(
+            build_result = KnowledgeBaseService(session).build_document(
                 str(payload["document_id"]),
                 task_id=task.id,
             )
-            if result is None:
+            if build_result is None:
                 raise ValueError("Document not found while executing build-kb task")
             return
         if task.task_type == "lesson_design":
@@ -191,22 +191,22 @@ class CoursePilotTaskWorker:
         if task.task_type == "exam_questions":
             from coursepilot.services.exam_service import ExamService
 
-            result = ExamService(session).generate_questions(
+            question_result = ExamService(session).generate_questions(
                 str(payload["blueprint_id"]),
                 task_id=task.id,
             )
-            if result is None:
+            if question_result is None:
                 raise ValueError("Exam blueprint not found while executing question task")
             return
         if task.task_type == "ppt_outline":
             from coursepilot.services.ppt_service import PPTService
 
-            result = PPTService(session).generate_outline(
+            ppt_result = PPTService(session).generate_outline(
                 str(payload["lesson_id"]),
                 PPTGenerationParams.model_validate(payload["params"]),
                 task_id=task.id,
             )
-            if result is None:
+            if ppt_result is None:
                 raise ValueError("Lesson not found while executing PPT task")
             return
         raise ValueError(f"Unsupported async task type: {task.task_type}")

@@ -1,0 +1,49 @@
+{
+  "baseline_commit": "eb9b3a6aa51348cf1fba0de7a21e5d073761939b",
+  "captured_on": "2026-07-23",
+  "document_set": "v1.0",
+  "execution_authority": "docs/refactor/frozen_v1.0",
+  "files": [
+    {
+      "path": "docs/refactor/frozen_v1.0/00_Document_Index_and_Decision_Baseline_v1.0.md",
+      "sha256": "834da2adc5a1e67c3a7e2368a4bbf9c58b6d0a61ce55d8e07dcdec2eb539f71b"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/01_CoursePilot_CourseRAG_Split_and_Refactor_Plan_v1.0.md",
+      "sha256": "b4e7164634901d98b91da2f37a89d54c6ff139d3e65dbeb268b50c787a819ff8"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/02_CourseRAG_PRD_v1.0.md",
+      "sha256": "7bc824958286da4db7daafdfcfb04191dbbb70860a8791b70814ff9b1e183a6d"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/03_CourseRAG_Evaluation_Dataset_and_Baseline_v1.0.md",
+      "sha256": "54caf6ea811095c3e911e7454dc47a9154dc2daddfe56862f6efed4a3c609510"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/03A_CourseRAG_Evaluation_Dataset_Construction_Guide_v1.0.md",
+      "sha256": "5f857d30646a138a2999926876c5add8ed6698283b9ead782a2dd82108c8bbdf"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/04_CourseRAG_Technical_Refactor_Plan_v1.0.md",
+      "sha256": "609181bbad9f1c7a99d3502ce996d5e9ac2fce3102c3d06d9e7e068d39452f49"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+      "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/06_CoursePilot_and_System_Evaluation_Plan_v1.0.md",
+      "sha256": "c1c25a549411569d0a88a3738f821971fad94f4904bf3c8e13dfa63fcd80fe9f"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+      "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+    },
+    {
+      "path": "docs/refactor/frozen_v1.0/08_Codex_Execution_Guide_and_Phase_Prompts_v1.0.md",
+      "sha256": "533a53d4078c3dd6643d1bc2859730b97a5c9033c3c758827b02621cdb3f15eb"
+    }
+  ],
+  "source_archives_are_non_authoritative": true
+}

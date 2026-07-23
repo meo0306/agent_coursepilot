@@ -55,7 +55,12 @@ def should_repair(state: LessonGraphState) -> Literal["repair", "done"]:
 
 
 # 构造
-graph = StateGraph(LessonGraphState)
+graph = StateGraph[
+    LessonGraphState,
+    None,
+    LessonGraphState,
+    LessonGraphState,
+](LessonGraphState)
 graph.add_node("route", lambda state: {})
 graph.add_node("chat_response", chat_response)
 graph.add_node("retrieve_course_context", retrieve_course_context)

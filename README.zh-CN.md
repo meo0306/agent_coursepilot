@@ -280,11 +280,26 @@ $env:PYTHONPATH='src'
 .\.venv\Scripts\python.exe -m coursepilot.evals.run_sample_eval --output storage\coursepilot_eval_report.json
 ```
 
+使用 `data/sample_files/` 中用户提供、内容不同且相互独立的一个 DOCX 和一个 PDF
+运行 P00 本地 B0 Smoke：
+
+```powershell
+$env:PYTHONPATH='src'
+uv run python -m coursepilot.evals.run_b0_smoke `
+  --sample-dir data/sample_files `
+  --output docs/refactor/baselines/b0/05_b0_smoke_report.json
+```
+
+B0 Runner 使用隔离的 SQLite/Chroma、deterministic 生成和 hashing embedding，不调用
+外部 Provider；报告只保存文件指纹与结构结果，不保存教材正文。检索 Probe 仅用于非 Gold
+连通性检查，不得作为质量指标发布。运行 gated 样例专项测试时设置
+`COURSEPILOT_RUN_B0_SAMPLE_SMOKE=1`。
+
 ### 真实 LLM 评测完整流程
 
 真实评测使用独立的 PostgreSQL database、`storage_eval/` 和 `chroma_db_eval/`，不会写入默认 demo 数据。评测依次执行课程创建、样例文件上传、知识库构建、检索测试、lesson/exam/PPT 生成与导出，最后汇总数据库、Chroma、引用、schema 和导出指标。
 
-知识库构建会对每个 chunk 调用真实 LLM 抽取知识点，并调用 ModelScope embedding。27MB 样例教材可能产生数百个 chunk 和数百次模型调用。开始前应确认模型账户余额、限流和预计成本；不要用真实评测命令做连通性 smoke test。
+知识库构建会对每个 chunk 调用真实 LLM 抽取知识点，并调用显式配置的 embedding Provider。大型样例教材可能产生数百个 chunk 和数百次模型调用。开始前应确认模型账户余额、限流和预计成本；不要用真实评测命令做连通性 smoke test。
 
 #### 1. 准备评测配置
 
@@ -311,11 +326,11 @@ COURSEPILOT_GENERATION_MODE=llm
 COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK=true
 COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE=llm
 
-# ModelScope embedding
+# OpenAI-compatible embedding endpoint
 COURSEPILOT_EMBEDDING_PROVIDER=openai-compatible
-COURSEPILOT_EMBEDDING_MODEL=Qwen/Qwen3-Embedding-0.6B
-COURSEPILOT_EMBEDDING_BASE_URL=https://api-inference.modelscope.cn/v1/
-COURSEPILOT_EMBEDDING_API_KEY=your-modelscope-api-key
+COURSEPILOT_EMBEDDING_MODEL=your-embedding-model
+COURSEPILOT_EMBEDDING_BASE_URL=https://your-embedding-endpoint/v1/
+COURSEPILOT_EMBEDDING_API_KEY=your-embedding-api-key
 
 # 数据库异步任务 worker
 COURSEPILOT_ASYNC_WORKER_ENABLED=true
@@ -382,7 +397,7 @@ Invoke-RestMethod http://localhost:8080/health
 (Invoke-WebRequest -UseBasicParsing http://localhost:8501/_stcore/health).Content
 ```
 
-以下命令只打印非敏感配置，用于确认容器实际加载了真实 LLM、ModelScope embedding、严格 fallback 和异步 worker 设置：
+以下命令只打印非敏感配置，用于确认容器实际加载了真实 LLM、配置的 embedding Provider、严格 fallback 和异步 worker 设置：
 
 ```powershell
 docker compose @composeArgs exec -T agent_service python -c "from core.settings import settings as s; print({'generation_mode': s.COURSEPILOT_GENERATION_MODE, 'fallback_disabled': s.COURSEPILOT_DISABLE_DETERMINISTIC_FALLBACK, 'knowledge_points_mode': s.COURSEPILOT_RAG_KNOWLEDGE_POINTS_MODE, 'embedding_provider': s.COURSEPILOT_EMBEDDING_PROVIDER, 'embedding_model': s.COURSEPILOT_EMBEDDING_MODEL, 'embedding_base_url': str(s.COURSEPILOT_EMBEDDING_BASE_URL), 'embedding_key_configured': bool(s.COURSEPILOT_EMBEDDING_API_KEY), 'fake_model': s.USE_FAKE_MODEL, 'default_model': str(s.DEFAULT_MODEL), 'async_worker': s.COURSEPILOT_ASYNC_WORKER_ENABLED})"
@@ -603,7 +618,7 @@ Remove-Item -Recurse -Force chroma_db_eval
 - `400 ... validation failed`：这是生成结果校验失败，不是请求时限太短；检查任务的 `validation_report_json` 和模型输出。
 - `checkpoint already exists`：继续原评测使用 `--resume`；新评测使用新文件名；只有放弃旧恢复点时才使用 `--overwrite-checkpoint`。
 - `fingerprint does not match`：检查模型、endpoint、样例和目录是否变化；通常应开始新评测，不要默认使用 `--force-resume`。
-- ModelScope embedding 返回认证、限流或模型错误：修复 `.env.eval`，执行 `docker compose @composeArgs up -d --force-recreate --wait agent_service` 重新加载环境变量，确认健康后再 `--resume`。
+- embedding Provider 返回认证、限流或模型错误：修复 `.env.eval`，执行 `docker compose @composeArgs up -d --force-recreate --wait agent_service` 重新加载环境变量，确认健康后再 `--resume`。
 
 真实 LLM integration test 默认跳过。只有配置好兼容模型 endpoint 和 API key 后，才建议显式开启；它与上述完整真实评测不是同一个命令。
 

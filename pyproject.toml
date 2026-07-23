@@ -71,8 +71,11 @@ target-version = "py311"
 extend-select = ["I", "U"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = [".", "src"]
 asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "b0_sample_files: gated P00 smoke using local, owner-supplied DOCX/PDF inputs",
+]
 
 [tool.pytest_env]
 OPENAI_API_KEY = "sk-fake-openai-key"

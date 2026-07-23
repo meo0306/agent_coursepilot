@@ -1,0 +1,17 @@
+# Risk Register
+
+| ID | Phase | Risk | Probability | Impact | Mitigation | Owner | Status |
+|---|---|---|---|---|---|---|---|
+| P00-R01 | P00 | Dirty worktree changes are overwritten or misattributed | medium | high | Capture status before/after; patch only approved files; do not clean, commit, or reset | P00 executor | mitigated |
+| P00-R02 | P00 | `.env.origin` or other secrets enter Git, logs, or B0 artifacts | medium | critical | Do not read the file; add a precise ignore rule; inventory names only; run secret scan | P00 executor | mitigated |
+| P00-R03 | P00 | Local textbook files are redistributed without verified rights | medium | high | Ignore binaries; record hashes and minimal metadata only; do not copy or quote content | Repository owner | open |
+| P00-R04 | P00/P02 | Historical retrieval Gold was inferred from Top-K | confirmed | high | Label metrics invalid for quality claims; preserve only engineering evidence; resolve formal Gold in P02 | Evaluation owner | open |
+| P00-R05 | P00 | PDF requires OCR unsupported by the current parser | medium | medium | Current PDF built 47 chunks without OCR changes; retain OCR routing work for P05 | CourseRAG owner | closed_for_B0_input |
+| P00-R06 | P00 | Full textbook build is slow or resource-intensive | medium | medium | Isolated run completed both builds in under 2 seconds total; keep gated execution for future larger inputs | P00 executor | mitigated |
+| P00-R07 | P00 | Eight known Mypy errors in task/eval code prevent a clean full gate | confirmed | high | Applied behavior-preserving variable narrowing and typed retrieval definitions; focused and full runtime tests pass | CoursePilot owner | resolved |
+| P00-R08 | P00/P11 | Provider model/capability defaults are embedded in eval/runtime configuration | confirmed | high | Eval Compose model default removed; runtime reasoning/capability work remains assigned to P11 | Model gateway owner | partially_mitigated |
+| P00-R09 | P00 | Test database/vector cleanup damages existing data | low | critical | Used temporary SQLite/Chroma and unique courses; stopped Chroma before cleanup; never targeted legacy collections | P00 executor | mitigated |
+| P00-R10 | P00 | Relocated Windows `.venv` launchers and the `uv run alembic` trampoline are unreliable | confirmed | medium | Use `uv run` for required checks and `uv run python -m alembic` for migrations; rebuild `.venv` later if direct launcher compatibility is required | Repository owner | open |
+| P00-R11 | P00 | Full Pytest console entrypoint cannot import `tests.coursepilot` without repository root on `pythonpath` | confirmed | medium | Added `.` to Pytest-only `pythonpath`; full exact command now passes | P00 executor | resolved |
+| P00-R12 | P00 | Agent registry and HTTP prompt entrypoint have an unresolved LangGraph input type contract | confirmed | high | Propagated exact State/Input/Output types for all three Graphs and narrowed the registry union; Prompt/Graph/B0 tests and full Mypy pass without suppression | CoursePilot owner | resolved |
+| P00-R13 | P00/P02 | Historical real-eval Fallback evidence covers only three recorded generation tasks and cannot establish complete-workflow zero Fallback | confirmed | high | Keep historical `strict_fallback_passed` unset and prohibit Fallback claims; the repaired Runner checkpoints all four expected task IDs, queries all four generation task types for the isolated evaluation course, fails on DB/coverage/usage gaps, and requires a future real run for new evidence | Evaluation owner | historical_unverified |

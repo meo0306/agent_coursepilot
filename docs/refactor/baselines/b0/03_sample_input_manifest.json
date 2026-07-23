@@ -1,0 +1,26 @@
+{
+  "baseline_commit": "eb9b3a6aa51348cf1fba0de7a21e5d073761939b",
+  "captured_at": "2026-07-23T06:48:56.455811+00:00",
+  "declared_relationship": "independent_documents_with_different_content",
+  "gold_status": "not_gold",
+  "inputs": [
+    {
+      "approval_status": "candidate_not_approved",
+      "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "path": "data/sample_files/教材-人工智能：从算法到系统.docx",
+      "redistribution_status": "local_only_unverified",
+      "sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "size_bytes": 27288237
+    },
+    {
+      "approval_status": "candidate_not_approved",
+      "media_type": "application/pdf",
+      "path": "data/sample_files/人工智能通识教程.pdf",
+      "redistribution_status": "local_only_unverified",
+      "sha256": "15344771664d40cf190be7790be3d266eb94a2798a4c2608fcf4d1ffa8fd231d",
+      "size_bytes": 2889768
+    }
+  ],
+  "schema_version": "coursepilot.p00.sample-input-manifest.v1",
+  "source_text_included": false
+}

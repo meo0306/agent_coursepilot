@@ -1,0 +1,3647 @@
+{
+  "baseline_commit": "eb9b3a6aa51348cf1fba0de7a21e5d073761939b",
+  "behavior_changed": false,
+  "graphs": [
+    {
+      "edges": [
+        {
+          "conditional": false,
+          "source": "__start__",
+          "target": "route"
+        },
+        {
+          "conditional": false,
+          "source": "chat_response",
+          "target": "__end__"
+        },
+        {
+          "conditional": false,
+          "source": "extract_knowledge_points",
+          "target": "plan_sessions"
+        },
+        {
+          "conditional": false,
+          "source": "generate_lesson_design",
+          "target": "validate_lesson_design"
+        },
+        {
+          "conditional": false,
+          "source": "plan_sessions",
+          "target": "generate_lesson_design"
+        },
+        {
+          "conditional": false,
+          "source": "reflect_and_revise",
+          "target": "validate_lesson_design"
+        },
+        {
+          "conditional": false,
+          "source": "retrieve_course_context",
+          "target": "extract_knowledge_points"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "chat_response"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "retrieve_course_context"
+        },
+        {
+          "conditional": true,
+          "source": "validate_lesson_design",
+          "target": "__end__"
+        },
+        {
+          "conditional": true,
+          "source": "validate_lesson_design",
+          "target": "reflect_and_revise"
+        }
+      ],
+      "name": "coursepilot_lesson_agent",
+      "nodes": [
+        "__end__",
+        "__start__",
+        "chat_response",
+        "extract_knowledge_points",
+        "generate_lesson_design",
+        "plan_sessions",
+        "reflect_and_revise",
+        "retrieve_course_context",
+        "route",
+        "validate_lesson_design"
+      ]
+    },
+    {
+      "edges": [
+        {
+          "conditional": false,
+          "source": "__start__",
+          "target": "route"
+        },
+        {
+          "conditional": false,
+          "source": "chat_response",
+          "target": "__end__"
+        },
+        {
+          "conditional": false,
+          "source": "generate_exam_questions",
+          "target": "validate_exam_questions"
+        },
+        {
+          "conditional": true,
+          "source": "plan_exam_blueprint",
+          "target": "__end__"
+        },
+        {
+          "conditional": true,
+          "source": "plan_exam_blueprint",
+          "target": "generate_exam_questions"
+        },
+        {
+          "conditional": false,
+          "source": "repair_exam_questions",
+          "target": "validate_exam_questions"
+        },
+        {
+          "conditional": false,
+          "source": "retrieve_course_context",
+          "target": "plan_exam_blueprint"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "chat_response"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "generate_exam_questions"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "retrieve_course_context"
+        },
+        {
+          "conditional": true,
+          "source": "validate_exam_questions",
+          "target": "__end__"
+        },
+        {
+          "conditional": true,
+          "source": "validate_exam_questions",
+          "target": "repair_exam_questions"
+        }
+      ],
+      "name": "coursepilot_exam_agent",
+      "nodes": [
+        "__end__",
+        "__start__",
+        "chat_response",
+        "generate_exam_questions",
+        "plan_exam_blueprint",
+        "repair_exam_questions",
+        "retrieve_course_context",
+        "route",
+        "validate_exam_questions"
+      ]
+    },
+    {
+      "edges": [
+        {
+          "conditional": false,
+          "source": "__start__",
+          "target": "route"
+        },
+        {
+          "conditional": false,
+          "source": "chat_response",
+          "target": "__end__"
+        },
+        {
+          "conditional": false,
+          "source": "generate_slide_outline",
+          "target": "validate_slide_outline"
+        },
+        {
+          "conditional": false,
+          "source": "repair_slide_outline",
+          "target": "validate_slide_outline"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "chat_response"
+        },
+        {
+          "conditional": true,
+          "source": "route",
+          "target": "generate_slide_outline"
+        },
+        {
+          "conditional": true,
+          "source": "validate_slide_outline",
+          "target": "__end__"
+        },
+        {
+          "conditional": true,
+          "source": "validate_slide_outline",
+          "target": "repair_slide_outline"
+        }
+      ],
+      "name": "coursepilot_ppt_agent",
+      "nodes": [
+        "__end__",
+        "__start__",
+        "chat_response",
+        "generate_slide_outline",
+        "repair_slide_outline",
+        "route",
+        "validate_slide_outline"
+      ]
+    }
+  ],
+  "orm": {
+    "table_count": 11,
+    "tables": [
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_documents.id"
+            ],
+            "name": "document_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "source_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(100)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "chapter",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "section",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "page",
+            "nullable": true,
+            "primary_key": false,
+            "type": "INTEGER",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "title",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(512)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "content_preview",
+            "nullable": false,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "knowledge_points_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "verified",
+            "nullable": false,
+            "primary_key": false,
+            "type": "BOOLEAN",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "chroma_collection",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "chroma_doc_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_chunks"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "course_name",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "course_type",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(100)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "student_level",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(100)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "student_background",
+            "nullable": true,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "description",
+            "nullable": true,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_courses"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_name",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(512)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_path",
+            "nullable": false,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "source_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(100)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "parse_status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "error_message",
+            "nullable": true,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_documents"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_generation_tasks.id"
+            ],
+            "name": "task_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "chapter_range",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "blueprint_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_exam_blueprints"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_generation_tasks.id"
+            ],
+            "name": "task_id",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_name",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(512)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_path",
+            "nullable": false,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "file_role",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(100)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_export_files"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "task_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(50)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "input_params_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "intermediate_outputs_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "validation_report_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "result_json",
+            "nullable": true,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "error_message",
+            "nullable": true,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "attempt_count",
+            "nullable": false,
+            "primary_key": false,
+            "type": "INTEGER",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "worker_id",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(64)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "locked_until",
+            "nullable": true,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "started_at",
+            "nullable": true,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "completed_at",
+            "nullable": true,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_generation_tasks"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "operation",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(100)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "idempotency_key",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "request_hash",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(64)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "attempt_count",
+            "nullable": false,
+            "primary_key": false,
+            "type": "INTEGER",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "response_status",
+            "nullable": true,
+            "primary_key": false,
+            "type": "INTEGER",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "response_json",
+            "nullable": true,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "resource_type",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(64)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "resource_id",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(64)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "error_message",
+            "nullable": true,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "locked_until",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "PrimaryKeyConstraint",
+          "UniqueConstraint"
+        ],
+        "name": "coursepilot_idempotency_records"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_generation_tasks.id"
+            ],
+            "name": "task_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "chapter",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "total_sessions",
+            "nullable": false,
+            "primary_key": false,
+            "type": "INTEGER",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "content_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "validation_report_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_lesson_designs"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_exam_blueprints.id"
+            ],
+            "name": "exam_blueprint_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "question_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(50)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "knowledge_point",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(255)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "difficulty",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "score",
+            "nullable": false,
+            "primary_key": false,
+            "type": "INTEGER",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "question_text",
+            "nullable": false,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "options_json",
+            "nullable": true,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "correct_answer",
+            "nullable": false,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "explanation",
+            "nullable": false,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "references_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_questions"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "target_type",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(64)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "target_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "review_status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "comment",
+            "nullable": true,
+            "primary_key": false,
+            "type": "TEXT",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "write_back_status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_review_records"
+      },
+      {
+        "columns": [
+          {
+            "foreign_keys": [],
+            "name": "id",
+            "nullable": false,
+            "primary_key": true,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_courses.id"
+            ],
+            "name": "course_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_generation_tasks.id"
+            ],
+            "name": "task_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_lesson_designs.id"
+            ],
+            "name": "lesson_design_id",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "status",
+            "nullable": false,
+            "primary_key": false,
+            "type": "VARCHAR(32)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "outline_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "validation_report_json",
+            "nullable": false,
+            "primary_key": false,
+            "type": "JSON",
+            "unique": false
+          },
+          {
+            "foreign_keys": [
+              "coursepilot_export_files.id"
+            ],
+            "name": "pptx_file_id",
+            "nullable": true,
+            "primary_key": false,
+            "type": "VARCHAR(36)",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "created_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          },
+          {
+            "foreign_keys": [],
+            "name": "updated_at",
+            "nullable": false,
+            "primary_key": false,
+            "type": "DATETIME",
+            "unique": false
+          }
+        ],
+        "constraints": [
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "ForeignKeyConstraint",
+          "PrimaryKeyConstraint"
+        ],
+        "name": "coursepilot_slide_outlines"
+      }
+    ]
+  },
+  "prompts": {
+    "prompt_count": 14,
+    "prompts": [
+      {
+        "effective_prompt_sha256": "fecc79902ecffb46474c6d76c57ca76422a1545a59d8409f8266dbfbe1ff7a5d",
+        "file_sha256": "baa67d2359f18c0f1821221b53b95a8dc6285a52d91d3f88fdd94c8d16bae450",
+        "name": "exam/generate_judgement",
+        "path": "src/coursepilot/prompts/exam/generate_judgement.md"
+      },
+      {
+        "effective_prompt_sha256": "c560295707ee7bd0188a741b4ce06975728cd2bc5e6373d5c6cd380cb0d1d6f7",
+        "file_sha256": "694b3acefa2ce038994c3d758ac72dce405ce85030740f67ed92499627d417a2",
+        "name": "exam/generate_multiple_choice",
+        "path": "src/coursepilot/prompts/exam/generate_multiple_choice.md"
+      },
+      {
+        "effective_prompt_sha256": "e2af2595d5d1cef8db9b74c2c06f250344ba123cda51d9a97e521a0f45f4e4bd",
+        "file_sha256": "f4e0156ffe57e47ff477eeeeb7e1cc5174a8b754ee87810cd86a2052c607d578",
+        "name": "exam/generate_short_answer",
+        "path": "src/coursepilot/prompts/exam/generate_short_answer.md"
+      },
+      {
+        "effective_prompt_sha256": "b777d152d2afe22f2abf94ef9661cb7608986adf467960e65a3fb3472cc9ca19",
+        "file_sha256": "290f019c788458c9bbd4a9a09a5d46ce2ec5e373b29d9e94db81c532efaa89c7",
+        "name": "exam/generate_single_choice",
+        "path": "src/coursepilot/prompts/exam/generate_single_choice.md"
+      },
+      {
+        "effective_prompt_sha256": "f6966039583039a5dd893bb7e1448cce5c00ea618f026611ef408428111678f2",
+        "file_sha256": "c748a1272944cfe226544d2bc79773e98f8033a3214199a0d4b383ad0304dbd6",
+        "name": "exam/plan_exam_blueprint",
+        "path": "src/coursepilot/prompts/exam/plan_exam_blueprint.md"
+      },
+      {
+        "effective_prompt_sha256": "f5ea4d794c8818b5b13a91c85c10ae1c7c4ec24206efc41713d00c236a91264b",
+        "file_sha256": "94669718525f9ea0b58399e7c549fcc3c5ffd18768c290dbcbd8d3ff7f70b098",
+        "name": "lesson/extract_knowledge_points",
+        "path": "src/coursepilot/prompts/lesson/extract_knowledge_points.md"
+      },
+      {
+        "effective_prompt_sha256": "4d7df75437557760ba76dedeaff22c5ddc8f859f07e47c581ead2b0cad06df58",
+        "file_sha256": "cf89280ea41412d08b8165757e10d48ae61772bebb20701d218ef5ebd6c75fe2",
+        "name": "lesson/generate_lesson_design",
+        "path": "src/coursepilot/prompts/lesson/generate_lesson_design.md"
+      },
+      {
+        "effective_prompt_sha256": "10f0de34769d60bf671eb47f184bd07b8fb779a5834f89c8bab73da8c2cf51b6",
+        "file_sha256": "08f733019311bb3fcddfcf7bc95be5395e922ce477b19ef169ea54c57ec1e816",
+        "name": "lesson/plan_sessions",
+        "path": "src/coursepilot/prompts/lesson/plan_sessions.md"
+      },
+      {
+        "effective_prompt_sha256": "f1a00fcb287392f416a84312848ddae91d11bc3f5fe7eb203e68c09fab793a69",
+        "file_sha256": "5b0941993db35cfa5479c764e63a6238d375fa45d9889d7037c3df7beb4c64a7",
+        "name": "lesson/revise_lesson_design",
+        "path": "src/coursepilot/prompts/lesson/revise_lesson_design.md"
+      },
+      {
+        "effective_prompt_sha256": "c5d654527081a6227b96c1aee636613620d23899e35da9a18a1fe47834f22003",
+        "file_sha256": "29f79055a1f927bccb21aa14ace3b1703494d74d3ade801c296ade5c4f4f84c2",
+        "name": "ppt/generate_slide_outline",
+        "path": "src/coursepilot/prompts/ppt/generate_slide_outline.md"
+      },
+      {
+        "effective_prompt_sha256": "ff80605f8cc6f1783744c7ebd92f2f1f81b2e85fb1855f619cfd527a3efa921a",
+        "file_sha256": "74c11cacf97a10d190ec2639ce76a0d7b08a83a369ffbc5a876ef8580ceedb9d",
+        "name": "ppt/repair_slide_outline",
+        "path": "src/coursepilot/prompts/ppt/repair_slide_outline.md"
+      },
+      {
+        "effective_prompt_sha256": "e041012d228337d994ba81c2be1c77347b154df722eb98547beb9b7aa550aad1",
+        "file_sha256": "380df33ef8ef1c20f09e9d134c0a29440430f4cbca7568472d52e70566a5938a",
+        "name": "rag/extract_knowledge_points",
+        "path": "src/coursepilot/prompts/rag/extract_knowledge_points.md"
+      },
+      {
+        "effective_prompt_sha256": "c3d9b8438907517f6804969279c4250a2720875ad465267070b6a7ef162d0ce2",
+        "file_sha256": "31a40e17c57ffe62e4c51d9c68473aca9dd27d81005d2eb00dc9df122b16e294",
+        "name": "repair/fix_json",
+        "path": "src/coursepilot/prompts/repair/fix_json.md"
+      },
+      {
+        "effective_prompt_sha256": "86afc4733a8cdcc7f1313297ed7ab2fe6358a5d23a5348acffe83b450c799341",
+        "file_sha256": "9bc1736352346e2fbf0c46e9183e55a18b109888499fe5012f816064690c5795",
+        "name": "repair/regenerate_missing_questions",
+        "path": "src/coursepilot/prompts/repair/regenerate_missing_questions.md"
+      }
+    ]
+  },
+  "public_api": {
+    "coursepilot_route_count": 27,
+    "route_count": 38,
+    "routes": [
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "list_courses",
+        "path": "/api/coursepilot/courses",
+        "response_model": "list[coursepilot.schemas.course_schema.CourseRead]"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "create_course",
+        "path": "/api/coursepilot/courses",
+        "response_model": "coursepilot.schemas.course_schema.CourseRead"
+      },
+      {
+        "methods": [
+          "DELETE"
+        ],
+        "name": "delete_course",
+        "path": "/api/coursepilot/courses/{course_id}",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "get_course",
+        "path": "/api/coursepilot/courses/{course_id}",
+        "response_model": "coursepilot.schemas.course_schema.CourseRead"
+      },
+      {
+        "methods": [
+          "PUT"
+        ],
+        "name": "update_course",
+        "path": "/api/coursepilot/courses/{course_id}",
+        "response_model": "coursepilot.schemas.course_schema.CourseRead"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "list_documents",
+        "path": "/api/coursepilot/courses/{course_id}/documents",
+        "response_model": "list[coursepilot.schemas.document_schema.DocumentRead]"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "upload_document",
+        "path": "/api/coursepilot/courses/{course_id}/documents/upload",
+        "response_model": "coursepilot.schemas.document_schema.DocumentRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "create_exam_blueprint",
+        "path": "/api/coursepilot/courses/{course_id}/exams/blueprint",
+        "response_model": "coursepilot.schemas.task_schema.AsyncTaskAccepted"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "search_kb",
+        "path": "/api/coursepilot/courses/{course_id}/kb/search",
+        "response_model": "coursepilot.schemas.kb_schema.KBSearchResponse"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "generate_lesson",
+        "path": "/api/coursepilot/courses/{course_id}/lessons/generate",
+        "response_model": "coursepilot.schemas.task_schema.AsyncTaskAccepted"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "build_document_kb",
+        "path": "/api/coursepilot/documents/{document_id}/build-kb",
+        "response_model": "coursepilot.schemas.task_schema.AsyncTaskAccepted"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "get_exam_blueprint",
+        "path": "/api/coursepilot/exams/{blueprint_id}",
+        "response_model": "coursepilot.schemas.exam_schema.ExamBlueprintRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "confirm_exam_blueprint",
+        "path": "/api/coursepilot/exams/{blueprint_id}/confirm",
+        "response_model": "coursepilot.schemas.exam_schema.ExamBlueprintRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "export_exam_files",
+        "path": "/api/coursepilot/exams/{blueprint_id}/export",
+        "response_model": "coursepilot.schemas.exam_schema.ExamExportResponse"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "generate_exam_questions",
+        "path": "/api/coursepilot/exams/{blueprint_id}/generate",
+        "response_model": "coursepilot.schemas.task_schema.AsyncTaskAccepted"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "list_exam_questions",
+        "path": "/api/coursepilot/exams/{blueprint_id}/questions",
+        "response_model": "list[coursepilot.schemas.question_schema.QuestionRead]"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "get_file",
+        "path": "/api/coursepilot/files/{file_id}",
+        "response_model": "coursepilot.schemas.lesson_schema.ExportFileRead"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "download_file",
+        "path": "/api/coursepilot/files/{file_id}/download",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "get_lesson",
+        "path": "/api/coursepilot/lessons/{lesson_id}",
+        "response_model": "coursepilot.schemas.lesson_schema.LessonDesignRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "export_lesson",
+        "path": "/api/coursepilot/lessons/{lesson_id}/export",
+        "response_model": "coursepilot.schemas.lesson_schema.ExportFileRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "generate_ppt_outline",
+        "path": "/api/coursepilot/lessons/{lesson_id}/ppt/generate",
+        "response_model": "coursepilot.schemas.task_schema.AsyncTaskAccepted"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "revise_lesson",
+        "path": "/api/coursepilot/lessons/{lesson_id}/revise",
+        "response_model": "coursepilot.schemas.lesson_schema.LessonRevisionResponse"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "get_ppt_outline",
+        "path": "/api/coursepilot/ppt/{outline_id}",
+        "response_model": "coursepilot.schemas.ppt_schema.SlideOutlineRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "export_ppt",
+        "path": "/api/coursepilot/ppt/{outline_id}/export",
+        "response_model": "coursepilot.schemas.ppt_schema.PPTExportResponse"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "create_review",
+        "path": "/api/coursepilot/reviews",
+        "response_model": "coursepilot.schemas.review_schema.ReviewRead"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "write_back_review",
+        "path": "/api/coursepilot/reviews/{review_id}/write-back",
+        "response_model": "coursepilot.schemas.review_schema.ReviewWriteBackResponse"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "get_async_task",
+        "path": "/api/coursepilot/tasks/{task_id}",
+        "response_model": "coursepilot.schemas.task_schema.AsyncTaskRead"
+      },
+      {
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "name": "swagger_ui_html",
+        "path": "/docs",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "name": "swagger_ui_redirect",
+        "path": "/docs/oauth2-redirect",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "health_check",
+        "path": "/health",
+        "response_model": "dict[str, str]"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "history",
+        "path": "/history",
+        "response_model": "schema.schema.ChatHistory"
+      },
+      {
+        "methods": [
+          "GET"
+        ],
+        "name": "info",
+        "path": "/info",
+        "response_model": "schema.schema.ServiceMetadata"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "invoke",
+        "path": "/invoke",
+        "response_model": "schema.schema.ChatMessage"
+      },
+      {
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "name": "openapi",
+        "path": "/openapi.json",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "name": "redoc_html",
+        "path": "/redoc",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "stream",
+        "path": "/stream",
+        "response_model": "None"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "invoke",
+        "path": "/{agent_id}/invoke",
+        "response_model": "schema.schema.ChatMessage"
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "name": "stream",
+        "path": "/{agent_id}/stream",
+        "response_model": "None"
+      }
+    ]
+  },
+  "pydantic_schemas": {
+    "schema_count": 52,
+    "schemas": [
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "course_name",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "course_type",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_level",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_background",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "description",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.course_schema",
+        "name": "CourseCreate"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_name",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "course_type",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_level",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_background",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "description",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.course_schema",
+        "name": "CourseRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "str | None",
+            "name": "course_name",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "course_type",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_level",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_background",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "description",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.course_schema",
+        "name": "CourseUpdate"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "document_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "parse_status",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "chunk_count",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "error_message",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.document_schema",
+        "name": "DocumentBuildResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_path",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "source_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "parse_status",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "error_message",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.document_schema",
+        "name": "DocumentRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "course_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "chapter_range",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "generation_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "total_score",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.exam_schema.QuestionGroupPlan]",
+            "name": "question_groups",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "knowledge_points",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.kb_schema.KBSearchResult]",
+            "name": "retrieved_contexts",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamBlueprintContent"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "course_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "chapter_range",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "generation_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "total_score",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.exam_schema.QuestionGroupPlan]",
+            "name": "question_groups",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "knowledge_points",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamBlueprintLLMOutput"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "chapter_range",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "builtins.dict",
+            "name": "blueprint_json",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamBlueprintRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "blueprint_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.exam_schema.ExamBlueprintContent",
+            "name": "blueprint",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamBlueprintResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "blueprint_id",
+            "required": true
+          },
+          {
+            "annotation": "list[dict]",
+            "name": "files",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamExportResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "chapter_range",
+            "required": true
+          },
+          {
+            "annotation": "typing.Literal['homework', 'exam']",
+            "name": "generation_type",
+            "required": false
+          },
+          {
+            "annotation": "int | None",
+            "name": "total_score",
+            "required": false
+          },
+          {
+            "annotation": "dict[typing.Literal['single_choice', 'multiple_choice', 'judgement', 'short_answer'], int]",
+            "name": "question_counts",
+            "required": false
+          },
+          {
+            "annotation": "dict[typing.Literal['single_choice', 'multiple_choice', 'judgement', 'short_answer'], int]",
+            "name": "score_per_question",
+            "required": false
+          },
+          {
+            "annotation": "dict[str, float]",
+            "name": "difficulty_distribution",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "include_answer",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "include_explanation",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "include_answer_sheet",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "additional_requirements",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamGenerationParams"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.bool",
+            "name": "schema_valid",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "question_count_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "score_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "option_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "answer_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "explanation_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "knowledge_coverage_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "citation_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "duplicate_valid",
+            "required": false
+          },
+          {
+            "annotation": "builtins.float",
+            "name": "duplicate_rate",
+            "required": false
+          },
+          {
+            "annotation": "list[tuple[int, int]]",
+            "name": "duplicate_questions",
+            "required": false
+          },
+          {
+            "annotation": "list[str]",
+            "name": "errors",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "repair_attempts",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "ExamValidationReport"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "blueprint_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.question_schema.QuestionItem]",
+            "name": "questions",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.exam_schema.ExamValidationReport",
+            "name": "validation_report",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "QuestionGenerationResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "typing.Literal['single_choice', 'multiple_choice', 'judgement', 'short_answer']",
+            "name": "question_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "count",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "score_each",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "total_score",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "knowledge_points",
+            "required": false
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "difficulty",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.exam_schema",
+        "name": "QuestionGroupPlan"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "query",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "chapter",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "source_type",
+            "required": false
+          },
+          {
+            "annotation": "bool | None",
+            "name": "verified_only",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "top_k",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.kb_schema",
+        "name": "KBSearchRequest"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "list[coursepilot.schemas.kb_schema.KBSearchResult]",
+            "name": "results",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.kb_schema",
+        "name": "KBSearchResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "chunk_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "document_id",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "source_type",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "chapter",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "section",
+            "required": false
+          },
+          {
+            "annotation": "int | None",
+            "name": "page",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "title",
+            "required": false
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "content",
+            "required": true
+          },
+          {
+            "annotation": "builtins.float",
+            "name": "score",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "verified",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.kb_schema",
+        "name": "KBSearchResult"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_path",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_role",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "ExportFileRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "course_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "chapter",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "total_sessions",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "session_duration",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.kb_schema.KBSearchResult]",
+            "name": "retrieved_contexts",
+            "required": false
+          },
+          {
+            "annotation": "list[str]",
+            "name": "knowledge_points",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.SessionPlan]",
+            "name": "session_plan",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.LessonSession]",
+            "name": "sessions",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonDesignContent"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "chapter",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "total_sessions",
+            "required": true
+          },
+          {
+            "annotation": "builtins.dict",
+            "name": "content_json",
+            "required": true
+          },
+          {
+            "annotation": "builtins.dict",
+            "name": "validation_report_json",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonDesignRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "chapter_range",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "total_sessions",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "session_duration",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_level",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "student_background",
+            "required": false
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "teaching_template",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "teaching_focus",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "include_interaction",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "include_homework",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "additional_requirements",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonGenerationParams"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "lesson_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.lesson_schema.LessonDesignContent",
+            "name": "lesson_design",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.lesson_schema.LessonValidationReport",
+            "name": "validation_report",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonGenerationResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "target_scope",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "feedback_text",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "keep_unchanged_parts",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonRevisionRequest"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "lesson_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "modification_summary",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.lesson_schema.LessonDesignContent",
+            "name": "lesson_design",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.lesson_schema.LessonValidationReport",
+            "name": "validation_report",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonRevisionResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.int",
+            "name": "session_index",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "session_title",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "teaching_objectives",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "key_points",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "difficult_points",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.TeachingProcessItem]",
+            "name": "teaching_process",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "interaction_design",
+            "required": false
+          },
+          {
+            "annotation": "list[str]",
+            "name": "blackboard_or_slide_suggestions",
+            "required": false
+          },
+          {
+            "annotation": "list[str]",
+            "name": "homework_suggestion",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.Reference]",
+            "name": "references",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonSession"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.bool",
+            "name": "schema_valid",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "session_count_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "time_allocation_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "required_fields_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "knowledge_coverage_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "citation_valid",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "errors",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "repair_attempts",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "LessonValidationReport"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "chunk_id",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "source_type",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "chapter",
+            "required": false
+          },
+          {
+            "annotation": "int | None",
+            "name": "page",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "Reference"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.int",
+            "name": "session_index",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "session_title",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "duration",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "knowledge_points",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "teaching_focus",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "difficulty_points",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.TimeAllocation]",
+            "name": "time_allocation",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "SessionPlan"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "stage",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "minutes",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "content",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "TeachingProcessItem"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "activity",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "minutes",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.lesson_schema",
+        "name": "TimeAllocation"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "outline_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_path",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "file_role",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "PPTExportResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "int | None",
+            "name": "slide_count",
+            "required": false
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "style_template",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "include_references",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "additional_requirements",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "PPTGenerationParams"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "outline_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.ppt_schema.SlideOutlineContent",
+            "name": "outline",
+            "required": true
+          },
+          {
+            "annotation": "coursepilot.schemas.ppt_schema.SlideValidationReport",
+            "name": "validation_report",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "PPTGenerationResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.int",
+            "name": "slide_index",
+            "required": true
+          },
+          {
+            "annotation": "typing.Literal['title', 'objectives', 'content', 'activity', 'summary', 'references']",
+            "name": "slide_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "title",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "bullet_points",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "speaker_notes",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.Reference]",
+            "name": "references",
+            "required": false
+          },
+          {
+            "annotation": "int | None",
+            "name": "source_session_index",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "SlideItem"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "course_name",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "chapter",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "lesson_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "style_template",
+            "required": false
+          },
+          {
+            "annotation": "list[coursepilot.schemas.ppt_schema.SlideItem]",
+            "name": "slides",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "SlideOutlineContent"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "lesson_design_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "builtins.dict",
+            "name": "outline_json",
+            "required": true
+          },
+          {
+            "annotation": "builtins.dict",
+            "name": "validation_report_json",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "pptx_file_id",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "SlideOutlineRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.bool",
+            "name": "schema_valid",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "slide_count_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "slide_type_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "content_not_empty",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "source_session_valid",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "citation_present",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "citation_grounded",
+            "required": true
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "citation_valid",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "errors",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "repair_attempts",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.ppt_schema",
+        "name": "SlideValidationReport"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "typing.Literal['single_choice', 'multiple_choice', 'judgement', 'short_answer']",
+            "name": "question_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "knowledge_point",
+            "required": true
+          },
+          {
+            "annotation": "typing.Literal['easy', 'medium', 'hard']",
+            "name": "difficulty",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "score",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "question_text",
+            "required": true
+          },
+          {
+            "annotation": "dict[str, str] | None",
+            "name": "options",
+            "required": false
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "correct_answer",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "explanation",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.lesson_schema.Reference]",
+            "name": "references",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.question_schema",
+        "name": "QuestionItem"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "exam_blueprint_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "question_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "knowledge_point",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "difficulty",
+            "required": true
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "score",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "question_text",
+            "required": true
+          },
+          {
+            "annotation": "dict | None",
+            "name": "options_json",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "correct_answer",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "explanation",
+            "required": true
+          },
+          {
+            "annotation": "list[dict]",
+            "name": "references_json",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.question_schema",
+        "name": "QuestionRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "blueprint_id",
+            "required": true
+          },
+          {
+            "annotation": "list[coursepilot.schemas.question_schema.QuestionItem]",
+            "name": "questions",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.question_schema",
+        "name": "QuestionSet"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "typing.Literal['ppt_outline', 'lesson_design', 'question']",
+            "name": "target_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "target_id",
+            "required": true
+          },
+          {
+            "annotation": "typing.Literal['approved', 'rejected', 'needs_revision']",
+            "name": "review_status",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "comment",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.review_schema",
+        "name": "ReviewCreate"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "target_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "target_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "review_status",
+            "required": true
+          },
+          {
+            "annotation": "str | None",
+            "name": "comment",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "write_back_status",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.review_schema",
+        "name": "ReviewRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "review_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "target_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "target_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "write_back_status",
+            "required": true
+          },
+          {
+            "annotation": "list[str]",
+            "name": "written_chunk_ids",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.review_schema",
+        "name": "ReviewWriteBackResponse"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "typing.Literal['pending']",
+            "name": "status",
+            "required": false
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status_url",
+            "required": true
+          }
+        ],
+        "module": "coursepilot.schemas.task_schema",
+        "name": "AsyncTaskAccepted"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "task_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "course_id",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "task_type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "status",
+            "required": true
+          },
+          {
+            "annotation": "typing.Any | None",
+            "name": "result",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "error_message",
+            "required": false
+          },
+          {
+            "annotation": "builtins.int",
+            "name": "attempt_count",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "created_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime",
+            "name": "updated_at",
+            "required": true
+          },
+          {
+            "annotation": "datetime.datetime | None",
+            "name": "started_at",
+            "required": false
+          },
+          {
+            "annotation": "datetime.datetime | None",
+            "name": "completed_at",
+            "required": false
+          }
+        ],
+        "module": "coursepilot.schemas.task_schema",
+        "name": "AsyncTaskRead"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "key",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "description",
+            "required": true
+          }
+        ],
+        "module": "schema.schema",
+        "name": "AgentInfo"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "list[schema.schema.ChatMessage]",
+            "name": "messages",
+            "required": true
+          }
+        ],
+        "module": "schema.schema",
+        "name": "ChatHistory"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "thread_id",
+            "required": true
+          }
+        ],
+        "module": "schema.schema",
+        "name": "ChatHistoryInput"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "typing.Literal['human', 'ai', 'tool', 'custom']",
+            "name": "type",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "content",
+            "required": true
+          },
+          {
+            "annotation": "list[schema.schema.ToolCall]",
+            "name": "tool_calls",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "tool_call_id",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "run_id",
+            "required": false
+          },
+          {
+            "annotation": "dict[str, typing.Any]",
+            "name": "response_metadata",
+            "required": false
+          },
+          {
+            "annotation": "dict[str, typing.Any]",
+            "name": "custom_data",
+            "required": false
+          }
+        ],
+        "module": "schema.schema",
+        "name": "ChatMessage"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "list[schema.schema.AgentInfo]",
+            "name": "agents",
+            "required": true
+          },
+          {
+            "annotation": "list[schema.models.OpenAIModelName | schema.models.OpenAICompatibleName | schema.models.DeepseekModelName | schema.models.FakeModelName]",
+            "name": "models",
+            "required": true
+          },
+          {
+            "annotation": "builtins.str",
+            "name": "default_agent",
+            "required": true
+          },
+          {
+            "annotation": "schema.models.OpenAIModelName | schema.models.OpenAICompatibleName | schema.models.DeepseekModelName | schema.models.FakeModelName",
+            "name": "default_model",
+            "required": true
+          }
+        ],
+        "module": "schema.schema",
+        "name": "ServiceMetadata"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "message",
+            "required": true
+          },
+          {
+            "annotation": "typing.Optional[typing.Annotated[schema.models.OpenAIModelName | schema.models.OpenAICompatibleName | schema.models.DeepseekModelName | schema.models.FakeModelName, SerializeAsAny()]]",
+            "name": "model",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "thread_id",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "user_id",
+            "required": false
+          },
+          {
+            "annotation": "dict[str, typing.Any]",
+            "name": "agent_config",
+            "required": false
+          },
+          {
+            "annotation": "builtins.bool",
+            "name": "stream_tokens",
+            "required": false
+          }
+        ],
+        "module": "schema.schema",
+        "name": "StreamInput"
+      },
+      {
+        "fields": [
+          {
+            "annotation": "builtins.str",
+            "name": "message",
+            "required": true
+          },
+          {
+            "annotation": "typing.Optional[typing.Annotated[schema.models.OpenAIModelName | schema.models.OpenAICompatibleName | schema.models.DeepseekModelName | schema.models.FakeModelName, SerializeAsAny()]]",
+            "name": "model",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "thread_id",
+            "required": false
+          },
+          {
+            "annotation": "str | None",
+            "name": "user_id",
+            "required": false
+          },
+          {
+            "annotation": "dict[str, typing.Any]",
+            "name": "agent_config",
+            "required": false
+          }
+        ],
+        "module": "schema.schema",
+        "name": "UserInput"
+      }
+    ]
+  },
+  "schema_version": "coursepilot.p00.interface-snapshot.v1"
+}

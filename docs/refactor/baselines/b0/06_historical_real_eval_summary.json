@@ -1,0 +1,61 @@
+{
+  "artifacts": {
+    "checkpoint": {
+      "path": "storage_eval/coursepilot_real_eval_checkpoint.json",
+      "sha256": "fc82af6b5cac05dc6bd411b6e8151ed51ba9bc822edf0567f25f01982fef7c53"
+    },
+    "report": {
+      "path": "storage_eval/coursepilot_real_eval_report.json",
+      "sha256": "2e8d935fe17e2aff4377f6da37ddc2163ea8710f8b5647e7e4aada4a231fad86"
+    }
+  },
+  "classification": {
+    "content_quality_claims_allowed": false,
+    "engineering_evidence_allowed": true,
+    "fallback_claims_allowed": false,
+    "retrieval_quality_metrics": "non_gold_invalid_for_quality_claims",
+    "schema_and_export_metrics": "structural_signals_only"
+  },
+  "generated_at": "2026-07-17T16:45:01.961335+00:00",
+  "gold_integrity_issue": {
+    "description": "Legacy expected retrieval identifiers were constructed after observing Top-K results.",
+    "resolution_phase": "P02",
+    "status": "open"
+  },
+  "input_files": [
+    {
+      "path": "data/coursepilot_sample/教材-人工智能：从算法到系统.docx",
+      "sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b"
+    },
+    {
+      "path": "data/coursepilot_sample/人工智能：从算法到系统-知识图谱.xlsx",
+      "sha256": "33ed476bfc46367300db728a8b60dabdcfce045019a9f7b89daec5059c617629"
+    }
+  ],
+  "observed_engineering_results": {
+    "database_chunk_count": 391,
+    "elapsed_ms": 2007146,
+    "file_count": 2,
+    "strict_fallback_expected": true,
+    "strict_fallback_passed": null,
+    "strict_fallback_verification": "not_established_incomplete_task_coverage",
+    "vector_entries": 391
+  },
+  "observed_invalid_retrieval_metrics": {
+    "context_precision": 0.1,
+    "rag_hit_at_k": 0.4,
+    "rag_mrr": 0.15,
+    "rag_ndcg": 0.21255095404851349,
+    "rag_recall_at_k": 0.4
+  },
+  "observed_structural_generation_signals": {
+    "answer_completeness": 1.0,
+    "citation_coverage": 1.0,
+    "duplicate_rate": 0.0,
+    "export_success_rate": 1.0,
+    "question_count_accuracy": 1.0,
+    "schema_pass_rate": 1.0
+  },
+  "schema_version": "coursepilot.p00.historical-real-eval-summary.v1",
+  "source_text_included": false
+}

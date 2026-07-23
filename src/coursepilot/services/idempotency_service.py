@@ -70,18 +70,18 @@ class IdempotencyService:
             self._mark_failed(record.id, exc)
             raise
 
-        record = self.session.get(IdempotencyRecord, record.id)
-        if record is None:
+        persisted_record = self.session.get(IdempotencyRecord, record.id)
+        if persisted_record is None:
             raise RuntimeError("Idempotency record disappeared while completing request")
-        record.status = "succeeded"
-        record.response_status = response_status
-        record.response_json = encoded_response
-        record.error_message = None
-        record.locked_until = utc_now()
-        record.resource_type = resource_type
+        persisted_record.status = "succeeded"
+        persisted_record.response_status = response_status
+        persisted_record.response_json = encoded_response
+        persisted_record.error_message = None
+        persisted_record.locked_until = utc_now()
+        persisted_record.resource_type = resource_type
         if resource_id_field and isinstance(encoded_response, dict):
             resource_id = encoded_response.get(resource_id_field)
-            record.resource_id = str(resource_id) if resource_id is not None else None
+            persisted_record.resource_id = str(resource_id) if resource_id is not None else None
         self.session.commit()
         return IdempotencyExecutionResult(value=encoded_response, replayed=False)
 
