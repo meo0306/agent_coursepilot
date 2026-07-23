@@ -1,0 +1,34 @@
+{
+  "schema_version": "courserag.ds2.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "evidence": [
+    {
+      "record_id": "ds2-synthetic-evidence-record",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "evidence_id": "synthetic-ev-1",
+      "source_span": {
+        "document_id": "synthetic-doc-1",
+        "document_version": "v1",
+        "document_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "section_path": [
+          "Synthetic section"
+        ],
+        "page_start": 1,
+        "page_end": 1,
+        "block_start": null,
+        "block_end": null,
+        "char_start": 0,
+        "char_end": 84
+      },
+      "source_type": "synthetic",
+      "gold_text": "A synthetic course concept is defined as a reusable idea supported by source evidence.",
+      "content_sha256": "bcdd0c13a27c73fef00863fd362e33c8ae1ea3a2cb36f3b0c9055d0652cd4cb9",
+      "semantic_unit_type": "definition",
+      "requires_parent": false,
+      "necessary_neighbor_text": []
+    }
+  ]
+}

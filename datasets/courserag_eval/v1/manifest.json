@@ -1,0 +1,19 @@
+{
+  "schema_version": "courserag.dataset-manifest.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "gold_status": "skeleton_no_formal_gold",
+  "human_score_pilot": "human_scores/pilot.jsonl",
+  "tracks": [
+    "ds0",
+    "ds1",
+    "ds2",
+    "ds3",
+    "ds4",
+    "ds5",
+    "ds6",
+    "ds7",
+    "ds8"
+  ],
+  "outputs_inside_dataset_allowed": false
+}

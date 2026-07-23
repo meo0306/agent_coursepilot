@@ -1,0 +1,28 @@
+{
+  "schema_version": "coursepilot.cp-ds6.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "v1",
+  "cases": [
+    {
+      "record_id": "cp-ds6-synthetic-recovery",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "interrupt_type": "lesson_session_plan_review",
+      "decision": "edit_resume",
+      "fault": "worker_restart",
+      "expectation": {
+        "interrupt_reached": true,
+        "resume_succeeds": true,
+        "completed_nodes_reused": 2,
+        "completed_nodes_before_resume": 2,
+        "edited_fields_preserved": 1,
+        "edited_fields_total": 1,
+        "duplicate_side_effects": 0,
+        "replayed_side_effect_attempts": 2,
+        "approval_scope_correct": true,
+        "stale_version_detected": null
+      }
+    }
+  ]
+}

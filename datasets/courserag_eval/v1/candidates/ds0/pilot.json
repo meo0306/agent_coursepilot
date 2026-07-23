@@ -1,0 +1,39 @@
+{
+  "schema_version": "courserag.ds0.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "documents": [
+    {
+      "record_id": "ds0-local-docx-candidate",
+      "review_status": "candidate",
+      "candidate_source": "owner_supplied_metadata_only",
+      "approval": null,
+      "document_id": "local-docx-candidate",
+      "filename": "教材-人工智能：从算法到系统.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "document_version": "p02-local-candidate-v1",
+      "page_count": null,
+      "included_in": [
+        "local_candidate_generation"
+      ],
+      "redistribution_status": "local_only_unverified"
+    },
+    {
+      "record_id": "ds0-local-pdf-candidate",
+      "review_status": "candidate",
+      "candidate_source": "owner_supplied_metadata_only",
+      "approval": null,
+      "document_id": "local-pdf-candidate",
+      "filename": "人工智能通识教程.pdf",
+      "mime_type": "application/pdf",
+      "sha256": "15344771664d40cf190be7790be3d266eb94a2798a4c2608fcf4d1ffa8fd231d",
+      "document_version": "p02-local-candidate-v1",
+      "page_count": null,
+      "included_in": [
+        "local_candidate_generation"
+      ],
+      "redistribution_status": "local_only_unverified"
+    }
+  ]
+}

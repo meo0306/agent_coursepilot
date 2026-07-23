@@ -1,0 +1,20 @@
+{
+  "schema_version": "coursepilot.dataset-manifest.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "v1",
+  "gold_status": "skeleton_no_formal_gold",
+  "human_score_pilot": "human_scores/pilot.jsonl",
+  "tracks": [
+    "cp_ds0",
+    "cp_ds1",
+    "cp_ds2",
+    "cp_ds3",
+    "cp_ds4",
+    "cp_ds5",
+    "cp_ds6",
+    "cp_ds7",
+    "cp_ds8",
+    "sys_ds1"
+  ],
+  "outputs_inside_dataset_allowed": false
+}

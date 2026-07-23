@@ -1,0 +1,183 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "IncrementalWritebackCase": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Affected Section Ids",
+          "type": "array"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "operation": {
+          "enum": [
+            "rename_document",
+            "modify_section",
+            "add_section",
+            "delete_section",
+            "replace_ocr_page",
+            "change_chunker",
+            "change_kp_prompt",
+            "change_embedding",
+            "change_reranker",
+            "writeback",
+            "trigger_enrichment"
+          ],
+          "title": "Operation",
+          "type": "string"
+        },
+        "preserve_review_status": {
+          "title": "Preserve Review Status",
+          "type": "boolean"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "reusable_artifact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reusable Artifact Ids",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "should_create_index_version": {
+          "title": "Should Create Index Version",
+          "type": "boolean"
+        },
+        "should_trigger_kp_extraction": {
+          "title": "Should Trigger Kp Extraction",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "record_id",
+        "operation",
+        "should_trigger_kp_extraction",
+        "should_create_index_version",
+        "preserve_review_status"
+      ],
+      "title": "IncrementalWritebackCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/IncrementalWritebackCase"
+      },
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds7.v1",
+      "default": "courserag.ds7.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "DS7IncrementalWritebackDataset",
+  "type": "object"
+}

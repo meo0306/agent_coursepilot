@@ -1,0 +1,4 @@
+cp-ds1-synthetic-lesson
+cp-ds4-synthetic-validation
+cp-ds5-synthetic-repair
+cp-ds6-synthetic-recovery

@@ -3,15 +3,15 @@
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
 - Current branch: `refactor/p00-baseline`
-- Current phase: P00
-- Last updated: 2026-07-23
+- Current phase: P02
+- Last updated: 2026-07-24
 
 | Phase | Status | Start Commit | End Commit | Gate | Report |
 |---|---|---|---|---|---|
 | P00 | completed | `eb9b3a6` | uncommitted (`eb9b3a6`) | passed | `phase_reports/P00_baseline_freeze_and_execution_scaffold.md` |
 | P01 | not_started | | | ready | |
-| P02 | not_started | | | ready | |
-| P03 | not_started | | | blocked_by_P02 | |
+| P02 | completed | `e3f4efa` | uncommitted (`e3f4efa`) | passed | `phase_reports/P02_evaluation_data_scaffold_and_b0_runner.md` |
+| P03 | not_started | | | blocked_by_P01 | |
 | P04 | not_started | | | blocked_by_P03 | |
 | P05 | not_started | | | blocked_by_P04 | |
 | P06 | not_started | | | blocked_by_P05 | |
@@ -33,20 +33,25 @@
 
 | Task | Status | Evidence |
 |---|---|---|
-| P00-T01 | completed | reproducible commands in `baselines/b0/01_environment_and_entrypoints.md` |
-| P00-T02 | completed | `baselines/b0/02_frozen_document_manifest.json` |
-| P00-T03 | completed | This status file, Decision Log, Risk Register, phase report template |
-| P00-T04 | completed | `baselines/b0/05_b0_smoke_report.json`; gated B0 test |
-| P00-T05 | completed | reproducible deterministic report/manifest; course-scoped fail-closed real-eval task audit; historical evidence correctly unverified |
-| P00-T06 | completed | 52-model interface snapshot and six unchanged synthetic export samples |
-| P00-T07 | completed | `baselines/b0/08_license_attribution.json` |
+| P02-T01 | completed | 25 versioned JSON Schemas; DS0—DS8, CP-DS0—CP-DS8, SYS-DS1 and batch/JSONL human-score models |
+| P02-T02 | completed | physical `candidates/` and `approved/` trees, review logs, Pilot/Dev/Test split validation |
+| P02-T03 | completed | strict Run Manifest identity; actual dataset Manifest/Split Hash and identity verification; mandatory trusted dataset root; atomic, redacted checkpoint/report; Resume drift rejection |
+| P02-T04 | completed | source identity plus page/span/text-overlap B0 adapter; legacy Chunk ID is trace-only |
+| P02-T05 | completed | Evidence Group, Claim/citation/irrelevant, Answer Conciseness, ValidationIssue, Repair and bounded Recovery metric implementations/tests |
+| P02-T06 | completed | strict QA/CoursePilot JSONL human-score contracts; 5 synthetic candidate-only scoring Pilot records; local-only generator produced 10 owner-input candidates |
+| P02-T07 | completed | unlocked Test flags, fail-closed Runner validation and Gold leakage guard |
 
-P00 has no upstream phase. Its upstream Exit Gate is therefore not applicable.
-All P00 task outputs are implemented. The P00 acceptance repair aligned canonical commands,
-made deterministic evidence reproducible, completed the public Schema snapshot, and made future
-real-eval Fallback auditing fail closed. The task audit reads the complete set of the four
-generation task types for the isolated evaluation course, so missing, duplicate, or unexpected
-tasks cannot be hidden by an expected-ID-only query. Historical Fallback coverage remains
-explicitly unverified rather than passed or failed. Main tests, Ruff, Mypy, and the gated B0
-Smoke pass, so the P00 Exit Gate is passed. P01 and P02 have satisfied their P00 prerequisite;
-neither phase has been started.
+P02's P00 prerequisite passed before work began. P02 is complete: candidate and Approved Gold
+storage are physically separated; the formal Runner requires one identity/Hash-validated dataset
+root under `datasets/` and rejects all runtime output below that canonical ancestor. Resume
+requires both complete configuration identity and unchanged dataset Manifest/Split files.
+Persisted errors are redacted, legitimate token-limit configuration remains representable, and
+every frozen non-generic metric named by this phase has code and boundary tests. Five tracked
+human-score records are synthetic candidate-only JSONL contract examples with complete Rubrics;
+they are not human approval or product-quality evidence. The owner-supplied DOCX/PDF produced ten
+local candidates under ignored `storage_eval/`; only hashes and counts are tracked. No candidate
+was automatically approved. Test remains deliberately unlocked and cannot run formally until
+human Approved Gold exists. Full tests (204 passed, 5 explicit gated skips), Ruff, Mypy,
+deterministic eval, B0 Smoke, 25-Schema verification, dataset guards and Gate Repair probes pass,
+so the P02 Exit Gate is passed. P01 remains ready; P03 has satisfied its P02 dependency but
+remains blocked by its separate P01 dependency.

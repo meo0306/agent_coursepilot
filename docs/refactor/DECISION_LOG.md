@@ -2,7 +2,7 @@
 
 ## P00-D001 — Existing retrieval metrics are not accepted as Gold evidence
 
-- Status: proposed
+- Status: accepted
 - Date: 2026-07-23
 - Trigger: `run_real_eval.py` constructs expected retrieval identifiers after observing Top-K results.
 - Frozen documents affected: 03, 03A, 06, 07
@@ -11,7 +11,9 @@
   - discard the historical run entirely;
   - preserve its engineering evidence but label its retrieval quality metrics invalid.
 - Minimal safe default: preserve pipeline, latency, fallback, token, database/vector, and export evidence; mark retrieval quality metrics `non_gold_invalid_for_quality_claims`.
-- Candidate decision: define source-independent Gold and evidence spans in P02; do not change the legacy runner or invent Gold in P00.
+- Decision: define source-independent Gold and evidence spans in P02; retain the legacy runner
+  unchanged, prohibit legacy Chunk IDs/Top-K output from defining formal Gold, and map B0 output
+  only through the P02 source/span/text adapter.
 - Compatibility/migration impact: none in P00; historical artifacts remain available.
 - Evaluation impact: P00 cannot claim a credible retrieval quality score from the historical run.
 
@@ -50,6 +52,45 @@
 - Decision: explicitly propagate each Graph's State as its input/output type and define the registry contract as the union of the three concrete compiled CoursePilot Graph types currently registered.
 - Compatibility/migration impact: static typing only; API, Graph nodes/edges/routes/state, ORM, migrations, Provider behavior, and runtime prompt invocation are unchanged.
 - Evaluation impact: none; Prompt/Graph/B0 regression tests pass and the full Mypy Gate reports zero errors.
+
+## P02-D001 — Owner-supplied source candidates remain local and unapproved
+
+- Status: accepted
+- Date: 2026-07-23
+- Trigger: P02 requires a small Pilot while the supplied DOCX/PDF redistribution and formal Gold
+  review status remain unverified.
+- Frozen documents affected: 03, 03A, 06, 07
+- Options:
+  - commit source text/spans as Pilot candidates;
+  - generate candidates locally and commit only safe hashes/counts;
+  - skip owner-sample candidate generation.
+- Decision: use the existing local parser without an external model; write DS0/DS2 source text,
+  spans, and candidate records only under ignored `storage_eval/`; commit only input/output
+  hashes, candidate counts, Schemas, and synthetic fixtures. No generator may set `approved`.
+- Compatibility/migration impact: no runtime, API, database, Provider, or binary-file change.
+- Evaluation impact: ten local candidates are available for later human review but are not
+  formal Gold and cannot contribute to Test or quality claims.
+
+## P02-D002 — Formal Runner identity and Test policy are fail closed
+
+- Status: accepted
+- Date: 2026-07-23
+- Trigger: Resume, Test tuning, Fallback, and mutable Gold configuration could otherwise make
+  formal results non-reproducible or leak Test information.
+- Frozen documents affected: 03, 03A, 06, 07
+- Options:
+  - permit force-resume and record configuration drift;
+  - warn on Test-policy violations;
+  - reject any Run identity/configuration difference and require a locked, clean, fail-closed
+    Test run.
+- Decision: the P02 formal Runner has no force-resume path. It rejects Manifest/case Hash
+  changes before mutation. Test requires evaluation/replay intent, tuning disabled, clean Git,
+  fail-sample/fail-run Fallback, an immutable lock Hash, non-empty Approved Test IDs, and matching
+  split/Approved-record Hashes.
+- Compatibility/migration impact: applies only to the new formal evaluation Runner; the legacy
+  B0 runtime and public API are unchanged.
+- Evaluation impact: current Test locks intentionally remain `locked=false` until human Approved
+  Gold exists, so premature formal Test runs fail rather than silently degrading.
 
 ## ADR Template
 

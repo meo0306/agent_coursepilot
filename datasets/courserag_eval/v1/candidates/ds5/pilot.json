@@ -1,0 +1,45 @@
+{
+  "schema_version": "courserag.ds5.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "cases": [
+    {
+      "record_id": "ds5-synthetic-retrieval-case",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "query": "What is the synthetic course concept?",
+      "query_type": "definition",
+      "answerable": true,
+      "difficulty": "easy",
+      "gold_answer_type": "explanatory",
+      "gold_short_answers": [],
+      "gold_claims": [
+        {
+          "claim_id": "synthetic-claim-1",
+          "claim_text": "The concept is a reusable idea supported by source evidence.",
+          "importance": "required",
+          "required_evidence_ids": [
+            "synthetic-ev-1"
+          ]
+        }
+      ],
+      "forbidden_claims": [],
+      "expected_knowledge_points": [],
+      "filters": {},
+      "gold_evidence_groups": [
+        {
+          "group_id": "synthetic-group-1",
+          "sufficiency": "complete",
+          "required_evidence_ids": [
+            "synthetic-ev-1"
+          ]
+        }
+      ],
+      "supporting_evidence_ids": [],
+      "properties": {
+        "requires_multiple_evidence": false
+      }
+    }
+  ]
+}

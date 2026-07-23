@@ -1,0 +1,26 @@
+{
+  "schema_version": "courserag.ds4.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "cases": [
+    {
+      "record_id": "ds4-synthetic-query-case",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "raw_query": "  Synthetic   Concept? ",
+      "expected": {
+        "normalized_query": "Synthetic Concept?",
+        "linked_knowledge_points": [],
+        "filters": {},
+        "route": "definition",
+        "allowed_expansions": [],
+        "forbidden_expansions": [],
+        "must_preserve_terms": [
+          "Synthetic Concept"
+        ],
+        "must_preserve_filters": true
+      }
+    }
+  ]
+}

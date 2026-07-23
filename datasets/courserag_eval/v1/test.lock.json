@@ -1,0 +1,10 @@
+{
+  "schema_version": "course-eval.test-lock.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "locked": false,
+  "test_ids_sha256": null,
+  "approved_manifest_sha256": null,
+  "locked_at": null,
+  "locked_by": null
+}
