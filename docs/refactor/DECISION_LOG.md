@@ -92,6 +92,56 @@
 - Evaluation impact: current Test locks intentionally remain `locked=false` until human Approved
   Gold exists, so premature formal Test runs fail rather than silently degrading.
 
+## P01-D001 — P01 uses the approved narrow runtime migration boundary
+
+- Status: accepted
+- Date: 2026-07-24
+- Trigger: the frozen P01 backlog says to replace direct RAG calls progressively, while the
+  broader target design also moves review write-back and course knowledge-point ownership.
+- Frozen documents affected: 01, 04, 05, 07
+- Options:
+  - migrate only document build, search and the shared Graph retrieval node;
+  - add a private compatibility bridge for whole-artifact review write-back;
+  - implement the later VerifiedContent and KnowledgePoint contracts early.
+- Decision: migrate document build, search and the Lesson/Exam retrieval node in P01. Preserve
+  existing review write-back and lesson knowledge-point extraction unchanged; assign their
+  contract migrations to P07/P10/P14/P17.
+- Compatibility/migration impact: existing CoursePilot APIs, Graph structure, review behavior,
+  Parser/Chunker/Chroma algorithms and Provider configuration remain unchanged.
+- Evaluation impact: old Graph/API and owner-supplied DOCX/PDF B0 Smoke tests remain comparable.
+
+## P01-D002 — Legacy Chunk results expose absence of stable versions and Evidence
+
+- Status: accepted
+- Date: 2026-07-24
+- Trigger: the B0 tables and Chroma metadata contain mutable Chunk IDs but no DocumentVersion,
+  IndexVersion or stable Evidence ID.
+- Frozen documents affected: 01, 04, 07
+- Options:
+  - synthesize stable-looking Evidence/version identifiers;
+  - make the Local search path unusable until P03/P06;
+  - retain Chunk IDs as trace fields and expose explicit legacy markers and warnings.
+- Decision: never convert a legacy Chunk ID into an Evidence ID. Return `evidence_ids=[]`,
+  `legacy-unversioned`, `legacy-active` and machine-readable warnings until the owning phases
+  establish real identities. Capability-dependent methods return `FEATURE_NOT_AVAILABLE`.
+- Compatibility/migration impact: old CoursePilot results are reconstructed without dropping
+  their source type, chapter, section, page, title, content, score or verified flag.
+- Evaluation impact: P02 Gold rules remain unchanged; legacy IDs cannot enter formal Gold.
+
+## P01-D003 — RemoteCourseRAGClient is contract-only in P01
+
+- Status: accepted
+- Date: 2026-07-24
+- Trigger: P01 requires an HTTP Schema and Remote Contract Fake, while production reliability and
+  physical split are assigned to P17/P19.
+- Frozen documents affected: 01, 04, 07
+- Decision: RemoteCourseRAGClient requires an explicitly supplied `httpx.Client`; P01 tests use
+  `MockTransport`. Do not add runtime selection, environment defaults, retries, authentication,
+  circuit breaking or live network calls.
+- Compatibility/migration impact: the local single-process demo remains the only runtime default.
+- Evaluation impact: Remote serialization, trace headers, errors and idempotency are testable
+  without Provider or network variability.
+
 ## ADR Template
 
 - Status: proposed / accepted / rejected / superseded

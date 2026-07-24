@@ -1,4 +1,9 @@
-"""CourseRAG package.
+"""CourseRAG public package.
 
-P02 intentionally adds only evaluation contracts here. Product/runtime layers remain P01+ work.
+Only :mod:`courserag.contracts` is a supported cross-boundary import for
+CoursePilot. Runtime implementation modules remain internal to CourseRAG.
 """
+
+from courserag.contracts import CONTRACT_API_VERSION, SERVICE_VERSION
+
+__all__ = ["CONTRACT_API_VERSION", "SERVICE_VERSION"]

@@ -3,15 +3,15 @@
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
 - Current branch: `refactor/p00-baseline`
-- Current phase: P02
+- Current phase: P01
 - Last updated: 2026-07-24
 
 | Phase | Status | Start Commit | End Commit | Gate | Report |
 |---|---|---|---|---|---|
 | P00 | completed | `eb9b3a6` | uncommitted (`eb9b3a6`) | passed | `phase_reports/P00_baseline_freeze_and_execution_scaffold.md` |
-| P01 | not_started | | | ready | |
+| P01 | completed | `21d2cc5` | uncommitted (`21d2cc5`) | passed | `phase_reports/P01_CourseRAG_Port_Report.md` |
 | P02 | completed | `e3f4efa` | uncommitted (`e3f4efa`) | passed | `phase_reports/P02_evaluation_data_scaffold_and_b0_runner.md` |
-| P03 | not_started | | | blocked_by_P01 | |
+| P03 | not_started | | | ready | |
 | P04 | not_started | | | blocked_by_P03 | |
 | P05 | not_started | | | blocked_by_P04 | |
 | P06 | not_started | | | blocked_by_P05 | |
@@ -33,25 +33,23 @@
 
 | Task | Status | Evidence |
 |---|---|---|
-| P02-T01 | completed | 25 versioned JSON Schemas; DS0—DS8, CP-DS0—CP-DS8, SYS-DS1 and batch/JSONL human-score models |
-| P02-T02 | completed | physical `candidates/` and `approved/` trees, review logs, Pilot/Dev/Test split validation |
-| P02-T03 | completed | strict Run Manifest identity; actual dataset Manifest/Split Hash and identity verification; mandatory trusted dataset root; atomic, redacted checkpoint/report; Resume drift rejection |
-| P02-T04 | completed | source identity plus page/span/text-overlap B0 adapter; legacy Chunk ID is trace-only |
-| P02-T05 | completed | Evidence Group, Claim/citation/irrelevant, Answer Conciseness, ValidationIssue, Repair and bounded Recovery metric implementations/tests |
-| P02-T06 | completed | strict QA/CoursePilot JSONL human-score contracts; 5 synthetic candidate-only scoring Pilot records; local-only generator produced 10 owner-input candidates |
-| P02-T07 | completed | unlocked Test flags, fail-closed Runner validation and Gold leakage guard |
+| P01-T01 | completed | `courserag` domain/application/api/infrastructure package skeleton added without moving P02 evals |
+| P01-T02 | completed | six typed subports, all four frozen SourceTier values, strict DTOs and outer/nested ContextRequest invariants |
+| P01-T03 | completed | RequestContext/ResponseMeta, stable errors, UTC validation and fail-closed request/trace/API-version continuity |
+| P01-T04 | completed | Local adapter preserves B0 dense retrieval while rejecting unsupported widening/rerank/deep-section requests and mapping backend errors |
+| P01-T05 | completed | deterministic Mock supports fixed search, fault injection, course isolation and request-hash idempotency for every side effect |
+| P01-T06 | completed | injected Remote client, opaque encoded v1 path segments and response correlation/version validation; no production remote selection |
+| P01-T07 | completed | old KB facade and shared Lesson/Exam retrieval node now call the Port; old HTTP responses remain unchanged |
+| P01-T08 | completed | shared Local/Mock/Remote contracts plus idempotency, isolation, path and correlation regressions pass; three Graph Mock Smoke tests pass |
 
-P02's P00 prerequisite passed before work began. P02 is complete: candidate and Approved Gold
-storage are physically separated; the formal Runner requires one identity/Hash-validated dataset
-root under `datasets/` and rejects all runtime output below that canonical ancestor. Resume
-requires both complete configuration identity and unchanged dataset Manifest/Split files.
-Persisted errors are redacted, legitimate token-limit configuration remains representable, and
-every frozen non-generic metric named by this phase has code and boundary tests. Five tracked
-human-score records are synthetic candidate-only JSONL contract examples with complete Rubrics;
-they are not human approval or product-quality evidence. The owner-supplied DOCX/PDF produced ten
-local candidates under ignored `storage_eval/`; only hashes and counts are tracked. No candidate
-was automatically approved. Test remains deliberately unlocked and cannot run formally until
-human Approved Gold exists. Full tests (204 passed, 5 explicit gated skips), Ruff, Mypy,
-deterministic eval, B0 Smoke, 25-Schema verification, dataset guards and Gate Repair probes pass,
-so the P02 Exit Gate is passed. P01 remains ready; P03 has satisfied its P02 dependency but
-remains blocked by its separate P01 dependency.
+P01's P00 prerequisite passed before work began; P02 had also already passed. P01 is complete
+under the explicitly approved narrow boundary: document build execution, dense search and the
+shared Lesson/Exam retrieval node use the CourseRAG Port while the existing CoursePilot HTTP
+surface and B0 behavior remain compatible. The public DTO layer does not invent stable Evidence
+or version identities for legacy Chunks: Evidence IDs remain empty and explicit
+`legacy-unversioned`/`legacy-active` markers and warnings are returned. Advanced P03+ capabilities
+are declared unsupported rather than silently falling back. Review write-back and repeated lesson
+knowledge-point extraction remain unchanged and are recorded as later-phase work. The final exact
+test run reports 250 passed and 5 explicit gated skips; the owner-supplied DOCX/PDF B0 Smoke,
+shared contracts, old API/Graph regressions, Ruff, Mypy, Alembic Head, secret and temporary-file
+checks all pass. The P01 Exit Gate is passed, and P03 now has both P01 and P02 prerequisites.
