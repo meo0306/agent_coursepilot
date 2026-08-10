@@ -1,0 +1,35 @@
+{
+  "revisions": [
+    {
+      "approval_effect": "none; both batches remained candidate and no ApprovalRecord was created",
+      "previous_candidate_file_sha256": "6d790c0a61360051663f262fdf4ac4018820cd3ad517a9d089a0013a49100b8a",
+      "previous_clean_scan_file_sha256": "da336f93410db3650d335f181c7df2d12d06deed0bc39cae2533cf55756b2594",
+      "previous_clean_scan_source_pages": [
+        1,
+        5,
+        10,
+        12,
+        20
+      ],
+      "previous_fixture_manifest_sha256": "055b2739f50c05517997ffeafa9aba38bdf2a07bce2469b232a5edb30d51b1a6",
+      "replacement_candidate_file_sha256": "566d1784fc1479bbe723915b3daaa5501604204ac1589bae2b34a94a713759ae",
+      "replacement_clean_scan_file_sha256": "4f0166c18e79aa29d06ef2d32597d532b76da17a53292a09e58b5b7e783df7a1",
+      "replacement_clean_scan_source_pages": [
+        21,
+        23,
+        24,
+        26,
+        30
+      ],
+      "replacement_fixture_manifest_sha256": "b4f6f71ddc63d25e89fdc608e818e645d9d20558566ff09ea64a2b74d1c2d7b7",
+      "revision_id": "pre-p03-ds0-candidate-revision-20260729-01",
+      "revision_reasons": [
+        "course_owner requested later and denser clean-scan source pages before approval",
+        "visual QA found and corrected an overflowing table in a two-column DOCX section"
+      ],
+      "reviewer_id": "course_owner",
+      "status": "superseded_before_approval"
+    }
+  ],
+  "schema_version": "1.0"
+}

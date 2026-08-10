@@ -429,6 +429,8 @@ class MockCourseRAGService:
             supports_query_rewrite=True,
             supports_streaming_progress=True,
             supports_verified_writeback=True,
+            supports_enrichment=True,
+            supports_incremental_build=True,
         )
 
     def _record(self, operation: CourseRAGOperation, context: RequestContext) -> None:

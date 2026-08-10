@@ -17,6 +17,13 @@ from core import settings
 from coursepilot.api import api_router as coursepilot_router
 from coursepilot.llm import check_coursepilot_llm_health
 from coursepilot.services.task_worker import CoursePilotTaskWorker
+from courserag.api import (
+    CourseRAGAPIError,
+    courserag_api_error_handler,
+    knowledge_point_router,
+    retrieval_qa_router,
+    verified_content_router,
+)
 from memory import initialize_database, initialize_store
 from schema import (
     ChatHistory,
@@ -89,6 +96,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
 
 app = FastAPI(lifespan=lifespan, generate_unique_id_function=custom_generate_unique_id)
+app.add_exception_handler(CourseRAGAPIError, courserag_api_error_handler)
 router = APIRouter(dependencies=[Depends(verify_bearer)])
 
 
@@ -230,3 +238,6 @@ async def health_check() -> dict[str, str]:
 
 app.include_router(router)
 app.include_router(coursepilot_router, dependencies=[Depends(verify_bearer)])
+app.include_router(knowledge_point_router, dependencies=[Depends(verify_bearer)])
+app.include_router(retrieval_qa_router, dependencies=[Depends(verify_bearer)])
+app.include_router(verified_content_router, dependencies=[Depends(verify_bearer)])

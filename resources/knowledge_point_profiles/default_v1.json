@@ -1,0 +1,31 @@
+{
+  "schema_version": "courserag.kp-pipeline-profile.v1",
+  "name": "section_window_default",
+  "version": "v1",
+  "window": {
+    "schema_version": "courserag.kp-window-profile.v1",
+    "name": "section_parent_window",
+    "version": "v1",
+    "tokenizer_id": "coursepilot-local-tokenizer-v1",
+    "tokenizer_sha256": "ecb6f9fc369894346f0511f4074ca75cee5cd5f3b06d02f1ba35fcd39f8e121d",
+    "min_tokens": 1500,
+    "max_tokens": 3000,
+    "overlap_evidence_count": 1
+  },
+  "scoring": {
+    "schema_version": "courserag.kp-scoring-profile.v1",
+    "name": "evidence_quality_v1",
+    "version": "v1",
+    "threshold": 0.75,
+    "weights": {
+      "evidence": 0.35,
+      "naming": 0.2,
+      "cross_window": 0.2,
+      "ambiguity_safety": 0.15,
+      "duplicate_safety": 0.1
+    }
+  },
+  "prompt_relative_path": "resources/prompts/courserag/extract_knowledge_points_v1.md",
+  "temperature": 0.1,
+  "max_candidates_per_window": 40
+}

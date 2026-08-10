@@ -1,6 +1,4 @@
-"""
-保存上传文件和创建文档记录
-"""
+"""Persist uploaded source files and their legacy CoursePilot document record."""
 
 from pathlib import Path
 from uuid import uuid4
@@ -11,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from core.settings import settings
 from coursepilot.models import Course, Document
+from courserag.security import DocumentSecurityPolicy
 
 SUPPORTED_UPLOAD_SUFFIXES = {".pdf", ".docx", ".txt", ".md", ".markdown", ".xlsx"}
 
@@ -20,7 +19,6 @@ class DocumentService:
         self.session = session
 
     def list_documents(self, course_id: str) -> list[Document]:
-        """列出所有文档，按创建时间倒序排列"""
         stmt = (
             select(Document)
             .where(Document.course_id == course_id)
@@ -29,38 +27,50 @@ class DocumentService:
         return list(self.session.scalars(stmt))
 
     def get_document(self, document_id: str) -> Document | None:
-        """根据ID获取文档，返回文档对象或None"""
         return self.session.get(Document, document_id)
 
     def save_upload(self, course_id: str, file: UploadFile, source_type: str) -> Document:
-        """保存上传文件并创建文档记录，=create"""
-        # 取安全文件名
-        # 上传资料前先确认课程存在,避免产生没有归属课程的文档
         if self.session.get(Course, course_id) is None:
             raise ValueError(f"Course not found: {course_id}")
 
-        file_name = Path(file.filename or "").name
-        # 校验后缀
-        suffix = Path(file_name).suffix.lower()  # 文件类型（后缀）
-        if suffix == ".doc":  # 不支持上传.doc
+        raw_file_name = file.filename or ""
+        file_name = Path(raw_file_name).name
+        suffix = Path(file_name).suffix.lower()
+        if suffix == ".doc":
             raise ValueError(
                 "Unsupported legacy .doc file. Please convert it to .docx before upload."
             )
         if suffix not in SUPPORTED_UPLOAD_SUFFIXES:
-            raise ValueError(f"Unsupported file type: {suffix or '<none>'}")  # 不支持文件返回error
-        # 创建目录
-        upload_dir = (
-            Path(settings.COURSEPILOT_STORAGE_DIR) / "uploads" / course_id
-        )  # 每门课程的上传文件单独放到 storage/uploads/{course_id}
+            raise ValueError(f"Unsupported file type: {suffix or '<none>'}")
+
+        inspected_content: bytes | None = None
+        if suffix in {".pdf", ".docx"}:
+            inspected_content = file.file.read(settings.COURSERAG_MAX_DOCUMENT_BYTES + 1)
+            DocumentSecurityPolicy(
+                max_document_bytes=settings.COURSERAG_MAX_DOCUMENT_BYTES,
+                max_docx_entries=settings.COURSERAG_MAX_DOCX_ENTRIES,
+                max_docx_uncompressed_bytes=settings.COURSERAG_MAX_DOCX_UNCOMPRESSED_BYTES,
+                max_docx_compression_ratio=settings.COURSERAG_MAX_DOCX_COMPRESSION_RATIO,
+                max_pdf_pages=settings.COURSERAG_MAX_PDF_PAGES,
+                max_ocr_dpi=settings.COURSERAG_MAX_OCR_DPI,
+                parse_timeout_seconds=settings.COURSERAG_PARSE_TIMEOUT_SECONDS,
+            ).inspect(
+                filename=raw_file_name,
+                declared_mime=file.content_type or "application/octet-stream",
+                content=inspected_content,
+            )
+
+        upload_dir = Path(settings.COURSEPILOT_STORAGE_DIR) / "uploads" / course_id
         upload_dir.mkdir(parents=True, exist_ok=True)
-        # 生成服务端文件名
-        storage_name = f"{uuid4()}{suffix}"  # 实际保存文件名使用 UUID，避免同名文件互相覆盖
+        storage_name = f"{uuid4()}{suffix}"
         file_path = upload_dir / storage_name
-        # 分块写入磁盘
         with file_path.open("wb") as output:
-            while chunk := file.file.read(1024 * 1024):  # 按 1MB 分块写文件
-                output.write(chunk)
-        # 元数据写入数据库
+            if inspected_content is not None:
+                output.write(inspected_content)
+            else:
+                while chunk := file.file.read(1024 * 1024):
+                    output.write(chunk)
+
         document = Document(
             course_id=course_id,
             file_name=file_name,

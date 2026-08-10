@@ -170,6 +170,13 @@ class CoursePilotTaskWorker:
             if build_result is None:
                 raise ValueError("Document not found while executing build-kb task")
             return
+        if task.task_type == "courserag_build":
+            from coursepilot.adapters.courserag_build_bridge import (
+                CourseRAGBuildCompatibilityBridge,
+            )
+
+            CourseRAGBuildCompatibilityBridge(session).resume_task(task)
+            return
         if task.task_type == "lesson_design":
             from coursepilot.services.lesson_service import LessonService
 

@@ -12,6 +12,7 @@ from courserag.api.http_schema import (
     build_path,
     document_builds_path,
     document_path,
+    enrichment_batches_path,
     evidence_path,
     knowledge_base_contexts_path,
     knowledge_base_documents_path,
@@ -31,6 +32,7 @@ from courserag.contracts import (
     DeleteDocumentRequest,
     DeleteDocumentResult,
     DocumentPage,
+    EnrichmentBatchResult,
     ErrorCode,
     ErrorResponse,
     EvidenceBatch,
@@ -49,6 +51,7 @@ from courserag.contracts import (
     SearchRequest,
     SearchResponse,
     StartBuildRequest,
+    StartEnrichmentBatchRequest,
     VerifiedContentWriteRequest,
     VerifiedContentWriteResult,
 )
@@ -63,8 +66,18 @@ class RemoteCourseRAGClient:
     authentication, retries and circuit breaking belong to P17.
     """
 
-    def __init__(self, client: httpx.Client) -> None:
+    def __init__(
+        self,
+        client: httpx.Client,
+        *,
+        principal_id: str | None = None,
+        authorized_course_id: str | None = None,
+        roles: tuple[str, ...] = (),
+    ) -> None:
         self._client = client
+        self._principal_id = principal_id
+        self._authorized_course_id = authorized_course_id
+        self._roles = roles
 
     def register_document(self, request: RegisterDocumentRequest) -> RegisterDocumentResponse:
         return self._request(
@@ -186,6 +199,18 @@ class RemoteCourseRAGClient:
             context=request.context,
         )
 
+    def start_enrichment_batch(
+        self,
+        request: StartEnrichmentBatchRequest,
+    ) -> EnrichmentBatchResult:
+        return self._request(
+            "POST",
+            enrichment_batches_path(request.course_id),
+            request,
+            EnrichmentBatchResult,
+            context=request.context,
+        )
+
     def health(self) -> HealthResponse:
         context = RequestContext(caller="coursepilot-health")
         return self._request(
@@ -231,6 +256,12 @@ class RemoteCourseRAGClient:
         }
         if context.idempotency_key is not None:
             headers["Idempotency-Key"] = context.idempotency_key
+        if self._principal_id is not None:
+            headers["X-CoursePilot-Principal-ID"] = self._principal_id
+        if self._authorized_course_id is not None:
+            headers["X-CoursePilot-Course-ID"] = self._authorized_course_id
+        if self._roles:
+            headers["X-CoursePilot-Roles"] = ",".join(self._roles)
         try:
             response = self._client.request(
                 method,

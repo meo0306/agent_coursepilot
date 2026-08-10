@@ -1,0 +1,784 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "DocxPaginationAnchorCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "alignment_confidence": {
+          "default": null,
+          "title": "Alignment Confidence",
+          "type": "null"
+        },
+        "display_page_label": {
+          "default": null,
+          "title": "Display Page Label",
+          "type": "null"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "font_manifest_sha256": {
+          "default": null,
+          "title": "Font Manifest Sha256",
+          "type": "null"
+        },
+        "mapped_source_unit": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Mapped Source Unit",
+          "type": "string"
+        },
+        "physical_page_index": {
+          "default": null,
+          "title": "Physical Page Index",
+          "type": "null"
+        },
+        "render_profile_sha256": {
+          "default": null,
+          "title": "Render Profile Sha256",
+          "type": "null"
+        },
+        "rendered_pdf_sha256": {
+          "default": null,
+          "title": "Rendered Pdf Sha256",
+          "type": "null"
+        },
+        "renderer_provider": {
+          "default": null,
+          "title": "Renderer Provider",
+          "type": "null"
+        },
+        "renderer_version": {
+          "default": null,
+          "title": "Renderer Version",
+          "type": "null"
+        },
+        "section_anchor": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Section Anchor",
+          "type": "string"
+        },
+        "section_page_index": {
+          "default": null,
+          "title": "Section Page Index",
+          "type": "null"
+        },
+        "selection_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Selection Id",
+          "type": "string"
+        },
+        "source_document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "source_paragraph_index": {
+          "minimum": 0,
+          "title": "Source Paragraph Index",
+          "type": "integer"
+        },
+        "source_text": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Source Text",
+          "type": "string"
+        },
+        "source_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selection_id",
+        "document_id",
+        "document_version_id",
+        "source_document_id",
+        "source_paragraph_index",
+        "section_anchor",
+        "source_text",
+        "source_text_sha256",
+        "mapped_source_unit"
+      ],
+      "title": "DocxPaginationAnchorCandidate",
+      "type": "object"
+    },
+    "NativePDFPageCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "coverage_tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Coverage Tags",
+          "type": "array"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "page_number": {
+          "minimum": 1,
+          "title": "Page Number",
+          "type": "integer"
+        },
+        "page_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Page Text Sha256",
+          "type": "string"
+        },
+        "pilot": {
+          "default": false,
+          "title": "Pilot",
+          "type": "boolean"
+        },
+        "selection_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Selection Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selection_id",
+        "document_id",
+        "document_version_id",
+        "page_number",
+        "page_text_sha256"
+      ],
+      "title": "NativePDFPageCandidate",
+      "type": "object"
+    },
+    "OCRRouteOnlyCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_page_number": {
+          "minimum": 1,
+          "title": "Document Page Number",
+          "type": "integer"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "expected_p04_action": {
+          "const": "route_to_ocr_pending",
+          "default": "route_to_ocr_pending",
+          "title": "Expected P04 Action",
+          "type": "string"
+        },
+        "parent_document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Parent Document Id",
+          "type": "string"
+        },
+        "regions": {
+          "items": {
+            "type": "null"
+          },
+          "maxItems": 0,
+          "title": "Regions",
+          "type": "array"
+        },
+        "representation": {
+          "enum": [
+            "raster_lossless",
+            "raster_jpeg",
+            "raster"
+          ],
+          "title": "Representation",
+          "type": "string"
+        },
+        "selection_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Selection Id",
+          "type": "string"
+        },
+        "source_page_number": {
+          "minimum": 1,
+          "title": "Source Page Number",
+          "type": "integer"
+        },
+        "transcription": {
+          "default": null,
+          "title": "Transcription",
+          "type": "null"
+        }
+      },
+      "required": [
+        "selection_id",
+        "document_id",
+        "document_version_id",
+        "document_page_number",
+        "parent_document_id",
+        "source_page_number",
+        "representation"
+      ],
+      "title": "OCRRouteOnlyCandidate",
+      "type": "object"
+    },
+    "P03EvalIdentityBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Artifact Sha256",
+          "type": "string"
+        },
+        "artifact_uri": {
+          "pattern": "^artifact://sha256/[0-9a-f]{64}$",
+          "title": "Artifact Uri",
+          "type": "string"
+        },
+        "build_job_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Build Job Id",
+          "type": "string"
+        },
+        "build_request_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Build Request Sha256",
+          "type": "string"
+        },
+        "build_scope": {
+          "const": "p03_inventory",
+          "default": "p03_inventory",
+          "title": "Build Scope",
+          "type": "string"
+        },
+        "build_status": {
+          "const": "succeeded",
+          "default": "succeeded",
+          "title": "Build Status",
+          "type": "string"
+        },
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_role": {
+          "enum": [
+            "primary",
+            "derived_fixture"
+          ],
+          "title": "Document Role",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "ds0_document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Ds0 Document Version",
+          "type": "string"
+        },
+        "knowledge_base_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Knowledge Base Id",
+          "type": "string"
+        },
+        "mutually_exclusive_variant_group": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Mutually Exclusive Variant Group",
+          "type": "string"
+        },
+        "parent_document_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Document Id"
+        },
+        "retrieval_eligible": {
+          "title": "Retrieval Eligible",
+          "type": "boolean"
+        },
+        "source_document_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "stage_fingerprint_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Stage Fingerprint Sha256",
+          "type": "string"
+        },
+        "stage_name": {
+          "const": "legacy_document_inventory",
+          "default": "legacy_document_inventory",
+          "title": "Stage Name",
+          "type": "string"
+        },
+        "stage_status": {
+          "enum": [
+            "succeeded",
+            "cached"
+          ],
+          "title": "Stage Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "course_id",
+        "document_id",
+        "document_role",
+        "mutually_exclusive_variant_group",
+        "retrieval_eligible",
+        "ds0_document_version",
+        "document_sha256",
+        "knowledge_base_id",
+        "source_document_id",
+        "document_version_id",
+        "build_job_id",
+        "build_request_sha256",
+        "stage_status",
+        "stage_fingerprint_sha256",
+        "artifact_uri",
+        "artifact_sha256"
+      ],
+      "title": "P03EvalIdentityBinding",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SectionCandidateSelection": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "section_anchor": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Section Anchor",
+          "type": "string"
+        },
+        "selection_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Selection Id",
+          "type": "string"
+        },
+        "source_paragraph_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Paragraph Index"
+        },
+        "source_title": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Source Title",
+          "type": "string"
+        },
+        "source_title_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Title Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selection_id",
+        "document_id",
+        "document_version_id",
+        "section_anchor",
+        "source_title",
+        "source_title_sha256"
+      ],
+      "title": "SectionCandidateSelection",
+      "type": "object"
+    },
+    "TableCandidateSelection": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "observed_column_count": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed Column Count"
+        },
+        "observed_row_count": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed Row Count"
+        },
+        "selection_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Selection Id",
+          "type": "string"
+        },
+        "source_anchor_text": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Source Anchor Text",
+          "type": "string"
+        },
+        "source_content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Content Sha256",
+          "type": "string"
+        },
+        "source_page_number": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Page Number"
+        },
+        "source_table_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Table Index"
+        }
+      },
+      "required": [
+        "selection_id",
+        "document_id",
+        "document_version_id",
+        "source_anchor_text",
+        "source_content_sha256"
+      ],
+      "title": "TableCandidateSelection",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ApprovalRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "approval_scope": {
+      "const": "p04_input_selection_only",
+      "default": "p04_input_selection_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "candidate_source": {
+      "default": "human",
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Candidate Source",
+      "type": "string"
+    },
+    "constraints": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Constraints",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "docx_pagination_anchors": {
+      "items": {
+        "$ref": "#/$defs/DocxPaginationAnchorCandidate"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "title": "Docx Pagination Anchors",
+      "type": "array"
+    },
+    "gold_status": {
+      "const": "no_ds1_gold",
+      "default": "no_ds1_gold",
+      "title": "Gold Status",
+      "type": "string"
+    },
+    "identities": {
+      "items": {
+        "$ref": "#/$defs/P03EvalIdentityBinding"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Identities",
+      "type": "array"
+    },
+    "native_pdf_pages": {
+      "items": {
+        "$ref": "#/$defs/NativePDFPageCandidate"
+      },
+      "maxItems": 15,
+      "minItems": 15,
+      "title": "Native Pdf Pages",
+      "type": "array"
+    },
+    "ocr_route_only_pages": {
+      "items": {
+        "$ref": "#/$defs/OCRRouteOnlyCandidate"
+      },
+      "maxItems": 15,
+      "minItems": 15,
+      "title": "Ocr Route Only Pages",
+      "type": "array"
+    },
+    "p03_identity_snapshot_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P03 Identity Snapshot Sha256",
+      "type": "string"
+    },
+    "pending_p04_fields": {
+      "items": {
+        "enum": [
+          "reading_order",
+          "regions_and_noise",
+          "section_boundaries",
+          "table_cells",
+          "docx_physical_page_index",
+          "docx_display_page_label",
+          "docx_section_page_index",
+          "renderer_manifest",
+          "rendered_pdf_sha256",
+          "alignment_confidence"
+        ],
+        "type": "string"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "title": "Pending P04 Fields",
+      "type": "array"
+    },
+    "record_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "review_status": {
+      "$ref": "#/$defs/ReviewStatus",
+      "default": "candidate"
+    },
+    "schema_version": {
+      "const": "courserag.p04-input-work-package.v1",
+      "default": "courserag.p04-input-work-package.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sections": {
+      "items": {
+        "$ref": "#/$defs/SectionCandidateSelection"
+      },
+      "maxItems": 20,
+      "minItems": 20,
+      "title": "Sections",
+      "type": "array"
+    },
+    "tables": {
+      "items": {
+        "$ref": "#/$defs/TableCandidateSelection"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "title": "Tables",
+      "type": "array"
+    }
+  },
+  "required": [
+    "record_id",
+    "dataset_id",
+    "dataset_version",
+    "p03_identity_snapshot_sha256",
+    "identities",
+    "native_pdf_pages",
+    "docx_pagination_anchors",
+    "sections",
+    "tables",
+    "ocr_route_only_pages",
+    "pending_p04_fields",
+    "constraints"
+  ],
+  "title": "P04InputWorkPackage",
+  "type": "object"
+}

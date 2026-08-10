@@ -1,0 +1,17 @@
+{
+  "dpi": 200,
+  "language": "ch",
+  "low_region_confidence": 0.5,
+  "max_low_region_ratio": 0.25,
+  "max_memory_bytes": 1610612736,
+  "max_pixels": 20000000,
+  "max_workers": 1,
+  "min_confidence": 0.75,
+  "model_manifest_path": "resources/ocr_profiles/paddleocr_candidate_v1.model-manifest.json",
+  "model_manifest_sha256": "872cb665120e9a426e7b472616e0cf6fb809de533ffd8d8239eecd6342ee9442",
+  "model_name": "paddleocr-ch",
+  "name": "paddleocr_candidate_v1",
+  "provider": "paddleocr",
+  "schema_version": "courserag.ocr-profile.v1",
+  "timeout_seconds": 60.0
+}

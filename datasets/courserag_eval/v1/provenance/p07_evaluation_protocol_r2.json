@@ -1,0 +1,42 @@
+{
+  "algorithm_profile_sha256": "2a0acf8f340ebfc844bddf85c98db632c31c5754eecf0d3fc98f1cdacb2eeedf",
+  "approved_knowledge_points": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/approved/ds3/p07_knowledge_points.json",
+    "sha256": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+    "size_bytes": 249988
+  },
+  "constraints": [
+    "Approved DS3 Knowledge Point and Evidence content is byte-unchanged.",
+    "Every Provider Section Window belongs to exactly one split side.",
+    "Every concept family belongs to exactly one split side.",
+    "Calibration precedes a single Holdout run; Test remains empty and unlocked.",
+    "No Provider output, retrieval hit, or external fact defines Gold or split membership."
+  ],
+  "dataset_id": "courserag-p07-evaluation-protocol",
+  "dataset_version": "p07-r2",
+  "mixed_scope_count": 0,
+  "prior_approval": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/p07_gold_bundle_approval.json",
+    "sha256": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c",
+    "size_bytes": 27182
+  },
+  "prior_approved_bundle_sha256": "2ebd8f96bb8bd6f0c178dce7545ef991cceb181c6cfe2a3554592bc3daf10400",
+  "prior_split": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/ds3_p07_split.json",
+    "sha256": "de2da29ba2748777c7a0acb54c81106b0804e5980722d158b249e3e8a83e84af",
+    "size_bytes": 11493
+  },
+  "protocol_bundle_sha256": "7261cb63b81f5b2e260a6a578383bd41df55c690aae999891d479146395b215b",
+  "revised_split": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/ds3_p07_split_r2.json",
+    "sha256": "2a8e5d7c1c9f80efc5b3444d0f909f658648d4ed452e1a66c358ac360814737d",
+    "size_bytes": 11493
+  },
+  "schema_version": "courserag.p07-evaluation-protocol.v1",
+  "semantic_artifacts_unchanged": true,
+  "split_unit": "provider_section_window_connected_component"
+}

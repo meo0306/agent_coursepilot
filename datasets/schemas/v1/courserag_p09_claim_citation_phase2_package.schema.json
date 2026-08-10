@@ -1,0 +1,447 @@
+{
+  "$defs": {
+    "P09ClaimCitationPhase2Case": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Answer"
+        },
+        "answer_status": {
+          "enum": [
+            "answered",
+            "abstained_insufficient_evidence",
+            "failed"
+          ],
+          "title": "Answer Status",
+          "type": "string"
+        },
+        "answerable": {
+          "title": "Answerable",
+          "type": "boolean"
+        },
+        "case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "phase1_conciseness_pass": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Phase1 Conciseness Pass"
+        },
+        "query": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "required_gold_claims": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationPhase2GoldClaim"
+          },
+          "title": "Required Gold Claims",
+          "type": "array"
+        },
+        "system_answer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Answer Id",
+          "type": "string"
+        },
+        "system_claims": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationPhase2SystemClaim"
+          },
+          "title": "System Claims",
+          "type": "array"
+        }
+      },
+      "required": [
+        "case_id",
+        "system_answer_id",
+        "query",
+        "answerable",
+        "answer_status"
+      ],
+      "title": "P09ClaimCitationPhase2Case",
+      "type": "object"
+    },
+    "P09ClaimCitationPhase2Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Citation Id",
+          "type": "string"
+        },
+        "cited_evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Cited Evidence Id",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/P09ClaimCitationReviewEvidence"
+        },
+        "supports_claim": {
+          "title": "Supports Claim",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "citation_id",
+        "supports_claim",
+        "cited_evidence_id",
+        "evidence"
+      ],
+      "title": "P09ClaimCitationPhase2Citation",
+      "type": "object"
+    },
+    "P09ClaimCitationPhase2GoldClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "gold_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Gold Claim Id",
+          "type": "string"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        },
+        "supports": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationPhase2GoldSupport"
+          },
+          "minItems": 1,
+          "title": "Supports",
+          "type": "array"
+        },
+        "text": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gold_claim_id",
+        "text",
+        "text_sha256",
+        "required_evidence_ids",
+        "supports"
+      ],
+      "title": "P09ClaimCitationPhase2GoldClaim",
+      "type": "object"
+    },
+    "P09ClaimCitationPhase2GoldSupport": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_support_excerpt": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Exact Support Excerpt",
+          "type": "string"
+        },
+        "exact_support_excerpt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Exact Support Excerpt Sha256",
+          "type": "string"
+        },
+        "support_role": {
+          "enum": [
+            "primary",
+            "supporting"
+          ],
+          "title": "Support Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "support_role",
+        "exact_support_excerpt",
+        "exact_support_excerpt_sha256"
+      ],
+      "title": "P09ClaimCitationPhase2GoldSupport",
+      "type": "object"
+    },
+    "P09ClaimCitationPhase2SystemClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationPhase2Citation"
+          },
+          "minItems": 1,
+          "title": "Citations",
+          "type": "array"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "phase1_label": {
+          "enum": [
+            "correct_supported",
+            "correct_but_uncited",
+            "unsupported",
+            "contradictory",
+            "irrelevant"
+          ],
+          "title": "Phase1 Label",
+          "type": "string"
+        },
+        "system_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Claim Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_claim_id",
+        "ordinal",
+        "text",
+        "text_sha256",
+        "phase1_label",
+        "citations"
+      ],
+      "title": "P09ClaimCitationPhase2SystemClaim",
+      "type": "object"
+    },
+    "P09ClaimCitationReviewEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page_labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Page Labels",
+          "type": "array"
+        },
+        "section_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section Id"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        },
+        "source_mode": {
+          "enum": [
+            "native",
+            "ocr",
+            "hybrid"
+          ],
+          "title": "Source Mode",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        },
+        "warning_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warning Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "text",
+        "text_sha256",
+        "document_id",
+        "document_version_id",
+        "source_mode"
+      ],
+      "title": "P09ClaimCitationReviewEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approved_gold_bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Gold Bundle Sha256",
+      "type": "string"
+    },
+    "approved_qa_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Qa Sha256",
+      "type": "string"
+    },
+    "case_count": {
+      "minimum": 1,
+      "title": "Case Count",
+      "type": "integer"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09ClaimCitationPhase2Case"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "phase": {
+      "const": "gold_claim_mapping",
+      "default": "gold_claim_mapping",
+      "title": "Phase",
+      "type": "string"
+    },
+    "phase1_approval_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase1 Approval Sha256",
+      "type": "string"
+    },
+    "phase1_decisions_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase1 Decisions Sha256",
+      "type": "string"
+    },
+    "phase1_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Phase1 Package Sha256",
+      "type": "string"
+    },
+    "required_gold_claim_count": {
+      "minimum": 0,
+      "title": "Required Gold Claim Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "courserag.p09-claim-citation-phase2-package.v1",
+      "default": "courserag.p09-claim-citation-phase2-package.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "const": "fixed_p09_answer_grounding_main_dev",
+      "default": "fixed_p09_answer_grounding_main_dev",
+      "title": "Scope",
+      "type": "string"
+    },
+    "system_claim_count": {
+      "minimum": 0,
+      "title": "System Claim Count",
+      "type": "integer"
+    },
+    "test_access": {
+      "const": false,
+      "default": false,
+      "title": "Test Access",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "phase1_package_sha256",
+    "phase1_decisions_sha256",
+    "phase1_approval_sha256",
+    "approved_gold_bundle_sha256",
+    "approved_qa_sha256",
+    "case_count",
+    "system_claim_count",
+    "required_gold_claim_count",
+    "cases"
+  ],
+  "title": "P09ClaimCitationPhase2Package",
+  "type": "object"
+}

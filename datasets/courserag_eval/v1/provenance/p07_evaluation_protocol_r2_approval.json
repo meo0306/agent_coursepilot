@@ -1,0 +1,26 @@
+{
+  "approved_knowledge_points": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/approved/ds3/p07_knowledge_points.json",
+    "sha256": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+    "size_bytes": 249988
+  },
+  "notes": "Owner explicitly approved the exact P07 Evaluation Protocol r2 SHA-256 in the Codex conversation; this approval does not approve Provider outputs or alter Gold.",
+  "protocol_bundle_sha256": "7261cb63b81f5b2e260a6a578383bd41df55c690aae999891d479146395b215b",
+  "protocol_candidate": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/p07_evaluation_protocol_r2.json",
+    "sha256": "abffd8fda128185675bc500346467f98e90ad479b0b48c59304e0f67ca96e50f",
+    "size_bytes": 1985
+  },
+  "review_id": "p07-evaluation-protocol-r2-owner-approval",
+  "reviewed_at": "2026-08-05T00:00:00+08:00",
+  "reviewer_id": "repository-owner",
+  "revised_split": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/ds3_p07_split_r2.json",
+    "sha256": "2a8e5d7c1c9f80efc5b3444d0f909f658648d4ed452e1a66c358ac360814737d",
+    "size_bytes": 11493
+  },
+  "schema_version": "courserag.p07-evaluation-protocol-approval.v1"
+}

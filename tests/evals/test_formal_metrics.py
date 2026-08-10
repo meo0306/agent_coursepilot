@@ -21,6 +21,7 @@ from courserag.evals.formal_metrics import (
     ClaimAssessment,
     ClaimLabel,
     answer_conciseness_pass_rate,
+    claim_aware_answerability_metrics,
     claim_metrics,
     complete_evidence_group_recall_at_k,
 )
@@ -100,13 +101,32 @@ def test_claim_metrics_use_human_claim_and_citation_labels():
         required_gold_claim_ids={"gold-1", "gold-2"},
     )
 
-    assert metrics["gold_claim_coverage"].value == 0.5
+    assert metrics["gold_claim_coverage"].value == 1
     assert metrics["correct_claim_precision"].value == pytest.approx(1 / 4)
     assert metrics["unsupported_claim_rate"].value == pytest.approx(1 / 4)
     assert metrics["contradictory_claim_rate"].value == pytest.approx(1 / 4)
     assert metrics["irrelevant_claim_rate"].value == pytest.approx(1 / 4)
     assert metrics["citation_precision"].value == 1
     assert metrics["citation_recall"].value == 0.5
+
+
+def test_claim_aware_answerability_requires_a_correct_answer() -> None:
+    metrics = claim_aware_answerability_metrics(
+        system_answered=[True, True, False],
+        gold_answerable=[True, True, False],
+        answered_correctly=[True, False, False],
+    )
+
+    assert metrics["answerability_precision"].value == 0.5
+    assert metrics["answerability_recall"].value == 0.5
+    assert metrics["answerability_f1"].value == 0.5
+
+    with pytest.raises(ValueError, match="unanswered Case"):
+        claim_aware_answerability_metrics(
+            system_answered=[False],
+            gold_answerable=[True],
+            answered_correctly=[True],
+        )
 
 
 def test_empty_claim_denominators_are_not_reported_as_perfect():

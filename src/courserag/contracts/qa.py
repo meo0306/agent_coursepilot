@@ -2,10 +2,18 @@ from __future__ import annotations
 
 from enum import StrEnum
 
-from pydantic import Field
+from pydantic import Field, JsonValue
 
 from courserag.contracts.common import ContractModel, RequestContext, ResponseMeta
 from courserag.contracts.retrieval import RetrievalOptions, SearchFilters
+
+
+class AnswerType(StrEnum):
+    FACTOID = "factoid"
+    LIST = "list"
+    EXPLANATORY = "explanatory"
+    COMPARISON = "comparison"
+    PROCEDURE = "procedure"
 
 
 class AnswerStatus(StrEnum):
@@ -20,6 +28,7 @@ class AnsweringOptions(ContractModel):
     require_citations: bool = True
     allow_abstention: bool = True
     citation_style: str = "evidence_id"
+    answer_shape: AnswerType | None = None
 
 
 class QARequest(ContractModel):
@@ -35,6 +44,7 @@ class AnswerClaim(ContractModel):
     claim_id: str = Field(min_length=1)
     text: str = Field(min_length=1)
     evidence_ids: list[str] = Field(min_length=1)
+    validation_status: str = "valid"
 
 
 class Citation(ContractModel):
@@ -42,6 +52,8 @@ class Citation(ContractModel):
     document_id: str = Field(min_length=1)
     page_start: int | None = Field(default=None, ge=1)
     page_end: int | None = Field(default=None, ge=1)
+    section_path: list[str] = Field(default_factory=list)
+    content_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
 
 
 class ModelReference(ContractModel):
@@ -55,8 +67,15 @@ class QAResponse(ContractModel):
     question: str
     answer_status: AnswerStatus
     answer: str | None = None
+    answer_type: AnswerType | None = None
+    list_items: list[str] = Field(default_factory=list)
     claims: list[AnswerClaim] = Field(default_factory=list)
     citations: list[Citation] = Field(default_factory=list)
     context_package_id: str | None = None
     retrieval_trace_id: str | None = None
     model: ModelReference | None = None
+    qa_run_id: str | None = None
+    used_evidence_ids: list[str] = Field(default_factory=list)
+    usage: dict[str, JsonValue] = Field(default_factory=dict)
+    warnings: list[str] = Field(default_factory=list)
+    validation_summary: dict[str, JsonValue] = Field(default_factory=dict)

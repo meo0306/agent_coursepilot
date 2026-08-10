@@ -1,0 +1,14 @@
+{
+  "schema_version": "courserag.chunk-profile.v1",
+  "name": "parent_child",
+  "version": "v1",
+  "tokenizer_id": "coursepilot-local-tokenizer-v1",
+  "tokenizer_sha256": "ecb6f9fc369894346f0511f4074ca75cee5cd5f3b06d02f1ba35fcd39f8e121d",
+  "parent_min_tokens": 1200,
+  "parent_target_tokens": 1600,
+  "parent_max_tokens": 2200,
+  "child_min_tokens": 250,
+  "child_target_tokens": 350,
+  "child_max_tokens": 500,
+  "child_overlap_tokens": 48
+}

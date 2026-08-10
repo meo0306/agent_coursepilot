@@ -1,0 +1,69 @@
+{
+  "bundle_sha256": "5a84bac041375310d5bb80f17f7481464d07dbcf75f9f980c6b8a030e58af0c1",
+  "change_reasons": {
+    "atomic_claim_split": [
+      "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9",
+      "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca",
+      "gold-qa-10caf16efab833ad40e600359b5239c2",
+      "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+      "gold-qa-252adaf1a1cbe9d9371796e0f770889b",
+      "gold-qa-2a2684775884b34032cd3adf427ec866",
+      "gold-qa-2b8972b47de56a5b6b62e68091320557",
+      "gold-qa-574fc80decab989823e88f69bc850f15",
+      "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f",
+      "gold-qa-6008640bfe85562d6598e3805655f820",
+      "gold-qa-720907acf5c019bca8604d8bbaddf311",
+      "gold-qa-730f317833bc4b6f6d458f42814069be",
+      "gold-qa-74304d145c41aaf7ea44b17108ef39ef",
+      "gold-qa-78aa66e747df675f48bff6dc8bcd6426",
+      "gold-qa-a74bb4b9fcefc7df08ea2063151445b8",
+      "gold-qa-a9d45653719933fd1bc9790cf1f0db87",
+      "gold-qa-f287be490a3c23fdd7bc3d027b70051a",
+      "gold-qa-f9aea3f33c261e97222b15cf5b46fddf"
+    ],
+    "neighbor_supported_fact_completion": [
+      "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+      "gold-qa-2b8972b47de56a5b6b62e68091320557",
+      "gold-qa-730f317833bc4b6f6d458f42814069be",
+      "gold-qa-a74bb4b9fcefc7df08ea2063151445b8"
+    ],
+    "procedure_coverage_completion": [
+      "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca",
+      "gold-qa-10caf16efab833ad40e600359b5239c2",
+      "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+      "gold-qa-252adaf1a1cbe9d9371796e0f770889b",
+      "gold-qa-2a2684775884b34032cd3adf427ec866",
+      "gold-qa-6008640bfe85562d6598e3805655f820",
+      "gold-qa-74304d145c41aaf7ea44b17108ef39ef",
+      "gold-qa-a9d45653719933fd1bc9790cf1f0db87",
+      "gold-qa-f9aea3f33c261e97222b15cf5b46fddf"
+    ]
+  },
+  "context_changed_record_ids": [
+    "gold-qa-18b8640afc285e8d4ecebec3db23684f"
+  ],
+  "parent_bundle_sha256": "0634c618279e8c4ddd432eeff2a20974924c06ddfe641f48da528d8311bb30e0",
+  "schema_version": "courserag.p09-r1-to-r2-changes.v1",
+  "semantic_changed_record_ids": [
+    "gold-qa-a74bb4b9fcefc7df08ea2063151445b8",
+    "gold-qa-f287be490a3c23fdd7bc3d027b70051a",
+    "gold-qa-2a2684775884b34032cd3adf427ec866",
+    "gold-qa-a9d45653719933fd1bc9790cf1f0db87",
+    "gold-qa-574fc80decab989823e88f69bc850f15",
+    "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+    "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9",
+    "gold-qa-10caf16efab833ad40e600359b5239c2",
+    "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca",
+    "gold-qa-78aa66e747df675f48bff6dc8bcd6426",
+    "gold-qa-2b8972b47de56a5b6b62e68091320557",
+    "gold-qa-720907acf5c019bca8604d8bbaddf311",
+    "gold-qa-6008640bfe85562d6598e3805655f820",
+    "gold-qa-252adaf1a1cbe9d9371796e0f770889b",
+    "gold-qa-730f317833bc4b6f6d458f42814069be",
+    "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f",
+    "gold-qa-f9aea3f33c261e97222b15cf5b46fddf",
+    "gold-qa-74304d145c41aaf7ea44b17108ef39ef"
+  ],
+  "unchanged_context_record_count": 99,
+  "unchanged_qa_record_count": 82
+}

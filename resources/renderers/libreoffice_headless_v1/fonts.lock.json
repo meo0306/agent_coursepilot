@@ -1,0 +1,10 @@
+{
+  "package": "fonts-noto-cjk",
+  "package_version": "1:20220127+repack1-1",
+  "font_manifest_sha256": "780fbf5bed4c88c289940b40060ed9abee2fdceda87f2a2a4bf46aaefd200baf",
+  "manifest_basis": "pre_p03_qa_container_fc_list",
+  "required_families": [
+    "Noto Sans CJK SC",
+    "Noto Serif CJK SC"
+  ]
+}

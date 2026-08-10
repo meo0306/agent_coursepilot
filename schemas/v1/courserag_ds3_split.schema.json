@@ -1,0 +1,80 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actual_calibration_ratio": {
+      "maximum": 0.8,
+      "minimum": 0.6,
+      "title": "Actual Calibration Ratio",
+      "type": "number"
+    },
+    "algorithm_profile_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Algorithm Profile Sha256",
+      "type": "string"
+    },
+    "calibration_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Calibration Ids",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "family_assignments": {
+      "additionalProperties": {
+        "enum": [
+          "calibration",
+          "holdout"
+        ],
+        "type": "string"
+      },
+      "minProperties": 1,
+      "title": "Family Assignments",
+      "type": "object"
+    },
+    "holdout_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Holdout Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "courserag.ds3-split.v1",
+      "default": "courserag.ds3-split.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "target_calibration_ratio": {
+      "default": 0.7,
+      "maximum": 0.7,
+      "minimum": 0.7,
+      "title": "Target Calibration Ratio",
+      "type": "number"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "calibration_ids",
+    "holdout_ids",
+    "family_assignments",
+    "actual_calibration_ratio",
+    "algorithm_profile_sha256"
+  ],
+  "title": "DS3SplitManifest",
+  "type": "object"
+}

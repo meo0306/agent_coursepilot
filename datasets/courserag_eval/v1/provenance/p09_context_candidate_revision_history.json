@@ -1,0 +1,21 @@
+{
+  "dataset_id": "courserag-p09-context",
+  "dataset_version": "r2",
+  "revisions": [
+    {
+      "candidate_file_sha256": "f8940c2ed0ddfd6f230c3254775d3b813e9d2eb1575fe3796824d83486275762",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds5/p09_context_r1.json",
+      "reason": "Initial Context Candidate superseded by the answer-obligation audit.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "abf6b1d6ffa95f28515ce50a603e300d07e4ddb9a5cdbafc187730d90dcc7d06",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds5/p09_context_r2.json",
+      "reason": "One ERNIE procedure gains an independently sourced minimum neighbor; 99 Context records are unchanged.",
+      "revision": 2,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

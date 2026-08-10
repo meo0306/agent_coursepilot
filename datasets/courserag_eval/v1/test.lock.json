@@ -1,10 +1,10 @@
 {
-  "schema_version": "course-eval.test-lock.v1",
+  "approved_manifest_sha256": "5c39e14738e36d5e211dc054830451e8388e992b6e76a46bf2f406f24193d8ec",
   "dataset_id": "courserag-eval",
   "dataset_version": "v1",
-  "locked": false,
-  "test_ids_sha256": null,
-  "approved_manifest_sha256": null,
-  "locked_at": null,
-  "locked_by": null
+  "locked": true,
+  "locked_at": "2026-08-10T16:52:39.929825Z",
+  "locked_by": "course_owner",
+  "schema_version": "course-eval.test-lock.v1",
+  "test_ids_sha256": "b21a030a790ee30a11ee83417469ad28a6b78bba1e89081d3ad6a30b4cc561ea"
 }

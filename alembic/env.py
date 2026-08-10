@@ -21,15 +21,17 @@ if str(SRC) not in sys.path:
 # Importing coursepilot.models registers every ORM model on Base.metadata. The
 # migration environment then knows which CoursePilot tables exist in code.
 import coursepilot.models  # noqa: E402,F401
+import courserag.persistence.models  # noqa: E402,F401
 from coursepilot.db.base import Base  # noqa: E402
 from coursepilot.db.session import _build_postgres_url  # noqa: E402
+from courserag.persistence.base import CourseRAGBase  # noqa: E402
 
 config = context.config
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-target_metadata = Base.metadata  # 告诉 Alembic迁移时以 CoursePilot 的 metadata 为准
+target_metadata = [Base.metadata, CourseRAGBase.metadata]
 
 
 def run_migrations_offline() -> None:

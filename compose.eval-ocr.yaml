@@ -1,0 +1,95 @@
+x-p05-common: &p05-common
+  working_dir: /workspace
+  network_mode: none
+  mem_limit: 1610612736
+  cpus: 1.0
+  environment:
+    PYTHONPATH: /workspace/src:/app/src
+  volumes:
+    - ./:/workspace:ro
+    - ./storage_eval:/workspace/storage_eval
+
+services:
+  rapidocr-run-1:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args:
+        OCR_PROVIDER: rapidocr
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/rapidocr-run-1", "--run-id", "p05-rapidocr-run-1", "--image-id", "${P05_RAPIDOCR_IMAGE_ID:?set immutable RapidOCR image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  rapidocr-run-2:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args: {OCR_PROVIDER: rapidocr}
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/rapidocr-run-2", "--run-id", "p05-rapidocr-run-2", "--image-id", "${P05_RAPIDOCR_IMAGE_ID:?set immutable RapidOCR image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  rapidocr-default-v1-run-1:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args:
+        OCR_PROVIDER: rapidocr
+        OCR_PROFILE_PATH: resources/ocr_profiles/default_v1.json
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/rapidocr-default-v1-run-1", "--run-id", "p05-rapidocr-default-v1-run-1", "--image-id", "${P05_RAPIDOCR_DEFAULT_V1_IMAGE_ID:?set immutable RapidOCR default_v1 image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  rapidocr-default-v1-run-2:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args:
+        OCR_PROVIDER: rapidocr
+        OCR_PROFILE_PATH: resources/ocr_profiles/default_v1.json
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/rapidocr-default-v1-run-2", "--run-id", "p05-rapidocr-default-v1-run-2", "--image-id", "${P05_RAPIDOCR_DEFAULT_V1_IMAGE_ID:?set immutable RapidOCR default_v1 image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  tesseract-run-1:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args: {OCR_PROVIDER: tesseract}
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/tesseract-run-1", "--run-id", "p05-tesseract-run-1", "--image-id", "${P05_TESSERACT_IMAGE_ID:?set immutable Tesseract image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  tesseract-run-2:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args: {OCR_PROVIDER: tesseract}
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/tesseract-run-2", "--run-id", "p05-tesseract-run-2", "--image-id", "${P05_TESSERACT_IMAGE_ID:?set immutable Tesseract image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  paddleocr-run-1:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args: {OCR_PROVIDER: paddleocr}
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/paddleocr-run-1", "--run-id", "p05-paddleocr-run-1", "--image-id", "${P05_PADDLEOCR_IMAGE_ID:?set immutable PaddleOCR image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  paddleocr-run-2:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args: {OCR_PROVIDER: paddleocr}
+    command: ["-m", "evaluation.p05_ocr_eval", "--repository-root", "/workspace", "--dataset-root", "/workspace/datasets/courserag_eval/v1", "--profile", "/opt/courserag-ocr/runtime-profile.json", "--output-dir", "/workspace/storage_eval/p05_ocr_pilot/paddleocr-run-2", "--run-id", "p05-paddleocr-run-2", "--image-id", "${P05_PADDLEOCR_IMAGE_ID:?set immutable PaddleOCR image ID}", "--git-commit", "${P05_GIT_COMMIT:?set exact host Git Commit}", "--git-dirty"]
+
+  p05-ocr-pilot:
+    <<: *p05-common
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-ocr
+      args: {OCR_PROVIDER: rapidocr}
+    depends_on:
+      rapidocr-run-1: {condition: service_completed_successfully}
+      rapidocr-run-2: {condition: service_completed_successfully}
+      tesseract-run-1: {condition: service_completed_successfully}
+      tesseract-run-2: {condition: service_completed_successfully}
+      paddleocr-run-1: {condition: service_completed_successfully}
+      paddleocr-run-2: {condition: service_completed_successfully}
+    command: ["-m", "evaluation.p05_ocr_compare", "--rapidocr-run-1", "storage_eval/p05_ocr_pilot/rapidocr-run-1/report.json", "--rapidocr-run-2", "storage_eval/p05_ocr_pilot/rapidocr-run-2/report.json", "--tesseract-run-1", "storage_eval/p05_ocr_pilot/tesseract-run-1/report.json", "--tesseract-run-2", "storage_eval/p05_ocr_pilot/tesseract-run-2/report.json", "--paddleocr-run-1", "storage_eval/p05_ocr_pilot/paddleocr-run-1/report.json", "--paddleocr-run-2", "storage_eval/p05_ocr_pilot/paddleocr-run-2/report.json", "--deployment-evidence", "storage_eval/p05_ocr_pilot/deployment_evidence.json", "--output", "storage_eval/p05_ocr_pilot/comparison.json"]

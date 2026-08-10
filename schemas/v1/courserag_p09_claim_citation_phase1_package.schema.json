@@ -1,0 +1,360 @@
+{
+  "$defs": {
+    "P09ClaimCitationReviewCase": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Answer"
+        },
+        "answer_status": {
+          "enum": [
+            "answered",
+            "abstained_insufficient_evidence",
+            "failed"
+          ],
+          "title": "Answer Status",
+          "type": "string"
+        },
+        "answer_type": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Answer Type"
+        },
+        "blinded_sample_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Blinded Sample Id",
+          "type": "string"
+        },
+        "case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationReviewClaim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "context_evidence": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationReviewEvidence"
+          },
+          "title": "Context Evidence",
+          "type": "array"
+        },
+        "query": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "system_answer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Answer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "blinded_sample_id",
+        "system_answer_id",
+        "query",
+        "answer_status"
+      ],
+      "title": "P09ClaimCitationReviewCase",
+      "type": "object"
+    },
+    "P09ClaimCitationReviewClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationReviewLink"
+          },
+          "minItems": 1,
+          "title": "Citations",
+          "type": "array"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "system_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Claim Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_claim_id",
+        "ordinal",
+        "text",
+        "text_sha256",
+        "citations"
+      ],
+      "title": "P09ClaimCitationReviewClaim",
+      "type": "object"
+    },
+    "P09ClaimCitationReviewEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page_labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Page Labels",
+          "type": "array"
+        },
+        "section_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section Id"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        },
+        "source_mode": {
+          "enum": [
+            "native",
+            "ocr",
+            "hybrid"
+          ],
+          "title": "Source Mode",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        },
+        "warning_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warning Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "text",
+        "text_sha256",
+        "document_id",
+        "document_version_id",
+        "source_mode"
+      ],
+      "title": "P09ClaimCitationReviewEvidence",
+      "type": "object"
+    },
+    "P09ClaimCitationReviewLink": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Citation Id",
+          "type": "string"
+        },
+        "cited_evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Cited Evidence Id",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/P09ClaimCitationReviewEvidence"
+        }
+      },
+      "required": [
+        "citation_id",
+        "cited_evidence_id",
+        "evidence"
+      ],
+      "title": "P09ClaimCitationReviewLink",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "abstained_case_count": {
+      "minimum": 0,
+      "title": "Abstained Case Count",
+      "type": "integer"
+    },
+    "answered_case_count": {
+      "minimum": 0,
+      "title": "Answered Case Count",
+      "type": "integer"
+    },
+    "approved_gold_bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Gold Bundle Sha256",
+      "type": "string"
+    },
+    "approved_qa_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Qa Sha256",
+      "type": "string"
+    },
+    "case_count": {
+      "minimum": 1,
+      "title": "Case Count",
+      "type": "integer"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09ClaimCitationReviewCase"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "citation_link_count": {
+      "minimum": 0,
+      "title": "Citation Link Count",
+      "type": "integer"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "failed_case_count": {
+      "minimum": 0,
+      "title": "Failed Case Count",
+      "type": "integer"
+    },
+    "phase": {
+      "const": "claim_citation_support_blinded",
+      "default": "claim_citation_support_blinded",
+      "title": "Phase",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p09-claim-citation-phase1-package.v1",
+      "default": "courserag.p09-claim-citation-phase1-package.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "const": "fixed_p09_answer_grounding_main_dev",
+      "default": "fixed_p09_answer_grounding_main_dev",
+      "title": "Scope",
+      "type": "string"
+    },
+    "source_checkpoint_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Checkpoint Sha256",
+      "type": "string"
+    },
+    "source_report_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Report Sha256",
+      "type": "string"
+    },
+    "system_claim_count": {
+      "minimum": 0,
+      "title": "System Claim Count",
+      "type": "integer"
+    },
+    "test_access": {
+      "const": false,
+      "default": false,
+      "title": "Test Access",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "source_report_sha256",
+    "source_checkpoint_sha256",
+    "approved_gold_bundle_sha256",
+    "approved_qa_sha256",
+    "case_count",
+    "answered_case_count",
+    "abstained_case_count",
+    "failed_case_count",
+    "system_claim_count",
+    "citation_link_count",
+    "cases"
+  ],
+  "title": "P09ClaimCitationPhase1Package",
+  "type": "object"
+}

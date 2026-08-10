@@ -1,0 +1,10 @@
+{
+  "profile_id": "libreoffice_headless_v1",
+  "provider": "libreoffice-headless",
+  "renderer_version": "7.4.7.2",
+  "locale": "C.UTF-8",
+  "timezone": "UTC",
+  "pdf_filter": "writer_pdf_Export",
+  "expected_font_manifest": "fonts.lock.json",
+  "low_alignment_confidence": 0.75
+}

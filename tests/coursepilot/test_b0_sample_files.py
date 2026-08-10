@@ -31,5 +31,7 @@ def test_owner_supplied_docx_and_pdf_complete_b0_smoke(tmp_path):
     assert report["workflows"]["lesson"]["exported"] is True
     assert report["workflows"]["ppt"]["exported"] is True
     assert all(
-        item["write_back_status"] == "written" for item in report["workflows"]["review_write_backs"]
+        item["write_back_status"]
+        in {"written", "requires_fragment_selection", "requires_evidence_migration"}
+        for item in report["workflows"]["review_write_backs"]
     )

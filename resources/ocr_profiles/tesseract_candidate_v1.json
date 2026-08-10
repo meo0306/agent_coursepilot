@@ -1,0 +1,17 @@
+{
+  "dpi": 200,
+  "language": "chi_sim",
+  "low_region_confidence": 0.5,
+  "max_low_region_ratio": 0.25,
+  "max_memory_bytes": 1610612736,
+  "max_pixels": 20000000,
+  "max_workers": 1,
+  "min_confidence": 0.75,
+  "model_manifest_path": "resources/ocr_profiles/tesseract_candidate_v1.model-manifest.json",
+  "model_manifest_sha256": "31b6872a9680547238c1b8083237d4273197549ded47e0b459f75497e6e8a0f3",
+  "model_name": "tesseract-chi_sim",
+  "name": "tesseract_candidate_v1",
+  "provider": "tesseract",
+  "schema_version": "courserag.ocr-profile.v1",
+  "timeout_seconds": 60.0
+}

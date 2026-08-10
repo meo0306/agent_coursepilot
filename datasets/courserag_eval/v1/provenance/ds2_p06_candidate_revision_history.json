@@ -1,0 +1,56 @@
+{
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "revisions": [
+    {
+      "candidate_file_sha256": "c8cd1ffb8b805b3cee70163113f3c3de39491e48e5ebd35467d66698de1a050a",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r1.json",
+      "reason": "Pre-delivery automated audit found that native PDF line fragments were not complete semantic units; r1 was never delivered for human review.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "a1ef035541d335877b36d8e22ea0b74d5ca687f4a60b760d5ed3a69c168c3c47",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r2.json",
+      "reason": "Pre-delivery audit found two OCR records joined an atomic heading/list to a body sentence; r2 was never delivered for human review.",
+      "revision": 2,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "5d736c05c50f15337f9c4a9c899d610474bcb4fec3cae9f208daa6b33fdcab3b",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r3.json",
+      "reason": "Pre-delivery visual audit found three native PDF object sequences that were punctuated but not complete readable semantic units; r3 was never delivered for human review.",
+      "revision": 3,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "198cb9634244121ab23a8c0d9c97e4f09cb4dc8f8dea04b915dc16a4ef313ff9",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r4.json",
+      "reason": "Pre-delivery visual audit found DOCX table BBoxes covered matched text but not the complete rendered table rules; r4 was never delivered for human review.",
+      "revision": 4,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "f4295f9783b131a8305713765907e169a83dc741d6c9af390b0b67b2f15b5bfc",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r5.json",
+      "reason": "course_owner completed all four review groups: 98 records accepted and 22 returned for source-grounded formula, algorithm, semantic-type or necessary-context corrections.",
+      "revision": 5,
+      "status": "rejected"
+    },
+    {
+      "candidate_file_sha256": "f35292d55f6848e18f6e8067a8ca0e72cf0bedae49e92d60cd05cc1513c1b35c",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r6.json",
+      "reason": "Course-owner review completed, then a global necessary-neighbor audit was requested for every record; r7 supersedes r6 without changing Gold content.",
+      "revision": 6,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "ebc980a4f52a763001bd2169c1215aac81eac55f4f661f7320a0e600e0acdcad",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds2/p06_evidence_r7.json",
+      "reason": "All-record nearest/minimum necessary-neighbor audit complete; item-level re-review waived by course owner, exact batch Hash approval still pending.",
+      "revision": 7,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

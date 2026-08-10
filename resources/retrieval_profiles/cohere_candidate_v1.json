@@ -1,0 +1,11 @@
+{
+  "schema_version": "courserag.reranker-profile.v1",
+  "profile_id": "cohere_candidate_v1",
+  "provider_env": "COURSERAG_RERANKER_PROVIDER",
+  "model_env": "COURSERAG_RERANKER_MODEL",
+  "endpoint_env": "COURSERAG_RERANKER_ENDPOINT",
+  "max_document_tokens": 1200,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "evaluation_failure_policy": "fail_sample"
+}

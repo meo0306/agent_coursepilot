@@ -79,10 +79,30 @@ class LocalCourseRAGAdapter:
         *,
         chunker: Chunker | None = None,
         vector_store: ChromaVectorStore | None = None,
+        retrieval_backend: str = "legacy",
+        versioned_search: Callable[[SearchRequest], SearchResponse] | None = None,
+        versioned_context: Callable[[ContextRequest], ContextPackage] | None = None,
+        versioned_answer: Callable[[QARequest], QAResponse] | None = None,
+        versioned_write_verified: Callable[
+            [VerifiedContentWriteRequest], VerifiedContentWriteResult
+        ]
+        | None = None,
+        versioned_revoke_verified: Callable[
+            [RevokeVerifiedContentRequest], RevokeVerifiedContentResult
+        ]
+        | None = None,
     ) -> None:
         self.session = session
         self._chunker = chunker
         self._vector_store = vector_store
+        if retrieval_backend not in {"legacy", "versioned"}:
+            raise ValueError("Unsupported CourseRAG retrieval backend")
+        self.retrieval_backend = retrieval_backend
+        self.versioned_search = versioned_search
+        self.versioned_context = versioned_context
+        self.versioned_answer = versioned_answer
+        self.versioned_write_verified = versioned_write_verified
+        self.versioned_revoke_verified = versioned_revoke_verified
 
     @property
     def chunker(self) -> Chunker:
@@ -265,6 +285,14 @@ class LocalCourseRAGAdapter:
         )
 
     def _search(self, request: SearchRequest) -> SearchResponse:
+        if self.retrieval_backend == "versioned":
+            if self.versioned_search is None:
+                raise CourseRAGError(
+                    context=request.context,
+                    code=ErrorCode.INDEX_NOT_READY,
+                    message="Versioned retrieval has no valid Active Index.",
+                )
+            return self.versioned_search(request)
         self._validate_legacy_search(request)
         started = perf_counter()
         chapter = (
@@ -312,9 +340,35 @@ class LocalCourseRAGAdapter:
         )
 
     def build_context(self, request: ContextRequest) -> ContextPackage:
+        if self.retrieval_backend == "versioned":
+            callback = self.versioned_context
+            if callback is None:
+                raise CourseRAGError(
+                    context=request.context,
+                    code=ErrorCode.INDEX_NOT_READY,
+                    message="Versioned Context runtime is not configured.",
+                )
+            return self._with_structured_errors(
+                request.context,
+                CourseRAGOperation.BUILD_CONTEXT,
+                lambda: callback(request),
+            )
         self._unsupported(request.context, CourseRAGOperation.BUILD_CONTEXT)
 
     def answer(self, request: QARequest) -> QAResponse:
+        if self.retrieval_backend == "versioned":
+            callback = self.versioned_answer
+            if callback is None:
+                raise CourseRAGError(
+                    context=request.context,
+                    code=ErrorCode.FEATURE_NOT_AVAILABLE,
+                    message="Versioned QA runtime is not configured.",
+                )
+            return self._with_structured_errors(
+                request.context,
+                CourseRAGOperation.QA,
+                lambda: callback(request),
+            )
         self._unsupported(request.context, CourseRAGOperation.QA)
 
     def get_evidence(self, request: GetEvidenceRequest) -> EvidenceRecord:
@@ -327,13 +381,27 @@ class LocalCourseRAGAdapter:
         self,
         request: VerifiedContentWriteRequest,
     ) -> VerifiedContentWriteResult:
-        self._unsupported(request.context, CourseRAGOperation.WRITE_VERIFIED_CONTENT)
+        callback = self.versioned_write_verified
+        if callback is None:
+            self._unsupported(request.context, CourseRAGOperation.WRITE_VERIFIED_CONTENT)
+        return self._with_structured_errors(
+            request.context,
+            CourseRAGOperation.WRITE_VERIFIED_CONTENT,
+            lambda: callback(request),
+        )
 
     def revoke_verified_content(
         self,
         request: RevokeVerifiedContentRequest,
     ) -> RevokeVerifiedContentResult:
-        self._unsupported(request.context, CourseRAGOperation.REVOKE_VERIFIED_CONTENT)
+        callback = self.versioned_revoke_verified
+        if callback is None:
+            self._unsupported(request.context, CourseRAGOperation.REVOKE_VERIFIED_CONTENT)
+        return self._with_structured_errors(
+            request.context,
+            CourseRAGOperation.REVOKE_VERIFIED_CONTENT,
+            lambda: callback(request),
+        )
 
     def health(self) -> HealthResponse:
         return HealthResponse(
@@ -351,13 +419,21 @@ class LocalCourseRAGAdapter:
         )
 
     def capabilities(self) -> CapabilitiesResponse:
+        supported = [
+            CourseRAGOperation.START_BUILD,
+            CourseRAGOperation.GET_BUILD_JOB,
+            CourseRAGOperation.LIST_DOCUMENTS,
+            CourseRAGOperation.SEARCH,
+        ]
+        if self.versioned_write_verified is not None:
+            supported.append(CourseRAGOperation.WRITE_VERIFIED_CONTENT)
+        if self.versioned_revoke_verified is not None:
+            supported.append(CourseRAGOperation.REVOKE_VERIFIED_CONTENT)
         return CapabilitiesResponse(
-            supported_operations=[
-                CourseRAGOperation.START_BUILD,
-                CourseRAGOperation.GET_BUILD_JOB,
-                CourseRAGOperation.LIST_DOCUMENTS,
-                CourseRAGOperation.SEARCH,
-            ]
+            supported_operations=supported,
+            supports_verified_writeback=self.versioned_write_verified is not None,
+            supports_enrichment=self.versioned_write_verified is not None,
+            supports_incremental_build=self.retrieval_backend == "versioned",
         )
 
     def execute_legacy_build(
@@ -470,6 +546,9 @@ class LocalCourseRAGAdapter:
             or request.retrieval.candidate_k != request.retrieval.return_top_n
             or request.retrieval.rerank_top_n != request.retrieval.return_top_n
             or bool(request.filters.document_ids)
+            or bool(request.filters.document_version_ids)
+            or bool(request.filters.knowledge_point_ids)
+            or request.filters.index_version is not None
             or len(request.filters.document_types) > 1
             or len(request.filters.section_paths) > 1
             or any(len(path) != 1 for path in request.filters.section_paths)

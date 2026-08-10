@@ -28,6 +28,12 @@ def test_settings_default_values():
     assert settings.USE_FAKE_MODEL is False
     assert settings.DEFAULT_MODEL == FakeModelName.FAKE
     assert settings.AVAILABLE_MODELS == set(FakeModelName)
+    assert settings.COURSERAG_OCR_PROVIDER == "rapidocr"
+    assert settings.COURSERAG_OCR_PROFILE_PATH == "resources/ocr_profiles/default_v1.json"
+    assert settings.COURSERAG_RETRIEVAL_PROFILE_PATH == (
+        "resources/retrieval_profiles/default_v1.json"
+    )
+    assert settings.COURSERAG_OCR_TIMEOUT_SECONDS == 90
 
 
 def test_settings_with_openai_key():
@@ -123,3 +129,33 @@ def test_settings_log_level_invalid():
     with patch.dict(os.environ, {"LOG_LEVEL": "INVALID"}, clear=True):
         with pytest.raises(ValueError, match="validation error for Settings\nLOG_LEVEL\n"):
             Settings(_env_file=None)
+
+
+def test_versioned_retrieval_accepts_frozen_local_embedding() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        settings = Settings(
+            COURSERAG_RETRIEVAL_BACKEND="versioned",
+            COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+            COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+            COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+            COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256="1" * 64,
+            COURSERAG_EMBEDDING_WEIGHTS_SHA256="2" * 64,
+            _env_file=None,
+        )
+
+    assert settings.COURSERAG_EMBEDDING_DEVICE == "cuda"
+    assert settings.COURSERAG_EMBEDDING_DTYPE == "bfloat16"
+
+
+def test_versioned_retrieval_rejects_unfrozen_local_embedding() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(
+            ValueError, match="Local Embedding requires path and frozen model Hashes"
+        ):
+            Settings(
+                COURSERAG_RETRIEVAL_BACKEND="versioned",
+                COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+                COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+                COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+                _env_file=None,
+            )

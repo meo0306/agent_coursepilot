@@ -1,0 +1,504 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    },
+    "P10CitationJudgment": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_candidate_anchor_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Candidate Anchor Ids",
+          "type": "array"
+        },
+        "expected_new_anchor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P10SourceAnchor"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "expected_status": {
+          "enum": [
+            "valid",
+            "migrated",
+            "needs_review",
+            "invalid"
+          ],
+          "title": "Expected Status",
+          "type": "string"
+        },
+        "judgment_id": {
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Judgment Id",
+          "type": "string"
+        },
+        "old_anchor": {
+          "$ref": "#/$defs/P10SourceAnchor"
+        },
+        "rationale": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "judgment_id",
+        "old_anchor",
+        "expected_status",
+        "rationale"
+      ],
+      "title": "P10CitationJudgment",
+      "type": "object"
+    },
+    "P10DS6Case": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "$ref": "#/$defs/P10DocumentState"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "before": {
+          "$ref": "#/$defs/P10DocumentState"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "change_list": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Change List",
+          "type": "array"
+        },
+        "judgments": {
+          "items": {
+            "$ref": "#/$defs/P10CitationJudgment"
+          },
+          "minItems": 1,
+          "title": "Judgments",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "searchable": {
+          "default": false,
+          "title": "Searchable",
+          "type": "boolean"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "transformation": {
+          "enum": [
+            "rename_document",
+            "modify_paragraph",
+            "insert_blank_page",
+            "change_parser_profile",
+            "change_chunker_profile",
+            "replace_ocr_page",
+            "duplicate_source_unit",
+            "partial_text_delete",
+            "delete_evidence"
+          ],
+          "title": "Transformation",
+          "type": "string"
+        },
+        "variant_exclusion_group": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Variant Exclusion Group",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "split",
+        "transformation",
+        "before",
+        "after",
+        "change_list",
+        "variant_exclusion_group",
+        "judgments"
+      ],
+      "title": "P10DS6Case",
+      "type": "object"
+    },
+    "P10DocumentState": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/HashedArtifact"
+        },
+        "chunker_profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Chunker Profile Sha256",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "parser_profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Parser Profile Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "document_sha256",
+        "artifact",
+        "parser_profile_sha256",
+        "chunker_profile_sha256"
+      ],
+      "title": "P10DocumentState",
+      "type": "object"
+    },
+    "P10SourceAnchor": {
+      "additionalProperties": false,
+      "properties": {
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Evidence Record Sha256",
+          "type": "string"
+        },
+        "exact_text": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "title": "Exact Text",
+          "type": "string"
+        },
+        "exact_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Exact Text Sha256",
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        }
+      },
+      "required": [
+        "course_id",
+        "evidence_id",
+        "evidence_record_sha256",
+        "exact_text",
+        "exact_text_sha256",
+        "source_span"
+      ],
+      "title": "P10SourceAnchor",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "block_end": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block End"
+        },
+        "block_start": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Start"
+        },
+        "char_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char End"
+        },
+        "char_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char Start"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "document_sha256"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P10DS6Case"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds6-formal.v1",
+      "default": "courserag.ds6-formal.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P10DS6Dataset",
+  "type": "object"
+}

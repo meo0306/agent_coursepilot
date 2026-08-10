@@ -1,0 +1,247 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P10DS8Case": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "cache_state": {
+          "enum": [
+            "cold",
+            "warm"
+          ],
+          "title": "Cache State",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "concurrency": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Concurrency",
+          "type": "integer"
+        },
+        "dev_ids_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Dev Ids Sha256",
+          "type": "string"
+        },
+        "metrics": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Metrics",
+          "type": "array"
+        },
+        "profile_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Profile Refs",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "referenced_case_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Referenced Case Ids",
+          "type": "array"
+        },
+        "repetitions": {
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Repetitions",
+          "type": "integer"
+        },
+        "resolved_dev_query_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Resolved Dev Query Count",
+          "type": "integer"
+        },
+        "resolved_test_query_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Resolved Test Query Count",
+          "type": "integer"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "test_id_resolution": {
+          "const": "deferred_until_test_lock",
+          "default": "deferred_until_test_lock",
+          "title": "Test Id Resolution",
+          "type": "string"
+        },
+        "test_ids_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Test Ids Sha256",
+          "type": "string"
+        },
+        "timeout_seconds": {
+          "maximum": 86400,
+          "minimum": 1,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        },
+        "workload_domain": {
+          "enum": [
+            "offline",
+            "online"
+          ],
+          "title": "Workload Domain",
+          "type": "string"
+        },
+        "workload_type": {
+          "enum": [
+            "full_build",
+            "single_document_build",
+            "single_section_update",
+            "ocr_batch",
+            "enrichment_batch",
+            "search",
+            "search_rerank",
+            "context",
+            "qa",
+            "qa_abstention"
+          ],
+          "title": "Workload Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "workload_type",
+        "cache_state",
+        "workload_domain",
+        "dev_ids_sha256",
+        "test_ids_sha256",
+        "repetitions",
+        "concurrency",
+        "timeout_seconds",
+        "metrics"
+      ],
+      "title": "P10DS8Case",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P10DS8Case"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds8-formal.v1",
+      "default": "courserag.ds8-formal.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P10DS8Dataset",
+  "type": "object"
+}

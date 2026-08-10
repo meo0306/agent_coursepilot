@@ -1,0 +1,68 @@
+{
+  "components": [
+    {
+      "component": "ds6",
+      "dev_ids": [
+        "p10-ds6-01-rename",
+        "p10-ds6-02-modify-paragraph",
+        "p10-ds6-03-insert-blank-page",
+        "p10-ds6-04-parser-profile",
+        "p10-ds6-07-duplicate-source"
+      ],
+      "test_ids": [
+        "p10-ds6-05-chunker-profile",
+        "p10-ds6-06-replace-ocr-page",
+        "p10-ds6-08-partial-delete",
+        "p10-ds6-09-delete-evidence"
+      ]
+    },
+    {
+      "component": "ds7",
+      "dev_ids": [
+        "p10-ds7-01-rename",
+        "p10-ds7-02-modify-section",
+        "p10-ds7-03-add-section",
+        "p10-ds7-04-chunker",
+        "p10-ds7-05-kp-prompt",
+        "p10-ds7-06-embedding",
+        "p10-ds7-07-reranker"
+      ],
+      "test_ids": [
+        "p10-ds7-08-delete-section",
+        "p10-ds7-09-replace-ocr",
+        "p10-ds7-10-writeback-lifecycle",
+        "p10-ds7-11-auto-enrichment",
+        "p10-ds7-12-manual-enrichment"
+      ]
+    },
+    {
+      "component": "security",
+      "dev_ids": [
+        "p10-sec-01-pdf-as-docx",
+        "p10-sec-02-docx-as-pdf",
+        "p10-sec-03-unsupported",
+        "p10-sec-04-encrypted-pdf",
+        "p10-sec-05-compression",
+        "p10-sec-06-filename-traversal",
+        "p10-sec-07-page-limit",
+        "p10-sec-08-dpi-limit",
+        "p10-sec-09-parse-timeout",
+        "p10-sec-10-cross-course-read"
+      ],
+      "test_ids": [
+        "p10-sec-11-zip-entry-traversal",
+        "p10-sec-12-cross-course-search",
+        "p10-sec-13-cross-course-write",
+        "p10-sec-14-unauthorized-revoke",
+        "p10-sec-15-prompt-injection",
+        "p10-sec-16-secret-redaction"
+      ]
+    }
+  ],
+  "dataset_id": "courserag-p10-component-splits",
+  "dataset_version": "r1",
+  "global_dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+  "global_test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+  "schema_version": "courserag.p10-component-splits.v1",
+  "test_locked": false
+}

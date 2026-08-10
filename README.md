@@ -8,6 +8,10 @@ validation, export, review, and verified write-back.
 
 [中文说明](README.zh-CN.md)
 
+The versioned CourseRAG subsystem is documented in
+[`docs/courserag/`](docs/courserag/README.md), including its stable API,
+incremental/index architecture, trusted-gateway boundary, and operating limits.
+
 ## Core Capabilities
 
 - Dynamic course knowledge base: upload course files, parse them, split them into

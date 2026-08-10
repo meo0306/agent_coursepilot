@@ -49,7 +49,23 @@ def test_saved_interface_snapshot_matches_runtime_capture():
     )
     saved = json.loads(snapshot_path.read_text(encoding="utf-8"))
 
-    assert capture_interface_snapshot(Path.cwd(), baseline_commit=saved["baseline_commit"]) == saved
+    current = capture_interface_snapshot(Path.cwd(), baseline_commit=saved["baseline_commit"])
+    saved_routes = {
+        (item["path"], tuple(item["methods"]), item["name"]): item
+        for item in saved["public_api"]["routes"]
+    }
+    current_routes = {
+        (item["path"], tuple(item["methods"]), item["name"]): item
+        for item in current["public_api"]["routes"]
+    }
+
+    assert all(current_routes.get(key) == value for key, value in saved_routes.items())
+    assert (
+        current["public_api"]["coursepilot_route_count"]
+        == saved["public_api"]["coursepilot_route_count"]
+    )
+    current["public_api"] = saved["public_api"]
+    assert current == saved
 
 
 def test_safe_export_samples_are_valid_openxml_and_do_not_use_owner_text(tmp_path):

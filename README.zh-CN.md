@@ -4,6 +4,9 @@ CoursePilot 是面向教师备课场景的课程资源生成助手，采用 work
 
 [English README](README.md)
 
+版本化 CourseRAG 子系统的稳定 API、增量/索引架构、可信网关边界和运行限制见
+[`docs/courserag/`](docs/courserag/README.md)。
+
 ## 核心能力
 
 - 动态课程知识库：上传课程资料，完成解析、切分、向量化，并写入按课程隔离的 Chroma collection。

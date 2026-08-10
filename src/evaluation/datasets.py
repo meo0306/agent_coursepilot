@@ -4,7 +4,7 @@ import hashlib
 import json
 from collections.abc import Iterable
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from pydantic import BaseModel
 
@@ -31,13 +31,22 @@ from courserag.evals.schemas import (
     DS6CitationMigrationDataset,
     DS7IncrementalWritebackDataset,
     DS8PerformanceDataset,
+    P09ContextGoldDataset,
+    P09QAGoldDataset,
     QAHumanReviewRecord,
 )
 from evaluation.contracts import (
+    CandidateRevisionHistory,
     DatasetSplit,
     ReviewableRecord,
     ReviewLogEntry,
     ReviewStatus,
+)
+from evaluation.p10_schemas import (
+    P10DS6Dataset,
+    P10DS7Dataset,
+    P10DS8Dataset,
+    P10SecurityDataset,
 )
 
 
@@ -62,6 +71,15 @@ COURSERAG_SPECS = (
     DatasetSpec("ds7", DS7IncrementalWritebackDataset),
     DatasetSpec("ds8", DS8PerformanceDataset),
 )
+
+SCHEMA_VERSION_MODELS: dict[str, type[BaseModel]] = {
+    "courserag.p09-qa-gold.v1": P09QAGoldDataset,
+    "courserag.p09-context-gold.v1": P09ContextGoldDataset,
+    "courserag.ds6-formal.v1": P10DS6Dataset,
+    "courserag.ds7-formal.v1": P10DS7Dataset,
+    "courserag.ds8-formal.v1": P10DS8Dataset,
+    "courserag.p10-security-control.v1": P10SecurityDataset,
+}
 
 COURSEPILOT_SPECS = (
     DatasetSpec("cp_ds0", CPDS0ManifestDataset),
@@ -162,7 +180,13 @@ def _load_jsonl_models(
 
 def load_dataset_inventory(root: Path, specs: Iterable[DatasetSpec]) -> DatasetInventory:
     root = root.resolve()
-    candidate_records = _load_status_tree(root / "candidates", specs, approved=False)
+    superseded_candidates = _load_superseded_candidate_paths(root)
+    candidate_records = _load_status_tree(
+        root / "candidates",
+        specs,
+        approved=False,
+        excluded_paths=superseded_candidates,
+    )
     approved_records = _load_status_tree(root / "approved", specs, approved=True)
     review_entries = load_review_log(root / "reviews" / "review_log.jsonl")
     _validate_approvals(candidate_records, approved_records, review_entries)
@@ -180,14 +204,20 @@ def _load_status_tree(
     specs: Iterable[DatasetSpec],
     *,
     approved: bool,
+    excluded_paths: set[Path] | None = None,
 ) -> dict[str, ReviewableRecord]:
+    excluded_paths = excluded_paths or set()
     records: dict[str, ReviewableRecord] = {}
     for spec in specs:
         directory = root / spec.directory_name
         if not directory.is_dir():
             raise DatasetValidationError(f"missing dataset directory: {directory}")
         for path in sorted(directory.glob("*.json")):
-            envelope = spec.model.model_validate_json(path.read_text(encoding="utf-8"))
+            if path.resolve() in excluded_paths:
+                continue
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            model = SCHEMA_VERSION_MODELS.get(payload.get("schema_version"), spec.model)
+            envelope = model.model_validate(payload)
             for record in records_from_envelope(envelope):
                 expected_status = ReviewStatus.APPROVED if approved else None
                 if approved and record.review_status is not expected_status:
@@ -206,6 +236,44 @@ def _load_status_tree(
     return records
 
 
+def _load_superseded_candidate_paths(dataset_root: Path) -> set[Path]:
+    provenance_root = dataset_root / "provenance"
+    if not provenance_root.is_dir():
+        return set()
+    candidate_root = (dataset_root / "candidates").resolve()
+    excluded: set[Path] = set()
+    for history_path in sorted(provenance_root.glob("*_candidate_revision_history.json")):
+        try:
+            history = CandidateRevisionHistory.model_validate_json(
+                history_path.read_text(encoding="utf-8")
+            )
+        except ValueError as exc:
+            raise DatasetValidationError(
+                f"invalid Candidate revision history: {history_path}"
+            ) from exc
+        for entry in history.revisions:
+            parts = PurePosixPath(entry.candidate_relative_path).parts
+            try:
+                candidates_index = parts.index("candidates")
+            except ValueError as exc:
+                raise DatasetValidationError(
+                    f"revision path is not under candidates/: {entry.candidate_relative_path}"
+                ) from exc
+            target = (dataset_root / Path(*parts[candidates_index:])).resolve()
+            if not target.is_relative_to(candidate_root) or not target.is_file():
+                raise DatasetValidationError(
+                    f"Candidate revision path is missing or unsafe: {entry.candidate_relative_path}"
+                )
+            actual_sha256 = hashlib.sha256(target.read_bytes()).hexdigest()
+            if actual_sha256 != entry.candidate_file_sha256:
+                raise DatasetValidationError(
+                    f"Candidate revision Hash mismatch: {entry.candidate_relative_path}"
+                )
+            if entry.status in {"superseded", "rejected"}:
+                excluded.add(target)
+    return excluded
+
+
 def records_from_envelope(envelope: BaseModel) -> list[ReviewableRecord]:
     if isinstance(envelope, DS0CorpusDataset):
         return list(envelope.documents)
@@ -219,11 +287,23 @@ def records_from_envelope(envelope: BaseModel) -> list[ReviewableRecord]:
         return list(envelope.cases)
     if isinstance(envelope, DS5RetrievalQADataset):
         return list(envelope.cases)
+    if isinstance(envelope, P09QAGoldDataset):
+        return list(envelope.cases)
+    if isinstance(envelope, P09ContextGoldDataset):
+        return list(envelope.cases)
     if isinstance(envelope, DS6CitationMigrationDataset):
         return list(envelope.cases)
     if isinstance(envelope, DS7IncrementalWritebackDataset):
         return list(envelope.cases)
     if isinstance(envelope, DS8PerformanceDataset):
+        return list(envelope.cases)
+    if isinstance(envelope, P10DS6Dataset):
+        return list(envelope.cases)
+    if isinstance(envelope, P10DS7Dataset):
+        return list(envelope.cases)
+    if isinstance(envelope, P10DS8Dataset):
+        return list(envelope.cases)
+    if isinstance(envelope, P10SecurityDataset):
         return list(envelope.cases)
     if isinstance(envelope, CPDS0ManifestDataset):
         return list(envelope.records)

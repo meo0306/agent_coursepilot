@@ -1,0 +1,841 @@
+{
+  "r1_audit_path": "datasets/courserag_eval/v1/provenance/p08_r1_systemic_audit.json",
+  "r1_bundle_sha256": "329433b38981be2f5bb0608cc38146d6f4c29e902cf624065e6ef1e716e4354d",
+  "r2_bundle_sha256": "7f6b22556e3261d242dbd2b425812eeb18489dc75f6086697d808bbffbfbdf52",
+  "record_changes": {
+    "ds4": {
+      "gold-qp-0e81066e9b547d25b962953902a32f5d": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-18f15365c00961eb0609e698e344efc3": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-1bc73fbc52f9c20f9edee8f6275d35e7": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-1db69532c507c9b89c3e495094fdac02": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-1efa18ad7f49c1b32258bad2ec4b9ca4": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-215ff130c3bfb70e8fe85bf3093344e7": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-22f03306dd46b9906d87b6a49654a1ef": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-22ffdabac6c6f014ba638666ceb3841d": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-29cfabe8fe20fee8f751fcefaff754f8": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-2c0d67c095869f21a8921409fa598c63": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-2faae2a64ef1babd47200b5e73ae24ff": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-31ec02ef3539ea85cb09a4374c631a6b": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-34cf29740c114cbba2030d28cde9530f": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-363e43302d5d41ef27bbd2cde3e279ee": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-38eb6295dfebd01b0c330ccd21c104c9": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-3db86921189242dd318d1ad630ae7c82": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-3df201ca4400a25a1d02e0461f7b8ea1": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-3e3bb4d083f7cbe4df63bfa0838e5f71": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-48df4c3f9cce196592caf84296dd6b20": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-4cf8b3f0ea9d62e09741e4124553c3dc": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-50d512258286bab6be59bdb808d0cfc4": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-5228fc341844b90432fa86c52ffa6f9c": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-54798bd8c4035687aa28739fa542b67f": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-561ad04fe5c5ed1fede978ce0abe0594": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-585414475648698605700caa98e260b7": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-5aab8c88bfcaa73e1389e92bc76d0acd": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-5d8d1ff605d86f1bdd2b93d947a8842a": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-61464e890156c99567449dfd8de1d5e2": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-629d9ad4ca0d1acbcffdf45f812928cf": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-6616c49701acec2e36c96a812f61c0a9": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-662edfb64d724f49632582f9ea77bf8f": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-72a97bd543911e5deb46202b5aefd54a": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-784b2efc407055f14023584742ddd960": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-7ce6f328bb35ce07922d64cc6f500644": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-8114a0d89eef314fa7e810cda9451a0c": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-81bff653139aa67a3ea11dd83a1103e3": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-877963be286449f9e089429d0a568fda": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-8e5b3685da29e83493faadadfcd1adb9": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-8ff7b38df7144b220fd6b650a38cf129": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-9203504347d52f8d2c30153a90c57ac3": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-96c03f0b364ce765d09f5c9b6975455d": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-9b68f326eaccf0d592dfb2726d36542c": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-a6da155d5fc3b1ee44819f8be58794a5": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-b7e31a98009b37d8b34cd9087f74f793": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-b8098525244e31e802cd3c4a8aa2e8a2": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-b82d00b81b014f24e1aa1eb51f348f74": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-bc615dac830fbcd6d6f64c4e21ea1c30": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-bee6179b6bdfd6c40bc537f71a596461": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-c106e8a1f7b139806b827d39d26a3458": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-c5ca743332474b8d4890788bb3ac8c71": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-c81a7858d030a4e45468d390cf1d9f61": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-cd27fd69a72c6f64062752972d9e706b": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-cea2ae77e97f5651bd4a88da82b04713": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-d30617524edd02df27e26da65afcc043": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-d71f048800a2a11a3cbf05f4f1ca8d9d": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-da47cf26c1917317c157704f3dbf99a3": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-db9e5f7feb31f925ef0a3cd87428aac8": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-ea2bdfed78a9e3a7a8f9bdb7f0769509": [
+        "mirrored_ds5_r2_identity_bound",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-eb0f9e61120dd8f755c711ead5c8c936": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ],
+      "gold-qp-fdf69e549a092a60ec458ab36780e9b0": [
+        "heuristic_edge_replaced_with_curated_source_grounded_case",
+        "linked_kp_corrected",
+        "expansion_constraints_corrected",
+        "kp_names_and_source_text_exposed_in_review"
+      ]
+    },
+    "ds5": {
+      "gold-rq-044911d936ef458adede8195d84e182d": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-07197f3becdbacfd4976b1e3ee84bb43": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-0bca99af4a924241a1aa5b7efcce186b": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-1112fb98d5284428d124d0be7afbd2d0": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-1d2d3426a53bc035167af623d7766f9e": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-1e202de03a7884b3458a9a2635fe2b19": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-2134db212dc779edc87dc4e4dd433d8e": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-22577203db904f0c6bb6a6226cf08098": [],
+      "gold-rq-239ebbd32ffc401c2c89fae087d89614": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-23af66ac72ee56f75fdb709df2f8214d": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-260ea430b2abd12e0f66c0aaa3303e13": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-27751e274ce26ea489dc82276b3de963": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-27c624bc4167bb7408694aa3322d57b0": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-294125b141226b53fb56d1e6ef509e36": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-2c1283ab0f2a7ddec44f955e3f7db444": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-2c4dc78aa0790f5bcde0783b2155bea9": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-3204ff675a1e73d1a548f97d9a8b5a0f": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-3502a03e10e24deb6a1d667056085f38": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-352d8cf3b0f8aaf35d1795926472cfa2": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-3567c6d1da6d8ef8c5f4c856636a07eb": [],
+      "gold-rq-37d38e12d840f2997e9e9b39201e47da": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-3c877908f0472f1a7aa2f9c61fe6886f": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-3f50328e063e8f961f6ba89db307abbe": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-482c4ee6d22073d2777389d42d7bbbfa": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-4f0a8f2ed6fb448880435c1173c85e1b": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-4ffdef086ebe67ff8e8755dee28066fd": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-5178e715327fed95d093129606b48964": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-5afcdd17d13558128b4f27d30737eae0": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-5b769cd00a48b6d8b17fba1dec059bbb": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-5c380cc9bc38c11d7a3548a8d07e28c3": [],
+      "gold-rq-5e44e4e2aeb63fdd8aefc5c8437a8f82": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-637f02e7fe4829e8c69b47248ea89eac": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-6420de2a5731334f4c21a21f02ff5be8": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-64b0a9a713614d23d44b1d1197bbf96e": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-6546dd467a6ff32dd31c672236661f73": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-6625c7a4588ebc851accec618f557934": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-68f180aa1ae24e13b6638507281758ff": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-6a1ead9815160f290ae4661db1d353b5": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-6dc01cab65135a1dffe5ae4b4748ba30": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-7112c3aced5c6ea2c91842b272992bd8": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-713a7c6be4b73454396c0b5c04419ebf": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-75c0c40df0fe8c62b7cd02dd3cff0b97": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-75f882a2555c176e772f78305b24cb4d": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-7a72cfc65cf9c9b7bee0393763986898": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-7eb0857a4454471776f13e108c298939": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-8683f7ef5d2126932f2ea9432e68c3cb": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-87494e847f30717610563a7aa835be14": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-88658e979c98448d39b0d7c3b3095c15": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-898f835f50708362043107d0f1861b5f": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-8defb2cb2d4c729ed300065e2ec0a0af": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-8e3ffac1f9bbcbd712867cab9d01f5cb": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-8e5d6540a567c6070481227fcef21ce2": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-8fe5fa20cbc300e255e9008d86e2d575": [],
+      "gold-rq-95685b2191c26701d0c94a38ed73622b": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-96ca7ac2b9c2c2b28011bb9488506fb5": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-9ce372a9681af5bbecbc79b511e1dc9c": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-9ecd4fae4d720e5ac917284e749f1b93": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-9f388a142a1cf3b826be08b46b3011bf": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-a3ac5f4aeba2be704d4c8bea78468d12": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-a533064cb579dd7c2edc98bab8c88517": [],
+      "gold-rq-abaf93468be694e7a681cca584ecf2cc": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-ace3565eb2d98eda7ae9e00e9529ca34": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-b023f02aa78b0a7f1fba69762de1c1e3": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-b2144c2b649a6c45737a58e065d13e74": [],
+      "gold-rq-ba9049b88a123e1a402bb580a81d7def": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-bb46d90bc13835038a2c697b4189c4d6": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-bc85db9b6cc781aee8576633dba8ec00": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-bf9b1f91980c24979dcb79ee82e8247a": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-c2162806d5995668c3f81a3582299120": [],
+      "gold-rq-c73b0d28243b84ae414ab91c5584d3cb": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-c87f8303bd82f530eb13745ec7ae4b24": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-c9d461f0c0b9e228260cca186de0afba": [],
+      "gold-rq-cd0b315640afcc0de2fdb5c1d9cf4ca4": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-ce08156be2f7307227052a793712e7e7": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-d08ba084ca5a18d808d532c6f3c59957": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-d0d1f40137818a4504d9abaa68f391a2": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-d29d60073729feee8ca538873e174ce0": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-d35279d6bae4cfddde0a5167475a0815": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-d9863325f5d9a35c0c22db25f2245a81": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-df571ef52b218b797b4226675db85524": [],
+      "gold-rq-e0cbd38be0555e3d191dd68b07bd1633": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-e1375ae9e6e9fbdbd439eaf936b6ed06": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-e1996c10957a48bd7fe12928737416b5": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-e215895eb0ec348196d2fc162664b5c7": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-e5ea31714c219993b7be3e0b4779ddfd": [
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package"
+      ],
+      "gold-rq-e7fb2b1502ee253850bcc9e989000eb8": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-e88ab433e04ef0c0d93451b14a25f388": [],
+      "gold-rq-ebb7cf7ef8758813ec6db80bae8028d6": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-ef6dd249fa3afab524c56b64f9e21434": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f08e19db0ca6329364e9dd2e86cc975d": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f3c51be017e287889106d5630f107cc7": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f4a9fcc60f049c0f744d396e3aafdadb": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f52a5eeab2d281d555e6738c9d279ae8": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f58ff6ba43fa8d00e4f19371cb8a0bb0": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f6231a4ddb66ab94af6cf6b9b689c2c8": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-f99fb737f14527a3302c0e6231441254": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-fafff84989a81e3682b12de2d39f1a56": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-fc16a8d5c2543af34f756b4ddbc957eb": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-ffbf1007b57536e4650200ba464c2671": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ],
+      "gold-rq-ffd3db8be133d93470d73b9bb07cb0c9": [
+        "query_rewritten",
+        "heuristic_helpful_removed",
+        "hard_negatives_reselected_cross_package",
+        "stable_query_id_recomputed"
+      ]
+    }
+  },
+  "schema_version": "courserag.p08-r1-to-r2-record-changes.v1"
+}

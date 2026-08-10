@@ -1,0 +1,248 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "InterruptRecoveryCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "decision": {
+          "enum": [
+            "approve",
+            "edit_resume",
+            "replan",
+            "reject"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "expectation": {
+          "$ref": "#/$defs/RecoveryExpectation"
+        },
+        "fault": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fault"
+        },
+        "interrupt_type": {
+          "enum": [
+            "lesson_session_plan_review",
+            "lesson_final_review",
+            "exam_blueprint_review",
+            "exam_global_review",
+            "ppt_architecture_review",
+            "ppt_final_review"
+          ],
+          "title": "Interrupt Type",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        }
+      },
+      "required": [
+        "record_id",
+        "interrupt_type",
+        "decision",
+        "expectation"
+      ],
+      "title": "InterruptRecoveryCase",
+      "type": "object"
+    },
+    "RecoveryExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_scope_correct": {
+          "title": "Approval Scope Correct",
+          "type": "boolean"
+        },
+        "completed_nodes_before_resume": {
+          "minimum": 0,
+          "title": "Completed Nodes Before Resume",
+          "type": "integer"
+        },
+        "completed_nodes_reused": {
+          "minimum": 0,
+          "title": "Completed Nodes Reused",
+          "type": "integer"
+        },
+        "duplicate_side_effects": {
+          "minimum": 0,
+          "title": "Duplicate Side Effects",
+          "type": "integer"
+        },
+        "edited_fields_preserved": {
+          "minimum": 0,
+          "title": "Edited Fields Preserved",
+          "type": "integer"
+        },
+        "edited_fields_total": {
+          "minimum": 0,
+          "title": "Edited Fields Total",
+          "type": "integer"
+        },
+        "interrupt_reached": {
+          "title": "Interrupt Reached",
+          "type": "boolean"
+        },
+        "replayed_side_effect_attempts": {
+          "minimum": 0,
+          "title": "Replayed Side Effect Attempts",
+          "type": "integer"
+        },
+        "resume_succeeds": {
+          "title": "Resume Succeeds",
+          "type": "boolean"
+        },
+        "stale_version_detected": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stale Version Detected"
+        }
+      },
+      "required": [
+        "interrupt_reached",
+        "resume_succeeds",
+        "completed_nodes_reused",
+        "completed_nodes_before_resume",
+        "edited_fields_preserved",
+        "edited_fields_total",
+        "duplicate_side_effects",
+        "replayed_side_effect_attempts",
+        "approval_scope_correct"
+      ],
+      "title": "RecoveryExpectation",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/InterruptRecoveryCase"
+      },
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds6.v1",
+      "default": "coursepilot.cp-ds6.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "CPDS6RecoveryDataset",
+  "type": "object"
+}

@@ -125,6 +125,38 @@ class HashedArtifact(StrictModel):
     media_type: str | None = Field(default=None, max_length=160)
 
 
+class CandidateRevisionArtifact(StrictModel):
+    revision: int = Field(ge=1)
+    candidate_relative_path: str = Field(min_length=1, max_length=1024)
+    candidate_file_sha256: Sha256
+    status: Literal[
+        "superseded",
+        "pending_course_owner_review",
+        "approved",
+        "rejected",
+    ]
+    reason: str = Field(min_length=1, max_length=4000)
+
+
+class CandidateRevisionHistory(StrictModel):
+    schema_version: Literal["course-eval.candidate-revision-history.v1"] = (
+        "course-eval.candidate-revision-history.v1"
+    )
+    dataset_id: RecordId
+    dataset_version: str = Field(min_length=1, max_length=80)
+    revisions: list[CandidateRevisionArtifact] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_revision_history(self) -> CandidateRevisionHistory:
+        revisions = [entry.revision for entry in self.revisions]
+        paths = [entry.candidate_relative_path for entry in self.revisions]
+        if revisions != sorted(revisions) or len(revisions) != len(set(revisions)):
+            raise ValueError("Candidate revisions must be unique and sorted")
+        if len(paths) != len(set(paths)):
+            raise ValueError("Candidate revision paths must be unique")
+        return self
+
+
 class TestLock(StrictModel):
     schema_version: str = "course-eval.test-lock.v1"
     dataset_id: RecordId

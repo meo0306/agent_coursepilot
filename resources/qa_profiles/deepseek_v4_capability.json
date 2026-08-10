@@ -1,0 +1,9 @@
+{
+  "schema_version": "courserag.provider-capability.v1",
+  "profile_id": "deepseek_v4",
+  "status": "candidate",
+  "provider_family": "openai-compatible",
+  "supports_json_mode": true,
+  "supports_thinking_toggle": true,
+  "thinking_disabled_payload": {"thinking": {"type": "disabled"}}
+}

@@ -1,0 +1,598 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "ClaimEvidenceSupport": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Evidence Record Sha256",
+          "type": "string"
+        },
+        "exact_support_excerpt": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Exact Support Excerpt",
+          "type": "string"
+        },
+        "exact_support_excerpt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Exact Support Excerpt Sha256",
+          "type": "string"
+        },
+        "necessary_neighbor_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Necessary Neighbor Id"
+        },
+        "support_role": {
+          "enum": [
+            "primary",
+            "supporting"
+          ],
+          "title": "Support Role",
+          "type": "string"
+        },
+        "support_source": {
+          "default": "evidence_text",
+          "enum": [
+            "evidence_text",
+            "necessary_neighbor"
+          ],
+          "title": "Support Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "evidence_record_sha256",
+        "support_role",
+        "exact_support_excerpt",
+        "exact_support_excerpt_sha256"
+      ],
+      "title": "ClaimEvidenceSupport",
+      "type": "object"
+    },
+    "GoldClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "annotation_rationale": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation Rationale"
+        },
+        "claim_id": {
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "claim_text": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Claim Text",
+          "type": "string"
+        },
+        "claim_text_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Claim Text Sha256"
+        },
+        "evidence_supports": {
+          "items": {
+            "$ref": "#/$defs/ClaimEvidenceSupport"
+          },
+          "title": "Evidence Supports",
+          "type": "array"
+        },
+        "importance": {
+          "default": "required",
+          "enum": [
+            "required",
+            "optional"
+          ],
+          "title": "Importance",
+          "type": "string"
+        },
+        "normalized_claim_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Claim Sha256"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_text",
+        "required_evidence_ids"
+      ],
+      "title": "GoldClaim",
+      "type": "object"
+    },
+    "P09AnswerVariant": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "enum": [
+            "source_attested",
+            "mechanical_normalization"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "source_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Text Sha256",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "basis",
+        "source_text_sha256",
+        "rationale"
+      ],
+      "title": "P09AnswerVariant",
+      "type": "object"
+    },
+    "P09ForbiddenClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "basis_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Basis Evidence Ids",
+          "type": "array"
+        },
+        "claim_text": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Claim Text",
+          "type": "string"
+        },
+        "claim_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Claim Text Sha256",
+          "type": "string"
+        },
+        "forbidden_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Forbidden Claim Id",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "risk_type": {
+          "enum": [
+            "conflation",
+            "contradiction",
+            "unsupported_specificity"
+          ],
+          "title": "Risk Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "forbidden_claim_id",
+        "claim_text",
+        "claim_text_sha256",
+        "risk_type",
+        "basis_evidence_ids",
+        "rationale"
+      ],
+      "title": "P09ForbiddenClaim",
+      "type": "object"
+    },
+    "P09QAGoldCase": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_answer_variants": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Answer Variants",
+          "type": "array"
+        },
+        "annotation_flags": {
+          "items": {
+            "enum": [
+              "source_evidence_appears_truncated",
+              "retrieval_question_support_needs_owner_adjudication"
+            ],
+            "type": "string"
+          },
+          "title": "Annotation Flags",
+          "type": "array"
+        },
+        "answer_variant_details": {
+          "items": {
+            "$ref": "#/$defs/P09AnswerVariant"
+          },
+          "title": "Answer Variant Details",
+          "type": "array"
+        },
+        "answerable": {
+          "title": "Answerable",
+          "type": "boolean"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "approval_scope": {
+          "const": "ds5_qa_and_context_only",
+          "default": "ds5_qa_and_context_only",
+          "title": "Approval Scope",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evaluation_stratum": {
+          "enum": [
+            "retrieval_main",
+            "upstream_gap_diagnostic"
+          ],
+          "title": "Evaluation Stratum",
+          "type": "string"
+        },
+        "expected_behavior": {
+          "enum": [
+            "answer",
+            "abstained_insufficient_evidence"
+          ],
+          "title": "Expected Behavior",
+          "type": "string"
+        },
+        "forbidden_claim_details": {
+          "items": {
+            "$ref": "#/$defs/P09ForbiddenClaim"
+          },
+          "maxItems": 3,
+          "title": "Forbidden Claim Details",
+          "type": "array"
+        },
+        "forbidden_claims": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "generation_strategy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Generation Strategy Sha256",
+          "type": "string"
+        },
+        "gold_answer_type": {
+          "enum": [
+            "factoid",
+            "list",
+            "explanatory",
+            "comparison",
+            "procedure",
+            "unanswerable"
+          ],
+          "title": "Gold Answer Type",
+          "type": "string"
+        },
+        "gold_claims": {
+          "items": {
+            "$ref": "#/$defs/GoldClaim"
+          },
+          "title": "Gold Claims",
+          "type": "array"
+        },
+        "gold_list_items": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Gold List Items",
+          "type": "array"
+        },
+        "gold_short_answers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Gold Short Answers",
+          "type": "array"
+        },
+        "manual_review_reason": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manual Review Reason"
+        },
+        "qa_gold_status": {
+          "enum": [
+            "candidate",
+            "approved"
+          ],
+          "title": "Qa Gold Status",
+          "type": "string"
+        },
+        "query": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "query_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Query Sha256",
+          "type": "string"
+        },
+        "query_type": {
+          "enum": [
+            "exact_fact",
+            "definition",
+            "paraphrase",
+            "comparison",
+            "procedure",
+            "application",
+            "cross_section",
+            "unanswerable"
+          ],
+          "title": "Query Type",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "retrieval_case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Retrieval Case Id",
+          "type": "string"
+        },
+        "retrieval_case_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Retrieval Case Sha256",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "unanswerable_audit_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unanswerable Audit Sha256"
+        },
+        "upstream_approved_sha256": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minProperties": 5,
+          "title": "Upstream Approved Sha256",
+          "type": "object"
+        }
+      },
+      "required": [
+        "record_id",
+        "retrieval_case_id",
+        "retrieval_case_sha256",
+        "query",
+        "query_sha256",
+        "query_type",
+        "course_id",
+        "split",
+        "evaluation_stratum",
+        "answerable",
+        "gold_answer_type",
+        "expected_behavior",
+        "upstream_approved_sha256",
+        "generation_strategy_sha256",
+        "qa_gold_status"
+      ],
+      "title": "P09QAGoldCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09QAGoldCase"
+      },
+      "maxItems": 100,
+      "minItems": 100,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p09-qa-gold.v1",
+      "default": "courserag.p09-qa-gold.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P09QAGoldDataset",
+  "type": "object"
+}

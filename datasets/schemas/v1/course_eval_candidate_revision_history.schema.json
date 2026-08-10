@@ -1,0 +1,87 @@
+{
+  "$defs": {
+    "CandidateRevisionArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_file_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate File Sha256",
+          "type": "string"
+        },
+        "candidate_relative_path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Candidate Relative Path",
+          "type": "string"
+        },
+        "reason": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 1,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "superseded",
+            "pending_course_owner_review",
+            "approved",
+            "rejected"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "revision",
+        "candidate_relative_path",
+        "candidate_file_sha256",
+        "status",
+        "reason"
+      ],
+      "title": "CandidateRevisionArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "revisions": {
+      "items": {
+        "$ref": "#/$defs/CandidateRevisionArtifact"
+      },
+      "minItems": 1,
+      "title": "Revisions",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "course-eval.candidate-revision-history.v1",
+      "default": "course-eval.candidate-revision-history.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "revisions"
+  ],
+  "title": "CandidateRevisionHistory",
+  "type": "object"
+}

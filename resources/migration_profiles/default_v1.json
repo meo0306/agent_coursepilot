@@ -1,0 +1,17 @@
+{
+  "schema_version": "courserag.citation-migration-profile.v1",
+  "profile_id": "default_v1",
+  "auto_similarity": 0.92,
+  "review_similarity": 0.75,
+  "minimum_margin": 0.08,
+  "candidate_order": [
+    "same_version_valid",
+    "unique_exact_hash",
+    "unique_structural",
+    "similarity_with_adjacency",
+    "needs_review",
+    "invalid"
+  ],
+  "ambiguous_policy": "needs_review",
+  "chunk_id_as_evidence_id": false
+}

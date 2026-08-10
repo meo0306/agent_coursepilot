@@ -1,3 +1,4 @@
+import hashlib
 import json
 from datetime import UTC, datetime
 from pathlib import Path
@@ -5,7 +6,13 @@ from pathlib import Path
 import pytest
 
 from courserag.evals.schemas import CorpusDocument, DS0CorpusDataset
-from evaluation.contracts import ApprovalRecord, ReviewLogEntry, ReviewStatus
+from evaluation.contracts import (
+    ApprovalRecord,
+    CandidateRevisionArtifact,
+    CandidateRevisionHistory,
+    ReviewLogEntry,
+    ReviewStatus,
+)
 from evaluation.datasets import (
     COURSEPILOT_SPECS,
     COURSERAG_SPECS,
@@ -133,6 +140,46 @@ def test_canonical_json_bytes_are_stable():
 
     assert left == right
     assert json.loads(left) == {"a": 1, "b": 2}
+
+
+def test_superseded_candidate_revisions_are_hash_checked_and_excluded(tmp_path):
+    candidate = _candidate()
+    _write_layout(tmp_path, candidate)
+    current_path = tmp_path / "candidates/ds0/pilot.json"
+    superseded_path = tmp_path / "candidates/ds0/pilot_r1.json"
+    superseded_path.write_bytes(current_path.read_bytes())
+    (tmp_path / "provenance").mkdir()
+    history = CandidateRevisionHistory(
+        dataset_id="courserag-eval",
+        dataset_version="v1",
+        revisions=[
+            CandidateRevisionArtifact(
+                revision=1,
+                candidate_relative_path="candidates/ds0/pilot_r1.json",
+                candidate_file_sha256=hashlib.sha256(superseded_path.read_bytes()).hexdigest(),
+                status="superseded",
+                reason="test superseded revision",
+            ),
+            CandidateRevisionArtifact(
+                revision=2,
+                candidate_relative_path="candidates/ds0/pilot.json",
+                candidate_file_sha256=hashlib.sha256(current_path.read_bytes()).hexdigest(),
+                status="pending_course_owner_review",
+                reason="test current revision",
+            ),
+        ],
+    )
+    history_path = tmp_path / "provenance/test_candidate_revision_history.json"
+    history_path.write_text(history.model_dump_json(indent=2), encoding="utf-8")
+
+    inventory = load_dataset_inventory(tmp_path, COURSERAG_SPECS)
+    assert set(inventory.candidate_records) == {"doc-record-1"}
+
+    tampered = history.model_copy(deep=True)
+    tampered.revisions[0].candidate_file_sha256 = "b" * 64
+    history_path.write_text(tampered.model_dump_json(indent=2), encoding="utf-8")
+    with pytest.raises(DatasetValidationError, match="revision Hash mismatch"):
+        load_dataset_inventory(tmp_path, COURSERAG_SPECS)
 
 
 def test_repository_pilot_layouts_validate():

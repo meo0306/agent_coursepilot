@@ -1,0 +1,1096 @@
+{
+  "candidate_file_sha256": "ebc980a4f52a763001bd2169c1215aac81eac55f4f661f7320a0e600e0acdcad",
+  "course_owner_item_rereview_waived": true,
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "entries": [
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-35469c2bf6874d9057e05073805a8eb8",
+      "neighbor_text_sha256": [
+        "fd8e69a28e73d51123b08d72b461da56f968988fab4387a39b94d9ad5ad08963"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这一测试”需要最近的“图灵测试”先行词；仅保留首次命名该测试的一句。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-a9911582c78e1c224211cd7b66f9ccbd",
+      "neighbor_text_sha256": [
+        "cf374c668e66a08768b830f20598ff3f5b9d4a9842088df9bdc24f6dfe7a91df"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "单个能力条目需要精确的列表引导句，不需要其他兄弟条目。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-d6c42ef93972e95a95b7450032d8cadb",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+      "neighbor_text_sha256": [
+        "ba7b2b8be82984669898d1798123cd10fbf99ddac27b13c8b2d85106d119965b"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“首先”所属的实践任务由紧邻前句界定。"
+    },
+    {
+      "dependency_classes": [
+        "code_scope"
+      ],
+      "evidence_id": "gold-ev-6ecdac141332a7cb4593a131ccfc4619",
+      "neighbor_text_sha256": [
+        "11674eaadd162189d4c1acf51e0bf8062e2c8c30543d18bbae1d86afed005ed3",
+        "2e268540266d3f14657b06cc80d5e0253b295d5493b31d2782ae23922f78a26f",
+        "7364da507dfe719ae7f7d22c29b047a9fb6bfe70daeded26501178eb1d5f6647"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“第一/二/三行代码”必须绑定被解释的三行代码，而不是章节标题。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-92f41e50b2d92532b75cb347dbcaa6f3",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-475a17360c717b3221789247426a4d70",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "formula_symbols"
+      ],
+      "evidence_id": "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+      "neighbor_text_sha256": [
+        "80259bd075748ffe6656c2baae6866299b4900ef13512d66a41cdfc7ef306202"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "冒号后的距离公式是该引导句不可分割的最小后邻接。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-615b210d350379cf26677f84c3064531",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora",
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+      "neighbor_text_sha256": [
+        "d5c720ace03bf2653ec0a8d191cbed1f657d8fa82591db2e8777e47e12f69be1"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“以上算法”直接指向紧邻的完整感知机算法。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-040495f6fd63a4c346cdf3ac13da116d",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-899a0d03f4d2d6ef4b06b0d5d7c56532",
+      "neighbor_text_sha256": [
+        "341c2e338ec2c1bf3e9414763e59c77f724b02e3fc79d78d7aea3f324d339ef7"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "矩形网格已有表头，只需表题标明它是深度学习应用场景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9",
+      "neighbor_text_sha256": [
+        "341c2e338ec2c1bf3e9414763e59c77f724b02e3fc79d78d7aea3f324d339ef7",
+        "23d4bff17336c6999ffde3a557e1eadd7c02d7b22ca3fb3cec429d43cddcdbcf"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "单独表行需要表题确定主题，并需要表头解释两列含义。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+      "neighbor_text_sha256": [
+        "341c2e338ec2c1bf3e9414763e59c77f724b02e3fc79d78d7aea3f324d339ef7",
+        "23d4bff17336c6999ffde3a557e1eadd7c02d7b22ca3fb3cec429d43cddcdbcf"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "单独表行需要表题确定主题，并需要表头解释两列含义。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+      "neighbor_text_sha256": [
+        "341c2e338ec2c1bf3e9414763e59c77f724b02e3fc79d78d7aea3f324d339ef7",
+        "23d4bff17336c6999ffde3a557e1eadd7c02d7b22ca3fb3cec429d43cddcdbcf"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "单独表行需要表题确定主题，并需要表头解释两列含义。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-7056e327e4d297eadf4eeb60f00fcf21",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-520d6a9a5468ceca52daee6f7de7e998",
+      "neighbor_text_sha256": [
+        "4237d02e1123eea0bc312319908c32ada87a452c6e7ee47ba3eca056dc43185b"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“其中”需要紧邻句先声明Transformer由编码器和解码器组成。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-7b34285b5785dc23f07c5cf1f076aff5",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-baaff1e84d4d4e0415499eef709178cd",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-035088153234134744f10d335a333cc0",
+      "neighbor_text_sha256": [
+        "cfb3e7103dfd92ab6dbe1f68be6743e9b08e7a42763a34fd270d3b7cefa1f8be"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "模型名称、年份、参数量网格需要表题界定为常见语言大模型参数量。"
+    },
+    {
+      "dependency_classes": [
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+      "neighbor_text_sha256": [
+        "a6b272be1d38fe429db951922bb344ffdf5f68722cbb71deeb5de9732d18786a"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“最后”只需列表总领句即可确定它是涌现能力形成因素之一。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+      "neighbor_text_sha256": [
+        "75fc2b45a7f1dfe0e14d29c13842894309b273b738e20fee60a5929e530933c3"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "第（5）项需要列表总领句；其他兄弟项不是理解该项所必需。"
+    },
+    {
+      "dependency_classes": [
+        "causal_or_transition"
+      ],
+      "evidence_id": "gold-ev-5c3010622081949981b20043ffc9cdd4",
+      "neighbor_text_sha256": [
+        "a1c82692503e66975bbfe314bc371dde67116a00fce37fd730d4c9e383ca1a06"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“如GPT-4”是对紧邻训练耗时判断的例证。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2",
+      "neighbor_text_sha256": [
+        "b90aee62fa146ee864e71cdc2d939c0ee4d90b91b79529541edcd22b0394ce7e"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这些数据集”由同段紧邻前句的大规模训练数据集唯一指代。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope",
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-c381ce4313a28997c8fcb240b28fd058",
+      "neighbor_text_sha256": [
+        "a216d485c393970ac7dbd199f3e005a6e6ae9f66b96448d6dd6bce2b936cf870"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“如表5.2所示”必须携带紧随其后的LLaMA数据表。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-bd7d355279cc06aac5841601572cfe04",
+      "neighbor_text_sha256": [
+        "9d78bbbad2c980c3722b1f4332f7a3a74caa9c40d57878a111d3cdbb62000284"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这”直接承接同段上一句关于降维、特征选择和计算资源的判断。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-7ca952b51845ec8726626df3371c02a6",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-830849986bdfd10a7bd6767ec1a741fe",
+      "neighbor_text_sha256": [
+        "b5afb51b3d3611f3f1de87445075fd986ed316fc88f5173969067cbe8d2a0b19"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这一过程”由同段第一句对大模型对齐的定义解除指代。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-3194476eb80e21fa4c9e96b32c08065d",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora",
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-adecfc060732ab29684a055efdaacecc",
+      "neighbor_text_sha256": [
+        "16d624e4da69a1382c8994cd0a09067938ce13ed2920f13f88ac8c0963b23bc8",
+        "ed145af7408c9670c58264b58340a8bb9f96a02fa862f795d77e994e6b5ca3b5",
+        "987a88995e873c1b4157b9ebc6233bd1e0b461ba97fb1a032fb35f997cedb1ea",
+        "f23a37497e0add2591c41f055daef9b157762e6ffbd0a899b88019ac7d4b766b",
+        "17e46ed90418ff6a53d348bc92c31284b9083918e8b2aa168b39a9a300cfb799",
+        "c3bb3d59b3feb4beb1fdc339346f50c899717343f19b6085fa1a26f991410239"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这些详细的对齐方法”需要六个方法名称；保留方法标题，省略各方法说明。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+      "neighbor_text_sha256": [
+        "9bf40dc185641cc5fdbd862946b76abb969b2a5c35b43a72ab6479e1ade297ea"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "实验环境网格需要精确表题。"
+    },
+    {
+      "dependency_classes": [
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+      "neighbor_text_sha256": [
+        "a06b7ebab0f3fac113192645b803b05c5233350eacb0298d9177ba4d0c41b729"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“首先配置”属于微调模型与初始模型效果比对步骤。"
+    },
+    {
+      "dependency_classes": [
+        "code_scope"
+      ],
+      "evidence_id": "gold-ev-0e4d6445988271493ac03dfe6f5a8706",
+      "neighbor_text_sha256": [
+        "3070d7828f3bc6d4174eeee74071dc8d6391425f08a505011a0490849d44ca8a",
+        "b9e1f86e8ebfeb9797a734761943eb21345b71452cfb3d015eb9380eb2214959",
+        "66453b58be4d085e5d7db47877d899da4efbac284882cc281b48534a77a3ddd6",
+        "0070490afb4f5ef1e9f48b12999becd83339996d0a586f723f377f99eae3ab8c",
+        "1d42af547a2e73cd9a5d37cddecf096a26143d1e6c95af7513e9d2735c9d1932"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "单行代码需要最近的txt_base_list定义、索引循环和微调前分支标记。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora",
+        "causal_or_transition"
+      ],
+      "evidence_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+      "neighbor_text_sha256": [
+        "87096864f9bb204bb027d6714cd192748e2b5c4b65385b0ed0ac9c6e1dcc11cc"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这进一步证明”由同段紧邻的微调前后错误分类概率对比解除指代。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-335662f3142fb805ce0d560f4eccdd7a",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "formula_symbols"
+      ],
+      "evidence_id": "gold-ev-6f70e7f62938bf78ba45c307de1adaef",
+      "neighbor_text_sha256": [
+        "bb38c3b3ecf845a76670e7cc0faa096c738c49c6ebebfe15fdcdffccb2913cd9"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "公式仅补充紧邻的缺失符号定义或公式目的，不使用章节标题。"
+    },
+    {
+      "dependency_classes": [
+        "formula_symbols"
+      ],
+      "evidence_id": "gold-ev-488132baeca3f0acc28854e2d6ab51b8",
+      "neighbor_text_sha256": [
+        "2f8aace54c6bff244448e680a16a36ef00b9ebf488b98fb48b2f22a9fb8a0bf2"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "公式仅补充紧邻的缺失符号定义或公式目的，不使用章节标题。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-9806de881bae1e17c64362810b70b556",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-d103c316281ffd09d95fdc5c49d6ca90",
+      "neighbor_text_sha256": [
+        "1353f0907e9e1346ff24a44cb138b232ed6b8451d3c2bfd41b893aedff226d3c"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "算法网格需要精确表题界定创新前沿分类。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-6b00087df687acba07757febbd553d19",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "formula_symbols"
+      ],
+      "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+      "neighbor_text_sha256": [
+        "115cc92db4a6df98ea4eaa69190e05f66ebc46b2034999950f4fc4394b00bcdf"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "公式仅补充紧邻的缺失符号定义或公式目的，不使用章节标题。"
+    },
+    {
+      "dependency_classes": [
+        "formula_symbols"
+      ],
+      "evidence_id": "gold-ev-b4635872d741e3a6c0e764547d376516",
+      "neighbor_text_sha256": [
+        "21a944c925427c5cf1ffd2129bad399c630d34176412932a1356fdb5a239fb77"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "公式仅补充紧邻的缺失符号定义或公式目的，不使用章节标题。"
+    },
+    {
+      "dependency_classes": [
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-ce0b58d4e9bed39607616060acc59261",
+      "neighbor_text_sha256": [
+        "6fdb7f609ed06f16e4eceab311a4ffd6234cb7c5c21b33a4dc54fa9ef31ed948"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“而后”依赖同段先完成边界框计算并进入瓦片缓存的步骤。"
+    },
+    {
+      "dependency_classes": [
+        "causal_or_transition"
+      ],
+      "evidence_id": "gold-ev-1c656f4df29556da71c7217626346570",
+      "neighbor_text_sha256": [
+        "2423b4420fa0fda382529ff2b7e4f2a0cceebd85fbfc9a3eba6fec17e551e8dc"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“与此同时”承接同段前句对3D高斯点染既有里程碑地位的判断。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-17538584dfe368014f1177acd147a2b9",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+      "neighbor_text_sha256": [
+        "ca9addde95c9a2bf3f11d5cb7af11096083e418c889aded2112e2f22528c1700"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "传感器优缺点网格需要精确表题。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-cb0846fb32a5dd3d31485859a0290141",
+      "neighbor_text_sha256": [
+        "774107168801a1dcfd2b0492c8d4d659a0200034efc379a0f1f2d4e1fae82338"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“不同的传感器”由最近的SLAM常用LiDAR和相机陈述界定。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+      "neighbor_text_sha256": [
+        "8c47caedaa82c47d957c7241bbe1ea9c1dc1f00bcf33bcc73952806c40f6bf14"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“它的”由紧邻且唯一的算法小标题R3-LIVE解除；该标题本身就是最小先行词。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+      "neighbor_text_sha256": [
+        "19c3d7043e7e085ff312104da08ad3ad0f609d5dbe17fa36628ccf79b6cfda78"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "句首“所运用”缺失主语，需前句的智能可穿戴系统定义。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-9376f75284ba93d51d39a91efd40fe3c",
+      "neighbor_text_sha256": [
+        "2b0751fc311f1aaf51ab76c3b15729157ad3e6b776b8946f71b707ddbf7cbb1f"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "算法类型网格需要精确表题。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+      "neighbor_text_sha256": [
+        "165b7c8abc7bddbac31ab0b257764e3864c985f0adbbfccf57b43f87123ae0cd"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "第（1）项需要最近的三类应用总领句。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-0acd252ac0318ce3b16d8d78f916db2c",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-dacfc351ae9150a5594070769c072068",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-750ad563b07807797cfeb7840ad3cbc1",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-b5848cc84a30502e827293c903043ec2",
+      "neighbor_text_sha256": [
+        "64cefcadc96c138cc66ec52fe30a872c5e1649e6db70ecf0884b23938a40fb27"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "距离/目标像素网格需要精确表题。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-8e7f5191ecc55a07bf9bd0c23da8a94c",
+      "neighbor_text_sha256": [
+        "1b56243695d46e8d8c2a12f9b3a709106b055d2e00a213ed112d360f4d80c057"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“前述技术应用”由更小的类别总领句准确概括，无需复制紧邻长段。"
+    },
+    {
+      "dependency_classes": [
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-98ed1e051c4b052625cc4314716bc71e",
+      "neighbor_text_sha256": [
+        "1a4a32d8eeba290697f6c78c4cc851e81dc3960e9cd57069ad6c603809b5d0b8"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“最终”依赖同段紧邻的相对位姿和融合建图优化结果。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-269e7d294a9ea10ec381845fed1c0669",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-a63ff5485aa0ef4684620c1ae70da74f",
+      "neighbor_text_sha256": [
+        "055594c0e273236b935e1b259ab874b54563eb2a37a7f6b9606987c39598ed26"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "政策网格需要精确表题。"
+    },
+    {
+      "dependency_classes": [
+        "causal_or_transition"
+      ],
+      "evidence_id": "gold-ev-7aad9ec018e1c23c8450e4eb3eb8c8ef",
+      "neighbor_text_sha256": [
+        "46983461a82bf90ea075ab1497c07fc770881a11c168de38704a80b8ad95541e"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“也”承接紧邻的劳动力短缺场景，构成服务机器人需求的另一项社会因素。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-8678aa8ac3b7207a105135326cdd7109",
+      "neighbor_text_sha256": [
+        "43837121db58a0379ad969c459a3043dad1c18fade95eceff928019fa013b9d7"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“软件组成”需要服务机器人系统架构这一主语和硬件/软件二分范围。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-45b6cf06eb11c87041e80cb332e0fb08",
+      "neighbor_text_sha256": [
+        "0b9b051592bb90d0fe453bb5ee1e6b6066db80127f2ef7e7d07b309b7ecdfb16"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "c）项由用户界面的三种形式总领句界定，不复制a）和b）条目。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-af3a3107e1f93c42fd335609b578ed70",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-cd90184e756b31b7c7d14f2eaa4860ae",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-4a2e9ba97e83437aff6a599a00127645",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-fe217b9f51f9cf09f63f74759af35aae",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-7d62f915e9dbf59aa8046398bec7add4",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-319ca6f3755466a02c5cbd14eaaf4ab0",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-5f615419a6355000cd637eb5bcd473a3",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-203251897a3d2eef2cfa747cbbe59fc2",
+      "neighbor_text_sha256": [
+        "27b06711b225fcb2e4a3aaf225dc1193c65abfc187d4b7ed3534a587d379b131"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“另一重要贡献”需要最近一项明斯基既有贡献作为先行内容。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-b9857bdc1a027788ca9043a1001e9477",
+      "neighbor_text_sha256": [
+        "2670dcc5f079d3c61a8f8b0b0ef408e6eb2ffeb27541cb26efee8ed7f68d9207"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“这段长达十余年的时间”需要最近的达特茅斯会议后第一次人工智能热潮作为时期锚点。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-47ac1a377be899cf37f3403ae7f7568d",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-7898c01ada50d223ac64a6779dc775d3",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-a3e490b596854fca6f4b792d843232b7",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "causal_or_transition"
+      ],
+      "evidence_id": "gold-ev-4f40dc8586ca6829794799ceae4826cd",
+      "neighbor_text_sha256": [
+        "bbb6706e0cccdea25477f75f76f3f203eb3e0b6cce9924fe98a7bec6132d7b3b"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "句首“因为”解释紧邻的“现有定义未界定机器智能”判断。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-38cd360af1237ea0f2ab5fa2a180c208",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-ce15baccdaf162deb9c90d0644a4d48f",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-63b2a09988aa11ff3c6d483a0b162917",
+      "neighbor_text_sha256": [
+        "5342c8614755aeefbbd7107dc7d03e84e4288cdb1b190aee24a0980a55750e38"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "分号后的2013年谷歌事件需要同句首项提供年份和时间线范围。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-d388ee889882727dcfcd0d06ad3e6df0",
+      "neighbor_text_sha256": [
+        "5b13eb2587b052ba81ec4178ebaa5f420e093f9a7e044b2b82ebec1a878bdc62"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“其中”只需紧邻的三座AI城市排名即可解除范围指代。"
+    },
+    {
+      "dependency_classes": [
+        "table_scope"
+      ],
+      "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+      "neighbor_text_sha256": [
+        "7547f778e6ce0b76ece1e5f99947d7d639c9a16cd1102c172837ba2b5855bcb7"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "PDF表格需要其可见表号和表题。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-394a7aa0f5ffd00115b77af123e7f875",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1",
+      "neighbor_text_sha256": [
+        "f950ac122a06cb1d38ad3c937b1b2934e0e319138f08aac639e49d5086e701ab"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“具有如下特征”必须携带紧随其后的三项特征。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-73452f80b793aba65cdb9b1032838d27",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "list_scope"
+      ],
+      "evidence_id": "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002",
+      "neighbor_text_sha256": [
+        "6a1fa5cfbc40a1adc7642da30bda21292baa8a051cd020aadf45a345b9110073"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "第（1）项需要最近的“通用人工智能与强人工智能的区别”总领句。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-b23839dee5dfa9698f26fe59806854d4",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-1c9a57c874696d23336a0cf4aa6990ff",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-1831686810531ef3dd015742629827e9",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-038b4413d51c1b35b884caf999ec92e0",
+      "neighbor_text_sha256": [
+        "e34276322be2a3763d3da68a1ed950759566d8322e21ba71cb5c1f1531556a2f"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "“一些问题”由紧随其后的声音人格权侵权案例具体化。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-2b921c5153ba3d619e3b28d184af08b1",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-7a68a8df0bca457e22b2efb289d137bd",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-69d5817d5c65fb586045ff620d8226d5",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora",
+        "procedure_sequence"
+      ],
+      "evidence_id": "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a",
+      "neighbor_text_sha256": [
+        "a2c64eaa1e056f84c9e72bf33a7973c8d2ad3442009e3d7363ae1a19bcde9663"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "摄像头与专注度模型步骤需要紧邻的课堂教学智能反馈系统作为主语。"
+    },
+    {
+      "dependency_classes": [
+        "anaphora"
+      ],
+      "evidence_id": "gold-ev-be751fca2dda9ea3000329029002714c",
+      "neighbor_text_sha256": [
+        "2605911d2f42d1fefdb8645d0771140d1bfa20f2427c88452f993641301a5d8a"
+      ],
+      "outcome": "neighbors_required",
+      "rationale": "生物识别趋势需要最近的支付身份识别场景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-44b4860b2b3bdc81b634213a90212d8c",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-2a2e17d197342c4a0d463f3d331b123b",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    },
+    {
+      "dependency_classes": [],
+      "evidence_id": "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+      "neighbor_text_sha256": [],
+      "outcome": "standalone",
+      "rationale": "逐字检查后，该记录自身已给出主语、对象和完整命题；不存在外部代词、列表/表格范围、公式符号、代码、步骤或转折依赖，因此不附加帮助性背景。"
+    }
+  ],
+  "exact_batch_hash_approval_required": true,
+  "gold_content_hashes_unchanged": true,
+  "neighbors_required_record_count": 55,
+  "policy_sha256": "9d69821c27926245cabd514d2142e8cec019d15e41425218a0aa30fdd5ab852a",
+  "predecessor_candidate_file_sha256": "f35292d55f6848e18f6e8067a8ca0e72cf0bedae49e92d60cd05cc1513c1b35c",
+  "record_count": 120,
+  "schema_version": "courserag.ds2-necessary-neighbor-audit.v1",
+  "stable_ids_unchanged": true,
+  "standalone_record_count": 65
+}

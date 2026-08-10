@@ -138,9 +138,31 @@ class EvaluationRunner:
         self._persist()
         return result
 
+    def invalidate_succeeded_case(
+        self,
+        *,
+        case_id: str,
+        case_sha256: str,
+        reason_code: str,
+    ) -> None:
+        if not self.resume:
+            raise RuntimeError("case invalidation is only allowed during Resume")
+        existing = self.state.cases.get(case_id)
+        if existing is None or existing.case_sha256 != case_sha256:
+            raise RunConfigurationMismatch("cannot invalidate a missing or changed Case")
+        if existing.status != "succeeded":
+            return
+        existing.status = "failed"
+        existing.result = None
+        existing.error_type = "PostValidationError"
+        existing.error_message = f"saved Case failed post-validation: {reason_code}"
+        self.state.status = "running"
+        self._persist()
+
     def complete(self, report: dict[str, JsonValue]) -> None:
         self.state.status = "completed"
-        self.state.completed_at = utc_now()
+        if self.state.completed_at is None:
+            self.state.completed_at = utc_now()
         self._persist_checkpoint()
         payload: dict[str, JsonValue] = {
             "schema_version": "course-eval.report.v1",

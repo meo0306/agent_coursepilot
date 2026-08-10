@@ -1,0 +1,162 @@
+{
+  "$defs": {
+    "P08SourcePackage": {
+      "additionalProperties": false,
+      "properties": {
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "evidence_record_sha256": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minProperties": 1,
+          "title": "Evidence Record Sha256",
+          "type": "object"
+        },
+        "knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Knowledge Point Ids",
+          "type": "array"
+        },
+        "knowledge_point_record_sha256": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minProperties": 1,
+          "title": "Knowledge Point Record Sha256",
+          "type": "object"
+        },
+        "necessary_neighbor_record_sha256": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Necessary Neighbor Record Sha256",
+          "type": "object"
+        },
+        "package_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Package Id",
+          "type": "string"
+        },
+        "primary_document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Primary Document Id",
+          "type": "string"
+        },
+        "primary_document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Primary Document Sha256",
+          "type": "string"
+        },
+        "primary_document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Primary Document Version",
+          "type": "string"
+        },
+        "section_anchors": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Section Anchors",
+          "type": "array"
+        },
+        "title": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "package_id",
+        "course_id",
+        "title",
+        "section_anchors",
+        "primary_document_id",
+        "primary_document_version",
+        "primary_document_sha256",
+        "evidence_ids",
+        "evidence_record_sha256",
+        "knowledge_point_ids",
+        "knowledge_point_record_sha256"
+      ],
+      "title": "P08SourcePackage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "packages": {
+      "items": {
+        "$ref": "#/$defs/P08SourcePackage"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "title": "Packages",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "courserag.p08-source-packages.v1",
+      "default": "courserag.p08-source-packages.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_source_count": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Source Count",
+      "type": "integer"
+    },
+    "upstream_approved_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 2,
+      "title": "Upstream Approved Sha256",
+      "type": "object"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "packages",
+    "upstream_approved_sha256"
+  ],
+  "title": "P08SourcePackageDataset",
+  "type": "object"
+}

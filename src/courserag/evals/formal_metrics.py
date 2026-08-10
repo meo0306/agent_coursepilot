@@ -64,7 +64,11 @@ def claim_metrics(
     covered_gold_claims = {
         claim_id
         for assessment in assessments
-        if assessment.label == ClaimLabel.CORRECT_SUPPORTED
+        if assessment.label
+        in {
+            ClaimLabel.CORRECT_SUPPORTED,
+            ClaimLabel.CORRECT_BUT_UNCITED,
+        }
         for claim_id in assessment.matched_gold_claim_ids
         if claim_id in required_gold_claim_ids
     }
@@ -121,6 +125,68 @@ def claim_metrics(
             "citation_recall",
             len(cited_gold_claims),
             len(required_gold_claim_ids),
+        ),
+    }
+
+
+def claim_aware_answerability_metrics(
+    *,
+    system_answered: Sequence[bool],
+    gold_answerable: Sequence[bool],
+    answered_correctly: Sequence[bool],
+) -> dict[str, MetricResult]:
+    """Score answerability using human-validated answer correctness.
+
+    ``answered_correctly`` must already apply the frozen Claim-level rule:
+    there is no contradictory Claim and Required Gold Claim Coverage reaches
+    the frozen threshold.  Merely choosing to answer is not a true positive.
+    """
+
+    if not (len(system_answered) == len(gold_answerable) == len(answered_correctly)):
+        raise ValueError("answerability inputs must have equal length")
+    if any(
+        correct and not answered
+        for correct, answered in zip(answered_correctly, system_answered, strict=True)
+    ):
+        raise ValueError("an unanswered Case cannot be marked answered correctly")
+
+    true_positive = sum(
+        answered and gold and correct
+        for answered, gold, correct in zip(
+            system_answered, gold_answerable, answered_correctly, strict=True
+        )
+    )
+    predicted_positive = sum(system_answered)
+    actual_positive = sum(gold_answerable)
+    precision = true_positive / predicted_positive if predicted_positive else 0.0
+    recall = true_positive / actual_positive if actual_positive else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+    unanswerable = sum(not value for value in gold_answerable)
+    false_answers = sum(
+        answered and not gold
+        for answered, gold in zip(system_answered, gold_answerable, strict=True)
+    )
+    false_abstentions = sum(
+        not answered and gold
+        for answered, gold in zip(system_answered, gold_answerable, strict=True)
+    )
+    return {
+        "answerability_precision": MetricResult.ratio(
+            "answerability_precision", true_positive, predicted_positive
+        ),
+        "answerability_recall": MetricResult.ratio(
+            "answerability_recall", true_positive, actual_positive
+        ),
+        "answerability_f1": MetricResult(
+            name="answerability_f1",
+            value=f1,
+            numerator=f1,
+            denominator=1 if gold_answerable else 0,
+            applicable=bool(gold_answerable),
+        ),
+        "false_answer_rate": MetricResult.ratio("false_answer_rate", false_answers, unanswerable),
+        "false_abstention_rate": MetricResult.ratio(
+            "false_abstention_rate", false_abstentions, actual_positive
         ),
     }
 

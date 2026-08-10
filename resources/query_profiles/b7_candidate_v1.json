@@ -1,0 +1,19 @@
+{
+  "schema_version": "courserag.query-profile.v1",
+  "profile_id": "b7_candidate_v1",
+  "status": "candidate",
+  "base_profile": "b6_candidate_v1",
+  "steps": {
+    "normalize": true,
+    "filter_parser": true,
+    "kp_link": true,
+    "alias_expansion": true,
+    "intent_router": true,
+    "retrieval_strategy": true,
+    "multi_query": true,
+    "low_recall_retry": true
+  },
+  "route_contract": "dual_axis_v1",
+  "max_rewrites": 3,
+  "max_low_recall_retries": 1
+}

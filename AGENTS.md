@@ -10,6 +10,7 @@
 - `docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md`
 - `docs/refactor/EXECUTION_STATUS.md`
 - `docs/refactor/DECISION_LOG.md`
+- `docs/refactor/QUALITY_GATE_POLICY.md`（P10—P19 及跨阶段质量/性能决策）
 - 当前阶段 Prompt 指定的文档。
 
 ## 通用执行规则

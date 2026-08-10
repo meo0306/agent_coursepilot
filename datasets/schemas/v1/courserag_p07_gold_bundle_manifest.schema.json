@@ -1,0 +1,269 @@
+{
+  "$defs": {
+    "DS3ReviewGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "group_id": {
+          "enum": [
+            "group-01",
+            "group-02",
+            "group-03",
+            "group-04"
+          ],
+          "title": "Group Id",
+          "type": "string"
+        },
+        "knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Knowledge Point Ids",
+          "type": "array"
+        },
+        "section_scope_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 6,
+          "minItems": 6,
+          "title": "Section Scope Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "group_id",
+        "section_scope_ids",
+        "knowledge_point_ids"
+      ],
+      "title": "DS3ReviewGroup",
+      "type": "object"
+    },
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 120,
+      "minProperties": 80,
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "constraints": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Constraints",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "first_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 120,
+      "minItems": 80,
+      "title": "First Review Ids",
+      "type": "array"
+    },
+    "generation_policy": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "knowledge_point_candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "preserved_p06_artifact_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 3,
+      "title": "Preserved P06 Artifact Sha256",
+      "type": "object"
+    },
+    "review_asset_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 120,
+      "minProperties": 80,
+      "title": "Review Asset Sha256",
+      "type": "object"
+    },
+    "review_groups": {
+      "items": {
+        "$ref": "#/$defs/DS3ReviewGroup"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "title": "Review Groups",
+      "type": "array"
+    },
+    "review_pack_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Pack Index Sha256",
+      "type": "string"
+    },
+    "review_pack_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Review Pack Relative Path",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p07-gold-bundle-manifest.v1",
+      "default": "courserag.p07-gold-bundle-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "second_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Second Review Ids",
+      "type": "array"
+    },
+    "second_review_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Second Review Index Sha256",
+      "type": "string"
+    },
+    "second_review_reasons": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Second Review Reasons",
+      "type": "object"
+    },
+    "section_scopes": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "semantic_source_count": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Source Count",
+      "type": "integer"
+    },
+    "source_artifacts": {
+      "items": {
+        "$ref": "#/$defs/HashedArtifact"
+      },
+      "minItems": 2,
+      "title": "Source Artifacts",
+      "type": "array"
+    },
+    "split_manifest": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "support_candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "support_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Support Record Sha256",
+      "type": "object"
+    },
+    "upstream_approved_file_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 3,
+      "title": "Upstream Approved File Sha256",
+      "type": "object"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "bundle_sha256",
+    "knowledge_point_candidate",
+    "support_candidate",
+    "section_scopes",
+    "split_manifest",
+    "generation_policy",
+    "candidate_record_sha256",
+    "source_artifacts",
+    "upstream_approved_file_sha256",
+    "preserved_p06_artifact_sha256",
+    "review_groups",
+    "first_review_ids",
+    "second_review_ids",
+    "review_pack_relative_path",
+    "review_pack_index_sha256",
+    "second_review_index_sha256",
+    "review_asset_sha256",
+    "constraints"
+  ],
+  "title": "P07GoldBundleManifest",
+  "type": "object"
+}

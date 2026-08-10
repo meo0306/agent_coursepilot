@@ -1,0 +1,30 @@
+{
+  "formal_pagination_gold": false,
+  "profile_id": "pre-p03-docx-visual-qa-20260729",
+  "purpose": "visual_qa_only_pending_p04_fixed_renderer",
+  "renderer": {
+    "base_image_id": "sha256:16233b415c9f85eddd76464827fee496cf8fe62a26ceeef7021681ba076b9a2b",
+    "dockerfile": "docker/Dockerfile.eval-docx-qa",
+    "font_manifest_sha256": "780fbf5bed4c88c289940b40060ed9abee2fdceda87f2a2a4bf46aaefd200baf",
+    "image_id": "sha256:7051ac5e31cb11fddf994960135a460e8de6486c39c61366962fdceeacb00643",
+    "libreoffice_version": "7.4.7.2 40(Build:2)",
+    "pdf2image_version": "1.17.0",
+    "poppler_version": "22.12.0",
+    "render_helper_sha256": "85bdd05abb4f3f7be5860bc000fac34bc176c4b48148723e52bb97328d8007fb"
+  },
+  "result": {
+    "a4_page_count": 128,
+    "all_page_contact_sheet_review": "pass",
+    "corrected_issue": "two-column table width overflow detected in the first render and fixed before this recorded run",
+    "page_png_count": 128,
+    "page_png_manifest_sha256": "a19eee755f5724be5d5c4149f3db625a5852ed37c3e9fa998a82e19260ee8acf",
+    "page_png_repeat_match": true,
+    "rendered_pdf_repeat_match": false,
+    "rendered_pdf_run_1_sha256": "4fa42ec6bcb76d2b8efe14d87d3511600b6474b563c6454de680392813874dab",
+    "rendered_pdf_run_2_sha256": "4df6172a9498c6763e5083b0bd70ff72f081720ad7136eac4ee9858ab75ad253",
+    "rendered_pdf_variance_basis": "LibreOffice CreationDate metadata differed; all 128 rendered page PNGs were byte-identical",
+    "source_document_sha256": "a848d60e97f28aef93877bea63dfea1bb8c9303843a8e0a27b7939c3b4fdb72b",
+    "visual_findings": "No page-edge clipping, column overlap, missing mapped text, or table overflow remained after correction"
+  },
+  "schema_version": "1.0"
+}

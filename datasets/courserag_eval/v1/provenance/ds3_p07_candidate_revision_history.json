@@ -1,0 +1,14 @@
+{
+  "dataset_id": "courserag-ds3-p07-knowledge-points",
+  "dataset_version": "p07-r1",
+  "revisions": [
+    {
+      "candidate_file_sha256": "e5365e52cef33bcceca9d729ad29db84b03bb3f205ab3378070dfc847e564976",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds3/p07_knowledge_points_r1.json",
+      "reason": "Initial source-grounded formal P07 DS3 Candidate.",
+      "revision": 1,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

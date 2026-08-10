@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "P10ComponentSplit": {
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "enum": [
+            "ds6",
+            "ds7",
+            "security"
+          ],
+          "title": "Component",
+          "type": "string"
+        },
+        "dev_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dev Ids",
+          "type": "array"
+        },
+        "test_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Test Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "component",
+        "dev_ids",
+        "test_ids"
+      ],
+      "title": "P10ComponentSplit",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "items": {
+        "$ref": "#/$defs/P10ComponentSplit"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Components",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "global_dev_ids_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Global Dev Ids Sha256",
+      "type": "string"
+    },
+    "global_test_ids_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Global Test Ids Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p10-component-splits.v1",
+      "default": "courserag.p10-component-splits.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "test_locked": {
+      "const": false,
+      "default": false,
+      "title": "Test Locked",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "global_dev_ids_sha256",
+    "global_test_ids_sha256",
+    "components"
+  ],
+  "title": "P10ComponentSplitManifest",
+  "type": "object"
+}

@@ -1,0 +1,166 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    },
+    "P10FixtureEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/HashedArtifact"
+        },
+        "fixture_id": {
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Fixture Id",
+          "type": "string"
+        },
+        "mutually_exclusive_with_parent": {
+          "title": "Mutually Exclusive With Parent",
+          "type": "boolean"
+        },
+        "parent_document_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Document Id"
+        },
+        "parent_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Sha256"
+        },
+        "role": {
+          "enum": [
+            "semantic_variant",
+            "non_semantic_security_control"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "searchable": {
+          "const": false,
+          "default": false,
+          "title": "Searchable",
+          "type": "boolean"
+        },
+        "transformation": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Transformation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fixture_id",
+        "role",
+        "artifact",
+        "transformation",
+        "mutually_exclusive_with_parent"
+      ],
+      "title": "P10FixtureEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "fixtures": {
+      "items": {
+        "$ref": "#/$defs/P10FixtureEntry"
+      },
+      "minItems": 1,
+      "title": "Fixtures",
+      "type": "array"
+    },
+    "generation_policy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Generation Policy Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p10-fixture-manifest.v1",
+      "default": "courserag.p10-fixture-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_source_count": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Source Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "generation_policy_sha256",
+    "fixtures"
+  ],
+  "title": "P10FixtureManifest",
+  "type": "object"
+}

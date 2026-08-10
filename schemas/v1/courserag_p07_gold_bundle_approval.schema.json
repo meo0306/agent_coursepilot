@@ -1,0 +1,167 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approved_knowledge_points": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "approved_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 120,
+      "minProperties": 80,
+      "title": "Approved Record Sha256",
+      "type": "object"
+    },
+    "approved_support": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "approved_support_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Approved Support Record Sha256",
+      "type": "object"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 120,
+      "minProperties": 80,
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "first_review_decisions": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "knowledge_point_candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "notes": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Notes",
+      "type": "string"
+    },
+    "review_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Review Id",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Reviewer Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p07-gold-bundle-approval.v1",
+      "default": "courserag.p07-gold-bundle-approval.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "second_review_decisions": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "support_candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "support_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Support Record Sha256",
+      "type": "object"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "review_id",
+    "reviewer_id",
+    "reviewed_at",
+    "bundle_sha256",
+    "knowledge_point_candidate",
+    "support_candidate",
+    "candidate_record_sha256",
+    "first_review_decisions",
+    "second_review_decisions",
+    "approved_knowledge_points",
+    "approved_support",
+    "approved_record_sha256",
+    "notes"
+  ],
+  "title": "P07GoldBundleApproval",
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "courserag.qa-generation-reliability-profile.v1",
+  "profile_id": "p09-generation-reliability-candidate-v1",
+  "base_profile_sha256": "345500b79064a2c7e9d454b6f2fa96ca0e191e1c7974a3367eb040795631d6fe",
+  "contracts": {
+    "unchanged": "p09_answer_grounding_v3",
+    "list": "p09_generation_reliability_list_v1",
+    "single_task_factoid": "p09_generation_reliability_factoid_v1"
+  },
+  "list_contract": {
+    "answer": "concise_self_contained_summary",
+    "answer_max_characters": 160,
+    "list_items": "complete_supported_atomic_items",
+    "max_items": 40,
+    "evidence_reference": "deterministic_short_alias",
+    "max_output_tokens": 3200
+  },
+  "factoid_contract": {
+    "answer": "concise_self_contained_sentence",
+    "answer_max_characters": 80,
+    "max_output_tokens": 600
+  },
+  "repair": {
+    "max_attempts": 1,
+    "partial_json_salvage": false,
+    "output_limit_expansion": false
+  },
+  "evaluation": {
+    "scope": "approved_dev_delta_only",
+    "fresh_case_count": 12,
+    "deepseek_token_cap": 180000,
+    "cohere_search_unit_cap": 0,
+    "test_access": false
+  },
+  "runtime_activation": "pending_owner_freeze"
+}

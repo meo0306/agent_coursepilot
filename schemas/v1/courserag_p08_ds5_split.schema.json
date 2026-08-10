@@ -1,0 +1,120 @@
+{
+  "$defs": {
+    "P08SplitAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evaluation_stratum": {
+          "enum": [
+            "retrieval_main",
+            "upstream_gap_diagnostic"
+          ],
+          "title": "Evaluation Stratum",
+          "type": "string"
+        },
+        "query_family_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Query Family Id",
+          "type": "string"
+        },
+        "query_type": {
+          "enum": [
+            "exact_fact",
+            "definition",
+            "paraphrase",
+            "comparison",
+            "procedure",
+            "application",
+            "cross_section",
+            "unanswerable"
+          ],
+          "title": "Query Type",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "query_family_id",
+        "split",
+        "course_id",
+        "query_type",
+        "evaluation_stratum"
+      ],
+      "title": "P08SplitAssignment",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "items": {
+        "$ref": "#/$defs/P08SplitAssignment"
+      },
+      "maxItems": 100,
+      "minItems": 100,
+      "title": "Assignments",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "p08_tuning_allowed_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 54,
+      "minItems": 54,
+      "title": "P08 Tuning Allowed Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "courserag.p08-ds5-split.v1",
+      "default": "courserag.p08-ds5-split.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "test_locked": {
+      "const": false,
+      "default": false,
+      "title": "Test Locked",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "assignments",
+    "p08_tuning_allowed_ids"
+  ],
+  "title": "P08DS5SplitManifest",
+  "type": "object"
+}

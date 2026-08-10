@@ -54,5 +54,17 @@ def verified_content_path(course_id: str) -> str:
     return f"{API_PREFIX}/knowledge-bases/{_path_segment(course_id)}/verified-content"
 
 
+def enrichment_batches_path(course_id: str) -> str:
+    return f"{API_PREFIX}/knowledge-bases/{_path_segment(course_id)}/enrichment-batches"
+
+
 def revoke_verified_content_path(content_id: str) -> str:
     return f"{API_PREFIX}/verified-content/{_path_segment(content_id)}/revoke"
+
+
+def knowledge_points_path(knowledge_base_id: str) -> str:
+    return f"{API_PREFIX}/knowledge-bases/{_path_segment(knowledge_base_id)}/knowledge-points"
+
+
+def knowledge_point_path(knowledge_point_id: str) -> str:
+    return f"{API_PREFIX}/knowledge-points/{_path_segment(knowledge_point_id)}"

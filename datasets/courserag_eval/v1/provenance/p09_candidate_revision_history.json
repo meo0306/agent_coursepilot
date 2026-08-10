@@ -1,0 +1,21 @@
+{
+  "dataset_id": "courserag-p09-qa-context",
+  "dataset_version": "r2",
+  "revisions": [
+    {
+      "candidate_file_sha256": "5f5ca0d61a8c1950b93e0bbf7d8d56497219aa3dd7e1afa76df0643d5a78c4f9",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds5/p09_qa_r1.json",
+      "reason": "Initial Candidate; Course Owner attested both reviews passed before systematic obligation audit.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "e2cd285336211e7989bd6b8d591224ad49dc02c57135c64dc84595b0ee2354ca",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds5/p09_qa_r2.json",
+      "reason": "Atomic Claims and complete answer-obligation coverage; only semantic changes require renewed review.",
+      "revision": 2,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

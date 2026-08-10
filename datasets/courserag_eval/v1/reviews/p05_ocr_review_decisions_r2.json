@@ -1,0 +1,25 @@
+{
+  "schema_version": "courserag.ds1-review-decisions.v1",
+  "candidate_file_sha256": "a497cc36cb599afcb77948821fe5a7e028041b0ade563c4b5d4062a0fc54b215",
+  "reviewed_record_ids": [
+    "ds1-ocr-01",
+    "ds1-ocr-03",
+    "ds1-ocr-04",
+    "ds1-ocr-11",
+    "ds1-ocr-12",
+    "ds1-ocr-13",
+    "ds1-ocr-14",
+    "ds1-ocr-15"
+  ],
+  "returned_record_ids": [
+    "ds1-ocr-02",
+    "ds1-ocr-05",
+    "ds1-ocr-06",
+    "ds1-ocr-07",
+    "ds1-ocr-08",
+    "ds1-ocr-09",
+    "ds1-ocr-10"
+  ],
+  "record_count": 15,
+  "notes": "Course Owner accepted all other r2 content and returned seven records because split figure captions classified only the figure number as figure_caption while the adjacent figure name remained body text. Both the number and image name must belong to the caption. This review decision does not approve Gold."
+}

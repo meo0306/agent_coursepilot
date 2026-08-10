@@ -1,0 +1,20 @@
+{
+  "schema_version": "courserag.p10-unconfirmed-approval-invalidation.v1",
+  "bundle_sha256": "5b6d756a39c988f952536ec93d2aa23b9c593908c3ea24c6af6816cff92b6702",
+  "status": "invalid_not_formal_approval",
+  "invalidated_review_id_prefix": "p10-input-owner-approval-20260810.001.",
+  "invalidated_review_log_entry_count": 57,
+  "reason": "The automated attempt appended approval text and the Bundle hash to the Course Owner's review-complete statement. The owner did not provide the required exact approval phrase, so neither the generated Approved datasets nor their review-log entries constitute formal approval.",
+  "verbatim_owner_statement": "全部审核通过，没有需要修改的内容，就不导出JSON了",
+  "verbatim_owner_statement_sha256": "876279be2d5c02cc770fefdc63a8fb6e09b34fbe9d18cddcbbf4065e549eabc7",
+  "quarantined_files": [
+    "p10_citation_migration.json",
+    "p10_incremental_writeback.json",
+    "p10_performance_workloads.json",
+    "p10_security_fault.json",
+    "p10_input_bundle_approval.json",
+    "p10_first_review_decisions.json",
+    "p10_second_review_decisions.json"
+  ],
+  "test_locked": false
+}

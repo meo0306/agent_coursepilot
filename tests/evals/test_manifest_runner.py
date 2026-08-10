@@ -137,6 +137,24 @@ def test_resume_skips_success_and_retries_failed_case(tmp_path):
     assert resumed.state.cases["failed"].attempt == 2
 
 
+def test_resume_can_invalidate_and_retry_a_saved_case(tmp_path):
+    dataset_root = _dataset_root(tmp_path)
+    manifest = _manifest(dataset_root)
+    runner = _runner(tmp_path, manifest, dataset_root)
+    runner.run_case("success", HASH_A, lambda: {"cached": True})
+
+    resumed = _runner(tmp_path, manifest, dataset_root, resume=True)
+    resumed.invalidate_succeeded_case(
+        case_id="success",
+        case_sha256=HASH_A,
+        reason_code="contract_violation",
+    )
+    recovered = resumed.run_case("success", HASH_A, lambda: {"recovered": True})
+
+    assert recovered == {"recovered": True}
+    assert resumed.state.cases["success"].attempt == 2
+
+
 def test_resume_rejects_configuration_before_mutating_files(tmp_path):
     dataset_root = _dataset_root(tmp_path)
     _runner(tmp_path, _manifest(dataset_root), dataset_root)

@@ -1,0 +1,318 @@
+{
+  "$defs": {
+    "ExamQuestionHumanReview": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "critical_defect": {
+          "title": "Critical Defect",
+          "type": "boolean"
+        },
+        "edit_burden": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Edit Burden",
+          "type": "integer"
+        },
+        "metadata": {
+          "$ref": "#/$defs/HumanReviewMetadata"
+        },
+        "question_id": {
+          "title": "Question Id",
+          "type": "string"
+        },
+        "question_status": {
+          "enum": [
+            "accepted",
+            "minor_edit",
+            "major_edit",
+            "reject"
+          ],
+          "title": "Question Status",
+          "type": "string"
+        },
+        "review_type": {
+          "const": "exam_question",
+          "default": "exam_question",
+          "title": "Review Type",
+          "type": "string"
+        },
+        "rubric_scores": {
+          "additionalProperties": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "maxProperties": 10,
+          "minProperties": 10,
+          "propertyNames": {
+            "enum": [
+              "E-H1",
+              "E-H2",
+              "E-H3",
+              "E-H4",
+              "E-H5",
+              "E-H6",
+              "E-H7",
+              "E-H8",
+              "E-H9",
+              "E-H10"
+            ]
+          },
+          "title": "Rubric Scores",
+          "type": "object"
+        }
+      },
+      "required": [
+        "metadata",
+        "artifact_id",
+        "question_id",
+        "question_status",
+        "rubric_scores",
+        "edit_burden",
+        "critical_defect"
+      ],
+      "title": "ExamQuestionHumanReview",
+      "type": "object"
+    },
+    "HumanReviewMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "blinded_sample_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Blinded Sample Id",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 8000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "rubric_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Rubric Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "rubric_version",
+        "reviewed_at",
+        "blinded_sample_id"
+      ],
+      "title": "HumanReviewMetadata",
+      "type": "object"
+    },
+    "LessonHumanReview": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_status": {
+          "enum": [
+            "accepted",
+            "minor_edit",
+            "major_edit",
+            "reject"
+          ],
+          "title": "Artifact Status",
+          "type": "string"
+        },
+        "critical_defect": {
+          "title": "Critical Defect",
+          "type": "boolean"
+        },
+        "edit_burden": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Edit Burden",
+          "type": "integer"
+        },
+        "metadata": {
+          "$ref": "#/$defs/HumanReviewMetadata"
+        },
+        "review_type": {
+          "const": "lesson",
+          "default": "lesson",
+          "title": "Review Type",
+          "type": "string"
+        },
+        "rubric_scores": {
+          "additionalProperties": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "maxProperties": 8,
+          "minProperties": 8,
+          "propertyNames": {
+            "enum": [
+              "L-H1",
+              "L-H2",
+              "L-H3",
+              "L-H4",
+              "L-H5",
+              "L-H6",
+              "L-H7",
+              "L-H8"
+            ]
+          },
+          "title": "Rubric Scores",
+          "type": "object"
+        }
+      },
+      "required": [
+        "metadata",
+        "artifact_id",
+        "rubric_scores",
+        "edit_burden",
+        "critical_defect",
+        "artifact_status"
+      ],
+      "title": "LessonHumanReview",
+      "type": "object"
+    },
+    "PPTSlideHumanReview": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "critical_defect": {
+          "title": "Critical Defect",
+          "type": "boolean"
+        },
+        "edit_burden": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Edit Burden",
+          "type": "integer"
+        },
+        "metadata": {
+          "$ref": "#/$defs/HumanReviewMetadata"
+        },
+        "review_type": {
+          "const": "ppt_slide",
+          "default": "ppt_slide",
+          "title": "Review Type",
+          "type": "string"
+        },
+        "rubric_scores": {
+          "additionalProperties": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "maxProperties": 10,
+          "minProperties": 10,
+          "propertyNames": {
+            "enum": [
+              "P-H1",
+              "P-H2",
+              "P-H3",
+              "P-H4",
+              "P-H5",
+              "P-H6",
+              "P-H7",
+              "P-H8",
+              "P-H9",
+              "P-H10"
+            ]
+          },
+          "title": "Rubric Scores",
+          "type": "object"
+        },
+        "slide_id": {
+          "title": "Slide Id",
+          "type": "string"
+        },
+        "slide_status": {
+          "enum": [
+            "accepted",
+            "minor_edit",
+            "major_edit",
+            "reject"
+          ],
+          "title": "Slide Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metadata",
+        "artifact_id",
+        "slide_id",
+        "slide_status",
+        "critical_defect",
+        "rubric_scores",
+        "edit_burden"
+      ],
+      "title": "PPTSlideHumanReview",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "description": "One CoursePilot human-score JSONL record.",
+  "discriminator": {
+    "mapping": {
+      "exam_question": "#/$defs/ExamQuestionHumanReview",
+      "lesson": "#/$defs/LessonHumanReview",
+      "ppt_slide": "#/$defs/PPTSlideHumanReview"
+    },
+    "propertyName": "review_type"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/LessonHumanReview"
+    },
+    {
+      "$ref": "#/$defs/ExamQuestionHumanReview"
+    },
+    {
+      "$ref": "#/$defs/PPTSlideHumanReview"
+    }
+  ],
+  "title": "HumanScoreJsonlRecord"
+}

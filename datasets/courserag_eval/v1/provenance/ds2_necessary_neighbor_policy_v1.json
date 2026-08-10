@@ -1,0 +1,22 @@
+{
+  "course_owner_directive": "Audit necessary neighbors for all records and add the nearest/minimum source-grounded context needed to remove pronoun, list and semantic dependencies; item-level re-review of this delegated context-only revision is waived, but exact batch Hash approval remains required.",
+  "decision_rule": "Attach context only when the Evidence cannot be interpreted accurately on its own. Choose the nearest source passage that resolves the dependency; if a nearer passage is verbose, choose a smaller exact source passage that names the same antecedent or scope.",
+  "dependency_classes": {
+    "anaphora": "Resolve external pronouns and deictic references such as 这、其中、上述、前述、它.",
+    "causal_or_transition": "Resolve 因为、与此同时、也 and similar links only when their other side is outside the Evidence.",
+    "code_scope": "Supply the nearest variable definition and control-flow line needed to interpret the code fragment.",
+    "formula_symbols": "Supply only the adjacent formula introduction or symbol definitions missing from the Evidence.",
+    "list_scope": "Supply the exact list lead-in or category statement; do not add sibling items unless required.",
+    "procedure_sequence": "Resolve 首先、最后、而后、最终 with the minimal step or process statement.",
+    "table_scope": "Supply the table caption; a row also receives the exact column header."
+  },
+  "exclusions": [
+    "A Section heading is not context merely because a record has semantic type other.",
+    "Helpful background that does not resolve a dependency is excluded.",
+    "P06 predictions, generated paraphrases and inferred course facts are forbidden.",
+    "No neighbor may change the Evidence stable ID or become part of gold_text."
+  ],
+  "policy_id": "ds2-necessary-neighbor-minimal-source-context-v1",
+  "schema_version": "courserag.ds2-necessary-neighbor-policy.v1",
+  "scope": "all 120 formal DS2 Evidence records"
+}

@@ -44,3 +44,5 @@ class CapabilitiesResponse(ContractModel):
     supports_query_rewrite: bool = False
     supports_streaming_progress: bool = False
     supports_verified_writeback: bool = False
+    supports_enrichment: bool = False
+    supports_incremental_build: bool = False

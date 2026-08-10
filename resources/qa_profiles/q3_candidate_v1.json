@@ -1,0 +1,16 @@
+{
+  "schema_version": "courserag.qa-profile.v1",
+  "profile_id": "q3_candidate_v1",
+  "status": "candidate_pending_dev_freeze",
+  "context_profile": "b8_qa_v1",
+  "provider_capability": "deepseek_v4",
+  "temperature": 0,
+  "max_output_tokens": 600,
+  "max_schema_repairs": 1,
+  "sufficiency": {
+    "reranker_scope": "cohere_rerank-v4.0-pro_only",
+    "initial_rerank_threshold": 0.7502601,
+    "max_low_confidence_ocr_ratio": 0.25,
+    "comparison_cross_section_min_sources": 2
+  }
+}

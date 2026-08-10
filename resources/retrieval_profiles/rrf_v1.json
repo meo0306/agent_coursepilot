@@ -1,0 +1,9 @@
+{
+  "schema_version": "courserag.retrieval-profile.v1",
+  "profile_id": "rrf_v1",
+  "k": 60,
+  "dense_weight": 1.0,
+  "sparse_weight": 1.0,
+  "candidate_k": 30,
+  "top_n": 8
+}

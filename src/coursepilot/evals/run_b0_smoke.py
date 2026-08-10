@@ -346,8 +346,13 @@ def _run_workflow_smoke(
     ]
     if not all(item["valid_openxml_container"] for item in exports):
         raise RuntimeError("One or more B0 exports is not a valid OpenXML container")
-    if not all(item["write_back_status"] == "written" for item in write_backs):
-        raise RuntimeError("One or more B0 review write-backs did not complete")
+    allowed_write_back_statuses = {
+        "written",
+        "requires_fragment_selection",
+        "requires_evidence_migration",
+    }
+    if not all(item["write_back_status"] in allowed_write_back_statuses for item in write_backs):
+        raise RuntimeError("One or more B0 review write-backs returned an unsafe state")
 
     return {
         "lesson": {"status": lesson["status"], "exported": True},

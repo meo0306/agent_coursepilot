@@ -1,0 +1,181 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_file_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Candidate File Sha256",
+      "type": "string"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 15,
+      "minProperties": 15,
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "candidate_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Candidate Relative Path",
+      "type": "string"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "dpi": {
+      "const": 200,
+      "default": 200,
+      "title": "Dpi",
+      "type": "integer"
+    },
+    "gold_source": {
+      "const": "native_pdf_text_geometry",
+      "default": "native_pdf_text_geometry",
+      "title": "Gold Source",
+      "type": "string"
+    },
+    "inherited_page_gold_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 11,
+      "minProperties": 11,
+      "title": "Inherited Page Gold Record Sha256",
+      "type": "object"
+    },
+    "newly_annotated_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "title": "Newly Annotated Record Ids",
+      "type": "array"
+    },
+    "p04_approved_ds1_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P04 Approved Ds1 Sha256",
+      "type": "string"
+    },
+    "p04_work_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P04 Work Package Sha256",
+      "type": "string"
+    },
+    "previous_candidate_file_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Previous Candidate File Sha256",
+      "type": "string"
+    },
+    "record_count": {
+      "const": 15,
+      "default": 15,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "review_decisions_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Decisions Sha256",
+      "type": "string"
+    },
+    "review_pack_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Pack Index Sha256",
+      "type": "string"
+    },
+    "review_pack_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Review Pack Relative Path",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p05-ocr-candidate-manifest.v2",
+      "default": "courserag.p05-ocr-candidate-manifest.v2",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_artifacts": {
+      "items": {
+        "$ref": "#/$defs/HashedArtifact"
+      },
+      "minItems": 4,
+      "title": "Source Artifacts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "candidate_relative_path",
+    "candidate_file_sha256",
+    "candidate_record_sha256",
+    "previous_candidate_file_sha256",
+    "p04_work_package_sha256",
+    "p04_approved_ds1_sha256",
+    "inherited_page_gold_record_sha256",
+    "newly_annotated_record_ids",
+    "review_decisions_sha256",
+    "source_artifacts",
+    "review_pack_relative_path",
+    "review_pack_index_sha256"
+  ],
+  "title": "P05OCRCandidateManifest",
+  "type": "object"
+}

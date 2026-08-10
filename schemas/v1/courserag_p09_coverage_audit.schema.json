@@ -1,0 +1,155 @@
+{
+  "$defs": {
+    "P09AnswerObligation": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "obligation_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Obligation Id",
+          "type": "string"
+        },
+        "obligation_text": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Obligation Text",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "support_mode": {
+          "enum": [
+            "single_claim",
+            "joint_claim_set"
+          ],
+          "title": "Support Mode",
+          "type": "string"
+        }
+      },
+      "required": [
+        "obligation_id",
+        "obligation_text",
+        "claim_ids",
+        "evidence_ids",
+        "support_mode",
+        "rationale"
+      ],
+      "title": "P09AnswerObligation",
+      "type": "object"
+    },
+    "P09CaseCoverageAudit": {
+      "additionalProperties": false,
+      "properties": {
+        "answerable": {
+          "title": "Answerable",
+          "type": "boolean"
+        },
+        "audit_status": {
+          "enum": [
+            "complete",
+            "not_applicable_unanswerable"
+          ],
+          "title": "Audit Status",
+          "type": "string"
+        },
+        "obligations": {
+          "items": {
+            "$ref": "#/$defs/P09AnswerObligation"
+          },
+          "title": "Obligations",
+          "type": "array"
+        },
+        "qa_case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Qa Case Id",
+          "type": "string"
+        },
+        "query_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Query Sha256",
+          "type": "string"
+        },
+        "required_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Claim Ids",
+          "type": "array"
+        },
+        "uncovered_obligation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Uncovered Obligation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "qa_case_id",
+        "query_sha256",
+        "answerable",
+        "audit_status"
+      ],
+      "title": "P09CaseCoverageAudit",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09CaseCoverageAudit"
+      },
+      "maxItems": 100,
+      "minItems": 100,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p09-coverage-audit.v1",
+      "default": "courserag.p09-coverage-audit.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P09CoverageAuditDataset",
+  "type": "object"
+}

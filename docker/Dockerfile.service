@@ -15,7 +15,18 @@ ENV UV_INDEX_URL=${UV_INDEX_URL}
 COPY pyproject.toml .
 COPY uv.lock .
 RUN pip install --no-cache-dir uv
-RUN uv sync --frozen --no-install-project --no-dev
+RUN uv sync --frozen --no-install-project --no-dev --group ocr-common --group ocr-rapidocr
+
+RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|g' \
+        /etc/apt/sources.list.d/debian.sources \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        fontconfig \
+        fonts-noto-cjk=1:20220127+repack1-1 \
+        libglib2.0-0 \
+        libgomp1 \
+        libreoffice-writer \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY src/agents/ ./agents/
 COPY src/core/ ./core/
@@ -25,6 +36,12 @@ COPY src/service/ ./service/
 COPY src/run_service.py .
 # 新增
 COPY src/coursepilot/ ./coursepilot/
+COPY src/courserag/ ./courserag/
+COPY resources/renderers/ ./resources/renderers/
+COPY resources/ocr_profiles/ ./resources/ocr_profiles/
+RUN python -m courserag.parsers.ocr.runtime_profile \
+      --candidate-profile resources/ocr_profiles/default_v1.json \
+      --output-dir /opt/courserag-ocr
 COPY deepseek_v3_tokenizer/ ./deepseek_v3_tokenizer/
 COPY alembic.ini .
 COPY alembic/ ./alembic/

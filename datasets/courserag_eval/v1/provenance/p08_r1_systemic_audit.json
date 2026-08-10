@@ -1,0 +1,490 @@
+{
+  "findings": {
+    "ds4_heuristic_edge_linking": {
+      "action": "replace all dedicated edges with six curated source-grounded term cases per capability",
+      "affected_count": 30,
+      "record_ids": [
+        "gold-qp-585414475648698605700caa98e260b7",
+        "gold-qp-22f03306dd46b9906d87b6a49654a1ef",
+        "gold-qp-c106e8a1f7b139806b827d39d26a3458",
+        "gold-qp-54798bd8c4035687aa28739fa542b67f",
+        "gold-qp-c81a7858d030a4e45468d390cf1d9f61",
+        "gold-qp-da47cf26c1917317c157704f3dbf99a3",
+        "gold-qp-629d9ad4ca0d1acbcffdf45f812928cf",
+        "gold-qp-5228fc341844b90432fa86c52ffa6f9c",
+        "gold-qp-877963be286449f9e089429d0a568fda",
+        "gold-qp-29cfabe8fe20fee8f751fcefaff754f8",
+        "gold-qp-db9e5f7feb31f925ef0a3cd87428aac8",
+        "gold-qp-9203504347d52f8d2c30153a90c57ac3",
+        "gold-qp-22ffdabac6c6f014ba638666ceb3841d",
+        "gold-qp-8ff7b38df7144b220fd6b650a38cf129",
+        "gold-qp-1efa18ad7f49c1b32258bad2ec4b9ca4",
+        "gold-qp-eb0f9e61120dd8f755c711ead5c8c936",
+        "gold-qp-3e3bb4d083f7cbe4df63bfa0838e5f71",
+        "gold-qp-50d512258286bab6be59bdb808d0cfc4",
+        "gold-qp-bee6179b6bdfd6c40bc537f71a596461",
+        "gold-qp-72a97bd543911e5deb46202b5aefd54a",
+        "gold-qp-d71f048800a2a11a3cbf05f4f1ca8d9d",
+        "gold-qp-bc615dac830fbcd6d6f64c4e21ea1c30",
+        "gold-qp-8e5b3685da29e83493faadadfcd1adb9",
+        "gold-qp-fdf69e549a092a60ec458ab36780e9b0",
+        "gold-qp-3df201ca4400a25a1d02e0461f7b8ea1",
+        "gold-qp-c5ca743332474b8d4890788bb3ac8c71",
+        "gold-qp-8114a0d89eef314fa7e810cda9451a0c",
+        "gold-qp-38eb6295dfebd01b0c330ccd21c104c9",
+        "gold-qp-9b68f326eaccf0d592dfb2726d36542c",
+        "gold-qp-0e81066e9b547d25b962953902a32f5d"
+      ]
+    },
+    "ds4_opaque_id_display": {
+      "action": "r2 displays every KP/Evidence ID with name, exact text and source location",
+      "affected_count": 60
+    },
+    "ds5_hard_negative_same_source_package": {
+      "action": "replace with same-course candidates outside every Required Evidence source package",
+      "affected_count": 78,
+      "records": {
+        "gold-rq-044911d936ef458adede8195d84e182d": [
+          "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+        ],
+        "gold-rq-07197f3becdbacfd4976b1e3ee84bb43": [
+          "gold-ev-7aad9ec018e1c23c8450e4eb3eb8c8ef",
+          "gold-ev-a63ff5485aa0ef4684620c1ae70da74f"
+        ],
+        "gold-rq-0bca99af4a924241a1aa5b7efcce186b": [
+          "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+          "gold-ev-1c656f4df29556da71c7217626346570"
+        ],
+        "gold-rq-1d2d3426a53bc035167af623d7766f9e": [
+          "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold-ev-b23839dee5dfa9698f26fe59806854d4"
+        ],
+        "gold-rq-1e202de03a7884b3458a9a2635fe2b19": [
+          "gold-ev-be751fca2dda9ea3000329029002714c"
+        ],
+        "gold-rq-2134db212dc779edc87dc4e4dd433d8e": [
+          "gold-ev-5f615419a6355000cd637eb5bcd473a3",
+          "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+        ],
+        "gold-rq-260ea430b2abd12e0f66c0aaa3303e13": [
+          "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+        ],
+        "gold-rq-27c624bc4167bb7408694aa3322d57b0": [
+          "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+          "gold-ev-1c9a57c874696d23336a0cf4aa6990ff"
+        ],
+        "gold-rq-294125b141226b53fb56d1e6ef509e36": [
+          "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+          "gold-ev-dacfc351ae9150a5594070769c072068"
+        ],
+        "gold-rq-2c1283ab0f2a7ddec44f955e3f7db444": [
+          "gold-ev-06bba04373bb42548483d596702e7e36",
+          "gold-ev-899a0d03f4d2d6ef4b06b0d5d7c56532",
+          "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+        ],
+        "gold-rq-2c4dc78aa0790f5bcde0783b2155bea9": [
+          "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd"
+        ],
+        "gold-rq-3204ff675a1e73d1a548f97d9a8b5a0f": [
+          "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+        ],
+        "gold-rq-3502a03e10e24deb6a1d667056085f38": [
+          "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+        ],
+        "gold-rq-352d8cf3b0f8aaf35d1795926472cfa2": [
+          "gold-ev-475a17360c717b3221789247426a4d70",
+          "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+          "gold-ev-9182152f7e279d2cba2d2883a7a7f244"
+        ],
+        "gold-rq-37d38e12d840f2997e9e9b39201e47da": [
+          "gold-ev-73452f80b793aba65cdb9b1032838d27"
+        ],
+        "gold-rq-3c877908f0472f1a7aa2f9c61fe6886f": [
+          "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002",
+          "gold-ev-a99ba8f34aed9c20ccc731673de222ba"
+        ],
+        "gold-rq-3f50328e063e8f961f6ba89db307abbe": [
+          "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9"
+        ],
+        "gold-rq-482c4ee6d22073d2777389d42d7bbbfa": [
+          "gold-ev-1c656f4df29556da71c7217626346570",
+          "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+          "gold-ev-9806de881bae1e17c64362810b70b556",
+          "gold-ev-335662f3142fb805ce0d560f4eccdd7a"
+        ],
+        "gold-rq-4f0a8f2ed6fb448880435c1173c85e1b": [
+          "gold-ev-f622172906b893ec87c367db5ea298b3",
+          "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+          "gold-ev-33a7eeb84721f894d7224e97ba49e5f5"
+        ],
+        "gold-rq-4ffdef086ebe67ff8e8755dee28066fd": [
+          "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+          "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+          "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "gold-ev-475a17360c717b3221789247426a4d70"
+        ],
+        "gold-rq-5178e715327fed95d093129606b48964": [
+          "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+        ],
+        "gold-rq-5afcdd17d13558128b4f27d30737eae0": [
+          "gold-ev-1c9a57c874696d23336a0cf4aa6990ff",
+          "gold-ev-be751fca2dda9ea3000329029002714c",
+          "gold-ev-2b921c5153ba3d619e3b28d184af08b1"
+        ],
+        "gold-rq-5b769cd00a48b6d8b17fba1dec059bbb": [
+          "gold-ev-319ca6f3755466a02c5cbd14eaaf4ab0"
+        ],
+        "gold-rq-637f02e7fe4829e8c69b47248ea89eac": [
+          "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+          "gold-ev-35469c2bf6874d9057e05073805a8eb8"
+        ],
+        "gold-rq-6420de2a5731334f4c21a21f02ff5be8": [
+          "gold-ev-17538584dfe368014f1177acd147a2b9",
+          "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+        ],
+        "gold-rq-64b0a9a713614d23d44b1d1197bbf96e": [
+          "gold-ev-038b4413d51c1b35b884caf999ec92e0",
+          "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992",
+          "gold-ev-e7f49db4c61d212c410a7cf2964c96d9"
+        ],
+        "gold-rq-6546dd467a6ff32dd31c672236661f73": [
+          "gold-ev-73452f80b793aba65cdb9b1032838d27"
+        ],
+        "gold-rq-6625c7a4588ebc851accec618f557934": [
+          "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+          "gold-ev-335662f3142fb805ce0d560f4eccdd7a",
+          "gold-ev-7aad9ec018e1c23c8450e4eb3eb8c8ef",
+          "gold-ev-9806de881bae1e17c64362810b70b556"
+        ],
+        "gold-rq-68f180aa1ae24e13b6638507281758ff": [
+          "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f",
+          "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+        ],
+        "gold-rq-6a1ead9815160f290ae4661db1d353b5": [
+          "gold-ev-365b0dc23cff9bb089df5923e2212264",
+          "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+        ],
+        "gold-rq-6dc01cab65135a1dffe5ae4b4748ba30": [
+          "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+          "gold-ev-394a7aa0f5ffd00115b77af123e7f875",
+          "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+        ],
+        "gold-rq-7112c3aced5c6ea2c91842b272992bd8": [
+          "gold-ev-9abde4ba81915c311db9ade93789806e"
+        ],
+        "gold-rq-713a7c6be4b73454396c0b5c04419ebf": [
+          "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+          "gold-ev-cbcdb714a5167c63838bba512eee2b4c"
+        ],
+        "gold-rq-75c0c40df0fe8c62b7cd02dd3cff0b97": [
+          "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+          "gold-ev-37c2653936a801fb1ace1e57b6e94fd8"
+        ],
+        "gold-rq-75f882a2555c176e772f78305b24cb4d": [
+          "gold-ev-475a17360c717b3221789247426a4d70",
+          "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "gold-ev-6ecdac141332a7cb4593a131ccfc4619",
+          "gold-ev-ac89df32946f7cbb44441b93711da3f5"
+        ],
+        "gold-rq-7a72cfc65cf9c9b7bee0393763986898": [
+          "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+          "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+        ],
+        "gold-rq-7eb0857a4454471776f13e108c298939": [
+          "gold-ev-269e7d294a9ea10ec381845fed1c0669"
+        ],
+        "gold-rq-8683f7ef5d2126932f2ea9432e68c3cb": [
+          "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+          "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+        ],
+        "gold-rq-87494e847f30717610563a7aa835be14": [
+          "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+          "gold-ev-269e7d294a9ea10ec381845fed1c0669",
+          "gold-ev-cd90184e756b31b7c7d14f2eaa4860ae"
+        ],
+        "gold-rq-88658e979c98448d39b0d7c3b3095c15": [
+          "gold-ev-cd90184e756b31b7c7d14f2eaa4860ae",
+          "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+          "gold-ev-269e7d294a9ea10ec381845fed1c0669"
+        ],
+        "gold-rq-898f835f50708362043107d0f1861b5f": [
+          "gold-ev-269e7d294a9ea10ec381845fed1c0669",
+          "gold-ev-cd90184e756b31b7c7d14f2eaa4860ae"
+        ],
+        "gold-rq-8defb2cb2d4c729ed300065e2ec0a0af": [
+          "gold-ev-615b210d350379cf26677f84c3064531",
+          "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+          "gold-ev-6ecdac141332a7cb4593a131ccfc4619",
+          "gold-ev-475a17360c717b3221789247426a4d70"
+        ],
+        "gold-rq-8e3ffac1f9bbcbd712867cab9d01f5cb": [
+          "gold-ev-d6c42ef93972e95a95b7450032d8cadb",
+          "gold-ev-35469c2bf6874d9057e05073805a8eb8"
+        ],
+        "gold-rq-8e5d6540a567c6070481227fcef21ce2": [
+          "gold-ev-dacfc351ae9150a5594070769c072068",
+          "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+        ],
+        "gold-rq-95685b2191c26701d0c94a38ed73622b": [
+          "gold-ev-319ca6f3755466a02c5cbd14eaaf4ab0"
+        ],
+        "gold-rq-96ca7ac2b9c2c2b28011bb9488506fb5": [
+          "gold-ev-be751fca2dda9ea3000329029002714c"
+        ],
+        "gold-rq-9ce372a9681af5bbecbc79b511e1dc9c": [
+          "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+          "gold-ev-dacfc351ae9150a5594070769c072068"
+        ],
+        "gold-rq-9ecd4fae4d720e5ac917284e749f1b93": [
+          "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+          "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+        ],
+        "gold-rq-9f388a142a1cf3b826be08b46b3011bf": [
+          "gold-ev-0acd252ac0318ce3b16d8d78f916db2c",
+          "gold-ev-1c656f4df29556da71c7217626346570",
+          "gold-ev-269e7d294a9ea10ec381845fed1c0669",
+          "gold-ev-dacfc351ae9150a5594070769c072068"
+        ],
+        "gold-rq-a3ac5f4aeba2be704d4c8bea78468d12": [
+          "gold-ev-365b0dc23cff9bb089df5923e2212264"
+        ],
+        "gold-rq-abaf93468be694e7a681cca584ecf2cc": [
+          "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+          "gold-ev-7a68a8df0bca457e22b2efb289d137bd"
+        ],
+        "gold-rq-b023f02aa78b0a7f1fba69762de1c1e3": [
+          "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+          "gold-ev-6ecdac141332a7cb4593a131ccfc4619",
+          "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+          "gold-ev-475a17360c717b3221789247426a4d70"
+        ],
+        "gold-rq-ba9049b88a123e1a402bb580a81d7def": [
+          "gold-ev-9abde4ba81915c311db9ade93789806e",
+          "gold-ev-baaff1e84d4d4e0415499eef709178cd"
+        ],
+        "gold-rq-bb46d90bc13835038a2c697b4189c4d6": [
+          "gold-ev-1c656f4df29556da71c7217626346570",
+          "gold-ev-335662f3142fb805ce0d560f4eccdd7a"
+        ],
+        "gold-rq-bc85db9b6cc781aee8576633dba8ec00": [
+          "gold-ev-9abde4ba81915c311db9ade93789806e"
+        ],
+        "gold-rq-c73b0d28243b84ae414ab91c5584d3cb": [
+          "gold-ev-1c9a57c874696d23336a0cf4aa6990ff"
+        ],
+        "gold-rq-c87f8303bd82f530eb13745ec7ae4b24": [
+          "gold-ev-a3e490b596854fca6f4b792d843232b7"
+        ],
+        "gold-rq-ce08156be2f7307227052a793712e7e7": [
+          "gold-ev-baaff1e84d4d4e0415499eef709178cd",
+          "gold-ev-7b34285b5785dc23f07c5cf1f076aff5"
+        ],
+        "gold-rq-d08ba084ca5a18d808d532c6f3c59957": [
+          "gold-ev-365b0dc23cff9bb089df5923e2212264",
+          "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+          "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+        ],
+        "gold-rq-d0d1f40137818a4504d9abaa68f391a2": [
+          "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+          "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+        ],
+        "gold-rq-d29d60073729feee8ca538873e174ce0": [
+          "gold-ev-a63ff5485aa0ef4684620c1ae70da74f"
+        ],
+        "gold-rq-d35279d6bae4cfddde0a5167475a0815": [
+          "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+          "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+        ],
+        "gold-rq-e0cbd38be0555e3d191dd68b07bd1633": [
+          "gold-ev-17538584dfe368014f1177acd147a2b9",
+          "gold-ev-f622172906b893ec87c367db5ea298b3"
+        ],
+        "gold-rq-e1375ae9e6e9fbdbd439eaf936b6ed06": [
+          "gold-ev-69d5817d5c65fb586045ff620d8226d5",
+          "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+          "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+          "gold-ev-319ca6f3755466a02c5cbd14eaaf4ab0"
+        ],
+        "gold-rq-e1996c10957a48bd7fe12928737416b5": [
+          "gold-ev-6b00087df687acba07757febbd553d19",
+          "gold-ev-335662f3142fb805ce0d560f4eccdd7a"
+        ],
+        "gold-rq-e215895eb0ec348196d2fc162664b5c7": [
+          "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+        ],
+        "gold-rq-e5ea31714c219993b7be3e0b4779ddfd": [
+          "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+          "gold-ev-5c3010622081949981b20043ffc9cdd4"
+        ],
+        "gold-rq-e7fb2b1502ee253850bcc9e989000eb8": [
+          "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+        ],
+        "gold-rq-ebb7cf7ef8758813ec6db80bae8028d6": [
+          "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+        ],
+        "gold-rq-ef6dd249fa3afab524c56b64f9e21434": [
+          "gold-ev-6b00087df687acba07757febbd553d19",
+          "gold-ev-17538584dfe368014f1177acd147a2b9"
+        ],
+        "gold-rq-f08e19db0ca6329364e9dd2e86cc975d": [
+          "gold-ev-17538584dfe368014f1177acd147a2b9"
+        ],
+        "gold-rq-f4a9fcc60f049c0f744d396e3aafdadb": [
+          "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+          "gold-ev-b23839dee5dfa9698f26fe59806854d4",
+          "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+        ],
+        "gold-rq-f58ff6ba43fa8d00e4f19371cb8a0bb0": [
+          "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+          "gold-ev-f622172906b893ec87c367db5ea298b3"
+        ],
+        "gold-rq-f6231a4ddb66ab94af6cf6b9b689c2c8": [
+          "gold-ev-06bba04373bb42548483d596702e7e36",
+          "gold-ev-899a0d03f4d2d6ef4b06b0d5d7c56532"
+        ],
+        "gold-rq-fafff84989a81e3682b12de2d39f1a56": [
+          "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+          "gold-ev-0e4d6445988271493ac03dfe6f5a8706"
+        ],
+        "gold-rq-fc16a8d5c2543af34f756b4ddbc957eb": [
+          "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002",
+          "gold-ev-a99ba8f34aed9c20ccc731673de222ba"
+        ],
+        "gold-rq-ffbf1007b57536e4650200ba464c2671": [
+          "gold-ev-ac89df32946f7cbb44441b93711da3f5"
+        ],
+        "gold-rq-ffd3db8be133d93470d73b9bb07cb0c9": [
+          "gold-ev-f622172906b893ec87c367db5ea298b3",
+          "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+        ]
+      }
+    },
+    "ds5_heuristic_helpful": {
+      "action": "remove every unverified one-point label; r2 contains no heuristic helpful judgment",
+      "affected_count": 90,
+      "record_ids": [
+        "gold-rq-6546dd467a6ff32dd31c672236661f73",
+        "gold-rq-8683f7ef5d2126932f2ea9432e68c3cb",
+        "gold-rq-c87f8303bd82f530eb13745ec7ae4b24",
+        "gold-rq-d29d60073729feee8ca538873e174ce0",
+        "gold-rq-68f180aa1ae24e13b6638507281758ff",
+        "gold-rq-d9863325f5d9a35c0c22db25f2245a81",
+        "gold-rq-8defb2cb2d4c729ed300065e2ec0a0af",
+        "gold-rq-75f882a2555c176e772f78305b24cb4d",
+        "gold-rq-3502a03e10e24deb6a1d667056085f38",
+        "gold-rq-f99fb737f14527a3302c0e6231441254",
+        "gold-rq-95685b2191c26701d0c94a38ed73622b",
+        "gold-rq-0bca99af4a924241a1aa5b7efcce186b",
+        "gold-rq-7eb0857a4454471776f13e108c298939",
+        "gold-rq-6a1ead9815160f290ae4661db1d353b5",
+        "gold-rq-ffbf1007b57536e4650200ba464c2671",
+        "gold-rq-5b769cd00a48b6d8b17fba1dec059bbb",
+        "gold-rq-fc16a8d5c2543af34f756b4ddbc957eb",
+        "gold-rq-2c4dc78aa0790f5bcde0783b2155bea9",
+        "gold-rq-637f02e7fe4829e8c69b47248ea89eac",
+        "gold-rq-ba9049b88a123e1a402bb580a81d7def",
+        "gold-rq-6420de2a5731334f4c21a21f02ff5be8",
+        "gold-rq-f3c51be017e287889106d5630f107cc7",
+        "gold-rq-fafff84989a81e3682b12de2d39f1a56",
+        "gold-rq-5178e715327fed95d093129606b48964",
+        "gold-rq-f4a9fcc60f049c0f744d396e3aafdadb",
+        "gold-rq-bf9b1f91980c24979dcb79ee82e8247a",
+        "gold-rq-23af66ac72ee56f75fdb709df2f8214d",
+        "gold-rq-b023f02aa78b0a7f1fba69762de1c1e3",
+        "gold-rq-713a7c6be4b73454396c0b5c04419ebf",
+        "gold-rq-f52a5eeab2d281d555e6738c9d279ae8",
+        "gold-rq-239ebbd32ffc401c2c89fae087d89614",
+        "gold-rq-e215895eb0ec348196d2fc162664b5c7",
+        "gold-rq-1d2d3426a53bc035167af623d7766f9e",
+        "gold-rq-ce08156be2f7307227052a793712e7e7",
+        "gold-rq-8e3ffac1f9bbcbd712867cab9d01f5cb",
+        "gold-rq-ace3565eb2d98eda7ae9e00e9529ca34",
+        "gold-rq-ef6dd249fa3afab524c56b64f9e21434",
+        "gold-rq-f58ff6ba43fa8d00e4f19371cb8a0bb0",
+        "gold-rq-a3ac5f4aeba2be704d4c8bea78468d12",
+        "gold-rq-044911d936ef458adede8195d84e182d",
+        "gold-rq-2134db212dc779edc87dc4e4dd433d8e",
+        "gold-rq-bc85db9b6cc781aee8576633dba8ec00",
+        "gold-rq-7a72cfc65cf9c9b7bee0393763986898",
+        "gold-rq-1112fb98d5284428d124d0be7afbd2d0",
+        "gold-rq-3204ff675a1e73d1a548f97d9a8b5a0f",
+        "gold-rq-96ca7ac2b9c2c2b28011bb9488506fb5",
+        "gold-rq-3c877908f0472f1a7aa2f9c61fe6886f",
+        "gold-rq-f08e19db0ca6329364e9dd2e86cc975d",
+        "gold-rq-d35279d6bae4cfddde0a5167475a0815",
+        "gold-rq-9ce372a9681af5bbecbc79b511e1dc9c",
+        "gold-rq-4f0a8f2ed6fb448880435c1173c85e1b",
+        "gold-rq-1e202de03a7884b3458a9a2635fe2b19",
+        "gold-rq-d08ba084ca5a18d808d532c6f3c59957",
+        "gold-rq-482c4ee6d22073d2777389d42d7bbbfa",
+        "gold-rq-898f835f50708362043107d0f1861b5f",
+        "gold-rq-abaf93468be694e7a681cca584ecf2cc",
+        "gold-rq-352d8cf3b0f8aaf35d1795926472cfa2",
+        "gold-rq-cd0b315640afcc0de2fdb5c1d9cf4ca4",
+        "gold-rq-4ffdef086ebe67ff8e8755dee28066fd",
+        "gold-rq-e5ea31714c219993b7be3e0b4779ddfd",
+        "gold-rq-ffd3db8be133d93470d73b9bb07cb0c9",
+        "gold-rq-3f50328e063e8f961f6ba89db307abbe",
+        "gold-rq-bb46d90bc13835038a2c697b4189c4d6",
+        "gold-rq-9ecd4fae4d720e5ac917284e749f1b93",
+        "gold-rq-75c0c40df0fe8c62b7cd02dd3cff0b97",
+        "gold-rq-64b0a9a713614d23d44b1d1197bbf96e",
+        "gold-rq-27c624bc4167bb7408694aa3322d57b0",
+        "gold-rq-e7fb2b1502ee253850bcc9e989000eb8",
+        "gold-rq-260ea430b2abd12e0f66c0aaa3303e13",
+        "gold-rq-07197f3becdbacfd4976b1e3ee84bb43",
+        "gold-rq-ebb7cf7ef8758813ec6db80bae8028d6",
+        "gold-rq-c73b0d28243b84ae414ab91c5584d3cb",
+        "gold-rq-294125b141226b53fb56d1e6ef509e36",
+        "gold-rq-5e44e4e2aeb63fdd8aefc5c8437a8f82",
+        "gold-rq-8e5d6540a567c6070481227fcef21ce2",
+        "gold-rq-6dc01cab65135a1dffe5ae4b4748ba30",
+        "gold-rq-37d38e12d840f2997e9e9b39201e47da",
+        "gold-rq-9f388a142a1cf3b826be08b46b3011bf",
+        "gold-rq-27751e274ce26ea489dc82276b3de963",
+        "gold-rq-7112c3aced5c6ea2c91842b272992bd8",
+        "gold-rq-d0d1f40137818a4504d9abaa68f391a2",
+        "gold-rq-e0cbd38be0555e3d191dd68b07bd1633",
+        "gold-rq-e1996c10957a48bd7fe12928737416b5",
+        "gold-rq-2c1283ab0f2a7ddec44f955e3f7db444",
+        "gold-rq-e1375ae9e6e9fbdbd439eaf936b6ed06",
+        "gold-rq-5afcdd17d13558128b4f27d30737eae0",
+        "gold-rq-87494e847f30717610563a7aa835be14",
+        "gold-rq-88658e979c98448d39b0d7c3b3095c15",
+        "gold-rq-f6231a4ddb66ab94af6cf6b9b689c2c8",
+        "gold-rq-6625c7a4588ebc851accec618f557934"
+      ]
+    },
+    "ds5_meta_procedure_wording": {
+      "action": "replace all 10 procedure prompts with content-specific wording",
+      "affected_count": 5,
+      "record_ids": [
+        "gold-rq-abaf93468be694e7a681cca584ecf2cc",
+        "gold-rq-352d8cf3b0f8aaf35d1795926472cfa2",
+        "gold-rq-cd0b315640afcc0de2fdb5c1d9cf4ca4",
+        "gold-rq-ffd3db8be133d93470d73b9bb07cb0c9",
+        "gold-rq-bb46d90bc13835038a2c697b4189c4d6"
+      ]
+    },
+    "ds5_template_paraphrase": {
+      "action": "replace all 15 paraphrase queries with source-grounded natural wording",
+      "affected_count": 9,
+      "record_ids": [
+        "gold-rq-239ebbd32ffc401c2c89fae087d89614",
+        "gold-rq-1d2d3426a53bc035167af623d7766f9e",
+        "gold-rq-8e3ffac1f9bbcbd712867cab9d01f5cb",
+        "gold-rq-ace3565eb2d98eda7ae9e00e9529ca34",
+        "gold-rq-ef6dd249fa3afab524c56b64f9e21434",
+        "gold-rq-f58ff6ba43fa8d00e4f19371cb8a0bb0",
+        "gold-rq-044911d936ef458adede8195d84e182d",
+        "gold-rq-1112fb98d5284428d124d0be7afbd2d0",
+        "gold-rq-3204ff675a1e73d1a548f97d9a8b5a0f"
+      ]
+    }
+  },
+  "r1_record_count": 160,
+  "schema_version": "courserag.p08-r1-systemic-audit.v1"
+}

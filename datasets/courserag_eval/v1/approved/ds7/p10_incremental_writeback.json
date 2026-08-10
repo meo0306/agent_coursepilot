@@ -1,0 +1,966 @@
+{
+  "cases": [
+    {
+      "affected_section_ids": [],
+      "approval": {
+        "approved_record_sha256": "8cd9bb5e8deb3a6b76482b93e9ca91bd0326009ba8c1e79a7309a2b4217dd934",
+        "candidate_sha256": "4646f93be8125b973a13aacbff197c0e60453ffc9bc8f0a79b8afa61e18a55a0",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.001",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [],
+      "operation": "rename_document",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-01-rename",
+      "reusable_artifact_kinds": [
+        "all_stage_artifacts"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": false,
+      "should_trigger_kp_extraction": false,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "dev",
+      "steps": [
+        "Change display metadata only."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "approval": {
+        "approved_record_sha256": "f9c3990a78129c2609ecf4c0db3cbcc43a9f5e9a78c5e34319e161b47fc6b770",
+        "candidate_sha256": "c39368fa48421c0ec0a2632a52c4a865f054318b6f2624782f66a91803319f31",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.002",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "parse",
+        "evidence",
+        "chunk",
+        "kp",
+        "index"
+      ],
+      "operation": "modify_section",
+      "preserve_review_status": false,
+      "record_id": "p10-ds7-02-modify-section",
+      "reusable_artifact_kinds": [
+        "raw_binary"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": true,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "4292d85c2e83959c2ac13d99c566e0b317a28143514b37e27fe1e88377d88858",
+      "split": "dev",
+      "steps": [
+        "Apply the deterministic paragraph modification fixture."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "approval": {
+        "approved_record_sha256": "cf5801b87ed3fb7d29482609a02171212c6abfdc41370c757c71c2eff346d6df",
+        "candidate_sha256": "549595b5679c17a05c9a3c856304e028607f0061f6062699bc6c93fd9e8062e7",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.003",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "new_section_parse",
+        "evidence",
+        "chunk",
+        "kp",
+        "index"
+      ],
+      "operation": "add_section",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-03-add-section",
+      "reusable_artifact_kinds": [
+        "unaffected_section_artifacts"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": true,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "6b75d15fc72d8102a09836ce4c1dc40fdf51697ef8a0fa2ab99233a989be4ca7",
+      "split": "dev",
+      "steps": [
+        "Append copies of an existing heading and paragraph; no new text."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "ds3-scope-docx-1-1-1",
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3",
+        "ds3-scope-docx-3-5-3",
+        "ds3-scope-docx-5-1-1",
+        "ds3-scope-docx-5-2-1",
+        "ds3-scope-docx-5-3",
+        "ds3-scope-docx-5-3-4",
+        "ds3-scope-docx-6-2-2",
+        "ds3-scope-docx-6-2-3",
+        "ds3-scope-docx-6-3",
+        "ds3-scope-docx-9-1-2",
+        "ds3-scope-docx-9-2-2",
+        "ds3-scope-docx-9-5-1",
+        "ds3-scope-docx-9-7"
+      ],
+      "approval": {
+        "approved_record_sha256": "9a4bb8b31d7ef3226ac7698bb47bf091fcc49bc14993c7dd83a252a9fdf13f3d",
+        "candidate_sha256": "0b509a2ee803312eefa6cfd8f7f036e086cd0222906c092fb1e9f68574e0473b",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.004",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "chunk",
+        "index"
+      ],
+      "operation": "change_chunker",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-04-chunker",
+      "reusable_artifact_kinds": [
+        "parse",
+        "evidence"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": true,
+      "should_trigger_kp_extraction": false,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "dev",
+      "steps": [
+        "Change Chunker Profile Hash only."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "ds3-scope-docx-1-1-1",
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3",
+        "ds3-scope-docx-3-5-3",
+        "ds3-scope-docx-5-1-1",
+        "ds3-scope-docx-5-2-1",
+        "ds3-scope-docx-5-3",
+        "ds3-scope-docx-5-3-4",
+        "ds3-scope-docx-6-2-2",
+        "ds3-scope-docx-6-2-3",
+        "ds3-scope-docx-6-3",
+        "ds3-scope-docx-9-1-2",
+        "ds3-scope-docx-9-2-2",
+        "ds3-scope-docx-9-5-1",
+        "ds3-scope-docx-9-7"
+      ],
+      "approval": {
+        "approved_record_sha256": "89fed8ffde15b332d27eb95208055b13e1f8f3a397b81b6d69b68360e1c9c289",
+        "candidate_sha256": "64ef97ae1094ad9d72ee4d5183da4fbfa6f7306b21f1efce2181faf83a8ca2b8",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.005",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "kp"
+      ],
+      "operation": "change_kp_prompt",
+      "preserve_review_status": false,
+      "record_id": "p10-ds7-05-kp-prompt",
+      "reusable_artifact_kinds": [
+        "parse",
+        "evidence",
+        "chunk"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": false,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "dev",
+      "steps": [
+        "Change KP Prompt Profile Hash only."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "ds3-scope-docx-1-1-1",
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3",
+        "ds3-scope-docx-3-5-3",
+        "ds3-scope-docx-5-1-1",
+        "ds3-scope-docx-5-2-1",
+        "ds3-scope-docx-5-3",
+        "ds3-scope-docx-5-3-4",
+        "ds3-scope-docx-6-2-2",
+        "ds3-scope-docx-6-2-3",
+        "ds3-scope-docx-6-3",
+        "ds3-scope-docx-9-1-2",
+        "ds3-scope-docx-9-2-2",
+        "ds3-scope-docx-9-5-1",
+        "ds3-scope-docx-9-7"
+      ],
+      "approval": {
+        "approved_record_sha256": "af83e0bc71c4ca23081b285c6337ce5bd75cc7a3305b1066508b2fe99a6e8576",
+        "candidate_sha256": "de3740d59abfee2aef843ac9d273013ab0019a3be705b7109b8057e5359aeeae",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.006",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "dense_index"
+      ],
+      "operation": "change_embedding",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-06-embedding",
+      "reusable_artifact_kinds": [
+        "parse",
+        "evidence",
+        "chunk",
+        "kp",
+        "sparse_index"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": true,
+      "should_trigger_kp_extraction": false,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "dev",
+      "steps": [
+        "Change Embedding Profile Hash only."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [],
+      "approval": {
+        "approved_record_sha256": "8c40e23f2043d2b97aafe8ffe7fad8b1e522de945de350bcfa556b568243a068",
+        "candidate_sha256": "93fab33b87ce980fffdeda14762b036fe6276e3dd2ea974e651f878f9703b125",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.007",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "rerank_cache"
+      ],
+      "operation": "change_reranker",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-07-reranker",
+      "reusable_artifact_kinds": [
+        "all_build_artifacts",
+        "dense_index",
+        "sparse_index"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": false,
+      "should_trigger_kp_extraction": false,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "dev",
+      "steps": [
+        "Change Reranker Profile Hash only."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "approval": {
+        "approved_record_sha256": "ad18d2922de0746d6d38d21c6779417919b8347515a3135aa62fbd7ca415fdd0",
+        "candidate_sha256": "32cf09df6935b645936e34e708d4c1025bcb619804c353d31f4fb27e01094723",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.008",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "section",
+        "evidence",
+        "chunk",
+        "kp",
+        "index",
+        "citations"
+      ],
+      "operation": "delete_section",
+      "preserve_review_status": false,
+      "record_id": "p10-ds7-08-delete-section",
+      "reusable_artifact_kinds": [
+        "unaffected_section_artifacts"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": true,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "test",
+      "steps": [
+        "Delete one complete existing Section fixture range."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [
+        "pdf:1.2.3"
+      ],
+      "approval": {
+        "approved_record_sha256": "5172a91e5f900c1aa0aa1dd635eeef3aacbad161a20b04975b1c223adf821a8e",
+        "candidate_sha256": "32181ab197f8361833f2d141fc655a5db6290ca39c244a2b1cefc0c34cafebd4",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.009",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "ocr_page",
+        "evidence",
+        "chunk",
+        "kp",
+        "index"
+      ],
+      "operation": "replace_ocr_page",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-09-replace-ocr",
+      "reusable_artifact_kinds": [
+        "unaffected_pages"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": true,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "da251c7344bfdab98e5334a4d599e1b6f129f49c43faffd4ea44e1c0738e3788",
+      "split": "test",
+      "steps": [
+        "Replace parent PDF page 21 with Approved clean-scan mapping."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    },
+    {
+      "affected_section_ids": [],
+      "approval": {
+        "approved_record_sha256": "644e21d806abb9655bfc4220f2bb4a263dec1231849795c11faaac5686338a3f",
+        "candidate_sha256": "330f5fbb07b19ce8485fde13862cde0086ea11fdfb8ed0ff22f4ddaddc389c15",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.010",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [
+        "verified_content_light_index_entry_after_revoke"
+      ],
+      "operation": "writeback_lifecycle",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-10-writeback-lifecycle",
+      "reusable_artifact_kinds": [
+        "primary_corpus",
+        "existing_indexes"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": false,
+      "should_trigger_kp_extraction": false,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "test",
+      "steps": [
+        "Write once.",
+        "Replay identical idempotency key.",
+        "Revoke once.",
+        "Replay revoke."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": [
+        {
+          "content_id": "p10-vc-question-3bcbc61f20164ca7c01f7c71",
+          "content_sha256": "575410cddaf2493a47e2dd4fd089105e2681e573ef7641478a66de1ad185e3dd",
+          "content_text": "教材如何说明“可穿戴传感器性能要求”的应用场景、作用或限制？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-fb3103f59de48b7cf25d3156a1e1c397:question",
+          "source_record_ids": [
+            "gold-qa-fb3103f59de48b7cf25d3156a1e1c397"
+          ],
+          "source_record_sha256": [
+            "05048c8d12873e67a71ce493376f92b3f272286f92d7eac8dab71abe1cb4dd89"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-question-efc15a25c995976ef2bc05c9",
+          "content_sha256": "179cfa14818e63482a10eb0dbf01a4440879f3675e710202c1c10dac5a48dc9d",
+          "content_text": "教材如何说明“深度学习在推荐系统中的应用”的应用场景、作用或限制？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-2adae254c7d38fbb6099af397e0e0fd7:question",
+          "source_record_ids": [
+            "gold-qa-2adae254c7d38fbb6099af397e0e0fd7"
+          ],
+          "source_record_sha256": [
+            "4ad24ce0420f18c7b9b5dd7892f8947375d8623da4d7ca7f93a895b8c86a8150"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-question-fe5569c46fc7527d694365ec",
+          "content_sha256": "3d9c8109cdf89222ff766a4ac70e0b593f5fa765c458315cce56f25f34058834",
+          "content_text": "教材如何说明“服务机器人视觉交互”的应用场景、作用或限制？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-b4a1154cfaccddc9b9fc5764196e6a54:question",
+          "source_record_ids": [
+            "gold-qa-b4a1154cfaccddc9b9fc5764196e6a54"
+          ],
+          "source_record_sha256": [
+            "24d25a5c048c902b75d83fe348828c5cc220f1bab4a94b3760297dad904d65d8"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-question-c15a2f67e07b3d8380e3ad8f",
+          "content_sha256": "c5b4e482d68ca9fc12b8790465a4d1ba335f07799747818e524cda2807662360",
+          "content_text": "教材记录了哪个全仿真智能 AI 主持人应用实例，其发布者、时间和场合是什么？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_general_education",
+          "idempotency_key": "p10:gold-qa-78aa66e747df675f48bff6dc8bcd6426:question",
+          "source_record_ids": [
+            "gold-qa-78aa66e747df675f48bff6dc8bcd6426"
+          ],
+          "source_record_sha256": [
+            "ca3d57dcaba2e199992bb5e1e924233df06c0ded7f08b9c6c1de14a2e56bec66"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-explanation-d7ec78fe6d17d367b5ffbf03",
+          "content_sha256": "81eb608e3f1079a61fe9fc584ae8729c41ba8f0e433dd70b6f451843c9028a16",
+          "content_text": "金融风控\t信用评估、股市预测、风险控制等",
+          "content_type": "verified_answer_explanation",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-63e132b98c5aa7bb104bb01c898730aa:explanation",
+          "source_record_ids": [
+            "gold-qa-63e132b98c5aa7bb104bb01c898730aa",
+            "gold-cl-f9ac7c8fc06a75ce1547245161f1aa94"
+          ],
+          "source_record_sha256": [
+            "f2bdbc6a1f7f3342b965c47c4fa8002fff57f12ee516c99c491da2b623d54f25",
+            "0521beef17031cc5ad99c804f8569f56180eeffc4c4e9b387c87351d4dd901ed"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-explanation-b9a5582bf33cea0a4724b9d3",
+          "content_sha256": "48d11e24dd3aaa64bd9d499b93c09731ca2bc5c0c22d1fde5aec84309afdd442",
+          "content_text": "它的视觉-IMU子系统不依赖于环境中的显著视觉特征，节省了特征检测和提取的处理时间，尤其在缺少纹理的环境中提高了系统的鲁棒性。\nIMU\t不受环境变化影响\t具有累计误差",
+          "content_type": "verified_answer_explanation",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-88df7a33d6aafc988099d1a87df97201:explanation",
+          "source_record_ids": [
+            "gold-qa-88df7a33d6aafc988099d1a87df97201",
+            "gold-cl-5284b1e2d1e41b71aceb52f601387bd8",
+            "gold-cl-71f4843b87a625c223668ba7c7768455"
+          ],
+          "source_record_sha256": [
+            "69050aaafcd209b8680467e9329fbafe0b8d1bbe1357309f670080e81b661227",
+            "175158613b457702b2620c164a053a0dfbc37ba5ebdabfef17220dcef002fc4e",
+            "3c6a5daece0c98eb427c3ff598c36860024573d4071d47ad240f3b2a0db63f83"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-explanation-6542dd7437669e9a8b4cb301",
+          "content_sha256": "2907f846d4458bca36e1f6da1b5c09d39ca5bfb791b5abe394fde317eaef2335",
+          "content_text": "开源项目不断涌现，降低了技术门槛，让更多人\n能参与到技术开发和应用中，像Spark-TTS就是SparkAudio开源社区联合多个机构发布的。",
+          "content_type": "verified_answer_explanation",
+          "course_id": "course_ai_general_education",
+          "idempotency_key": "p10:gold-qa-444bc607a871330f4b841c236b81afef:explanation",
+          "source_record_ids": [
+            "gold-qa-444bc607a871330f4b841c236b81afef",
+            "gold-cl-6cc80e860e87b1df95d5f6c7eadbfa02"
+          ],
+          "source_record_sha256": [
+            "f0a9f9a76b15a4c42e2f81441683e52a451d6228e3570786d5b44f2cad7ad064",
+            "85f86ab49171f6218b337fc4e6e5ad2939a3ebaada6b08f829c2e087d410d25d"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-fragment-0c196fdfd889a22e9cc25953",
+          "content_sha256": "27b4f2e045bf6884b0dd81d5dae995ca9d2a1603fda44296113ef8fb17bb0190",
+          "content_text": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+          "content_type": "verified_lesson_fragment",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-ev-bd7d355279cc06aac5841601572cfe04:fragment",
+          "source_record_ids": [
+            "gold-ev-bd7d355279cc06aac5841601572cfe04"
+          ],
+          "source_record_sha256": [
+            "4539e422912b001693364383c3e4cc587fa831b44140678f72bf997b3449cea4"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-fragment-a8e89ef36d0444d4d9bcacd0",
+          "content_sha256": "2013e5c5e7d7f7816743b9f9c64d0b2c5d40869177a9be29ac1c8662b0c11fa1",
+          "content_text": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+          "content_type": "verified_lesson_fragment",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-ev-d582a5e418494c5dd20d1ebd93eb6f76:fragment",
+          "source_record_ids": [
+            "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+          ],
+          "source_record_sha256": [
+            "ed8d09553a893baf75b4d30f1352a4a70f007e25013ec3ae158eaf4072a5e0ec"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-fragment-1f063a1233587415c5840bbe",
+          "content_sha256": "e6ce4b033f90acc219494e9db299ac9d90c1862ae19c3615625698cafd6efaa4",
+          "content_text": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+          "content_type": "verified_lesson_fragment",
+          "course_id": "course_ai_general_education",
+          "idempotency_key": "p10:gold-ev-a95425415c717538eb8e12984a3caaef:fragment",
+          "source_record_ids": [
+            "gold-ev-a95425415c717538eb8e12984a3caaef"
+          ],
+          "source_record_sha256": [
+            "caad5b639b1038dca8b1e1cc106b599dfe4a4a0d4ec7e8ce1a13abe64af07c87"
+          ],
+          "source_tier": "teacher_verified"
+        }
+      ]
+    },
+    {
+      "affected_section_ids": [],
+      "approval": {
+        "approved_record_sha256": "c44e417d1a186a32b703357090bc486f1dba01e1fcd295321a9310e7a1c24c8b",
+        "candidate_sha256": "9ce53c2864e16a878794ed69103db4d5483674a99014c9cfb281310a823e6389",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.011",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [
+        {
+          "age_seconds": 0,
+          "expected_trigger": false,
+          "manual_trigger": false,
+          "probe_id": "p10-enrich-count-9",
+          "record_count": 9,
+          "token_count": 0,
+          "trigger_reason": "none"
+        },
+        {
+          "age_seconds": 0,
+          "expected_trigger": true,
+          "manual_trigger": false,
+          "probe_id": "p10-enrich-count-10",
+          "record_count": 10,
+          "token_count": 0,
+          "trigger_reason": "record_count"
+        },
+        {
+          "age_seconds": 0,
+          "expected_trigger": false,
+          "manual_trigger": false,
+          "probe_id": "p10-enrich-token-before",
+          "record_count": 50,
+          "token_count": 2946,
+          "trigger_reason": "none"
+        },
+        {
+          "age_seconds": 0,
+          "expected_trigger": true,
+          "manual_trigger": false,
+          "probe_id": "p10-enrich-token-cross",
+          "record_count": 51,
+          "token_count": 3054,
+          "trigger_reason": "token_count"
+        },
+        {
+          "age_seconds": 86399,
+          "expected_trigger": false,
+          "manual_trigger": false,
+          "probe_id": "p10-enrich-age-before",
+          "record_count": 1,
+          "token_count": 1,
+          "trigger_reason": "none"
+        },
+        {
+          "age_seconds": 86400,
+          "expected_trigger": true,
+          "manual_trigger": false,
+          "probe_id": "p10-enrich-age-at",
+          "record_count": 1,
+          "token_count": 1,
+          "trigger_reason": "age"
+        }
+      ],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [],
+      "operation": "automatic_enrichment_boundaries",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-11-auto-enrichment",
+      "reusable_artifact_kinds": [
+        "verified_content_records"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": false,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "test",
+      "steps": [
+        "Evaluate record-count, fixed-tokenizer and fake-clock thresholds independently."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": [
+        {
+          "content_id": "p10-vc-question-3bcbc61f20164ca7c01f7c71",
+          "content_sha256": "575410cddaf2493a47e2dd4fd089105e2681e573ef7641478a66de1ad185e3dd",
+          "content_text": "教材如何说明“可穿戴传感器性能要求”的应用场景、作用或限制？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-fb3103f59de48b7cf25d3156a1e1c397:question",
+          "source_record_ids": [
+            "gold-qa-fb3103f59de48b7cf25d3156a1e1c397"
+          ],
+          "source_record_sha256": [
+            "05048c8d12873e67a71ce493376f92b3f272286f92d7eac8dab71abe1cb4dd89"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-question-efc15a25c995976ef2bc05c9",
+          "content_sha256": "179cfa14818e63482a10eb0dbf01a4440879f3675e710202c1c10dac5a48dc9d",
+          "content_text": "教材如何说明“深度学习在推荐系统中的应用”的应用场景、作用或限制？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-2adae254c7d38fbb6099af397e0e0fd7:question",
+          "source_record_ids": [
+            "gold-qa-2adae254c7d38fbb6099af397e0e0fd7"
+          ],
+          "source_record_sha256": [
+            "4ad24ce0420f18c7b9b5dd7892f8947375d8623da4d7ca7f93a895b8c86a8150"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-question-fe5569c46fc7527d694365ec",
+          "content_sha256": "3d9c8109cdf89222ff766a4ac70e0b593f5fa765c458315cce56f25f34058834",
+          "content_text": "教材如何说明“服务机器人视觉交互”的应用场景、作用或限制？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-b4a1154cfaccddc9b9fc5764196e6a54:question",
+          "source_record_ids": [
+            "gold-qa-b4a1154cfaccddc9b9fc5764196e6a54"
+          ],
+          "source_record_sha256": [
+            "24d25a5c048c902b75d83fe348828c5cc220f1bab4a94b3760297dad904d65d8"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-question-c15a2f67e07b3d8380e3ad8f",
+          "content_sha256": "c5b4e482d68ca9fc12b8790465a4d1ba335f07799747818e524cda2807662360",
+          "content_text": "教材记录了哪个全仿真智能 AI 主持人应用实例，其发布者、时间和场合是什么？",
+          "content_type": "verified_question",
+          "course_id": "course_ai_general_education",
+          "idempotency_key": "p10:gold-qa-78aa66e747df675f48bff6dc8bcd6426:question",
+          "source_record_ids": [
+            "gold-qa-78aa66e747df675f48bff6dc8bcd6426"
+          ],
+          "source_record_sha256": [
+            "ca3d57dcaba2e199992bb5e1e924233df06c0ded7f08b9c6c1de14a2e56bec66"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-explanation-d7ec78fe6d17d367b5ffbf03",
+          "content_sha256": "81eb608e3f1079a61fe9fc584ae8729c41ba8f0e433dd70b6f451843c9028a16",
+          "content_text": "金融风控\t信用评估、股市预测、风险控制等",
+          "content_type": "verified_answer_explanation",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-63e132b98c5aa7bb104bb01c898730aa:explanation",
+          "source_record_ids": [
+            "gold-qa-63e132b98c5aa7bb104bb01c898730aa",
+            "gold-cl-f9ac7c8fc06a75ce1547245161f1aa94"
+          ],
+          "source_record_sha256": [
+            "f2bdbc6a1f7f3342b965c47c4fa8002fff57f12ee516c99c491da2b623d54f25",
+            "0521beef17031cc5ad99c804f8569f56180eeffc4c4e9b387c87351d4dd901ed"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-explanation-b9a5582bf33cea0a4724b9d3",
+          "content_sha256": "48d11e24dd3aaa64bd9d499b93c09731ca2bc5c0c22d1fde5aec84309afdd442",
+          "content_text": "它的视觉-IMU子系统不依赖于环境中的显著视觉特征，节省了特征检测和提取的处理时间，尤其在缺少纹理的环境中提高了系统的鲁棒性。\nIMU\t不受环境变化影响\t具有累计误差",
+          "content_type": "verified_answer_explanation",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-qa-88df7a33d6aafc988099d1a87df97201:explanation",
+          "source_record_ids": [
+            "gold-qa-88df7a33d6aafc988099d1a87df97201",
+            "gold-cl-5284b1e2d1e41b71aceb52f601387bd8",
+            "gold-cl-71f4843b87a625c223668ba7c7768455"
+          ],
+          "source_record_sha256": [
+            "69050aaafcd209b8680467e9329fbafe0b8d1bbe1357309f670080e81b661227",
+            "175158613b457702b2620c164a053a0dfbc37ba5ebdabfef17220dcef002fc4e",
+            "3c6a5daece0c98eb427c3ff598c36860024573d4071d47ad240f3b2a0db63f83"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-explanation-6542dd7437669e9a8b4cb301",
+          "content_sha256": "2907f846d4458bca36e1f6da1b5c09d39ca5bfb791b5abe394fde317eaef2335",
+          "content_text": "开源项目不断涌现，降低了技术门槛，让更多人\n能参与到技术开发和应用中，像Spark-TTS就是SparkAudio开源社区联合多个机构发布的。",
+          "content_type": "verified_answer_explanation",
+          "course_id": "course_ai_general_education",
+          "idempotency_key": "p10:gold-qa-444bc607a871330f4b841c236b81afef:explanation",
+          "source_record_ids": [
+            "gold-qa-444bc607a871330f4b841c236b81afef",
+            "gold-cl-6cc80e860e87b1df95d5f6c7eadbfa02"
+          ],
+          "source_record_sha256": [
+            "f0a9f9a76b15a4c42e2f81441683e52a451d6228e3570786d5b44f2cad7ad064",
+            "85f86ab49171f6218b337fc4e6e5ad2939a3ebaada6b08f829c2e087d410d25d"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-fragment-0c196fdfd889a22e9cc25953",
+          "content_sha256": "27b4f2e045bf6884b0dd81d5dae995ca9d2a1603fda44296113ef8fb17bb0190",
+          "content_text": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+          "content_type": "verified_lesson_fragment",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-ev-bd7d355279cc06aac5841601572cfe04:fragment",
+          "source_record_ids": [
+            "gold-ev-bd7d355279cc06aac5841601572cfe04"
+          ],
+          "source_record_sha256": [
+            "4539e422912b001693364383c3e4cc587fa831b44140678f72bf997b3449cea4"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-fragment-a8e89ef36d0444d4d9bcacd0",
+          "content_sha256": "2013e5c5e7d7f7816743b9f9c64d0b2c5d40869177a9be29ac1c8662b0c11fa1",
+          "content_text": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+          "content_type": "verified_lesson_fragment",
+          "course_id": "course_ai_algorithms_systems",
+          "idempotency_key": "p10:gold-ev-d582a5e418494c5dd20d1ebd93eb6f76:fragment",
+          "source_record_ids": [
+            "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+          ],
+          "source_record_sha256": [
+            "ed8d09553a893baf75b4d30f1352a4a70f007e25013ec3ae158eaf4072a5e0ec"
+          ],
+          "source_tier": "teacher_verified"
+        },
+        {
+          "content_id": "p10-vc-fragment-1f063a1233587415c5840bbe",
+          "content_sha256": "e6ce4b033f90acc219494e9db299ac9d90c1862ae19c3615625698cafd6efaa4",
+          "content_text": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+          "content_type": "verified_lesson_fragment",
+          "course_id": "course_ai_general_education",
+          "idempotency_key": "p10:gold-ev-a95425415c717538eb8e12984a3caaef:fragment",
+          "source_record_ids": [
+            "gold-ev-a95425415c717538eb8e12984a3caaef"
+          ],
+          "source_record_sha256": [
+            "caad5b639b1038dca8b1e1cc106b599dfe4a4a0d4ec7e8ce1a13abe64af07c87"
+          ],
+          "source_tier": "teacher_verified"
+        }
+      ]
+    },
+    {
+      "affected_section_ids": [],
+      "approval": {
+        "approved_record_sha256": "7fc169cb85f586d9bf0879da4c0833312b1454979ec47e2a3e76f38209a74492",
+        "candidate_sha256": "82b8b4cf4fcea90d3f9adcfc6bfb5ddc4948b9299085630d2a9c7520a68f4d62",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds7.012",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "approved_gold_plus_control_fixture",
+      "enrichment_probes": [
+        {
+          "age_seconds": 1,
+          "expected_trigger": true,
+          "manual_trigger": true,
+          "probe_id": "p10-enrich-manual",
+          "record_count": 1,
+          "token_count": 1,
+          "trigger_reason": "manual"
+        }
+      ],
+      "expected_change_coverage": 1.0,
+      "expected_duplicate_writes": 0,
+      "expected_primary_overwrites": 0,
+      "invalidated_artifact_kinds": [],
+      "operation": "manual_enrichment",
+      "preserve_review_status": true,
+      "record_id": "p10-ds7-12-manual-enrichment",
+      "reusable_artifact_kinds": [
+        "verified_content_records"
+      ],
+      "review_status": "approved",
+      "should_create_index_version": false,
+      "should_trigger_kp_extraction": true,
+      "source_course_id": "course_ai_algorithms_systems",
+      "source_document_id": "doc_ai_algorithms_systems",
+      "source_fixture_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "split": "test",
+      "steps": [
+        "Trigger enrichment manually while every automatic threshold is below its boundary."
+      ],
+      "unaffected_section_ids": [
+        "ds3-scope-docx-2-2",
+        "ds3-scope-docx-2-2-2",
+        "ds3-scope-docx-3-1-3"
+      ],
+      "writeback_payloads": []
+    }
+  ],
+  "dataset_id": "courserag-ds7-formal",
+  "dataset_version": "r1",
+  "schema_version": "courserag.ds7-formal.v1"
+}

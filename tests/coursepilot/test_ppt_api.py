@@ -110,8 +110,8 @@ def test_ppt_generate_export_review_and_write_back(coursepilot_client, monkeypat
     )
     assert write_back.status_code == 200
     write_back_payload = write_back.json()
-    assert write_back_payload["write_back_status"] == "written"
-    assert write_back_payload["written_chunk_ids"]
+    assert write_back_payload["write_back_status"] == "requires_fragment_selection"
+    assert write_back_payload["written_chunk_ids"] == []
 
     search = coursepilot_client.post(
         f"/api/coursepilot/courses/{course['id']}/kb/search",
@@ -119,9 +119,7 @@ def test_ppt_generate_export_review_and_write_back(coursepilot_client, monkeypat
     )
     assert search.status_code == 200
     results = search.json()["results"]
-    assert results
-    assert all(result["verified"] is True for result in results)
-    assert any(result["source_type"] == "reviewed_ppt" for result in results)
+    assert not any(result["source_type"] == "reviewed_ppt" for result in results)
 
 
 def test_ppt_generate_requires_lesson(coursepilot_client):

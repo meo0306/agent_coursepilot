@@ -1,0 +1,525 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "EvidenceGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "group_id": {
+          "title": "Group Id",
+          "type": "string"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        },
+        "sufficiency": {
+          "enum": [
+            "complete",
+            "partial"
+          ],
+          "title": "Sufficiency",
+          "type": "string"
+        }
+      },
+      "required": [
+        "group_id",
+        "sufficiency",
+        "required_evidence_ids"
+      ],
+      "title": "EvidenceGroup",
+      "type": "object"
+    },
+    "P09ContextGoldCase": {
+      "additionalProperties": false,
+      "properties": {
+        "answerable": {
+          "title": "Answerable",
+          "type": "boolean"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "approval_scope": {
+          "const": "ds5_qa_and_context_only",
+          "default": "ds5_qa_and_context_only",
+          "title": "Approval Scope",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "complete_evidence_groups": {
+          "items": {
+            "$ref": "#/$defs/EvidenceGroup"
+          },
+          "title": "Complete Evidence Groups",
+          "type": "array"
+        },
+        "context_gold_status": {
+          "enum": [
+            "candidate",
+            "approved"
+          ],
+          "title": "Context Gold Status",
+          "type": "string"
+        },
+        "context_order_policy": {
+          "const": "not_fixed_equivalent_orders_allowed",
+          "default": "not_fixed_equivalent_orders_allowed",
+          "title": "Context Order Policy",
+          "type": "string"
+        },
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "deduplicate": {
+          "const": true,
+          "default": true,
+          "title": "Deduplicate",
+          "type": "boolean"
+        },
+        "evaluation_stratum": {
+          "enum": [
+            "retrieval_main",
+            "upstream_gap_diagnostic"
+          ],
+          "title": "Evaluation Stratum",
+          "type": "string"
+        },
+        "generation_strategy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Generation Strategy Sha256",
+          "type": "string"
+        },
+        "hard_negative_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 3,
+          "title": "Hard Negative Evidence Ids",
+          "type": "array"
+        },
+        "max_items": {
+          "const": 8,
+          "default": 8,
+          "title": "Max Items",
+          "type": "integer"
+        },
+        "max_tokens": {
+          "const": 4000,
+          "default": 4000,
+          "title": "Max Tokens",
+          "type": "integer"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "$ref": "#/$defs/P09NecessaryContextNeighbor"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "neighbor_expansion": {
+          "enum": [
+            "forbidden",
+            "only_listed_neighbors"
+          ],
+          "title": "Neighbor Expansion",
+          "type": "string"
+        },
+        "p06_runtime_resolvable": {
+          "title": "P06 Runtime Resolvable",
+          "type": "boolean"
+        },
+        "parent_expansion": {
+          "enum": [
+            "forbidden",
+            "only_if_necessary_neighbor"
+          ],
+          "title": "Parent Expansion",
+          "type": "string"
+        },
+        "preserve_evidence_boundaries": {
+          "const": true,
+          "default": true,
+          "title": "Preserve Evidence Boundaries",
+          "type": "boolean"
+        },
+        "purpose": {
+          "const": "question_answering",
+          "default": "question_answering",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "qa_case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Qa Case Id",
+          "type": "string"
+        },
+        "query_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Query Sha256",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "relevant_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Relevant Evidence Ids",
+          "type": "array"
+        },
+        "retrieval_case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Retrieval Case Id",
+          "type": "string"
+        },
+        "retrieval_case_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Retrieval Case Sha256",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "upstream_approved_sha256": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minProperties": 5,
+          "title": "Upstream Approved Sha256",
+          "type": "object"
+        }
+      },
+      "required": [
+        "record_id",
+        "retrieval_case_id",
+        "retrieval_case_sha256",
+        "qa_case_id",
+        "query_sha256",
+        "course_id",
+        "split",
+        "evaluation_stratum",
+        "answerable",
+        "hard_negative_evidence_ids",
+        "parent_expansion",
+        "neighbor_expansion",
+        "p06_runtime_resolvable",
+        "upstream_approved_sha256",
+        "generation_strategy_sha256",
+        "context_gold_status"
+      ],
+      "title": "P09ContextGoldCase",
+      "type": "object"
+    },
+    "P09NecessaryContextNeighbor": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "necessity_reason": {
+          "enum": [
+            "resolve_reference",
+            "restore_list_scope",
+            "restore_definition_scope",
+            "restore_semantic_dependency",
+            "complete_procedure"
+          ],
+          "title": "Necessity Reason",
+          "type": "string"
+        },
+        "neighbor_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Neighbor Id",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "parent_heading",
+            "previous",
+            "next"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "text": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "neighbor_id",
+        "evidence_id",
+        "relation",
+        "text",
+        "text_sha256",
+        "source_span",
+        "necessity_reason"
+      ],
+      "title": "P09NecessaryContextNeighbor",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "block_end": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block End"
+        },
+        "block_start": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Start"
+        },
+        "char_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char End"
+        },
+        "char_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char Start"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "document_sha256"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09ContextGoldCase"
+      },
+      "maxItems": 100,
+      "minItems": 100,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p09-context-gold.v1",
+      "default": "courserag.p09-context-gold.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P09ContextGoldDataset",
+  "type": "object"
+}

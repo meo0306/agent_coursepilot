@@ -1,0 +1,2638 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "4d7587e06f8a009572b5fe8faf7c76be15f4ef3a26fd212eaa46b2c65631693a",
+        "candidate_sha256": "4b2283c06aca32008214cd59b36c764f265c84bb76f3673788e52b4704b17da9",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.001",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [
+          "图灵机",
+          "思维机器公司"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-5f7ca387331ded27517b7d64a59ec7dc",
+          "gold-kp-dda5c1fe396a386e759d371a71e90a82"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "特定领域人工智能突破条件",
+          "深度学习平台推广"
+        ],
+        "normalized_query": "教材分别如何说明“特定领域人工智能突破条件”和“深度学习平台推广”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-231d0abbbca7d4c0439ffa9dcd7b66d9",
+      "query_family_id": "p08-family-c50dccdc92a7991e0a31d092",
+      "query_sha256": "828920b2b4846a4a7bc4bf36e607a37d0bdcb88254001600ee9223a407c5123d",
+      "raw_query": "教材分别如何说明“特定领域人工智能突破条件”和“深度学习平台推广”？",
+      "record_id": "gold-qp-216abfa63e02e383c4946f13bef440d4",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-03-applications",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "020303be1fdabd7204eedbd5f7c20352807673517d25318d3d55741b5fab957f",
+        "candidate_sha256": "6df20d2154c521cf2ae57c8141390c0dacdf90992781118704d16350052d069b",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.002",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [
+          "谷歌Duplex个人助理"
+        ],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [
+          "图灵测试",
+          "IBM沃森问答系统"
+        ],
+        "linked_knowledge_points": [],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Google Duplex",
+          "源代码仓库地址"
+        ],
+        "normalized_query": "教材是否给出了 Google Duplex 的源代码仓库地址？",
+        "route": "unanswerable_audit"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-5c380cc9bc38c11d7a3548a8d07e28c3",
+      "query_family_id": "p08-family-unanswerable-df0149c8263b093c8d7a",
+      "query_sha256": "8c8337f867a3aa8726009e309a2290cefbd46408870d858e3241d33d75733ad9",
+      "raw_query": "教材是否给出了 Google Duplex 的源代码仓库地址？",
+      "record_id": "gold-qp-2c1cf908f54d8f06123131c968f499db",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-01-origins-definition",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d6bcbf862e51ea2fef80513ee9f61bdbeb129d91025072e432f3bccb2814dcb7",
+        "candidate_sha256": "6c4f6b4d1564d9b0e2a0c651718a2dcc7e78641a0b497a6695ffeefc65edf94a",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.003",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [
+          "图灵测试",
+          "知识表达"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-3dc290c217ade6e86198f39cb5750262"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "服务机器人视觉交互"
+        ],
+        "normalized_query": "教材如何说明“服务机器人视觉交互”的应用场景、作用或限制？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-845ad971e33e2ed4e7f7ac81678dc121",
+      "query_family_id": "p08-family-f2f045d22eaf616bee6a18c8",
+      "query_sha256": "3d9c8109cdf89222ff766a4ac70e0b593f5fa765c458315cce56f25f34058834",
+      "raw_query": "教材如何说明“服务机器人视觉交互”的应用场景、作用或限制？",
+      "record_id": "gold-qp-34fa61b867ddfb523a8d360769e42bc8",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-07-applications",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ffa06e9a09d5b50870cd13f59fca2097ebbcc4348342e6505c87974c816462d3",
+        "candidate_sha256": "9357e0bb9b8e3719b99c67022e1444693c3cb8d4ba06f749271fac3f0cd8de7b",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.004",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [
+          "图灵测试",
+          "知识表达"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+          "gold-kp-b848f1b022a479c770521458bce143a4"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "K",
+          "Scikit-Learn二分类数据构造",
+          "大模型"
+        ],
+        "normalized_query": "教材分别如何说明“Scikit-Learn二分类数据构造”和“大模型”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-c70f1795d90b3e9352d6b0ffd38a92c4",
+      "query_family_id": "p08-family-78e9ae06e00999d99ebe3ffb",
+      "query_sha256": "5f7c85b1c2d5e2e036080756a07d4e33b6554891eba4b686c654baa96820f8cf",
+      "raw_query": "教材分别如何说明“Scikit-Learn二分类数据构造”和“大模型”？",
+      "record_id": "gold-qp-467db75e8ef86230dd281476ff176ed2",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c5040280060b263b3e20445c63f9ad4244a73239bca4ccedbad34ef2176239a9",
+        "candidate_sha256": "d32c80d06472953ad361adeef5a00b796f04d1dbfde77965bde470a2187cd448",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.005",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [
+          "图灵测试",
+          "知识表达"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-39534f977f5fd0fae25105d009d1b5d9"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "点到感知机超平面的距离"
+        ],
+        "normalized_query": "教材关于“点到感知机超平面的距离”给出了哪些具体数据或事实？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-886b8e722fa603017a55ebd800fe76ba",
+      "query_family_id": "p08-family-9f6ba4e67a7b9aaeae0602b2",
+      "query_sha256": "f469597f3f661b130990b41fd7f2098c5a663320ed1482a0a330dad172dfb212",
+      "raw_query": "教材关于“点到感知机超平面的距离”给出了哪些具体数据或事实？",
+      "record_id": "gold-qp-748406d7b8d6b65b1a74b981f2bc7438",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d5bbccb2846552cb0641a9169e4d824fc892086edd9cdb049e3b7f24a3e1a0dd",
+        "candidate_sha256": "aeb908740f8b37f56eaac2a38e34fffb42e4633ed4dedbd44c48065cb0cddac2",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.006",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [
+          "感知机的提出",
+          "Scikit-Learn二分类数据构造"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "图灵测试"
+        ],
+        "normalized_query": "根据教材，如何定义或说明“图灵测试”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-09de7cd9d09de79322fcfdbc9b1aaae9",
+      "query_family_id": "p08-family-b1c3b37a9e4df49a29a1293a",
+      "query_sha256": "0c029f930661aa63dee57d52857bc3c9128e14439b955a5e3dababb450f3589a",
+      "raw_query": "根据教材，如何定义或说明“图灵测试”？",
+      "record_id": "gold-qp-a763933dfae8329adb9f327c2faf6210",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-01-turing",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "7c0f2fb3a4d958e20316946a6dc5e032606aa483abda8be8e4f6333f82a6368c",
+        "candidate_sha256": "2a92a794fb85691aab85d49e04016abde14d389bb7e311790100966af0d5c8b9",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.007",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [
+          "多层感知机"
+        ],
+        "filters": {},
+        "forbidden_expansions": [
+          "Transformer编码器结构",
+          "大模型"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-05b79153870a071497b02e905537dd06"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "MLP"
+        ],
+        "normalized_query": "改写“MLP”的检索词，但必须保留 MLP 专名。",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-02603bbe9adeec81f325",
+      "query_sha256": "aa91034bdf91b84592c2d4c1bb22259a28ade153669ec0c411539943195fe510",
+      "raw_query": "改写“MLP”的检索词，但必须保留 MLP 专名。",
+      "record_id": "gold-qp-02603bbe9adeec81f3255460d8e4cd95",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "89afe0d15cd36698f91dec70a1c926b6c3e726dc1f6dd60ad6ece92866211352",
+        "candidate_sha256": "de02b4bd204a4b6331a59d41fa02a754dc8e6df505d0eb26759c9f389453077a",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.008",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [
+          "NeRF技术发展方向",
+          "可穿戴传感器性能要求"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Q/K/V"
+        ],
+        "normalized_query": "改写“Q/K/V”的检索词，但必须保留 Q/K/V 专名。",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-0f01916ce1816bb190ce",
+      "query_sha256": "44512b540114ede4bceeb75f1231242a2af7ef06dade2cc0821b8dbef27870f6",
+      "raw_query": "改写“Q/K/V”的检索词，但必须保留 Q/K/V 专名。",
+      "record_id": "gold-qp-0f01916ce1816bb190ce6c806b355ee3",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a5c14bedcfe2e3cda07e0fe4b9f0f4cbd9655029a841abd40111709111b9cc07",
+        "candidate_sha256": "139f6b260967a04b1c0ac2d6e6c47db06b2470da31eb98feea45141cf7f74c70",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.009",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [
+          "人工智能"
+        ],
+        "filters": {},
+        "forbidden_expansions": [
+          "图灵机",
+          "刷脸支付"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AI"
+        ],
+        "normalized_query": "改写“AI”的检索词，但必须保留 AI 专名。",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-4706f77924e75d78991b",
+      "query_sha256": "1b37483f19925aa5db0486a08a162625a175988d4a87b8cf3e941355560583ba",
+      "raw_query": "改写“AI”的检索词，但必须保留 AI 专名。",
+      "record_id": "gold-qp-4706f77924e75d78991b274d37bc8a48",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-01-origins-definition",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8edbd14629f44230d298e04cab82a4a9de69444ff21e1990759a249fad179b9f",
+        "candidate_sha256": "296ee96b8638ffcbb611946a70668da825967dc9a99df98812aa0fe22764d369",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.010",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [
+          "神经辐射场"
+        ],
+        "filters": {},
+        "forbidden_expansions": [
+          "感知机",
+          "微调"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-27cee4af378a74b31b66d35548b74323"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "NeRF"
+        ],
+        "normalized_query": "改写“NeRF”的检索词，但必须保留 NeRF 专名。",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-6526a622079ad85f6df4",
+      "query_sha256": "f807923e937cbb8a765e1ee28e5adba76fee57963a144f63b9b447535af5d94a",
+      "raw_query": "改写“NeRF”的检索词，但必须保留 NeRF 专名。",
+      "record_id": "gold-qp-6526a622079ad85f6df4ee79fe5df3d2",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2fdcd8edf3c311c0ee334fee40fe4d1a67bdaa5e8f11bcc0769f7389211b5a6c",
+        "candidate_sha256": "0faed09989741d67a05a68fca34fa8025ca0a3829784949f03456f4458ce4460",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.011",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [
+          "感知机",
+          "LIO-SAM"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-124478c59a174f685eb27731b0777556"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "seq2seq"
+        ],
+        "normalized_query": "改写“seq2seq”的检索词，但必须保留 seq2seq 专名。",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-8b60318dd1ea9b0b1d10",
+      "query_sha256": "1bca71228309f51b513520105ef64901ad3a4fd6ac148457702db9683fa3c507",
+      "raw_query": "改写“seq2seq”的检索词，但必须保留 seq2seq 专名。",
+      "record_id": "gold-qp-8b60318dd1ea9b0b1d10b8c2e0866068",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "fc6c433ee4451a5ca0da14e544ef9bf04dc540cc0afa6688dda0b9a4e232ab70",
+        "candidate_sha256": "adc5f198adbcf8002a7865404137d8a6d39921a1a2a76b826e476e0783af754f",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.012",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "expansion_rewrite_constraints",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [
+          "通用人工智能"
+        ],
+        "filters": {},
+        "forbidden_expansions": [
+          "Google Duplex语音助理",
+          "人工智能支付合规监控"
+        ],
+        "linked_knowledge_points": [
+          "gold-kp-9042005569bcb8403b20f3b7e22b43db"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AGI"
+        ],
+        "normalized_query": "改写“AGI”的检索词，但必须保留 AGI 专名。",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-cb491ffee9118c9cf6c6",
+      "query_sha256": "6c92c4fee0fd8f13694b77a859106b428b60db38db616104650cf8fca8d9ac06",
+      "raw_query": "改写“AGI”的检索词，但必须保留 AGI 专名。",
+      "record_id": "gold-qp-cb491ffee9118c9cf6c61f368e8e4f8e",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "dea2e9d6de639d74dd181e6bc796598b27f81600610670fe498eaf566fc77e09",
+        "candidate_sha256": "9cb74080c5d80b4c6fb23776f905c6eea220c86cdd7ed36b35550908dd8f3121",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.013",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-971fdaabc3b48934cafd2cac33433c18"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "位置编码"
+        ],
+        "normalized_query": "教材如何说明位置编码与词特征向量的维数关系及组合方式？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-a81e40751d9b50e2c2c37d86304ba218",
+      "query_family_id": "p08-family-234e11c0c417bb54de4461d3",
+      "query_sha256": "7cdf13f29ec8b2781e6a901ce4ac40f174626ea384f124c434c6311390671550",
+      "raw_query": "教材如何说明位置编码与词特征向量的维数关系及组合方式？",
+      "record_id": "gold-qp-23d6413ce2b3ce3f8f741054949ad1b9",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "70749e57f9ae0fb044846c29d74cfd30a9bdfb4db4b99e87fe6ce12746acc65d",
+        "candidate_sha256": "2d74c0260fe762a779b01d7cb18d9dd51ba71f47e624a17e0d9211e06e35b039",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.014",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-396e44de025a03f747c2a169e7484727",
+          "gold-kp-25c7891bc95308283fd3cfcad3ca7544"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "SLAM",
+          "视觉-IMU子系统的无特征鲁棒性",
+          "SLAM传感器特性比较"
+        ],
+        "normalized_query": "根据教材，“视觉-IMU子系统的无特征鲁棒性”与“SLAM传感器特性比较”分别关注什么，二者有何区别？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-4f1aaf8dfb713c55d2d4cc985d6cbaba",
+      "query_family_id": "p08-family-0aac675dc2f9ff173b426a7b",
+      "query_sha256": "b52355367ffb4d516bad37178944d29add591e2293da9ed4144e23669c7132f2",
+      "raw_query": "根据教材，“视觉-IMU子系统的无特征鲁棒性”与“SLAM传感器特性比较”分别关注什么，二者有何区别？",
+      "record_id": "gold-qp-249fde1261d7598374e1256a645012e7",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "40f327ba2fe4dd5c5313574e8256d10dc1503041a6feb7ab57f2564013eaa708",
+        "candidate_sha256": "aea18c83cdc6db46a5c65dec68d74c65055c1a1d9d87392b3be6a1e7a1a18b4e",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.015",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-27cee4af378a74b31b66d35548b74323",
+          "gold-kp-ced39b30ecb88f5cf544eac7e6696229"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "NeRF",
+          "NeRF技术发展方向",
+          "微调"
+        ],
+        "normalized_query": "教材分别如何说明“NeRF技术发展方向”和“微调”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-2417aa8d3269b1406dce95d8297fe170",
+      "query_family_id": "p08-family-52d108f836815693259a0846",
+      "query_sha256": "8efb5915232558fb505c377265dee961bf145cf9b317b7fe4a8f7cf5e96e6ae9",
+      "raw_query": "教材分别如何说明“NeRF技术发展方向”和“微调”？",
+      "record_id": "gold-qp-430885d5a07e0e5bfddebe4d277ac26e",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "762f20bcf8956a947c54285a65d1b9bd42a2d076ea4b5f172d640eeaf9ed8268",
+        "candidate_sha256": "c60e0e3fa90c2542d5c230b57fea22a4c84c28f37462345667518bd4e19e17ee",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.016",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-080644a6db95884d487495ae1597e84b",
+          "gold-kp-01fac9e8c352226a5bc4f792c8965856"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "大模型安全对齐"
+        ],
+        "normalized_query": "根据教材，大模型安全对齐关注什么目标，ERNIE 微调实践面向什么具体任务？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-b3b18e12706a703a7a4abdac0e452a71",
+      "query_family_id": "p08-family-3f7ee55284d8f6d65dc78936",
+      "query_sha256": "347488652061ebcfef43f5a40452d20260ab78dc0024834ad52eac9e6811681e",
+      "raw_query": "根据教材，大模型安全对齐关注什么目标，ERNIE 微调实践面向什么具体任务？",
+      "record_id": "gold-qp-76ce0700eae1e4eb00ed7efb29113e61",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-05-finetuning-alignment",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "9178c1c7549de96ccb3e9942ede1393b6b7577ff6ec5820bcd88d5342cf59b11",
+        "candidate_sha256": "4d371b2bbd1e0279fa46470500614c42513c2f2ecab58f297e70bfd794cb192f",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.017",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-034045e71fc83557e1700d2b6c187807",
+          "gold-kp-beb17dbcc8eb8fe7ad9aa87fe676b722"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "人工智能支付合规监控",
+          "人工智能交易异常检测"
+        ],
+        "normalized_query": "根据教材，“人工智能支付合规监控”与“人工智能交易异常检测”分别关注什么，二者有何区别？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-bc2af8583879d2bcff2a9a652c8c6dd8",
+      "query_family_id": "p08-family-a64dfb854f95834014d4c86e",
+      "query_sha256": "d7ad2c75bb68cd9494d8c715f525917bbfe9043aa49fa4071bc349d820ebb671",
+      "raw_query": "根据教材，“人工智能支付合规监控”与“人工智能交易异常检测”分别关注什么，二者有何区别？",
+      "record_id": "gold-qp-b921b4a7c536cff24e4285a4acd36e34",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-03-applications",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c23d0661efa6ef8935a8bc8144666a8293ccea0089d8b6962fd59130c12a426c",
+        "candidate_sha256": "89a457ec3e844895c372f975f7cabaebb026704e4095cff85e79917db07489cf",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.018",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-f4381fad242d4d450c87bf8b330f59ba"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "教材中的学生专注度分析从视频采集到结果反馈包含哪些步骤？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-e5f34ee13fc6c2797d32949541d06a56",
+      "query_family_id": "p08-family-1184eb92fdeae3f5a5177b7d",
+      "query_sha256": "81f3ded95c6e77a9bcdb29bd3e6832cb0b9af181be544503a338679266f0e7bb",
+      "raw_query": "教材中的学生专注度分析从视频采集到结果反馈包含哪些步骤？",
+      "record_id": "gold-qp-dfd2d0bb007e4b3403e783be778d4f42",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-03-applications",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c9903e6c85b6ddcfaa83d5d1aee14e1c8e157f2523c1b58d7196ea0540287231",
+        "candidate_sha256": "f064833be41a44dea5696422035461f438a53bc28dde048822f3d93b4de1e2ee",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.019",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AI"
+        ],
+        "normalized_query": "仅在当前课程检索：AI 是什么？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-aa82e1af5bfc5ccb2ded",
+      "query_sha256": "c25bcc26d33bda465a122c9812e29cba0a83f2442192f0f2c73bed3711e93f22",
+      "raw_query": "仅在当前课程检索：AI 是什么？",
+      "record_id": "gold-qp-aa82e1af5bfc5ccb2dedb398bbcaf78c",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-01-origins-definition",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a9e4e1d7dbcef7e5fb16d0d387c618d3707dde4a2b7c7bb57982eab64f5f0df4",
+        "candidate_sha256": "42a1499dffe9c68cb22c2e468f56dccdde424182f91f3e69c700fb8e0ec29f49",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.020",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-05b79153870a071497b02e905537dd06"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "MLP"
+        ],
+        "normalized_query": "仅在当前课程检索：MLP 的适用范围是什么？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-ce47b5fd9f87bb0681bd",
+      "query_sha256": "65970528eb3c02eddaa3c8ca6fe0c5984eee85b3537776df38720148309c2ec6",
+      "raw_query": "仅在当前课程检索：MLP 的适用范围是什么？",
+      "record_id": "gold-qp-ce47b5fd9f87bb0681bd669eb7ef8f01",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "73c8292b78d8ac97890887d63ec63a1428ed55feebb69b9384d139315fe7ed80",
+        "candidate_sha256": "3c85be6212c1f9367ab7e413448df593f01b5b7abcba35ce5e149b4d60fb71a3",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.021",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9042005569bcb8403b20f3b7e22b43db"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AGI"
+        ],
+        "normalized_query": "仅在当前课程检索：AGI 是什么？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-d5dd83a1b32e07953c9b",
+      "query_sha256": "dacc02721068e1fbeabbc834e238723138bebda2873f6d3b23e8433ee242ea57",
+      "raw_query": "仅在当前课程检索：AGI 是什么？",
+      "record_id": "gold-qp-d5dd83a1b32e07953c9b5ab1da2d5676",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "72625cad18f3699acbffc0136f687f99fadf2f655bbe1a3dc6c0e4b5ad081c42",
+        "candidate_sha256": "f33f5011374b3584797380da2a2396480de352c4fd8f027b15c3f5d755fd1655",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.022",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Q/K/V"
+        ],
+        "normalized_query": "仅在当前课程检索：Q/K/V 分别来自哪里？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-e649697f990596004e8a",
+      "query_sha256": "0cb9e0f15e20ee4c6e635740c7e19118ea61fce42a7c77148aa90f77fa590c58",
+      "raw_query": "仅在当前课程检索：Q/K/V 分别来自哪里？",
+      "record_id": "gold-qp-e649697f990596004e8a010429716f72",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "82d114a894391bfa2dee6bc12108b4518998ad8aafda195b3ab217b5634226f8",
+        "candidate_sha256": "1b3726512990e4058239175fc687671a813767a76adba9fe0154830b6bc0f6e7",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.023",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-124478c59a174f685eb27731b0777556"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "seq2seq"
+        ],
+        "normalized_query": "仅在当前课程检索：seq2seq 的长序列局限是什么？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-ee5bd081bbb2e0538463",
+      "query_sha256": "82f962c75f5e611f4085927c4c5c69abf2fe275b9c23826bc757238ef9a4a95d",
+      "raw_query": "仅在当前课程检索：seq2seq 的长序列局限是什么？",
+      "record_id": "gold-qp-ee5bd081bbb2e0538463dd76ad5ef4ed",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ae94625482ba28066e1cd3b52c73dda16d41df995df2ed3845258bd40e96795f",
+        "candidate_sha256": "83bd84fcb5a175d917943a12f39b9676af1a68159c033cd542588e28b3d6bbeb",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.024",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "filter_parsing",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-27cee4af378a74b31b66d35548b74323"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "NeRF"
+        ],
+        "normalized_query": "仅在当前课程检索：NeRF 的技术发展方向是什么？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-f929ef049feb97357be8",
+      "query_sha256": "59ca8148924c4608f635df79ab32c67ecdc79ecb4b63daefa464d26d4104b967",
+      "raw_query": "仅在当前课程检索：NeRF 的技术发展方向是什么？",
+      "record_id": "gold-qp-f929ef049feb97357be8a910cd28ce6e",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6adbf389d1851b6efcc956a4006bcd2473aeb16bba48eff3752f7e67dd669777",
+        "candidate_sha256": "d529426b58575a9db53df1c80a4cc3c8d9d7e887729d1cef29ecc079e6f26028",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.025",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-ef904a521f09a778f872f0879db3a10e",
+          "gold-kp-07c87ce697fc1dd864b09c4c99776978"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Transformer编码器结构",
+          "大规模训练数据与涌现能力"
+        ],
+        "normalized_query": "教材分别如何说明“Transformer编码器结构”和“大规模训练数据与涌现能力”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-ae9fe9ee546a6bff2158672fd5082657",
+      "query_family_id": "p08-family-24bd2715a84a4acf4e3b67b5",
+      "query_sha256": "ae79d0e73bb7374b54a8a5108c168aad7c07db1d04c7d6879df2d363e10ee17a",
+      "raw_query": "教材分别如何说明“Transformer编码器结构”和“大规模训练数据与涌现能力”？",
+      "record_id": "gold-qp-2fa690d70c0181255e440182e9442a4f",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "068a75c97542de9f08a1698accc94598d8b784b23c02a681a61f6013e10cd403",
+        "candidate_sha256": "9531fba9e094c71c6e19dbde2f95e733b8d324dfec622f2cf8bf02a193fbc1e8",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.026",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "教材给出的 Transformer 编码器默认学习率是多少？",
+        "route": "unanswerable_audit"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-df571ef52b218b797b4226675db85524",
+      "query_family_id": "p08-family-unanswerable-ce0774065bf491751fd4",
+      "query_sha256": "cb971c6b5859e2173faadd6edf89945b52252157d47104ab1dea7c765c34ae48",
+      "raw_query": "教材给出的 Transformer 编码器默认学习率是多少？",
+      "record_id": "gold-qp-40ef9bc70c5b2f72a77d97a2d7360197",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-05-finetuning-alignment",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "5466ee2f84c3f510aaab45b160fe4b8d60b383a6c2d1d7cdcc5c32c2a9df974e",
+        "candidate_sha256": "0665e3573fbb7fe94eef675421410ebb4633fb845626a0b3026b7617a092a70f",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.027",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "完成 ERNIE 微调后，预测阶段需要怎样配置和执行？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-83c0643b790375cff4d2b0c48d231a61",
+      "query_family_id": "p08-family-b60af7c7230a224d521296a9",
+      "query_sha256": "f4e404a3ce457746a955ea3ca539880563ab0a69a99620ef4544920e0fc3471c",
+      "raw_query": "完成 ERNIE 微调后，预测阶段需要怎样配置和执行？",
+      "record_id": "gold-qp-ab6bf0cc8381fff0a02ed076a64bfc7d",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-05-finetuning-alignment",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f69cd76965958ea9fe209c01dbc53a2d8ed1e7b618cfce691fc77f4c299f87fc",
+        "candidate_sha256": "c28121b89bdbbf5ab864f2b04abbfb6421b055d178e653caea709629abbfd220",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.028",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "教材是否给出了 GPT-4 训练数据集的完整下载地址？",
+        "route": "unanswerable_audit"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-22577203db904f0c6bb6a6226cf08098",
+      "query_family_id": "p08-family-unanswerable-26db02caa9f53590ed29",
+      "query_sha256": "e6820eb3bff3836c59bf35f5fe0b177cfede43a51441a3cadc5a8b60c9448aea",
+      "raw_query": "教材是否给出了 GPT-4 训练数据集的完整下载地址？",
+      "record_id": "gold-qp-ada746579b9e2d233b2e5e683daa611d",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-04-llm-definition-data",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "7139f4d626f55ab9b7e4a809e40f9a5dcc32d04ac843da34d7ff54ca2863f28f",
+        "candidate_sha256": "2512ed79753f9ae10a7850f53165933f0c3a5e5c377aaa7a44fb64a2b59a0615",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.029",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-2056d44ef609d90ed27f02f10fea6aba",
+          "gold-kp-13a3190a4b4e0a794089f7864ec42e55"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "感知机的线性分类局限",
+          "深度学习在推荐系统中的应用"
+        ],
+        "normalized_query": "教材分别如何说明“感知机的线性分类局限”和“深度学习在推荐系统中的应用”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-940a495e59cb2c76a3341aaac3e5d526",
+      "query_family_id": "p08-family-a1e2d1e45ce4aaea52e8c262",
+      "query_sha256": "b7ba6d6a37ea035d5553e6deb701a94d969a803132ca3192e35d1b2f17723dfc",
+      "raw_query": "教材分别如何说明“感知机的线性分类局限”和“深度学习在推荐系统中的应用”？",
+      "record_id": "gold-qp-d3ba20abb2742307a6e8d6acb3da9676",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "cc82a0437a8d5a8a279ca7da2b6191ea6f9cfbf638ac18f542b21b88511a7881",
+        "candidate_sha256": "0ecf657aa7be550d8a0959a0f21e8078d2bd6f7fc571b37e5f8c0260bebfe799",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.030",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-a47837b2940d01fbf5ae0d9b83793b01"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "职业自动化淘汰概率"
+        ],
+        "normalized_query": "教材关于“职业自动化淘汰概率”给出了哪些具体数据或事实？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-7e84566911bef14e497181d6e601dd20",
+      "query_family_id": "p08-family-2f2a04875f8045f6e4331308",
+      "query_sha256": "74d2b7da164f8f59e77d317073dc73fb30c7b0301cac9936333f63ab5a0bb7f1",
+      "raw_query": "教材关于“职业自动化淘汰概率”给出了哪些具体数据或事实？",
+      "record_id": "gold-qp-e6aca3b2f52ae25ddf81dc9f5e84bc41",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "fba440ae7cc80f411b5b36261f7fa0144f0320c9412326746f82aa05c6f177b9",
+        "candidate_sha256": "33fa2d2a4209631a1ae3b8a2a9553cb198e34d1bb63e89927651d78bb4e3d13a",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.031",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-27cee4af378a74b31b66d35548b74323"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "NeRF"
+        ],
+        "normalized_query": "NeRF 的技术发展方向是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-531b2c197b248cb3208c",
+      "query_sha256": "9fa53f9a232171d5aa89fac593bbb5e843072613e008a11a7652423dd7f0d048",
+      "raw_query": "NeRF 的技术发展方向是什么？",
+      "record_id": "gold-qp-531b2c197b248cb3208c0d36ba8ad731",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "bbbc5f045ff80060912f3a7667b566a306a15a209440c68b164f6e258ce7fa54",
+        "candidate_sha256": "23ed218e6103076bca1042bc1fdbb3032b675a07efbd085ac0327055d89d3a0d",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.032",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-05b79153870a071497b02e905537dd06"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "MLP"
+        ],
+        "normalized_query": "MLP 的适用范围是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-6f0d6d7bf2a6fbd97143",
+      "query_sha256": "d69bc5bef62e4d79b0af6aa1845e96d7066b4c5f336a5101bcedb0f3c00230cb",
+      "raw_query": "MLP 的适用范围是什么？",
+      "record_id": "gold-qp-6f0d6d7bf2a6fbd97143631b2cdf63f0",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "b721d0c2a0ad086d2afdb98d67b6a4a6aef642063d8939e7343305ffdf0f2adb",
+        "candidate_sha256": "274865704ab4c8e0b15ec884df6f3e3352c6a524fd453b36369a5c14b3760c49",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.033",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-124478c59a174f685eb27731b0777556"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "seq2seq"
+        ],
+        "normalized_query": "seq2seq 的长序列局限是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-87af0a866b6ae86a057c",
+      "query_sha256": "76d57808eed7cb5a60ca6d03d1369d2ff15289231d286bf7d8f582f943b0d6c2",
+      "raw_query": "seq2seq 的长序列局限是什么？",
+      "record_id": "gold-qp-87af0a866b6ae86a057c3c3b8b72a2a1",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8cde9e791bd02218ed59458e0527e197cb5aab3e50e894923288caf438780d01",
+        "candidate_sha256": "a23ada2cd1553a60a34fa5eb5a4249c1c361279a2597ef7d265a2d559c03d4d2",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.034",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9042005569bcb8403b20f3b7e22b43db"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AGI"
+        ],
+        "normalized_query": "AGI 是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-c8bcce4c6fcea1e877b1",
+      "query_sha256": "6142279b4308c748edc24ca031929915eeee0a392d0599aa76b67ece0057fbdf",
+      "raw_query": "AGI 是什么？",
+      "record_id": "gold-qp-c8bcce4c6fcea1e877b10c0ca5acc7dc",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "251719689077548d1de924c53136aa5f9707f5847c4d86d146e450469c8e6850",
+        "candidate_sha256": "66fce6f5877a60dae82a8e786972128c7c6469c2c8c1ea88b63f8991d88b026f",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.035",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Q/K/V"
+        ],
+        "normalized_query": "Q/K/V 分别来自哪里？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-e8ec06cc06bf185fd27b",
+      "query_sha256": "4a9572aac11021623a4a032e139153c598fa87674574f950e04042b6bc0dad58",
+      "raw_query": "Q/K/V 分别来自哪里？",
+      "record_id": "gold-qp-e8ec06cc06bf185fd27b4392ee9b577d",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "5458ef55160d1696774dfdf0eb3f95612e3ffa54f5c2440d629c726b0b0ea5ea",
+        "candidate_sha256": "2224d88f58a958dbd837559378ca18664c8067f2cc2c2d36a6b5d1da46dc8cfa",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.036",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "knowledge_point_linking",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AI"
+        ],
+        "normalized_query": "AI 是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-f107961ad3bfc01564ac",
+      "query_sha256": "ae8bb5a1b10994b71e7f821b5e51a45ec12b3aa549ed540fdafb51ad760ae3ab",
+      "raw_query": "AI 是什么？",
+      "record_id": "gold-qp-f107961ad3bfc01564acdbd7b0358828",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-01-origins-definition",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "43fa13ab2424e7ff691891eadc2e0066ea71d0a83daf8b437d4569d2f1a860d4",
+        "candidate_sha256": "0d3d3db95e0def073089340aa0bcb740da5fc33e3228a4017847f71fa3ac0554",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.037",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "在注意力机制里，查询向量以及键和值分别由哪里产生？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-ce08156be2f7307227052a793712e7e7",
+      "query_family_id": "p08-family-4a11dc6d1532d59739409ee3",
+      "query_sha256": "014d6b1f155b5daf7aabe089831006c7f67f54f01e259360dfb765045acaa938",
+      "raw_query": "在注意力机制里，查询向量以及键和值分别由哪里产生？",
+      "record_id": "gold-qp-014f994dbcf0e2518fd558d7d06fe470",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "741e886a0bd1bc0c87cc7eaa81fb6b951344281ca9bbbbf3fe5ae591c55782c6",
+        "candidate_sha256": "c7a7eeceaa9fd9baea048cc101a99d70f89191b5b7b7c7ac944b0a994b54b642",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.038",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "LIO-SAM"
+        ],
+        "normalized_query": "教材给出了 LIO-SAM 在课程实验中的实测帧率吗？",
+        "route": "unanswerable_audit"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-a533064cb579dd7c2edc98bab8c88517",
+      "query_family_id": "p08-family-unanswerable-50fd374db7913395a23d",
+      "query_sha256": "4017ee23e603c6804ed13f8761745068661ae9ab74cf2974874bef2d681b57a3",
+      "raw_query": "教材给出了 LIO-SAM 在课程实验中的实测帧率吗？",
+      "record_id": "gold-qp-3b7a3dfe5db0e4e9a074b8b6f48b47c6",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ea555d92ca53a15984ea59c4be5165579c1af8928216c4955708da6226fed075",
+        "candidate_sha256": "d5cba455ba5d33a934415542145152dc9338a0c08a7f0132640cef4bf2904ca8",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.039",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-0ee4716d1cd566faa82e513b9bb4526d"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "高斯粒子在瓦片中按什么过程完成深度排序与渲染？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-0232c4849357e062be61d5793ef0dc93",
+      "query_family_id": "p08-family-ed12bfbfbf72b598ede6ec46",
+      "query_sha256": "5801081b27c180e6dbb9d95e62266de947e4cfbfbbeb7923a457085768affa0e",
+      "raw_query": "高斯粒子在瓦片中按什么过程完成深度排序与渲染？",
+      "record_id": "gold-qp-5f1f9f8de232cddb8a185d0078b43a59",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c9d4c45b2699207916629a66fb22a47e49fdee2dd3717bbf22153c5c927d700f",
+        "candidate_sha256": "0ed734f22b8ac2f4d49b3596a3264d32f1f8580324df7fa2056630f8d4e62dd4",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.040",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "query_normalization",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-dda5c1fe396a386e759d371a71e90a82"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "教材如何说明谷歌为推广深度学习平台采取的行动？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-99210468ddd9d02250253f547be4b830",
+      "query_family_id": "p08-family-b9aea07f4f2fcf92134a0940",
+      "query_sha256": "2cc1e80a4b85551a3b8f37177c5a122190d88bdf5a3a0bfaf2a7057066539617",
+      "raw_query": "教材如何说明谷歌为推广深度学习平台采取的行动？",
+      "record_id": "gold-qp-771be3b96bfc6fbbb5197e621acdd587",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "85eaa03c4484c53e2408f62402a852b968bad564d1063b44c4ffb4ce4af6cf88",
+        "candidate_sha256": "6a5c50eeb4f44b6cab15f4c2a148b5805166a02ed44c6559a2aa83e89232a503",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.041",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-8ad97ba53c176889334da8cc43294319"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "深度学习在金融风控中的应用"
+        ],
+        "normalized_query": "教材如何说明“深度学习在金融风控中的应用”的应用场景、作用或限制？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-fa696a17002789c9343d355e0f6fc77b",
+      "query_family_id": "p08-family-f2036dcf1826607b93f8ca62",
+      "query_sha256": "a50d8dbd55f500d50f3fa7d237704e99d218704ceb9e54742b8b382b3a9e43c5",
+      "raw_query": "教材如何说明“深度学习在金融风控中的应用”的应用场景、作用或限制？",
+      "record_id": "gold-qp-8325ac17d30d2de0ce3948cf5c92ee6e",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "9d1111ffc01eca77fe46a6774c160752bccc9b0fe0f09691240ce00c8098edd8",
+        "candidate_sha256": "5c3bb8e386137c94af9294c3d721082613d24a0935c5552083f04a028b917830",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.042",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-5e850c884a96c9624bd0bfc4832930ab"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "微调在自有数据集上的效果"
+        ],
+        "normalized_query": "教材关于“微调在自有数据集上的效果”给出了哪些具体数据或事实？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-1407aa045c019c8a3005f8abe47bc794",
+      "query_family_id": "p08-family-0cf068a74c70f0517e4074fb",
+      "query_sha256": "5cd29e606efe4a874eea4560a3226fefb385d784882106bf2cbcf9c05f90d4ed",
+      "raw_query": "教材关于“微调在自有数据集上的效果”给出了哪些具体数据或事实？",
+      "record_id": "gold-qp-fd3fb9a9fd7c31b79301aebf88563fea",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-05-finetuning-alignment",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "b832af7c78b7b9a135f2914ba94537861e3b4d1bf6ea4f2a879d57c252f07a6e",
+        "candidate_sha256": "487f146998d417d3e123722f59a0179c82cc7a18f6eacbe2db1fdc459f969fd3",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.043",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-27cee4af378a74b31b66d35548b74323"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "NeRF"
+        ],
+        "normalized_query": "NeRF 的技术发展方向是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-239f08d32bf5ccbfef54",
+      "query_sha256": "920a83317f6fe012c4aa3bdc9e840be82dc25f5258e5292159e63ee476091249",
+      "raw_query": "ＮｅＲＦ　技术方向？",
+      "record_id": "gold-qp-239f08d32bf5ccbfef5479df50a2012d",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "781ef309f1aca0e701479a0e71b5fa943e5615d665d402ddec8ef6311813830f",
+        "candidate_sha256": "bf35eb06a30ad0e5144f6e73f65d2a6634dfec2c70804fe2fb6e7d370d088213",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.044",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AI"
+        ],
+        "normalized_query": "AI 是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-45b582c1644d43f06733",
+      "query_sha256": "56d4e9e3113d661793c1a7ac58a9bd32f023162f1754b224b2f9aca19fba85fe",
+      "raw_query": "  ＡＩ　是什么？  ",
+      "record_id": "gold-qp-45b582c1644d43f06733f89c7275cec0",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-01-origins-definition",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "115f564b80301f8bf683cc29960835ab9ebf63015d02f28aed14d299c8807056",
+        "candidate_sha256": "df19265f7633f754ed2ac50495cf8db07770fcfa6fa7e307e1665c8225dbdeea",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.045",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Q/K/V"
+        ],
+        "normalized_query": "Q/K/V 分别来自哪里？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-b05635830f6fe1d8cf34",
+      "query_sha256": "724680d8eef096917c9a5d2f389ecfdf67509c793871665f56a4c2eea3b37445",
+      "raw_query": "Q／K／V　分别来自哪里？",
+      "record_id": "gold-qp-b05635830f6fe1d8cf34d609ea4418eb",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "cd63a1394a32dd1ef216615202b8efad58ca0c49f10a510a26478b768f6e84a6",
+        "candidate_sha256": "fe72bb22fd5915383921af7fa6d61cdbc3b80c430ac44f0c3c580cd79f89a5e3",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.046",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-05b79153870a071497b02e905537dd06"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "MLP"
+        ],
+        "normalized_query": "MLP 的适用范围是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-c14d9aba42d1a819ea97",
+      "query_sha256": "25116ecc961144afa1830c9236f8c4af084f325e3f6cb104592a8273d6be056b",
+      "raw_query": "ＭＬＰ　适用范围？",
+      "record_id": "gold-qp-c14d9aba42d1a819ea97070fc2a4f16e",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d2b4eacae09d4819b241bbfb702c57caf45e07ecb01572f6f355e76a2651b7b6",
+        "candidate_sha256": "be5663c655321f9086a1bd8991e54dce789817d7651ab8607724aa428798a2e3",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.047",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-124478c59a174f685eb27731b0777556"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "seq2seq"
+        ],
+        "normalized_query": "seq2seq 的长序列局限是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-c33298fe27887fc59c8d",
+      "query_sha256": "6c3107a4825ae6689252f01e1c03229b990920e9badf53ea79e025eece16e7a7",
+      "raw_query": "Seq2Seq　的 长序列局限？",
+      "record_id": "gold-qp-c33298fe27887fc59c8d83c0ed6cdbb5",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "e41b75d9a51b027ec58eb24d3cc474c20ad5ca7ddf68d5e3e2c8a451fbe71abf",
+        "candidate_sha256": "1cfe70a44adf2c0a5845408d6e7c52d1ceeb7ee26b9be22d8edae490f281092b",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.048",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_normalization",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9042005569bcb8403b20f3b7e22b43db"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AGI"
+        ],
+        "normalized_query": "AGI 是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-c60e63c46c07ba0c1c60",
+      "query_sha256": "fbfba8881cad44b2c76f5ddfb951081f64fba4f6a99a8679f8728c29883c0d3f",
+      "raw_query": "ＡＧＩ　是什么？",
+      "record_id": "gold-qp-c60e63c46c07ba0c1c606b444806e843",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "18c942e413b6bfb3d1e134611b600b83ca6ba7107946e49af58ac884603ce5bc",
+        "candidate_sha256": "56aba8f7b9d423a4f7948cc1ae8b8349a17364447b4d009ba0ec972970a4a33d",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.049",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "query_router",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-c6cccd5082a97ff0f15d9b237abda2b9"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AI"
+        ],
+        "normalized_query": "教材记录了哪个全仿真智能 AI 主持人应用实例，其发布者、时间和场合是什么？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-1dcdb2ccf39fe45676378ca339c63815",
+      "query_family_id": "p08-family-26fbb151a5005a2ec93f4852",
+      "query_sha256": "c5b4e482d68ca9fc12b8790465a4d1ba335f07799747818e524cda2807662360",
+      "raw_query": "教材记录了哪个全仿真智能 AI 主持人应用实例，其发布者、时间和场合是什么？",
+      "record_id": "gold-qp-09aaf38203abbfff10e940625e4f882b",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-03-applications",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8886345e575e296bbd60993481969e87adb0a3e51ea9b1606470bf81bb40eb81",
+        "candidate_sha256": "006b24d367b665c8d83b8ee77361734a92005761e7c8cdceba43b6e509f8c15b",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.050",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-25c7891bc95308283fd3cfcad3ca7544"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "进行定位与建图时，教材如何比较不同传感器的特性？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-c9bdbdbe07924c362d2d8a29e53ec01e",
+      "query_family_id": "p08-family-04b7c48a5e042bc4002f2e32",
+      "query_sha256": "9e16960543ac2df8a0248e33541dc5afd0793dddea26d67e3756f3334a912775",
+      "raw_query": "进行定位与建图时，教材如何比较不同传感器的特性？",
+      "record_id": "gold-qp-10ffb1b9d310b810b0000829b1cbdb9f",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "122e0113ced5ecc47ef4fda29ee63692881d96e7817c02aeb19b135cbf8555b9",
+        "candidate_sha256": "42fc81da77757fcc7c75dd9a091eeff16b4de3e9b33f3906eba5d84ff8961da6",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.051",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_course_owner_adjudicated_r3",
+      "capability": "query_router",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_general_education"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-1256172f9295d9f6f23a2bc44095a112",
+          "gold-kp-a47837b2940d01fbf5ae0d9b83793b01"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "人工智能个性化教育",
+          "职业自动化淘汰概率"
+        ],
+        "normalized_query": "教材分别如何说明“人工智能个性化教育”和“职业自动化淘汰概率”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "aed9bddcf13cd23cfaf6f596450db3b936da50ea0062a68872d62995eff9f5b5",
+      "mirrored_ds5_case_id": "gold-rq-9a0212636f0f45bffa97499c49321cbb",
+      "query_family_id": "p08-family-166c39397d6431e18c230ea2",
+      "query_sha256": "8fa6e3d42e8b00683ab7fb973d479fb25d614da02ab98e12a6f2b596bb672eb4",
+      "raw_query": "教材分别如何说明“人工智能个性化教育”和“职业自动化淘汰概率”？",
+      "record_id": "gold-qp-34ddf8003e6dc3ab3654a80fcc6a4c43",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-03-applications",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6f738a87a6d5e6b677874571aaf459cd6e82779ca2dc82652d0034057ceb38a3",
+        "candidate_sha256": "92d6798ea97b180742dfc172bda6fe9b1e3a6f3b49787a6cd9c0ec5b6003bd8f",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.052",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-ced39b30ecb88f5cf544eac7e6696229"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "微调"
+        ],
+        "normalized_query": "根据教材，如何定义或说明“微调”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-dd4731b892b9c52e62d4c3d24ddb4267",
+      "query_family_id": "p08-family-19dd1e14ac53e3db34b0153e",
+      "query_sha256": "e5bc70fc19ef9592743fc09d35f54affc9fd417f46ead46122bb9093ebe38e6c",
+      "raw_query": "根据教材，如何定义或说明“微调”？",
+      "record_id": "gold-qp-6d279e00785eae63373762f463105e44",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-05-finetuning-alignment",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "226027feac5c1f5fd50fe9d48fed92450d5c9d91ed693bc7f02a6a99d7886157",
+        "candidate_sha256": "b7ca34e3a93fb0f39dde271e2b846219101a7eebb3103809c7fe0801f741cb2b",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.053",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [],
+        "normalized_query": "教材是否给出了图灵测试首次实验的样本人数和统计显著性？",
+        "route": "unanswerable_audit"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-e88ab433e04ef0c0d93451b14a25f388",
+      "query_family_id": "p08-family-unanswerable-ad37794c341a4e27015b",
+      "query_sha256": "935c7f80e4fb0a58d4e334f66d672023ca98636c3b159b1293321dbbd81649d0",
+      "raw_query": "教材是否给出了图灵测试首次实验的样本人数和统计显著性？",
+      "record_id": "gold-qp-d2f7138edd4205e32b8489f228e927e0",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-01-turing",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "11b44aad99ec068982fc43597d6d97de139975dde8c191f1da71f9ee4b50f868",
+        "candidate_sha256": "616c09d8dc575b40a9399970cb89f2526aa3efb7dabb529080909202da44d941",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.054",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {
+          "course_id": "course_ai_algorithms_systems"
+        },
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-8c0e8220f6fb5141bea100464036a6da"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "LIO-SAM"
+        ],
+        "normalized_query": "根据教材，如何定义或说明“LIO-SAM”？",
+        "route": "metadata_filtered_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": "gold-rq-6b38c099977dd832a91e77369b3f0540",
+      "query_family_id": "p08-family-6924597f854f863f2e66df48",
+      "query_sha256": "4d97b0a271939ba12b0fc2ea245f462520439b45a6ad1d6100eca7ceefa0912c",
+      "raw_query": "根据教材，如何定义或说明“LIO-SAM”？",
+      "record_id": "gold-qp-db648c181af6f497dd5f2c7c5cfa8346",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "dd5c7a74d2836bec6d8795ec131e28a4279fbad9aae34cc08c58139cd8c37414",
+        "candidate_sha256": "a09d1c2b6a7371829215dd98cf986706ba764672d1395b474b29f5486e09f731",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.055",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9042005569bcb8403b20f3b7e22b43db"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AGI"
+        ],
+        "normalized_query": "查找教材原文：AGI 是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-04474aea06d2729b114f",
+      "query_sha256": "eaec45b46bbab7a6ee7cad54430232db47e8d161a275a668049d53fe0f4bfca8",
+      "raw_query": "查找教材原文：AGI 是什么？",
+      "record_id": "gold-qp-04474aea06d2729b114f7a3c21d70e31",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-02-history-agi",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "28df81990ccbc50373c9e5fe5232e528d97f0d71e95ce582edd789fbabdd6540",
+        "candidate_sha256": "d7ff9c4682945be75d7bbf24572e637d5852b1570709314f6a8c0ca83b582193",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.056",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "Q/K/V"
+        ],
+        "normalized_query": "查找教材原文：Q/K/V 分别来自哪里？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-10abb75dfaa5b0d40d7a",
+      "query_sha256": "048e1e153ddf74a7a03c631c5f9bfabb4d17f608d840bb4cd6fa44421fded4eb",
+      "raw_query": "查找教材原文：Q/K/V 分别来自哪里？",
+      "record_id": "gold-qp-10abb75dfaa5b0d40d7ad0f57e3f6de8",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "eb4a8b3a6c54f34b18dedd879feb3da8dd260838383f75882fb26083f0b248ac",
+        "candidate_sha256": "f7372d5d32bad1be5b12379d00e404684049d09c5f2c2d43e462944cf0a0ce06",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.057",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-124478c59a174f685eb27731b0777556"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "seq2seq"
+        ],
+        "normalized_query": "查找教材原文：seq2seq 的长序列局限是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-3e62796425cad097a237",
+      "query_sha256": "077bb5af486461a08689fdc42770c1c4b3b9f97c858ae69c0ec11ebe71ccc6f5",
+      "raw_query": "查找教材原文：seq2seq 的长序列局限是什么？",
+      "record_id": "gold-qp-3e62796425cad097a2379e69b1e8b987",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-03-deep-learning-transformer",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0cbb6e4d33eabbdae9b8d641f79b1f5b5787f30a902493a8a6eccc45058be2db",
+        "candidate_sha256": "2672481a52815f19c206ee04c58951d914db48c82d475e6d628448b23f26b637",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.058",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-05b79153870a071497b02e905537dd06"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "MLP"
+        ],
+        "normalized_query": "查找教材原文：MLP 的适用范围是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-7e8d45177d85e04612f4",
+      "query_sha256": "7215dca7f88e53d13f7eac4abc8ebf2aa14bf8d35b4ae72388f720acffeaadf0",
+      "raw_query": "查找教材原文：MLP 的适用范围是什么？",
+      "record_id": "gold-qp-7e8d45177d85e04612f471348cf0b085",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-02-perceptron-mlp",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "59e0e24f1fb7cfcf4ea0cb4f4cb9c93d771c479b9e7fe341a08a5571b35f61a1",
+        "candidate_sha256": "8de0fd85805780e430d4f09998d91e10a747cac964a8b43edd803ad30989200b",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.059",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_general_education",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "AI"
+        ],
+        "normalized_query": "查找教材原文：AI 是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-8b67118df2aef57cccdb",
+      "query_sha256": "2c6d1d31e4146c39ac293cb50091d7598dfcce5c2c7b35848267746dc06ee94e",
+      "raw_query": "查找教材原文：AI 是什么？",
+      "record_id": "gold-qp-8b67118df2aef57cccdb2fc5aef4bbb7",
+      "review_status": "approved",
+      "source_package_id": "p08-src-pdf-01-origins-definition",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ce829905964d3a6d470df34de42d5080ef37583aeb6b4724b830534e8cef1b8a",
+        "candidate_sha256": "398463d503222b96e3e14e722e5340fd96f5f85ad6f68d4228aded035376a8dc",
+        "notes": "Retrieval-only approval; QA Gold remains pending_p09.",
+        "review_id": "p08-ds45-r3-approval-20260806.record.060",
+        "reviewed_at": "2026-08-06T10:43:23.809791+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope": "ds4_query_processing_and_ds5_retrieval_only",
+      "candidate_source": "source_grounded_rule_audited_r2",
+      "capability": "query_router",
+      "course_id": "course_ai_algorithms_systems",
+      "expected": {
+        "allowed_expansions": [],
+        "filters": {},
+        "forbidden_expansions": [],
+        "linked_knowledge_points": [
+          "gold-kp-27cee4af378a74b31b66d35548b74323"
+        ],
+        "must_preserve_filters": true,
+        "must_preserve_terms": [
+          "NeRF"
+        ],
+        "normalized_query": "查找教材原文：NeRF 的技术发展方向是什么？",
+        "route": "hybrid_retrieval"
+      },
+      "generation_strategy_sha256": "bef4e43a1bae6f10a3ae342deedfac7fa611c4dfc8eef2388bbba4fd6e888512",
+      "mirrored_ds5_case_id": null,
+      "query_family_id": "p08-ds4-edge-r2-8c2168078becf39a2dc4",
+      "query_sha256": "58882bf27e2053d124857e7ac5d251e482381ef52907e621282bcf5cdc386afd",
+      "raw_query": "查找教材原文：NeRF 的技术发展方向是什么？",
+      "record_id": "gold-qp-8c2168078becf39a2dc43801813fe55f",
+      "review_status": "approved",
+      "source_package_id": "p08-src-docx-06-3d-slam",
+      "upstream_approved_sha256": {
+        "approved_ds2_p06": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+        "approved_ds3_p07": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+        "ds2_p06_approval": "e77d055da2ee173a2a931ef74d3b910a98679f83e3e5ec7d2340354d13869603",
+        "p07_gold_bundle_approval": "db180e9cc043f8c13e90b1c203089c12ab276ddb6d122a76b6d7b0cb4c23783c"
+      }
+    }
+  ],
+  "dataset_id": "courserag-ds4-p08-query-processing",
+  "dataset_version": "p08-r3",
+  "schema_version": "courserag.ds4.v1"
+}

@@ -1,0 +1,80 @@
+{
+  "blockers": [
+    "P03 must provide the real DocumentVersion and Build identities.",
+    "P04 must freeze a DOCX renderer version, font manifest, and render profile before pagination Gold.",
+    "P05 human review is required for OCR transcription, reading order, and region coordinates."
+  ],
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "review_status": "candidate",
+  "schema_version": "courserag.ds1-sampling-plan.v1",
+  "selections": [
+    {
+      "document_id": "doc_ai_general_education_excerpt",
+      "document_page_numbers": [
+        5,
+        10,
+        12,
+        20,
+        32
+      ],
+      "notes": [
+        "Candidate selection only; no Page Gold has been authored or approved."
+      ],
+      "sample_kind": "native_pdf_page",
+      "section_anchors": [],
+      "selection_id": "ds1-pilot-native-pdf-pages",
+      "source_page_numbers": [
+        5,
+        10,
+        12,
+        20,
+        32
+      ],
+      "status": "candidate"
+    },
+    {
+      "document_id": "doc_ai_algorithms_systems",
+      "document_page_numbers": [],
+      "notes": [
+        "Bind to P03 DocumentVersion/Build identities before drafting Gold.",
+        "Do not assign DOCX page numbers until the P04 renderer profile is fixed."
+      ],
+      "sample_kind": "docx_structure_anchor",
+      "section_anchors": [
+        "1.1.1",
+        "2.2",
+        "3.5.3",
+        "5.3",
+        "9.7"
+      ],
+      "selection_id": "ds1-pilot-docx-structure-anchors",
+      "source_page_numbers": [],
+      "status": "candidate"
+    },
+    {
+      "document_id": "doc_ai_general_education_scan_clean",
+      "document_page_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "notes": [
+        "Candidate OCR sample only; transcription and regions require human review."
+      ],
+      "sample_kind": "ocr_page",
+      "section_anchors": [],
+      "selection_id": "ds1-pilot-ocr-clean-pages",
+      "source_page_numbers": [
+        21,
+        23,
+        24,
+        26,
+        30
+      ],
+      "status": "candidate"
+    }
+  ]
+}

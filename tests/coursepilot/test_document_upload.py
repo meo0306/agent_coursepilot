@@ -32,3 +32,21 @@ def test_document_upload_rejects_unknown_type(coursepilot_client):
 
     assert response.status_code == 400
     assert "Unsupported file type" in response.json()["detail"]
+
+
+def test_document_upload_rejects_mime_mismatch_before_database_write(coursepilot_client):
+    course = coursepilot_client.post(
+        "/api/coursepilot/courses",
+        json={"course_name": "AI"},
+    ).json()
+
+    response = coursepilot_client.post(
+        f"/api/coursepilot/courses/{course['id']}/documents/upload",
+        files={"file": ("spoofed.pdf", b"PK\x03\x04not-a-pdf", "application/pdf")},
+        data={"source_type": "textbook"},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "MIME_MISMATCH"
+    documents = coursepilot_client.get(f"/api/coursepilot/courses/{course['id']}/documents").json()
+    assert documents == []

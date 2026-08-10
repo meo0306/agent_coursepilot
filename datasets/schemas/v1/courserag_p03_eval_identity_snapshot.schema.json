@@ -1,0 +1,209 @@
+{
+  "$defs": {
+    "P03EvalIdentityBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Artifact Sha256",
+          "type": "string"
+        },
+        "artifact_uri": {
+          "pattern": "^artifact://sha256/[0-9a-f]{64}$",
+          "title": "Artifact Uri",
+          "type": "string"
+        },
+        "build_job_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Build Job Id",
+          "type": "string"
+        },
+        "build_request_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Build Request Sha256",
+          "type": "string"
+        },
+        "build_scope": {
+          "const": "p03_inventory",
+          "default": "p03_inventory",
+          "title": "Build Scope",
+          "type": "string"
+        },
+        "build_status": {
+          "const": "succeeded",
+          "default": "succeeded",
+          "title": "Build Status",
+          "type": "string"
+        },
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_role": {
+          "enum": [
+            "primary",
+            "derived_fixture"
+          ],
+          "title": "Document Role",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Document Version Id",
+          "type": "string"
+        },
+        "ds0_document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Ds0 Document Version",
+          "type": "string"
+        },
+        "knowledge_base_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Knowledge Base Id",
+          "type": "string"
+        },
+        "mutually_exclusive_variant_group": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Mutually Exclusive Variant Group",
+          "type": "string"
+        },
+        "parent_document_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Document Id"
+        },
+        "retrieval_eligible": {
+          "title": "Retrieval Eligible",
+          "type": "boolean"
+        },
+        "source_document_id": {
+          "maxLength": 36,
+          "minLength": 36,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "stage_fingerprint_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Stage Fingerprint Sha256",
+          "type": "string"
+        },
+        "stage_name": {
+          "const": "legacy_document_inventory",
+          "default": "legacy_document_inventory",
+          "title": "Stage Name",
+          "type": "string"
+        },
+        "stage_status": {
+          "enum": [
+            "succeeded",
+            "cached"
+          ],
+          "title": "Stage Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "course_id",
+        "document_id",
+        "document_role",
+        "mutually_exclusive_variant_group",
+        "retrieval_eligible",
+        "ds0_document_version",
+        "document_sha256",
+        "knowledge_base_id",
+        "source_document_id",
+        "document_version_id",
+        "build_job_id",
+        "build_request_sha256",
+        "stage_status",
+        "stage_fingerprint_sha256",
+        "artifact_uri",
+        "artifact_sha256"
+      ],
+      "title": "P03EvalIdentityBinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bindings": {
+      "items": {
+        "$ref": "#/$defs/P03EvalIdentityBinding"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Bindings",
+      "type": "array"
+    },
+    "database_scope": {
+      "const": "isolated_coursepilot_eval",
+      "default": "isolated_coursepilot_eval",
+      "title": "Database Scope",
+      "type": "string"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "identity_scheme": {
+      "const": "uuid5-url-courserag-eval-v1",
+      "default": "uuid5-url-courserag-eval-v1",
+      "title": "Identity Scheme",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p03-eval-identity-snapshot.v1",
+      "default": "courserag.p03-eval-identity-snapshot.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_source_count": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Source Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "bindings"
+  ],
+  "title": "P03EvalIdentitySnapshot",
+  "type": "object"
+}

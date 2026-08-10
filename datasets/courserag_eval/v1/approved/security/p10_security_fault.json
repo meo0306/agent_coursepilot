@@ -1,0 +1,437 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "c3c47a968b59b2b54e8fe9d98b12dc119d724f2804e3e94d19fa7999e6b9d2b7",
+        "candidate_sha256": "26efc7167d9fac44132b1e2913b6907c3da9407fe3b5d01d0a778577744db88a",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.001",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "MIME_MISMATCH",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/pdf_named_as_docx.docx",
+        "sha256": "d9cf8951838abc6b4af7993a84a414d14fd0eaf71dd1f26aed34576dd36deb0d",
+        "size_bytes": 65536
+      },
+      "input_description": "PDF magic bytes with a DOCX extension.",
+      "record_id": "p10-sec-01-pdf-as-docx",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "mime_mismatch"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "20372392240cd22437ce704bd3fdf6570efbb6bd09b7211b6d33b119a2ac0a1b",
+        "candidate_sha256": "7244760e9cc50270245964295a50ff0480c60340be295c67d5359a2ef47422b7",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.002",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "MIME_MISMATCH",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/docx_named_as_pdf.pdf",
+        "sha256": "26abaf7099331d7f83a21dd74901d6497900e7d949fa811e215ed3ccc6603645",
+        "size_bytes": 65536
+      },
+      "input_description": "DOCX ZIP bytes with a PDF extension.",
+      "record_id": "p10-sec-02-docx-as-pdf",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "mime_mismatch"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "3f4e192e461debb8197ed5eb2ced431010e3ccf6c123894c63bd06bed6b2b86b",
+        "candidate_sha256": "b8d00ee4a0195e119ed793cd764ca549d7e522f372d3c15e732b9384c531c278",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.003",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "UNSUPPORTED_MIME",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/unsupported_control.txt",
+        "sha256": "a09d5eda8c5cad8b8513036ec4e0dea1efae458b0f5bfa1090d4cd48e6a55c1a",
+        "size_bytes": 43
+      },
+      "input_description": "Plain-text unsupported upload.",
+      "record_id": "p10-sec-03-unsupported",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "unsupported_type"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "e31cee677834e9a0f389685720af02a76ba601cbcd97f819a0b30aee42177e17",
+        "candidate_sha256": "9bfc0f58c2d6a636348f7defb5980c1285ba0b06d06e4e060f048fcaaab0bccf",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.004",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "PDF_ENCRYPTED",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/encrypted_control.pdf",
+        "sha256": "87e3c22c702bbc7933928d96af2ac8f97724a555f5bdf2bd9d81457575e1b960",
+        "size_bytes": 991
+      },
+      "input_description": "Valid password-protected one-page PDF control.",
+      "record_id": "p10-sec-04-encrypted-pdf",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "encrypted_pdf"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "e5466905baf0f8dc21e79e70ab5d20718a704085681009882cce2783c5f93e05",
+        "candidate_sha256": "51c5189fa48863056e0474c8043c12ef00dd0aa3aba54268b93ff95493c30e40",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.005",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "ARCHIVE_COMPRESSION_LIMIT",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/bounded_high_compression.zip",
+        "sha256": "849228905801e650e889b226f0569483c495b5d655bcbbb191293f3337d542dd",
+        "size_bytes": 672
+      },
+      "input_description": "Bounded 512-KiB repeated-byte archive with a high compression ratio.",
+      "record_id": "p10-sec-05-compression",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "compression_ratio"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a621517e40f4e06a08888506774e7ecc843ba7a2bf36abbb09c4e5425691295d",
+        "candidate_sha256": "7bf6c73e169da9640e522c17b1ea5a00bf73ed640de4c0dd4e862dfee8ab791a",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.006",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "UNSAFE_PATH",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Upload filename ../../p10-sentinel.pdf; no filesystem traversal is performed by the generator.",
+      "record_id": "p10-sec-06-filename-traversal",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "path_traversal"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0c66af31784cdd28e3d17afb567c07aea1be5644eeb04b727f1c5185910f8177",
+        "candidate_sha256": "867219d499f856c93087024e460a259cddfa1facbda6cb6fa6bcef79ebd91b89",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.007",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "PAGE_LIMIT",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Synthetic request declares page_count=max+1 without allocating a large document.",
+      "record_id": "p10-sec-07-page-limit",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "page_limit"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "172baed983f3e50c04bf766a3a37ef3ef27702bba7cc0f005445790aa0a70e85",
+        "candidate_sha256": "f09c8a2cc9bb2586708f63f8ce9dd46e5742148621873cd218bbab67e0e623cb",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.008",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "DPI_LIMIT",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Synthetic OCR request declares dpi=max+1.",
+      "record_id": "p10-sec-08-dpi-limit",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "dpi_limit"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "51cf7c021af2e718433d475db1725d0bc21e2f32b70ee0ad0cc2d7af3ebbfffa",
+        "candidate_sha256": "4765fc699e1dc50e2e8e3a4dba11dee6056075faf69bea2b62a4c705a4c43b07",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.009",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "PARSE_TIMEOUT",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Fake parser exceeds the configured deadline.",
+      "record_id": "p10-sec-09-parse-timeout",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "timeout"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0444f2446bff412de061d2eaf4a32ccf3064224309d3c41daa958d14c44b6a93",
+        "candidate_sha256": "eb336816f18e17c0392b5266909d0a7ead75b05c40cf0b5e4a5793661e8d7206",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.010",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "CROSS_COURSE_ACCESS",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Course A requests a Course B Evidence ID.",
+      "record_id": "p10-sec-10-cross-course-read",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "dev",
+      "threat_category": "cross_course_access"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "bb034f57849bfd35666db1674429110dda3533451882cd46e0a97c8d5e0e5e18",
+        "candidate_sha256": "03d033a332cb8ad0f82d2b8961985a838155a254c30501a662f9849c623952b2",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.011",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "reject",
+      "expected_error_code": "UNSAFE_ARCHIVE_PATH",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/zip_entry_traversal_control.zip",
+        "sha256": "3f881343d8b16666ef2d0ac8fe582eb578af207c882374560a5f6c19087490f0",
+        "size_bytes": 168
+      },
+      "input_description": "ZIP contains a bounded ../ sentinel entry.",
+      "record_id": "p10-sec-11-zip-entry-traversal",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "test",
+      "threat_category": "path_traversal"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c5e0c9bfc64fc19bf4dca9e114e7abcaa7ed846be069061d3e35c027c27aab99",
+        "candidate_sha256": "12adb1f447c732803dbd674b7300092693443e9d9a481c61afde7d4e2822ab1b",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.012",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "CROSS_COURSE_ACCESS",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Search filter course and caller course disagree.",
+      "record_id": "p10-sec-12-cross-course-search",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "test",
+      "threat_category": "cross_course_access"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "084b543ec8bc8a57fbcfda405cdbab6c16de3055b40f33c54296bd1f5562e457",
+        "candidate_sha256": "9437729e2d68fc07cdcd7bdce43ccb469d9301b11eaae8d8d8e8770d454a44db",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.013",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "WRITE_NOT_AUTHORIZED",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Verified Content write targets a different course.",
+      "record_id": "p10-sec-13-cross-course-write",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "test",
+      "threat_category": "unauthorized_write"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f1f1ebfb6472748474fddc40ff47542e60b0affc35dbf0c9b107f8cb6616745a",
+        "candidate_sha256": "e4cb2d4dd40e754cf7e81f025606f7add81b39bbee177f10f141c6a6962bb675",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.014",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "fail_closed",
+      "expected_error_code": "REVOKE_NOT_AUTHORIZED",
+      "expected_external_calls": 0,
+      "expected_log_assertions": [],
+      "fixture": null,
+      "input_description": "Non-owner attempts to revoke Verified Content.",
+      "record_id": "p10-sec-14-unauthorized-revoke",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "test",
+      "threat_category": "unauthorized_revoke"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0d9f5d08aeea920293d8c8611034255e43c19a30a40acc0b51a06eb8f6c68be4",
+        "candidate_sha256": "a82e4bd385ed8b16f6455a5c3f63af5317faed6c45ffd22b3ffec825550ec273",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.015",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "preserve_and_flag",
+      "expected_error_code": null,
+      "expected_external_calls": 0,
+      "expected_log_assertions": [
+        "Source text remains auditable.",
+        "Instruction is never executed or promoted to system policy."
+      ],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/prompt_injection_control.txt",
+        "sha256": "f0895fc47f8e1c1b8fd109af1b60622c3e9e8d51954ed0a91c88911da7781f7a",
+        "size_bytes": 77
+      },
+      "input_description": "Document text contains an instruction to override policy.",
+      "record_id": "p10-sec-15-prompt-injection",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "test",
+      "threat_category": "prompt_injection"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "02e088e82a2480b210cae1e626f2b08f61b53ec05e633f85ac6bc4d168be1798",
+        "candidate_sha256": "35460a0af245d2361262f95a6eceb0a46f4243b1b4b5e41246d687e24e20a604",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.security.016",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "candidate_source": "bounded_non_semantic_control",
+      "expected_artifacts": 0,
+      "expected_database_writes": 0,
+      "expected_disposition": "redact",
+      "expected_error_code": null,
+      "expected_external_calls": 0,
+      "expected_log_assertions": [
+        "Raw fake secret absent from logs, traces, reports and Manifests.",
+        "Stable redaction marker remains visible."
+      ],
+      "fixture": {
+        "media_type": null,
+        "path": "storage_eval/p10_input_fixtures/r1/security/fake_secret_control.txt",
+        "sha256": "cc13d08ed32c57ecebc47dc418d7264e218d92895c6000de069c42f0ce1aae24",
+        "size_bytes": 54
+      },
+      "input_description": "Known fake secret sentinel flows through error/log/trace adapters.",
+      "record_id": "p10-sec-16-secret-redaction",
+      "review_status": "approved",
+      "semantic_content": false,
+      "split": "test",
+      "threat_category": "secret_redaction"
+    }
+  ],
+  "dataset_id": "courserag-p10-security",
+  "dataset_version": "r1",
+  "schema_version": "courserag.p10-security-control.v1"
+}
