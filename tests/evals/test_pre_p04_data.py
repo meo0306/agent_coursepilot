@@ -284,7 +284,8 @@ def test_tracked_p04_input_preserves_candidate_approved_boundary() -> None:
     else:
         assert not dev_ids and not test_ids
     test_lock = json.loads((root / "test.lock.json").read_text(encoding="utf-8"))
-    assert test_lock["locked"] is False
+    assert test_lock["locked"] is True
+    assert test_lock["test_ids_sha256"]
 
 
 def test_p04_input_approval_is_hash_bound_and_does_not_promote_gold(tmp_path: Path) -> None:

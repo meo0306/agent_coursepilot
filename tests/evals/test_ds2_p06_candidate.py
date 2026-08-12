@@ -172,7 +172,9 @@ def test_formal_ds2_approved_dataset_is_exactly_bound_and_complete() -> None:
     else:
         assert not dev_ids and not test_ids
     test_lock = json.loads(Path("datasets/courserag_eval/v1/test.lock.json").read_text("utf-8"))
-    assert test_lock["locked"] is False
+    assert test_lock["locked"] is True
+    assert test_lock["test_ids_sha256"]
+    assert test_lock["approved_manifest_sha256"]
 
 
 def test_formal_ds2_r7_changes_context_only_and_audits_all_records() -> None:

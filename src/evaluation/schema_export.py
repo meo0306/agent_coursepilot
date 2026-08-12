@@ -69,6 +69,17 @@ from courserag.evals.schemas import (
 )
 from evaluation.contracts import CandidateRevisionHistory, TestLock
 from evaluation.manifest import RunManifest
+from evaluation.p10_2_security_data import (
+    P102BlindCommitment,
+    P102DevApproval,
+    P102SecurityDevCandidate,
+)
+from evaluation.p10_3_security_data import (
+    P103BlindCommitment,
+    P103DevApproval,
+    P103ReviewPass,
+    P103SecurityDevCandidate,
+)
 from evaluation.p10_schemas import (
     P10BundleApproval,
     P10BundleManifest,
@@ -135,6 +146,13 @@ SCHEMA_MODELS: dict[str, type[BaseModel]] = {
     "courserag_p10_review_decisions.schema.json": P10ReviewDecisions,
     "courserag_p10_input_bundle_manifest.schema.json": P10BundleManifest,
     "courserag_p10_input_bundle_approval.schema.json": P10BundleApproval,
+    "courserag_p10_2_security_dev.schema.json": P102SecurityDevCandidate,
+    "courserag_p10_2_security_dev_approval.schema.json": P102DevApproval,
+    "courserag_p10_2_security_blind_commitment.schema.json": P102BlindCommitment,
+    "courserag_p10_3_security_dev.schema.json": P103SecurityDevCandidate,
+    "courserag_p10_3_security_review.schema.json": P103ReviewPass,
+    "courserag_p10_3_security_dev_approval.schema.json": P103DevApproval,
+    "courserag_p10_3_security_blind_commitment.schema.json": P103BlindCommitment,
     "courserag_qa_human_scores.schema.json": QAHumanScoreDataset,
     "courserag_qa_human_score_record.schema.json": QAHumanReviewRecord,
     "coursepilot_cp_ds0.schema.json": CPDS0ManifestDataset,

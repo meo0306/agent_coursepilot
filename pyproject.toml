@@ -49,6 +49,9 @@ local-embedding-cu126 = [
     "sentence-transformers>=5.1,<6",
     "torch>=2.10,<2.13",
 ]
+prompt-guard-onnx-cu12 = [
+    "onnxruntime-gpu==1.21.1",
+]
 
 [dependency-groups]
 dev = [
@@ -120,5 +123,5 @@ plugins = "pydantic.mypy"
 exclude = "src/streamlit_app.py"
 
 [[tool.mypy.overrides]]
-module = ["bm25s.*", "docx2txt.*", "fitz.*", "jieba.*", "openpyxl.*", "psutil.*", "tokenizers.*"]
+module = ["bm25s.*", "docx2txt.*", "fitz.*", "jieba.*", "onnxruntime.*", "openpyxl.*", "psutil.*", "tokenizers.*", "torch.*", "transformers.*"]
 ignore_missing_imports = true

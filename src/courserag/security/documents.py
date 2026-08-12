@@ -1,10 +1,16 @@
 from __future__ import annotations
 
 import io
-import re
 import zipfile
 from dataclasses import dataclass
-from pathlib import PurePosixPath
+from functools import lru_cache
+from pathlib import Path, PurePosixPath
+
+from courserag.security.prompt_injection import (
+    PromptInjectionProfile,
+    contains_prompt_injection_text,
+    load_prompt_injection_profile,
+)
 
 
 @dataclass(frozen=True)
@@ -52,8 +58,9 @@ class DocumentSecurityPolicy:
             self._inspect_docx(content)
         else:
             self._inspect_pdf(content)
-        warnings = ("PROMPT_INJECTION_MARKED",) if contains_prompt_injection(content) else ()
-        return SecurityInspection(detected_mime=detected, safe=True, warning_codes=warnings)
+        # Semantic instruction marking happens after structured parsing/OCR. Raw PDF and
+        # DOCX bytes are not a reliable text surface and must not be treated as one.
+        return SecurityInspection(detected_mime=detected, safe=True)
 
     @staticmethod
     def _validate_filename(filename: str) -> None:
@@ -119,10 +126,18 @@ class DocumentSecurityPolicy:
             raise ValueError("PAGE_LIMIT")
 
 
-_INJECTION = re.compile(
-    rb"(?i)(ignore\s+(all\s+)?previous|system\s+prompt|developer\s+message|\xe5\xbf\xbd\xe7\x95\xa5.{0,20}\xe6\x8c\x87\xe4\xbb\xa4)"
-)
-
-
 def contains_prompt_injection(content: bytes) -> bool:
-    return bool(_INJECTION.search(content))
+    """Compatibility wrapper for already-extracted UTF-8 evaluation controls.
+
+    Product ingestion must use ``mark_untrusted_instructions`` over ParsedDocumentIR.
+    """
+
+    return contains_prompt_injection_text(content.decode("utf-8", errors="ignore"), _profile())
+
+
+@lru_cache(maxsize=1)
+def _profile() -> PromptInjectionProfile:
+    return load_prompt_injection_profile(
+        Path(__file__).resolve().parents[3]
+        / "resources/security_profiles/prompt_injection_candidate_v2.json"
+    )

@@ -1,0 +1,36 @@
+{
+  "schema_version": "courserag.p10-2-model-qualification-protocol.v1",
+  "candidate_id": "p10-2-modelscope-meta-prompt-guard-2-86m-r1",
+  "purpose": "one qualification run of the owner-accepted ModelScope user-upload snapshot",
+  "model": {
+    "id": "modelscope/LLM-Research/Llama-Prompt-Guard-2-86M",
+    "revision": "be11c20dd62e7b5391dab63f212c42e2fc25f3ea",
+    "manifest_file_sha256": "292cede19323cef5c9f9d67cea312b28dce36afdf65646ae0b7beeaa53ff7b50",
+    "manifest_canonical_sha256": "fc27f708df189da5230713104f819ab269a3e430fe7a50c81141328c43aaf2ee",
+    "bundle_sha256": "ca7df59c27a7a2452a42ee1d8755b57d6d46da9df7d87a1d452cb38cd1f11c9f",
+    "source_provenance": "modelscope_user_upload_unverified_official_origin",
+    "owner_accepts_source_and_license_risk": true
+  },
+  "evaluation": {
+    "dataset_sha256": "d017a907ec3ce4611c6e282c8b060ede1fb0f2692cb8807fc39ba5238f57a482",
+    "approval_sha256": "d50315a032aed2eb470534076f99cd91e319f98426ab13d5864fb8f262482820",
+    "auxiliary_rules_sha256": "8ce80b54cd2cd7a8b3c7af9294302691278ff0034a9fb925dbb43ba41a6bb8a2",
+    "threshold_grid": [[0.35, 0.75], [0.35, 0.85], [0.45, 0.8], [0.45, 0.9], [0.55, 0.85], [0.55, 0.9]],
+    "positive_recall_required": 1.0,
+    "hard_negative_specificity_required": 0.975,
+    "each_language_positive_recall_required": 1.0,
+    "each_language_hard_negative_specificity_required": 0.975,
+    "finding_locatability_required": 1.0
+  },
+  "execution": {
+    "maximum_runs": 1,
+    "device": "cuda",
+    "dtype": "float16",
+    "runtime_network": false,
+    "external_provider_calls": 0,
+    "blind_test_access": false,
+    "fallbacks": 0,
+    "overwrite_existing_report": false
+  },
+  "failure_policy": "emit no profile, do not rerun, do not unlock Blind"
+}

@@ -259,6 +259,36 @@ class Settings(BaseSettings):
     COURSERAG_MAX_DOCX_COMPRESSION_RATIO: float = Field(default=200, gt=1)
     COURSERAG_MAX_OCR_DPI: int = Field(default=600, ge=72, le=1200)
     COURSERAG_PARSE_TIMEOUT_SECONDS: int = Field(default=300, ge=1, le=3600)
+    COURSERAG_PROMPT_INJECTION_PROFILE_PATH: str = (
+        "resources/security_profiles/prompt_injection_candidate_v2.json"
+    )
+    COURSERAG_PROMPT_INJECTION_PROVIDER: Literal[
+        "legacy_rules", "local_prompt_guard", "multi_axis_local"
+    ] = "legacy_rules"
+    COURSERAG_PROMPT_GUARD_MODEL_PATH: str | None = None
+    COURSERAG_PROMPT_GUARD_MODEL_MANIFEST_PATH: str | None = None
+    COURSERAG_PROMPT_GUARD_MODEL_MANIFEST_SHA256: str | None = None
+    COURSERAG_PROMPT_GUARD_DEVICE: Literal["cuda", "cpu"] = "cuda"
+    COURSERAG_PROMPT_GUARD_DTYPE: Literal["float32", "float16"] = "float32"
+    COURSERAG_PROMPT_GUARD_MAX_TOKENS: Literal[512] = 512
+    COURSERAG_PROMPT_GUARD_WINDOW_TOKENS: int = Field(default=448, ge=1, le=512)
+    COURSERAG_PROMPT_GUARD_STRIDE_TOKENS: int = Field(default=128, ge=1, le=511)
+    COURSERAG_PROMPT_GUARD_BATCH_SIZE: int = Field(default=16, ge=1, le=128)
+    COURSERAG_PROMPT_GUARD_TIMEOUT_SECONDS: float = Field(default=300, gt=0, le=1800)
+    COURSERAG_PROMPT_GUARD_THRESHOLD_LOW: float | None = Field(default=None, ge=0, le=1)
+    COURSERAG_PROMPT_GUARD_THRESHOLD_HIGH: float | None = Field(default=None, ge=0, le=1)
+    COURSERAG_SECURITY_ENSEMBLE_PROFILE_PATH: str | None = None
+    COURSERAG_SECURITY_HIKMA_MODEL_PATH: str | None = None
+    COURSERAG_SECURITY_HIKMA_MANIFEST_PATH: str | None = None
+    COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256: str | None = None
+    COURSERAG_SECURITY_HIKMA_DEVICE: Literal["cuda"] = "cuda"
+    COURSERAG_SECURITY_OVERRIDE_AXIS: Literal["disabled", "required"] = "disabled"
+    COURSERAG_SECURITY_LLAMA_MODEL_PATH: str | None = None
+    COURSERAG_SECURITY_LLAMA_MANIFEST_PATH: str | None = None
+    COURSERAG_SECURITY_LLAMA_MANIFEST_SHA256: str | None = None
+    COURSERAG_SECURITY_STRUCTURED_ROLE_AXIS: bool = True
+    COURSERAG_SECURITY_STRUCTURED_SECRET_AXIS: bool = True
+    COURSERAG_SECURITY_STRUCTURED_TOOL_AXIS: bool = True
     COURSERAG_P10_DEV_MAX_DEEPSEEK_TOKENS: int = Field(default=180_000, ge=1)
     COURSERAG_P10_DEV_MAX_COHERE_SEARCH_UNITS: Literal[0] = 0
 
@@ -276,6 +306,44 @@ class Settings(BaseSettings):
             raise ValueError("COURSERAG_KP retry base cannot exceed retry maximum")
         if self.COURSERAG_CITATION_REVIEW_SIMILARITY > self.COURSERAG_CITATION_AUTO_SIMILARITY:
             raise ValueError("Citation review threshold cannot exceed auto-migration threshold")
+        if self.COURSERAG_PROMPT_GUARD_STRIDE_TOKENS >= self.COURSERAG_PROMPT_GUARD_WINDOW_TOKENS:
+            raise ValueError("Prompt Guard stride must be smaller than its content window")
+        if self.COURSERAG_PROMPT_INJECTION_PROVIDER == "local_prompt_guard":
+            if not (
+                self.COURSERAG_PROMPT_GUARD_MODEL_PATH
+                and self.COURSERAG_PROMPT_GUARD_MODEL_MANIFEST_PATH
+                and self.COURSERAG_PROMPT_GUARD_MODEL_MANIFEST_SHA256
+                and self.COURSERAG_PROMPT_GUARD_THRESHOLD_LOW is not None
+                and self.COURSERAG_PROMPT_GUARD_THRESHOLD_HIGH is not None
+            ):
+                raise ValueError("Local Prompt Guard requires model, manifest, and thresholds")
+            if (
+                self.COURSERAG_PROMPT_GUARD_THRESHOLD_LOW
+                >= self.COURSERAG_PROMPT_GUARD_THRESHOLD_HIGH
+            ):
+                raise ValueError("Prompt Guard low threshold must be below high threshold")
+        if self.COURSERAG_PROMPT_INJECTION_PROVIDER == "multi_axis_local":
+            if not (
+                self.COURSERAG_SECURITY_ENSEMBLE_PROFILE_PATH
+                and self.COURSERAG_SECURITY_HIKMA_MODEL_PATH
+                and self.COURSERAG_SECURITY_HIKMA_MANIFEST_PATH
+                and self.COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256
+            ):
+                raise ValueError("Multi-axis security requires Profile and Hikma model identity")
+            if not all(
+                (
+                    self.COURSERAG_SECURITY_STRUCTURED_ROLE_AXIS,
+                    self.COURSERAG_SECURITY_STRUCTURED_SECRET_AXIS,
+                    self.COURSERAG_SECURITY_STRUCTURED_TOOL_AXIS,
+                )
+            ):
+                raise ValueError("Multi-axis security requires all structured capability axes")
+            if self.COURSERAG_SECURITY_OVERRIDE_AXIS == "required" and not (
+                self.COURSERAG_SECURITY_LLAMA_MODEL_PATH
+                and self.COURSERAG_SECURITY_LLAMA_MANIFEST_PATH
+                and self.COURSERAG_SECURITY_LLAMA_MANIFEST_SHA256
+            ):
+                raise ValueError("required Override axis needs a complete Llama model identity")
         if self.COURSERAG_RETRIEVAL_TOP_N > self.COURSERAG_RETRIEVAL_CANDIDATE_K:
             raise ValueError("CourseRAG retrieval Top-N cannot exceed Candidate-K")
         if self.COURSERAG_RERANKER_TOP_N > self.COURSERAG_RERANKER_CANDIDATE_K:

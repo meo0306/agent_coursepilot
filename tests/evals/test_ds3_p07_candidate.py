@@ -102,7 +102,7 @@ def test_p07_review_assets_are_complete_and_hash_bound() -> None:
         assert sha256_file(pack / "assets" / f"{kp_id}.png") == digest
 
 
-def test_p07_global_dev_test_follow_later_p08_governance_and_remain_unlocked() -> None:
+def test_p07_global_dev_test_follow_later_governance_and_preserve_consumed_lock() -> None:
     governance = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     dev_ids = (ROOT / "splits/dev_ids.txt").read_text(encoding="utf-8").split()
     test_ids = (ROOT / "splits/test_ids.txt").read_text(encoding="utf-8").split()
@@ -110,7 +110,9 @@ def test_p07_global_dev_test_follow_later_p08_governance_and_remain_unlocked() -
         assert len(dev_ids) == 60 and len(test_ids) == 40
     else:
         assert not dev_ids and not test_ids
-    assert '"locked": false' in (ROOT / "test.lock.json").read_text(encoding="utf-8")
+    lock = json.loads((ROOT / "test.lock.json").read_text(encoding="utf-8"))
+    assert lock["locked"] is True
+    assert lock["test_ids_sha256"]
 
 
 def test_p07_approval_rejects_wrong_bundle_hash_before_writing(tmp_path: Path) -> None:

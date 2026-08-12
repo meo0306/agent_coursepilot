@@ -49,6 +49,35 @@ def build_parsed_artifact_bundle(
             raise ValueError(f"duplicate parsed artifact entry: {normalized}")
         entries[normalized] = content
 
+    content = _write_entries(entries)
+    return ParsedArtifactBundle(content=content, sha256=sha256_bytes(content))
+
+
+def replace_parsed_artifact_document(
+    content: bytes,
+    document: ParsedDocumentIR,
+    quality: ParseQualityReport,
+    preview: ParsePreview,
+) -> ParsedArtifactBundle:
+    """Replace only annotation-aware JSON entries and preserve all parser/OCR assets."""
+
+    with zipfile.ZipFile(io.BytesIO(content), mode="r") as archive:
+        entries = {name: archive.read(name) for name in archive.namelist()}
+    required = {"document_ir.json", "preview.json", "quality_report.json"}
+    if not required.issubset(entries):
+        raise ValueError("parsed artifact is missing required JSON entries")
+    entries.update(
+        {
+            "document_ir.json": canonical_json_bytes(document),
+            "preview.json": canonical_json_bytes(preview),
+            "quality_report.json": canonical_json_bytes(quality),
+        }
+    )
+    replaced = _write_entries(entries)
+    return ParsedArtifactBundle(content=replaced, sha256=sha256_bytes(replaced))
+
+
+def _write_entries(entries: dict[str, bytes]) -> bytes:
     buffer = io.BytesIO()
     with zipfile.ZipFile(
         buffer, mode="w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
@@ -59,8 +88,7 @@ def build_parsed_artifact_bundle(
             info.external_attr = 0o100644 << 16
             info.create_system = 3
             archive.writestr(info, content, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
-    content = buffer.getvalue()
-    return ParsedArtifactBundle(content=content, sha256=sha256_bytes(content))
+    return buffer.getvalue()
 
 
 def read_bundle_json(content: bytes, name: str) -> bytes:

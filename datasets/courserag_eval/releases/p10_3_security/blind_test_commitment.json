@@ -1,0 +1,14 @@
+{
+  "approved_manifest_sha256": null,
+  "bundle_sha256": null,
+  "case_count": 48,
+  "content_visible_to_implementation": false,
+  "dataset_id": "courserag-p10-3-security",
+  "dataset_version": "blind-test-r1",
+  "hard_negative_count": 24,
+  "locked_at": null,
+  "locked_by": null,
+  "positive_count": 24,
+  "schema_version": "courserag.p10-3-security-blind-commitment.v1",
+  "status": "awaiting_independent_construction"
+}

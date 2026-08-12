@@ -29,7 +29,7 @@ class StructuredParseStage:
     source_format: str
     docx_renderer: DocxPaginationRenderer | None = None
     name: str = "structured_parse"
-    version: str = "1.0"
+    version: str = "1.2"
 
     def execute(self, context: StageContext) -> StageOutput:
         digest = sha256_bytes(self.content)
@@ -93,6 +93,17 @@ class StructuredParseStage:
             },
             warnings=quality.warning_codes,
         )
+
+
+def structured_parse_stage_config(
+    *,
+    parser_profile: str,
+    pipeline_version: str,
+) -> dict[str, object]:
+    return {
+        "parser_profile": parser_profile,
+        "pipeline_version": pipeline_version,
+    }
 
 
 class StructuredParsingCoordinator:

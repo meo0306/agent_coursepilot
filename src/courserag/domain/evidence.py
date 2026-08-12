@@ -132,6 +132,42 @@ class EvidenceArtifact(StrictIRModel):
     def content_sha256(self) -> str:
         return sha256_bytes(canonical_json_bytes(self))
 
+    @property
+    def chunk_identity_sha256(self) -> str:
+        """Stable Chunk input identity excluding non-semantic security annotations.
+
+        The full Artifact hash remains audit-sensitive. This projection only prevents a
+        warning added after parsing from changing otherwise identical Chunk identities.
+        """
+
+        marker = "PROMPT_INJECTION_MARKED"
+        records = []
+        for record in self.records:
+            ocr = record.ocr
+            if ocr is not None:
+                ocr = ocr.model_copy(
+                    update={
+                        "warning_codes": tuple(code for code in ocr.warning_codes if code != marker)
+                    }
+                )
+            records.append(
+                record.model_copy(
+                    update={
+                        "ocr": ocr,
+                        "warning_codes": tuple(
+                            code for code in record.warning_codes if code != marker
+                        ),
+                    }
+                )
+            )
+        semantic = self.model_copy(
+            update={
+                "records": tuple(records),
+                "warning_codes": tuple(code for code in self.warning_codes if code != marker),
+            }
+        )
+        return semantic.content_sha256
+
 
 def normalize_evidence_text(text: str) -> str:
     return " ".join(text.split())

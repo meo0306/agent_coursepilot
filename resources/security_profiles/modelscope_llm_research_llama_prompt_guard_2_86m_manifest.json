@@ -1,0 +1,20 @@
+{
+  "files": {
+    "LICENSE": "73755cee886613ae3135140882289e0a4955d5f0e90f8b1c1ffc962aa9082917",
+    "README.md": "5d2a3e0c46397609a784a5034dc823da408aa8b5a414828609f32dc18ee16933",
+    "USE_POLICY.md": "5ae40fe842b87b5773c47cfd25992a496cc09b17cbb246968762f06352d89270",
+    "config.json": "cd54ac39a1f2c3c5146bd5295b34038f8b4d9069e2f844450da014a523bb7653",
+    "model.safetensors": "e72017dbbe89c1232dcbc4a74ce0c389db5b468c42afd05850347b2a8c5f6b09",
+    "special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+    "tokenizer.json": "3e7e96867c2acdd575f0862c74822e05d1d15b93d9d9a4a2144b1ce83ae3339f",
+    "tokenizer_config.json": "fa09cf22b9d723377f95706967f789ca1a8267e1412385705e1ed51ce0559189"
+  },
+  "license": "Llama 4 Community License Agreement",
+  "license_accepted_by_owner": true,
+  "license_url": "https://modelscope.cn/models/LLM-Research/Llama-Prompt-Guard-2-86M",
+  "model_bundle_sha256": "ca7df59c27a7a2452a42ee1d8755b57d6d46da9df7d87a1d452cb38cd1f11c9f",
+  "model_id": "modelscope/LLM-Research/Llama-Prompt-Guard-2-86M",
+  "revision": "be11c20dd62e7b5391dab63f212c42e2fc25f3ea",
+  "runtime_network_required": false,
+  "schema_version": "courserag.prompt-guard-model-manifest.v1"
+}

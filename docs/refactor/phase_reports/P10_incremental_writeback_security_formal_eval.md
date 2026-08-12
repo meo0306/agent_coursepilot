@@ -10,16 +10,16 @@
 - Dev evaluation: **passed** under authorized Protocol `0dd9ff64...`. Exactly 12 cases were called,
   42 were reused by Hash, and usage was 86,042 DeepSeek tokens plus zero Cohere Search Units.
   DS6/DS7/Security Component Dev also passed without Provider or Test access.
-- Formal Test: **not run**. The owner approved superseded Manifest `f90f4f1b...`, but preflight
-  found that its workspace did not contain the formal runner and its workspace Hash included
-  mutable Python bytecode. No Test lock or Provider call was made. Repaired Manifest v2
-  `cad5df9c...` awaits exact reapproval and a clean-Git checkpoint.
-- Current status: `formal_runner_refreeze_approval_and_checkpoint_pending`. P10 Exit Gate and CourseRAG
-  contract freeze remain pending formal Test; P11 is not ready.
-- Start/end Git commit: `b6483f5ae8a0b3c3e45858c3872b4ed86e94502d` / uncommitted at the
-  same commit on `refactor/p00-baseline`.
-- Scope protection: no commit, push, PR, user-database migration, old-data deletion, external
-  Provider call, Test read/run, Gold rewrite, P11 work or silent fallback.
+- Formal Test: **executed once under the approved lock**. Retrieval and QA completed 120/120 and
+  280/280 Cases with zero Fallback. DS6 and DS7 passed, but Security passed only 5/6 because the
+  prompt-injection marker missed the frozen `Ignore application policy` control.
+- Current status: `gate_failed_formal_test_security`. The failure is a zero-tolerance L0 result, so
+  CourseRAG Port/Contract is not frozen and P11 is not ready. No Test-driven repair is permitted in
+  this release.
+- Start/end Git commit: `b6483f5ae8a0b3c3e45858c3872b4ed86e94502d` /
+  checkpoint `3665211` on `refactor/p00-baseline`; this final report update is uncommitted.
+- Scope protection: one explicitly authorized checkpoint commit was created; no push, PR,
+  user-database migration, old-data deletion, Gold rewrite, P11 work or silent fallback occurred.
 
 ## Task results
 
@@ -29,10 +29,10 @@
 | P10-T02 | implemented_local_tests_passed | valid/exact/structural/similarity migration with explicit `needs_review` and `invalid`, stable Batch identity and candidate trace |
 | P10-T03 | implemented_local_contracts_passed | whitelisted immutable VerifiedContent, independent dense/sparse overlay, atomic active pointer, idempotent write/revoke |
 | P10-T04 | implemented_local_contracts_passed | manual/count/token/age trigger priority, deterministic Batch identity, row-lock selection and item retry facts |
-| P10-T05 | implemented_local_fault_tests_passed | trusted-principal ACL, cross-course checks, MIME/magic, PDF/DOCX/archive/path/resource guards, injection marking and Secret redaction |
-| P10-T06 | dev_passed_test_lock_pending | Approved DS6–DS8/Security reused; bounded 12-case QA and component Dev gates passed; deterministic combined Manifest produced; Test stays closed |
-| P10-T07 | formal_runner_implemented_test_pending | Locked B3–B8/Q0–Q3 and DS6/DS7/Security runners, exact Resume, clean-Git and fail-closed budget guards pass locally; formal Test remains gated |
-| P10-T08 | completed | CourseRAG README, API, architecture, gateway deployment, rollback and limits documentation added |
+| P10-T05 | formal_security_gate_failed | local fault tests passed, but locked Test found one unmarked prompt-injection wording; zero side effects were preserved |
+| P10-T06 | completed_locked_test_executed | Approved inputs and exact Test Lock used; no Gold leakage or Test-driven tuning |
+| P10-T07 | formal_core_completed_ds8_offline_pending_gate_failure | B3–B8/Q0–Q3, DS6/DS7/Security executed; DS8 offline cold/warm workload execution remains unreported because the L0 security failure stops the release Gate |
+| P10-T08 | completed | CourseRAG README, API, architecture, gateway deployment, rollback, limits and this formal failure record updated |
 
 ## Main changes
 
@@ -80,7 +80,10 @@ example.
 | Contract suite | 30 passed |
 | P10 focused implementation/Dev suite | 52 passed |
 | B0 sample PDF/DOCX smoke | 1 passed |
-| Full `uv run pytest -q` | 540 passed, 5 gated skips |
+| Full `uv run pytest -q` before Test Lock | 540 passed, 5 gated skips |
+| Full `uv run pytest -q` after Test Lock | 517 passed, 23 failed, 5 skipped; all failures are historical pre-lock tests that hard-code `locked=false` or copy the now-locked file into candidate-generation fixtures |
+| Post-lock P10 product/contracts/metrics subset | 48 passed |
+| Post-lock formal-runner subset | 2 passed, 1 pre-lock-only assertion deselected |
 | `uv run ruff format --check` | 497 files already formatted |
 | `uv run ruff check` | all checks passed |
 | `uv run mypy src/` | success across 337 source files |
@@ -93,6 +96,13 @@ example.
 The first full run exposed one historical P03 table-boundary assertion that excluded P06–P09 but
 not P10. The test was extended with explicit P10 table/column exclusions; the migration round-trip
 then passed and the final full run was clean. Runtime and migration behavior were not weakened.
+
+After the authorized Test Lock transitioned to `locked=true`, 23 historical evaluation-data tests
+failed because they explicitly assert an unlocked repository or copy the live lock into a
+pre-P09/P10 candidate-generation fixture. Unlocking Test to satisfy them would violate governance.
+The post-lock P10 product/contracts/metrics subset is 48/48 and the applicable formal-runner subset
+is 2/2. This is recorded as lifecycle-test debt, not hidden as a product regression; no test or
+runtime code is changed after the formal result in this release.
 
 ## Evaluation checkpoint
 
@@ -108,6 +118,27 @@ Component Report `ca5c0f4d...` records DS6 15/15, DS7 Change Coverage/eligible R
 Security 10/10 with Test access false and no Provider calls. Repaired combined Frozen Manifest v2
 is `storage_eval/p10/frozen_manifest.json`, exact SHA-256
 `cad5df9ce87fc9682bef2441ed66aa957064f467a5ffdbd209b37e358c40937a`.
+
+## Locked formal Test result
+
+- Lock/authorization SHA-256: `06c6473e...` / `0eaa0982...`; checkpoint commit `3665211` was clean
+  for every formal runner.
+- Component Report SHA-256 `1c10e637...`: DS6 is 9/9, DS7 Change Coverage and eligible Reuse are
+  1.0/1.0, and Security is 5/6. The failed control is
+  `p10-sec-15-prompt-injection`; artifacts, database writes and external calls are all zero.
+- Retrieval Report SHA-256 `313a7e55...`: all 120 Cases succeeded with zero Fallback and 40 Cohere
+  Search Units. On the 36 main Cases, B4 has the highest Recall@10 (`0.9167`) and Complete Group
+  Recall@8 (`0.8611`); B5 Cohere has the highest MRR@10 (`0.7014`) and nDCG@10 (`0.8006`) while
+  Complete Group Recall@8 falls to `0.8056`.
+- QA Report SHA-256 `b5b051ef...`: all 280 Cases succeeded with zero Fallback. QA consumed 78
+  cumulative Cohere Search Units and 404,354 DeepSeek tokens; combined with the independent
+  Retrieval run, formal usage is 118/240 Cohere Units and 404,354/1,500,000 DeepSeek tokens.
+- Q3 main metrics: Answer Status Accuracy `0.9167`, Unanswerable Recall `1.0`, False Answer `0`,
+  Citation Resolvability `1.0`, Claim-Citation Completeness `1.0`, QA Failure `0`, Fallback `0`,
+  False Abstention `0.09375`, and Factoid Token F1 `0.3590`. These values are reported as Test
+  evidence and do not modify this release.
+- Formal Test did not execute the DS8 offline cold/warm build/OCR/enrichment workload templates.
+  That omission remains explicit; no performance value is inferred from unit or Dev runs.
 
 ## Calibration problem analysis and repair record
 
@@ -148,26 +179,53 @@ is `storage_eval/p10/frozen_manifest.json`, exact SHA-256
    source artifacts from interpreter caches. **Repair:** exclude `__pycache__`, `.pyc` and `.pyo`,
    and add a bytecode-mutation regression. **Result:** repeated imports produce stable workspace
    Hash `fffdd6d6...`; repaired Frozen Manifest is `cad5df9c...`.
+7. **Observed formal security miss:** the locked Test sentence `Ignore application policy ...`
+   was not marked as prompt injection. **Cause:** the frozen byte-pattern detector recognizes
+   variants such as `ignore previous`, `system prompt`, `developer message` and one Chinese form,
+   but not policy-override language. **Proposed next-version solution:** replace the narrow phrase
+   list with a versioned rule family covering instruction hierarchy, policy bypass, data
+   exfiltration and tool coercion; retain original text, mark rather than delete, add multilingual
+   paraphrase and adversarial-boundary Dev controls, then refreeze a new release before rerunning
+   Test. **Current result:** no artifact, database or external side effect occurred, but the mark
+   itself was absent. This is a real L0 failure and is not repaired from Test in the current release.
 
 ## Exit Gate
 
-1. **Test has no Gold leakage or silent fallback:** local guards pass, but formal Test has not been
-   locked or run; final judgment is pending.
-2. **Security zero-tolerance metrics are zero:** Dev Security is 10/10 with zero side effects;
-   formal locked Test remains pending.
-3. **CourseRAG Port/Contract is frozen for CoursePilot:** Local/Remote/Mock contracts pass, but the
-   formal P10 convergence report and owner-approved Test evidence remain pending.
+1. **Test has no Gold leakage or silent fallback:** **passed**. Exact Lock/Manifest guards were used;
+   400 Retrieval/QA Case executions completed with zero Fallback and no post-result tuning.
+2. **Security zero-tolerance metrics are zero:** **failed**. One of six locked Security controls was
+   not marked, although it produced zero database, artifact or external side effects.
+3. **CourseRAG Port/Contract is frozen for CoursePilot:** **not passed**. Local/Remote/Mock contracts
+   pass, but the L0 formal security failure prevents the P10 release freeze.
 
-Therefore P10 is not `completed` or `completed_with_quality_debt` yet. Its correct status is
-`formal_runner_refreeze_approval_and_checkpoint_pending`, and P11 remains blocked by P10.
+At the time of this locked formal release, P10 status was `gate_failed_formal_test_security`, not
+`completed_with_quality_debt`, and P11 remained blocked by P10. The later P10-D013 addendum changes
+only the dependency scope; it does not revise this formal result.
+
+### Post-report governance addendum (P10-D013)
+
+The formal result above remains immutable: the original detector missed one locked control and
+did not pass its release Gate. Subsequent P10.1-P10.3 releases also failed their own preregistered
+Profile gates and were never promoted. On 2026-08-12 the Course Owner approved a narrower dependency
+interpretation: because the rejected candidates remain default-off, produced no unsafe side effect,
+and are not required by P11's Model Gateway contracts, the detector Profile debt is isolated from
+the completed P10 core CourseRAG contracts.
+
+The current phase status is therefore `completed_with_isolated_security_capability_debt`, while
+the detector status remains `candidate_rejected_default_off`. P11 may start only with untrusted
+Context isolation, default-deny tools, ACL/Secret controls and auditable Capability routing. P17
+must resolve the detector with a new independent Dev/Blind release, and P18 remains unable to pass
+formal system Security L0 while this debt is open. This addendum changes no Test result, threshold,
+runtime default, API, database, index or frozen report.
 
 ## Remaining approvals and risks
 
-- The owner must approve exact repaired Frozen Manifest `cad5df9c...`, bind the already stated
-  40-query/Cohere-240/DeepSeek-1,500,000 authorization to it, and authorize a local checkpoint
-  commit. The lock changes a tracked file, so formal execution cannot satisfy the existing
-  clean-Git guard until that state is committed. No push or PR is requested.
+- The formal Test authorization is consumed and remains bound to Manifest `cad5df9c...`; it cannot
+  be reused to tune or silently rerun this release.
+- A new Dev protocol and new release identity are required to repair the prompt-injection marker.
+  The current Test phrase may be used only as a disclosed regression Sentinel, not as repeated
+  tuning data. Broader rule design must be developed on new Dev/adversarial controls.
 - Trusted headers are secure only when the deployment gateway strips client values and direct
   service access is blocked; complete IAM remains P17 scope.
-- Dev migration, reuse, QA and security evidence has passed; formal DS6–DS8 and Test metrics must
-  not be inferred before the separately locked run.
+- DS8 offline cold/warm performance remains unexecuted and must not be inferred from existing
+  reports. It can be completed only in a separately frozen release after the L0 security repair.

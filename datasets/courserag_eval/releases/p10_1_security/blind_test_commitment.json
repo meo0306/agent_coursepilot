@@ -1,0 +1,14 @@
+{
+  "schema_version": "courserag.p10-1-security-test-commitment.v1",
+  "dataset_id": "courserag-p10-1-security",
+  "dataset_version": "blind-test-r1",
+  "status": "consumed",
+  "case_count": 12,
+  "positive_count": 8,
+  "hard_negative_count": 4,
+  "content_visible_to_implementation": false,
+  "bundle_sha256": "7394dfd462993c54e0b262d63c276e097c83eb2f32c99574472c81fdac0a62ee",
+  "approved_manifest_sha256": "ffe8f58220cf3b1b821d25e25a681a34cef039d8cf20d8ab87c929c5cb71401e",
+  "locked_at": "2026-08-11T14:13:59.4526726Z",
+  "locked_by": "course_owner"
+}

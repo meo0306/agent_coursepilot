@@ -3,9 +3,9 @@
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
 - Current branch: `refactor/p00-baseline`
-- Current phase: P10 Dev gates and formal-runner repair have passed; deterministic Frozen Manifest `cad5df9c...` awaits exact reapproval and a clean-Git checkpoint before Test lock
-- Current data checkpoint: exact Bundle `5b6d756a...`, authorized Dev Protocol `0dd9ff64...`, QA Report `eed5700e...`, Component Report `ca5c0f4d...`; Test remains unlocked and unread, with zero post-approval Provider calls
-- Last updated: 2026-08-10
+- Current phase: P10 core CourseRAG contracts are complete; P10.3 exact Protocol `91f51be0...` failed once (Recall 0.95, Specificity 0.7333), emitted no Profile and is isolated as default-off security capability debt under P10-D013
+- Current data checkpoint: checkpoint commit `3665211`; original Test Lock `06c6473e...`, formal Reports and P10.1 Blind Report `f07fc7c8...` remain immutable; P10.3 Report is `26e5eb98...`, its Blind commitment remains empty/unread, and P11 may start only under the P10-D013 fail-closed inheritance constraints
+- Last updated: 2026-08-12
 
 | Phase | Status | Start Commit | End Commit | Gate | Report |
 |---|---|---|---|---|---|
@@ -19,8 +19,8 @@
 | P07 | completed | `b6483f5` | uncommitted (`b6483f5`) | passed | `phase_reports/P07_course_level_knowledge_point_assets.md` |
 | P08 | completed | `b6483f5` | uncommitted (`b6483f5`) | passed | `phase_reports/P08_hybrid_retrieval_rrf_reranker.md` |
 | P09 | completed_with_quality_debt | `b6483f5` | uncommitted (`b6483f5`) | passed_core_contracts_profile_not_frozen | `phase_reports/P09_generation_reliability_gate_repair.md` |
-| P10 | formal_runner_refreeze_approval_and_checkpoint_pending | `b6483f5` | uncommitted (`b6483f5`) | dev_gates_passed_formal_test_pending | `phase_reports/P10_incremental_writeback_security_formal_eval.md` |
-| P11 | not_started | | | blocked_by_P10 | |
+| P10 | completed_with_isolated_security_capability_debt | `b6483f5` | `3665211` + uncommitted P10.1-P10.3 repair | core_contracts_passed_security_profile_rejected_default_off | `phase_reports/P10_3_multi_axis_untrusted_instruction_detector.md` |
+| P11 | ready_to_start | | | prerequisites_met_with_P10_D013_security_constraints | |
 | P12 | not_started | | | blocked_by_P11 | |
 | P13 | not_started | | | blocked_by_P12 | |
 | P14 | not_started | | | blocked_by_P13 | |
@@ -811,3 +811,143 @@ usage audit, final workspace, approved Bundle, Profile and Test-ID file Hash whi
 awaiting-owner-lock candidate only: Test remains unlocked and unexecuted, and P10/P11 remain
 blocked until the owner separately approves this exact Manifest, formal Test data transmission
 scope and Provider budgets.
+
+## Pre-P11 Foundation input Draft checkpoint
+
+The P11 foundation input pipeline now defines the complete 40-record contract target: one
+Foundation Manifest, nine built-in Template Contracts, twelve Fake-Provider Model Gateway cases
+and eighteen Runtime/Compatibility cases. Because the locked P10 formal Test ended in the L0
+prompt-injection marking failure, only the 37 P10-independent records were materialized under
+`datasets/coursepilot_eval/v1/drafts/p11/`. The three CourseRAG Port/Context cases remain explicit
+missing IDs. No Candidate, review UI, Bundle SHA-256, approval, formal CP Gold, Dev/Test entry or
+Test lock was generated.
+
+At this checkpoint the Draft compiler audited P10 on every run and failed closed unless the formal
+Exit Gate was passed and the authorization, Test lock, final runs, Frozen Manifest and CourseRAG
+Port identities remained resolvable. Two generations were byte-identical. Evaluation-only Schemas
+covered Draft, full Candidate, two review passes, work-package approval and the post-P11 Runtime
+Foundation Snapshot; the legacy CP-DS0 Schema remained backward compatible while rejecting
+invented future runtime Hashes. P11 was `not_started` and `blocked_by_P10` at that checkpoint;
+P10-D013 later supersedes only this dependency conclusion, not the Draft evidence or guards.
+
+## P10.1 Security Gate repair checkpoint
+
+| Task | Status | Evidence |
+|---|---|---|
+| P10.1-T01 | completed | parsed/OCR-text Scanner, locatable Finding, Warning propagation and stable identity tests pass |
+| P10.1-T02 | completed_blind_consumed_gate_failed | Bundle `7394dfd4...` and both 12/12-pass reviews were owner-approved/locked; the one permitted run produced TP=1, FN=7, FP=3, TN=1 and Report `f07fc7c8...` |
+| P10.1-T03 | completed | 23 lifecycle failures eliminated with pre-lock/locked/consumed fixtures; formal Lock unchanged |
+| P10.1-T04 | completed | ten Approved DS8 offline templates pass in five process-isolated Cold/Warm pairs |
+| P10.1-T05 | completed_profile_freeze_approved | semantic equivalence and immutable P10 bindings pass; Candidate `ffe8f582...` is owner-approved, while the separate Blind Bundle is still pending |
+
+The repair moves prompt-injection detection from raw PDF/DOCX bytes to parsed and OCR-merged
+Block text. The versioned scanner normalizes Unicode/zero-width/whitespace variants and detects
+five behavior-intent families in Chinese and English. Findings retain page, Block and character
+spans; source text is preserved and the warning propagates to Evidence and Chunk metadata. The
+full Evidence Artifact hash remains audit-sensitive, while the Chunk identity projection excludes
+only the new non-semantic warning. On both real sample documents, 4,852 Blocks, 1,848 Evidence
+records and 1,048 Child Chunks preserve exact text, source identity, Evidence/Chunk IDs and corpus
+mapping.
+
+The new 30-case Dev set passes with 20/20 positive recall and 0/10 hard-negative false positives.
+The exposed P10 control is retained only as a regression sentinel. The independent 12-case Blind
+Test remains a hash-only commitment with no visible content; the runner refuses before reading a
+Bundle unless an exact Course Owner-approved Manifest and lock are present.
+
+Test lifecycle isolation replaces repository-global `locked=false` assumptions with explicit
+pre-lock and locked fixtures. The evaluation suite moved from 23 historical failures to 196 passed
+and one gated skip without changing Test Lock `06c6473e...` or the consumed Component/Retrieval/QA
+reports. The full repository suite reports 563 passed and five gated skips; B0 sample Smoke,
+Ruff, Mypy and Alembic head `0015_incremental_writeback_security` pass.
+
+Approved DS8 offline execution completed all ten Cold/Warm templates in five process-isolated
+pairs. Warm Stage Reuse is 5/5 and external Provider calls are zero. Cold means are 58.114 seconds
+for Full Build, 8.986 seconds for a single document, 0.008 seconds for a Section update,
+924.868 seconds for a 15-page OCR batch and 0.008 seconds for Enrichment orchestration. OCR's
+per-page process/model initialization is recorded as an L2/L3 performance debt; it does not relax
+security or start a tuning loop.
+
+At the P10.1 checkpoint the repair was incomplete: P10 remained blocked at the new independent
+blind-test checkpoint, and P11 was `not_started / blocked_by_P10`. The original formal 40-case
+Retrieval/QA Test was not rerun and no Cohere/DeepSeek call occurred. P10-D013 later changes only
+the cross-phase dependency treatment; the failed Blind verdict remains immutable.
+
+## P10.2 semantic Prompt Guard upgrade checkpoint
+
+| Task | Status | Evidence |
+|---|---|---|
+| P10.2-T01 | completed | model-independent Detector/Score/Window/Finding contracts and fail-closed policy tests pass |
+| P10.2-T02 | completed | 448-token/128-overlap cross-Block windows preserve reversible Page/Block/character mapping |
+| P10.2-T03 | completed_candidate_runtimes | ProtectAI, HikmaAI and the owner-risk-accepted ModelScope `LLM-Research/Llama-Prompt-Guard-2-86M@be11c20d...` snapshots are stored outside Git with fixed identities. The ModelScope Manifest file/canonical/Bundle SHA-256 values are `292cede1...`/`fc27f708...`/`ca7df59c...`; its CUDA FP16 smoke passes on RTX 4060, but its `USER_UPLOAD` provenance remains explicitly non-official |
+| P10.2-T04 | completed | regex rules are auxiliary only and cannot independently mark; model-high and model/rule-consensus paths are separate |
+| P10.2-T05 | completed | `security_annotation` is independent from Parser/OCR fingerprints and preserves parser/OCR bundle assets |
+| P10.2-T06 | all_three_candidates_failed_no_profile | ProtectAI and HikmaAI remained rejected. The owner separately approved exact ModelScope Meta Protocol `c1be800a...` and one Dev-only qualification. Its single 160-case run failed all six preregistered pairs: best recall was `0.2125` at specificity `0.825`, while the highest-specificity pair had recall/specificity `0.20/0.8875`; tool-coercion recall was `0`. Report SHA-256 is `6946176f...`. No Profile Candidate was emitted, no rerun is permitted and Blind stayed unread |
+| P10.2-T07 | pending | new 48-case Blind commitment exists without content; it cannot be constructed or unlocked before Dev/Profile freeze |
+| P10.2-T08 | completed_verification_architecture_blocked | P10.2/security专项 24 passed；全量 580 passed/5 skipped；Ruff、Mypy、Alembic head 和 diff check 通过。候选运行时与治理证据完整，但三个模型均未通过冻结发布标准；默认仍为 `legacy_rules`，继续工作需另行批准新的安全分类架构 |
+
+The default provider remains `legacy_rules`; the failed P10.1 Profile is not presented as a passed
+security boundary. At this checkpoint P10/P11 remained blocked. No P10.1 Blind content was read or reused, no formal
+40-case semantic Test was rerun, and no Cohere/DeepSeek or external safety API call occurred.
+
+The ModelScope run used approved Protocol `c1be800a5807d679d6b13ef41fe296f52cfac430cb59b851197e11da12eeaf8f`
+exactly once. It read the same owner-approved Dev labels, made zero external calls and did not read
+Blind. The failure is not a missing threshold: all six fixed pairs cluster at only `0.20-0.2125`
+recall. Category recall at a representative best-recall pair is policy override `0.25`, role
+impersonation `0.125`, secret extraction `0.125`, tool coercion `0`, and obfuscation `0.5625`.
+This demonstrates a contract mismatch between a narrow prompt-override classifier and the broader
+five-family untrusted-instruction L0 obligation. Repeating model swaps or threshold search on this
+consumed Dev set is prohibited.
+
+## P10.3 multi-axis security architecture checkpoint
+
+| Task | Status | Evidence |
+|---|---|---|
+| P10.3-T01 | completed | explicit threat-axis signal and detector contracts; HikmaAI is the required general semantic axis |
+| P10.3-T02 | completed | role, secret and tool composite axes require action + protected target + effect; Context Guard separates quoted/educational text |
+| P10.3-T03 | completed | obfuscation is a non-decision modifier; high-confidence union replaces majority voting |
+| P10.3-T04 | completed_candidate | Llama Prompt Guard 2 is an explicit policy-override challenger with a pre-registered retain/drop ablation |
+| P10.3-T05 | completed_candidate | isolated security annotation Stage records axis/signal/decision path and fails closed for required-axis faults |
+| P10.3-T06 | completed_owner_attested_approved | Course Owner explicitly attested both completed review passes were 120/120 PASS after the browser exporter failed; recovered review Hashes `b6e5d2ce...`/`4817e358...` bind Candidate `b3ef6753...`, and Approval `dcef3ebe...` covers all ordered IDs |
+| P10.3-T07 | not_run_dev_gate_failed | independent 48-case Blind commitment `c3f662d0...` remains empty and unread because Dev did not freeze a Profile |
+| P10.3-T08 | qualification_failed_no_profile | exact Protocol `91f51be0...` ran once: Report `26e5eb98...`; Recall `0.95`, Specificity `0.7333`; baseline without Llama is `0.95/0.80`; no Profile Candidate was emitted |
+
+P10.3 addresses P10.2's contract mismatch rather than performing a fourth model-swap or threshold
+loop. One broad classifier no longer owns all five threat families. HikmaAI covers general semantic
+risk; deterministic composite axes cover role impersonation, secret extraction and tool coercion;
+obfuscation only raises diagnostic evidence; and Llama Prompt Guard 2 must prove unique value with
+zero added false positives before it can remain in a release Profile. Any high-confidence required
+axis can mark a finding. Missing model/runtime/Profile identity fails closed.
+
+The Candidate labels and exact Qualification Protocol `91f51be0...` were owner-approved. The
+Protocol ran exactly once and produced failed Report `26e5eb98...`; no release Profile exists.
+The consumed P10.1/P10.2 Dev and Blind artifacts remain immutable and were not selection inputs.
+The original formal Retrieval/QA Test was not rerun, no external Provider was called, Blind/Test
+access and Fallback remained zero, and runtime default remains `legacy_rules`. The component-level
+Security L0/Profile Gate remains failed; P10-D013 later isolates that default-off failure from the
+P11 foundation dependency without changing the verdict.
+
+## P10.3 gate-scope adjustment checkpoint
+
+The Course Owner approved separating the rejected P10.3 Profile release Gate from the completed
+P10 CourseRAG core contracts so that an isolated, default-off candidate does not indefinitely block
+unrelated foundation work. This is an explicit dependency waiver, not a metric waiver:
+
+- Report `26e5eb98...` remains failed and immutable; no Profile was emitted and the consumed Dev
+  cannot be rerun or patched into the same release.
+- `multi_axis_local` remains candidate-only/default-off and must not be selected implicitly or
+  represented as a passed Prompt Injection boundary.
+- P11 may start Model Gateway/contract work only if Context remains untrusted data, tool execution
+  is default-deny, system/developer instructions cannot be overridden by retrieved content, and
+  ACL/Secret isolation/audit controls remain active.
+- P11 planning must treat its existing `P10 fully green` Draft/Candidate compiler guard as the
+  first governance adaptation: replace only the dependency predicate with an exact P10-D013 waiver
+  check while preserving formal Test/Gold isolation, deferred-record provenance and fail-closed
+  behavior. That is P11 work and is not implemented by this P10 documentation adjustment.
+- P14-P16 may consume only the frozen CourseRAG Port contracts; they must not depend on P10.3
+  findings for authorization or safe side effects.
+- P17 must resolve or replace this detector debt with a new owner-approved Dev/Blind release, and
+  P18 cannot pass the system Security L0 Gate while the debt remains open.
+
+Accordingly P10 is `completed_with_isolated_security_capability_debt` and P11 is
+`ready_to_start`. The original formal Test, Test Lock, Profiles, runtime defaults, database,
+public API and indexes are unchanged.

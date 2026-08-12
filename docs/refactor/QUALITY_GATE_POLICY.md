@@ -3,6 +3,7 @@
 - Policy ID: `coursepilot.cross-phase-quality-gate.v1`
 - Status: owner-approved
 - Approved date: 2026-08-10
+- Last amended: 2026-08-12 under owner-approved P10-D013 dependency-scope adjustment
 - Applies to: P10—P19，以及任何可能改变既有评测分布、共享 Profile 或公开指标的修复
 
 ## 1. 目的
@@ -28,6 +29,8 @@
 
 - `completed`：核心 Gate 和已批准质量目标均通过；
 - `completed_with_quality_debt`：核心 Gate 通过，但存在不影响合同/安全的显式质量债务；
+- `completed_with_isolated_security_capability_debt`：核心合同通过，但一个从未发布、默认
+  关闭且不参与授权/副作用的安全候选未通过自身 Profile Gate；只能按 2.3 节显式豁免；
 - `gate_failed`：冻结核心 Gate、硬安全或不可回滚兼容要求失败；
 - `blocked`：上游依赖、人工批准或外部条件未满足。
 
@@ -43,6 +46,24 @@ Profile Freeze 失败不得被改写为成功，也不得通过事后放宽阈�
 - `provisional_dev_only`；
 - `candidate_rejected_default_off`；
 - `not_applicable`。
+
+### 2.3 可隔离安全能力与下游依赖豁免
+
+安全候选失败不得被改写为通过，也不得降低其预注册阈值。但若失败的是一个尚未发布、
+默认关闭且不参与授权或副作用裁决的新增安全能力，可以在 Course Owner 明确批准后，将
+“该能力的发布 Gate”与“阶段其余核心合同”分开。该豁免必须同时满足：
+
+- 候选状态固定为 `candidate_rejected_default_off`，Runtime Factory 不得隐式选择；
+- 未产生 Secret 泄漏、未授权访问、工具执行、外部调用、持久化或索引副作用；
+- 下游阶段不把该候选的输出当作可信边界、授权依据或已通过的安全能力；
+- 现有 Prompt/Context 隔离、ACL、工具默认拒绝、Secret 隔离和审计控制保持启用；
+- 风险、Owner、后续收敛阶段和再次放行所需的新 Dev/Blind release 均写入治理文档；
+- 在系统集成或正式发布收敛点前，必须由新的独立证据解决，不能再次豁免。
+
+满足上述条件时，阶段可标记为 `completed_with_isolated_security_capability_debt`，并通过
+显式依赖豁免允许与失败能力无运行时依赖的下游基础设施阶段启动。这不表示安全 Profile
+Freeze 或对应检测指标通过，也不改变 L0 对已启用运行时事件的零容忍要求。P17 系统安全
+集成和 P18 正式收敛不得继承该豁免。
 
 ## 3. 四层指标分类
 
@@ -215,9 +236,9 @@ P09-D011 对 P10 继承的 QA 校准当前限制为最多一个候选。增加�
 阶段报告必须逐项给出实际值、是否通过、是否影响 Phase Gate、是否仅影响 Profile Freeze、
 回归范围、未达项、质量债务 Owner 和进入下一收敛点的处理方式。
 
-## 10. P10 启动约束
+## 10. P10 启动约束（已执行历史基线）
 
-P10 当前为 `ready_to_start`。P10 Plan 必须：
+P10 启动时为 `ready_to_start`，其 Plan 必须并已按以下边界执行：
 
 - 把本政策列入必读治理文档；
 - 保留 P09 已验证的 Citation、Grounding、Abstention 和无静默 Fallback 能力；

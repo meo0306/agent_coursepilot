@@ -1,3 +1,5 @@
+import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -15,11 +17,28 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_test_loaders_fail_closed_before_the_lock(tmp_path: Path) -> None:
-    dataset_root = ROOT / "datasets/courserag_eval/v1"
+    source_root = ROOT / "datasets/courserag_eval/v1"
+    dataset_root = tmp_path / "datasets/courserag_eval/v1"
+    shutil.copytree(source_root, dataset_root)
+    (dataset_root / "test.lock.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "course-eval.test-lock.v1",
+                "dataset_id": "courserag-eval",
+                "dataset_version": "v1",
+                "locked": False,
+                "test_ids_sha256": None,
+                "approved_manifest_sha256": None,
+                "locked_at": None,
+                "locked_by": None,
+            }
+        ),
+        encoding="utf-8",
+    )
     with pytest.raises(ValueError, match="locked Test set"):
         load_p09_test_bundle(dataset_root)
     with pytest.raises(ValueError, match="locked Test set"):
-        run_component_test(ROOT, tmp_path / "component.json")
+        run_component_test(tmp_path, tmp_path / "component.json")
 
 
 def test_formal_usage_uses_cumulative_provider_high_water_mark() -> None:

@@ -1439,7 +1439,7 @@
 
 ## P10-D007 — Refreeze after formal-runner and deterministic-workspace repair
 
-- Status: proposed_awaiting_owner_exact_reapproval
+- Status: accepted_owner_approved_and_executed
 - Date: 2026-08-10
 - Trigger: after the owner approved Manifest `f90f4f1b...`, execution preflight found that the
   approved workspace lacked the formal Test orchestrator and included mutable Python bytecode in
@@ -1455,3 +1455,261 @@
   this new identity. Because Test Lock is tracked and the generic Test guard requires a clean Git
   state, a local checkpoint commit containing the complete current P00-P10 workspace and lock is
   also required before execution. No push or PR is implied.
+- Approval/execution result: the owner approved exact Manifest `cad5df9c...`, the 40-query external
+  scope, Cohere 240 Units, DeepSeek 1,500,000 tokens and local checkpoint commit. Commit `3665211`
+  was clean; the formal Test ran with exact Lock and no push or PR.
+
+## P10-D008 — Record the locked formal Test L0 failure without Test-driven repair
+
+- Status: accepted_formal_result_gate_failed
+- Date: 2026-08-11
+- Trigger: exact locked Test execution completed under Manifest `cad5df9c...`. Retrieval and QA
+  completed 400 Case-system executions with zero Fallback, while one of six Security controls was
+  not marked as prompt injection.
+- Result: DS6 is 9/9; DS7 Change Coverage/Reuse are 1.0/1.0; Retrieval B5 nDCG@10 is `0.8006`;
+  Q3 Citation Resolvability, Claim-Citation Completeness and Unanswerable Recall are 1.0, with zero
+  False Answer, QA Failure and Fallback. Formal usage is 118/240 Cohere Units and
+  404,354/1,500,000 DeepSeek tokens.
+- L0 failure: the detector did not recognize the policy-override wording in
+  `p10-sec-15-prompt-injection`. No artifact, database write or external call resulted, but the
+  required warning was absent. Security zero tolerance therefore fails and P10 status is
+  `gate_failed_formal_test_security`; P11 remains blocked.
+- No-tuning decision: do not add the Test phrase to the current regex, alter thresholds, change
+  Gold or rerun this release. A next-version Dev protocol must design broader multilingual
+  instruction-hierarchy/policy-bypass controls, refreeze all identities, and treat this formal miss
+  only as a disclosed regression Sentinel.
+- Performance debt: DS8 offline cold/warm workloads were not executed and cannot be inferred from
+  local tests. They remain next-release work after the L0 repair.
+
+## P10-D009 — Repair injection marking at parsed-text boundary and require a new blind release
+
+- Status: blind_gate_failed_frozen_no_retuning
+- Date: 2026-08-11
+- Trigger: the consumed P10 Test exposed one policy-bypass paraphrase that was invisible to the
+  raw-binary scanner. Adding the exposed sentence to a regex would make the old Test pass without
+  proving that the architecture detects the behavior family.
+- Root cause: upload safety and semantic content safety were combined before PDF/DOCX
+  decompression, parsing and OCR. Even observable text had no Page/Block/Span finding contract,
+  and the original phrase list represented wording rather than command intent.
+- Decision: retain upload MIME/ZIP/PDF/resource checks before persistence, but run a deterministic,
+  versioned multilingual prompt-injection scanner after structured parsing and OCR merge. Detect
+  policy override, role impersonation, secret extraction, tool coercion and light obfuscation by
+  command/target combinations. Preserve source text and propagate locatable warnings through
+  Evidence and Chunk audit metadata.
+- Stable-identity decision: security annotations change full Artifact Hashes, but not semantic
+  Evidence or Chunk identities. Chunking therefore uses an Evidence projection that excludes only
+  `PROMPT_INJECTION_MARKED`; all other warning and semantic changes remain identity-sensitive.
+- Evaluation governance: use a 30-case Dev set for Profile selection, treat the exposed P10 case
+  only as a regression sentinel, and require an independently constructed 8-positive/4-negative
+  blind Test. Implementation cannot read that Bundle before exact Manifest approval and lock.
+- Current evidence: Dev recall is 20/20 with 0/10 hard-negative false positives; two real documents
+  preserve 4,852 Blocks, 1,848 Evidence records and 1,048 Child Chunk semantic identities; Test
+  lifecycle and DS8 evidence pass. This is not final Security L0 approval until the new blind Test
+  is owner-locked and passes once without feedback into the current Profile.
+- Profile Freeze approval: on 2026-08-11 the Course Owner explicitly approved Candidate SHA-256
+  `ffe8f58220cf3b1b821d25e25a681a34cef039d8cf20d8ab87c929c5cb71401e`. This freezes the
+  Scanner/Profile and authorizes independent Blind construction; it does not approve or lock an
+  as-yet nonexistent Blind Bundle.
+- Blind delivery checkpoint: Bundle `7394dfd462993c54e0b262d63c276e097c83eb2f32c99574472c81fdac0a62ee`
+  and two review artifacts `a44d36b5...` / `f7cb11aa...` were received and hash-validated without
+  reading Bundle content. Both reviews bind the exact Bundle and cover the same 12 unique IDs with
+  12/12 pass, 8-positive/4-hard-negative distribution, distinct reviewer identities and no Scanner
+  access. This is evidence delivery only; exact Bundle approval and Lock remain separate Owner acts.
+- Blind result: the Course Owner separately approved and locked the exact Bundle, which was consumed
+  once against Manifest `ffe8f582...`. Report `f07fc7c8660b7669c1e971b38c590fec0b97ac5d06040a083368ec84521f8d2e`
+  failed with TP=1, FN=7, FP=3 and TN=1. The public Sentinel and all side-effect/provider/no-tuning
+  guards passed. Decision: do not inspect raw Blind text, tune the frozen Profile or rerun this
+  Bundle; retain P10/P11 blocking and require a materially new detector/version with a new release.
+
+## P11-D001 — Keep pre-P11 material as a 37-record non-approvable Draft while P10 Gate is failed
+
+- Status: accepted_and_implemented; dependency conclusion superseded by P10-D013
+- Date: 2026-08-11
+- Decision: freeze the complete P11 target as `1/9/12/18 = 40`, but materialize only the 37
+  P10-independent contract records until P10's L0 Security Gate is repaired and passed.
+- Boundary: the Draft is physically separate from `candidates/`, carries no approval or Bundle
+  identity, does not change CoursePilot `gold_status=skeleton_no_formal_gold`, and leaves Dev/Test
+  empty and Test unlocked.
+- Deferred records: the two Approved Dev Query normal-path fixtures and the structural
+  cross-course/stale/unresolvable fail-closed fixture are added only after the P10 gate audit is
+  fully green. No CourseRAG Test or DS3 Holdout identity may be read.
+- Approval meaning: a future exact approval promotes only a P11 implementation input work package,
+  never formal CP-DS0—CP-DS8 Gold. The post-P11 Runtime Foundation Snapshot requires a separate
+  exact approval and still does not replace the P18 formal Gold freeze.
+
+## P10-D010 — Replace regex-only marking with a local semantic Prompt Guard stage
+
+- Status: accepted_architecture_implementation_in_progress
+- Date: 2026-08-11
+- Trigger: the frozen P10.1 regex Profile failed its independent Blind Gate with TP=1, FN=7,
+  FP=3 and TN=1. Re-running or adding Blind phrases would invalidate the release rather than repair
+  the generalization failure.
+- Selected option: the Course Owner selected architecture A, a local
+  `meta-llama/Llama-Prompt-Guard-2-86M` classifier under the separately applicable Llama 4
+  Community License. Model weights remain outside Git at
+  `D:\AI\models\huggingface\meta-llama\Llama-Prompt-Guard-2-86M`; upstream license and Notice are
+  retained, while repository-owned source remains MIT licensed.
+- Architecture: run a separate post-OCR `security_annotation` Stage over overlapping tokenizer
+  windows. The model owns the semantic attack score. Deterministic rules may refine category/span
+  or confirm a middle score, but cannot independently mark content. Missing model, wrong Hash,
+  timeout or CUDA failure is fail-closed and never falls back to the failed regex Profile.
+- Identity boundary: Parser/OCR fingerprints no longer include the security Profile. Security
+  annotation may change audit Artifact Hashes and Warning metadata but must not change source text,
+  Evidence/Chunk stable identities, corpus mapping or public API payloads.
+- Evaluation: use only an owner-approved 160-case Dev Candidate and one pre-registered threshold
+  grid. After at most one threshold-only revision, freeze one Profile and construct a new independent
+  48-case Blind Test. The consumed P10.1 Blind Bundle is never read, reused or rerun.
+- Current checkpoint: implementation/Fake tests pass. Real model download is blocked by missing
+  Hugging Face authentication, and Dev calibration is blocked by the required human approval of
+  Candidate `d017a907...`. These are explicit checkpoints, not automatic defaults.
+- Follow-up checkpoint: the owner approved exact Candidate `d017a907...`; approval artifact
+  `d50315a0...` covers all 160 IDs. HF authentication now succeeds for account `nancy0929`, but
+  gated content still returns 403 because the account has not yet been added to the model's
+  authorized list. The locked CUDA runtime was recovered from a complete local uv cache:
+  Torch `2.12.1+cu126`, Transformers `5.14.1`, CUDA available on RTX 4060. No mirror was used to
+  bypass model access control.
+- Dependency replacement (2026-08-12): Meta rejected the owner's gated access request. The owner
+  explicitly selected the preregistered public fallback
+  `protectai/deberta-v3-base-prompt-injection` at immutable revision
+  `373b6af0f8d16739cff5de28be326652246bfaa3` under Apache-2.0. It reuses the same binary-score,
+  window, dual-threshold, rule-consensus and fail-closed contracts; it does not change the Approved
+  Dev dataset or unlock Blind. Only Safetensors/tokenizer/model-card files are allowed. A public
+  mirror may transport the bytes without an HF Token, but every file must match the SHA-256
+  allowlist derived from the official revision before a Manifest can be emitted. ProtectAI's
+  primarily-English upstream scope is not treated as equivalent to Meta multilingual quality;
+  Chinese and English must independently pass the owner-approved Dev and later Blind gates.
+- Backup result checkpoint: the Hash-bound ProtectAI model loaded locally with CUDA FP16 and no
+  network fallback. The approved Dev run produced report `dda19635...`, but every preregistered
+  threshold failed. Best grid recall/specificity was `0.2375/0.7375`; an exhaustive read-only
+  separability audit across observed scores achieved only `0.50625` balanced accuracy. The
+  upstream English-focused classifier missed semantic paraphrases and indirect attacks while
+  overmarking quoted/hard-negative text, especially Chinese. This is a representation/domain
+  mismatch, not a threshold-range defect. No Profile was emitted, Blind stayed unread, and the
+  result cannot be repaired by adding thresholds or weakening the L0 Gate.
+- Second-backup checkpoint (2026-08-12): the owner explicitly approved the public multilingual
+  `HikmaAI/hikmaai-mdeberta-v3-base-prompt-injection-multilingual` model at immutable revision
+  `aef60fed9674e497a7ba08e43b41e8666483934e`, its FP16 ONNX artifact, and one reuse of the exact
+  Approved Dev and preregistered threshold grid. The fixed snapshot is stored outside Git and
+  validated by Manifest file/canonical/Bundle SHA-256 `f5332023...`/`bebebecf...`/`b1aa09e9...`;
+  the upstream ONNX and tokenizer LFS SHA-256 values match `52b3cd13...` and `9ddbe35b...`.
+  ONNX Runtime uses CUDA as the first execution provider, permits CPU only for required static
+  shape/constant graph nodes, disables whole-session runtime fallback, and fails closed if CUDA is
+  unavailable. The single Dev report `29abe241...` failed all six pairs: Recall `0.775`,
+  Specificity `1.0`, English Recall `0.90`, Chinese Recall `0.65`, and tool-coercion Recall `0.50`.
+  This is a remaining semantic coverage gap, not permission to add thresholds or rerun Dev. No
+  Profile was emitted; Blind remains unread and P10/P11 remain blocked.
+- ModelScope Meta-source checkpoint (2026-08-12): after being informed that the public
+  `LLM-Research/Llama-Prompt-Guard-2-86M` repository is an uncertified `USER_UPLOAD`, that its
+  license metadata is `other`, and that Hash equality cannot prove redistribution authority, the
+  Course Owner explicitly accepted this provenance/license risk and authorized local use. The
+  repository does include the Llama 4 Community License and Acceptable Use Policy. The fixed
+  ModelScope commit `be11c20d...` was downloaded outside Git; all eight selected files match the
+  ModelScope repository API SHA-256 values. Manifest file/canonical/Bundle identities are
+  `292cede1...`/`fc27f708...`/`ca7df59c...`. This records an owner-accepted non-official source,
+  not Meta approval and not proof of uploader redistribution authority. A two-case CUDA FP16 smoke
+  passed on RTX 4060 (attack `0.999386`, benign `0.000415`, peak allocated VRAM about 552.7 MiB).
+  No Dev or Blind evaluation was run at this checkpoint; default runtime remains unchanged.
+- ModelScope Meta qualification result (2026-08-12): the Course Owner approved exact Protocol
+  `c1be800a5807d679d6b13ef41fe296f52cfac430cb59b851197e11da12eeaf8f` and one Dev-only run.
+  The run used the already approved 160-case dataset, made zero external calls, did not read Blind,
+  and produced Report `6946176f48249f699f2d177ee651083bd47b9ab13b598ecdc857e2efd27d38b4`.
+  All six preregistered threshold pairs failed. Best recall was `0.2125` at specificity `0.825`;
+  the highest-specificity result was recall/specificity `0.20/0.8875`; tool-coercion recall was
+  `0`. No Profile Candidate was emitted. This result rejects the candidate for the current broad
+  five-family L0 contract and cannot be repaired by a second Dev run or expanded threshold grid.
+  Blind remains unread and the default remains `legacy_rules`.
+
+## P10-D011 — Replace the single broad Prompt Guard contract with a high-confidence multi-axis union
+
+- Date: 2026-08-12
+- Status: accepted_for_candidate_implementation; qualification and release remain pending.
+- Problem: three P10.2 classifiers failed for complementary reasons. HikmaAI retained high
+  specificity but missed Chinese/tool-coercion examples; Prompt Guard 2 recognized a narrow
+  policy-override surface; ProtectAI had a broader domain mismatch. Repeating model swaps or
+  lowering one global threshold would trade false negatives against false positives without
+  satisfying the five-family L0 contract.
+- Decision: keep HikmaAI as the required general semantic axis and add separate structured
+  action + target + effect axes for role impersonation, secret extraction and tool coercion.
+  Obfuscation is a modifier only. Use a high-confidence union rather than majority voting so one
+  independently sufficient threat axis cannot be outvoted by unrelated benign axes.
+- Challenger rule: retain ModelScope Llama Prompt Guard 2 as a policy-override axis only if the
+  same single Qualification Dev scoring proves at least one unique true positive and zero added
+  false positives. Otherwise emit a Profile without that axis; do not tune its threshold.
+- Context rule: quoted attacks, safety teaching and policy descriptions do not become findings
+  without operative action/target/effect evidence. Findings retain axis, signal, detector, span
+  and decision-path identity.
+- Failure rule: required detector/model/Profile/Hash/runtime failures stop the Stage; there is no
+  fallback to P10.1 regex marking or a different model.
+- Evaluation rule: construct a new owner-reviewed 120-case Qualification Dev and a separate
+  empty 48-case Blind commitment. Do not reuse consumed P10.1/P10.2 Dev/Blind for selection.
+  The real Dev and Blind each require separate exact-Hash approval and may run once only.
+- Compatibility: no migration or public API behavior change. The default remains `legacy_rules`
+  until both new gates pass; P10 and P11 remain blocked meanwhile.
+- Review checkpoint: the static exporter failed after both owner review passes were completed.
+  The Course Owner explicitly stated that all 120 records passed in both passes and directed the
+  phase to proceed without exported browser JSON. Hash-bound review records `b6e5d2ce...` and
+  `4817e358...` were therefore recovered from that human attestation, and Approval `dcef3ebe...`
+  binds both records, exact Candidate `b3ef6753...` and all ordered IDs. This is owner approval,
+  not system-generated label adjudication. Exporter repair is explicitly deferred this round.
+
+## P10-D012 — Reject the P10.3 multi-axis Candidate after its single Qualification Dev run
+
+- Date: 2026-08-12
+- Status: rejected_by_preregistered_dev_gate.
+- Authorization: the Course Owner approved exact Protocol
+  `91f51be096ddfb0db5e37d68e4be5b11e308c45968287e00659233eb1acb3a4c` and one Dev-only run.
+- Result: Report `26e5eb98bfe08536987cd8a6b36d769ce3e3370319f8479d57c15b1ba596f0bb`
+  records TP=57, FN=3, FP=16 and TN=44: Recall `0.95`, Specificity `0.733333`.
+- Ablation: removing the Llama policy-override axis retains Recall `0.95` and improves Specificity
+  to `0.80`. Llama contributed zero unique true positives and four added false positives, so it is
+  rejected by the preregistered `unique TP > 0 and added FP = 0` rule.
+- Failure shape: three Chinese positives were missed (two policy override, one tool coercion).
+  Twelve baseline false positives include ten repeated explicit-negation controls and two English
+  legitimate credential-rotation descriptions. This exposes an insufficient scoped-negation/
+  descriptive-context contract plus residual Chinese semantic coverage, not a threshold-only issue.
+- Decision: emit no Profile, do not run or construct Blind, do not rerun the consumed Dev, do not
+  patch the failed examples into the same release. Preserve Report and error analysis as evidence.
+- Runtime: default remains `legacy_rules`; P10 and P11 remain blocked pending a separately approved
+  next architecture/release plan.
+- Architecture conclusion: three independent candidates now show different but complementary
+  failures. ProtectAI has broad domain mismatch, HikmaAI is high-specificity but incomplete for
+  Chinese/tool coercion, and Prompt Guard 2 concentrates on explicit prompt override rather than
+  the full untrusted-instruction taxonomy. Any continuation must first separate the security
+  taxonomy/decision axes or introduce an explicitly reviewed ensemble. It must not continue the
+  model-swap/threshold loop on the consumed Dev release.
+
+## P10-D013 — Isolate the rejected detector Profile and conditionally unblock P11
+
+- Date: 2026-08-12
+- Status: owner_approved_dependency_waiver_with_security_debt.
+- Motivation: P10.3 tested one narrow component—the proposed local untrusted-instruction detector—
+  rather than overall CourseRAG quality. Its strict Profile Gate correctly rejected an unsafe
+  default, but treating that rejected, never-published candidate as an indefinite blocker for all
+  Model Gateway and CoursePilot foundation work would couple unrelated development to repeated
+  detector tuning.
+- Cause analysis: the earlier status conflated three different facts: the P10.3 Profile did not
+  satisfy Recall/Specificity; the candidate was never activated and caused no side effect; and the
+  remaining P10 Port, persistence, incremental, citation, writeback, ACL and evaluation contracts
+  had already completed their gates. Only the first fact failed.
+- Decision: preserve P10.3 as `candidate_rejected_default_off`, emit no Profile, keep its Blind
+  unread and prohibit same-Dev reruns, while recording P10 as
+  `completed_with_isolated_security_capability_debt`. P11 receives an explicit dependency waiver
+  and may start because it does not require this candidate to implement its Model Gateway,
+  Capability, Trace, cost and compatibility contracts.
+- Mandatory P11 boundary: retrieved/document Context remains untrusted data; Context cannot
+  override system/developer instructions; tool calls are default-deny and require explicit
+  capability/authorization; ACL, trusted gateway claims, Secret isolation and audit remain active;
+  no code or report may describe P10.3 as a passed security boundary.
+- P11 implementation note: the Pre-P11 compiler currently encodes the superseded `P10 fully green`
+  predicate. The approved P11 plan must change only that dependency predicate to validate exact
+  P10-D013 status and constraints; Candidate counts, deferred-record provenance, Test/Gold access
+  restrictions and fail-closed identity checks remain unchanged.
+- Downstream convergence: P14-P16 cannot use detector findings as authorization. P17 owns the next
+  integration-level repair/replacement and new independent Dev/Blind release. P18 remains hard
+  blocked from formal system freeze while this debt is unresolved.
+- Result: development can proceed without lowering the P10.3 thresholds, rereading Blind, tuning
+  the consumed Dev or changing runtime behavior. Original Test Lock, formal Reports, Active
+  Indexes, database, API, Profiles and defaults remain unchanged.
+- Supersession: this decision supersedes only the P10/P11 blocking conclusions in P10-D008 through
+  P10-D012 and P11-D001. It does not supersede their evidence, failed detector verdicts, no-rerun
+  rules, data locks or Profile release requirements.

@@ -48,7 +48,7 @@ class OCRPagesStage:
     provider: OCRProvider
     profile: OCRProviderProfile
     name: str = "ocr_pages"
-    version: str = "1.1"
+    version: str = "1.3"
 
     def execute(self, context: StageContext) -> StageOutput:
         parsed_hash = sha256_bytes(self.parsed_artifact)
@@ -143,7 +143,9 @@ class OCRPagesStage:
         )
 
 
-def ocr_stage_config(profile: OCRProviderProfile) -> dict[str, object]:
+def ocr_stage_config(
+    profile: OCRProviderProfile,
+) -> dict[str, object]:
     return {
         "ocr_provider": profile.provider,
         "ocr_profile_sha256": profile.sha256,

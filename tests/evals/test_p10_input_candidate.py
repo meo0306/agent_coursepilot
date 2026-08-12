@@ -85,12 +85,9 @@ def test_p10_exact_scope_statuses_and_test_boundary() -> None:
     assert manifest.review_ui_revision == 2
     assert len(manifest.first_review_ids) == 57
     assert len(manifest.second_review_ids) == 29
-    assert (
-        EvalTestLock.model_validate_json(
-            (ROOT / "test.lock.json").read_text(encoding="utf-8")
-        ).locked
-        is False
-    )
+    lock = EvalTestLock.model_validate_json((ROOT / "test.lock.json").read_text(encoding="utf-8"))
+    assert lock.locked is True
+    assert lock.test_ids_sha256 and lock.approved_manifest_sha256
     review_html = (Path(manifest.review_pack_relative_path) / "index.html").read_text(
         encoding="utf-8"
     )
@@ -219,6 +216,19 @@ def _copy_approval_repository(tmp_path: Path, manifest: P10BundleManifest) -> Pa
         destination = repository / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
+    atomic_write_json(
+        repository / "datasets/courserag_eval/v1/test.lock.json",
+        {
+            "schema_version": "course-eval.test-lock.v1",
+            "dataset_id": "courserag-eval",
+            "dataset_version": "v1",
+            "locked": False,
+            "test_ids_sha256": None,
+            "approved_manifest_sha256": None,
+            "locked_at": None,
+            "locked_by": None,
+        },
+    )
     return repository
 
 
@@ -342,7 +352,7 @@ def test_p10_owner_conversation_attestation_is_exact_and_hash_bound(
     assert all(item.decision == "pass" for item in (*first.decisions, *second.decisions))
 
 
-def test_p10_repository_approval_preserves_candidates_and_unlocked_test() -> None:
+def test_p10_repository_preserves_approved_candidates_and_consumed_test_lock() -> None:
     *_, manifest = _load()
     approval = P10BundleApproval.model_validate_json(
         (ROOT / "provenance/p10_input_bundle_approval.json").read_text(encoding="utf-8")
@@ -388,6 +398,6 @@ def test_p10_repository_approval_preserves_candidates_and_unlocked_test() -> Non
     assert governance["gold_status"] == "p10_input_gold_approved"
     assert governance["phase_input_status"]["p09"] == "completed_gate_passed"
     assert governance["phase_input_status"]["p10"] == "formal_dev_eval_ready"
-    assert not EvalTestLock.model_validate_json(
-        (ROOT / "test.lock.json").read_text(encoding="utf-8")
-    ).locked
+    lock = EvalTestLock.model_validate_json((ROOT / "test.lock.json").read_text(encoding="utf-8"))
+    assert lock.locked
+    assert lock.test_ids_sha256 and lock.approved_manifest_sha256

@@ -44,7 +44,7 @@ class ParentChildChunker:
     def build(self, evidence: EvidenceArtifact) -> ChunkArtifact:
         chunk_set_id = stable_chunk_set_id(
             evidence.document_version_id,
-            evidence.content_sha256,
+            evidence.chunk_identity_sha256,
             self.profile.profile_sha256,
         )
         parents: list[ChunkRecord] = []

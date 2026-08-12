@@ -159,3 +159,27 @@ def test_versioned_retrieval_rejects_unfrozen_local_embedding() -> None:
                 COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
                 _env_file=None,
             )
+
+
+def test_multi_axis_security_requires_complete_hikma_identity() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(ValueError, match="requires Profile and Hikma model identity"):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="multi_axis_local",
+                COURSERAG_SECURITY_ENSEMBLE_PROFILE_PATH="profile.json",
+                _env_file=None,
+            )
+
+
+def test_multi_axis_required_override_requires_llama_identity() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(ValueError, match="required Override axis"):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="multi_axis_local",
+                COURSERAG_SECURITY_ENSEMBLE_PROFILE_PATH="profile.json",
+                COURSERAG_SECURITY_HIKMA_MODEL_PATH="D:/AI/hikma",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_PATH="hikma.json",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256="1" * 64,
+                COURSERAG_SECURITY_OVERRIDE_AXIS="required",
+                _env_file=None,
+            )

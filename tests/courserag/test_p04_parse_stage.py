@@ -7,7 +7,11 @@ from sqlalchemy.orm import Session
 
 from courserag.domain.document import sha256_bytes
 from courserag.jobs.artifacts import FileArtifactStore
-from courserag.jobs.parsing import StructuredParseStage, StructuredParsingCoordinator
+from courserag.jobs.parsing import (
+    StructuredParseStage,
+    StructuredParsingCoordinator,
+    structured_parse_stage_config,
+)
 from courserag.jobs.stages import BuildStageRunner, StageContext
 from courserag.persistence.models import (
     BlockRecord,
@@ -80,7 +84,9 @@ def test_parse_stage_uses_cache_and_materializes_idempotently(
         knowledge_base_id=kb.id,
         input_hashes=(version.content_sha256,),
         input_identities=(version.id,),
-        config={"parser_profile": "structured_pdf_v1", "pipeline_version": "p04-v1"},
+        config=structured_parse_stage_config(
+            parser_profile="structured_pdf_v1", pipeline_version="p04-v1"
+        ),
     )
     first = coordinator.run(stage, context)
     second = coordinator.run(stage, context)

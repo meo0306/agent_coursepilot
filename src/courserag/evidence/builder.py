@@ -59,7 +59,7 @@ class EvidenceBuilder:
         return EvidenceArtifact(
             document_id=document.document_id,
             document_version_id=document.document_version_id,
-            parsed_document_sha256=document.content_sha256,
+            parsed_document_sha256=self._semantic_document_sha256(document),
             builder_profile=self.profile.name,
             builder_profile_sha256=self.profile.sha256,
             records=tuple(linked),
@@ -67,6 +67,19 @@ class EvidenceBuilder:
                 sorted({code for record in linked for code in record.warning_codes})
             ),
         )
+
+    @staticmethod
+    def _semantic_document_sha256(document: ParsedDocumentIR) -> str:
+        identity = document.metadata.get("prompt_injection_profile")
+        if isinstance(identity, dict):
+            source_sha256 = identity.get("input_content_sha256")
+            if (
+                isinstance(source_sha256, str)
+                and len(source_sha256) == 64
+                and all(character in "0123456789abcdef" for character in source_sha256)
+            ):
+                return source_sha256
+        return document.content_sha256
 
     def _located_body_blocks(self, document: ParsedDocumentIR) -> list[_LocatedBlock]:
         section_by_block = {
@@ -199,6 +212,10 @@ class EvidenceBuilder:
         confidences = [item.block.confidence for item in group if item.block.confidence is not None]
         confidence = min(confidences) if confidences else None
         warning_codes: set[str] = set()
+        for item in group:
+            style_warnings = item.block.style.get("warning_codes", [])
+            if isinstance(style_warnings, list):
+                warning_codes.update(str(code) for code in style_warnings)
         if confidence is not None and confidence < self.profile.low_confidence_threshold:
             warning_codes.add("LOW_SOURCE_CONFIDENCE")
         if any(self._uses_coarse_docx_page_bbox(item) for item in group):
@@ -247,9 +264,6 @@ class EvidenceBuilder:
         if self._source_mode(group) == "native":
             return None
         styles = [item.block.style for item in group]
-        style_warnings = styles[0].get("warning_codes", [])
-        if isinstance(style_warnings, list):
-            warning_codes.update(str(code) for code in style_warnings)
         return EvidenceOCRProvenance(
             engine=self._style_string(styles[0], "engine", "unknown"),
             model_name=self._style_string(styles[0], "model_name", "unknown"),

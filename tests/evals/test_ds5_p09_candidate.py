@@ -148,6 +148,19 @@ def _copy_pre_p09_repo(tmp_path: Path) -> Path:
         destination = repository / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
+    atomic_write_json(
+        repository / "datasets/courserag_eval/v1/test.lock.json",
+        {
+            "schema_version": "course-eval.test-lock.v1",
+            "dataset_id": "courserag-eval",
+            "dataset_version": "v1",
+            "locked": False,
+            "test_ids_sha256": None,
+            "approved_manifest_sha256": None,
+            "locked_at": None,
+            "locked_by": None,
+        },
+    )
     governance_path = repository / "datasets/courserag_eval/v1/manifest.json"
     governance = json.loads(governance_path.read_text(encoding="utf-8"))
     governance["gold_components"]["ds5_qa"] = "pending_p09"

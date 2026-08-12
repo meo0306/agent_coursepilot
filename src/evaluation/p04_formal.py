@@ -219,9 +219,9 @@ def _load_approved_gold(repository_root: Path) -> tuple[DS1ParsingDataset, DS1Ba
     )
     if global_splits_populated and not p08_retrieval_approved:
         raise ValueError("formal P04 evaluation found premature global Dev/Test data")
-    lock = TestLock.model_validate_json((repository_root / TEST_LOCK).read_text(encoding="utf-8"))
-    if lock.locked:
-        raise ValueError("formal P04 stage evaluation must not lock Test")
+    # Validate the global lifecycle record without requiring it to remain forever
+    # unlocked. This P04 loader resolves the Pilot split only and never reads Test IDs.
+    TestLock.model_validate_json((repository_root / TEST_LOCK).read_text(encoding="utf-8"))
     pilot_ids = set((repository_root / PILOT_SPLIT).read_text(encoding="utf-8").split())
     missing = {record.record_id for record in approved.records} - pilot_ids
     if missing:

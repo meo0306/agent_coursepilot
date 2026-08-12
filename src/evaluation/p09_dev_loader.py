@@ -45,11 +45,9 @@ def load_p09_dev_bundle(dataset_root: Path) -> P09DevBundle:
         raise ValueError(
             "P09 Dev loader requires formal_dev_eval_ready or completed_gate_passed governance"
         )
-    lock = TestLock.model_validate_json(
-        (dataset_root / "test.lock.json").read_text(encoding="utf-8")
-    )
-    if lock.locked:
-        raise ValueError("P09 Dev loader refuses a locked/formal Test workflow")
+    # A consumed Test lock must not make immutable Dev evidence unreadable. This loader
+    # resolves only the frozen Dev ID file and still rejects every non-Dev overlay below.
+    TestLock.model_validate_json((dataset_root / "test.lock.json").read_text(encoding="utf-8"))
     retrieval = DS5RetrievalQADataset.model_validate_json(
         (dataset_root / "approved/ds5/p08_retrieval.json").read_text(encoding="utf-8")
     )
