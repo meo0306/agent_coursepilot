@@ -26,14 +26,21 @@ class AsyncTaskService:
         course_id: str,
         task_type: str,
         input_params: dict[str, Any],
+        workflow_type: str | None = None,
+        workflow_mode: str = "legacy",
     ) -> AsyncTaskAccepted:
         task = GenerationTask(
             course_id=course_id,
             task_type=task_type,
             status="pending",
+            workflow_type=workflow_type,
+            workflow_mode=workflow_mode,
             input_params_json=jsonable_encoder(input_params),
         )
         self.session.add(task)
+        self.session.flush()
+        if workflow_mode == "recoverable":
+            task.thread_id = f"coursepilot:{workflow_type}:{task.id}"
         self.session.commit()
         self.session.refresh(task)
         return AsyncTaskAccepted(

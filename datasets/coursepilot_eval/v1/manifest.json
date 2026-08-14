@@ -1,9 +1,18 @@
 {
-  "schema_version": "coursepilot.dataset-manifest.v1",
   "dataset_id": "coursepilot-eval",
   "dataset_version": "v1",
   "gold_status": "skeleton_no_formal_gold",
   "human_score_pilot": "human_scores/pilot.jsonl",
+  "outputs_inside_dataset_allowed": false,
+  "phase_execution_status": {
+    "p11": "completed",
+    "p12": "not_started"
+  },
+  "phase_input_status": {
+    "p11": "approved_for_implementation",
+    "p12": "approved_for_implementation"
+  },
+  "schema_version": "coursepilot.dataset-manifest.v1",
   "tracks": [
     "cp_ds0",
     "cp_ds1",
@@ -15,6 +24,5 @@
     "cp_ds7",
     "cp_ds8",
     "sys_ds1"
-  ],
-  "outputs_inside_dataset_allowed": false
+  ]
 }

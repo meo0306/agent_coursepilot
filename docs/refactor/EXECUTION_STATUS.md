@@ -3,9 +3,9 @@
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
 - Current branch: `refactor/p00-baseline`
-- Current phase: P10 core CourseRAG contracts are complete; P10.3 exact Protocol `91f51be0...` failed once (Recall 0.95, Specificity 0.7333), emitted no Profile and is isolated as default-off security capability debt under P10-D013
-- Current data checkpoint: checkpoint commit `3665211`; original Test Lock `06c6473e...`, formal Reports and P10.1 Blind Report `f07fc7c8...` remain immutable; P10.3 Report is `26e5eb98...`, its Blind commitment remains empty/unread, and P11 may start only under the P10-D013 fail-closed inheritance constraints
-- Last updated: 2026-08-12
+- Current phase: P12 PostgreSQL checkpoint and interrupt gate passed; P10.3 remains isolated, rejected and default-off under P10-D013
+- Current data checkpoint: approved CP-DS6 input was used for structural validation only; no Test or external Provider data was read or sent
+- Last updated: 2026-08-14
 
 | Phase | Status | Start Commit | End Commit | Gate | Report |
 |---|---|---|---|---|---|
@@ -20,15 +20,64 @@
 | P08 | completed | `b6483f5` | uncommitted (`b6483f5`) | passed | `phase_reports/P08_hybrid_retrieval_rrf_reranker.md` |
 | P09 | completed_with_quality_debt | `b6483f5` | uncommitted (`b6483f5`) | passed_core_contracts_profile_not_frozen | `phase_reports/P09_generation_reliability_gate_repair.md` |
 | P10 | completed_with_isolated_security_capability_debt | `b6483f5` | `3665211` + uncommitted P10.1-P10.3 repair | core_contracts_passed_security_profile_rejected_default_off | `phase_reports/P10_3_multi_axis_untrusted_instruction_detector.md` |
-| P11 | ready_to_start | | | prerequisites_met_with_P10_D013_security_constraints | |
-| P12 | not_started | | | blocked_by_P11 | |
-| P13 | not_started | | | blocked_by_P12 | |
+| P11 | completed | `2e1a6be` | uncommitted (`2e1a6be`) | passed | `phase_reports/P11_coursepilot_runtime_template_model_gateway.md` |
+| P12 | completed | `2e1a6be` | uncommitted | passed | `phase_reports/P12_postgresql_checkpoint_interrupt_approval.md` |
+| P13 | ready_to_start | | | P12_passed | |
+
+## P12 implementation checkpoint
+
+P12 runtime foundations are implemented with the approved choices: dual-mode rollout (Legacy
+defaults unchanged, Recoverable opt-in), trusted gateway Principal identity, and seven-day soft
+expiry. Alembic head is `0017_coursepilot_checkpoint_interrupts`. The Recoverable skeleton uses
+stable `coursepilot:{workflow_type}:{task_id}` threads, PostgreSQL Checkpointer factories,
+Interrupt/Decision/Resume/SideEffect facts, immutable edit versions, and separate export/writeback
+approval scopes. The isolated Compose PostgreSQL integration and CP-DS6 runtime runner are now
+complete; the default Recoverable runtime remains disabled.
+
+P12 validation update: the full suite is green; Ruff Format/Check and
+Mypy (`403` source files) pass; the migration head remains `0017_coursepilot_checkpoint_interrupts`.
+The B0 compatibility projection accepts additive P12 schemas/routes while preserving all legacy
+route/model snapshots. Real PostgreSQL `0016→0017→0016→0017`, restart/Resume, and runtime CP-DS6
+execution pass in the isolated Compose database: migration round-trip `0016 -> 0017 -> 0016 ->
+0017`, six restart/Resume/Interrupt cases, and 24 CP-DS6 structural cases with external_calls=0
+and gold_promotion=false. The default Recoverable runtime remains disabled.
 | P14 | not_started | | | blocked_by_P13 | |
 | P15 | not_started | | | blocked_by_P14 | |
 | P16 | not_started | | | blocked_by_P15 | |
 | P17 | not_started | | | blocked_by_P16 | |
 | P18 | not_started | | | blocked_by_P17 | |
 | P19 | not_started | | | blocked_by_P18 | |
+
+## P11 Runtime Foundation implementation checkpoint
+
+P11-T01 through P11-T08 are implemented and verified without external Provider calls. Runtime,
+Template, Model Gateway, migration and legacy compatibility identities are frozen in Candidate
+`datasets/coursepilot_eval/v1/candidates/work_packages/p11_runtime_foundation_snapshot_r1.json`,
+SHA-256 `2d9b902a9dfa67a749e561b7c82ced0f82beebebcb324516306493c91aa87837`.
+The Course Owner approved this exact identity on 2026-08-13. Approval provenance is preserved in
+`datasets/coursepilot_eval/v1/provenance/p11_runtime_foundation_snapshot_approval.json`. P11 is now
+`completed / passed` and P12 is `ready_to_start`; P12 was not started by this approval update. The
+rejected P10.3 detector remains default-off and is not represented as a passed security boundary.
+
+## P12 CP-DS6 Pilot input checkpoint (legacy note)
+
+Candidate `datasets/coursepilot_eval/v1/candidates/cp_ds6/p12_interrupt_recovery_r1.json`
+contains 24 deterministic, course-agnostic structural cases (six Interrupt types × four
+scenarios), SHA-256 `e0b854c2fe261571b6319447e9e0feabd732e67a1b509e121ddb18b3ae1701a1`.
+The offline review page is under
+`storage_eval/cp_ds6_p12_review/e0b854c2fe261571b6319447e9e0feabd732e67a1b509e121ddb18e9e0feabd732e67a1b509e121ddb18b3ae1701a1/index.html`.
+The legacy one-case CP-DS6 Pilot remains unchanged for Schema regression. No Approved P12 file,
+CoursePilot Dev/Test IDs, Test lock, database migration or runtime evaluation was changed.
+
+## P12 Candidate review status
+
+The P12 CP-DS6 Pilot Candidate is `datasets/coursepilot_eval/v1/candidates/cp_ds6/p12_interrupt_recovery_r1.json`,
+SHA-256 `e0b854c2fe261571b6319447e9e0feabd732e67a1b509e121ddb18b3ae1701a1`, with 24 structural
+records. Review entry: `storage_eval/cp_ds6_p12_review/e0b854c2fe261571b6319447e9e0feabd732e67a1b509e121ddb18b3ae1701a1/index.html`.
+The exact Candidate was approved as P12 implementation input. Approved package SHA-256 is
+`1def8ba6bdb774bc744e4bac2cc70793867c96cc2d8a0929efbe62d32cc4f078`; approval SHA-256 is
+`a0e4e6490e8d5d53a7337946169e95d68050368fc44eb7ec29659946c356be61`. This does not promote
+formal CoursePilot Gold, populate Dev/Test, lock Test, or claim a P12 Exit Gate.
 
 ## Current data-preparation tasks
 
@@ -829,6 +878,28 @@ covered Draft, full Candidate, two review passes, work-package approval and the 
 Foundation Snapshot; the legacy CP-DS0 Schema remained backward compatible while rejecting
 invented future runtime Hashes. P11 was `not_started` and `blocked_by_P10` at that checkpoint;
 P10-D013 later supersedes only this dependency conclusion, not the Draft evidence or guards.
+
+### Pre-P11 P10-D013 Candidate completion
+
+The pre-P11 compiler now validates the exact owner-approved P10-D013 dependency waiver instead of
+claiming the rejected P10.3 Profile passed. It binds failed report `26e5eb98...`, the empty/unread
+Blind commitment, `candidate_rejected_default_off`, the unchanged `legacy_rules` runtime default,
+the original Frozen Manifest/Test identity, the CourseRAG consumer Port and eight inherited
+Context/tool/ACL/Secret/audit constraints. All checks pass.
+
+The three deferred CourseRAG records were added using only the two preregistered Approved Dev Query
+IDs plus one content-free structural failure fixture. The complete Candidate is now 40 records with
+exact `1/9/12/18` distribution. Candidate SHA-256 is `357a9c0d...`; the exact Bundle SHA-256 is
+recorded in the Candidate Manifest and phase report. Two generations reproduce Candidate, Manifest
+and both review pages byte-for-byte.
+The Course Owner completed the 40-record first review and fixed 27-record blind second review with
+zero returns, then approved exact Bundle
+`ed28509cfbfdba2c530b91b63fa879f1dd50700bd8b4ca4858c271838fb25522`. Approved work-package SHA-256
+is `357a9c0d242bd28c9c574086ace6c7a93383643f497364e728a0f2af9eebe3dd`; Approval SHA-256 is
+`09b2525848469d219590c373095415dc454de7d37590aeb2ab68990dce4fc234`. P11 input status is now
+`approved_for_implementation` while P11 execution remains `not_started`. This approval does not
+promote formal CP Gold: Dev/Test remain empty, Test remains unlocked and
+`gold_status=skeleton_no_formal_gold`.
 
 ## P10.1 Security Gate repair checkpoint
 

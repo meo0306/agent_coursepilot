@@ -1537,6 +1537,22 @@
   never formal CP-DS0—CP-DS8 Gold. The post-P11 Runtime Foundation Snapshot requires a separate
   exact approval and still does not replace the P18 formal Gold freeze.
 
+### P11-D001 P10-D013 adaptation result — 2026-08-12
+
+The generator now accepts only the exact owner-approved P10-D013 waiver identity while binding the
+unchanged failed P10.3 report, no-Profile/default-off state, unread Blind commitment and inherited
+security constraints. It produced the complete 40-record Candidate; the exact Bundle identity is
+recorded in its Candidate Manifest and phase report.
+This does not change the failed detector verdict and does not promote formal CP Gold.
+
+### P11-D001 Foundation input approval result — 2026-08-12
+
+The Course Owner approved exact Bundle
+`ed28509cfbfdba2c530b91b63fa879f1dd50700bd8b4ca4858c271838fb25522` after complete 40-record first
+review and fixed 27-record blind second review, both with zero returns. The promotion scope is only
+`p11_foundation_input_contract_only`; it authorizes P11 implementation input but does not approve
+CP-DS0—CP-DS8 formal Gold or relax the P10-D013 inherited security constraints.
+
 ## P10-D010 — Replace regex-only marking with a local semantic Prompt Guard stage
 
 - Status: accepted_architecture_implementation_in_progress
@@ -1713,3 +1729,61 @@
 - Supersession: this decision supersedes only the P10/P11 blocking conclusions in P10-D008 through
   P10-D012 and P11-D001. It does not supersede their evidence, failed detector verdicts, no-rerun
   rules, data locks or Profile release requirements.
+
+## P11-D002 — Establish one versioned runtime foundation beside the legacy Graphs
+
+- Status: accepted_and_implemented
+- Date: 2026-08-13
+- Motivation: rewriting all three business Graphs in P11 would combine contract, persistence and
+  business-algorithm risk, while creating a second task table would split the source of truth.
+- Decision: retain `GenerationTask` as the BusinessTask carrier, add stable Workflow Run, Template
+  Snapshot, Artifact/Version, Node Run, Approval and Model Invocation facts, and mirror legacy
+  successes through one reversible compatibility adapter. Stable threads use
+  `coursepilot:{workflow_type}:{task_id}`. New runtime modules consume CourseRAG only through its
+  public Port and never import Parser, Chunker, Index, persistence, Chroma or legacy chunks.
+- Compatibility: no public CoursePilot path or response field is removed or renamed. Turning off
+  `COURSEPILOT_RUNTIME_COMPATIBILITY_RECORDING` stops new mirroring without deleting audit facts or
+  disabling legacy services.
+- Result: task output is traceable to immutable Template, Prompt, Context, Model and Artifact
+  identities while P14-P16 remain the owners of business Graph migration.
+
+## P11-D003 — Route six logical model profiles through capability-aware Main/Light identities
+
+- Status: accepted_and_implemented
+- Date: 2026-08-13
+- Decision: keep six independent logical profiles even when Main and Light currently resolve to the
+  same physical `COMPATIBLE_*` configuration. Provider/model/endpoint remain configuration, Secret
+  values remain environment-only, and unsupported reasoning/thinking fields are omitted rather
+  than guessed. P11 exposes no tools. Escalation is explicit, profile-declared and caller-approved;
+  evaluation and runtime faults fail closed instead of silently switching models.
+- Result: the current deployment needs no additional model, while later Main/Light separation needs
+  only configuration and preserves Profile/Invocation audit identity.
+
+## P11-D004 — Freeze neutral template contracts while deferring production visual polish
+
+- Status: accepted_with_visual_qa_debt
+- Date: 2026-08-13
+- Decision: register nine approved logical templates and pin two editable A4 DOCX plus three
+  editable PPTX role resources by content Hash. The current environment validated file structure,
+  styles, master/layout and editability, but could not complete independent render inspection due
+  missing document-render dependencies and unavailable managed Artifact Tool execution.
+- Boundary: P11 claims registry/snapshot reproducibility and resource validity, not final export
+  aesthetics. P16 must render, inspect and refine all five resources before visual-quality freeze.
+
+### P11 Runtime Foundation Snapshot approval result — 2026-08-13
+
+The Course Owner approved exact Candidate SHA-256
+`2d9b902a9dfa67a749e561b7c82ced0f82beebebcb324516306493c91aa87837`.
+Approval scope is the P11 Runtime Foundation Snapshot only: it freezes the implemented Template,
+Prompt, Capability, State, Artifact, migration, test and compatibility identities; it does not
+promote CoursePilot formal Gold, approve P16 visual quality, activate the rejected P10.3 detector,
+or authorize P12 implementation. P11 therefore becomes `completed / passed`, and P12 becomes
+`ready_to_start` under its own Plan-and-approval checkpoint.
+## P12 Implementation Choices (2026-08-14)
+
+- **P12-D001 — 双模式渐进启用：** Legacy 入口保持自动完成；Recoverable Task API 显式启用
+  PostgreSQL Checkpoint 和六类 Interrupt，后续 P14-P16 再评估默认切换。
+- **P12-D002 — 可信审批身份：** 审批只接受网关注入的 Principal/Course/Role Header，Body
+  `actor_id` 不具有授权能力；Course 和角色不匹配时 fail-closed。
+- **P12-D003 — 七天软过期：** Interrupt 过期转 `needs_review`，不自动取消；Owner/System
+  显式重开并生成新 Interrupt，旧记录保留审计。

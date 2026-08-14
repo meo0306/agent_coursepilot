@@ -110,6 +110,26 @@ class Settings(BaseSettings):
     COURSEPILOT_ASYNC_WORKER_POLL_SECONDS: float = 1.0
     COURSEPILOT_ASYNC_TASK_LEASE_SECONDS: int = 300
     COURSEPILOT_ASYNC_WORKER_SHUTDOWN_TIMEOUT_SECONDS: int = 10
+    COURSEPILOT_TEMPLATE_REGISTRY_PATH: str = "resources/templates/registry_v1.yaml"
+    COURSEPILOT_MODEL_PROFILE_PATH: str = "resources/model_profiles/default_v1.yaml"
+    COURSEPILOT_PROVIDER_CAPABILITY_PATH: str = (
+        "resources/model_profiles/capabilities/deepseek_v4.json"
+    )
+    COURSEPILOT_MODEL_GATEWAY_MODE: Literal["local", "production", "evaluation"] = "local"
+    COURSEPILOT_MAIN_PROVIDER: str = "openai-compatible"
+    COURSEPILOT_MAIN_MODEL: str | None = None
+    COURSEPILOT_MAIN_BASE_URL: Annotated[str, BeforeValidator(check_str_is_http)] | None = None
+    COURSEPILOT_MAIN_API_KEY: SecretStr | None = None
+    COURSEPILOT_LIGHT_PROVIDER: str = "openai-compatible"
+    COURSEPILOT_LIGHT_MODEL: str | None = None
+    COURSEPILOT_LIGHT_BASE_URL: Annotated[str, BeforeValidator(check_str_is_http)] | None = None
+    COURSEPILOT_LIGHT_API_KEY: SecretStr | None = None
+    COURSEPILOT_RUNTIME_COMPATIBILITY_RECORDING: bool = True
+    COURSEPILOT_RECOVERABLE_WORKFLOWS_ENABLED: bool = False
+    COURSEPILOT_CHECKPOINT_DATABASE_URL: str | None = None
+    COURSEPILOT_CHECKPOINT_SCHEMA: str = "coursepilot_checkpoints"
+    COURSEPILOT_INTERRUPT_TTL_SECONDS: int = Field(default=604800, ge=60)
+    COURSEPILOT_TRUSTED_IDENTITY_HEADERS: bool = True
     COURSERAG_ARTIFACT_DIR: str = "./storage/courserag/artifacts"
     COURSERAG_ARTIFACT_RETENTION_HOURS: int = Field(default=168, ge=1)
     COURSERAG_STAGING_RETENTION_HOURS: int = Field(default=72, ge=1)

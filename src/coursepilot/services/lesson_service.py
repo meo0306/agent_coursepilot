@@ -10,9 +10,12 @@ from sqlalchemy.orm import Session
 
 from agents.coursepilot.graphs.lesson_graph import coursepilot_lesson_agent
 from core.settings import settings
+from coursepilot.domain.task import WorkflowType
 from coursepilot.exporters import LessonDocxExporter
 from coursepilot.llm import collect_coursepilot_llm_metadata, generate_structured
 from coursepilot.models import Course, ExportFile, LessonDesign
+from coursepilot.runtime.legacy_adapter import LegacyRuntimeAdapter
+from coursepilot.runtime.repository import RuntimeRepository
 from coursepilot.schemas.kb_schema import KBSearchResult
 from coursepilot.schemas.lesson_schema import (
     ExportFileRead,
@@ -56,6 +59,7 @@ class LessonService:
         course = self.session.get(Course, course_id)
         if course is None:
             raise ValueError(f"Course not found: {course_id}")
+        LegacyRuntimeAdapter.validate_template(WorkflowType.LESSON, params.teaching_template)
 
         # 2. 创建生成任务记录
         task = prepare_execution_task(
@@ -65,9 +69,18 @@ class LessonService:
             task_type="lesson_design",
             input_params=params.model_dump(mode="json"),
         )
+        runtime = LegacyRuntimeAdapter(RuntimeRepository(self.session))
+        runtime_run_id = runtime.begin(
+            task=task,
+            workflow_type=WorkflowType.LESSON,
+            legacy_template=params.teaching_template,
+            input_payload=params.model_dump(mode="json"),
+            request_id=f"legacy:{task.id}",
+            trace_id=f"legacy:{task.id}:1",
+        )
 
         # 3. 执行任务：检索课程知识库上下文，生成教学设计
-        config = new_workflow_config(namespace="lesson", course_id=course_id)
+        config = new_workflow_config(namespace="lesson", course_id=course_id, task_id=task.id)
         thread_id = workflow_thread_id(config)
         # graph invoke 前先写 running 记录并 commit。
         # 如果 graph 启动后立刻失败，数据库里仍然能看到 thread_id。
@@ -145,10 +158,19 @@ class LessonService:
                 response,
                 status="completed" if validation_report.passed else "needs_review",
             )
+            runtime.complete(
+                task=task,
+                run_id=runtime_run_id,
+                artifact_type="lesson",
+                content=response.model_dump(mode="json"),
+                status="completed" if validation_report.passed else "needs_review",
+                invocations=collector.invocations,
+            )
             self.session.commit()
             self.session.refresh(lesson)
             return response
         except Exception as exc:
+            runtime.fail(runtime_run_id)
             fail_execution_task(task, exc)
             outputs = finish_graph_invocation(
                 task_outputs=task.intermediate_outputs_json,

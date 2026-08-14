@@ -6,7 +6,7 @@ import sys
 from logging.config import fileConfig
 from pathlib import Path
 
-from sqlalchemy import engine_from_config, pool
+from sqlalchemy import engine_from_config, pool, text
 
 from alembic import context
 
@@ -60,6 +60,22 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
+        # Alembic's default version table uses VARCHAR(32), while this
+        # repository's immutable revision identities are longer.  Create or
+        # widen the bookkeeping column before Alembic performs its first
+        # revision update.  This is PostgreSQL-only and leaves SQLite fixtures
+        # unchanged.
+        if connection.dialect.name == "postgresql":
+            connection.execute(
+                text(
+                    "CREATE TABLE IF NOT EXISTS alembic_version "
+                    "(version_num VARCHAR(64) NOT NULL PRIMARY KEY)"
+                )
+            )
+            connection.execute(
+                text("ALTER TABLE alembic_version ALTER COLUMN version_num TYPE VARCHAR(64)")
+            )
+            connection.commit()
         context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():

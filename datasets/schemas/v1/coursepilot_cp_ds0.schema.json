@@ -82,6 +82,17 @@
           "title": "Graph Version",
           "type": "string"
         },
+        "p11_foundation_input": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P11FoundationInputBinding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "record_id": {
           "maxLength": 160,
           "minLength": 1,
@@ -121,6 +132,149 @@
         "rubric_version"
       ],
       "title": "CPManifestRecord",
+      "type": "object"
+    },
+    "P11FoundationInputBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Schema Sha256"
+        },
+        "b0_interface_snapshot_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "B0 Interface Snapshot Sha256",
+          "type": "string"
+        },
+        "binding_status": {
+          "enum": [
+            "pending_p11_output",
+            "resolved"
+          ],
+          "title": "Binding Status",
+          "type": "string"
+        },
+        "frozen_document_hashes": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Frozen Document Hashes",
+          "type": "object"
+        },
+        "logical_template_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 9,
+          "minItems": 9,
+          "title": "Logical Template Ids",
+          "type": "array"
+        },
+        "migration_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Migration Sha256"
+        },
+        "model_capability_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Capability Manifest Sha256"
+        },
+        "model_profile_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 6,
+          "minItems": 6,
+          "title": "Model Profile Ids",
+          "type": "array"
+        },
+        "p10_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "P10 Contract Sha256",
+          "type": "string"
+        },
+        "p10_frozen_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "P10 Frozen Manifest Sha256",
+          "type": "string"
+        },
+        "prompt_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Manifest Sha256"
+        },
+        "state_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "State Schema Sha256"
+        },
+        "template_registry_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Template Registry Sha256"
+        }
+      },
+      "required": [
+        "frozen_document_hashes",
+        "b0_interface_snapshot_sha256",
+        "p10_frozen_manifest_sha256",
+        "p10_contract_sha256",
+        "logical_template_ids",
+        "model_profile_ids",
+        "binding_status"
+      ],
+      "title": "P11FoundationInputBinding",
       "type": "object"
     },
     "ReviewStatus": {

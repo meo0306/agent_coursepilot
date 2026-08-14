@@ -176,8 +176,11 @@ def test_embedding_rate_limit_honors_retry_after_with_maximum():
     assert delays == [120]
 
 
-def test_coursepilot_llm_enables_deepseek_thinking(monkeypatch):
+def test_coursepilot_llm_uses_capability_manifest(monkeypatch):
     get_coursepilot_llm.cache_clear()
+    from coursepilot.llm import _configured_model_gateway
+
+    _configured_model_gateway.cache_clear()
     monkeypatch.setattr("coursepilot.llm.settings.COMPATIBLE_MODEL", "deepseek-v4-pro")
     monkeypatch.setattr("coursepilot.llm.settings.COMPATIBLE_BASE_URL", "https://api.deepseek.com")
     monkeypatch.setattr("coursepilot.llm.settings.COMPATIBLE_API_KEY", SecretStr("test-key"))
@@ -194,6 +197,7 @@ def test_coursepilot_llm_enables_deepseek_thinking(monkeypatch):
         assert llm.max_retries == 0
     finally:
         get_coursepilot_llm.cache_clear()
+        _configured_model_gateway.cache_clear()
 
 
 def test_prompt_hash_and_language_policy_are_stable():

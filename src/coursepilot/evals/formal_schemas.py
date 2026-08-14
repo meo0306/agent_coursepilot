@@ -8,6 +8,7 @@ from pydantic import Field, RootModel, model_validator
 from evaluation.contracts import (
     HumanReviewMetadata,
     ReviewableRecord,
+    Sha256,
     StrictModel,
 )
 
@@ -18,6 +19,38 @@ class DatasetEnvelope(StrictModel):
     dataset_version: str = Field(min_length=1, max_length=80)
 
 
+class P11FoundationInputBinding(StrictModel):
+    frozen_document_hashes: dict[str, Sha256]
+    b0_interface_snapshot_sha256: Sha256
+    p10_frozen_manifest_sha256: Sha256
+    p10_contract_sha256: Sha256
+    logical_template_ids: list[str] = Field(min_length=9, max_length=9)
+    model_profile_ids: list[str] = Field(min_length=6, max_length=6)
+    binding_status: Literal["pending_p11_output", "resolved"]
+    template_registry_sha256: Sha256 | None = None
+    prompt_manifest_sha256: Sha256 | None = None
+    model_capability_manifest_sha256: Sha256 | None = None
+    state_schema_sha256: Sha256 | None = None
+    artifact_schema_sha256: Sha256 | None = None
+    migration_sha256: Sha256 | None = None
+
+    @model_validator(mode="after")
+    def validate_binding_status(self) -> P11FoundationInputBinding:
+        runtime_hashes = (
+            self.template_registry_sha256,
+            self.prompt_manifest_sha256,
+            self.model_capability_manifest_sha256,
+            self.state_schema_sha256,
+            self.artifact_schema_sha256,
+            self.migration_sha256,
+        )
+        if self.binding_status == "pending_p11_output" and any(runtime_hashes):
+            raise ValueError("pending P11 bindings cannot contain future runtime hashes")
+        if self.binding_status == "resolved" and any(value is None for value in runtime_hashes):
+            raise ValueError("resolved P11 bindings require every runtime hash")
+        return self
+
+
 class CPManifestRecord(ReviewableRecord):
     graph_version: str
     courserag_fixture_version: str
@@ -26,6 +59,7 @@ class CPManifestRecord(ReviewableRecord):
     repair_policy_version: str
     exporter_version: str
     rubric_version: str
+    p11_foundation_input: P11FoundationInputBinding | None = None
 
 
 class CPDS0ManifestDataset(DatasetEnvelope):
@@ -166,6 +200,97 @@ class InterruptRecoveryCase(ReviewableRecord):
 class CPDS6RecoveryDataset(DatasetEnvelope):
     schema_version: Literal["coursepilot.cp-ds6.v1"] = "coursepilot.cp-ds6.v1"
     cases: list[InterruptRecoveryCase] = Field(default_factory=list)
+
+
+class P12InterruptRecoveryCase(ReviewableRecord):
+    """Deterministic P12 Pilot contract; it contains no future runtime identities."""
+
+    interrupt_type: Literal[
+        "lesson_session_plan_review",
+        "lesson_final_review",
+        "exam_blueprint_review",
+        "exam_global_review",
+        "ppt_architecture_review",
+        "ppt_final_review",
+    ]
+    workflow_type: Literal["lesson", "exam", "ppt"]
+    scenario_type: Literal["approve", "edit_resume", "replan", "reject"]
+    fixture_id: str = Field(pattern=r"^p12-structure-[a-z0-9-]+$")
+    task_ref: str = Field(pattern=r"^task:p12:[a-z0-9-]+$")
+    thread_ref: str = Field(pattern=r"^thread:p12:[a-z0-9-]+$")
+    checkpoint_ref: str = Field(pattern=r"^checkpoint:p12:[a-z0-9-]+$")
+    artifact_ref: str = Field(pattern=r"^artifact:p12:[a-z0-9-]+$")
+    initial_state: dict[str, str] = Field(min_length=4)
+    fault_sequence: list[str] = Field(min_length=1)
+    human_decision: Literal["approve", "edit_resume", "replan", "reject"]
+    editable_paths: list[str] = Field(default_factory=list)
+    edit_patch: dict[str, str] = Field(default_factory=dict)
+    expected_state_transitions: list[str] = Field(min_length=2)
+    expected_artifact_version_before: int = Field(ge=1)
+    expected_artifact_version_after: int = Field(ge=1)
+    expected_reused_nodes: list[str] = Field(default_factory=list)
+    expected_invalidated_nodes: list[str] = Field(default_factory=list)
+    approval_scope_granted: list[str] = Field(default_factory=list)
+    approval_scope_forbidden: list[str] = Field(default_factory=list)
+    expected_side_effects: dict[str, int] = Field(min_length=4)
+    expected_error_class: str | None = None
+    stale_version_detected: bool
+    resume_after_cancel_forbidden: bool = True
+
+    @model_validator(mode="after")
+    def validate_p12_case(self) -> P12InterruptRecoveryCase:
+        if self.human_decision != self.scenario_type:
+            raise ValueError("P12 human decision must match scenario type")
+        if self.expected_artifact_version_after < self.expected_artifact_version_before:
+            raise ValueError("P12 artifact version cannot move backwards")
+        if self.scenario_type == "edit_resume":
+            if not self.editable_paths or not self.edit_patch:
+                raise ValueError("edit_resume requires editable paths and a patch")
+            if self.expected_artifact_version_after != self.expected_artifact_version_before + 1:
+                raise ValueError("edit_resume must create exactly one new artifact version")
+        else:
+            if self.editable_paths or self.edit_patch:
+                raise ValueError("only edit_resume may contain an edit patch")
+        if self.scenario_type == "replan" and not self.stale_version_detected:
+            raise ValueError("replan must detect a stale version")
+        if self.scenario_type == "reject" and not any(
+            transition.endswith("->cancelled") for transition in self.expected_state_transitions
+        ):
+            raise ValueError("reject must terminate in cancelled state")
+        if self.expected_side_effects.get("duplicate_decision_records", 0) != 0:
+            raise ValueError("duplicate decision records must remain zero")
+        if self.scenario_type == "reject" and not self.resume_after_cancel_forbidden:
+            raise ValueError("cancelled P12 tasks must reject resume")
+        return self
+
+
+class CPDS6P12PilotDataset(DatasetEnvelope):
+    schema_version: Literal["coursepilot.cp-ds6-p12.v1"] = "coursepilot.cp-ds6-p12.v1"
+    dataset_id: Literal["coursepilot-eval"] = "coursepilot-eval"
+    dataset_version: Literal["p12-pilot-r1"] = "p12-pilot-r1"
+    approval_scope: Literal["cp_ds6_pilot_input_only"] = "cp_ds6_pilot_input_only"
+    cases: list[P12InterruptRecoveryCase] = Field(min_length=24, max_length=24)
+
+    @model_validator(mode="after")
+    def validate_distribution(self) -> CPDS6P12PilotDataset:
+        interrupt_counts = {
+            item: 0
+            for item in (
+                "lesson_session_plan_review",
+                "lesson_final_review",
+                "exam_blueprint_review",
+                "exam_global_review",
+                "ppt_architecture_review",
+                "ppt_final_review",
+            )
+        }
+        scenario_counts = {item: 0 for item in ("approve", "edit_resume", "replan", "reject")}
+        for case in self.cases:
+            interrupt_counts[case.interrupt_type] += 1
+            scenario_counts[case.scenario_type] += 1
+        if set(interrupt_counts.values()) != {4} or set(scenario_counts.values()) != {6}:
+            raise ValueError("P12 Pilot requires 4 cases per interrupt and 6 per scenario")
+        return self
 
 
 class TemplateExportCase(ReviewableRecord):

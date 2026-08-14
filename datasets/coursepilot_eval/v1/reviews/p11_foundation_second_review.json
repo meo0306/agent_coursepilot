@@ -1,0 +1,173 @@
+{
+  "bundle_sha256": "ed28509cfbfdba2c530b91b63fa879f1dd50700bd8b4ca4858c271838fb25522",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-01-lesson-standard-university"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-02-lesson-seminar"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-03-lesson-lab-practice"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-04-exam-chapter-assignment"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-05-exam-unit-quiz"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-06-exam-midterm-final"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-07-ppt-standard-lecture"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-08-ppt-concept-explanation"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-template-09-ppt-case-seminar"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-01-main-light-same-model"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-02-main-light-distinct-models"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-03-light-normal-route"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-04-light-explicit-escalation"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-05-omit-unsupported-reasoning"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-06-omit-unsupported-thinking"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-07-structured-output-capability"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-08-timeout-no-silent-switch"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-09-rate-limit-no-silent-switch"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-10-invalid-json-no-fallback"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-11-missing-usage-unknown"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-model-12-formal-eval-integrity"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-runtime-06-edit-creates-version"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-runtime-09-template-snapshot-pinned"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-runtime-11-fingerprint-input-change"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-runtime-13-bounded-compaction"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-runtime-15-b0-compatibility"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p11-runtime-16-courserag-docx-context"
+    }
+  ],
+  "expected_record_ids": [
+    "p11-template-01-lesson-standard-university",
+    "p11-template-02-lesson-seminar",
+    "p11-template-03-lesson-lab-practice",
+    "p11-template-04-exam-chapter-assignment",
+    "p11-template-05-exam-unit-quiz",
+    "p11-template-06-exam-midterm-final",
+    "p11-template-07-ppt-standard-lecture",
+    "p11-template-08-ppt-concept-explanation",
+    "p11-template-09-ppt-case-seminar",
+    "p11-model-01-main-light-same-model",
+    "p11-model-02-main-light-distinct-models",
+    "p11-model-03-light-normal-route",
+    "p11-model-04-light-explicit-escalation",
+    "p11-model-05-omit-unsupported-reasoning",
+    "p11-model-06-omit-unsupported-thinking",
+    "p11-model-07-structured-output-capability",
+    "p11-model-08-timeout-no-silent-switch",
+    "p11-model-09-rate-limit-no-silent-switch",
+    "p11-model-10-invalid-json-no-fallback",
+    "p11-model-11-missing-usage-unknown",
+    "p11-model-12-formal-eval-integrity",
+    "p11-runtime-06-edit-creates-version",
+    "p11-runtime-09-template-snapshot-pinned",
+    "p11-runtime-11-fingerprint-input-change",
+    "p11-runtime-13-bounded-compaction",
+    "p11-runtime-15-b0-compatibility",
+    "p11-runtime-16-courserag-docx-context"
+  ],
+  "review_pass": "second",
+  "reviewed_at": "2026-08-12T15:47:36.648000Z",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p11-foundation-review-decisions.v1"
+}

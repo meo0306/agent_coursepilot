@@ -1,0 +1,29 @@
+{
+  "artifact_schema_sha256": "293a907fecd30a136ff7f7eb30de6f50ba98d8c37f547081508fd65fabc7679f",
+  "b0_compatibility_report_sha256": "3d278edd5e329a7a9ce537eab0f763ee2e6af731d916aeb56ac1917bdec5a28f",
+  "bundle_sha256": "ed28509cfbfdba2c530b91b63fa879f1dd50700bd8b4ca4858c271838fb25522",
+  "capability_manifest_sha256": "a827a39f600e77dc78a8aa7dcfb95a53fc1c7fa2e72cc8ca8cd0753870064443",
+  "legacy_compatibility_roles": [
+    "validator",
+    "repair",
+    "exporter"
+  ],
+  "migration_sha256": "0bc89b1dd862edd716fe84b6cad731d1ec2d825827379ea19e0af0ff30d4083b",
+  "migration_version": "0016_coursepilot_runtime_foundation",
+  "model_profile_manifest_sha256": "83f8b0cd4c0630bb3634ce49dee38e38442af64314cc38b44d4f46611ab12b06",
+  "p10_contract_sha256": "9a11cf22f3a66550fffdfc213441d565c9babeb17287116d61d7887b6b9dc077",
+  "p10_frozen_manifest_sha256": "cad5df9ce87fc9682bef2441ed66aa957064f467a5ffdbd209b37e358c40937a",
+  "p11_phase_report_sha256": "b8acb5147380781bf4fa57d614bccac23d1adedcd53ad483976e05f72f686fca",
+  "p11_test_report_sha256": "799a08ae7b266b3a23e26e2231ad04290a6db5dd55ded19ec94471a8cfec61a6",
+  "prompt_manifest_sha256": "416db272f2165b6fb86b68391d2ea2ea30564ad3f57b4a6cffba75725b8fa6fa",
+  "schema_version": "coursepilot.p11-runtime-foundation-snapshot.v1",
+  "state_schema_sha256": "5e279d439843ef0c2ddef1ee2369d6946386b69225efece040781f8537be9dfb",
+  "template_resource_hashes": {
+    "exam_default_docx": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+    "lesson_default_docx": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+    "ppt_case_seminar_pptx": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+    "ppt_concept_explanation_pptx": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+    "ppt_standard_lecture_pptx": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+  },
+  "template_snapshot_schema_sha256": "bb4af5b8da77d6e75f00de6cb2de0683e645c3b54b587185b1c2e61931819479"
+}

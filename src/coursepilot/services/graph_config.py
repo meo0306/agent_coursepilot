@@ -7,9 +7,15 @@ from uuid import uuid4
 from langchain_core.runnables import RunnableConfig
 
 
-def new_workflow_config(*, namespace: str, course_id: str | None = None) -> RunnableConfig:
+def new_workflow_config(
+    *, namespace: str, course_id: str | None = None, task_id: str | None = None
+) -> RunnableConfig:
     """Create an isolated LangGraph config for CoursePilot product workflows."""
-    thread_id = f"coursepilot-{namespace}-{uuid4()}"
+    thread_id = (
+        f"coursepilot:{namespace}:{task_id}"
+        if task_id is not None
+        else f"coursepilot-{namespace}-{uuid4()}"
+    )
     configurable = {
         "thread_id": thread_id,
         "checkpoint_ns": namespace,

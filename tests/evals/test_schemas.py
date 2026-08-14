@@ -45,7 +45,7 @@ HASH_B = "b" * 64
 
 
 def test_all_p02_dataset_models_have_exported_schema_names():
-    assert len(SCHEMA_MODELS) == 76
+    assert len(SCHEMA_MODELS) == 77
     assert "course_eval_candidate_revision_history.schema.json" in SCHEMA_MODELS
     assert "courserag_corpus_fixture_manifest.schema.json" in SCHEMA_MODELS
     assert "courserag_ds1_sampling_plan.schema.json" in SCHEMA_MODELS

@@ -1,5 +1,6 @@
 from typing import Literal
 
+from langgraph.checkpoint.base import BaseCheckpointSaver
 from langgraph.graph import END, StateGraph
 
 from agents.coursepilot.nodes.exam_nodes import (
@@ -58,49 +59,42 @@ def after_blueprint(state: ExamGraphState) -> Literal["generate", "done"]:
     return "generate"
 
 
-graph = StateGraph[
-    ExamGraphState,
-    None,
-    ExamGraphState,
-    ExamGraphState,
-](ExamGraphState)
-graph.add_node("route", lambda state: {})
-graph.add_node("chat_response", chat_response)
-graph.add_node("retrieve_course_context", retrieve_course_context)
-graph.add_node("plan_exam_blueprint", plan_exam_blueprint)
-graph.add_node("generate_exam_questions", generate_exam_questions)
-graph.add_node("validate_exam_questions", validate_exam_questions)
-graph.add_node("repair_exam_questions", repair_exam_questions)
+def build_exam_graph(checkpointer: BaseCheckpointSaver | None = None):
+    graph = StateGraph[
+        ExamGraphState,
+        None,
+        ExamGraphState,
+        ExamGraphState,
+    ](ExamGraphState)
+    graph.add_node("route", lambda state: {})
+    graph.add_node("chat_response", chat_response)
+    graph.add_node("retrieve_course_context", retrieve_course_context)
+    graph.add_node("plan_exam_blueprint", plan_exam_blueprint)
+    graph.add_node("generate_exam_questions", generate_exam_questions)
+    graph.add_node("validate_exam_questions", validate_exam_questions)
+    graph.add_node("repair_exam_questions", repair_exam_questions)
 
-graph.set_entry_point("route")
-graph.add_conditional_edges(
-    "route",
-    route_entry,
-    {
-        "chat": "chat_response",
-        "workflow": "retrieve_course_context",
-        "questions": "generate_exam_questions",
-    },
-)
-graph.add_edge("chat_response", END)
-graph.add_edge("retrieve_course_context", "plan_exam_blueprint")
-graph.add_conditional_edges(
-    "plan_exam_blueprint",
-    after_blueprint,
-    {
-        "generate": "generate_exam_questions",
-        "done": END,
-    },
-)
-graph.add_edge("generate_exam_questions", "validate_exam_questions")
-graph.add_conditional_edges(
-    "validate_exam_questions",
-    should_repair,
-    {
-        "repair": "repair_exam_questions",
-        "done": END,
-    },
-)
-graph.add_edge("repair_exam_questions", "validate_exam_questions")
+    graph.set_entry_point("route")
+    graph.add_conditional_edges(
+        "route",
+        route_entry,
+        {
+            "chat": "chat_response",
+            "workflow": "retrieve_course_context",
+            "questions": "generate_exam_questions",
+        },
+    )
+    graph.add_edge("chat_response", END)
+    graph.add_edge("retrieve_course_context", "plan_exam_blueprint")
+    graph.add_conditional_edges(
+        "plan_exam_blueprint", after_blueprint, {"generate": "generate_exam_questions", "done": END}
+    )
+    graph.add_edge("generate_exam_questions", "validate_exam_questions")
+    graph.add_conditional_edges(
+        "validate_exam_questions", should_repair, {"repair": "repair_exam_questions", "done": END}
+    )
+    graph.add_edge("repair_exam_questions", "validate_exam_questions")
+    return graph.compile(checkpointer=checkpointer)
 
-coursepilot_exam_agent = graph.compile()
+
+coursepilot_exam_agent = build_exam_graph()

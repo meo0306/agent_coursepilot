@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from agents.coursepilot.graphs.ppt_graph import coursepilot_ppt_agent
 from core.settings import settings
+from coursepilot.domain.task import WorkflowType
 from coursepilot.exporters import PPTXExporter
 from coursepilot.llm import collect_coursepilot_llm_metadata
 from coursepilot.models import (
@@ -14,6 +15,8 @@ from coursepilot.models import (
     LessonDesign,
     SlideOutline,
 )
+from coursepilot.runtime.legacy_adapter import LegacyRuntimeAdapter
+from coursepilot.runtime.repository import RuntimeRepository
 from coursepilot.schemas.lesson_schema import LessonDesignContent
 from coursepilot.schemas.ppt_schema import (
     PPTExportResponse,
@@ -55,6 +58,7 @@ class PPTService:
         lesson = self.session.get(LessonDesign, lesson_id)
         if lesson is None:
             return None
+        LegacyRuntimeAdapter.validate_template(WorkflowType.PPT, params.style_template)
 
         task = prepare_execution_task(
             self.session,
@@ -63,8 +67,17 @@ class PPTService:
             task_type="ppt_outline",
             input_params=params.model_dump(mode="json"),
         )
+        runtime = LegacyRuntimeAdapter(RuntimeRepository(self.session))
+        runtime_run_id = runtime.begin(
+            task=task,
+            workflow_type=WorkflowType.PPT,
+            legacy_template=params.style_template,
+            input_payload=params.model_dump(mode="json"),
+            request_id=f"legacy:{task.id}",
+            trace_id=f"legacy:{task.id}:1",
+        )
 
-        config = new_workflow_config(namespace="ppt", course_id=lesson.course_id)
+        config = new_workflow_config(namespace="ppt", course_id=lesson.course_id, task_id=task.id)
         thread_id = workflow_thread_id(config)
         task.intermediate_outputs_json = start_graph_invocation(
             task_outputs=task.intermediate_outputs_json,
@@ -121,10 +134,19 @@ class PPTService:
                 response,
                 status="completed" if validation_report.passed else "needs_review",
             )
+            runtime.complete(
+                task=task,
+                run_id=runtime_run_id,
+                artifact_type="ppt_outline",
+                content=response.model_dump(mode="json"),
+                status="completed" if validation_report.passed else "needs_review",
+                invocations=collector.invocations,
+            )
             self.session.commit()
             self.session.refresh(outline)
             return response
         except Exception as exc:
+            runtime.fail(runtime_run_id)
             fail_execution_task(task, exc)
             outputs = finish_graph_invocation(
                 task_outputs=task.intermediate_outputs_json,

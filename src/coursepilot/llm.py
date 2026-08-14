@@ -9,6 +9,7 @@ from contextvars import ContextVar
 from dataclasses import dataclass, field
 from functools import cache
 from hashlib import sha256
+from pathlib import Path
 from typing import Any, TypeVar
 
 import httpx
@@ -17,6 +18,7 @@ from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field, ValidationError
 
 from core.settings import settings
+from coursepilot.models_gateway import GatewayMode, ModelGateway
 from coursepilot.prompts.loader import load_prompt
 from coursepilot.token_usage import (
     USAGE_SOURCE_PROVIDER,
@@ -128,20 +130,45 @@ def use_coursepilot_llm() -> bool:
 
 @cache
 def get_coursepilot_llm() -> ChatOpenAI:
-    """Return the cached OpenAI-compatible ChatOpenAI instance for CoursePilot."""
+    """Return the capability-aware legacy-compatible ChatOpenAI instance."""
     _require_compatible_llm_config()
-    api_key = settings.COMPATIBLE_API_KEY
+    gateway = _configured_model_gateway()
+    route = gateway.resolve("generator_main")
+    api_key = settings.COURSEPILOT_MAIN_API_KEY or settings.COMPATIBLE_API_KEY
+    parameters = dict(route.request_parameters)
+    thinking = parameters.pop("thinking", None)
+    parameters.pop("timeout", None)
+    kwargs: dict[str, Any] = {
+        "model": route.model,
+        "temperature": parameters.pop("temperature"),
+        "streaming": False,
+        "base_url": route.base_url,
+        "api_key": api_key.get_secret_value() if api_key else None,
+        "timeout": settings.COURSEPILOT_LLM_TIMEOUT_SECONDS,
+        "max_retries": 0,
+        "max_tokens": parameters.pop("max_tokens"),
+        **parameters,
+    }
+    if thinking is not None:
+        kwargs["extra_body"] = {"thinking": thinking}
     # Keep provider retries disabled so CoursePilot can classify every failed attempt.
-    return ChatOpenAI(
-        model=settings.COMPATIBLE_MODEL,
-        temperature=0.2,
-        streaming=False,
-        base_url=settings.COMPATIBLE_BASE_URL,
-        api_key=api_key.get_secret_value() if api_key else None,
-        timeout=settings.COURSEPILOT_LLM_TIMEOUT_SECONDS,
-        max_retries=0,
-        reasoning_effort="high",
-        extra_body={"thinking": {"type": "enabled"}},
+    return ChatOpenAI(**kwargs)
+
+
+@cache
+def _configured_model_gateway() -> ModelGateway:
+    main_model = settings.COURSEPILOT_MAIN_MODEL or settings.COMPATIBLE_MODEL
+    main_base_url = settings.COURSEPILOT_MAIN_BASE_URL or settings.COMPATIBLE_BASE_URL
+    light_model = settings.COURSEPILOT_LIGHT_MODEL or main_model
+    light_base_url = settings.COURSEPILOT_LIGHT_BASE_URL or main_base_url
+    if main_model is None or main_base_url is None or light_model is None or light_base_url is None:
+        raise ValueError("CoursePilot model gateway configuration is incomplete")
+    return ModelGateway.from_files(
+        profile_path=Path(settings.COURSEPILOT_MODEL_PROFILE_PATH),
+        capability_path=Path(settings.COURSEPILOT_PROVIDER_CAPABILITY_PATH),
+        main_config=(settings.COURSEPILOT_MAIN_PROVIDER, main_model, main_base_url),
+        light_config=(settings.COURSEPILOT_LIGHT_PROVIDER, light_model, light_base_url),
+        mode=GatewayMode(settings.COURSEPILOT_MODEL_GATEWAY_MODE),
     )
 
 
@@ -758,7 +785,9 @@ def _add_usage_to_prompt(prompt_stats: dict[str, Any], usage: dict[str, Any]) ->
 
 def _has_compatible_llm_config() -> bool:
     return bool(
-        settings.COMPATIBLE_BASE_URL and settings.COMPATIBLE_MODEL and settings.COMPATIBLE_API_KEY
+        (settings.COURSEPILOT_MAIN_BASE_URL or settings.COMPATIBLE_BASE_URL)
+        and (settings.COURSEPILOT_MAIN_MODEL or settings.COMPATIBLE_MODEL)
+        and (settings.COURSEPILOT_MAIN_API_KEY or settings.COMPATIBLE_API_KEY)
     )
 
 
@@ -766,6 +795,6 @@ def _require_compatible_llm_config() -> None:
     """Raise ValueError if the required LLM config is not set."""
     if not _has_compatible_llm_config():
         raise ValueError(
-            "CoursePilot LLM mode requires COMPATIBLE_BASE_URL, COMPATIBLE_MODEL, "
-            "and COMPATIBLE_API_KEY."
+            "CoursePilot LLM mode requires COURSEPILOT_MAIN_* or inherited COMPATIBLE_* "
+            "base URL, model and API key."
         )

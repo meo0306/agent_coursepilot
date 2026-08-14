@@ -6,9 +6,12 @@ from sqlalchemy.orm import Session
 
 from agents.coursepilot.graphs.exam_graph import coursepilot_exam_agent
 from core.settings import settings
+from coursepilot.domain.task import WorkflowType
 from coursepilot.exporters import ExamDocxExporter
 from coursepilot.llm import collect_coursepilot_llm_metadata
 from coursepilot.models import Course, ExamBlueprint, ExportFile, Question
+from coursepilot.runtime.legacy_adapter import LegacyRuntimeAdapter
+from coursepilot.runtime.repository import RuntimeRepository
 from coursepilot.schemas.exam_schema import (
     ExamBlueprintContent,
     ExamBlueprintResponse,
@@ -50,6 +53,7 @@ class ExamService:
         course = self.session.get(Course, course_id)
         if course is None:
             raise ValueError(f"Course not found: {course_id}")
+        LegacyRuntimeAdapter.validate_template(WorkflowType.EXAM, params.generation_type)
 
         task = prepare_execution_task(
             self.session,
@@ -58,8 +62,19 @@ class ExamService:
             task_type="exam_blueprint",
             input_params=params.model_dump(mode="json"),
         )
+        runtime = LegacyRuntimeAdapter(RuntimeRepository(self.session))
+        runtime_run_id = runtime.begin(
+            task=task,
+            workflow_type=WorkflowType.EXAM,
+            legacy_template=params.generation_type,
+            input_payload=params.model_dump(mode="json"),
+            request_id=f"legacy:{task.id}",
+            trace_id=f"legacy:{task.id}:1",
+        )
 
-        config = new_workflow_config(namespace="exam-blueprint", course_id=course_id)
+        config = new_workflow_config(
+            namespace="exam-blueprint", course_id=course_id, task_id=task.id
+        )
         thread_id = workflow_thread_id(config)
         task.intermediate_outputs_json = start_graph_invocation(
             task_outputs=task.intermediate_outputs_json,
@@ -123,10 +138,19 @@ class ExamService:
                 blueprint=blueprint_content,
             )
             complete_execution_task(task, response)
+            runtime.complete(
+                task=task,
+                run_id=runtime_run_id,
+                artifact_type="exam_blueprint",
+                content=response.model_dump(mode="json"),
+                status="completed",
+                invocations=collector.invocations,
+            )
             self.session.commit()
             self.session.refresh(blueprint)
             return response
         except Exception as exc:
+            runtime.fail(runtime_run_id)
             fail_execution_task(task, exc)
             outputs = finish_graph_invocation(
                 task_outputs=task.intermediate_outputs_json,
@@ -168,8 +192,6 @@ class ExamService:
             )
 
         content = ExamBlueprintContent.model_validate(blueprint.blueprint_json)
-        config = new_workflow_config(namespace="exam-questions", course_id=blueprint.course_id)
-        thread_id = workflow_thread_id(config)
         task = prepare_execution_task(
             self.session,
             task_id=task_id,
@@ -177,6 +199,23 @@ class ExamService:
             task_type="exam_questions",
             input_params={"blueprint_id": blueprint.id},
         )
+        runtime = LegacyRuntimeAdapter(RuntimeRepository(self.session))
+        runtime_run_id = runtime.begin(
+            task=task,
+            workflow_type=WorkflowType.EXAM,
+            legacy_template=(
+                content.generation_type
+                if content.generation_type in {"homework", "exam"}
+                else "exam"
+            ),
+            input_payload={"blueprint_id": blueprint.id},
+            request_id=f"legacy:{task.id}",
+            trace_id=f"legacy:{task.id}:1",
+        )
+        config = new_workflow_config(
+            namespace="exam-questions", course_id=blueprint.course_id, task_id=task.id
+        )
+        thread_id = workflow_thread_id(config)
         task.intermediate_outputs_json = start_graph_invocation(
             task_outputs=task.intermediate_outputs_json,
             namespace="exam-questions",
@@ -239,9 +278,18 @@ class ExamService:
                 response,
                 status="completed" if report.passed else "needs_review",
             )
+            runtime.complete(
+                task=task,
+                run_id=runtime_run_id,
+                artifact_type="exam_questions",
+                content=response.model_dump(mode="json"),
+                status="completed" if report.passed else "needs_review",
+                invocations=collector.invocations,
+            )
             self.session.commit()
             return response
         except Exception as exc:
+            runtime.fail(runtime_run_id)
             fail_execution_task(task, exc)
             outputs = finish_graph_invocation(
                 task_outputs=task.intermediate_outputs_json,

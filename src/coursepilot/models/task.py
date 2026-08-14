@@ -23,7 +23,24 @@ class GenerationTask(Base):
         String(36), ForeignKey("coursepilot_courses.id", ondelete="CASCADE"), nullable=False
     )
     task_type: Mapped[str] = mapped_column(String(50), nullable=False)
+    workflow_type: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    workflow_mode: Mapped[str] = mapped_column(String(32), nullable=False, default="legacy")
+    active_interrupt_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
     status: Mapped[str] = mapped_column(String(32), nullable=False, default="pending")
+    current_stage: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    thread_id: Mapped[str | None] = mapped_column(String(255), nullable=True, unique=True)
+    template_snapshot_id: Mapped[str | None] = mapped_column(
+        String(36),
+        ForeignKey("coursepilot_template_snapshots.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    active_run_id: Mapped[str | None] = mapped_column(
+        String(36),
+        ForeignKey("coursepilot_workflow_runs.id", ondelete="SET NULL", use_alter=True),
+        nullable=True,
+    )
+    input_version: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    active_artifact_version: Mapped[int | None] = mapped_column(Integer, nullable=True)
     input_params_json: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)
     intermediate_outputs_json: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)
     validation_report_json: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)

@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "first_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 40,
+      "minItems": 40,
+      "title": "First Review Ids",
+      "type": "array"
+    },
+    "p10_contract": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "p10_frozen_manifest": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "predecessor_draft_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Predecessor Draft Sha256",
+      "type": "string"
+    },
+    "review_pack_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Pack Index Sha256",
+      "type": "string"
+    },
+    "review_pack_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Review Pack Relative Path",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.p11-foundation-bundle-manifest.v1",
+      "default": "coursepilot.p11-foundation-bundle-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "second_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 27,
+      "minItems": 27,
+      "title": "Second Review Ids",
+      "type": "array"
+    },
+    "second_review_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Second Review Index Sha256",
+      "type": "string"
+    },
+    "state": {
+      "const": "candidate_pending_course_owner",
+      "default": "candidate_pending_course_owner",
+      "title": "State",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_sha256",
+    "predecessor_draft_sha256",
+    "candidate",
+    "candidate_record_sha256",
+    "first_review_ids",
+    "second_review_ids",
+    "review_pack_relative_path",
+    "review_pack_index_sha256",
+    "second_review_index_sha256",
+    "p10_frozen_manifest",
+    "p10_contract"
+  ],
+  "title": "P11CandidateBundleManifest",
+  "type": "object"
+}

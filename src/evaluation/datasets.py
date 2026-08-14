@@ -15,6 +15,7 @@ from coursepilot.evals.formal_schemas import (
     CPDS3PPTDataset,
     CPDS4ValidationDataset,
     CPDS5RepairDataset,
+    CPDS6P12PilotDataset,
     CPDS6RecoveryDataset,
     CPDS7ExportDataset,
     CPDS8FaultSecurityDataset,
@@ -73,6 +74,7 @@ COURSERAG_SPECS = (
 )
 
 SCHEMA_VERSION_MODELS: dict[str, type[BaseModel]] = {
+    "coursepilot.cp-ds6-p12.v1": CPDS6P12PilotDataset,
     "courserag.p09-qa-gold.v1": P09QAGoldDataset,
     "courserag.p09-context-gold.v1": P09ContextGoldDataset,
     "courserag.ds6-formal.v1": P10DS6Dataset,
@@ -318,6 +320,8 @@ def records_from_envelope(envelope: BaseModel) -> list[ReviewableRecord]:
     if isinstance(envelope, CPDS5RepairDataset):
         return list(envelope.cases)
     if isinstance(envelope, CPDS6RecoveryDataset):
+        return list(envelope.cases)
+    if isinstance(envelope, CPDS6P12PilotDataset):
         return list(envelope.cases)
     if isinstance(envelope, CPDS7ExportDataset):
         return list(envelope.cases)

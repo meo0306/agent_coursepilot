@@ -11,6 +11,7 @@ from coursepilot.api.routes_exams import router as exams_router
 from coursepilot.api.routes_files import router as files_router
 from coursepilot.api.routes_kb import router as kb_router
 from coursepilot.api.routes_lessons import router as lessons_router
+from coursepilot.api.routes_p12 import router as p12_router
 from coursepilot.api.routes_ppt import router as ppt_router
 from coursepilot.api.routes_reviews import router as reviews_router
 from coursepilot.api.routes_tasks import router as tasks_router
@@ -27,3 +28,4 @@ api_router.include_router(ppt_router)
 api_router.include_router(reviews_router)
 api_router.include_router(files_router)
 api_router.include_router(tasks_router)
+api_router.include_router(p12_router)

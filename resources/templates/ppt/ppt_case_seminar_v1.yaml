@@ -1,0 +1,23 @@
+{
+  "artifact_type": "ppt",
+  "default_parameters": {
+    "mode": "case_seminar"
+  },
+  "exporter_profile": "ppt_exporter",
+  "generator_prompt_profile": "ppt_generator",
+  "input_schema_role": "ppt_task_input",
+  "model_route_profiles": [
+    "planner_main",
+    "generator_main",
+    "content_repair_main"
+  ],
+  "output_schema_role": "ppt_artifact_output",
+  "physical_resource_roles": [
+    "ppt_case_seminar_pptx"
+  ],
+  "planner_prompt_profile": "ppt_planner",
+  "repair_profile": "ppt_repair",
+  "template_id": "ppt_case_seminar_v1",
+  "validator_profile": "ppt_validator",
+  "version": "1.0.0"
+}

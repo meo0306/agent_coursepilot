@@ -1,5 +1,6 @@
 from typing import Literal
 
+from langgraph.checkpoint.base import BaseCheckpointSaver
 from langgraph.graph import END, StateGraph
 
 from agents.coursepilot.nodes.ppt_nodes import (
@@ -42,37 +43,30 @@ def should_repair(state: PPTGraphState) -> Literal["repair", "done"]:
     return "done"
 
 
-graph = StateGraph[
-    PPTGraphState,
-    None,
-    PPTGraphState,
-    PPTGraphState,
-](PPTGraphState)
-graph.add_node("route", lambda state: {})
-graph.add_node("chat_response", chat_response)
-graph.add_node("generate_slide_outline", generate_slide_outline)
-graph.add_node("validate_slide_outline", validate_slide_outline)
-graph.add_node("repair_slide_outline", repair_slide_outline)
+def build_ppt_graph(checkpointer: BaseCheckpointSaver | None = None):
+    graph = StateGraph[
+        PPTGraphState,
+        None,
+        PPTGraphState,
+        PPTGraphState,
+    ](PPTGraphState)
+    graph.add_node("route", lambda state: {})
+    graph.add_node("chat_response", chat_response)
+    graph.add_node("generate_slide_outline", generate_slide_outline)
+    graph.add_node("validate_slide_outline", validate_slide_outline)
+    graph.add_node("repair_slide_outline", repair_slide_outline)
 
-graph.set_entry_point("route")
-graph.add_conditional_edges(
-    "route",
-    route_entry,
-    {
-        "chat": "chat_response",
-        "workflow": "generate_slide_outline",
-    },
-)
-graph.add_edge("chat_response", END)
-graph.add_edge("generate_slide_outline", "validate_slide_outline")
-graph.add_conditional_edges(
-    "validate_slide_outline",
-    should_repair,
-    {
-        "repair": "repair_slide_outline",
-        "done": END,
-    },
-)
-graph.add_edge("repair_slide_outline", "validate_slide_outline")
+    graph.set_entry_point("route")
+    graph.add_conditional_edges(
+        "route", route_entry, {"chat": "chat_response", "workflow": "generate_slide_outline"}
+    )
+    graph.add_edge("chat_response", END)
+    graph.add_edge("generate_slide_outline", "validate_slide_outline")
+    graph.add_conditional_edges(
+        "validate_slide_outline", should_repair, {"repair": "repair_slide_outline", "done": END}
+    )
+    graph.add_edge("repair_slide_outline", "validate_slide_outline")
+    return graph.compile(checkpointer=checkpointer)
 
-coursepilot_ppt_agent = graph.compile()
+
+coursepilot_ppt_agent = build_ppt_graph()

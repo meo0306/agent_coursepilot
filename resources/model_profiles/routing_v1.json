@@ -1,0 +1,14 @@
+{
+  "schema_version": "coursepilot.model-routing.v1",
+  "default_mapping": {
+    "main": "COURSEPILOT_MAIN_* -> COMPATIBLE_*",
+    "light": "COURSEPILOT_LIGHT_* -> COURSEPILOT_MAIN_*"
+  },
+  "explicit_escalation": {
+    "classifier_light": "planner_main",
+    "json_repair_light": "content_repair_main",
+    "compression_light": "generator_main"
+  },
+  "runtime_failure_switching": false,
+  "evaluation_escalation": false
+}
