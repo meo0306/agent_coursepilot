@@ -125,6 +125,41 @@ class WritebackRepository:
             )
         )
 
+    def evidence_ids_by_content(self, content_ids: list[str]) -> dict[str, list[str]]:
+        result: dict[str, list[str]] = {content_id: [] for content_id in content_ids}
+        if not content_ids:
+            return result
+        rows = self.session.execute(
+            select(
+                VerifiedContentEvidenceRecord.verified_content_id,
+                VerifiedContentEvidenceRecord.evidence_id,
+            ).where(VerifiedContentEvidenceRecord.verified_content_id.in_(content_ids))
+        )
+        for content_id, evidence_id in rows:
+            result[content_id].append(evidence_id)
+        return {key: sorted(value) for key, value in result.items()}
+
+    def knowledge_point_ids_by_content(self, content_ids: list[str]) -> dict[str, list[str]]:
+        result: dict[str, list[str]] = {content_id: [] for content_id in content_ids}
+        if not content_ids:
+            return result
+        rows = self.session.execute(
+            select(
+                VerifiedContentKnowledgePointRecord.verified_content_id,
+                VerifiedContentKnowledgePointRecord.knowledge_point_id,
+            ).where(VerifiedContentKnowledgePointRecord.verified_content_id.in_(content_ids))
+        )
+        for content_id, knowledge_point_id in rows:
+            result[content_id].append(knowledge_point_id)
+        return {key: sorted(value) for key, value in result.items()}
+
+    def overlay_manifest_uri(self, version_id: str) -> str | None:
+        version = self.get_overlay_version(version_id)
+        if version is None:
+            return None
+        artifact = self.session.get(ArtifactRecord, version.manifest_artifact_id)
+        return artifact.uri if artifact is not None else None
+
     def next_overlay_version(self, knowledge_base_id: str) -> int:
         value = self.session.scalar(
             select(func.max(VerifiedIndexVersionRecord.version_number)).where(
@@ -171,6 +206,9 @@ class WritebackRepository:
             select(EnrichmentBatchRecord).where(EnrichmentBatchRecord.identity_sha256 == identity)
         )
 
+    def get_enrichment_batch(self, batch_id: str) -> EnrichmentBatchRecord | None:
+        return self.session.get(EnrichmentBatchRecord, batch_id)
+
     def add_enrichment_batch(
         self,
         record: EnrichmentBatchRecord,
@@ -191,3 +229,35 @@ class WritebackRepository:
                 )
             )
         self.session.flush()
+
+    def claim_enrichment_batch(
+        self, batch_id: str, worker_id: str, lease_seconds: int = 300
+    ) -> EnrichmentBatchRecord | None:
+        from datetime import UTC, datetime, timedelta
+
+        batch = self.session.scalar(
+            select(EnrichmentBatchRecord)
+            .where(EnrichmentBatchRecord.id == batch_id)
+            .with_for_update()
+        )
+        if batch is None or batch.status == "completed":
+            return None
+        now = datetime.now(UTC)
+        if batch.locked_until and batch.locked_until > now and batch.worker_id != worker_id:
+            return None
+        batch.worker_id = worker_id
+        batch.locked_until = now + timedelta(seconds=lease_seconds)
+        batch.attempt_count += 1
+        batch.status = "running"
+        self.session.flush()
+        return batch
+
+    def enrichment_items(self, batch_id: str) -> list[EnrichmentBatchItemRecord]:
+        return list(
+            self.session.scalars(
+                select(EnrichmentBatchItemRecord)
+                .where(EnrichmentBatchItemRecord.batch_id == batch_id)
+                .order_by(EnrichmentBatchItemRecord.id)
+                .with_for_update()
+            )
+        )

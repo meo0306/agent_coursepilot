@@ -1,0 +1,30 @@
+{
+  "attestation_source": "conversation_exact_bundle_approval",
+  "bundle_sha256": "3e47c85c624ab0c3a751b34de38a8b1147a0d6187314ef9a27210b85cc9c1708",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact Bundle in conversation; the original review page did not provide a JSON export channel.",
+      "record_id": "p14-lesson-01-transformer"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact Bundle in conversation; the original review page did not provide a JSON export channel.",
+      "record_id": "p14-lesson-02-perceptron-lab"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact Bundle in conversation; the original review page did not provide a JSON export channel.",
+      "record_id": "p14-lesson-03-occupation-risk-seminar"
+    }
+  ],
+  "expected_record_ids": [
+    "p14-lesson-01-transformer",
+    "p14-lesson-02-perceptron-lab",
+    "p14-lesson-03-occupation-risk-seminar"
+  ],
+  "review_pass": "first",
+  "reviewed_at": "2026-08-14T22:18:34.401670+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p14-review-decisions.v1"
+}

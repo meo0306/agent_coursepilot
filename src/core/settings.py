@@ -115,6 +115,20 @@ class Settings(BaseSettings):
     COURSEPILOT_PROVIDER_CAPABILITY_PATH: str = (
         "resources/model_profiles/capabilities/deepseek_v4.json"
     )
+    COURSEPILOT_LESSON_PROFILE_PATH: str = "resources/lesson_profiles/default_v1.json"
+    COURSEPILOT_LESSON_MAX_CONCURRENCY: int = Field(default=1, ge=1, le=8)
+    COURSEPILOT_EXAM_V2_ENABLED: bool = False
+    COURSEPILOT_EXAM_MAX_CONCURRENCY: int = Field(default=3, ge=1, le=8)
+    COURSEPILOT_EXAM_BATCH_MAX_SIZE: int = Field(default=5, ge=1, le=5)
+    COURSEPILOT_EXAM_MAX_REPAIRS: int = Field(default=4, ge=0, le=20)
+    COURSEPILOT_EXAM_DUPLICATE_SIMILARITY: float = Field(default=0.85, ge=0, le=1)
+    COURSEPILOT_PPT_V2_ENABLED: bool = False
+    COURSEPILOT_PPT_MAX_CONCURRENCY: int = Field(default=3, ge=1, le=8)
+    COURSEPILOT_PPT_MAX_SLIDE_REPAIRS: int = Field(default=6, ge=0, le=20)
+    COURSEPILOT_PPT_MIN_FONT_PT: int = Field(default=18, ge=8, le=72)
+    COURSEPILOT_PPT_RENDER_TIMEOUT_SECONDS: int = Field(default=180, ge=1, le=1800)
+    COURSEPILOT_PPT_RENDER_IMAGE: str = "agent-coursepilot-pptx-qa:lo-7.4.7.2"
+    COURSEPILOT_PPT_ALLOW_CUSTOM_TEMPLATE: bool = False
     COURSEPILOT_MODEL_GATEWAY_MODE: Literal["local", "production", "evaluation"] = "local"
     COURSEPILOT_MAIN_PROVIDER: str = "openai-compatible"
     COURSEPILOT_MAIN_MODEL: str | None = None
@@ -126,6 +140,15 @@ class Settings(BaseSettings):
     COURSEPILOT_LIGHT_API_KEY: SecretStr | None = None
     COURSEPILOT_RUNTIME_COMPATIBILITY_RECORDING: bool = True
     COURSEPILOT_RECOVERABLE_WORKFLOWS_ENABLED: bool = False
+    COURSEPILOT_SERVICE_ROLE: Literal["combined", "coursepilot", "courserag"] = "combined"
+    COURSEPILOT_COURSERAG_MODE: Literal["local", "remote", "mock"] = "local"
+    COURSEPILOT_COURSERAG_BASE_URL: Annotated[str, BeforeValidator(check_str_is_http)] | None = None
+    COURSEPILOT_COURSERAG_AUTH_TOKEN: SecretStr | None = None
+    COURSEPILOT_COURSERAG_CONNECT_TIMEOUT_SECONDS: float = Field(default=5.0, gt=0, le=120)
+    COURSEPILOT_COURSERAG_READ_TIMEOUT_SECONDS: float = Field(default=60.0, gt=0, le=1800)
+    COURSEPILOT_COURSERAG_MAX_ATTEMPTS: int = Field(default=2, ge=1, le=3)
+    COURSEPILOT_COURSERAG_RETRY_BASE_SECONDS: float = Field(default=0.5, ge=0, le=30)
+    COURSEPILOT_COURSERAG_RETRY_MAX_SECONDS: float = Field(default=5.0, ge=0, le=120)
     COURSEPILOT_CHECKPOINT_DATABASE_URL: str | None = None
     COURSEPILOT_CHECKPOINT_SCHEMA: str = "coursepilot_checkpoints"
     COURSEPILOT_INTERRUPT_TTL_SECONDS: int = Field(default=604800, ge=60)
@@ -151,7 +174,7 @@ class Settings(BaseSettings):
     COURSERAG_OCR_MAX_PIXELS: int = Field(default=20_000_000, ge=1)
     COURSERAG_OCR_TIMEOUT_SECONDS: float = Field(default=90.0, gt=0, le=600)
     COURSERAG_OCR_MAX_MEMORY_BYTES: int = Field(default=1_610_612_736, ge=64 * 1024 * 1024)
-    COURSERAG_OCR_MAX_WORKERS: Literal[1] = 1
+    COURSERAG_OCR_MAX_WORKERS: int = Field(default=1, ge=1, le=1)
     COURSERAG_OCR_MIN_CONFIDENCE: float = Field(default=0.75, ge=0, le=1)
     COURSERAG_EVIDENCE_PROFILE_PATH: str = "resources/evidence_profiles/semantic_units_v1.json"
     COURSERAG_CHUNK_PROFILE_PATH: str = "resources/chunk_profiles/parent_child_v1.json"

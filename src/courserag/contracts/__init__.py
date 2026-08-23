@@ -36,6 +36,12 @@ from courserag.contracts.knowledge_base import (
     RegisterDocumentResponse,
     StartBuildRequest,
 )
+from courserag.contracts.knowledge_points import (
+    KnowledgePointEvidenceLink,
+    KnowledgePointSnapshot,
+    KnowledgePointSnapshotItem,
+    KnowledgePointSnapshotRequest,
+)
 from courserag.contracts.qa import (
     AnswerClaim,
     AnsweringOptions,
@@ -47,6 +53,8 @@ from courserag.contracts.qa import (
     QAResponse,
 )
 from courserag.contracts.retrieval import (
+    ContextBindingValidationRequest,
+    ContextBindingValidationResponse,
     ContextEvidenceSegment,
     ContextItem,
     ContextPackage,
@@ -103,6 +111,8 @@ __all__ = [
     "ContextItem",
     "ContextEvidenceSegment",
     "ContextPackage",
+    "ContextBindingValidationRequest",
+    "ContextBindingValidationResponse",
     "ContextPackingOptions",
     "ContextRequest",
     "ContractModel",
@@ -128,6 +138,10 @@ __all__ = [
     "HealthResponse",
     "HealthStatus",
     "ListDocumentsRequest",
+    "KnowledgePointEvidenceLink",
+    "KnowledgePointSnapshot",
+    "KnowledgePointSnapshotItem",
+    "KnowledgePointSnapshotRequest",
     "ModelReference",
     "PackingReport",
     "PageRange",

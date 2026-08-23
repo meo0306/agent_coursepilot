@@ -11,6 +11,8 @@ from courserag.contracts import (
     BuildProgress,
     BuildStatus,
     CapabilitiesResponse,
+    ContextBindingValidationRequest,
+    ContextBindingValidationResponse,
     ContextItem,
     ContextPackage,
     ContextRequest,
@@ -28,6 +30,9 @@ from courserag.contracts import (
     GetEvidenceRequest,
     HealthResponse,
     HealthStatus,
+    KnowledgePointSnapshot,
+    KnowledgePointSnapshotItem,
+    KnowledgePointSnapshotRequest,
     ListDocumentsRequest,
     PackingReport,
     QARequest,
@@ -68,12 +73,41 @@ class MockCourseRAGService:
         self._verified_courses: dict[str, str] = {}
         self._revoke_idempotency: dict[str, tuple[str, RevokeVerifiedContentResult]] = {}
         self._failures: dict[str, tuple[ErrorCode, str, bool]] = {}
+        self._knowledge_points: dict[str, list[KnowledgePointSnapshotItem]] = {}
 
     def seed_search(self, course_id: str, hits: list[SearchHit]) -> None:
         self._search_hits[course_id] = list(hits)
 
     def seed_evidence(self, record: EvidenceRecord) -> None:
         self._evidence[record.evidence_id] = record
+
+    def seed_knowledge_points(
+        self, course_id: str, items: list[KnowledgePointSnapshotItem]
+    ) -> None:
+        self._knowledge_points[course_id] = list(items)
+
+    def list_knowledge_points(
+        self, request: KnowledgePointSnapshotRequest
+    ) -> KnowledgePointSnapshot:
+        self._record(CourseRAGOperation.LIST_KNOWLEDGE_POINTS, request.context)
+        self._maybe_fail(CourseRAGOperation.LIST_KNOWLEDGE_POINTS, request.context)
+        items = self._knowledge_points.get(request.course_id, [])
+        if not request.include_unreviewed:
+            items = [item for item in items if item.review_status == "approved"]
+        if request.section_ids:
+            selected = set(request.section_ids)
+            items = [item for item in items if selected.intersection(item.section_ids)]
+        items = items[: request.limit]
+        payload = [item.model_dump(mode="json") for item in items]
+        digest = hashlib.sha256(
+            json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        ).hexdigest()
+        return KnowledgePointSnapshot(
+            meta=ResponseMeta.from_context(request.context),
+            course_id=request.course_id,
+            items=items,
+            snapshot_sha256=digest,
+        )
 
     def fail_next(
         self,
@@ -431,6 +465,22 @@ class MockCourseRAGService:
             supports_verified_writeback=True,
             supports_enrichment=True,
             supports_incremental_build=True,
+        )
+
+    def validate_context_binding(
+        self, request: ContextBindingValidationRequest
+    ) -> ContextBindingValidationResponse:
+        changed = sorted(
+            evidence_id
+            for evidence_id, expected_hash in request.evidence_versions.items()
+            if evidence_id not in self._evidence
+            or self._evidence[evidence_id].content_hash != expected_hash
+        )
+        return ContextBindingValidationResponse(
+            meta=ResponseMeta.from_context(request.context),
+            status="changed_evidence" if changed else "compatible",
+            stale=bool(changed),
+            changed_evidence_ids=changed,
         )
 
     def _record(self, operation: CourseRAGOperation, context: RequestContext) -> None:

@@ -274,7 +274,7 @@ def create_scope_approval(
         decision_id=None,
         scope=payload.scope.value,
         action="approve" if payload.approved else "reject",
-        target_paths_json=[],
+        target_paths_json=list(payload.target_paths),
         idempotency_key=idempotency_key or payload.operation_key,
         request_sha256=None,
         expires_at=None,

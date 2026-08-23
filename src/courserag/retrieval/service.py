@@ -17,6 +17,11 @@ from courserag.contracts.retrieval import (
     SearchResponse,
     SourceTier,
 )
+from courserag.indexing.verified_overlay import (
+    VerifiedOverlayHit,
+    fuse_overlay_hits,
+    retrieval_snapshot_id,
+)
 from courserag.persistence.base import utc_now
 from courserag.persistence.models import RetrievalRunRecord
 from courserag.persistence.repositories import CourseRAGRepository
@@ -36,6 +41,17 @@ class RetrievalPipelinePort(Protocol):
     ) -> tuple[RerankResult, dict[str, int]]: ...
 
 
+class VerifiedOverlaySearchPort(Protocol):
+    def search(
+        self,
+        *,
+        overlay_version_id: str,
+        query: str,
+        top_k: int,
+        knowledge_point_ids: tuple[str, ...] = (),
+    ) -> list[VerifiedOverlayHit]: ...
+
+
 class VersionedSearchService:
     def __init__(
         self,
@@ -45,12 +61,14 @@ class VersionedSearchService:
         retrieval_config_version: str,
         manifest_sha256: str,
         production: bool = True,
+        overlay_search: VerifiedOverlaySearchPort | None = None,
     ) -> None:
         self.repository = repository
         self.pipeline_factory = pipeline_factory
         self.retrieval_config_version = retrieval_config_version
         self.manifest_sha256 = manifest_sha256
         self.production = production
+        self.overlay_search = overlay_search
 
     def search(self, request: SearchRequest) -> SearchResponse:
         started = perf_counter()
@@ -100,6 +118,34 @@ class VersionedSearchService:
             ),
         )
         hits = [self._hit(item, rank) for rank, item in enumerate(result.candidates, start=1)]
+        overlay_hits: list[VerifiedOverlayHit] = []
+        overlay_version = knowledge_base.active_verified_index_version_id
+        source_tiers = set(request.filters.source_tiers)
+        include_overlay = not source_tiers or SourceTier.TEACHER_VERIFIED in source_tiers
+        include_primary = not source_tiers or SourceTier.PRIMARY_SOURCE in source_tiers
+        if not include_primary:
+            hits = []
+        if self.overlay_search is not None and overlay_version is not None and include_overlay:
+            overlay_hits = self.overlay_search.search(
+                overlay_version_id=overlay_version,
+                query=normalized,
+                top_k=request.retrieval.candidate_k,
+                knowledge_point_ids=tuple(request.filters.knowledge_point_ids),
+            )
+            hits = self._fuse_hits(
+                hits,
+                overlay_hits,
+                overlay_version=overlay_version,
+                top_n=request.retrieval.return_top_n,
+            )
+        debug_trace: dict[str, int | str] = {"index_version_id": index_version_id}
+        if overlay_version is not None:
+            debug_trace.update(
+                {
+                    "verified_overlay_version": overlay_version,
+                    "verified_overlay_hit_count": len(overlay_hits),
+                }
+            )
         result_payload = [item.model_dump(mode="json") for item in hits]
         run = RetrievalRunRecord(
             query_run_id=query_run.id,
@@ -123,7 +169,7 @@ class VersionedSearchService:
             usage_json=result.usage.model_dump(mode="json"),
             fallback_applied=result.fallback_applied,
             warnings_json=result.warnings,
-            debug_trace_json={"index_version_id": index_version_id},
+            debug_trace_json=debug_trace,
             completed_at=utc_now(),
         )
         self.repository.add_retrieval_run(run)
@@ -147,7 +193,9 @@ class VersionedSearchService:
                 fallback_applied=result.fallback_applied,
                 warnings=result.warnings,
                 usage=result.usage.model_dump(mode="json"),
-                debug_trace={"index_version_id": index_version_id},
+                debug_trace=debug_trace,
+                verified_overlay_version=overlay_version,
+                retrieval_snapshot_id=retrieval_snapshot_id(index_version_id, overlay_version),
             ),
         )
 
@@ -179,6 +227,56 @@ class VersionedSearchService:
             evidence_ids=list(item.evidence_ids),
             source_tier=SourceTier(item.source_tier),
         )
+
+    @staticmethod
+    def _fuse_hits(
+        primary_hits: list[SearchHit],
+        overlay_hits: list[VerifiedOverlayHit],
+        *,
+        overlay_version: str,
+        top_n: int,
+    ) -> list[SearchHit]:
+        primary_by_id = {item.chunk_id: item for item in primary_hits}
+        overlay_by_id = {item.verified_content_id: item for item in overlay_hits}
+        primary_scores = [
+            (item.chunk_id, item.scores.rerank or item.scores.fusion or 0.0)
+            for item in primary_hits
+        ]
+        fused = fuse_overlay_hits(primary_scores, overlay_hits, top_k=top_n)
+        output: list[SearchHit] = []
+        for rank, (identifier, score, tier) in enumerate(fused, start=1):
+            if tier == SourceTier.PRIMARY_SOURCE.value:
+                original = primary_by_id[identifier]
+                output.append(
+                    original.model_copy(
+                        update={
+                            "rank": rank,
+                            "scores": original.scores.model_copy(update={"fusion": score}),
+                            "ranks": original.ranks.model_copy(update={"fusion": rank}),
+                        }
+                    )
+                )
+                continue
+            overlay = overlay_by_id[identifier]
+            output.append(
+                SearchHit(
+                    rank=rank,
+                    chunk_id=identifier,
+                    document_id=identifier,
+                    document_version=overlay_version,
+                    title=overlay.title,
+                    text=overlay.text,
+                    scores=ScoreBreakdown(
+                        dense=overlay.dense_score,
+                        sparse=overlay.sparse_score,
+                        fusion=score,
+                    ),
+                    ranks=RankBreakdown(fusion=rank),
+                    evidence_ids=list(overlay.evidence_ids),
+                    source_tier=SourceTier.TEACHER_VERIFIED,
+                )
+            )
+        return output
 
 
 def _sha256(value: object) -> str:

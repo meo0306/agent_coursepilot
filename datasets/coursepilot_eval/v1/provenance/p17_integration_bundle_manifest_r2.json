@@ -1,0 +1,53 @@
+{
+  "bundle_sha256": "7e613ea920077cf0c811ac36c4867df6901c915340f17a330c4d7018d29fae54",
+  "carried_forward_approved_ids": [
+    "p17-ds8-01",
+    "p17-ds8-02",
+    "p17-ds8-03",
+    "p17-ds8-08",
+    "p17-ds8-10",
+    "p17-ds8-11",
+    "p17-ds8-12",
+    "p17-ds8-14",
+    "p17-ds8-22",
+    "p17-ds8-23",
+    "p17-ds8-24",
+    "p17-ds8-25",
+    "p17-ds8-26",
+    "p17-ds8-27",
+    "p17-ds8-29",
+    "p17-ds8-30",
+    "p17-sys-ds1-02",
+    "p17-sys-ds1-03"
+  ],
+  "fault_candidate_sha256": "115a10d51591f90627c084b6d191cbacef24fb37d2974efa8a7f7ba731ea141b",
+  "journey_candidate_sha256": "5528a2a5fa3d9b895eb198588c2323e10fee8e857c0ecdd5f4e5001aecda896b",
+  "parent_bundle_sha256": "01b7549801efad637b4da39c271fe932c2ae44104ab73f3c618add0dfdac7b78",
+  "repaired_record_ids": [
+    "p17-ds8-04",
+    "p17-ds8-05",
+    "p17-ds8-06",
+    "p17-ds8-07",
+    "p17-ds8-09",
+    "p17-ds8-13",
+    "p17-ds8-15",
+    "p17-ds8-16",
+    "p17-ds8-17",
+    "p17-ds8-18",
+    "p17-ds8-19",
+    "p17-ds8-20",
+    "p17-ds8-21",
+    "p17-ds8-28",
+    "p17-sys-ds1-01",
+    "p17-sys-ds1-04",
+    "p17-sys-ds1-05",
+    "p17-sys-ds1-06",
+    "p17-sys-ds1-07",
+    "p17-sys-ds1-08"
+  ],
+  "review_passes": [
+    "single_r2_delta"
+  ],
+  "revision": "r2",
+  "schema_version": "coursepilot.p17-integration-bundle-manifest.v1"
+}

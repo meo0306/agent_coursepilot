@@ -122,6 +122,8 @@ class RetrievalTrace(ContractModel):
     warnings: list[str] = Field(default_factory=list)
     usage: dict[str, JsonValue] = Field(default_factory=dict)
     debug_trace: dict[str, JsonValue] = Field(default_factory=dict)
+    verified_overlay_version: str | None = None
+    retrieval_snapshot_id: str | None = None
 
 
 class SearchResponse(ContractModel):
@@ -252,3 +254,21 @@ class ContextPackage(ContractModel):
     packing_report: PackingReport
     context_package_id: str | None = None
     result_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    verified_overlay_version: str | None = None
+    retrieval_snapshot_id: str | None = None
+
+
+class ContextBindingValidationRequest(ContractModel):
+    context: RequestContext = Field(default_factory=RequestContext)
+    course_id: str = Field(min_length=1)
+    index_version: str = Field(min_length=1)
+    verified_overlay_version: str | None = None
+    evidence_versions: dict[str, str] = Field(default_factory=dict)
+
+
+class ContextBindingValidationResponse(ContractModel):
+    meta: ResponseMeta
+    status: str
+    stale: bool
+    changed_evidence_ids: list[str] = Field(default_factory=list)
+    reason: str | None = None

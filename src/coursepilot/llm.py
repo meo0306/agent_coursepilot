@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from functools import cache
 from hashlib import sha256
 from pathlib import Path
-from typing import Any, TypeVar
+from typing import Any, Protocol, TypeVar, runtime_checkable
 
 import httpx
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
@@ -31,11 +31,13 @@ logger = logging.getLogger(__name__)
 
 # 固定异常分类
 ERROR_CHOICES_NONE = "choices_none"
+ERROR_CONNECTION = "connection_error"
 ERROR_TIMEOUT = "timeout"
 ERROR_STRUCTURED_PARSE = "structured_parse_error"
 ERROR_PYDANTIC_VALIDATION = "pydantic_validation_error"
 ERROR_GENERATION_INTERRUPTED = "generation_interrupted"
 ERROR_PROVIDER = "llm_provider_error"
+ERROR_BUDGET_EXCEEDED = "budget_exceeded"
 ERROR_DETERMINISTIC_FALLBACK_DISABLED = "deterministic_fallback_disabled"
 ERROR_UNKNOWN = "unknown_llm_error"
 
@@ -45,6 +47,32 @@ Language policy:
 - 代码、API 名称、模型名称、文件名、通用技术术语和原始引用标题可以保留英文。
 - 不要因为输入材料包含英文就把主体说明写成英文。
 """.strip()
+
+
+class StructuredResponseCheckpoint(Protocol):
+    """Persist successful structured responses before a workflow advances."""
+
+    def load(self, request_sha256: str) -> dict[str, Any] | None: ...
+
+    def save(self, request_sha256: str, payload: dict[str, Any]) -> None: ...
+
+    def record_invocation(self, invocation: dict[str, Any]) -> None: ...
+
+
+@runtime_checkable
+class StructuredRequestBudgetGuard(Protocol):
+    """Optional paid-request guard implemented by evaluation checkpoints."""
+
+    def authorize_request(
+        self,
+        *,
+        request_sha256: str,
+        prompt_name: str,
+        profile_id: str,
+        estimated_input_tokens: int,
+        configured_max_output_tokens: int,
+    ) -> None: ...
+
 
 # 用 ContextVar 保存 collector，可以让任何 graph node 内部的 generate_structured() 自动记录到当前 workflow。
 _current_collector: ContextVar["LLMWorkflowCollector | None"] = ContextVar(
@@ -74,6 +102,10 @@ class CoursePilotLLMCallError(RuntimeError):
         self.original = original
 
 
+class CoursePilotLLMBudgetExceeded(RuntimeError):
+    """Raised before dispatch when an explicitly authorized budget is exhausted."""
+
+
 @dataclass
 class LLMWorkflowCollector:
     """Collect LLM metadata for one CoursePilot workflow invocation."""
@@ -81,6 +113,7 @@ class LLMWorkflowCollector:
     thread_id: str | None = None
     invocations: list[dict[str, Any]] = field(default_factory=list)
     prompt_hashes: dict[str, dict[str, Any]] = field(default_factory=dict)
+    checkpoint: StructuredResponseCheckpoint | None = None
 
     def record(self, invocation: dict[str, Any]) -> None:
         self.invocations.append(invocation)
@@ -91,6 +124,8 @@ class LLMWorkflowCollector:
             "schema": invocation["schema"],
             "language_policy": "zh_main_content",
         }
+        if self.checkpoint is not None:
+            self.checkpoint.record_invocation(invocation)
 
     def to_task_metadata(self) -> dict[str, Any]:
         return {
@@ -104,10 +139,11 @@ class LLMWorkflowCollector:
 def collect_coursepilot_llm_metadata(
     *,
     thread_id: str | None = None,
+    checkpoint: StructuredResponseCheckpoint | None = None,
 ) -> Generator[LLMWorkflowCollector, None, None]:
     """Collect generate_structured metadata within a graph invocation."""
     # 每次 service 调用 graph 前创建一个 collector
-    collector = LLMWorkflowCollector(thread_id=thread_id)
+    collector = LLMWorkflowCollector(thread_id=thread_id, checkpoint=checkpoint)
     # ContextVar 让 graph 内部任意 generate_structured() 都能找到当前 collector
     token = _current_collector.set(collector)
     try:
@@ -129,22 +165,31 @@ def use_coursepilot_llm() -> bool:
 
 
 @cache
-def get_coursepilot_llm() -> ChatOpenAI:
+def get_coursepilot_llm(profile_id: str = "generator_main") -> ChatOpenAI:
     """Return the capability-aware legacy-compatible ChatOpenAI instance."""
     _require_compatible_llm_config()
     gateway = _configured_model_gateway()
-    route = gateway.resolve("generator_main")
+    route = gateway.resolve(profile_id)
     api_key = settings.COURSEPILOT_MAIN_API_KEY or settings.COMPATIBLE_API_KEY
     parameters = dict(route.request_parameters)
     thinking = parameters.pop("thinking", None)
-    parameters.pop("timeout", None)
+    raw_timeout = parameters.pop("timeout")
+    if not isinstance(raw_timeout, (int, float)) or isinstance(raw_timeout, bool):
+        raise ValueError("Model profile timeout must be numeric")
+    profile_timeout = float(raw_timeout)
+    request_timeout = httpx.Timeout(
+        timeout=profile_timeout,
+        connect=min(15.0, profile_timeout),
+        write=min(30.0, profile_timeout),
+        pool=min(10.0, profile_timeout),
+    )
     kwargs: dict[str, Any] = {
         "model": route.model,
         "temperature": parameters.pop("temperature"),
         "streaming": False,
         "base_url": route.base_url,
         "api_key": api_key.get_secret_value() if api_key else None,
-        "timeout": settings.COURSEPILOT_LLM_TIMEOUT_SECONDS,
+        "timeout": request_timeout,
         "max_retries": 0,
         "max_tokens": parameters.pop("max_tokens"),
         **parameters,
@@ -178,8 +223,16 @@ def generate_structured(
     output_schema: type[T],
     payload: dict,
     fallback: Callable[[], T],
+    profile_id: str = "generator_main",
+    allow_fallback: bool | None = None,
 ) -> T:
-    """Generate a Pydantic object through LLM structured output, with traced fallback."""
+    """Generate a Pydantic object through a capability-aware route.
+
+    ``profile_id`` is additive so legacy callers retain their historical route.
+    P14 evaluation passes ``allow_fallback=False`` explicitly; this prevents a
+    deterministic result from being mistaken for a provider result even when a
+    developer's global settings allow fallbacks.
+    """
     # 准备record
     started = time.perf_counter()
     # 1. 加载 prompt，追加中文 policy，计算 prompt hash
@@ -205,6 +258,7 @@ def generate_structured(
         "status": "running",
         "latency_ms": None,
         "usage": None,
+        "profile_id": profile_id,
     }
     # 3. 构造 LLM 消息，包含系统 prompt 和人类 payload。
     human_payload = {
@@ -230,8 +284,11 @@ def generate_structured(
         _record_invocation(record)
         raise
     # 如果不使用 LLM，直接调用 fallback()，并记录 fallback_used。
+    fallback_allowed = (
+        not deterministic_fallback_disabled() if allow_fallback is None else allow_fallback
+    )
     if not should_use_llm:
-        if deterministic_fallback_disabled():
+        if not fallback_allowed:
             record.update(
                 {
                     "status": "failed",
@@ -256,6 +313,57 @@ def generate_structured(
         _record_invocation(record)
         return result
     # 5. 循环调用 LLM，直到成功或达到最大尝试次数。
+    request_sha256 = _structured_request_sha256(
+        prompt_sha256=prompt_hash,
+        profile_id=profile_id,
+        schema_name=output_schema.__name__,
+        human_payload=human_payload,
+    )
+    record["request_sha256"] = request_sha256
+    record["cache_hit"] = False
+    if collector is not None and collector.checkpoint is not None:
+        cached = collector.checkpoint.load(request_sha256)
+        if cached is not None:
+            result = output_schema.model_validate(cached["result"])
+            record.update(
+                {
+                    "status": "cached",
+                    "attempt_count": 0,
+                    "latency_ms": _elapsed_ms(started),
+                    "usage": None,
+                    "cached_source_usage": cached.get("usage"),
+                    "cache_hit": True,
+                    "provider_called": False,
+                    "provider_request_id": cached.get("provider_request_id"),
+                }
+            )
+            _record_invocation(record)
+            return result
+        if isinstance(collector.checkpoint, StructuredRequestBudgetGuard):
+            route = _configured_model_gateway().resolve(profile_id)
+            raw_max_output = route.request_parameters.get("max_tokens")
+            if not isinstance(raw_max_output, int) or isinstance(raw_max_output, bool):
+                raise ValueError("Model profile max_tokens must be an integer")
+            estimated_input = estimate_token_usage(messages, "")
+            try:
+                collector.checkpoint.authorize_request(
+                    request_sha256=request_sha256,
+                    prompt_name=prompt_name,
+                    profile_id=profile_id,
+                    estimated_input_tokens=int(estimated_input["input_tokens"]),
+                    configured_max_output_tokens=raw_max_output,
+                )
+            except CoursePilotLLMBudgetExceeded:
+                record.update(
+                    {
+                        "status": "failed",
+                        "error_category": ERROR_BUDGET_EXCEEDED,
+                        "latency_ms": _elapsed_ms(started),
+                        "provider_called": False,
+                    }
+                )
+                _record_invocation(record)
+                raise
     max_attempts = _max_llm_attempts()
     last_category: str | None = None
     last_error: BaseException | None = None
@@ -263,7 +371,12 @@ def generate_structured(
     for attempt in range(1, max_attempts + 1):
         attempt_started = time.perf_counter()
         try:
-            runnable = get_coursepilot_llm().with_structured_output(
+            llm = (
+                get_coursepilot_llm()
+                if profile_id == "generator_main"
+                else get_coursepilot_llm(profile_id)
+            )
+            runnable = llm.with_structured_output(
                 output_schema,
                 method="json_mode",
                 # 能读取 usage、response metadata、finish_reason
@@ -272,12 +385,16 @@ def generate_structured(
             raw_result = runnable.invoke(messages)
             parsed, raw_message = _parse_structured_result(raw_result, output_schema)
             usage = resolve_token_usage(raw_message, messages)
+            provider_request_id = _provider_request_id(raw_message)
             record["attempts"].append(
                 {
                     "attempt": attempt,
                     "status": "success",
                     "latency_ms": _elapsed_ms(attempt_started),
                     "usage": usage,
+                    "billing_status": "provider_reported"
+                    if not usage.get("usage_estimated")
+                    else "estimated",
                 }
             )
             record.update(
@@ -286,8 +403,24 @@ def generate_structured(
                     "attempt_count": attempt,
                     "latency_ms": _elapsed_ms(started),
                     "usage": usage,
+                    "provider_called": True,
+                    "provider_request_id": provider_request_id,
                 }
             )
+            if collector is not None and collector.checkpoint is not None:
+                collector.checkpoint.save(
+                    request_sha256,
+                    {
+                        "request_sha256": request_sha256,
+                        "prompt_name": prompt_name,
+                        "prompt_sha256": prompt_hash,
+                        "profile_id": profile_id,
+                        "schema": output_schema.__name__,
+                        "result": parsed.model_dump(mode="json"),
+                        "usage": usage,
+                        "provider_request_id": provider_request_id,
+                    },
+                )
             _record_invocation(record)
             return parsed
         # 捕获所有异常，分类记录，并在达到最大尝试次数后使用 fallback。
@@ -304,7 +437,12 @@ def generate_structured(
                 "error_category": category,
                 "error_message": str(exc),
                 "usage": usage,
+                "billing_status": (
+                    "not_sent" if category == ERROR_CONNECTION else "unknown_pending_reconciliation"
+                ),
             }
+            will_retry = attempt < max_attempts and _safe_to_retry_before_response(exc)
+            attempt_record["will_retry"] = will_retry
             record["attempts"].append(attempt_record)
             logger.warning(
                 "CoursePilot LLM attempt failed prompt=%s schema=%s thread_id=%s "
@@ -317,13 +455,17 @@ def generate_structured(
                 category,
                 exc,
             )
-    if deterministic_fallback_disabled():
+            if not will_retry:
+                break
+    if not fallback_allowed:
+        actual_attempts = len(record["attempts"])
         record.update(
             {
                 "status": "failed",
-                "attempt_count": max_attempts,
+                "attempt_count": actual_attempts,
                 "error_category": last_category,
                 "latency_ms": _elapsed_ms(started),
+                "provider_called": actual_attempts > 0,
             }
         )
         _record_invocation(record)
@@ -334,7 +476,7 @@ def generate_structured(
             output_schema.__name__,
             thread_id,
             last_category,
-            max_attempts,
+            actual_attempts,
             last_error,
         )
         raise CoursePilotLLMCallError(
@@ -344,10 +486,11 @@ def generate_structured(
         ) from last_error
     # 重试耗尽后调用 deterministic fallback
     result = _validate_fallback_result(output_schema, fallback())
+    actual_attempts = len(record["attempts"])
     record.update(
         {
             "status": "fallback",
-            "attempt_count": max_attempts,
+            "attempt_count": actual_attempts,
             "fallback_used": True,
             "fallback_reason": last_category,
             "error_category": last_category,
@@ -362,7 +505,7 @@ def generate_structured(
         output_schema.__name__,
         thread_id,
         last_category,
-        max_attempts,
+        actual_attempts,
         last_error,
     )
     return result
@@ -496,6 +639,8 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
     # 初始化 summary 结构
     summary: dict[str, Any] = {
         "call_count": len(invocations),
+        "provider_request_count": 0,
+        "cache_hit_count": 0,
         "successful_call_count": 0,
         "failed_call_count": 0,
         "failed_attempt_count": 0,
@@ -517,6 +662,8 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
             prompt_name,
             {
                 "call_count": 0,
+                "provider_request_count": 0,
+                "cache_hit_count": 0,
                 "successful_call_count": 0,
                 "failed_call_count": 0,
                 "failed_attempt_count": 0,
@@ -529,6 +676,12 @@ def summarize_llm_invocations(invocations: list[dict[str, Any]]) -> dict[str, An
             },
         )
         prompt_stats["call_count"] += 1
+        provider_request_count = len(invocation.get("attempts", []))
+        summary["provider_request_count"] += provider_request_count
+        prompt_stats["provider_request_count"] += provider_request_count
+        if invocation.get("cache_hit"):
+            summary["cache_hit_count"] += 1
+            prompt_stats["cache_hit_count"] += 1
         latency_ms = int(invocation.get("latency_ms") or 0)
         summary["latency_ms"] += latency_ms
         prompt_stats["latency_ms"] += latency_ms
@@ -603,13 +756,38 @@ def extract_token_usage(raw_message: BaseMessage | None) -> dict[str, Any] | Non
     total_tokens = _usage_int(usage, "total_tokens")
     if total_tokens is None and input_tokens is not None and output_tokens is not None:
         total_tokens = input_tokens + output_tokens
-    return {
+    cache_hit_input_tokens = _nested_usage_int(
+        usage,
+        direct_keys=("prompt_cache_hit_tokens", "cache_read_input_tokens"),
+        detail_keys=("cache_read", "cached_tokens"),
+        detail_container="input_token_details",
+    )
+    cache_miss_input_tokens = _nested_usage_int(
+        usage,
+        direct_keys=("prompt_cache_miss_tokens", "cache_miss_input_tokens"),
+        detail_keys=("cache_miss",),
+        detail_container="input_token_details",
+    )
+    thinking_output_tokens = _nested_usage_int(
+        usage,
+        direct_keys=("reasoning_tokens", "thinking_tokens"),
+        detail_keys=("reasoning", "thinking"),
+        detail_container="output_token_details",
+    )
+    result = {
         "input_tokens": input_tokens or 0,
         "output_tokens": output_tokens or 0,
         "total_tokens": total_tokens or 0,
         "usage_source": USAGE_SOURCE_PROVIDER,
         "usage_estimated": False,
     }
+    if cache_hit_input_tokens is not None:
+        result["cache_hit_input_tokens"] = cache_hit_input_tokens
+    if cache_miss_input_tokens is not None:
+        result["cache_miss_input_tokens"] = cache_miss_input_tokens
+    if thinking_output_tokens is not None:
+        result["thinking_output_tokens"] = thinking_output_tokens
+    return result
 
 
 def _parse_structured_result(
@@ -711,6 +889,8 @@ def _classify_exception(exc: BaseException) -> str:
     # 如果前面已经包装成 CoursePilotLLMCallError，直接使用内部 category
     if isinstance(exc, CoursePilotLLMCallError):
         return exc.category
+    if _safe_to_retry_before_response(exc):
+        return ERROR_CONNECTION
     # Python 原生 TimeoutError 和消息里包含 timeout/timed out 的异常都归为 timeout
     if isinstance(exc, TimeoutError):
         return ERROR_TIMEOUT
@@ -740,6 +920,66 @@ def _classify_exception(exc: BaseException) -> str:
     return ERROR_UNKNOWN
 
 
+def _exception_chain(exc: BaseException) -> list[BaseException]:
+    chain: list[BaseException] = []
+    current: BaseException | None = exc
+    seen: set[int] = set()
+    while current is not None and id(current) not in seen:
+        seen.add(id(current))
+        chain.append(current)
+        original = getattr(current, "original", None)
+        current = original if isinstance(original, BaseException) else current.__cause__
+    return chain
+
+
+def _safe_to_retry_before_response(exc: BaseException) -> bool:
+    """Retry only failures that prove no response body could have started."""
+    return any(
+        isinstance(item, (httpx.ConnectError, httpx.ConnectTimeout))
+        for item in _exception_chain(exc)
+    )
+
+
+def _structured_request_sha256(
+    *,
+    prompt_sha256: str,
+    profile_id: str,
+    schema_name: str,
+    human_payload: dict[str, Any],
+) -> str:
+    gateway = _configured_model_gateway()
+    route = gateway.resolve(profile_id)
+    identity = {
+        "prompt_sha256": prompt_sha256,
+        "profile_id": profile_id,
+        "schema": schema_name,
+        "payload": human_payload,
+        "route": {
+            "provider": route.provider,
+            "model": route.model,
+            "base_url": route.base_url,
+            "resolved_profile": route.resolved_profile,
+            "request_parameters": route.request_parameters,
+        },
+        "capability_sha256": gateway.capability_sha256,
+    }
+    return sha256(
+        json.dumps(identity, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
+    ).hexdigest()
+
+
+def _provider_request_id(raw_message: BaseMessage | None) -> str | None:
+    if raw_message is None:
+        return None
+    response_metadata = getattr(raw_message, "response_metadata", None) or {}
+    for key in ("request_id", "x-request-id", "id"):
+        value = response_metadata.get(key)
+        if value:
+            return str(value)
+    message_id = getattr(raw_message, "id", None)
+    return str(message_id) if message_id else None
+
+
 def _record_invocation(invocation: dict[str, Any]) -> None:
     collector = _current_collector.get()
     if collector is not None:
@@ -765,6 +1005,26 @@ def _usage_int(usage: Any, *keys: str) -> int | None:
         if value is not None:
             return int(value)
     return None
+
+
+def _nested_usage_int(
+    usage: Any,
+    *,
+    direct_keys: tuple[str, ...],
+    detail_keys: tuple[str, ...],
+    detail_container: str,
+) -> int | None:
+    direct = _usage_int(usage, *direct_keys)
+    if direct is not None:
+        return direct
+    details = (
+        usage.get(detail_container)
+        if isinstance(usage, dict)
+        else getattr(usage, detail_container, None)
+    )
+    if details is None:
+        return None
+    return _usage_int(details, *detail_keys)
 
 
 def _has_token_counts(usage: dict[str, Any]) -> bool:

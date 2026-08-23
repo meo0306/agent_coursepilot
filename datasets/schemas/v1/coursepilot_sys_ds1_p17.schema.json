@@ -1,0 +1,290 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P17JourneyStep": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "title": "Action",
+          "type": "string"
+        },
+        "assertions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assertions",
+          "type": "array"
+        },
+        "expected_side_effect_count": {
+          "minimum": 0,
+          "title": "Expected Side Effect Count",
+          "type": "integer"
+        },
+        "expected_state": {
+          "title": "Expected State",
+          "type": "string"
+        },
+        "required_trace": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Trace",
+          "type": "array"
+        },
+        "state_before": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "State Before"
+        },
+        "step_index": {
+          "minimum": 1,
+          "title": "Step Index",
+          "type": "integer"
+        },
+        "version_transition": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version Transition"
+        }
+      },
+      "required": [
+        "step_index",
+        "action",
+        "expected_state",
+        "expected_side_effect_count"
+      ],
+      "title": "P17JourneyStep",
+      "type": "object"
+    },
+    "P17SystemJourneyCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "expected_final_status": {
+          "title": "Expected Final Status",
+          "type": "string"
+        },
+        "expected_side_effects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected Side Effects",
+          "type": "array"
+        },
+        "fixture_details": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Fixture Details",
+          "type": "object"
+        },
+        "forbidden_side_effects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Side Effects",
+          "type": "array"
+        },
+        "input_source": {
+          "title": "Input Source",
+          "type": "string"
+        },
+        "journey_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt",
+            "writeback_loop",
+            "fault_recovery",
+            "insufficient_evidence",
+            "malicious_material",
+            "version_change"
+          ],
+          "title": "Journey Type",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/P17JourneyStep"
+          },
+          "minItems": 2,
+          "title": "Steps",
+          "type": "array"
+        },
+        "trace_version_assertions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Trace Version Assertions",
+          "type": "array"
+        },
+        "upstream_artifact_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Upstream Artifact Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "journey_type",
+        "course_id",
+        "input_source",
+        "upstream_artifact_refs",
+        "steps",
+        "expected_final_status"
+      ],
+      "title": "P17SystemJourneyCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "sys_ds1_p17_pilot_input_only",
+      "default": "sys_ds1_p17_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P17SystemJourneyCase"
+      },
+      "maxItems": 8,
+      "minItems": 8,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.sys-ds1-p17.v1",
+      "default": "coursepilot.sys-ds1-p17.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "SYSDS1P17Dataset",
+  "type": "object"
+}

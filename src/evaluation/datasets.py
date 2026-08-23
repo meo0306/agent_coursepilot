@@ -11,16 +11,24 @@ from pydantic import BaseModel
 from coursepilot.evals.formal_schemas import (
     CPDS0ManifestDataset,
     CPDS1LessonDataset,
+    CPDS1P14PilotDataset,
     CPDS2ExamDataset,
+    CPDS2P15PilotDataset,
+    CPDS3P16PilotDataset,
     CPDS3PPTDataset,
+    CPDS4P13PilotDataset,
     CPDS4ValidationDataset,
+    CPDS5P13PilotDataset,
     CPDS5RepairDataset,
     CPDS6P12PilotDataset,
     CPDS6RecoveryDataset,
     CPDS7ExportDataset,
+    CPDS7P16PilotDataset,
     CPDS8FaultSecurityDataset,
+    CPDS8P17Dataset,
     HumanScoreJsonlRecord,
     SYSDS1JourneyDataset,
+    SYSDS1P17Dataset,
 )
 from courserag.evals.schemas import (
     DS0CorpusDataset,
@@ -48,6 +56,7 @@ from evaluation.p10_schemas import (
     P10DS7Dataset,
     P10DS8Dataset,
     P10SecurityDataset,
+    P17SecurityQualificationDataset,
 )
 
 
@@ -74,13 +83,22 @@ COURSERAG_SPECS = (
 )
 
 SCHEMA_VERSION_MODELS: dict[str, type[BaseModel]] = {
+    "coursepilot.cp-ds1-p14-pilot.v1": CPDS1P14PilotDataset,
+    "coursepilot.cp-ds2-p15-pilot.v1": CPDS2P15PilotDataset,
     "coursepilot.cp-ds6-p12.v1": CPDS6P12PilotDataset,
+    "coursepilot.cp-ds4-p13.v1": CPDS4P13PilotDataset,
+    "coursepilot.cp-ds5-p13.v1": CPDS5P13PilotDataset,
+    "coursepilot.cp-ds3-p16-pilot.v1": CPDS3P16PilotDataset,
+    "coursepilot.cp-ds7-p16-pilot.v1": CPDS7P16PilotDataset,
+    "coursepilot.cp-ds8-p17.v1": CPDS8P17Dataset,
+    "coursepilot.sys-ds1-p17.v1": SYSDS1P17Dataset,
     "courserag.p09-qa-gold.v1": P09QAGoldDataset,
     "courserag.p09-context-gold.v1": P09ContextGoldDataset,
     "courserag.ds6-formal.v1": P10DS6Dataset,
     "courserag.ds7-formal.v1": P10DS7Dataset,
     "courserag.ds8-formal.v1": P10DS8Dataset,
     "courserag.p10-security-control.v1": P10SecurityDataset,
+    "courserag.p17-security-qualification-dev.v1": P17SecurityQualificationDataset,
 }
 
 COURSEPILOT_SPECS = (
@@ -311,13 +329,23 @@ def records_from_envelope(envelope: BaseModel) -> list[ReviewableRecord]:
         return list(envelope.records)
     if isinstance(envelope, CPDS1LessonDataset):
         return list(envelope.cases)
+    if isinstance(envelope, CPDS1P14PilotDataset):
+        return list(envelope.cases)
     if isinstance(envelope, CPDS2ExamDataset):
         return list(envelope.cases)
+    if isinstance(envelope, CPDS2P15PilotDataset):
+        return [*envelope.cases, *envelope.targets]
     if isinstance(envelope, CPDS3PPTDataset):
+        return list(envelope.cases)
+    if isinstance(envelope, CPDS3P16PilotDataset):
         return list(envelope.cases)
     if isinstance(envelope, CPDS4ValidationDataset):
         return list(envelope.cases)
+    if isinstance(envelope, CPDS4P13PilotDataset):
+        return list(envelope.cases)
     if isinstance(envelope, CPDS5RepairDataset):
+        return list(envelope.cases)
+    if isinstance(envelope, CPDS5P13PilotDataset):
         return list(envelope.cases)
     if isinstance(envelope, CPDS6RecoveryDataset):
         return list(envelope.cases)
@@ -325,9 +353,15 @@ def records_from_envelope(envelope: BaseModel) -> list[ReviewableRecord]:
         return list(envelope.cases)
     if isinstance(envelope, CPDS7ExportDataset):
         return list(envelope.cases)
+    if isinstance(envelope, CPDS7P16PilotDataset):
+        return list(envelope.cases)
     if isinstance(envelope, CPDS8FaultSecurityDataset):
         return list(envelope.cases)
+    if isinstance(envelope, CPDS8P17Dataset):
+        return list(envelope.cases)
     if isinstance(envelope, SYSDS1JourneyDataset):
+        return list(envelope.cases)
+    if isinstance(envelope, SYSDS1P17Dataset):
         return list(envelope.cases)
     raise TypeError(f"unsupported dataset envelope: {type(envelope).__name__}")
 

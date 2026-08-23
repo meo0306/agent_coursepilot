@@ -1,0 +1,547 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P16EvidenceSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "gold_text": {
+          "minLength": 1,
+          "title": "Gold Text",
+          "type": "string"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "source_document_id": {
+          "minLength": 1,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "source_document_version": {
+          "minLength": 1,
+          "title": "Source Document Version",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "native_text",
+            "ocr_derived"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "record_sha256",
+        "course_id",
+        "gold_text",
+        "source_document_id",
+        "source_document_version",
+        "source_type",
+        "content_sha256"
+      ],
+      "title": "P16EvidenceSnapshot",
+      "type": "object"
+    },
+    "P16KnowledgePointSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_name": {
+          "minLength": 1,
+          "title": "Canonical Name",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "gold_kp_id": {
+          "minLength": 1,
+          "title": "Gold Kp Id",
+          "type": "string"
+        },
+        "importance": {
+          "enum": [
+            "core",
+            "supporting"
+          ],
+          "title": "Importance",
+          "type": "string"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gold_kp_id",
+        "record_sha256",
+        "course_id",
+        "canonical_name",
+        "summary",
+        "importance",
+        "evidence_ids"
+      ],
+      "title": "P16KnowledgePointSnapshot",
+      "type": "object"
+    },
+    "P16PPTPilotCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "case_role": {
+          "const": "gold_pilot",
+          "default": "gold_pilot",
+          "title": "Case Role",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "forbidden_claims": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "include_references": {
+          "default": true,
+          "title": "Include References",
+          "type": "boolean"
+        },
+        "include_speaker_notes": {
+          "default": true,
+          "title": "Include Speaker Notes",
+          "type": "boolean"
+        },
+        "lesson_artifact_id": {
+          "minLength": 1,
+          "title": "Lesson Artifact Id",
+          "type": "string"
+        },
+        "lesson_artifact_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Lesson Artifact Sha256",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_interrupts": {
+          "items": {
+            "enum": [
+              "ppt_architecture_review",
+              "ppt_final_review"
+            ],
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Required Interrupts",
+          "type": "array"
+        },
+        "required_slide_types": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Slide Types",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "slide_count": {
+          "maximum": 80,
+          "minimum": 3,
+          "title": "Slide Count",
+          "type": "integer"
+        },
+        "slide_targets": {
+          "items": {
+            "$ref": "#/$defs/P16SlideTargetGold"
+          },
+          "minItems": 3,
+          "title": "Slide Targets",
+          "type": "array"
+        },
+        "source_provenance": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Provenance",
+          "type": "array"
+        },
+        "template_id": {
+          "enum": [
+            "ppt_standard_lecture_v1",
+            "ppt_concept_explanation_v1",
+            "ppt_case_seminar_v1"
+          ],
+          "title": "Template Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "course_id",
+        "template_id",
+        "lesson_artifact_id",
+        "lesson_artifact_sha256",
+        "slide_count",
+        "required_slide_types",
+        "slide_targets",
+        "required_interrupts",
+        "source_provenance"
+      ],
+      "title": "P16PPTPilotCase",
+      "type": "object"
+    },
+    "P16SlideTargetGold": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_kind": {
+          "default": "none",
+          "enum": [
+            "none",
+            "editable_table",
+            "editable_shape",
+            "replaceable_image"
+          ],
+          "title": "Asset Kind",
+          "type": "string"
+        },
+        "citation_required": {
+          "default": true,
+          "title": "Citation Required",
+          "type": "boolean"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "evidence_snapshots": {
+          "items": {
+            "$ref": "#/$defs/P16EvidenceSnapshot"
+          },
+          "title": "Evidence Snapshots",
+          "type": "array"
+        },
+        "knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Knowledge Point Ids",
+          "type": "array"
+        },
+        "knowledge_point_snapshots": {
+          "items": {
+            "$ref": "#/$defs/P16KnowledgePointSnapshot"
+          },
+          "title": "Knowledge Point Snapshots",
+          "type": "array"
+        },
+        "layout_role": {
+          "minLength": 1,
+          "title": "Layout Role",
+          "type": "string"
+        },
+        "max_bullets": {
+          "default": 6,
+          "maximum": 20,
+          "minimum": 1,
+          "title": "Max Bullets",
+          "type": "integer"
+        },
+        "max_chars_per_bullet": {
+          "default": 80,
+          "maximum": 500,
+          "minimum": 10,
+          "title": "Max Chars Per Bullet",
+          "type": "integer"
+        },
+        "notes_required": {
+          "default": true,
+          "title": "Notes Required",
+          "type": "boolean"
+        },
+        "required_claims": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Claims",
+          "type": "array"
+        },
+        "risk_flags": {
+          "items": {
+            "enum": [
+              "formula",
+              "table",
+              "ocr",
+              "qkv_source",
+              "encoder_process",
+              "attention_comparison",
+              "structure_placeholder",
+              "calculation_example",
+              "training_process",
+              "occupation_risk_comparison"
+            ],
+            "type": "string"
+          },
+          "title": "Risk Flags",
+          "type": "array"
+        },
+        "slide_id": {
+          "minLength": 1,
+          "title": "Slide Id",
+          "type": "string"
+        },
+        "slide_index": {
+          "minimum": 1,
+          "title": "Slide Index",
+          "type": "integer"
+        },
+        "slide_type": {
+          "enum": [
+            "title",
+            "agenda",
+            "objectives",
+            "concept",
+            "process",
+            "comparison",
+            "example",
+            "activity",
+            "summary",
+            "references"
+          ],
+          "title": "Slide Type",
+          "type": "string"
+        },
+        "source_session_index": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Session Index"
+        },
+        "title_intent": {
+          "minLength": 1,
+          "title": "Title Intent",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slide_id",
+        "slide_index",
+        "slide_type",
+        "title_intent",
+        "layout_role"
+      ],
+      "title": "P16SlideTargetGold",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds3_p16_pilot_input_only",
+      "default": "cp_ds3_p16_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P16PPTPilotCase"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p16-pilot-r1",
+      "enum": [
+        "p16-pilot-r1",
+        "p16-pilot-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds3-p16-pilot.v1",
+      "default": "coursepilot.cp-ds3-p16-pilot.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "CPDS3P16PilotDataset",
+  "type": "object"
+}

@@ -165,6 +165,20 @@ class RuntimeRepository:
             )
         )
 
+    def find_active_artifact(
+        self, *, artifact_id: str, course_id: str
+    ) -> tuple[ArtifactRecord, ArtifactVersionRecord] | None:
+        artifact = self.session.get(ArtifactRecord, artifact_id)
+        if artifact is None or artifact.course_id != course_id or artifact.active_version is None:
+            return None
+        version = self.session.scalar(
+            select(ArtifactVersionRecord).where(
+                ArtifactVersionRecord.artifact_id == artifact.id,
+                ArtifactVersionRecord.version == artifact.active_version,
+            )
+        )
+        return (artifact, version) if version is not None else None
+
     def finish_run(self, run_id: str, *, status: str) -> WorkflowRunRecord:
         run = self.session.get(WorkflowRunRecord, run_id)
         if run is None:

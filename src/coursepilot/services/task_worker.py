@@ -271,13 +271,30 @@ class CoursePilotTaskWorker:
             session.flush()
             task.active_artifact_version = 1
         config = recoverable_graph_config(task.workflow_type, task.id, task.course_id)
-        state = {
-            "interrupt_payload": {
+        input_params = dict(task.input_params_json or {})
+        if (
+            task.workflow_type == "lesson"
+            and isinstance(input_params.get("knowledge_points"), dict)
+            and isinstance(input_params.get("context_ref"), dict)
+        ):
+            state = {
                 "task_id": task.id,
-                "artifact_id": artifact.id,
-                "artifact_version": task.active_artifact_version,
+                "course_id": task.course_id,
+                "request": dict(input_params.get("request", input_params)),
+                "template_snapshot_id": str(
+                    input_params.get("template_snapshot_id", "lesson_standard_university_v1")
+                ),
+                "knowledge_points": input_params["knowledge_points"],
+                "context_ref": input_params["context_ref"],
             }
-        }
+        else:
+            state = {
+                "interrupt_payload": {
+                    "task_id": task.id,
+                    "artifact_id": artifact.id,
+                    "artifact_version": task.active_artifact_version,
+                }
+            }
         with get_sync_recoverable_checkpointer() as saver:
             graph = build_recoverable_graph(task.workflow_type, checkpointer=saver)
             result = graph.invoke(state, config=config)

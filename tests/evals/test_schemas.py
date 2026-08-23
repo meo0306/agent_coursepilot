@@ -45,7 +45,7 @@ HASH_B = "b" * 64
 
 
 def test_all_p02_dataset_models_have_exported_schema_names():
-    assert len(SCHEMA_MODELS) == 77
+    assert len(SCHEMA_MODELS) == 95
     assert "course_eval_candidate_revision_history.schema.json" in SCHEMA_MODELS
     assert "courserag_corpus_fixture_manifest.schema.json" in SCHEMA_MODELS
     assert "courserag_ds1_sampling_plan.schema.json" in SCHEMA_MODELS
@@ -62,6 +62,11 @@ def test_all_p02_dataset_models_have_exported_schema_names():
     assert "courserag_p10_3_security_dev.schema.json" in SCHEMA_MODELS
     assert "courserag_p10_3_security_review.schema.json" in SCHEMA_MODELS
     assert "courserag_p10_3_security_dev_approval.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds3_p16_pilot.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds7_p16_pilot.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p16_review_decisions.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p16_bundle_manifest.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p16_bundle_approval.schema.json" in SCHEMA_MODELS
     assert "courserag_p10_3_security_blind_commitment.schema.json" in SCHEMA_MODELS
     assert "courserag_ds3_section_scopes.schema.json" in SCHEMA_MODELS
     assert "courserag_ds3_split.schema.json" in SCHEMA_MODELS
@@ -75,6 +80,14 @@ def test_all_p02_dataset_models_have_exported_schema_names():
     assert "courserag_p08_gold_bundle_approval.schema.json" in SCHEMA_MODELS
     assert "courserag_ds0.schema.json" in SCHEMA_MODELS
     assert "coursepilot_cp_ds8.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds1_p14_pilot.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds1_p14_fixtures.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p14_review_decisions.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p14_bundle_approval.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds2_p15_pilot.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds2_p15_fixtures.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p15_review_decisions.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p15_bundle_approval.schema.json" in SCHEMA_MODELS
     assert "coursepilot_sys_ds1.schema.json" in SCHEMA_MODELS
     assert "courserag_qa_human_score_record.schema.json" in SCHEMA_MODELS
     assert "coursepilot_human_score_record.schema.json" in SCHEMA_MODELS

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from typing import Annotated, Literal
 
 from fastapi import APIRouter, Depends, Header, Query, Request
@@ -29,6 +31,11 @@ from courserag.contracts.common import (
     ErrorResponse,
     RequestContext,
     ResponseMeta,
+)
+from courserag.contracts.knowledge_points import (
+    KnowledgePointEvidenceLink,
+    KnowledgePointSnapshot,
+    KnowledgePointSnapshotItem,
 )
 
 from .http_schema import API_PREFIX
@@ -149,6 +156,58 @@ def list_knowledge_points(
     except KnowledgePointApplicationError as exc:
         raise _error(context, exc) from exc
     return KnowledgePointListResponse(meta=ResponseMeta.from_context(context), payload=items)
+
+
+@router.get(
+    "/knowledge-bases/{knowledge_base_id}/knowledge-points/snapshot",
+    response_model=KnowledgePointSnapshot,
+)
+def knowledge_point_snapshot(
+    knowledge_base_id: str,
+    context: Annotated[RequestContext, Depends(_headers)],
+    session: Annotated[Session, Depends(get_session)],
+    review_status: Annotated[str | None, Query()] = "approved",
+    limit: Annotated[int, Query(ge=1, le=500)] = 500,
+) -> KnowledgePointSnapshot:
+    try:
+        items = KnowledgePointService(session).list(
+            knowledge_base_id, status=review_status, limit=limit, offset=0
+        )
+    except KnowledgePointApplicationError as exc:
+        raise _error(context, exc) from exc
+    snapshot_items = [
+        KnowledgePointSnapshotItem(
+            knowledge_point_id=item.knowledge_point_id,
+            course_id=knowledge_base_id,
+            canonical_name=item.canonical_name,
+            aliases=list(item.aliases),
+            summary=item.summary,
+            review_status=str(item.review_status),
+            version=item.version_number,
+            section_ids=list(item.section_ids),
+            evidence_links=[
+                KnowledgePointEvidenceLink(
+                    evidence_id=link.evidence_id,
+                    role=link.role,
+                    strength=link.strength,
+                )
+                for link in item.evidence_links
+            ],
+        )
+        for item in items
+    ]
+    return KnowledgePointSnapshot(
+        meta=ResponseMeta.from_context(context),
+        course_id=knowledge_base_id,
+        items=snapshot_items,
+        snapshot_sha256=hashlib.sha256(
+            json.dumps(
+                [item.model_dump(mode="json") for item in snapshot_items],
+                ensure_ascii=False,
+                sort_keys=True,
+            ).encode("utf-8")
+        ).hexdigest(),
+    )
 
 
 @router.get("/knowledge-points/{knowledge_point_id}", response_model=KnowledgePointResponse)

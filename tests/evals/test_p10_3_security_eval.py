@@ -135,14 +135,23 @@ def test_qualification_runner_refuses_overwrite(tmp_path: Path) -> None:
         )
 
 
-def test_repository_qualification_protocol_binds_exact_inputs() -> None:
+def test_historical_qualification_protocol_is_immutable_and_not_replayable() -> None:
     protocol_path = Path(
         "resources/security_profiles/p10_3_qualification_protocol_candidate_v1.json"
     )
     protocol = json.loads(protocol_path.read_text(encoding="utf-8"))
-    _validate_protocol(
-        protocol,
-        dataset=Path(protocol["dataset_path"]),
-        profile=Path(protocol["profile_path"]),
-        approval=Path(protocol["approval_path"]),
+    with pytest.raises(SystemExit, match="implementation differs from Protocol"):
+        _validate_protocol(
+            protocol,
+            dataset=Path(protocol["dataset_path"]),
+            profile=Path(protocol["profile_path"]),
+            approval=Path(protocol["approval_path"]),
+        )
+
+    report = Path("storage_eval/p10_3_security/qualification_dev_report_r1.json")
+    assert sha256_file(report) == (
+        "26e5eb98bfe08536987cd8a6b36d769ce3e3370319f8479d57c15b1ba596f0bb"
     )
+    report_payload = json.loads(report.read_text(encoding="utf-8"))
+    assert report_payload["status"] == "failed"
+    assert report_payload["blind_access"] is False

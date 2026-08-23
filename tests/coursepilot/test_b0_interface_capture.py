@@ -40,7 +40,9 @@ def test_interface_snapshot_captures_api_models_graphs_and_prompts():
         "coursepilot_exam_agent",
         "coursepilot_ppt_agent",
     }
-    assert snapshot["prompts"]["prompt_count"] == 14
+    # New versioned workflows add prompts without changing the frozen B0
+    # prompt files. The B0 count is therefore a lower bound.
+    assert snapshot["prompts"]["prompt_count"] >= 14
     assert all(prompt["file_sha256"] for prompt in snapshot["prompts"]["prompts"])
     assert all(prompt["effective_prompt_sha256"] for prompt in snapshot["prompts"]["prompts"])
     assert snapshot["behavior_changed"] is False
@@ -100,6 +102,11 @@ def test_saved_interface_snapshot_matches_runtime_capture():
             item for item in current_task["columns"] if item["name"] in saved_columns
         ]
         current_task["constraints"] = saved_table["constraints"]
+    saved_prompt_names = {item["name"] for item in saved["prompts"]["prompts"]}
+    current["prompts"]["prompts"] = [
+        item for item in current["prompts"]["prompts"] if item["name"] in saved_prompt_names
+    ]
+    current["prompts"]["prompt_count"] = len(current["prompts"]["prompts"])
     assert current == saved
 
 

@@ -15,3 +15,7 @@ class ContextPackageRef(DomainModel):
     content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
     trace_id: str = Field(min_length=1)
     warning_codes: list[str] = Field(default_factory=list)
+    retrieval_trace_id: str | None = None
+    verified_overlay_version: str | None = None
+    retrieval_snapshot_id: str | None = None
+    evidence_versions: dict[str, str] = Field(default_factory=dict)

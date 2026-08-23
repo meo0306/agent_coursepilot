@@ -18,6 +18,7 @@ from courserag.security.detector import (
     ThreatAxis,
 )
 from courserag.security.prompt_injection import PromptInjectionFinding
+from courserag.security.structured_axes import classify_instruction_scope
 
 
 class SecurityAxisProfile(BaseModel):
@@ -37,7 +38,7 @@ class MultiAxisSecurityProfile(BaseModel):
     )
     name: str = Field(min_length=1, max_length=160)
     version: str = Field(min_length=1, max_length=80)
-    decision: Literal["high_confidence_union"] = "high_confidence_union"
+    decision: Literal["high_confidence_union", "scope_aware_consensus"] = "high_confidence_union"
     axes: tuple[SecurityAxisProfile, ...] = Field(min_length=1)
     hikma_manifest_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
     override_manifest_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
@@ -142,10 +143,39 @@ class MultiAxisSecurityEnsemble:
         findings: list[PromptInjectionFinding] = []
         seen: set[tuple[str, int, int, ThreatAxis]] = set()
         for window_id, window_signals in by_window.items():
-            ready = [signal for signal in window_signals if signal.decision_ready]
+            window = window_by_id[window_id]
+            scope = classify_instruction_scope(window.text)
+            if self.profile.decision == "scope_aware_consensus" and scope in {
+                "quoted",
+                "negated",
+                "educational",
+                "defensive_description",
+                "approved_procedure",
+            }:
+                continue
+            structured = [
+                signal
+                for signal in window_signals
+                if signal.detector_id == "courserag/structured-capability-axes@v2"
+                and set(signal.evidence_ids) >= {"action", "target", "effect"}
+                and signal.decision_ready
+            ]
+            # A semantic score corroborates a structured action-target-effect
+            # conjunction; it cannot override scope or act as a standalone
+            # authorization decision.
+            if self.profile.decision == "scope_aware_consensus" and not structured:
+                continue
+            ready = (
+                structured
+                if self.profile.decision == "scope_aware_consensus"
+                else [signal for signal in window_signals if signal.decision_ready]
+            )
             if not ready:
                 continue
-            window = window_by_id[window_id]
+            semantic_ready = any(
+                signal.axis_id == "general_untrusted_instruction" and signal.decision_ready
+                for signal in window_signals
+            )
             modifiers = [
                 signal.signal_id
                 for signal in window_signals
@@ -182,13 +212,22 @@ class MultiAxisSecurityEnsemble:
                             detector_id=signal.detector_id,
                             score=signal.score,
                             window_id=window_id,
-                            decision_basis="axis_high_confidence_union",
+                            decision_basis=(
+                                "scope_aware_consensus"
+                                if self.profile.decision == "scope_aware_consensus"
+                                else "axis_high_confidence_union"
+                            ),
                             axis_id=signal.axis_id,
                             signal_ids=tuple(sorted({signal.signal_id, *modifiers})),
                             decision_path=(
-                                "high_confidence_union",
-                                signal.axis_id,
-                                signal.detector_id,
+                                (
+                                    "scope_aware_consensus"
+                                    if self.profile.decision == "scope_aware_consensus"
+                                    else "high_confidence_union"
+                                ),
+                                scope,
+                                "action_target_effect",
+                                ("semantic_corroborated" if semantic_ready else "structured_only"),
                             ),
                         )
                     )
@@ -203,3 +242,24 @@ class MultiAxisSecurityEnsemble:
                 ),
             )
         )
+
+
+def _classify_scope(text: str) -> str:
+    """Conservative scope gate used before any semantic detector decision."""
+    import re
+
+    value = " ".join(text.casefold().split())
+    if re.search(
+        r"\b(quoted|quote|example|excerpt|says|chapter|describes|explains)\b|示例|引用|本章|描述|说明",
+        value,
+    ):
+        return (
+            "quoted" if re.search(r"\b(quoted|quote|excerpt|says)\b|引用", value) else "educational"
+        )
+    if re.search(r"\b(do not|must not|never|not|禁止|不得|不要|不能)\b", value):
+        return "negated"
+    if re.search(r"\b(defensive|mitigation|protect|防御|防护|缓解)\b", value):
+        return "defensive_description"
+    if re.search(r"\b(approved procedure|runbook|approved workflow|已批准流程)\b", value):
+        return "approved_procedure"
+    return "operative"

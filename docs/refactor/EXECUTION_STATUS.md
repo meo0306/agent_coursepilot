@@ -3,9 +3,9 @@
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
 - Current branch: `refactor/p00-baseline`
-- Current phase: P12 PostgreSQL checkpoint and interrupt gate passed; P10.3 remains isolated, rejected and default-off under P10-D013
-- Current data checkpoint: approved CP-DS6 input was used for structural validation only; no Test or external Provider data was read or sent
-- Last updated: 2026-08-14
+- Current phase: P17 system integration is implemented and its 34/34 CP-DS8 variants and 8/8 SYS-DS1 journeys pass, but the immutable Security r2 Blind run failed its preregistered release gate. The r2 Profile remains rejected/default-off, P17 is `gate_failed_security_blind`, and P18 remains blocked. Blind results must not be used for post-Blind tuning.
+- Current data checkpoint: P17 Security r2 Qualification Dev passed 120/120 with zero errors, but the single approved 48-case Blind run produced 11 TP, 13 FN, 1 FP and 23 TN (Recall 0.4583, Specificity 0.9583). Report SHA-256 is `a9c1004a4d1b3410dfead90093f2a7208ed65d7e2f4cb3250a65f62be6b335df`; external calls, network access and Fallback were all zero.
+- Last updated: 2026-08-22
 
 | Phase | Status | Start Commit | End Commit | Gate | Report |
 |---|---|---|---|---|---|
@@ -22,7 +22,8 @@
 | P10 | completed_with_isolated_security_capability_debt | `b6483f5` | `3665211` + uncommitted P10.1-P10.3 repair | core_contracts_passed_security_profile_rejected_default_off | `phase_reports/P10_3_multi_axis_untrusted_instruction_detector.md` |
 | P11 | completed | `2e1a6be` | uncommitted (`2e1a6be`) | passed | `phase_reports/P11_coursepilot_runtime_template_model_gateway.md` |
 | P12 | completed | `2e1a6be` | uncommitted | passed | `phase_reports/P12_postgresql_checkpoint_interrupt_approval.md` |
-| P13 | ready_to_start | | | P12_passed | |
+| P13 | completed | `b2cc47b` | uncommitted | passed | `phase_reports/P13_validation_targeted_repair.md` |
+| P14 | completed_with_quality_debt | `b2cc47b` | uncommitted | passed_core_contracts_human_quality_debt_recorded | `phase_reports/P14_lesson_workflow_closure.md` |
 
 ## P12 implementation checkpoint
 
@@ -41,12 +42,126 @@ route/model snapshots. Real PostgreSQL `0016→0017→0016→0017`, restart/Resu
 execution pass in the isolated Compose database: migration round-trip `0016 -> 0017 -> 0016 ->
 0017`, six restart/Resume/Interrupt cases, and 24 CP-DS6 structural cases with external_calls=0
 and gold_promotion=false. The default Recoverable runtime remains disabled.
-| P14 | not_started | | | blocked_by_P13 | |
-| P15 | not_started | | | blocked_by_P14 | |
-| P16 | not_started | | | blocked_by_P15 | |
-| P17 | not_started | | | blocked_by_P16 | |
+| P15 | completed_with_quality_debt | `b2cc47b` | uncommitted | passed_core_workflow_contracts_exam_profile_provisional | `phase_reports/P15_exam_blueprint_fanout_global_repair.md` |
+| P16 | input_approved_ready_to_start | uncommitted | — | implementation_and_eval_not_run | `phase_reports/ED_PRE_P16_CPDS37_candidate_review_r2.md` |
+| P16 | ready_to_start | | | P10-P14/P11-P13 passed or explicitly closed | |
+
+## P15 CP-B0/P15 owner-review package
+
+The approved fixed-Blueprint CP-B0 question-generation baseline is complete for all three CP-DS2
+cases (45 questions). Cumulative usage, including the superseded legacy attempt, is 30 requests,
+116,622 input tokens, 123,228 output tokens and CNY 0.363078, within the approved 30/130k/150k/CNY
+0.45 limits. The blinded package contains six exams and 90 question decisions at
+`storage_eval/p15_owner_review/`; package SHA-256 is
+`44fcecfa343730253c2d535340e28b68604aa3a257721e540e85735c62c11254`. P15 remains
+`gate_failed`: owner decisions are complete and identified three critical P15 question defects.
+
+## P15 Targeted Repair Closure checkpoint
+
+The bounded closure now models true multi-select answers, per-option correctness/evidence,
+self-contained stimulus material, answer-set consistency and semantic duplicates. Its preflight
+freezes exactly 17 question IDs across the three Approved P3 artifacts and leaves the other 28
+question hashes untouched. The repair runner no longer redirects a failed duplicate repair to the
+other side of the pair; it repairs each preflight ID at most once and then revalidates the complete
+exam. A delta-only owner-review package is generated after a successful run and includes local
+autosave plus independent progress/final JSON downloads.
+
+The network-free preflight passed with 17/20 targets and an estimated 59,500 input / 85,000 output
+tokens. The first managed attempt produced only `connection_error` records and zero model output;
+the original 45 questions remained unchanged. A clean non-sandbox retry was then rejected by the
+Codex managed-runtime usage limit before an output directory or response checkpoint was created.
+This is an execution-environment blocker, not a successful quality revalidation. Local evidence is
+green: full Pytest `722 passed, 12 skipped`, Ruff Format/Check, Mypy (447 source files), Alembic
+single head and `git diff --check` pass. P15 stays failed and P16 remains blocked until the exact
+real targeted run succeeds and the Course Owner approves its incremental review decisions.
+| P16 | completed_with_quality_debt | uncommitted | — | passed_core_contracts_provider_consistency_rendering_quality_debt_recorded | `phase_reports/P16_ppt_architecture_template_rendering.md` |
+| P17 | gate_failed_security_blind | `b2cc47b` | uncommitted | system_integration_passed_security_release_failed | `phase_reports/P17_system_integration_reliability_security_writeback.md` |
 | P18 | not_started | | | blocked_by_P17 | |
 | P19 | not_started | | | blocked_by_P18 | |
+
+## P16 Critical-only closure checkpoint
+
+The first Course Owner review covered all 46 final slides and identified 17 `critical_defect`
+pages. Under the approved one-shot boundary, the repair preflight bound the exact 17 IDs to the
+source report and decision file, allowed at most one repair per page and preserved all other page
+hashes. Execution completed one repair round with 9 physical Provider requests, 19,971 input
+tokens, 53,342 output/Thinking tokens and estimated CNY 0.266655, within the approved
+CNY 0.45 / 20 request / 130k input / 60k output limits. Eight pages used successful Provider
+checkpoints; after one structured-output recovery and one timeout, the remaining nine were closed
+deterministically from the approved Evidence and owner notes without another external call.
+
+The repaired 24/12/10-page decks all reopen and render in the fixed LibreOffice/Poppler container;
+automatic severe overflow, out-of-bounds and empty-slide counts are zero, CP-DS7 remains green,
+and the 29 noncritical slide hashes are unchanged. The focused 17-page package is at
+`storage_eval/p16_critical_repair_closure/review/index.html`. P16 remains blocked only on this
+owner re-review. This is the final repair round: remaining noncritical preferences may become
+quality debt, while a remaining hard defect must be reported rather than triggering another repair.
+
+## P15 Closure Repair checkpoint
+
+The approved no-API repair completed the runner and evidence boundary: P0/P1/P2/P3 now use
+bounded evidence text, durable atomic response checkpoints, explicit experiment variants,
+bounded batch size/concurrency and stable fan-in numbering. The Exam graph is fail-closed until
+Blueprint Review approval. Export is staged, reopened and locally rendered before publication;
+writeback binds an exact approval record and target path, and stale task/artifact versions are
+rejected from the database-backed side-effect boundary.
+
+Evidence: focused P15/offline tests `16 passed`, PostgreSQL migration/interrupt/side-effect gate
+`6 passed`, Ruff and targeted Mypy passed, and all four local DOCX roles rendered to one-page
+PDF/PNG outputs with no placeholders or answer leakage in Student Exam. No external Provider
+call was made in this repair. P15 real Smoke and full Pilot remain pending the user's separate
+fee authorization; P16 remains blocked until that decision and the P15 Gate are complete.
+
+## P15 Targeted Repair Provider completion
+
+The authorized second-round repair completed successfully for exactly the two residual targets:
+case02 `batch-multiple_choice-01:slot-1` and case03 `batch-short_answer-01:slot-5`. The final
+report is `storage_eval/p15_targeted_repair_network/report_final.json`; all three CP-DS2 cases
+have `all_global_validation_passed=true`, with unchanged non-target question hashes preserved.
+Cumulative repair-run accounting is 19 Provider requests, 69,606 input tokens, 80,286 output
+tokens and estimated CNY 0.230178, within the approved hard caps. No additional retry, fallback,
+or model switch was used. The final 17-question delta review is at
+`storage_eval/p15_targeted_repair_network/review_final/review.html`, with the editable decision
+template beside it. At that checkpoint P15 was `gate_pending_owner_review` and P16 was blocked by
+the owner review only. This checkpoint is superseded by the completed owner-review closure below.
+
+## P15 owner-review closure and P15.1 backlog
+
+The Course Owner completed the final 17-question delta review. Decision file SHA-256 is
+`d83ad908cf18c0317cf05ab7e461f987553ff74bc1b009ecba9a375223012aae`, bound to source report
+`d95d79e787e7d5e5b0173691715bc0f16548bf929a9975e52c54c200da20c7d0`. Results are 6 `pass`,
+2 `minor_edit` and 9 `major_edit`. The remaining issues are dominated by whole-exam semantic
+repetition, repeated assessment targets and cross-question answer clues. They cannot be reliably
+closed by another question-local repair because the approved repair scope intentionally cannot
+reassign Slot KP, Evidence or Assessment Target.
+
+Per Course Owner decision, P15 closes as `completed_with_quality_debt`; the Exam V2 Profile is
+`provisional_dev_only`, remains default-off (`COURSEPILOT_EXAM_V2_ENABLED=false`), and no further
+question-local Provider repair is scheduled. P15.1 records a bounded architecture improvement:
+unique primary assessment-target allocation per Slot, an exam-wide used-fact/exclusion plan,
+cross-question semantic/clue graph validation, and Blueprint/Batch-level regeneration when those
+constraints fail. P16 may start because it is a sibling workflow; P15.1 must be resolved or
+explicitly dispositioned before P17/P18 promotes the Exam Profile.
+
+## Pre-P15 CP-DS2 Exam Pilot Candidate checkpoint
+
+P15 input construction `ED-PRE15-CPDS2-T01` through `T08` produced three blueprint-only
+Exam Pilot cases, 26 Assessment Targets, three fixed Context fixtures, and two fail-closed
+contract negatives. Candidate Bundle SHA-256 is
+`943dd46f873393ea139466b47f87854685ac23c69073a7194bc8490822480534`.
+The Candidate was approved exactly by the Course Owner; CoursePilot Dev/Test are empty and `test.lock=false`.
+Review pages and manual JSON fallbacks are under
+`storage_eval/cpds2_p15_review/943dd46f873393ea139466b47f87854685ac23c69073a7194bc8490822480534/`.
+No fixed question wording, real Provider call, P15 runtime output, P18 Gold, or database/API
+change was used. The global manifest records P14 as `completed_gate_passed` with its existing
+quality debt and P15 as `formal_eval_ready`.
+
+Approved input is `datasets/coursepilot_eval/v1/approved/cp_ds2/p15_exam_pilot.json` with
+SHA-256 `8204f687b5a03965d7d02b8c1884419f3675c3a4af6a0e3364df0218f03a0ac4`.
+Approval provenance is `datasets/coursepilot_eval/v1/provenance/p15_cp_ds2_bundle_approval.json`;
+the two review records are marked `conversation_exact_bundle_approval` because no exported JSON
+was supplied. This approval prepares P15 input only and does not claim the P15 Exit Gate or P18
+formal CP-DS2 Gold.
 
 ## P11 Runtime Foundation implementation checkpoint
 
@@ -78,6 +193,35 @@ The exact Candidate was approved as P12 implementation input. Approved package S
 `1def8ba6bdb774bc744e4bac2cc70793867c96cc2d8a0929efbe62d32cc4f078`; approval SHA-256 is
 `a0e4e6490e8d5d53a7337946169e95d68050368fc44eb7ec29659946c356be61`. This does not promote
 formal CoursePilot Gold, populate Dev/Test, lock Test, or claim a P12 Exit Gate.
+
+## Pre-P13 CP-DS4/5 Pilot Candidate checkpoint
+
+P13 Candidate generation produced 30 CP-DS4 Validation Fault records and 15 CP-DS5 Targeted
+Repair records, with 9 valid base Artifact fixtures and 30 deterministic fault variants. The
+hybrid provenance uses only Approved DS2/DS3 records from the two existing courses for grounding
+references; structural faults remain deterministic and course-agnostic. Bundle SHA-256 is
+`b436f6e1901bb9447359e4fd0524f27ba39bfa24742b3ec006e451ae0bec9cd0`.
+Review pages are under
+`storage_eval/cpds45_p13_review/b436f6e1901bb9447359e4fd0524f27ba39bfa24742b3ec006e451ae0bec9cd0/`.
+The review UI now defaults to human-readable artifact summaries, before/after fault values and
+expected Issue or Repair constraints; raw JSON is collapsed. Filters, progress and local decision
+persistence were added without changing the Candidate files or Bundle SHA-256.
+No P13 output, external Provider, CourseRAG Test/Holdout, Dev/Test split or formal CP-DS1—3 Gold
+was used. The Course Owner approved the exact Bundle after 45/45 first-pass and 27/27 second-pass
+reviews. Approval SHA-256 is `41ca5385a95870d251776957a6469622c834032fa0f019699f0db505eed5985c`;
+P13 implementation may start, while the P18 final CoursePilot Gold freeze remains unchanged.
+
+## Pre-P14 CP-DS1 Pilot approval checkpoint
+
+The Course Owner approved exact Bundle SHA-256
+`3e47c85c624ab0c3a751b34de38a8b1147a0d6187314ef9a27210b85cc9c1708`.
+Because the original review pages had no working export channel, the two completed all-pass reviews
+are preserved as conversation-attested decision files rather than requiring repeated review.
+Approved Pilot SHA-256 is `4533545ca0355e6c9a1581dd7024fc008b7e7f95e71e9c73b35dc52f88340e13`;
+approval SHA-256 is `f76cb89e5a0cf9c2f8ee9f06ae42a25e9e7dda3e41e3567dc24ccbad34558533`.
+The review pages now autosave decisions locally and export schema-validated JSON. P14 input is
+`formal_eval_ready`; this approval does not run a Provider, pass the P14 Exit Gate, populate
+CoursePilot Dev/Test, lock Test, or promote the P18 final CP-DS1 Gold.
 
 ## Current data-preparation tasks
 
@@ -1022,3 +1166,86 @@ unrelated foundation work. This is an explicit dependency waiver, not a metric w
 Accordingly P10 is `completed_with_isolated_security_capability_debt` and P11 is
 `ready_to_start`. The original formal Test, Test Lock, Profiles, runtime defaults, database,
 public API and indexes are unchanged.
+
+## P15 exam workflow implementation checkpoint
+
+P15 implementation is complete but its real-provider gate is failed. Strict Exam Blueprint/Slot/Batch/Question/Artifact contracts, bounded
+Fan-out/Fan-in orchestration, deterministic duplicate and answer-leakage checks, question-scoped
+RepairPlan generation, versioned four-role DOCX export, and additive exam export/writeback routes
+are implemented behind `COURSEPILOT_EXAM_V2_ENABLED=false`. The approved CP-DS2 input bundle is
+reused without constructing new Gold/Test data. Offline preflight estimates 34 requests, 160k
+input tokens, 220k output/thinking tokens and CNY 0.60 within the approved CNY 0.80 cap.
+Focused P15 and upstream Validation/Repair tests pass. The later owner-authorized real Provider
+Smoke/Pilot is recorded in the checkpoint below; its usage stayed within the hard cap, but global
+duplicate/answer-leakage checks and one structured-output failure keep the final Exit Gate failed.
+## P15 real Provider Smoke/Pilot checkpoint
+
+The owner-authorized Smoke/Pilot was executed once with the approved hard caps (CNY 0.80,
+200,000 input tokens, 300,000 output/thinking tokens, 34 provider requests). The durable
+checkpoint and consolidated report are under `storage_eval/p15_provider_smoke/`. Actual usage
+was 32 provider requests, 64,436 input tokens, 59,794 output tokens and an actual-usage cost
+estimate of CNY 0.184024; no fallback, model switch, retry, Test access or Gold promotion occurred.
+
+The gate is not passed: the Smoke/P3 path reported duplicate questions and cross-answer leakage;
+P0/P1 reported answer leakage; P2 reported duplicate questions; and one P3 pressure-case request
+returned a structured-parse failure after the Provider had supplied usage (request hash
+`fb17dd665ef3ed1f607bf7772648ece6632d358b32394a6658d4e593b677c84b`, billing status
+`unknown_pending_reconciliation`). The request was not retried and no fallback was used. P15
+therefore remains `gate_failed_quality_and_provider`; P16 is blocked pending offline repair and a
+separately authorized follow-up, with the remaining two request slots not consumed automatically.
+
+## P16 pre-data checkpoint
+
+The renderer-backed P16 r2 CP-DS3/CP-DS7 Pilot candidates are generated from the owner-reviewed
+P14 Lesson artifacts and Approved CourseRAG DS2/DS3/P05 records. The bundle contains 3 decks with
+exactly 46 slide targets (24/12/10), 4 template positives (three built-in roles and the pinned
+CC0 Velis template) and 2 contract negatives. Candidate hashes are
+`7001ec09dcf7ca782fadb2468a39fb5b0a51b81dc8be35d8f14e4d57bdd5b039` and
+`ef6ec83bba30a1ddb02bc93437421034eaab87acbc5b6e54dc4fa316d02fccb9`; Bundle hash is
+`e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91`.
+
+The external source is `lrkrol/powerpoint` commit
+`0f18f3f1fe2d76413c45b0106e7585d64beb920d`, CC0, with source SHA
+`54f58da18846a40976c2b2aa13950343d4b24d112b5a0b64f1f8efbe251dcbcd`. Because the public npm
+registry does not contain `@oai/artifact-tool`, the Course Owner authorized PowerPoint 2021 COM
+automation for the editable Velis smoke. The frozen Docker renderer remains LibreOffice 7.4.7.2:
+all 17 pages reproduced byte-identical PNG hashes across two passes. The new review package exposes
+55 first-pass and 23 blind second-pass decisions, all evidence text and 17 previews, and validated
+local autosave/export. At Candidate generation time no Approved P16 files were written; exact owner
+review and approval were still required.
+
+The Course Owner subsequently supplied the exact 55-record first-pass and 23-record blind
+second-pass exports; both were complete and all PASS. Exact Bundle
+`e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91` was approved as P16 Pilot
+input. Final approval artifact SHA is `e9017dd61a02843750036d2112515c8c47e93f36fcc764b17f5d8a9e6eda6d58`;
+Approved CP-DS3/CP-DS7 dataset hashes are `19869521...` and `2e923d29...`. Two superseded approval
+artifacts retain the pre-validation record-hash/review-ID corrections for audit. This makes P16 formal
+evaluation input ready but does not pass the P16 Exit Gate or approve generated slide quality.
+
+## P17 implementation checkpoint
+
+P17 implementation has started with the approved 1A dual-process boundary and 2A
+scope-first security decision. RemoteCourseRAGClient now supports explicit bearer
+authentication, deadlines, classified bounded retries, idempotency-aware retry rules,
+query parameters for reads and structured transport errors. CoursePilot runtime selection
+supports explicit local/remote/mock modes and never falls back from remote to local.
+Context bindings now retain retrieval trace, verified overlay/snapshot identity and per-
+Evidence content hashes. The PPT workflow no longer builds the same Context package twice.
+CourseRAG exposes Health/Capabilities and enrichment status routes; the enrichment worker
+claims leased items idempotently and records completion without inventing KP assets.
+The security ensemble includes an opt-in scope-aware action/target/effect consensus mode;
+legacy union profiles remain compatible and default-off.
+
+Focused contracts, security and writeback tests: 66 passed. Full system Pilot, independent
+Security Qualification Dev/Blind release, and final Exit Gate remain pending.
+
+P17 follow-up implementation checkpoint
+
+P17-T01 HTTP boundary completion is in place for the local/contract scope: document/build,
+evidence, health/capabilities, enrichment status and context-binding validation routes are
+mounted; RemoteCourseRAGClient calls the binding endpoint with bearer, principal, request and
+trace identity. Evidence responses resolve persisted document-version IDs/source tiers where
+available. Trace/version and writeback-loop focused validation passed 62 tests; the broader
+affected contract/security/writeback/runtime set passed 108 tests. No external provider, Blind
+data, migration or commit was used. SYS-DS1, 34 fault/security variants and the independent
+security release remain pending, so P17 is not yet completed and P18 remains blocked.

@@ -56,4 +56,12 @@ def context_package_ref(request: ContextRequest, package: ContextPackage) -> Con
         content_hash=calculated,
         trace_id=package.meta.trace_id,
         warning_codes=list(package.meta.warnings),
+        retrieval_trace_id=package.retrieval_trace_id,
+        verified_overlay_version=package.verified_overlay_version,
+        retrieval_snapshot_id=package.retrieval_snapshot_id,
+        evidence_versions={
+            key: value.content_sha256
+            for key, value in package.evidence_map.items()
+            if value.content_sha256 is not None
+        },
     )

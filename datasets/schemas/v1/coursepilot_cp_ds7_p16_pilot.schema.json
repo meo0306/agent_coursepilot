@@ -1,0 +1,440 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P16TemplateImportCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "artifact_type": {
+          "const": "ppt",
+          "default": "ppt",
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "case_role": {
+          "enum": [
+            "gold_positive",
+            "contract_negative"
+          ],
+          "title": "Case Role",
+          "type": "string"
+        },
+        "custom_template": {
+          "title": "Custom Template",
+          "type": "boolean"
+        },
+        "expected_failure": {
+          "anyOf": [
+            {
+              "enum": [
+                "template_identity_mismatch",
+                "template_mapping_incomplete"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Failure"
+        },
+        "expected_file_roles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected File Roles",
+          "type": "array"
+        },
+        "layout_count": {
+          "minimum": 0,
+          "title": "Layout Count",
+          "type": "integer"
+        },
+        "license": {
+          "minLength": 1,
+          "title": "License",
+          "type": "string"
+        },
+        "master_count": {
+          "minimum": 0,
+          "title": "Master Count",
+          "type": "integer"
+        },
+        "normalized_pptx_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Pptx Sha256"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "render_required": {
+          "default": true,
+          "title": "Render Required",
+          "type": "boolean"
+        },
+        "render_snapshot": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P16TemplateRenderSnapshot"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "required_layout_roles": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Layout Roles",
+          "type": "array"
+        },
+        "required_placeholders": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Placeholders",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "slide_type_layout_map": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "minProperties": 1,
+          "title": "Slide Type Layout Map",
+          "type": "object"
+        },
+        "source_kind": {
+          "enum": [
+            "builtin",
+            "owner_selected_external",
+            "tampered",
+            "incomplete_mapping"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "source_provenance": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Provenance",
+          "type": "array"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Sha256",
+          "type": "string"
+        },
+        "source_uri": {
+          "minLength": 1,
+          "title": "Source Uri",
+          "type": "string"
+        },
+        "template_id": {
+          "minLength": 1,
+          "title": "Template Id",
+          "type": "string"
+        },
+        "template_version": {
+          "minLength": 1,
+          "title": "Template Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "case_role",
+        "template_id",
+        "template_version",
+        "custom_template",
+        "source_kind",
+        "source_uri",
+        "source_sha256",
+        "license",
+        "master_count",
+        "layout_count",
+        "required_layout_roles",
+        "slide_type_layout_map",
+        "required_placeholders",
+        "source_provenance"
+      ],
+      "title": "P16TemplateImportCase",
+      "type": "object"
+    },
+    "P16TemplateRenderSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "declared_font_fallbacks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Declared Font Fallbacks",
+          "type": "array"
+        },
+        "editable_picture_count": {
+          "minimum": 0,
+          "title": "Editable Picture Count",
+          "type": "integer"
+        },
+        "editable_shape_count": {
+          "minimum": 1,
+          "title": "Editable Shape Count",
+          "type": "integer"
+        },
+        "editable_table_count": {
+          "minimum": 0,
+          "title": "Editable Table Count",
+          "type": "integer"
+        },
+        "image_only_slide_count": {
+          "minimum": 0,
+          "title": "Image Only Slide Count",
+          "type": "integer"
+        },
+        "notes_slide_count": {
+          "minimum": 0,
+          "title": "Notes Slide Count",
+          "type": "integer"
+        },
+        "placeholder_count": {
+          "minimum": 1,
+          "title": "Placeholder Count",
+          "type": "integer"
+        },
+        "poppler_version": {
+          "const": "22.12.0",
+          "default": "22.12.0",
+          "title": "Poppler Version",
+          "type": "string"
+        },
+        "preview_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Preview Paths",
+          "type": "array"
+        },
+        "rendered_pdf_fonts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Rendered Pdf Fonts",
+          "type": "array"
+        },
+        "rendered_pdf_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Rendered Pdf Sha256",
+          "type": "string"
+        },
+        "renderer_image": {
+          "minLength": 1,
+          "title": "Renderer Image",
+          "type": "string"
+        },
+        "renderer_version": {
+          "const": "7.4.7.2",
+          "default": "7.4.7.2",
+          "title": "Renderer Version",
+          "type": "string"
+        },
+        "repeat_render_pngs_identical": {
+          "title": "Repeat Render Pngs Identical",
+          "type": "boolean"
+        },
+        "slide_count": {
+          "minimum": 1,
+          "title": "Slide Count",
+          "type": "integer"
+        },
+        "slide_png_sha256s": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Slide Png Sha256S",
+          "type": "array"
+        },
+        "source_pptx_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Pptx Sha256",
+          "type": "string"
+        },
+        "source_theme_fonts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Theme Fonts",
+          "type": "array"
+        },
+        "visible_template_findings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Visible Template Findings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "renderer_image",
+        "source_pptx_sha256",
+        "rendered_pdf_sha256",
+        "slide_png_sha256s",
+        "slide_count",
+        "repeat_render_pngs_identical",
+        "editable_shape_count",
+        "editable_table_count",
+        "editable_picture_count",
+        "placeholder_count",
+        "notes_slide_count",
+        "image_only_slide_count",
+        "preview_paths"
+      ],
+      "title": "P16TemplateRenderSnapshot",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds7_p16_pilot_input_only",
+      "default": "cp_ds7_p16_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P16TemplateImportCase"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p16-pilot-r1",
+      "enum": [
+        "p16-pilot-r1",
+        "p16-pilot-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds7-p16-pilot.v1",
+      "default": "coursepilot.cp-ds7-p16-pilot.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "CPDS7P16PilotDataset",
+  "type": "object"
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "courserag.multi-axis-security-profile.v1",
+  "name": "p17_scope_aware_candidate_r2",
+  "version": "2.0.0-candidate",
+  "decision": "scope_aware_consensus",
+  "axes": [
+    {
+      "axis_id": "general_untrusted_instruction",
+      "detector_id": "HikmaAI/hikmaai-mdeberta-v3-base-prompt-injection-multilingual@aef60fed9674e497a7ba08e43b41e8666483934e:onnx-fp16",
+      "required": true,
+      "decision_threshold": 0.5
+    },
+    {
+      "axis_id": "policy_override",
+      "detector_id": "courserag/structured-capability-axes@v2",
+      "required": true,
+      "decision_threshold": 1.0
+    },
+    {
+      "axis_id": "role_impersonation",
+      "detector_id": "courserag/structured-capability-axes@v2",
+      "required": true,
+      "decision_threshold": null
+    },
+    {
+      "axis_id": "secret_extraction",
+      "detector_id": "courserag/structured-capability-axes@v2",
+      "required": true,
+      "decision_threshold": null
+    },
+    {
+      "axis_id": "tool_coercion",
+      "detector_id": "courserag/structured-capability-axes@v2",
+      "required": true,
+      "decision_threshold": null
+    },
+    {
+      "axis_id": "obfuscation_modifier",
+      "detector_id": "courserag/structured-capability-axes@v2",
+      "required": true,
+      "decision_threshold": null
+    }
+  ],
+  "hikma_manifest_sha256": "f5332023f1a4298bb5372c8010b37ddf5cb9e76229619a9fc5de9390d5809d1f",
+  "override_manifest_sha256": null,
+  "structured_profile_sha256": "4316e6f82363a61e56d3bfaea4777247d81ef16ca6cc1bd2648c2b497ab5b2ab"
+}

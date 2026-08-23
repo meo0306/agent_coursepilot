@@ -17,6 +17,7 @@ from courserag.application.writeback_service import VerifiedWritebackService
 from courserag.contracts import (
     EnrichmentBatchResult,
     RequestContext,
+    ResponseMeta,
     RevokeVerifiedContentRequest,
     RevokeVerifiedContentResult,
     StartEnrichmentBatchRequest,
@@ -147,3 +148,32 @@ def start_enrichment_batch(
         return service.start(payload, principal=principal)
     except Exception as exc:
         raise _api_error(payload.context, exc) from exc
+
+
+@router.get("/enrichment-batches/{batch_id}", response_model=EnrichmentBatchResult)
+def enrichment_batch_status(
+    batch_id: str,
+    session: Annotated[Session, Depends(get_session)],
+    principal: Annotated[TrustedPrincipal, Depends(trusted_principal)],
+) -> EnrichmentBatchResult:
+    batch = WritebackRepository(session).get_enrichment_batch(batch_id)
+    context = RequestContext(caller="courserag-enrichment-status")
+    if batch is None:
+        raise _api_error(context, ValueError("Enrichment batch not found"))
+    try:
+        from courserag.security import PrincipalRole, require_course_role
+
+        course = WritebackRepository(session).knowledge_base_for_course(batch.knowledge_base_id)
+        if course is None:
+            raise ValueError("Knowledge base not found")
+        require_course_role(principal, course.course_id, PrincipalRole.READER)
+        return EnrichmentBatchResult(
+            meta=ResponseMeta.from_context(context),
+            batch_id=batch.id,
+            created=False,
+            item_count=len(batch.trigger_snapshot_json.get("content_ids", [])),
+            status=batch.status,
+            completed_at=batch.completed_at,
+        )
+    except Exception as exc:
+        raise _api_error(context, exc) from exc

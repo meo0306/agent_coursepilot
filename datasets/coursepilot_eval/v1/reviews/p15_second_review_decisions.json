@@ -1,0 +1,198 @@
+{
+  "attestation_source": "conversation_exact_bundle_approval",
+  "bundle_sha256": "943dd46f873393ea139466b47f87854685ac23c69073a7194bc8490822480534",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-exam-01-nerf-gaussian-assignment"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-exam-02-ai-agi-quiz"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-exam-03-llm-midterm"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-negative-constraint-conflict"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-negative-insufficient-evidence"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-05"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-06"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-07"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-08"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-09"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-10"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-11"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-12"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-13"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-14"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-15"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-16"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-17"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-18"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-19"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-20"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-21"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-22"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-23"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-24"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-25"
+    },
+    {
+      "decision": "pass",
+      "notes": "Course owner approved the exact P15 Bundle in conversation; the review page export was not supplied.",
+      "record_id": "p15-target-26"
+    }
+  ],
+  "expected_record_ids": [
+    "p15-exam-01-nerf-gaussian-assignment",
+    "p15-exam-02-ai-agi-quiz",
+    "p15-exam-03-llm-midterm",
+    "p15-negative-constraint-conflict",
+    "p15-negative-insufficient-evidence",
+    "p15-target-01",
+    "p15-target-02",
+    "p15-target-03",
+    "p15-target-04",
+    "p15-target-05",
+    "p15-target-06",
+    "p15-target-07",
+    "p15-target-08",
+    "p15-target-09",
+    "p15-target-10",
+    "p15-target-11",
+    "p15-target-12",
+    "p15-target-13",
+    "p15-target-14",
+    "p15-target-15",
+    "p15-target-16",
+    "p15-target-17",
+    "p15-target-18",
+    "p15-target-19",
+    "p15-target-20",
+    "p15-target-21",
+    "p15-target-22",
+    "p15-target-23",
+    "p15-target-24",
+    "p15-target-25",
+    "p15-target-26"
+  ],
+  "review_pass": "second",
+  "reviewed_at": "2026-08-15T12:00:00+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p15-review-decisions.v1"
+}

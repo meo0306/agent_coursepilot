@@ -6,18 +6,21 @@ import pytest
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
 
+from courserag.application.enrichment_service import EnrichmentService
 from courserag.application.writeback_service import VerifiedWritebackService
 from courserag.contracts import (
     CourseRAGError,
     ErrorCode,
     RequestContext,
     RevokeVerifiedContentRequest,
+    StartEnrichmentBatchRequest,
     VerifiedContentStatus,
     VerifiedContentType,
     VerifiedContentWriteRequest,
 )
 from courserag.indexing.verified_overlay import VerifiedOverlayPublisher
 from courserag.jobs.artifacts import FileArtifactStore
+from courserag.jobs.enrichment_worker import run_enrichment_batch
 from courserag.persistence.base import CourseRAGBase
 from courserag.persistence.models import (
     DocumentVersionRecord,
@@ -162,3 +165,37 @@ def test_overlay_failure_rolls_back_verified_content(tmp_path: Path, monkeypatch
     with pytest.raises(RuntimeError, match="verification failed"):
         service.write(_request(evidence_id), principal=_principal())
     assert session.scalar(select(VerifiedContentRecord)) is None
+
+
+def test_writeback_enrichment_republishes_searchable_overlay_once(tmp_path: Path) -> None:
+    session, service, evidence_id = _setup(tmp_path)
+    created = service.write(_request(evidence_id), principal=_principal())
+    first_overlay = created.overlay_index_version
+    repository = service.repository
+    batch_result = EnrichmentService(repository, profile_sha256="c" * 64).start(
+        StartEnrichmentBatchRequest(course_id="course-1", actor_id="teacher-1", manual=True),
+        principal=_principal(),
+    )
+    assert batch_result.created is True and batch_result.batch_id is not None
+
+    assert run_enrichment_batch(
+        repository,
+        batch_result.batch_id,
+        overlay_publisher=service.overlay_publisher,
+    )
+    assert not run_enrichment_batch(
+        repository,
+        batch_result.batch_id,
+        overlay_publisher=service.overlay_publisher,
+    )
+    content = repository.get_content(created.verified_content_id)
+    assert content is not None and content.status == "enriched"
+    assert content.current_overlay_version_id != first_overlay
+    assert content.current_overlay_version_id is not None
+    manifest_uri = repository.overlay_manifest_uri(content.current_overlay_version_id)
+    assert manifest_uri is not None
+    hits = service.overlay_publisher.search(manifest_uri, "What", top_k=5)
+    assert [hit.verified_content_id for hit in hits] == [created.verified_content_id]
+    assert hits[0].evidence_ids == (evidence_id,)
+    kb = session.scalar(select(KnowledgeBaseRecord))
+    assert kb is not None and kb.active_index_version_id is None

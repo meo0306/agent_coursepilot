@@ -1,0 +1,979 @@
+{
+  "bundle_sha256": "be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b",
+  "records": [
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "ca616c781a1b969a01b6be764b00c7d941fb1cb18285ca466c5b29216a1466a0",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-001",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "751012bb3626bed8d8b49bf2d6ee7d109f80163881adb5740eb52ddc3e787596",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-002",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "50dbbaf9e59f26fcc49ae97f484cabf37cf16c1345c99a472efd84d89c0c319f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-003",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4a40cbba1de79200fd54fccaf9c44a8b7712949f92e658890c2c4fe0b8d7ca5b",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-004",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b6b9f5562ffad6b0864d90977fd419c669c41f0785c1b8fd2e5727c58bf6d3f0",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-005",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "139d952099ea7277e57ad0c2abdfdc7acc3f6ef983efcf3450ec616ff899f16d",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-006",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "07ff62a1f34d459cbd7c60ec07b80aae0df11192722b25271574aa635c4e7d72",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-007",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "85f6dad713ffc19b4cdb5aeac66c3643bfd8f9729fec1bcbf6dcfa89e4c83f70",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-008",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "992c207179c99ea21079b7b54a98691fd8a5e57ba70eeb59666c3d38404df790",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-009",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "70f6ada7b5e30d07a5e2ca1a5018af9b4d854cbd5c45089b3794b1af5b0ade55",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-010",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "795e433cc5ce3a6c3eafdda207518ce037d7bafa4de0c532104e70508a7bf202",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-011",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "6cd0dd531b91f220c0de9902a73ec6bbfa710fb85da2691b6a74439591970b17",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-012",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "6f5202806498385bc36f0f47427d4b3ad7bbaa3c4fca5ec01fe852e85812a1f5",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-013",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "d4dbbf0812e04ac7f4bf60d078b25d689606271269b9f8ba3b84124c99c8e826",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-014",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "2aa3e9b247ce886e95c1c143b5f2c2eff62eea4f02f2685d225b445de67d8b6e",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-015",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "6549cfda89bec066d311bd2c6d240e3da3f659656968601ebbd8c8b308017afb",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-016",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "c4c333c7175133a67db87da161cb87547cbcf39691fd324ce85b39fd9f1adffb",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-017",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "396898980388219a4713b3a6bebae1d319dfa0ab9d4959f4d156b4478d79d8cf",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-018",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4a1563327f1040fbfedee4bcc4a4c7083037f117c7377f9fab16ce5ad98c5b44",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-019",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "cd26a5eb9f74caf9e4614a35624d6e1a0101309dca446d33f5ab8259e977deae",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-020",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "bdb62cd371fd178d55acc3f7908e7a7c73e463f6ba0b8e3f6ce6e6e8bc3b1ce6",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-021",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "66a0124b4b1e39257e4148a6aeb23ec05ab99a1014b3f16a0fe5f32a0a79cef9",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-022",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4a327f2b4cb9df2b2a1f99ac43c9c21f904997bbd2670ad63b410cbb7137e6da",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-023",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "971c8d05026a81be7e9c7b1a0922eff75b4594b66cb47da2cac573a111062216",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-024",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "01b777441bac042fbbeeb19bb1cc63ff1ecef5de594c8c4e313518ec3801d47c",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-025",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4ab18adac81545054bc4ff24f04b0ea5672332e369a2b21e58f0df0a12b9593f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-026",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "696f0614fad3e37e1746ffff8d31be7b12f73c549031d7a2a347f9b6e04a5a90",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-027",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "813bcf8893ad7bc7f483a4b206933afd60ba3ca5ac285155c7c5e4d2459abbe4",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-028",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "19a8a83c0bfaa4333d6b0e4190b34ec35492524513c92be3bc4cdb15146004bd",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-029",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "aeb787e42c85c813dd2953fe053559416488ccdd0d4fbe508ee8bfee3c4466b1",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-030",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "855cbe111900903bf1e5ebb893e30eabdf6cfa262430ce4255098fee2c60089f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-031",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "af5256293d53d4342f7f9ca0c8b362595c11c3dcbf92dc441b4c2b3199a7805a",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-032",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "db895566a999e39d3146378dac36f51b83c72edce541c0844b66dc369b38428a",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-033",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "42d0cb11ff44a117df9148fae67d8825d65dfc72a334df6783168da58da4801c",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-034",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "e21897baa9cb9c5dc11a4508e5918a6e689b192c921323c30ff2313f17dfc617",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-035",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "530d890914efbfb7bc71fcc51ca4124109cc6109528f3d300b278c5779528c79",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-036",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "3661ed025ef41636ec9339f3b11cc65d6cadadf324f7058b240c9efe8307f334",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-037",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "08ab51255fc02948ba217c1ced97d321fe7322671b13a8b8705287be01b884c8",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-038",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "08fa11f9716931021c8635168baee9779acd97e078b40b37e0cdf50e31ec4481",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-039",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "82a355f603fd69f06277e8f0b73018048e7d05759eebad6464466c1b000bf9bc",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-040",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "cb5ab1f9c6c37be89cccec50b1af963c469bb4f6b55020c0fb86a5f5df0810bc",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-041",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "8aad07f4b40cf3ae543faf8f31ed4d414180d9a58628754c59d0c5f6c588f4bd",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-042",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "23ae76c8b3c6febc042b4f7ebefe441858ebd314fa83753e10b4de63ea06fde3",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-043",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "789b470ecccd842b1ac47c67e51c6209cb75c336efbd86a31b3294d39a128c23",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-044",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b86025dde1e7b8ee39f86c3a8ca5d348ff36d3d34c1fb757a9577a1289b2d332",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-045",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b6a4c4547201e5ed5a9460eafcbd9ed1adad92360908f4d2e093e453a4708bc9",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-046",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "6d0186a0aad10e31b3e69c8d747acf1100cdffd2823ededde03663c5a0d0518a",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-047",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "31dded7a7d591a4194a899fd2e84bdcb418b85d7fa78e568f76d5d1b45c06ab8",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-048",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "9015143c2ec28a126aeacdb4c10935f0e07e223fdc26817da98ec48cb4b0eac5",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-049",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b2f6efca880c423df04a9135fe705af263fc7f4181542a7961f99c024e88b187",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-050",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "f112213203ea684af952fdbabfc8f6e9c124f86fe93818c701f9e01556cf91e9",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-051",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "3a9cebef15fc41667bce5bdd93bfa5ebf7fcc51de41b0a070bb2aa59469bdc37",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-052",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "cdb89a8cca20bd70d3273f847e9473ac2a38d2c1363b0800d4f42063960ba921",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-053",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "623c5806a66559dbb1553c58ecd276e10ca01aecd869006af61566b0a96b23ef",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-054",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "977e0e50bb34809a0f9b12edab16b5f5765b3dc129db4ec31263fed11344655e",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-055",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "db036c8a20657190ac63e9c8984767274e48aacec369d28a1c2aa97dd837a788",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-056",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "8932f76c4c79c8ab0cac71439b6ae756886cfcd806e56f787d7ed1641e1845f0",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-057",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "1d9e3890e029db52078b185d13738fecee59ec87ea1fdf83b85577b7ce16aca1",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-058",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "910b5c3ce81c3707ab942e55bffc340d1c37d8d5ba2f8a171b2dd32ec0631180",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-059",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b5a8b528d034432e1b50094707be17a835c24995bbd0211388e52cb06cd48f0f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-060",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4a310cbf25c7355bded2eb19528453121561ae9048386a802aa89f69a2ec9a52",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-061",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4192cb6ce18eee1976a1acaefcdfe8227bf66167b4743afe11438d0f02e90d7e",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-062",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b6ce55c880d84c8ba54763f6058c0cd4470eaa1610f0ded8223aa4ca9ec1c766",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-063",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "848ec95c06722d1dc738d34bdf06781f6a72caff855aba4e8e7867090625cac6",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-064",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "95bdee5dd07306201614e4a4c89a186ff78fc9b1fd1f42bf6a2a9c970b713547",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-065",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "fe48c6fcf23b508d3b482dc71659ce2bc8a927ba92ed0ab9e80a9fbfb939e07d",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-066",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "a07be08967c4793d3934d3c786206264443b03ebffbc88e94ebe1f2d44b76635",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-067",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "ae46bc07de3a9711956ad2df6e25bde61fc5bdabd5476e5cdd8f1425b0ebc64f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-068",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "9fa4343dcddee6e6a6e44b5b0146f8dc932f0349bcbafb6a036a63add33b8a9c",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-069",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "d9735af94ada3704e59769bf817ba975a3b1770fdc20e6aae4eccf1a2b35d7ec",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-070",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "363c5ccab5202054d86646b62e4fbdfaa1287babcfd9b56ccebe696889399e54",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-071",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "e5b00ab0ca1e85a43923ecb846bd405c0b0be9e7ec24495083cf465b414b23aa",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-072",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "8aa8c7bfc48a6127919113ee7749257b733e84b0b9e18c852cb66c744c75e7b5",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-073",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "31da9780079004cf1d222adc1e1bb84a97830c7a8e9abe6f2bbb05038060ffee",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-074",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "57e22e455b55435bf69cc264116e7edba2f2ea36bea3314c9dd9bd1b0882b8aa",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-075",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "f3dc8afc6c5728d4c8cc7741aa1e3ee257f3e139b27dc515cb67f141a68f2fc5",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-076",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "162993a2024a8984ef8f533e3ad23403dd4c5f4e1dcb6364c8fe41b772908ffd",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-077",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "5cbd8d56158f88af95e96e9a2102dac2c373a68af0d206b9ef3f6dadc68c80b4",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-078",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "29b842dd4652cb8ed8de12a235b77b636aa26247cf67638f6597a0d8d9fc91a7",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-079",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "410b4a31fda80b3330e64bdcd436fde942d00835863b79be25d3a93316c033ce",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-080",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "64e57d9ffe4fed23fa9a1486eb7b38de18ad95fd6973b367ac77ac0f104d9f1f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-081",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "517a282c6ffb5e3ba462698a9b49bc9f525c576eb2ecd4a828b66d03a5056c16",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-082",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "7e6598220e91e1316941106a515959c296e3383e3863ca4d32d098c06a9cfdad",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-083",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "bb9c021be67490907fd9a0a7ddd423fee6975806cf7dece18f6e5f7730b7bfa6",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-084",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "a2cd2577fd893662c7857f739c472d7832083324a3d2e557a96cd4d541a43360",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-085",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "fb28580e730f01b2c09db50357c80f27dda6258171de48528617aa4342d6b4d3",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-086",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "2652a3d86c5ad5c516824ae38522e1500aca29839e2efd9edfcc1221ea063a8a",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-087",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "23ce1e9a507517a8fd22ab5a3d815706a9068ede6a472112a8953caee1adcff0",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-088",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "3cca13ec5e1f333d6b29c24fa8e06f5c064e4735e0166039570cdc9ed7db0e2d",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-089",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "033480af5a8ae97676432cb48c94c2fdb391352fc03ec4097c2128ba3e91da0b",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-090",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "5260d3efdfe4c5d12b414c57f6db5ae8cb6d30cdcdebdea5ef847a2520379d51",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-091",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "34385a86062625a490b0c294f1f112acd6e2967139afd2b0d82a3756fd3c1b61",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-092",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "3543c7108c1d892d71e79e9a95b0fbde174a5edc558edb3ffca2fbde7e160193",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-093",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4d55a7b886cbb0a1efea6f8b7621aaae8f3ce29a1021e092306d218041600fcd",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-094",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "73295d864055f73273e2900c060e4a68cc6fc0b7d89141b2327aefd4987bd737",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-095",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "528abd5a0e7d61e019d4f6c00f7d1eb6d1d99160b8f47a32686f011dbc1aa3ae",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-096",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "106d6b64819b0bc49813b3743016664bed9272aa3ef7009ad8815c6f6defb1c3",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-097",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "89357b558badbe0214dc29cbbab314268a55c981eea28887d0caac7aced49f78",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-098",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "ba716456e1b0bd9463803815ba84cd297637e5055eb6bf35f46cb6c0540963a4",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-099",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "58bc1f6a3e8e17fcc58d270503b5723936aa215a9e209b6c3b8a9509a0e8d6c9",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-100",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "e0db3baa150fa250cbf18bef37867a54441f219b02f8f9db9d27c3105f624223",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-101",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "3558afc488514fadac0db2212d13f893a682a614542e191f32da3788e0fa6d7d",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-102",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "c080cec0465f257c9f164565d865b2bb5ac9482d3fbbb8f7a5dc2ec7cd1cab1f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-103",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "f314ceef1a8e078078e999efa097d9084df4a4fe08228eacdaca45416b62cd48",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-104",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b1553407bace19670dbac32a952fcecb40eab1fc048caf12100eb84e7fe7de5b",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-105",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "ff730555cf5a0d00b1ab6bcce5bc937a2a8fecfe0c5b8478d1808c1871124daa",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-106",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b1f466bc62d02408d7837ceda203faf7858f6aba5fd07ce3d50c5f560d5a4c46",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-107",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "f2ab170b2ed2014f4e96cc897ecaaacf469dacd311991d3223682b61b1b36edd",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-108",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "6deb1d21bed713c6899e3b1f898cbcb26a7bf770cfe48308fa9466fa5aefb196",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-109",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "38afc46d3aaa3e3dc069c8481bc7b774e42339c0a1070db5eea1ab464c4799f6",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-110",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "0fddda44411efe31ce0fcae383f3eeb386c9fd2146adbdf2b7c8d51ca3d5e4f6",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-111",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "f236b12acc4ad6bcfa4419a9f2ba178d8df26a7a56bbbfc9e799f17382a8ab81",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-112",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "9776a9ee53e64f95f2a6ea0a35434bf0e81d05cd0cdfcf29db660753ec8d0648",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-113",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "6a02c8773d3621d3b0bd3f79efd9cbbf66e049f5571ae141c3a00a3472b91e7c",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-114",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "61c0411ea5927cc0a23bf6df1e33f1baa57514aee436523230bdc821ef9067e5",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-115",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "b8925bbe24b4fe58eae1d8513dcfc3af7d581ce2dfa4a8ccf8f3a93b10adfb63",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-116",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "121fc5b161f3387b4e5b3dfed49e1dc6325341393dde548681321f8b16da8d3f",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "notes": "",
+      "record_id": "p17-sec-117",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "4d34340a76d2aeea176995d202c5c6faf56914a1b05b269f2f88ef81113f39e1",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-118",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "e6fadad0897034ed4f03e08e6cb26f53ef6349ccd32176e1aa32e30f21c0716a",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-119",
+      "reviewer_id": "course_owner"
+    },
+    {
+      "decision": "approve",
+      "final_candidate_record_sha256": "e4d881a098e6ee0cc385bba8c6976f1a51fe3477f2216d5197535af07969aa7d",
+      "latest_source_review": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "notes": "",
+      "record_id": "p17-sec-120",
+      "reviewer_id": "course_owner"
+    }
+  ],
+  "review_pass": "single_complete_review_across_revisions",
+  "reviewer_id": "course_owner",
+  "source_reviews": [
+    {
+      "bundle_sha256": "f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b",
+      "path": "D:/project/agent_coursepilot/storage_eval/p17_security_review/f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b/p17_security_review.json",
+      "sha256": "827d4e71b8080774ab4395f89c6ab4ea20ef3b9cc0691370409d1c679252d1e5"
+    },
+    {
+      "bundle_sha256": "be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b",
+      "path": "D:/project/agent_coursepilot/storage_eval/p17_security_review/be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b/p17_security_r2_review_template.json",
+      "sha256": "415fe8dcab177bd5590bf904076d2afcfb06d5c7212a78d3e9d38090497614d4"
+    }
+  ]
+}

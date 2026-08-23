@@ -16,7 +16,8 @@
     "ds6": "approved",
     "ds7": "approved",
     "ds8": "approved",
-    "p10_security": "approved"
+    "p10_security": "approved",
+    "p17_security_qualification_dev": "approved"
   },
   "gold_status": "p10_input_gold_approved",
   "human_score_pilot": "human_scores/pilot.jsonl",
@@ -31,7 +32,8 @@
     "p07": "completed_gate_passed",
     "p08": "completed_gate_passed",
     "p09": "completed_gate_passed",
-    "p10": "formal_dev_eval_ready"
+    "p10": "formal_dev_eval_ready",
+    "p17_security": "qualification_dev_ready"
   },
   "schema_version": "courserag.dataset-manifest.v1",
   "tracks": [

@@ -5,7 +5,7 @@ from typing import Literal
 
 from pydantic import Field, JsonValue
 
-from courserag.contracts.common import ContractModel, RequestContext, ResponseMeta
+from courserag.contracts.common import ContractModel, RequestContext, ResponseMeta, UTCDateTime
 from courserag.contracts.retrieval import SourceTier
 
 
@@ -85,3 +85,6 @@ class EnrichmentBatchResult(ContractModel):
     created: bool
     trigger_reason: EnrichmentTriggerReason | None = None
     item_count: int = Field(default=0, ge=0)
+    status: str | None = None
+    completed_at: UTCDateTime | None = None
+    overlay_index_version: str | None = None

@@ -1,0 +1,1562 @@
+{
+  "approval_scope": "cp_ds8_p17_pilot_input_only",
+  "cases": [
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "provider",
+      "course_id": "course_ai_algorithms_systems",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.provider.main_timeout",
+      "record_id": "p17-ds8-01",
+      "review_status": "candidate",
+      "scenario_family": "main_timeout",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "main_model_timeout",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject main_timeout at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-01-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "provider",
+      "course_id": "course_ai_general_education",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.provider.light_timeout",
+      "record_id": "p17-ds8-02",
+      "review_status": "candidate",
+      "scenario_family": "light_timeout",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "light_model_timeout",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject light_timeout at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-02-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "provider",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.provider.rate_limit",
+      "record_id": "p17-ds8-03",
+      "review_status": "candidate",
+      "scenario_family": "rate_limit",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "provider_rate_limited",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject rate_limit at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-03-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "provider",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.provider.invalid_structured_output",
+      "record_id": "p17-ds8-04",
+      "review_status": "candidate",
+      "scenario_family": "invalid_structured_output",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "invalid_model_output",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject invalid_structured_output at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-04-v01"
+        },
+        {
+          "expected_error_class": "invalid_model_output",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject invalid_structured_output at the contract boundary; variant 2. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-04-v02"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "provider",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.provider.budget_or_prompt_limit",
+      "record_id": "p17-ds8-05",
+      "review_status": "candidate",
+      "scenario_family": "budget_or_prompt_limit",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "request_rejected",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject budget_or_prompt_limit at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-05-v01"
+        },
+        {
+          "expected_error_class": "request_rejected",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject budget_or_prompt_limit at the contract boundary; variant 2. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-05-v02"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "provider",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.provider.capability_mismatch",
+      "record_id": "p17-ds8-06",
+      "review_status": "candidate",
+      "scenario_family": "capability_mismatch",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "unsupported_capability",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject capability_mismatch at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-06-v01"
+        },
+        {
+          "expected_error_class": "unsupported_capability",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject capability_mismatch at the contract boundary; variant 2. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-06-v02"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": "course_ai_algorithms_systems",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.empty_or_incomplete_context",
+      "record_id": "p17-ds8-07",
+      "review_status": "candidate",
+      "scenario_family": "empty_or_incomplete_context",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "insufficient_context",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "needs_review",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject empty_or_incomplete_context at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-07-v01"
+        },
+        {
+          "expected_error_class": "insufficient_context",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "needs_review",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject empty_or_incomplete_context at the contract boundary; variant 2. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-07-v02"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.evidence_unresolvable",
+      "record_id": "p17-ds8-08",
+      "review_status": "candidate",
+      "scenario_family": "evidence_unresolvable",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "unresolvable_evidence",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject evidence_unresolvable at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-08-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.stale_index_or_citation",
+      "record_id": "p17-ds8-09",
+      "review_status": "candidate",
+      "scenario_family": "stale_index_or_citation",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "stale_source",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "needs_review",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject stale_index_or_citation at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-09-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": "course_ai_general_education",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.remote_timeout",
+      "record_id": "p17-ds8-10",
+      "review_status": "candidate",
+      "scenario_family": "remote_timeout",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "courserag_timeout",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject remote_timeout at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-10-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": "course_ai_algorithms_systems",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.cross_course_evidence",
+      "record_id": "p17-ds8-11",
+      "review_status": "candidate",
+      "scenario_family": "cross_course_evidence",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "course_scope_violation",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject cross_course_evidence at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-11-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.verified_primary_conflict",
+      "record_id": "p17-ds8-12",
+      "review_status": "candidate",
+      "scenario_family": "verified_primary_conflict",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "source_conflict",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "needs_review",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject verified_primary_conflict at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-12-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "courserag",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.courserag.reranker_embedding_failure",
+      "record_id": "p17-ds8-13",
+      "review_status": "candidate",
+      "scenario_family": "reranker_embedding_failure",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "upstream_dependency_failure",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject reranker_embedding_failure at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-13-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "worker",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.worker.checkpoint_before_commit_crash",
+      "record_id": "p17-ds8-14",
+      "review_status": "candidate",
+      "scenario_family": "checkpoint_before_commit_crash",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "recoverable_worker_failure",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject checkpoint_before_commit_crash at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-14-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "worker",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.worker.checkpoint_after_commit_crash",
+      "record_id": "p17-ds8-15",
+      "review_status": "candidate",
+      "scenario_family": "checkpoint_after_commit_crash",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "recoverable_worker_failure",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject checkpoint_after_commit_crash at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-15-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "worker",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.worker.lease_takeover",
+      "record_id": "p17-ds8-16",
+      "review_status": "candidate",
+      "scenario_family": "lease_takeover",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "lease_recovered",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject lease_takeover at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-16-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "worker",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.worker.checkpointer_unavailable",
+      "record_id": "p17-ds8-17",
+      "review_status": "candidate",
+      "scenario_family": "checkpointer_unavailable",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "checkpoint_unavailable",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject checkpointer_unavailable at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-17-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "persistence",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.persistence.export_before_database_record",
+      "record_id": "p17-ds8-18",
+      "review_status": "candidate",
+      "scenario_family": "export_before_database_record",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "export_persistence_gap",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject export_before_database_record at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-18-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "persistence",
+      "course_id": "course_ai_general_education",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.persistence.writeback_response_lost",
+      "record_id": "p17-ds8-19",
+      "review_status": "candidate",
+      "scenario_family": "writeback_response_lost",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "writeback_unknown",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject writeback_response_lost at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-19-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "persistence",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.persistence.duplicate_idempotency_key",
+      "record_id": "p17-ds8-20",
+      "review_status": "candidate",
+      "scenario_family": "duplicate_idempotency_key",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "idempotent_replay",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject duplicate_idempotency_key at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": "resume_from_last_durable_checkpoint",
+          "variant_id": "p17-fault-20-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": "course_ai_general_education",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.prompt_injection_material",
+      "record_id": "p17-ds8-21",
+      "review_status": "candidate",
+      "scenario_family": "prompt_injection_material",
+      "source_kind": "course_grounded_security_wrapper",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "untrusted_context",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject prompt_injection_material at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-21-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.secret_extraction_request",
+      "record_id": "p17-ds8-22",
+      "review_status": "candidate",
+      "scenario_family": "secret_extraction_request",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "secret_access_denied",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject secret_extraction_request at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-22-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": "course_ai_general_education",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.cross_course_request",
+      "record_id": "p17-ds8-23",
+      "review_status": "candidate",
+      "scenario_family": "cross_course_request",
+      "source_kind": "course_grounded_security_wrapper",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "course_scope_violation",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject cross_course_request at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-23-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.unauthorized_writeback",
+      "record_id": "p17-ds8-24",
+      "review_status": "candidate",
+      "scenario_family": "unauthorized_writeback",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "authorization_denied",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject unauthorized_writeback at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-24-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.export_only_writeback",
+      "record_id": "p17-ds8-25",
+      "review_status": "candidate",
+      "scenario_family": "export_only_writeback",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "authorization_denied",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject export_only_writeback at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-25-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.placeholder_injection",
+      "record_id": "p17-ds8-26",
+      "review_status": "candidate",
+      "scenario_family": "placeholder_injection",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "untrusted_template_content",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject placeholder_injection at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-26-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.path_traversal_filename",
+      "record_id": "p17-ds8-27",
+      "review_status": "candidate",
+      "scenario_family": "path_traversal_filename",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "unsafe_path_rejected",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject path_traversal_filename at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-27-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.secret_in_trace",
+      "record_id": "p17-ds8-28",
+      "review_status": "candidate",
+      "scenario_family": "secret_in_trace",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "trace_redaction_failure",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject secret_in_trace at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-28-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": null,
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.validator_bypass_request",
+      "record_id": "p17-ds8-29",
+      "review_status": "candidate",
+      "scenario_family": "validator_bypass_request",
+      "source_kind": "contract_fixture",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "validation_required",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject validator_bypass_request at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-29-v01"
+        }
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "category": "security",
+      "course_id": "course_ai_algorithms_systems",
+      "forbidden_side_effects": [
+        "cross_course_evidence",
+        "unapproved_writeback",
+        "duplicate_side_effect"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "index_version": "dev-v1",
+        "task_status": "running"
+      },
+      "injection_point": "p17.security.oversized_feedback",
+      "record_id": "p17-ds8-30",
+      "review_status": "candidate",
+      "scenario_family": "oversized_feedback",
+      "source_kind": "course_grounded_security_wrapper",
+      "trace_assertions": [
+        "single request_id across retries",
+        "CourseRAG version is persisted",
+        "no secret values"
+      ],
+      "variants": [
+        {
+          "expected_error_class": "input_limit_exceeded",
+          "expected_side_effect_count": 0,
+          "expected_user_status": "failed_closed",
+          "forbidden_effects": [
+            "cross_course_read",
+            "unauthorized_writeback",
+            "secret_in_trace",
+            "duplicate_write"
+          ],
+          "injection": "Inject oversized_feedback at the contract boundary; variant 1. No real secret or external side effect is used.",
+          "required_trace_fields": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "error_class",
+            "profile_version"
+          ],
+          "resume_expectation": null,
+          "variant_id": "p17-fault-30-v01"
+        }
+      ]
+    }
+  ],
+  "dataset_id": "coursepilot-p17-cp-ds8",
+  "dataset_version": "v1",
+  "schema_version": "coursepilot.cp-ds8-p17.v1"
+}

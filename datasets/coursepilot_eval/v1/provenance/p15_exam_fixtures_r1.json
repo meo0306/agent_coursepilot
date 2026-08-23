@@ -1,0 +1,502 @@
+{
+  "constraint_conflict_case": {
+    "case_id": "p15-exam-02-ai-agi-quiz",
+    "computed_total_score": 50,
+    "course_id": "course_ai_general_education",
+    "expected_failure": "blueprint_constraint_conflict",
+    "provider_calls_allowed": 0,
+    "question_counts": {
+      "judgement": 3,
+      "multiple_choice": 3,
+      "short_answer": 2,
+      "single_choice": 4
+    },
+    "record_id": "p15-negative-constraint-conflict",
+    "required_total_score": 55,
+    "score_per_question": {
+      "judgement": 2,
+      "multiple_choice": 4,
+      "short_answer": 10,
+      "single_choice": 3
+    },
+    "side_effects_allowed": 0
+  },
+  "context_fixtures": [
+    {
+      "case_id": "p15-exam-01-nerf-gaussian-assignment",
+      "content_hash": "41ab3bd4052d34dd0d4e2f0100a27390d0bfd6cdc4ba626afd0d25a1aa0c846c",
+      "context_package_id": "ctx-p15-exam-01-nerf-gaussian-assignment",
+      "course_id": "course_ai_algorithms_systems",
+      "evidence_records": [
+        {
+          "content_sha256": "d1c4299aebec3fbe159bbc6d12af893a3536d3bc09ecee861a8627f028f659a5",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-335662f3142fb805ce0d560f4eccdd7a",
+          "gold_text": "自2020年提出以来，神经辐射场三维重建方法以其逼真的三维场景渲染能力迅速在学术界引起了广泛关注，其核心细想在于将三维场景视作一个由神经网络逼近的辐射场。",
+          "necessary_neighbors": [],
+          "page_end": 340,
+          "page_start": 340,
+          "record_sha256": "a486e4fba130e7ce9f5efccf95e0ae193d9c9ed2de30d72d525f0aefddaa4eb7",
+          "semantic_unit_type": "application",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "7c5c1e20fa83b0953829851754bd0ad86323045a973616a474575c959f3d1c21",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-6f70e7f62938bf78ba45c307de1adaef",
+          "gold_text": "特别的，T(t)为累积透射率，表示射线从采样近平面t_n到采样远平面t_f期间射线未被阻挡的概率：\nT(t)=exp(-∫_{t_n}^{t}σ(r(s))ds)",
+          "necessary_neighbors": [
+            "式中，σ(r(t))和c(r(t),d)代表沿摄像机射线观察方向d，r(t)的体积密度和颜色，dt代表射线在每个积分步长上的移动距离差。"
+          ],
+          "page_end": 341,
+          "page_start": 341,
+          "record_sha256": "3915d72eb20e6f160f86d51ae5b122e13145e81d16e438d174fa7d3b3e4c5c2c",
+          "semantic_unit_type": "formula",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "1f76cfd717a1e39c332cfee093b2567f86316c8353f5871ef7fb5a1ffd2322bc",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-488132baeca3f0acc28854e2d6ab51b8",
+          "gold_text": "L=∑_{r∈R}||Ĉ(r)-C_{gt}(r)||_2^2\n式中，C_{gt}(r)代表与r相关的训练图像像素的真实颜色，R代表与待合成图像相关的射线集合。",
+          "necessary_neighbors": [
+            "在训练过程中，通过不断最小化生成新视角图像和真实图像之间的像素差异，神经辐射场模型中的多层感知机参数将被迭代优化，从而使预测的射线颜色尽可能接近真实的射线颜色，平方误差光度损失函数被用于这一优化过程："
+          ],
+          "page_end": 342,
+          "page_start": 342,
+          "record_sha256": "a0aa3fbcc8997e18a78affe15fd500e569baf33e8e7888b81a23dafbbb2f5056",
+          "semantic_unit_type": "formula",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "7fad47fd9be1089bef1a5291514852e7396809410b0a7523e7fe73b143660090",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-6b00087df687acba07757febbd553d19",
+          "gold_text": "3D高斯点染三维重建技术是一种先进的三维场景表示和渲染方法，其通过使用大量的三维高斯粒子或微粒来细致描绘复杂的三维场景，每个高斯粒子都具备位置、方向、比例、不透明度和颜色信息等属性信息，共同定义了粒子的几何和光学特性。",
+          "necessary_neighbors": [],
+          "page_end": 345,
+          "page_start": 345,
+          "record_sha256": "7e532a5c2460118a10eed7e96edfb861e3506ceaaa9d99622c0437e64fefc7b8",
+          "semantic_unit_type": "definition",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+          "gold_text": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+          "necessary_neighbors": [
+            "式中，T_cw代表相机的外参数矩阵，P代表相机空间到正则化空间的投影矩阵，w和h代表输出图像的宽和高，(c_x,c_y)代表图像中心点坐标。"
+          ],
+          "page_end": 346,
+          "page_start": 346,
+          "record_sha256": "b7b414f4d7c4ad8f5b02c377965a7c66de5897bc1015aed2eb9a6909b2660547",
+          "semantic_unit_type": "formula",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "4cc193619c3db63c2587611bb9cb69bdcb28a3b8dfcc3df01494a7e2ad224c0d",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-ce0b58d4e9bed39607616060acc59261",
+          "gold_text": "而后，瓦片排序算法将根据每个瓦片块内高斯粒子的深度信息生成深度排序列表，以保证在最终的图像合成时，能够遵循从后到前的正确顺序。",
+          "necessary_neighbors": [
+            "在渲染过程中，对于场景中的每一个高斯，3D高斯点染首先计算其边界框，这个边界框是根据二维投影协方差所确定的椭圆轴对齐边界，确保了高斯粒子在投影过程中的统计特性得以保留。当边界框与特定的瓦片区域相交时，相应的高斯粒子便被纳入该瓦片的缓存中，准备进行后续处理。"
+          ],
+          "page_end": 348,
+          "page_start": 348,
+          "record_sha256": "0e2b38d27e2145eff00c9614f2b27a87a18909ac47d316736306d09dc1d89046",
+          "semantic_unit_type": "procedure",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        }
+      ],
+      "purpose": "exam_generation",
+      "target_ids": [
+        "p15-target-01",
+        "p15-target-02",
+        "p15-target-03",
+        "p15-target-04",
+        "p15-target-05",
+        "p15-target-06"
+      ],
+      "token_count": 300
+    },
+    {
+      "case_id": "p15-exam-02-ai-agi-quiz",
+      "content_hash": "fbfbc3ddf99f96e9fc4552f9178a6e65f72d2d127db8ffb1d11a5a346122d07a",
+      "context_package_id": "ctx-p15-exam-02-ai-agi-quiz",
+      "course_id": "course_ai_general_education",
+      "evidence_records": [
+        {
+          "content_sha256": "d5fb0d9b31a8c23f341d62415da9efc7dd31098b8f7d6c9def0ffe2b78353317",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-47ac1a377be899cf37f3403ae7f7568d",
+          "gold_text": "人工智能(Artif icial Intelligence，AI)是计算机学科的一个分支，20世纪70年代以来被\n称为世界三大尖端技术(空间技术、能源技术、人工智能)之一，也被认为是21世纪三大\n尖端技术(基因工程、纳米科学、人工智能)之一。",
+          "necessary_neighbors": [],
+          "page_end": 13,
+          "page_start": 12,
+          "record_sha256": "db6db04049cde3c776b1dd15fff3155777f5b540e6ec8b93660126907101a350",
+          "semantic_unit_type": "definition",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "68bffb690ca66d5ecc3426ef2389ae9082d4f06866df3280621651d0b9c5e5a8",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-7898c01ada50d223ac64a6779dc775d3",
+          "gold_text": "对人工智能的理解可以分为两部分，即“人工”和“智能”。",
+          "necessary_neighbors": [],
+          "page_end": 13,
+          "page_start": 13,
+          "record_sha256": "48bb9bc1c96c7d9bbb5151ee68095391d4ecbfa6427ad0feab6650f27eddf646",
+          "semantic_unit_type": "other",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "3def89abcae2aa5b9936fe20526e0da8c6a92e4f4a50393e38f0c01d95cf6e0e",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-38cd360af1237ea0f2ab5fa2a180c208",
+          "gold_text": "在2018年的谷歌开发者大会上，谷歌向外界展示了其人工智能技术\n在语音通话应用上的最新进展，比如通过谷歌Duplex个人助理帮助用户\n在真实世界中预约了美发沙龙和餐馆。",
+          "necessary_neighbors": [],
+          "page_end": 15,
+          "page_start": 15,
+          "record_sha256": "ec38efeb38b9f894d5a50d51ed6d5ce3ee02229f0df36b91de2a23cd4a0aa050",
+          "semantic_unit_type": "example",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "e6ce4b033f90acc219494e9db299ac9d90c1862ae19c3615625698cafd6efaa4",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+          "gold_text": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+          "necessary_neighbors": [],
+          "page_end": 18,
+          "page_start": 18,
+          "record_sha256": "caad5b639b1038dca8b1e1cc106b599dfe4a4a0d4ec7e8ce1a13abe64af07c87",
+          "semantic_unit_type": "other",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "ocr_derived"
+        },
+        {
+          "content_sha256": "ded4fddd802a6dcb929e5a549fe828d9d07b7231a86a4378db845e485a0aed37",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-63b2a09988aa11ff3c6d483a0b162917",
+          "gold_text": "谷歌收购了语音和图像识别公司DNNResearch，推广深度\n学习平台；",
+          "necessary_neighbors": [
+            "2013年，Facebook成立了人工智能实验室，探索深度学习领域，借此为Facebook用户提供更加智能化的产品体验；"
+          ],
+          "page_end": 18,
+          "page_start": 18,
+          "record_sha256": "e0f41a969802603722c0604ce78e58674272f4d19f7743df173c0cb46bf2d21a",
+          "semantic_unit_type": "other",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "3661a87e173c91a9a4330ce9a523fff3a65a3f1a007131e024a99775bdfe8283",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold_text": "通用人工智能(Artiﬁcial General Intelligence，AGI)是一种未来的计算机程序，可以执\n行相当于人类甚至超越人类智力水平的任务。",
+          "necessary_neighbors": [],
+          "page_end": 21,
+          "page_start": 21,
+          "record_sha256": "3ee890c3f7ea507b224aff85e0a89a93bd82ee467e62f95dfd697a2b6c9be741",
+          "semantic_unit_type": "definition",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "ocr_derived"
+        },
+        {
+          "content_sha256": "ff776027c98c6030adc30607d86c0bcf54513ac664809a74085b7bf6fcf2136c",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002",
+          "gold_text": "(1)通用人工智能强调的是拥有像人一样的能力，可以通过学习胜任人可以做的任何工\n作，但不要求它有自我意识。",
+          "necessary_neighbors": [
+            "通用人工智能与强人工智能的区别如下："
+          ],
+          "page_end": 21,
+          "page_start": 21,
+          "record_sha256": "04b66d46b46366f76cb14b0443f502f84bde37a1442c45f5a6b8c78bbdf3e5a3",
+          "semantic_unit_type": "list",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "6f6d5f4726e9b5cea91399776ec8ebde307858a2b601da200e9b96292e382ec4",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9",
+          "gold_text": "特斯拉创\n始人埃隆·马斯克参与创立并领导的OpenAI的使命是“建立安全的AGI，\n并确保AGI的好处尽可能广泛而均匀地分布”\n。",
+          "necessary_neighbors": [],
+          "page_end": 21,
+          "page_start": 21,
+          "record_sha256": "c1a42bb14c8fca95be4c438ad05f3c84ab5e6e8e2e617e1e3fa8b5c97575e4b2",
+          "semantic_unit_type": "other",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf",
+          "source_type": "native_text"
+        }
+      ],
+      "purpose": "exam_generation",
+      "target_ids": [
+        "p15-target-07",
+        "p15-target-08",
+        "p15-target-09",
+        "p15-target-10",
+        "p15-target-11",
+        "p15-target-12",
+        "p15-target-13",
+        "p15-target-14"
+      ],
+      "token_count": 267
+    },
+    {
+      "case_id": "p15-exam-03-llm-midterm",
+      "content_hash": "1437d5ec7ce698e0ac2ac7a5ca432baadbc012718a84726037501c95c57c3877",
+      "context_package_id": "ctx-p15-exam-03-llm-midterm",
+      "course_id": "course_ai_algorithms_systems",
+      "evidence_records": [
+        {
+          "content_sha256": "7d944530e4c98b2da8b4a90bde552d1dce259e4a3370506957028a75e66172bd",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+          "gold_text": "大模型是基于深度学习技术构建的，具有高度复杂性和巨大规模的人工智能模型，通常由数十亿甚至数万亿个参数组成。",
+          "necessary_neighbors": [],
+          "page_end": 230,
+          "page_start": 230,
+          "record_sha256": "1f22eb01d97185a63577caf75ef21dad4bc63344c64f9a42b8b5ec2ecabc72ed",
+          "semantic_unit_type": "principle",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "93f4bba955d772a077809721fde48a1c125b2da24c600fcf96132ef497a747c0",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-035088153234134744f10d335a333cc0",
+          "gold_text": "模型名称\t发布年份\t参数量\nBERT-Base\t2018\t110M\nBERT-Large\t2018\t340M\nGPT-1\t2018\t120M\nT5\t2019\t223M\nGPT-2\t2019\t1.5B\nChatGPT\t2022\t175B\nLLaMA2\t2023\t70B\nGPT-4\t2023\t1.8T",
+          "necessary_neighbors": [
+            "表5.1 常见语言大模型的参数量"
+          ],
+          "page_end": 231,
+          "page_start": 231,
+          "record_sha256": "6a4b84babefcde949d6c9b1d4c6b3f3064d5ff6c6e43ba57f54d4dd14140a126",
+          "semantic_unit_type": "table",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "8187e65329a2739e5f94094b8af9153e03b50be6494585ed219bd3ca1337dca5",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+          "gold_text": "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。",
+          "necessary_neighbors": [
+            "涌现能力的形成基于几个关键因素。"
+          ],
+          "page_end": 232,
+          "page_start": 232,
+          "record_sha256": "0ad374876c0cc334defa9f7527216aa7512059345e8141c52807cb133767c56f",
+          "semantic_unit_type": "procedure",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "e84d008aebf81f4bd8c60f2bd85a85cbbf3f62fca90d3e00c9450e7e46c85cba",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+          "gold_text": "（5）发现新知识：在某些情况下，大模型通过分析和整合其训练数据中的信息，能够\"发现\"新的知识或提出新的见解。",
+          "necessary_neighbors": [
+            "涌现能力的具体表现形式多样，主要包括以下几个方面："
+          ],
+          "page_end": 233,
+          "page_start": 233,
+          "record_sha256": "12094fb70c9e94e40b5441cb416f4de32cb15af11110c8c2bf95513207a369da",
+          "semantic_unit_type": "list",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "45715704aff4292b6036944bba8866df59f5fc5bf39cbb5d3378b541a30610e8",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-5c3010622081949981b20043ffc9cdd4",
+          "gold_text": "如GPT-4在大约25000个A100上训练了90到100天，训练成本大约为6000万美元。",
+          "necessary_neighbors": [
+            "即使在高性能计算资源的支持下，大模型的训练过程仍可能需要数周到数月的时间。"
+          ],
+          "page_end": 234,
+          "page_start": 234,
+          "record_sha256": "e26db1678875eca4c2a8a8b105b3f015f0df517ecead7d1d1b61e8accf8aa91f",
+          "semantic_unit_type": "other",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "aa6792725fa3eec72891c7e0c312ad4bd11dfc297f3479bb56fb8380f9170b6b",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+          "gold_text": "在大模型的开发和训练过程中，数据准备与预处理是至关重要的初步步骤。",
+          "necessary_neighbors": [],
+          "page_end": 238,
+          "page_start": 238,
+          "record_sha256": "a739c4373d45a7175da46a1e3196792ffdc421d0501350e377647cbd7b181f6a",
+          "semantic_unit_type": "procedure",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "ddaafafe663690310053ddd56382da3aed80cec328b38f5985b8c43cb098400c",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2",
+          "gold_text": "这些数据集通常是公开可用的，包含了大量的文本数据，覆盖了广泛的主题和领域。",
+          "necessary_neighbors": [
+            "大模型训练涉及使用大规模数据集来确保模型能够学习到尽可能多的语言模式和知识。"
+          ],
+          "page_end": 239,
+          "page_start": 239,
+          "record_sha256": "f0da6315b94b370af874b8793c5b01e20b92ed2776ca41eb4013e579c64358d3",
+          "semantic_unit_type": "other",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "27b4f2e045bf6884b0dd81d5dae995ca9d2a1603fda44296113ef8fb17bb0190",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-bd7d355279cc06aac5841601572cfe04",
+          "gold_text": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+          "necessary_neighbors": [
+            "同时，通过数据预处理，如通过降维和特征选择，可以有效减少数据的复杂度，从而降低模型训练和预测时所需的计算资源。"
+          ],
+          "page_end": 242,
+          "page_start": 242,
+          "record_sha256": "4539e422912b001693364383c3e4cc587fa831b44140678f72bf997b3449cea4",
+          "semantic_unit_type": "principle",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "e4f30fc6707abbb11c7a5e5370f3f062847f262b2082df9488483a58892c6e2a",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+          "gold_text": "名称\t版本\t功能说明\nAIStudio\t经典版\t代码实现的基础平台与环境\nPaddlePaddle\t2.3.2\t在新建项目时选择\nPython\t3.7.4\t默认选择\nERNIE\t3.0\t使用git克隆代码仓库，或者直接解压本项目的ERNIE数据集",
+          "necessary_neighbors": [
+            "表5.3 实验环境"
+          ],
+          "page_end": 268,
+          "page_start": 268,
+          "record_sha256": "1e6cc0df68d49137d73ff243991b7195a2dfe79bb1001157e5c9ec16ac110dc3",
+          "semantic_unit_type": "table",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "d2b82b9013bb75282d7659c0227f138245ba9e0c225c86ffe10215d96df07c9b",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-7ca952b51845ec8726626df3371c02a6",
+          "gold_text": "指令微调旨在提升模型的泛化能力，使其能够处理各种各样的指令，即使这些指令在模型的原始预训练过程中未被直接覆盖。",
+          "necessary_neighbors": [],
+          "page_end": 255,
+          "page_start": 255,
+          "record_sha256": "a977243f68b1ae5d74aac0a92209c78c96769bf67cc96d318d53250f896441f4",
+          "semantic_unit_type": "application",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "9f4e576df5be0b88d878dfe96af25ae4048f9058d96c541e517b8874b219153c",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-adecfc060732ab29684a055efdaacecc",
+          "gold_text": "通过这些详细的对齐方法，可以确保大模型在提供强大功能的同时，与人类的价值观和需求保持一致，从而在实际应用中发挥积极作用。",
+          "necessary_neighbors": [
+            "1. 数据清理和预处理",
+            "2. 人类反馈",
+            "3. 对抗性训练",
+            "4. 多样化模型训练",
+            "5. 伦理审查和法规遵从",
+            "6. 持续监控和更新"
+          ],
+          "page_end": 267,
+          "page_start": 267,
+          "record_sha256": "d102ab45a090333a51e371cf2670dc8f10bb0f893816e237a98b38d624f41870",
+          "semantic_unit_type": "application",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        },
+        {
+          "content_sha256": "7265980257b4c38381b8108995646474df3255081dc59dc6852a89b621a552fe",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb",
+          "gold_text": "（1）掌握对ERNIE模型进行fine-tune实现酒店住宿评价情感分类任务的全流程；",
+          "necessary_neighbors": [],
+          "page_end": 267,
+          "page_start": 267,
+          "record_sha256": "9f6a3c733cbb6305e62eec3139522e3ed6140a36e7882d5e097941b69d424b03",
+          "semantic_unit_type": "list",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3",
+          "source_type": "native_text"
+        }
+      ],
+      "purpose": "exam_generation",
+      "target_ids": [
+        "p15-target-15",
+        "p15-target-16",
+        "p15-target-17",
+        "p15-target-18",
+        "p15-target-19",
+        "p15-target-20",
+        "p15-target-21",
+        "p15-target-22",
+        "p15-target-23",
+        "p15-target-24",
+        "p15-target-25",
+        "p15-target-26"
+      ],
+      "token_count": 373
+    }
+  ],
+  "insufficient_evidence_case": {
+    "case_id": "p15-exam-01-nerf-gaussian-assignment",
+    "context_package_id": "ctx-p15-exam-01-nerf-gaussian-assignment",
+    "course_id": "course_ai_algorithms_systems",
+    "expected_failure": "context_insufficient_evidence",
+    "omitted_required_evidence_ids": [
+      "gold-ev-ce0b58d4e9bed39607616060acc59261"
+    ],
+    "provider_calls_allowed": 0,
+    "record_id": "p15-negative-insufficient-evidence",
+    "required_target_ids": [
+      "p15-target-01",
+      "p15-target-06"
+    ],
+    "side_effects_allowed": 0
+  },
+  "schema_version": "coursepilot.cp-ds2-p15-fixtures.v1"
+}

@@ -1,0 +1,7 @@
+FROM agent-coursepilot-docx-qa:lo-qa
+
+# Keep the frozen Debian LibreOffice 7.4.7.2/font baseline and add only the
+# Impress component required to open and render PPTX/POTX packages.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libreoffice-impress \
+    && rm -rf /var/lib/apt/lists/*

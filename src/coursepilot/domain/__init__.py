@@ -2,6 +2,18 @@
 
 from coursepilot.domain.artifact import ArtifactRef, ArtifactVersion, StorageKind
 from coursepilot.domain.context import ContextPackageRef
+from coursepilot.domain.exam import (
+    ExamArtifact,
+    ExamBlueprintV2,
+    ExamGlobalReport,
+    ExamQuestion,
+    OptionAssessment,
+    QuestionBatchPlan,
+    QuestionBatchResult,
+    QuestionSlotPlan,
+    batch_job_id,
+    question_id,
+)
 from coursepilot.domain.interrupts import (
     ApprovalScope,
     ChangeMode,
@@ -10,6 +22,26 @@ from coursepilot.domain.interrupts import (
     InterruptPayload,
     InterruptStatus,
     InterruptType,
+)
+from coursepilot.domain.lesson import (
+    AllocationImportance,
+    KnowledgePointAllocation,
+    LessonActivity,
+    LessonArtifact,
+    LessonBlueprint,
+    LessonEvidenceBinding,
+    LessonFact,
+    LessonSessionArtifact,
+    LessonSessionBlueprint,
+)
+from coursepilot.domain.ppt import (
+    PPTArtifact,
+    PPTRenderReport,
+    SlideArchitecture,
+    SlideAssetPlaceholder,
+    SlideCitation,
+    SlideContent,
+    SlidePlan,
 )
 from coursepilot.domain.runtime import CommonGraphState, NodeResult, NodeStatus, RunContext
 from coursepilot.domain.task import BusinessTask, TaskStatus, WorkflowType
@@ -26,6 +58,15 @@ __all__ = [
     "StorageKind",
     "TaskStatus",
     "WorkflowType",
+    "AllocationImportance",
+    "KnowledgePointAllocation",
+    "LessonActivity",
+    "LessonArtifact",
+    "LessonBlueprint",
+    "LessonEvidenceBinding",
+    "LessonFact",
+    "LessonSessionArtifact",
+    "LessonSessionBlueprint",
     "ApprovalScope",
     "ChangeMode",
     "DecisionAction",
@@ -33,4 +74,21 @@ __all__ = [
     "InterruptPayload",
     "InterruptStatus",
     "InterruptType",
+    "ExamArtifact",
+    "ExamBlueprintV2",
+    "ExamGlobalReport",
+    "ExamQuestion",
+    "OptionAssessment",
+    "QuestionBatchPlan",
+    "QuestionBatchResult",
+    "QuestionSlotPlan",
+    "batch_job_id",
+    "question_id",
+    "PPTArtifact",
+    "PPTRenderReport",
+    "SlideArchitecture",
+    "SlideCitation",
+    "SlideContent",
+    "SlidePlan",
+    "SlideAssetPlaceholder",
 ]

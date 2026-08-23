@@ -52,6 +52,28 @@ def approve_p12_cp_ds6(
     if candidate_sha != expected_candidate_sha256:
         raise ValueError("literal P12 Candidate SHA-256 does not match")
     candidate = CPDS6P12PilotDataset.model_validate_json(candidate_path.read_text(encoding="utf-8"))
+    approval_path = root / APPROVAL_PATH
+    if approval_path.is_file():
+        existing = json.loads(approval_path.read_text(encoding="utf-8"))
+        if (
+            existing.get("candidate_sha256") != candidate_sha
+            or existing.get("reviewer_id") != reviewer_id
+            or existing.get("reviewed_at") != reviewed_at.isoformat()
+            or existing.get("review_id") != review_id
+        ):
+            raise ValueError("existing P12 approval differs from requested approval")
+        approved_path = root / APPROVED_PATH
+        if not approved_path.is_file() or sha256_file(approved_path) != existing.get(
+            "approved_sha256"
+        ):
+            raise ValueError("existing P12 approved package changed")
+        return {
+            "candidate_sha256": candidate_sha,
+            "approved_sha256": existing["approved_sha256"],
+            "approval_sha256": sha256_file(approval_path),
+            "record_count": existing["record_count"],
+            "formal_gold_promoted": False,
+        }
     dataset_root = root / DATASET_ROOT
     governance_path = dataset_root / "manifest.json"
     governance = json.loads(governance_path.read_text(encoding="utf-8"))

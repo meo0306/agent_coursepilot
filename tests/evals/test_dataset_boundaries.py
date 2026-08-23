@@ -194,5 +194,8 @@ def test_repository_pilot_layouts_validate():
 
     assert set(courserag.split_ids[next(iter(courserag.split_ids))])
     assert "cp-ds1-synthetic-lesson" in coursepilot.candidate_records
-    assert len(coursepilot.approved_records) == 24
-    assert all(record_id.startswith("p12-") for record_id in coursepilot.approved_records)
+    assert len(coursepilot.approved_records) == 148
+    assert "p13-ds4-lesson-01-clean" in coursepilot.approved_records
+    assert "p13-ds5-ppt-15" in coursepilot.approved_records
+    assert sum(record_id.startswith("p12-") for record_id in coursepilot.approved_records) == 24
+    assert sum(record_id.startswith("p13-") for record_id in coursepilot.approved_records) == 45

@@ -33,6 +33,8 @@ class VerifiedOverlayItem(BaseModel):
     body: str
     content_sha256: str
     source_tier: str = "teacher_verified"
+    evidence_ids: list[str] = Field(default_factory=list)
+    knowledge_point_ids: list[str] = Field(default_factory=list)
     dense_vector: list[float] = Field(min_length=1)
 
 
@@ -49,9 +51,44 @@ class VerifiedOverlayManifest(BaseModel):
 @dataclass(frozen=True)
 class VerifiedOverlayHit:
     verified_content_id: str
+    title: str
     text: str
+    evidence_ids: tuple[str, ...]
+    knowledge_point_ids: tuple[str, ...]
     sparse_score: float
     dense_score: float
+
+
+def retrieval_snapshot_id(primary_index_version: str, verified_overlay_version: str | None) -> str:
+    """Stable composite identity for a primary index plus optional overlay."""
+    value = f"{primary_index_version}\x1f{verified_overlay_version or 'none'}".encode()
+    return f"snapshot_{hashlib.sha256(value).hexdigest()[:32]}"
+
+
+def fuse_overlay_hits(
+    primary: Sequence[tuple[str, float]],
+    overlay: Sequence[VerifiedOverlayHit],
+    *,
+    rrf_k: int = 60,
+    top_k: int = 8,
+) -> list[tuple[str, float, str]]:
+    """Fuse Primary and Verified Overlay ranks without changing Primary data."""
+    scores: dict[str, float] = {}
+    tiers: dict[str, str] = {}
+    for rank, (chunk_id, _score) in enumerate(primary, start=1):
+        scores[chunk_id] = scores.get(chunk_id, 0.0) + 1 / (rrf_k + rank)
+        tiers[chunk_id] = "primary_source"
+    for rank, hit in enumerate(overlay, start=1):
+        scores[hit.verified_content_id] = scores.get(hit.verified_content_id, 0.0) + 1 / (
+            rrf_k + rank
+        )
+        tiers[hit.verified_content_id] = "teacher_verified"
+    return [
+        (identifier, score, tiers[identifier])
+        for identifier, score in sorted(scores.items(), key=lambda item: (-item[1], item[0]))[
+            :top_k
+        ]
+    ]
 
 
 class VerifiedOverlayPublisher:
@@ -77,6 +114,9 @@ class VerifiedOverlayPublisher:
             raise RuntimeError("Verified overlay active pointer changed")
         version_number = self.repository.next_overlay_version(knowledge_base_id)
         records = self.repository.active_contents(knowledge_base_id)
+        content_ids = [item.id for item in records]
+        evidence_ids = self.repository.evidence_ids_by_content(content_ids)
+        knowledge_point_ids = self.repository.knowledge_point_ids_by_content(content_ids)
         texts = [f"{item.title}\n{item.body}" for item in records]
         vectors = self.embedder.embed_documents(texts)
         if len(vectors) != len(records):
@@ -92,6 +132,8 @@ class VerifiedOverlayPublisher:
                 body=item.body,
                 content_sha256=item.content_sha256
                 or hashlib.sha256(item.body.encode()).hexdigest(),
+                evidence_ids=evidence_ids[item.id],
+                knowledge_point_ids=knowledge_point_ids[item.id],
                 dense_vector=vectors[position],
             )
             for position, item in enumerate(records)
@@ -157,7 +199,10 @@ class VerifiedOverlayPublisher:
                 hits.append(
                     VerifiedOverlayHit(
                         verified_content_id=item.verified_content_id,
+                        title=item.title,
                         text=item.body,
+                        evidence_ids=tuple(item.evidence_ids),
+                        knowledge_point_ids=tuple(item.knowledge_point_ids),
                         sparse_score=overlap / max(len(terms), 1),
                         dense_score=dense_score,
                     )
@@ -166,6 +211,35 @@ class VerifiedOverlayPublisher:
             hits,
             key=lambda hit: (-(hit.sparse_score + hit.dense_score), hit.verified_content_id),
         )[:top_k]
+
+
+class VerifiedOverlaySearchService:
+    """Resolve and query the active immutable Overlay Manifest."""
+
+    def __init__(
+        self,
+        repository: WritebackRepository,
+        publisher: VerifiedOverlayPublisher,
+    ) -> None:
+        self.repository = repository
+        self.publisher = publisher
+
+    def search(
+        self,
+        *,
+        overlay_version_id: str,
+        query: str,
+        top_k: int,
+        knowledge_point_ids: tuple[str, ...] = (),
+    ) -> list[VerifiedOverlayHit]:
+        manifest_uri = self.repository.overlay_manifest_uri(overlay_version_id)
+        if manifest_uri is None:
+            raise RuntimeError("Verified overlay Manifest is unavailable")
+        hits = self.publisher.search(manifest_uri, query, top_k=top_k)
+        if not knowledge_point_ids:
+            return hits
+        required = set(knowledge_point_ids)
+        return [hit for hit in hits if required.intersection(hit.knowledge_point_ids)]
 
 
 def _terms(text: str) -> set[str]:

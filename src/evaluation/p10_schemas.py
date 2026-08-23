@@ -214,6 +214,106 @@ class P10SecurityDataset(P10DatasetEnvelope):
     cases: list[P10SecurityCase] = Field(min_length=1)
 
 
+class P17SecurityQualificationCase(ReviewableRecord):
+    split: Literal["qualification_dev"] = "qualification_dev"
+    label: Literal["malicious", "benign"]
+    family: Literal[
+        "policy_override",
+        "role_impersonation",
+        "secret_extraction",
+        "tool_coercion",
+        "hard_negative",
+    ]
+    language: Literal["zh", "en"]
+    input_surface: Literal[
+        "retrieved_context",
+        "template_placeholder",
+        "user_feedback",
+        "lesson_content",
+        "exam_content",
+        "ppt_content",
+    ]
+    text: str = Field(min_length=1, max_length=4000)
+    operative_action: str | None = None
+    target: str | None = None
+    effect: str | None = None
+    key_spans: list[str] = Field(default_factory=list)
+    obfuscation_modifier: str | None = None
+    rationale: str = Field(min_length=1, max_length=4000)
+    historical_similarity: list[str] = Field(default_factory=list)
+
+
+class P17SecurityQualificationDataset(P10DatasetEnvelope):
+    schema_version: Literal["courserag.p17-security-qualification-dev.v1"] = (
+        "courserag.p17-security-qualification-dev.v1"
+    )
+    cases: list[P17SecurityQualificationCase] = Field(min_length=120, max_length=120)
+
+    @model_validator(mode="after")
+    def validate_distribution(self) -> P17SecurityQualificationDataset:
+        if sum(case.label == "malicious" for case in self.cases) != 60:
+            raise ValueError("P17 Security Qualification requires 60 malicious cases")
+        if sum(case.label == "benign" for case in self.cases) != 60:
+            raise ValueError("P17 Security Qualification requires 60 benign cases")
+        return self
+
+
+class P17SecurityBlindCase(ReviewableRecord):
+    split: Literal["blind"] = "blind"
+    label: Literal["malicious", "benign"]
+    family: Literal[
+        "policy_override",
+        "role_impersonation",
+        "secret_extraction",
+        "tool_coercion",
+        "hard_negative",
+    ]
+    language: Literal["zh", "en"]
+    input_surface: Literal[
+        "retrieved_context",
+        "template_placeholder",
+        "user_feedback",
+        "lesson_content",
+        "exam_content",
+        "ppt_content",
+    ]
+    text: str = Field(min_length=1, max_length=4000)
+    operative_action: str | None = None
+    target: str | None = None
+    effect: str | None = None
+    key_spans: list[str] = Field(default_factory=list)
+    obfuscation_modifier: str | None = None
+    rationale: str = Field(min_length=1, max_length=4000)
+    historical_similarity: list[str] = Field(default_factory=list)
+
+
+class P17SecurityBlindDataset(P10DatasetEnvelope):
+    schema_version: Literal["courserag.p17-security-blind.v1"] = "courserag.p17-security-blind.v1"
+    cases: list[P17SecurityBlindCase] = Field(min_length=48, max_length=48)
+
+    @model_validator(mode="after")
+    def validate_distribution(self) -> P17SecurityBlindDataset:
+        if sum(case.label == "malicious" for case in self.cases) != 24:
+            raise ValueError("P17 Security Blind requires 24 malicious cases")
+        if sum(case.label == "benign" for case in self.cases) != 24:
+            raise ValueError("P17 Security Blind requires 24 benign cases")
+        for language in ("zh", "en"):
+            language_cases = [case for case in self.cases if case.language == language]
+            if len(language_cases) != 24:
+                raise ValueError(f"P17 Security Blind requires 24 {language} cases")
+            if sum(case.label == "malicious" for case in language_cases) != 12:
+                raise ValueError(f"P17 Security Blind requires 12 malicious {language} cases")
+        for family in (
+            "policy_override",
+            "role_impersonation",
+            "secret_extraction",
+            "tool_coercion",
+        ):
+            if sum(case.family == family for case in self.cases) != 6:
+                raise ValueError(f"P17 Security Blind requires six {family} cases")
+        return self
+
+
 class P10ComponentSplit(StrictModel):
     component: Literal["ds6", "ds7", "security"]
     dev_ids: list[str]

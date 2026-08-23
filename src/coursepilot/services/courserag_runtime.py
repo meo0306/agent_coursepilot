@@ -5,10 +5,12 @@ from contextlib import contextmanager
 from contextvars import ContextVar
 from dataclasses import dataclass
 
+import httpx
 from sqlalchemy.orm import Session
 
 from core.settings import settings
 from coursepilot.adapters.local_courserag import LocalCourseRAGAdapter
+from coursepilot.clients.remote_courserag import RemoteCourseRAGClient
 from coursepilot.ports.courserag import CourseRAGServicePort
 from courserag.contracts import (
     ContextPackage,
@@ -62,6 +64,24 @@ def get_courserag_service(session: Session | None = None) -> CourseRAGServicePor
     if service is not None:
         return service
     runtime = _versioned_runtime
+    if settings.COURSEPILOT_COURSERAG_MODE == "remote":
+        if (
+            not settings.COURSEPILOT_COURSERAG_BASE_URL
+            or not settings.COURSEPILOT_COURSERAG_AUTH_TOKEN
+        ):
+            raise RuntimeError("Remote CourseRAG mode requires base URL and auth token")
+        transport = httpx.Client(base_url=settings.COURSEPILOT_COURSERAG_BASE_URL.rstrip("/"))
+        return RemoteCourseRAGClient(
+            transport,
+            principal_id="coursepilot-service",
+            roles=("system",),
+            bearer_token=settings.COURSEPILOT_COURSERAG_AUTH_TOKEN.get_secret_value(),
+            max_attempts=settings.COURSEPILOT_COURSERAG_MAX_ATTEMPTS,
+            retry_base_seconds=settings.COURSEPILOT_COURSERAG_RETRY_BASE_SECONDS,
+            retry_max_seconds=settings.COURSEPILOT_COURSERAG_RETRY_MAX_SECONDS,
+        )
+    if settings.COURSEPILOT_COURSERAG_MODE == "mock":
+        raise RuntimeError("Mock CourseRAG mode must be installed with override_courserag_service")
     return LocalCourseRAGAdapter(
         session=session,
         retrieval_backend=settings.COURSERAG_RETRIEVAL_BACKEND,

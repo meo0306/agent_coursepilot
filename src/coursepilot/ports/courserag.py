@@ -6,6 +6,8 @@ from courserag.contracts import (
     BatchGetEvidenceRequest,
     BuildJob,
     CapabilitiesResponse,
+    ContextBindingValidationRequest,
+    ContextBindingValidationResponse,
     ContextPackage,
     ContextRequest,
     DeleteDocumentRequest,
@@ -15,6 +17,8 @@ from courserag.contracts import (
     EvidenceRecord,
     GetEvidenceRequest,
     HealthResponse,
+    KnowledgePointSnapshot,
+    KnowledgePointSnapshotRequest,
     ListDocumentsRequest,
     QARequest,
     QAResponse,
@@ -42,6 +46,13 @@ class KnowledgeBasePort(Protocol):
     def list_documents(self, request: ListDocumentsRequest) -> DocumentPage: ...
 
     def delete_document(self, request: DeleteDocumentRequest) -> DeleteDocumentResult: ...
+
+
+@runtime_checkable
+class KnowledgePointPort(Protocol):
+    def list_knowledge_points(
+        self, request: KnowledgePointSnapshotRequest
+    ) -> KnowledgePointSnapshot: ...
 
 
 @runtime_checkable
@@ -84,13 +95,22 @@ class ServiceInfoPort(Protocol):
 
 
 @runtime_checkable
+class ContextBindingPort(Protocol):
+    def validate_context_binding(
+        self, request: ContextBindingValidationRequest
+    ) -> ContextBindingValidationResponse: ...
+
+
+@runtime_checkable
 class CourseRAGServicePort(
     KnowledgeBasePort,
+    KnowledgePointPort,
     RetrievalPort,
     QuestionAnsweringPort,
     EvidencePort,
     VerifiedContentPort,
     ServiceInfoPort,
+    ContextBindingPort,
     Protocol,
 ):
     """Complete consumer-facing CourseRAG boundary."""

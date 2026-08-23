@@ -26,6 +26,37 @@ from coursepilot.models import (
 )
 
 
+def _edit_path(root: object, path: str, value: object, allowed: list[str]) -> None:
+    """Apply one explicitly approved JSONPath edit, including array indexes."""
+    if path not in allowed or not path.startswith("$."):
+        raise InterruptError("INVALID_EDIT_PATH")
+    parts: list[str | int] = []
+    remainder = path[2:]
+    for token in remainder.replace("]", "").replace("[", ".").split("."):
+        if token:
+            parts.append(int(token) if token.isdigit() else token)
+    if not parts:
+        raise InterruptError("INVALID_EDIT_PATH")
+    target: object = root
+    for part in parts[:-1]:
+        try:
+            target = target[part]  # type: ignore[index]
+        except (KeyError, IndexError, TypeError):
+            raise InterruptError("INVALID_EDIT_PATH") from None
+    leaf = parts[-1]
+    try:
+        if isinstance(target, dict):
+            if leaf not in target:
+                raise InterruptError("INVALID_EDIT_PATH")
+            target[leaf] = value
+        elif isinstance(target, list) and isinstance(leaf, int) and leaf < len(target):
+            target[leaf] = value
+        else:
+            raise InterruptError("INVALID_EDIT_PATH")
+    except (KeyError, IndexError, TypeError):
+        raise InterruptError("INVALID_EDIT_PATH") from None
+
+
 class InterruptError(ValueError):
     def __init__(self, code: str, message: str | None = None):
         super().__init__(message or code)
@@ -113,7 +144,16 @@ class InterruptService:
         if task is None or task.status == "cancelled":
             raise InterruptError("TASK_CANCELLED")
         version = self.session.get(ArtifactVersionRecord, record.artifact_version_id)
-        if version is None or task.active_artifact_version != version.version:
+        artifact = self.session.get(ArtifactRecord, version.artifact_id) if version else None
+        if (
+            version is None
+            or artifact is None
+            or artifact.active_version != version.version
+            or (
+                task.active_artifact_version is not None
+                and task.active_artifact_version != version.version
+            )
+        ):
             raise InterruptError("STALE_ARTIFACT_VERSION")
         if decision.action in {DecisionAction.REJECT, DecisionAction.CANCEL}:
             record.status = "cancelled"
@@ -130,18 +170,7 @@ class InterruptService:
                 raise InterruptError("INVALID_EDIT_PATH")
             content = dict(version.content_json or {})
             for path, value in decision.patch.items():
-                if not path.startswith("$."):
-                    raise InterruptError("INVALID_EDIT_PATH")
-                parts = path[2:].split(".")
-                target: dict[str, object] = content
-                for part in parts[:-1]:
-                    child = target.get(part)
-                    if not isinstance(child, dict):
-                        raise InterruptError("INVALID_EDIT_PATH")
-                    target = child
-                if parts[-1] not in target:
-                    raise InterruptError("INVALID_EDIT_PATH")
-                target[parts[-1]] = value
+                _edit_path(content, path, value, decision.target_paths)
             edited = ArtifactVersionRecord(
                 artifact_id=version.artifact_id,
                 version=int(version.version) + 1,
@@ -155,9 +184,7 @@ class InterruptService:
             )
             self.session.add(edited)
             task.active_artifact_version = edited.version
-            artifact = self.session.get(ArtifactRecord, version.artifact_id)
-            if artifact is not None:
-                artifact.active_version = edited.version
+            artifact.active_version = edited.version
             self.session.flush()
             record.artifact_version_id = edited.id
         approval = ApprovalRecord(
@@ -240,7 +267,19 @@ class InterruptService:
         scope: ApprovalScope,
         operation_key: str,
         fn: Any,
+        approval_record_id: str | None = None,
+        required_target_paths: set[str] | None = None,
     ) -> dict[str, Any]:
+        task = self.session.get(GenerationTask, task_id)
+        # The side-effect boundary must observe the database's current active
+        # version, not a possibly stale identity-map copy left by an earlier
+        # request in this long-lived session.
+        if task is not None:
+            self.session.refresh(task)
+        if task is not None and task.active_artifact_version is not None:
+            version = self.session.get(ArtifactVersionRecord, artifact_version_id)
+            if version is None or version.version != task.active_artifact_version:
+                raise InterruptError("STALE_ARTIFACT_VERSION")
         existing = self.session.scalar(
             select(SideEffectRunRecord).where(
                 SideEffectRunRecord.task_id == task_id,
@@ -254,16 +293,29 @@ class InterruptService:
         if existing is not None and existing.status == "running":
             raise InterruptError("SIDE_EFFECT_IN_PROGRESS")
         if existing is None:
-            approval = self.session.scalar(
-                select(ApprovalRecord).where(
-                    ApprovalRecord.task_id == task_id,
-                    ApprovalRecord.artifact_version_id == artifact_version_id,
-                    ApprovalRecord.scope == scope.value,
-                    ApprovalRecord.decision == "approved",
+            if approval_record_id is not None:
+                approval = self.session.get(ApprovalRecord, approval_record_id)
+            else:
+                approval = self.session.scalar(
+                    select(ApprovalRecord).where(
+                        ApprovalRecord.task_id == task_id,
+                        ApprovalRecord.artifact_version_id == artifact_version_id,
+                        ApprovalRecord.scope == scope.value,
+                        ApprovalRecord.decision == "approved",
+                    )
                 )
-            )
-            if approval is None:
+            if (
+                approval is None
+                or approval.task_id != task_id
+                or approval.artifact_version_id != artifact_version_id
+                or approval.scope != scope.value
+                or approval.decision != "approved"
+            ):
                 raise InterruptError("APPROVAL_SCOPE_REQUIRED")
+            if required_target_paths and not required_target_paths.issubset(
+                set(approval.target_paths_json or [])
+            ):
+                raise InterruptError("APPROVAL_TARGET_SCOPE_REQUIRED")
         if existing is None:
             existing = SideEffectRunRecord(
                 task_id=task_id,

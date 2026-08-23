@@ -12,6 +12,9 @@ from coursepilot.api.routes_files import router as files_router
 from coursepilot.api.routes_kb import router as kb_router
 from coursepilot.api.routes_lessons import router as lessons_router
 from coursepilot.api.routes_p12 import router as p12_router
+from coursepilot.api.routes_p14 import router as p14_router
+from coursepilot.api.routes_p15 import router as p15_router
+from coursepilot.api.routes_p16 import router as p16_router
 from coursepilot.api.routes_ppt import router as ppt_router
 from coursepilot.api.routes_reviews import router as reviews_router
 from coursepilot.api.routes_tasks import router as tasks_router
@@ -29,3 +32,6 @@ api_router.include_router(reviews_router)
 api_router.include_router(files_router)
 api_router.include_router(tasks_router)
 api_router.include_router(p12_router)
+api_router.include_router(p14_router)
+api_router.include_router(p15_router)
+api_router.include_router(p16_router)

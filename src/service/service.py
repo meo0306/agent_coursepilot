@@ -16,14 +16,20 @@ from agents import DEFAULT_AGENT, AgentGraph, get_agent, get_all_agent_info, loa
 from core import settings
 from coursepilot.api import api_router as coursepilot_router
 from coursepilot.llm import check_coursepilot_llm_health
+from coursepilot.services.courserag_runtime import get_courserag_service
 from coursepilot.services.task_worker import CoursePilotTaskWorker
 from courserag.api import (
     CourseRAGAPIError,
+    bindings_router,
     courserag_api_error_handler,
+    documents_router,
+    evidence_router,
     knowledge_point_router,
     retrieval_qa_router,
+    service_info_router,
     verified_content_router,
 )
+from courserag.api.dependencies import configure_service_factory
 from memory import initialize_database, initialize_store
 from schema import (
     ChatHistory,
@@ -36,6 +42,10 @@ from schema import (
 from service.utils import langchain_to_chat_message
 
 logger = logging.getLogger(__name__)
+
+# Combined mode keeps legacy behavior while the dedicated CourseRAG process
+# can install its own factory without the HTTP routers importing CoursePilot.
+configure_service_factory(get_courserag_service)
 
 
 def custom_generate_unique_id(route: APIRoute) -> str:
@@ -60,6 +70,9 @@ def verify_bearer(
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Initialize CoursePilot prompt agents and optional LangGraph persistence."""
     try:
+        if settings.COURSEPILOT_SERVICE_ROLE == "courserag":
+            yield
+            return
         if settings.COURSEPILOT_GENERATION_MODE.lower() == "llm":
             check_coursepilot_llm_health()
 
@@ -236,8 +249,14 @@ async def health_check() -> dict[str, str]:
     return {"status": "ok"}
 
 
-app.include_router(router)
-app.include_router(coursepilot_router, dependencies=[Depends(verify_bearer)])
-app.include_router(knowledge_point_router, dependencies=[Depends(verify_bearer)])
-app.include_router(retrieval_qa_router, dependencies=[Depends(verify_bearer)])
-app.include_router(verified_content_router, dependencies=[Depends(verify_bearer)])
+if settings.COURSEPILOT_SERVICE_ROLE in {"combined", "coursepilot"}:
+    app.include_router(router)
+    app.include_router(coursepilot_router, dependencies=[Depends(verify_bearer)])
+if settings.COURSEPILOT_SERVICE_ROLE in {"combined", "courserag"}:
+    app.include_router(knowledge_point_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(retrieval_qa_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(verified_content_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(service_info_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(documents_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(evidence_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(bindings_router, dependencies=[Depends(verify_bearer)])

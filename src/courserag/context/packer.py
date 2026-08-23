@@ -186,6 +186,8 @@ class ContextPacker:
                 key: value.model_dump(mode="json") for key, value in evidence_map.items()
             },
             "index_version": search.retrieval.index_version,
+            "verified_overlay_version": search.retrieval.verified_overlay_version,
+            "retrieval_snapshot_id": search.retrieval.retrieval_snapshot_id,
             "packing_report": report.model_dump(mode="json"),
         }
         result_sha256 = _digest(payload)
@@ -201,6 +203,8 @@ class ContextPacker:
             packing_report=report,
             context_package_id=f"ctxpkg_{result_sha256[:32]}",
             result_sha256=result_sha256,
+            verified_overlay_version=search.retrieval.verified_overlay_version,
+            retrieval_snapshot_id=search.retrieval.retrieval_snapshot_id,
         )
 
     def _resolve_unique(

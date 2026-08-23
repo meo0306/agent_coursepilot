@@ -1,0 +1,234 @@
+{
+  "bundle_sha256": "b436f6e1901bb9447359e4fd0524f27ba39bfa24742b3ec006e451ae0bec9cd0",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-01-clean"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-02-schema-missing"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-03-session-count"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-04-time-total"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-05-kp-coverage"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-06-grounding-missing"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-07-objective"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-08-source-tier"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-09-count-time-combo"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-lesson-10-grounding-quality-combo"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-01-clean"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-02-schema-missing"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-03-question-count"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-04-score"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-05-answer-option"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-06-kp-coverage"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-07-duplicate"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-08-grounding"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-09-explanation"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-exam-10-score-answer-combo"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-01-clean"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-02-schema-missing"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-03-slide-count"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-04-slide-type"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-05-session-source"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-06-citation"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-07-layout"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-08-overflow"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-09-references"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds4-ppt-10-count-source-combo"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-lesson-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-lesson-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-lesson-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-lesson-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-lesson-05"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-exam-06"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-exam-07"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-exam-08"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-exam-09"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-exam-10"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-ppt-11"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-ppt-12"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-ppt-13"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-ppt-14"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p13-ds5-ppt-15"
+    }
+  ],
+  "review_pass": "first",
+  "reviewed_at": "2026-08-14T08:15:25.829Z",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p13-review-decisions.v1"
+}

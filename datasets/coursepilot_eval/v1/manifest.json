@@ -1,16 +1,35 @@
 {
   "dataset_id": "coursepilot-eval",
   "dataset_version": "v1",
-  "gold_status": "skeleton_no_formal_gold",
+  "gold_components": {
+    "cp_ds1_p14_pilot": "approved",
+    "cp_ds2_p15_pilot": "approved",
+    "cp_ds3_p16_pilot": "approved",
+    "cp_ds4_p13_pilot": "approved",
+    "cp_ds5_p13_pilot": "approved",
+    "cp_ds7_p16_pilot": "approved",
+    "cp_ds8_p17_pilot": "approved",
+    "sys_ds1_p17_pilot": "approved"
+  },
+  "gold_status": "p17_integration_pilot_approved",
   "human_score_pilot": "human_scores/pilot.jsonl",
   "outputs_inside_dataset_allowed": false,
   "phase_execution_status": {
     "p11": "completed",
-    "p12": "not_started"
+    "p12": "completed",
+    "p13": "completed",
+    "p14": "completed_with_quality_debt",
+    "p15": "completed_with_quality_debt",
+    "p16": "completed_with_quality_debt"
   },
   "phase_input_status": {
     "p11": "approved_for_implementation",
-    "p12": "approved_for_implementation"
+    "p12": "completed_gate_passed",
+    "p13": "completed_gate_passed",
+    "p14": "completed_gate_passed",
+    "p15": "completed_gate_passed",
+    "p16": "completed_gate_passed",
+    "p17": "formal_dev_eval_ready"
   },
   "schema_version": "coursepilot.dataset-manifest.v1",
   "tracks": [

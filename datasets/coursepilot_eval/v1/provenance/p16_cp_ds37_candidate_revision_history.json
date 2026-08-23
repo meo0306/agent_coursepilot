@@ -1,0 +1,35 @@
+{
+  "dataset_id": "coursepilot-p16-cp-ds37",
+  "dataset_version": "p16-pilot-r2",
+  "revisions": [
+    {
+      "candidate_file_sha256": "667a4373d9fd177302f2cfc6d8468e56d88141fd51baa6a69695f80c9d1030d8",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds3/p16_ppt_pilot_r1.json",
+      "reason": "Initial CP-DS3 structural Candidate; superseded by the renderer-backed r2 Candidate.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "e765fba3643913036f4a04029d91b28b62df36c763b6da47ba365b365aa81c95",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds7/p16_template_export_pilot_r1.json",
+      "reason": "Initial CP-DS7 structural Candidate; superseded by the renderer-backed r2 Candidate.",
+      "revision": 2,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "7001ec09dcf7ca782fadb2468a39fb5b0a51b81dc8be35d8f14e4d57bdd5b039",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds3/p16_ppt_pilot_r2.json",
+      "reason": "Exact renderer-backed P16 r2 Candidate approved by the Course Owner after complete first and blind second review.",
+      "revision": 3,
+      "status": "approved"
+    },
+    {
+      "candidate_file_sha256": "ef6ec83bba30a1ddb02bc93437421034eaab87acbc5b6e54dc4fa316d02fccb9",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds7/p16_template_export_pilot_r2.json",
+      "reason": "Exact renderer-backed P16 r2 Candidate approved by the Course Owner after complete first and blind second review.",
+      "revision": 4,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

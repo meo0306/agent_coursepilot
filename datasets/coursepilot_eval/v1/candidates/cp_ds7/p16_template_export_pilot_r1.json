@@ -1,0 +1,295 @@
+{
+  "approval_scope": "cp_ds7_p16_pilot_input_only",
+  "cases": [
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "human",
+      "case_role": "gold_positive",
+      "custom_template": false,
+      "expected_failure": null,
+      "expected_file_roles": [
+        "ppt_standard_lecture_pptx"
+      ],
+      "layout_count": 11,
+      "license": "project-mit-attribution",
+      "master_count": 1,
+      "normalized_pptx_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "record_id": "p16-ds7-ppt_standard_lecture_v1",
+      "render_required": true,
+      "required_layout_roles": [
+        "Title Slide",
+        "Title and Content",
+        "Two Content",
+        "Comparison",
+        "Picture with Caption"
+      ],
+      "required_placeholders": [
+        "title",
+        "content",
+        "picture",
+        "slide_number"
+      ],
+      "review_status": "candidate",
+      "slide_type_layout_map": {
+        "activity": "Title and Content",
+        "agenda": "Title and Content",
+        "comparison": "Comparison",
+        "concept": "Title and Content",
+        "example": "Picture with Caption",
+        "objectives": "Title and Content",
+        "process": "Two Content",
+        "references": "Title and Content",
+        "summary": "Title Only",
+        "title": "Title Slide"
+      },
+      "source_kind": "builtin",
+      "source_provenance": [
+        "template_registry:ppt_standard_lecture_pptx",
+        "source_sha256:5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+      ],
+      "source_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "source_uri": "D:/project/agent_coursepilot/resources/templates/exporters/ppt_standard_lecture_v1.pptx",
+      "template_id": "ppt_standard_lecture_v1",
+      "template_version": "1.0.0"
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "human",
+      "case_role": "gold_positive",
+      "custom_template": false,
+      "expected_failure": null,
+      "expected_file_roles": [
+        "ppt_concept_explanation_pptx"
+      ],
+      "layout_count": 11,
+      "license": "project-mit-attribution",
+      "master_count": 1,
+      "normalized_pptx_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "record_id": "p16-ds7-ppt_concept_explanation_v1",
+      "render_required": true,
+      "required_layout_roles": [
+        "Title Slide",
+        "Title and Content",
+        "Two Content",
+        "Comparison",
+        "Picture with Caption"
+      ],
+      "required_placeholders": [
+        "title",
+        "content",
+        "picture",
+        "slide_number"
+      ],
+      "review_status": "candidate",
+      "slide_type_layout_map": {
+        "activity": "Title and Content",
+        "agenda": "Title and Content",
+        "comparison": "Comparison",
+        "concept": "Title and Content",
+        "example": "Picture with Caption",
+        "objectives": "Title and Content",
+        "process": "Two Content",
+        "references": "Title and Content",
+        "summary": "Title Only",
+        "title": "Title Slide"
+      },
+      "source_kind": "builtin",
+      "source_provenance": [
+        "template_registry:ppt_concept_explanation_pptx",
+        "source_sha256:5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+      ],
+      "source_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "source_uri": "D:/project/agent_coursepilot/resources/templates/exporters/ppt_concept_explanation_v1.pptx",
+      "template_id": "ppt_concept_explanation_v1",
+      "template_version": "1.0.0"
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "human",
+      "case_role": "gold_positive",
+      "custom_template": false,
+      "expected_failure": null,
+      "expected_file_roles": [
+        "ppt_case_seminar_pptx"
+      ],
+      "layout_count": 11,
+      "license": "project-mit-attribution",
+      "master_count": 1,
+      "normalized_pptx_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "record_id": "p16-ds7-ppt_case_seminar_v1",
+      "render_required": true,
+      "required_layout_roles": [
+        "Title Slide",
+        "Title and Content",
+        "Two Content",
+        "Comparison",
+        "Picture with Caption"
+      ],
+      "required_placeholders": [
+        "title",
+        "content",
+        "picture",
+        "slide_number"
+      ],
+      "review_status": "candidate",
+      "slide_type_layout_map": {
+        "activity": "Title and Content",
+        "agenda": "Title and Content",
+        "comparison": "Comparison",
+        "concept": "Title and Content",
+        "example": "Picture with Caption",
+        "objectives": "Title and Content",
+        "process": "Two Content",
+        "references": "Title and Content",
+        "summary": "Title Only",
+        "title": "Title Slide"
+      },
+      "source_kind": "builtin",
+      "source_provenance": [
+        "template_registry:ppt_case_seminar_pptx",
+        "source_sha256:5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+      ],
+      "source_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "source_uri": "D:/project/agent_coursepilot/resources/templates/exporters/ppt_case_seminar_v1.pptx",
+      "template_id": "ppt_case_seminar_v1",
+      "template_version": "1.0.0"
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "human",
+      "case_role": "gold_positive",
+      "custom_template": true,
+      "expected_failure": null,
+      "expected_file_roles": [
+        "master",
+        "layout",
+        "theme",
+        "font_mapping"
+      ],
+      "layout_count": 32,
+      "license": "CC0-1.0",
+      "master_count": 2,
+      "normalized_pptx_sha256": "caec81e7bbcc4712dc60e90af2bae26a3a7890b3300432c0b1cfaa8dc024e32a",
+      "record_id": "p16-ds7-external-velis",
+      "render_required": true,
+      "required_layout_roles": [
+        "Presentation Title",
+        "Title and Content",
+        "Two Columns",
+        "Two Columns, Picture Right",
+        "Close"
+      ],
+      "required_placeholders": [
+        "title",
+        "body",
+        "picture",
+        "slide_number"
+      ],
+      "review_status": "candidate",
+      "slide_type_layout_map": {
+        "activity": "Title and Content",
+        "agenda": "Title and Content",
+        "comparison": "Two Columns",
+        "concept": "Title and Content",
+        "example": "Two Columns, Picture Right",
+        "objectives": "Title and Content",
+        "process": "Two Columns",
+        "references": "Title and Content",
+        "summary": "Close",
+        "title": "Presentation Title"
+      },
+      "source_kind": "owner_selected_external",
+      "source_provenance": [
+        "github:0f18f3f1fe2d76413c45b0106e7585d64beb920d",
+        "source_sha256:54f58da18846a40976c2b2aa13950343d4b24d112b5a0b64f1f8efbe251dcbcd"
+      ],
+      "source_sha256": "54f58da18846a40976c2b2aa13950343d4b24d112b5a0b64f1f8efbe251dcbcd",
+      "source_uri": "https://raw.githubusercontent.com/lrkrol/powerpoint/0f18f3f1fe2d76413c45b0106e7585d64beb920d/lrk-slides-velis.potx",
+      "template_id": "p16_external_velis_v1",
+      "template_version": "0f18f3f1fe2d-cc0"
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "human",
+      "case_role": "contract_negative",
+      "custom_template": false,
+      "expected_failure": "template_identity_mismatch",
+      "expected_file_roles": [
+        "master",
+        "layout"
+      ],
+      "layout_count": 11,
+      "license": "project-mit-attribution",
+      "master_count": 1,
+      "normalized_pptx_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "record_id": "p16-ds7-negative-hash",
+      "render_required": true,
+      "required_layout_roles": [
+        "Title Slide",
+        "Title and Content"
+      ],
+      "required_placeholders": [
+        "title",
+        "content"
+      ],
+      "review_status": "candidate",
+      "slide_type_layout_map": {
+        "title": "Title Slide"
+      },
+      "source_kind": "tampered",
+      "source_provenance": [
+        "deterministic_contract_negative"
+      ],
+      "source_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "source_uri": "D:/project/agent_coursepilot/resources/templates/exporters/ppt_standard_lecture_v1.pptx",
+      "template_id": "p16_external_velis_v1",
+      "template_version": "1.0.0"
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "human",
+      "case_role": "contract_negative",
+      "custom_template": false,
+      "expected_failure": "template_mapping_incomplete",
+      "expected_file_roles": [
+        "master",
+        "layout"
+      ],
+      "layout_count": 32,
+      "license": "project-mit-attribution",
+      "master_count": 2,
+      "normalized_pptx_sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6",
+      "record_id": "p16-ds7-negative-mapping",
+      "render_required": true,
+      "required_layout_roles": [
+        "Title Slide",
+        "Title and Content"
+      ],
+      "required_placeholders": [
+        "title",
+        "content"
+      ],
+      "review_status": "candidate",
+      "slide_type_layout_map": {
+        "title": "Title Slide"
+      },
+      "source_kind": "incomplete_mapping",
+      "source_provenance": [
+        "deterministic_contract_negative"
+      ],
+      "source_sha256": "54f58da18846a40976c2b2aa13950343d4b24d112b5a0b64f1f8efbe251dcbcd",
+      "source_uri": "D:/project/agent_coursepilot/resources/templates/exporters/ppt_standard_lecture_v1.pptx",
+      "template_id": "p16_external_velis_v1",
+      "template_version": "1.0.0"
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p16-pilot-r1",
+  "schema_version": "coursepilot.cp-ds7-p16-pilot.v1"
+}

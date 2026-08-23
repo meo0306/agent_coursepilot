@@ -1,0 +1,11 @@
+services:
+  p16-pptx-qa:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.eval-pptx-qa
+    working_dir: /workspace
+    environment:
+      PYTHONPATH: /workspace/src
+    volumes:
+      - .:/workspace
+    command: ["python", "-m", "evaluation.p16_closure", "--output-dir", "storage_eval/p16_closure_docker", "--r3-report", "storage_eval/p16_provider_pilot_r3/report.json"]

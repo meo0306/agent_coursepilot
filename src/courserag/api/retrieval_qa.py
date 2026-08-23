@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, Header
 from sqlalchemy.orm import Session
 
 from coursepilot.db.session import get_session
-from coursepilot.services.courserag_runtime import get_courserag_service
+from courserag.api.dependencies import get_courserag_service
 from courserag.api.http_schema import API_PREFIX
 from courserag.api.knowledge_points import CourseRAGAPIError
 from courserag.api.principal import trusted_principal

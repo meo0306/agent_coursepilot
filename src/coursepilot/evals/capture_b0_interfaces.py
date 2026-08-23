@@ -256,6 +256,10 @@ def _prompt_snapshot(repository_root: Path) -> dict[str, Any]:
     prompts = []
     for path in sorted(prompt_root.rglob("*.md")):
         name = path.relative_to(prompt_root).with_suffix("").as_posix()
+        # P14's provider prompts are additive and are intentionally outside the
+        # frozen pre-P14 B0 interface snapshot.
+        if name.startswith("lesson/p14_"):
+            continue
         raw_prompt = load_prompt(name)
         effective_prompt = build_coursepilot_system_prompt(raw_prompt)
         prompts.append(

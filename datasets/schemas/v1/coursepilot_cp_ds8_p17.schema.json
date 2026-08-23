@@ -1,0 +1,313 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P17FaultSecurityCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "provider",
+            "courserag",
+            "worker",
+            "persistence",
+            "security"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "course_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Course Id"
+        },
+        "forbidden_side_effects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Side Effects",
+          "type": "array"
+        },
+        "initial_state": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "minProperties": 1,
+          "title": "Initial State",
+          "type": "object"
+        },
+        "injection_point": {
+          "title": "Injection Point",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "scenario_family": {
+          "title": "Scenario Family",
+          "type": "string"
+        },
+        "source_kind": {
+          "enum": [
+            "contract_fixture",
+            "course_grounded_security_wrapper"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "trace_assertions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Trace Assertions",
+          "type": "array"
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/P17FaultVariant"
+          },
+          "minItems": 1,
+          "title": "Variants",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "category",
+        "scenario_family",
+        "initial_state",
+        "injection_point",
+        "variants",
+        "source_kind"
+      ],
+      "title": "P17FaultSecurityCase",
+      "type": "object"
+    },
+    "P17FaultVariant": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_error_class": {
+          "title": "Expected Error Class",
+          "type": "string"
+        },
+        "expected_side_effect_count": {
+          "minimum": 0,
+          "title": "Expected Side Effect Count",
+          "type": "integer"
+        },
+        "expected_user_status": {
+          "title": "Expected User Status",
+          "type": "string"
+        },
+        "forbidden_effects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Effects",
+          "type": "array"
+        },
+        "injection": {
+          "title": "Injection",
+          "type": "string"
+        },
+        "postconditions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Postconditions",
+          "type": "array"
+        },
+        "preconditions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Preconditions",
+          "type": "array"
+        },
+        "required_trace_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Trace Fields",
+          "type": "array"
+        },
+        "resume_expectation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resume Expectation"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        },
+        "variant_id": {
+          "title": "Variant Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant_id",
+        "injection",
+        "expected_error_class",
+        "expected_user_status",
+        "expected_side_effect_count"
+      ],
+      "title": "P17FaultVariant",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds8_p17_pilot_input_only",
+      "default": "cp_ds8_p17_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P17FaultSecurityCase"
+      },
+      "maxItems": 30,
+      "minItems": 30,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds8-p17.v1",
+      "default": "coursepilot.cp-ds8-p17.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "CPDS8P17Dataset",
+  "type": "object"
+}

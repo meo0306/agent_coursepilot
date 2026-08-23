@@ -1,0 +1,264 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P17SecurityQualificationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "effect": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect"
+        },
+        "family": {
+          "enum": [
+            "policy_override",
+            "role_impersonation",
+            "secret_extraction",
+            "tool_coercion",
+            "hard_negative"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "historical_similarity": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Historical Similarity",
+          "type": "array"
+        },
+        "input_surface": {
+          "enum": [
+            "retrieved_context",
+            "template_placeholder",
+            "user_feedback",
+            "lesson_content",
+            "exam_content",
+            "ppt_content"
+          ],
+          "title": "Input Surface",
+          "type": "string"
+        },
+        "key_spans": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Key Spans",
+          "type": "array"
+        },
+        "label": {
+          "enum": [
+            "malicious",
+            "benign"
+          ],
+          "title": "Label",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "zh",
+            "en"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "obfuscation_modifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Obfuscation Modifier"
+        },
+        "operative_action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Operative Action"
+        },
+        "rationale": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "split": {
+          "const": "qualification_dev",
+          "default": "qualification_dev",
+          "title": "Split",
+          "type": "string"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target"
+        },
+        "text": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "label",
+        "family",
+        "language",
+        "input_surface",
+        "text",
+        "rationale"
+      ],
+      "title": "P17SecurityQualificationCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P17SecurityQualificationCase"
+      },
+      "maxItems": 120,
+      "minItems": 120,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p17-security-qualification-dev.v1",
+      "default": "courserag.p17-security-qualification-dev.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P17SecurityQualificationDataset",
+  "type": "object"
+}

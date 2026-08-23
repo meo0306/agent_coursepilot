@@ -33,14 +33,9 @@ def build_recoverable_graph(
     """
     graph = StateGraph(RecoverableState)
     if workflow_type == "lesson":
-        graph.add_node(
-            "lesson_session_plan_review",
-            lambda s: _review_node(InterruptType.LESSON_SESSION_PLAN, s),
-        )
-        graph.add_node("lesson_final_review", lambda s: _review_node(InterruptType.LESSON_FINAL, s))
-        graph.add_edge(START, "lesson_session_plan_review")
-        graph.add_edge("lesson_session_plan_review", "lesson_final_review")
-        graph.add_edge("lesson_final_review", END)
+        from agents.coursepilot.lesson.graph import build_lesson_graph
+
+        return build_lesson_graph(checkpointer=checkpointer)
     elif workflow_type == "exam":
         graph.add_node(
             "exam_blueprint_review", lambda s: _review_node(InterruptType.EXAM_BLUEPRINT, s)

@@ -19,6 +19,7 @@ class CourseRAGOperation(StrEnum):
     START_BUILD = "start_build"
     GET_BUILD_JOB = "get_build_job"
     LIST_DOCUMENTS = "list_documents"
+    LIST_KNOWLEDGE_POINTS = "list_knowledge_points"
     DELETE_DOCUMENT = "delete_document"
     SEARCH = "search"
     BUILD_CONTEXT = "build_context"

@@ -91,6 +91,7 @@ class PromptInjectionFinding(BaseModel):
         "model_high_score",
         "model_rule_consensus",
         "axis_high_confidence_union",
+        "scope_aware_consensus",
     ] = "legacy_rule"
     axis_id: str | None = None
     signal_ids: tuple[str, ...] = ()

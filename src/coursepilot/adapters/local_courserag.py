@@ -30,6 +30,8 @@ from courserag.contracts import (
     BuildStage,
     BuildStatus,
     CapabilitiesResponse,
+    ContextBindingValidationRequest,
+    ContextBindingValidationResponse,
     ContextPackage,
     ContextRequest,
     CourseRAGError,
@@ -46,6 +48,10 @@ from courserag.contracts import (
     GetEvidenceRequest,
     HealthResponse,
     HealthStatus,
+    KnowledgePointEvidenceLink,
+    KnowledgePointSnapshot,
+    KnowledgePointSnapshotItem,
+    KnowledgePointSnapshotRequest,
     ListDocumentsRequest,
     QARequest,
     QAResponse,
@@ -225,6 +231,63 @@ class LocalCourseRAGAdapter:
             request.context,
             CourseRAGOperation.LIST_DOCUMENTS,
             lambda: self._list_documents(request),
+        )
+
+    def list_knowledge_points(
+        self, request: KnowledgePointSnapshotRequest
+    ) -> KnowledgePointSnapshot:
+        return self._with_structured_errors(
+            request.context,
+            CourseRAGOperation.LIST_KNOWLEDGE_POINTS,
+            lambda: self._list_knowledge_points(request),
+        )
+
+    def _list_knowledge_points(
+        self, request: KnowledgePointSnapshotRequest
+    ) -> KnowledgePointSnapshot:
+        session = self._require_session(request.context)
+        from courserag.application.knowledge_point_service import KnowledgePointService
+
+        rows = KnowledgePointService(session).list(
+            request.course_id,
+            status=None if request.include_unreviewed else "approved",
+            limit=request.limit,
+            offset=0,
+        )
+        items = [
+            KnowledgePointSnapshotItem(
+                knowledge_point_id=row.knowledge_point_id,
+                course_id=request.course_id,
+                canonical_name=row.canonical_name,
+                aliases=list(row.aliases),
+                summary=row.summary,
+                review_status=str(row.review_status),
+                version=row.version_number,
+                section_ids=list(row.section_ids),
+                evidence_links=[
+                    KnowledgePointEvidenceLink(
+                        evidence_id=link.evidence_id,
+                        role=link.role,
+                        strength=link.strength,
+                    )
+                    for link in row.evidence_links
+                ],
+            )
+            for row in rows
+            if not request.section_ids or set(request.section_ids).intersection(row.section_ids)
+        ]
+        payload = [item.model_dump(mode="json") for item in items]
+        import hashlib
+        import json
+
+        digest = hashlib.sha256(
+            json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        ).hexdigest()
+        return KnowledgePointSnapshot(
+            meta=ResponseMeta.from_context(request.context),
+            course_id=request.course_id,
+            items=items,
+            snapshot_sha256=digest,
         )
 
     def _list_documents(self, request: ListDocumentsRequest) -> DocumentPage:
@@ -434,6 +497,32 @@ class LocalCourseRAGAdapter:
             supports_verified_writeback=self.versioned_write_verified is not None,
             supports_enrichment=self.versioned_write_verified is not None,
             supports_incremental_build=self.retrieval_backend == "versioned",
+        )
+
+    def validate_context_binding(
+        self, request: ContextBindingValidationRequest
+    ) -> ContextBindingValidationResponse:
+        batch = self.batch_get_evidence(
+            BatchGetEvidenceRequest(
+                context=request.context,
+                course_id=request.course_id,
+                evidence_ids=list(request.evidence_versions),
+            )
+        )
+        actual = {record.evidence_id: record.content_hash for record in batch.records}
+        changed = sorted(
+            evidence_id
+            for evidence_id, expected_hash in request.evidence_versions.items()
+            if actual.get(evidence_id) != expected_hash
+        )
+        status = "changed_evidence" if changed else "compatible"
+        if request.index_version != LEGACY_INDEX_VERSION and self.retrieval_backend == "legacy":
+            status = "stale_primary_index"
+        return ContextBindingValidationResponse(
+            meta=ResponseMeta.from_context(request.context),
+            status=status,
+            stale=status != "compatible",
+            changed_evidence_ids=changed,
         )
 
     def execute_legacy_build(

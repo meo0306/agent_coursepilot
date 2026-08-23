@@ -3,9 +3,31 @@
 """
 
 from coursepilot.schemas.lesson_schema import LessonDesignContent, LessonValidationReport
+from coursepilot.validation.service import ValidationContext, ValidatorService
 
 
 class LessonValidator:
+    def validate_structured(
+        self,
+        lesson_design: LessonDesignContent,
+        *,
+        expected_sessions: int,
+        session_duration: int,
+        artifact_id: str = "lesson",
+        artifact_version: int | str = 1,
+    ):
+        """P13 structured report; ``validate`` remains the legacy projection."""
+        return ValidatorService().validate_typed(
+            "lesson",
+            lesson_design.model_dump(mode="python"),
+            ValidationContext(
+                artifact_id=artifact_id,
+                artifact_version=artifact_version,
+                expected_sessions=expected_sessions,
+                expected_duration=session_duration,
+            ),
+        )
+
     def validate(
         self,
         lesson_design: LessonDesignContent,

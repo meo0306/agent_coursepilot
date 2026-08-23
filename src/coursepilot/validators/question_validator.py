@@ -2,12 +2,37 @@ from collections import Counter
 
 from coursepilot.schemas.exam_schema import ExamBlueprintContent, ExamValidationReport
 from coursepilot.schemas.question_schema import QuestionItem
+from coursepilot.validation.service import ValidationContext, ValidatorService
 from coursepilot.validators.duplicate_detector import DuplicateDetector
 
 
 class QuestionValidator:
     def __init__(self, duplicate_threshold: float = 0.85):
         self.duplicate_detector = DuplicateDetector(threshold=duplicate_threshold)
+
+    def validate_structured(
+        self,
+        blueprint: ExamBlueprintContent,
+        questions: list[QuestionItem],
+        *,
+        artifact_id: str = "exam",
+        artifact_version: int | str = 1,
+    ):
+        payload = blueprint.model_dump(mode="python")
+        payload["questions"] = [question.model_dump(mode="python") for question in questions]
+        return ValidatorService().validate_typed(
+            "exam",
+            payload,
+            ValidationContext(
+                artifact_id=artifact_id,
+                artifact_version=artifact_version,
+                expected_question_counts={
+                    str(group.question_type): group.count for group in blueprint.question_groups
+                },
+                expected_total_score=blueprint.total_score,
+                required_knowledge_points=set(blueprint.knowledge_points),
+            ),
+        )
 
     def validate(
         self,

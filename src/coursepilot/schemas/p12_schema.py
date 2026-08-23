@@ -61,3 +61,4 @@ class ScopeApprovalRequest(BaseModel):
     scope: ApprovalScope
     operation_key: str = Field(min_length=1)
     approved: bool = True
+    target_paths: list[str] = Field(default_factory=list)

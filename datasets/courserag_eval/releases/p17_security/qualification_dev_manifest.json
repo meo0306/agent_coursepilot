@@ -1,0 +1,13 @@
+{
+  "benign": 60,
+  "blind_commitment_sha256": "994a69c38689736f351023ec4aa48897a0e0ff6991178918a6791d24088e5a48",
+  "bundle_sha256": "f230655e5ed60c9462401e0824b6a3ec4e302b275faf16460ce61a50fd54ad8b",
+  "candidate": "datasets/courserag_eval/releases/p17_security/qualification_dev_candidate_r1.json",
+  "candidate_sha256": "578dc96ebf4c9aa82642c5e24e55df185017ba99f92354ae26da82f9bbadd5d8",
+  "malicious": 60,
+  "record_count": 120,
+  "review_passes": [
+    "single"
+  ],
+  "schema_version": "courserag.p17-security-qualification-manifest.v1"
+}

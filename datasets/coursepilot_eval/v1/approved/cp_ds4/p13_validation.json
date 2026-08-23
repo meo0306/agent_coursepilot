@@ -1,0 +1,1479 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "c86b6b0c4ff41864e77485bce50782c01dafeadb0ec809a9201c54737cb9d729",
+        "candidate_sha256": "e08e2d47b8458d102bbc8df4c05ad3ddcf7bc7c31c32bee371b0d615ad90bfcd",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.001",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-01",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": true,
+      "fixture_variant_id": "p13-ds4-lesson-01-clean-variant",
+      "gold_issues": [],
+      "injection_ids": [
+        "clean"
+      ],
+      "injection_paths": [],
+      "record_id": "p13-ds4-lesson-01-clean",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "7bb6ebdd215f1dcc1c4a28e5a7bf653f36ff73598b9647f8c70fa3475954dbbe",
+        "candidate_sha256": "06bdb03b94e9f14a55947388b753a1e1872a2e85d479d5801f3e97ac96625f05",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.002",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-02",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-02-schema-missing-variant",
+      "gold_issues": [
+        {
+          "actual": "mutated",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": true,
+          "code": "LESSON_SCHEMA_REQUIRED_FIELD_MISSING",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-02-schema-missing.issue-1",
+          "layer": "L0",
+          "message": "Injected LESSON_SCHEMA_REQUIRED_FIELD_MISSING for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "root",
+            "json_path": "$.session_plan[0].teaching_focus"
+          },
+          "severity": "critical"
+        }
+      ],
+      "injection_ids": [
+        "schema-missing"
+      ],
+      "injection_paths": [
+        "$.session_plan[0].teaching_focus"
+      ],
+      "record_id": "p13-ds4-lesson-02-schema-missing",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f3132da8d838fd904b8e644fc04521a13e688477e37abd9bbd4235dcc704c4d6",
+        "candidate_sha256": "29b26c7932cacbe1ee7ea476087680621d3982b07df81fe1be5e847bbeb2b1a1",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.003",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-03",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-03-session-count-variant",
+      "gold_issues": [
+        {
+          "actual": 3,
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": true,
+          "code": "LESSON_SESSION_COUNT_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-03-session-count.issue-1",
+          "layer": "L1",
+          "message": "Injected LESSON_SESSION_COUNT_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "total_sessions",
+            "json_path": "$.total_sessions"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "session-count"
+      ],
+      "injection_paths": [
+        "$.total_sessions"
+      ],
+      "record_id": "p13-ds4-lesson-03-session-count",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "850650d7b4a4f36e984502547654eaa7f9d600f2c43e64aba66ac02225c84639",
+        "candidate_sha256": "7e2de9d27df3f71894c246fe6e1bae3dc1b8f56bfbba0c5f0515f023f697bc3a",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.004",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-01",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-04-time-total-variant",
+      "gold_issues": [
+        {
+          "actual": 99,
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": true,
+          "code": "LESSON_TIME_ALLOCATION_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-04-time-total.issue-1",
+          "layer": "L1",
+          "message": "Injected LESSON_TIME_ALLOCATION_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "root",
+            "json_path": "$.session_plan[0].time_allocation[0].minutes"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "time-total"
+      ],
+      "injection_paths": [
+        "$.session_plan[0].time_allocation[0].minutes"
+      ],
+      "record_id": "p13-ds4-lesson-04-time-total",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f8953430a6e86343a8befac1a4efe293def6c77b4a1181190b1f83e0ee8b9540",
+        "candidate_sha256": "20d6d498a3879d7d34e3ac52eb88205e42f423b339b577f739dd70cdd121c4a2",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.005",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-02",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-05-kp-coverage-variant",
+      "gold_issues": [
+        {
+          "actual": [],
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": true,
+          "code": "LESSON_KP_NOT_COVERED",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-05-kp-coverage.issue-1",
+          "layer": "L2",
+          "message": "Injected LESSON_KP_NOT_COVERED for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "sessions",
+            "json_path": "$.sessions[0].key_points"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "kp-coverage"
+      ],
+      "injection_paths": [
+        "$.sessions[0].key_points"
+      ],
+      "record_id": "p13-ds4-lesson-05-kp-coverage",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "47b9accbde7a0b1a8068ea83087fddba8425b2b4c4cf25a1003cbba594b8dd9e",
+        "candidate_sha256": "f8e64472dcadb75eb10f0c749dd57a9cf454be8c907125b29d036b23c74cae89",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.006",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-03",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-06-grounding-missing-variant",
+      "gold_issues": [
+        {
+          "actual": "gold-ev-missing",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": false,
+          "code": "GROUNDING_EVIDENCE_NOT_FOUND",
+          "evidence_ids": [
+            "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+          ],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-06-grounding-missing.issue-1",
+          "layer": "L3",
+          "message": "Injected GROUNDING_EVIDENCE_NOT_FOUND for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "sessions",
+            "json_path": "$.sessions[0].references[0].evidence_id"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "grounding-missing"
+      ],
+      "injection_paths": [
+        "$.sessions[0].references[0].evidence_id"
+      ],
+      "record_id": "p13-ds4-lesson-06-grounding-missing",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "97ac511bc30760d8ebc4b4505498df421e78c607c675466ac5418cfa9abd401f",
+        "candidate_sha256": "bb8b472e99883117c4a6bc589db449e440ab57887544b2250ecbc249815695ab",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.007",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-01",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-07-objective-variant",
+      "gold_issues": [
+        {
+          "actual": "了解相关内容",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": false,
+          "code": "LESSON_OBJECTIVE_NOT_MEASURABLE",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-07-objective.issue-1",
+          "layer": "L4",
+          "message": "Injected LESSON_OBJECTIVE_NOT_MEASURABLE for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "sessions",
+            "json_path": "$.sessions[0].teaching_objectives[0]"
+          },
+          "severity": "warning"
+        }
+      ],
+      "injection_ids": [
+        "objective"
+      ],
+      "injection_paths": [
+        "$.sessions[0].teaching_objectives[0]"
+      ],
+      "record_id": "p13-ds4-lesson-07-objective",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "5390a86dd7b1c2ff60a0e75f54d5b8d5d75552781faa6d109b40e954045606b4",
+        "candidate_sha256": "756bc354e34aafe1ead2aee9a05fb44ca8cca077b8105798c588bf7f1263d12b",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.008",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-02",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-08-source-tier-variant",
+      "gold_issues": [
+        {
+          "actual": "other-course",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": false,
+          "code": "GROUNDING_SOURCE_TIER_INVALID",
+          "evidence_ids": [
+            "gold-ev-d11c1cf73e3f616a5cb69272bad4faae"
+          ],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-08-source-tier.issue-1",
+          "layer": "L3",
+          "message": "Injected GROUNDING_SOURCE_TIER_INVALID for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "sessions",
+            "json_path": "$.sessions[0].references[0].course_id"
+          },
+          "severity": "critical"
+        }
+      ],
+      "injection_ids": [
+        "source-tier"
+      ],
+      "injection_paths": [
+        "$.sessions[0].references[0].course_id"
+      ],
+      "record_id": "p13-ds4-lesson-08-source-tier",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ee201ce295aa932a8871a81a483d7c525395847b1a4cf3cc3efafb04db9cadc9",
+        "candidate_sha256": "55951fa03bb3b01a826d3e9cd815c37beacd74cb7644e567e31583002f27b5b8",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.009",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-03",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-09-count-time-combo-variant",
+      "gold_issues": [
+        {
+          "actual": "mutated",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": true,
+          "code": "LESSON_SCHEMA_REQUIRED_FIELD_MISSING",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-09-count-time-combo.issue-1",
+          "layer": "L0",
+          "message": "Injected LESSON_SCHEMA_REQUIRED_FIELD_MISSING for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "root",
+            "json_path": "$.session_plan[0].teaching_focus"
+          },
+          "severity": "critical"
+        },
+        {
+          "actual": 99,
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": true,
+          "code": "LESSON_TIME_ALLOCATION_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-09-count-time-combo.issue-2",
+          "layer": "L1",
+          "message": "Injected LESSON_TIME_ALLOCATION_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "root",
+            "json_path": "$.session_plan[0].time_allocation[0].minutes"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "count-time-combo"
+      ],
+      "injection_paths": [
+        "$.session_plan[0].teaching_focus",
+        "$.session_plan[0].time_allocation[0].minutes"
+      ],
+      "record_id": "p13-ds4-lesson-09-count-time-combo",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6bb1664a65ae4cc370040fab7d035c9985eb8bae5789d55e53e8c58e0a66a699",
+        "candidate_sha256": "924a4846742f182b6788a968cf60e83afc8fef88eef333c3e764dcdf2f864aa2",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.010",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-lesson-valid-01",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-lesson-10-grounding-quality-combo-variant",
+      "gold_issues": [
+        {
+          "actual": "gold-ev-missing",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": false,
+          "code": "GROUNDING_EVIDENCE_NOT_FOUND",
+          "evidence_ids": [
+            "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+          ],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-10-grounding-quality-combo.issue-1",
+          "layer": "L3",
+          "message": "Injected GROUNDING_EVIDENCE_NOT_FOUND for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "sessions",
+            "json_path": "$.sessions[0].references[0].evidence_id"
+          },
+          "severity": "error"
+        },
+        {
+          "actual": "了解相关内容",
+          "allowed_parent_paths": [
+            "$.sessions[0]"
+          ],
+          "auto_repairable": false,
+          "code": "LESSON_OBJECTIVE_NOT_MEASURABLE",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-lesson-10-grounding-quality-combo.issue-2",
+          "layer": "L4",
+          "message": "Injected LESSON_OBJECTIVE_NOT_MEASURABLE for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "sessions",
+            "json_path": "$.sessions[0].teaching_objectives[0]"
+          },
+          "severity": "warning"
+        }
+      ],
+      "injection_ids": [
+        "grounding-quality-combo"
+      ],
+      "injection_paths": [
+        "$.sessions[0].references[0].evidence_id",
+        "$.sessions[0].teaching_objectives[0]"
+      ],
+      "record_id": "p13-ds4-lesson-10-grounding-quality-combo",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "41e5db428d6cb1eff896e9b6640f24435f55601bdb84ac858351deac985cbf51",
+        "candidate_sha256": "a918736e1290a0f42d988343994219facd6834f1df10d188f92146184727a025",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.011",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-01",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": true,
+      "fixture_variant_id": "p13-ds4-exam-01-clean-variant",
+      "gold_issues": [],
+      "injection_ids": [
+        "clean"
+      ],
+      "injection_paths": [],
+      "record_id": "p13-ds4-exam-01-clean",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "02abd7b7c9480591a1e5bef90701e0e98de6aee0618aaf88667656aa80193d35",
+        "candidate_sha256": "e29d617be32aded6de805b58e6812c4cdeed2b960d5f51330d62a85b9a5385da",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.012",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-02",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-02-schema-missing-variant",
+      "gold_issues": [
+        {
+          "actual": "mutated",
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_SCHEMA_FIELD_MISSING",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-02-schema-missing.issue-1",
+          "layer": "L0",
+          "message": "Injected EXAM_SCHEMA_FIELD_MISSING for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "root",
+            "json_path": "$.blueprint.total_score"
+          },
+          "severity": "critical"
+        }
+      ],
+      "injection_ids": [
+        "schema-missing"
+      ],
+      "injection_paths": [
+        "$.blueprint.total_score"
+      ],
+      "record_id": "p13-ds4-exam-02-schema-missing",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2d147122e34cabb88a3d4d47785327e5afea6fc4188166c54170ce705d4dd230",
+        "candidate_sha256": "6d2c26c13c4e9d0d6a88469787d0ea328be5ac2e696258ee75e84c337153a7f5",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.013",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-03",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-03-question-count-variant",
+      "gold_issues": [
+        {
+          "actual": 5,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_QUESTION_COUNT_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-03-question-count.issue-1",
+          "layer": "L1",
+          "message": "Injected EXAM_QUESTION_COUNT_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "root",
+            "json_path": "$.blueprint.question_counts.single_choice"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "question-count"
+      ],
+      "injection_paths": [
+        "$.blueprint.question_counts.single_choice"
+      ],
+      "record_id": "p13-ds4-exam-03-question-count",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "e09bd8e9fca4a7b226a0775114fa2216fb58a8ac5f8dd548099c0cc2440946ff",
+        "candidate_sha256": "1ddbddb837af0f63898933412326269232c3b7c8c728310defc3b31af796aed1",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.014",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-01",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-04-score-variant",
+      "gold_issues": [
+        {
+          "actual": 99,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_SCORE_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-04-score.issue-1",
+          "layer": "L1",
+          "message": "Injected EXAM_SCORE_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "root",
+            "json_path": "$.blueprint.total_score"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "score"
+      ],
+      "injection_paths": [
+        "$.blueprint.total_score"
+      ],
+      "record_id": "p13-ds4-exam-04-score",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "18dea38a4d017a3d2b3f610c622019f5b06b026d7651dba3ff51cae62d40eb3a",
+        "candidate_sha256": "d8aa21771ed94d7eb20a1a6862e7fa5129c024281c07439d5221f0a96d4cde1e",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.015",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-02",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-05-answer-option-variant",
+      "gold_issues": [
+        {
+          "actual": "Z",
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_ANSWER_NOT_IN_OPTIONS",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-05-answer-option.issue-1",
+          "layer": "L1",
+          "message": "Injected EXAM_ANSWER_NOT_IN_OPTIONS for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "questions",
+            "json_path": "$.questions[0].correct_answer"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "answer-option"
+      ],
+      "injection_paths": [
+        "$.questions[0].correct_answer"
+      ],
+      "record_id": "p13-ds4-exam-05-answer-option",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2f20360281ce8093591d1da287a3ad4feb8f22791562da8de52d05e08e2476e4",
+        "candidate_sha256": "f8a38a727fe2fea99fe049a1cf625cd48786dbbe2d2a88d623391daaec2e1b19",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.016",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-03",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-06-kp-coverage-variant",
+      "gold_issues": [
+        {
+          "actual": [],
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_KP_COVERAGE_MISSING",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-06-kp-coverage.issue-1",
+          "layer": "L2",
+          "message": "Injected EXAM_KP_COVERAGE_MISSING for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "questions",
+            "json_path": "$.questions[0].knowledge_point_ids"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "kp-coverage"
+      ],
+      "injection_paths": [
+        "$.questions[0].knowledge_point_ids"
+      ],
+      "record_id": "p13-ds4-exam-06-kp-coverage",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "96a76fb7b5524dd10077c005db810deba80f988a6a9ef0cb31d71dc15b652085",
+        "candidate_sha256": "912d54ec8eefa538dc35b7b45533fdf4342b01a145d32f36a8d7ae5a9c7ce01c",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.017",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-01",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-07-duplicate-variant",
+      "gold_issues": [
+        {
+          "actual": "关于该知识点，下列说法正确的是？",
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_DUPLICATE_QUESTION",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-07-duplicate.issue-1",
+          "layer": "L2",
+          "message": "Injected EXAM_DUPLICATE_QUESTION for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "questions",
+            "json_path": "$.questions[1].stem"
+          },
+          "severity": "warning"
+        }
+      ],
+      "injection_ids": [
+        "duplicate"
+      ],
+      "injection_paths": [
+        "$.questions[1].stem"
+      ],
+      "record_id": "p13-ds4-exam-07-duplicate",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "32f841d6f4b3c022d631f1fd2d2a2a702955237798ae2fd6317701e62a7ebe9f",
+        "candidate_sha256": "0b35f5c604b7d20abe49fa219892bdf1e4cad51388a80a4c8e7c220b9dabb987",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.018",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-02",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-08-grounding-variant",
+      "gold_issues": [
+        {
+          "actual": [
+            "gold-ev-missing"
+          ],
+          "allowed_parent_paths": [],
+          "auto_repairable": false,
+          "code": "GROUNDING_EVIDENCE_NOT_FOUND",
+          "evidence_ids": [
+            "gold-ev-d11c1cf73e3f616a5cb69272bad4faae"
+          ],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-08-grounding.issue-1",
+          "layer": "L3",
+          "message": "Injected GROUNDING_EVIDENCE_NOT_FOUND for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "questions",
+            "json_path": "$.questions[0].evidence_ids"
+          },
+          "severity": "critical"
+        }
+      ],
+      "injection_ids": [
+        "grounding"
+      ],
+      "injection_paths": [
+        "$.questions[0].evidence_ids"
+      ],
+      "record_id": "p13-ds4-exam-08-grounding",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6703c8abc8116b8fb0f430c71f9764d412beb0140b48e086d0fcbd636a2d67f7",
+        "candidate_sha256": "679b3f82ceddc8558bb20bb3e481423d23cb5287429fdbafa89d389b4cab279d",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.019",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-03",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-09-explanation-variant",
+      "gold_issues": [
+        {
+          "actual": "答案是其他选项",
+          "allowed_parent_paths": [],
+          "auto_repairable": false,
+          "code": "EXAM_EXPLANATION_ANSWER_CONFLICT",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-09-explanation.issue-1",
+          "layer": "L4",
+          "message": "Injected EXAM_EXPLANATION_ANSWER_CONFLICT for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "questions",
+            "json_path": "$.questions[0].explanation"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "explanation"
+      ],
+      "injection_paths": [
+        "$.questions[0].explanation"
+      ],
+      "record_id": "p13-ds4-exam-09-explanation",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d91ca7b2bfe62355ef82abada2d0e3a858f486b3885af65dace04e9f128e530e",
+        "candidate_sha256": "a2707fd425401fa5f33a911d76d87a0970303cd0b92dd1ecdc18a6665f1dacf3",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.020",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-exam-valid-01",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-exam-10-score-answer-combo-variant",
+      "gold_issues": [
+        {
+          "actual": 5,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_QUESTION_COUNT_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-10-score-answer-combo.issue-1",
+          "layer": "L1",
+          "message": "Injected EXAM_QUESTION_COUNT_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "root",
+            "json_path": "$.blueprint.question_counts.single_choice"
+          },
+          "severity": "error"
+        },
+        {
+          "actual": 99,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "EXAM_SCORE_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-exam-10-score-answer-combo.issue-2",
+          "layer": "L1",
+          "message": "Injected EXAM_SCORE_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "exam",
+            "item_id": "root",
+            "json_path": "$.blueprint.total_score"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "score-answer-combo"
+      ],
+      "injection_paths": [
+        "$.blueprint.question_counts.single_choice",
+        "$.blueprint.total_score"
+      ],
+      "record_id": "p13-ds4-exam-10-score-answer-combo",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "5b227f51ba3a8eb2757f69ae2f78839d16e56366a257883e6be2220a7dd7c82a",
+        "candidate_sha256": "2e1df6db4162bac1ca950b5c865001fe95ad7749162a1ac6c2a7440844bdfe1e",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.021",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-01",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": true,
+      "fixture_variant_id": "p13-ds4-ppt-01-clean-variant",
+      "gold_issues": [],
+      "injection_ids": [
+        "clean"
+      ],
+      "injection_paths": [],
+      "record_id": "p13-ds4-ppt-01-clean",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "b10f26350287e01d8a5ab863db397eec489efaf8aaef72126e4e59bca620d232",
+        "candidate_sha256": "7916d7b7b99895266b5f276f981af18196c89eb869d2ff3d2d7c369123fae5f5",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.022",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-02",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-02-schema-missing-variant",
+      "gold_issues": [
+        {
+          "actual": "mutated",
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_SCHEMA_FIELD_MISSING",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-02-schema-missing.issue-1",
+          "layer": "L0",
+          "message": "Injected PPT_SCHEMA_FIELD_MISSING for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "root",
+            "json_path": "$.style_template"
+          },
+          "severity": "critical"
+        }
+      ],
+      "injection_ids": [
+        "schema-missing"
+      ],
+      "injection_paths": [
+        "$.style_template"
+      ],
+      "record_id": "p13-ds4-ppt-02-schema-missing",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "96bb8877bacc4e0d3972c9ffd57424064c59a174b7acedb8f3ebb847e17338c2",
+        "candidate_sha256": "c20ac35de397055abdf2afc29832cc625b889d61a232c0ff675fe6f79fa06a54",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.023",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-03",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-03-slide-count-variant",
+      "gold_issues": [
+        {
+          "actual": 9,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_SLIDE_COUNT_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-03-slide-count.issue-1",
+          "layer": "L1",
+          "message": "Injected PPT_SLIDE_COUNT_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "root",
+            "json_path": "$.slide_count"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "slide-count"
+      ],
+      "injection_paths": [
+        "$.slide_count"
+      ],
+      "record_id": "p13-ds4-ppt-03-slide-count",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c794355838359ac7662ee4b9c17f060801a6be94ff50037b34b94a0d6913dc5c",
+        "candidate_sha256": "1bd039e04fb5c46f17bb85fb8b9c49dde57bc8f862c1bb9771d686bdb3464dce",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.024",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-01",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-04-slide-type-variant",
+      "gold_issues": [
+        {
+          "actual": "invalid",
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_INVALID_SLIDE_TYPE",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-04-slide-type.issue-1",
+          "layer": "L1",
+          "message": "Injected PPT_INVALID_SLIDE_TYPE for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[1].slide_type"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "slide-type"
+      ],
+      "injection_paths": [
+        "$.slides[1].slide_type"
+      ],
+      "record_id": "p13-ds4-ppt-04-slide-type",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8f297bd29ee9250fa7e2fa3b4f38edb57446efb6b3705d9762768d985ad5431f",
+        "candidate_sha256": "149a58f45b371221f029eab34c0c7a83b7f1e377a87a00ff759844bb68a8c85b",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.025",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-02",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-05-session-source-variant",
+      "gold_issues": [
+        {
+          "actual": 99,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_SESSION_SOURCE_INVALID",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-05-session-source.issue-1",
+          "layer": "L2",
+          "message": "Injected PPT_SESSION_SOURCE_INVALID for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[1].source_session_index"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "session-source"
+      ],
+      "injection_paths": [
+        "$.slides[1].source_session_index"
+      ],
+      "record_id": "p13-ds4-ppt-05-session-source",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "9cbbd0a81f24da73139e047f28720e8000a6b6102c58eec7eb624a67a03c6072",
+        "candidate_sha256": "9cf116c62af8a6fd0eceed0fd2f60f8e0e3780515933e1a320fdf35fda77aec4",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.026",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-03",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-06-citation-variant",
+      "gold_issues": [
+        {
+          "actual": [],
+          "allowed_parent_paths": [],
+          "auto_repairable": false,
+          "code": "PPT_CITATION_MISSING",
+          "evidence_ids": [
+            "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+          ],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-06-citation.issue-1",
+          "layer": "L3",
+          "message": "Injected PPT_CITATION_MISSING for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[2].references"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "citation"
+      ],
+      "injection_paths": [
+        "$.slides[2].references"
+      ],
+      "record_id": "p13-ds4-ppt-06-citation",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c31bb7b8cb591c71ba78c88c65af2926bc04b249478185069ff2f432092c03f6",
+        "candidate_sha256": "b494a19a92a920cdc9329768dbe4ca0bcab606c0567a17541a079d7bc5e2eac4",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.027",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-01",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-07-layout-variant",
+      "gold_issues": [
+        {
+          "actual": "mutated",
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_LAYOUT_MISSING",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-07-layout.issue-1",
+          "layer": "L1",
+          "message": "Injected PPT_LAYOUT_MISSING for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[1].layout"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "layout"
+      ],
+      "injection_paths": [
+        "$.slides[1].layout"
+      ],
+      "record_id": "p13-ds4-ppt-07-layout",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c5e007697e34686e4e62b3fcfe6e28c4b1c0381682620d038494e2297c966e4f",
+        "candidate_sha256": "1897626872e97f99a49b5f7a360ec43bae5348e3051f1693d3f23bf540f776dd",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.028",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-02",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-08-overflow-variant",
+      "gold_issues": [
+        {
+          "actual": [
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容",
+            "过长内容"
+          ],
+          "allowed_parent_paths": [],
+          "auto_repairable": false,
+          "code": "PPT_CONTENT_OVERFLOW_RISK",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-08-overflow.issue-1",
+          "layer": "L4",
+          "message": "Injected PPT_CONTENT_OVERFLOW_RISK for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[1].bullet_points"
+          },
+          "severity": "warning"
+        }
+      ],
+      "injection_ids": [
+        "overflow"
+      ],
+      "injection_paths": [
+        "$.slides[1].bullet_points"
+      ],
+      "record_id": "p13-ds4-ppt-08-overflow",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-d11c1cf73e3f616a5cb69272bad4faae",
+        "gold-kp-31bff4d251545530f9d14b3e28fc2560"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "dd83503c6b32ed10994e69f0256908f3ac049da40e5f7ca444e2e974ede05064",
+        "candidate_sha256": "0ea476b20e0dfc757d5b4757fda9c9a1a159a2259ad497100755f889a3b51e6b",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.029",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-03",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-09-references-variant",
+      "gold_issues": [
+        {
+          "actual": [],
+          "allowed_parent_paths": [],
+          "auto_repairable": false,
+          "code": "PPT_REFERENCES_SLIDE_MISSING",
+          "evidence_ids": [
+            "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+          ],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-09-references.issue-1",
+          "layer": "L3",
+          "message": "Injected PPT_REFERENCES_SLIDE_MISSING for P13 Pilot",
+          "repair_strategy": "model_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[3].references"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "references"
+      ],
+      "injection_paths": [
+        "$.slides[3].references"
+      ],
+      "record_id": "p13-ds4-ppt-09-references",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ae8867b0dae0615a279db37a0fd11240878a62e4228d6fc153b2d35f7a7790b0",
+        "candidate_sha256": "b2756bc178788293f891350c7e1ba4fc5de2ae5456ab9b43645f967c26af59d3",
+        "notes": "P13 CP-DS4/5 Pilot Gold approval; not the P18 final CoursePilot Gold freeze.",
+        "review_id": "p13-cp-ds45-pilot-gold-approval.record.030",
+        "reviewed_at": "2026-08-14T09:08:11.492556Z",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_fixture_id": "p13-ppt-valid-01",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "clean_artifact": false,
+      "fixture_variant_id": "p13-ds4-ppt-10-count-source-combo-variant",
+      "gold_issues": [
+        {
+          "actual": 9,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_SLIDE_COUNT_MISMATCH",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-10-count-source-combo.issue-1",
+          "layer": "L1",
+          "message": "Injected PPT_SLIDE_COUNT_MISMATCH for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "root",
+            "json_path": "$.slide_count"
+          },
+          "severity": "error"
+        },
+        {
+          "actual": 99,
+          "allowed_parent_paths": [],
+          "auto_repairable": true,
+          "code": "PPT_SESSION_SOURCE_INVALID",
+          "evidence_ids": [],
+          "expected": "valid source-grounded value",
+          "issue_id": "p13-ds4-ppt-10-count-source-combo.issue-2",
+          "layer": "L2",
+          "message": "Injected PPT_SESSION_SOURCE_INVALID for P13 Pilot",
+          "repair_strategy": "deterministic_patch",
+          "scope": {
+            "artifact_type": "ppt",
+            "item_id": "slides",
+            "json_path": "$.slides[1].source_session_index"
+          },
+          "severity": "error"
+        }
+      ],
+      "injection_ids": [
+        "count-source-combo"
+      ],
+      "injection_paths": [
+        "$.slide_count",
+        "$.slides[1].source_session_index"
+      ],
+      "record_id": "p13-ds4-ppt-10-count-source-combo",
+      "review_status": "approved",
+      "source_provenance": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+        "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+      ]
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p13-pilot-r1",
+  "schema_version": "coursepilot.cp-ds4-p13.v1"
+}

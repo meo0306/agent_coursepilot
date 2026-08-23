@@ -1,0 +1,652 @@
+{
+  "approval_scope": "sys_ds1_p17_pilot_input_only",
+  "cases": [
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_algorithms_systems",
+      "expected_final_status": "completed",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "lesson",
+      "record_id": "p17-sys-ds1-01",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "upload",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "rag",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "plan",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        },
+        {
+          "action": "approve",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 4
+        },
+        {
+          "action": "export",
+          "expected_side_effect_count": 1,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 5
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds1/p14_lesson_pilot.json:4533545ca0355e6c9a1581dd7024fc008b7e7f95e71e9c73b35dc52f88340e13"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_general_education",
+      "expected_final_status": "completed",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "exam",
+      "record_id": "p17-sys-ds1-02",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "context",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "blueprint",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "repair",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        },
+        {
+          "action": "approve",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 4
+        },
+        {
+          "action": "writeback",
+          "expected_side_effect_count": 1,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 5
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds2/p15_exam_pilot.json:8204f687b5a03965d7d02b8c1884419f3675c3a4af6a0e3364df0218f03a0ac4"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_general_education",
+      "expected_final_status": "completed",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "ppt",
+      "record_id": "p17-sys-ds1-03",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "lesson",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "architecture",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "render",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        },
+        {
+          "action": "approve",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 4
+        },
+        {
+          "action": "export",
+          "expected_side_effect_count": 1,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 5
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds3/p16_ppt_pilot.json:198695213fe99241983dc29d6c35ffdb8f0e5bfe7d067e1fcd5ed16d99babdc5"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_algorithms_systems",
+      "expected_final_status": "completed",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "writeback_loop",
+      "record_id": "p17-sys-ds1-04",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "approve",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "verified",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "enrichment",
+          "expected_side_effect_count": 1,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        },
+        {
+          "action": "new_index",
+          "expected_side_effect_count": 1,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 4
+        },
+        {
+          "action": "retrieve",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 5
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds1/p14_lesson_pilot.json:4533545ca0355e6c9a1581dd7024fc008b7e7f95e71e9c73b35dc52f88340e13"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_general_education",
+      "expected_final_status": "completed",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "fault_recovery",
+      "record_id": "p17-sys-ds1-05",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "checkpoint",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "worker_kill",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "resume",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        },
+        {
+          "action": "export",
+          "expected_side_effect_count": 1,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 4
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds2/p15_exam_pilot.json:8204f687b5a03965d7d02b8c1884419f3675c3a4af6a0e3364df0218f03a0ac4"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_algorithms_systems",
+      "expected_final_status": "needs_review",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "insufficient_evidence",
+      "record_id": "p17-sys-ds1-06",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "context",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "insufficient",
+          "expected_side_effect_count": 0,
+          "expected_state": "needs_review",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "needs_review",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds1/p14_lesson_pilot.json:4533545ca0355e6c9a1581dd7024fc008b7e7f95e71e9c73b35dc52f88340e13"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_general_education",
+      "expected_final_status": "completed",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "malicious_material",
+      "record_id": "p17-sys-ds1-07",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "ingest",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "untrusted_material",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "ignore_instruction",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds3/p16_ppt_pilot.json:198695213fe99241983dc29d6c35ffdb8f0e5bfe7d067e1fcd5ed16d99babdc5"
+      ]
+    },
+    {
+      "approval": null,
+      "candidate_source": "human",
+      "course_id": "course_ai_algorithms_systems",
+      "expected_final_status": "needs_review",
+      "expected_side_effects": [
+        "at_most_one_export",
+        "at_most_one_writeback",
+        "trace_persisted"
+      ],
+      "forbidden_side_effects": [
+        "cross_course_read",
+        "secret_trace",
+        "duplicate_write",
+        "unapproved_writeback"
+      ],
+      "input_source": "approved_coursepilot_and_courserag_dev",
+      "journey_type": "version_change",
+      "record_id": "p17-sys-ds1-08",
+      "review_status": "candidate",
+      "steps": [
+        {
+          "action": "interrupt",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 1
+        },
+        {
+          "action": "index_change",
+          "expected_side_effect_count": 0,
+          "expected_state": "completed",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 2
+        },
+        {
+          "action": "re-review",
+          "expected_side_effect_count": 0,
+          "expected_state": "needs_review",
+          "required_trace": [
+            "request_id",
+            "task_id",
+            "course_id",
+            "artifact_version"
+          ],
+          "step_index": 3
+        }
+      ],
+      "trace_version_assertions": [
+        "CourseRAG index version is retained",
+        "Evidence version is retained",
+        "P16/P15 artifact identity is retained"
+      ],
+      "upstream_artifact_refs": [
+        "datasets/coursepilot_eval/v1/approved/cp_ds1/p14_lesson_pilot.json:4533545ca0355e6c9a1581dd7024fc008b7e7f95e71e9c73b35dc52f88340e13"
+      ]
+    }
+  ],
+  "dataset_id": "coursepilot-p17-sys-ds1",
+  "dataset_version": "v1",
+  "schema_version": "coursepilot.sys-ds1-p17.v1"
+}

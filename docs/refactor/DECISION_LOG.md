@@ -1787,3 +1787,226 @@ or authorize P12 implementation. P11 therefore becomes `completed / passed`, and
   `actor_id` 不具有授权能力；Course 和角色不匹配时 fail-closed。
 - **P12-D003 — 七天软过期：** Interrupt 过期转 `needs_review`，不自动取消；Owner/System
   显式重开并生成新 Interrupt，旧记录保留审计。
+
+## P14 Input Choices (2026-08-14)
+
+- **P14-D004 - KP Snapshot 作为 Lesson 唯一知识点输入：** Lesson 新运行时通过 CourseRAG
+  Port 获取只读、可哈希的 KnowledgePoint Snapshot，并使用 `lesson_generation` ContextPackage
+  的 Evidence IDs 绑定事实；不在 CoursePilot 内再次抽取 KP，不直接读取 Parser/Chunk/Chroma。
+  Local、Remote、Mock 共享同一合同，Legacy Lesson 路径保持兼容。该决策冻结 P14 的边界，
+  不代表 P18 正式 Gold 或真实 Provider 已完成。
+
+### P14 CP-DS1 Pilot Bundle approval result
+
+The Course Owner approved exact Bundle SHA-256
+`3e47c85c624ab0c3a751b34de38a8b1147a0d6187314ef9a27210b85cc9c1708`.
+Both completed review passes are recorded as all-pass conversation attestations because the handed-off
+review pages did not provide an export channel. Re-review is not required. Approval scope is only the
+three-case P14 CP-DS1 Pilot input; it does not promote P18 final Gold, run the real Provider, or pass
+the P14 Exit Gate. Future P14 review pages must autosave and export schema-validated decision JSON.
+
+## P14-D005 — Treat ambiguous response timeouts as billable and non-retryable
+
+- Status: accepted_and_implemented
+- Date: 2026-08-15
+- Evidence: the first authorized Closure run ended at the client read-timeout boundary, while the
+  provider dashboard recorded 24 requests, 186,237 tokens and CNY 0.28. The implementation had
+  forced Profile timeouts down to 45 seconds, retried ambiguous timeouts, and persisted responses
+  only after the whole run completed.
+- Decision: honor per-Profile timeouts; use 180/240/180 seconds for P14 Planner/Generator/Repair;
+  never retry a read timeout or ambiguous post-send error; permit one retry only for a proven
+  pre-response connect failure. Persist each successful structured response atomically and require
+  explicit Resume for reuse. Missing timeout Usage is `unknown_pending_reconciliation`, never zero.
+- Compatibility: Provider, model, Prompt, Schema, Thinking and Reasoning settings are unchanged.
+  Evaluation remains fail-closed with no deterministic fallback or silent model switch. The repair
+  made no external call and does not authorize another paid run.
+- Smoke result: the separately authorized CNY 0.03 Blueprint-only request completed in 58.682
+  seconds with one Provider request, 10,716 tokens and calculated cost CNY 0.018337. No retry,
+  fallback, switch or downstream stage occurred. This confirms the prior 45-second client timeout
+  as the immediate failure cause. Because 7,621 output/Thinking tokens exceeded the 4,096 final
+  output setting, any full-run authorization must use a revised Thinking-aware budget estimate.
+
+## P14-D006 — Complete the real comparison with a durable CNY 0.50 incremental gate
+
+- Decision: preserve Thinking and the frozen model route, execute Session Plan replan as a distinct
+  second Planner request, allow at most one scoped repair per failing Session, and reuse the exact
+  paid Smoke response. Every cache miss must reserve budget before dispatch and settle Provider
+  Usage durably; insufficient remaining authorization pauses the run without redispatch.
+- Result: the comparison completed with 18 logical requests: 17 new Provider requests and one
+  exact Smoke cache hit. Incremental usage was 56,967 input and 68,794 output/Thinking tokens,
+  calculated at CNY 0.194555. All calls succeeded with zero retry, fallback or model switch.
+- Gate: automatic P14 grounding and workflow checks passed. Final phase completion remains subject
+  only to the blinded Course Owner L-H1—L-H8 and Edit Burden review; Test and later phases were not
+  read or implemented.
+
+## P14-D007 — Close P14 with explicit human-quality debt
+
+- Status: accepted_and_recorded
+- Evidence: the Course Owner completed all six blinded comparisons. Decision file SHA-256 is
+  `149007b2d6ed1830f67ea9d8157e6bb48caa2177ca98a004d2d2b7f5de082a61`; it is bound to the
+  real comparison report SHA-256
+  `b22969e4e12236c74c06ea9bd5450d84c186a6894ab59ef9808e16196fcd5613`.
+- Decision: close P14 as `completed_with_quality_debt`. P14 passed all hard workflow, Evidence,
+  citation, edit-preservation, writeback-scope, idempotency, budget and fail-closed gates, with no
+  critical defect or rejected artifact. The human review nevertheless found lower mean quality
+  (`3.500` versus CP-B0 `3.833`) and higher Edit Burden (`2.667` versus `2.000`), especially in
+  teaching-activity specificity and immediate teacher usability.
+- Boundary: the quality gap is recorded rather than hidden, but it does not justify an unbounded
+  P14 tuning loop or block P15. Later bounded quality work may improve detailed teaching scripts,
+  materials and checkpoints without weakening the evidence-first architecture.
+
+## P15-D001 — CP-DS2 Exam Pilot input boundary
+
+- Status: candidate_review_pending
+- Decision: freeze only blueprint arithmetic, Assessment Target claims, Evidence/KP anchors,
+  and fail-closed negative contracts. Do not freeze generated question wording, options, or
+  Provider output; keep formal CP-DS2 Gold in the P18 scope.
+- Evidence: Candidate Bundle `943dd46f873393ea139466b47f87854685ac23c69073a7194bc8490822480534`,
+  with 3 cases, 26 targets, 45 planned questions and 2 non-Gold negatives. Two review passes
+  are required before any Approved P15 input is written.
+
+## P15-D002 — Approve CP-DS2 Pilot input
+
+- Status: owner_approved
+- Evidence: the Course Owner approved exact Bundle
+  `943dd46f873393ea139466b47f87854685ac23c69073a7194bc8490822480534`.
+- Result: 29 Gold input records were promoted to
+  `approved/cp_ds2/p15_exam_pilot.json`; approval SHA-256 is
+  `7c328116cd57849e0098f5f1fe86790155b74f3a6d88628a31325b4880a9417e`.
+- Boundary: review decisions use `conversation_exact_bundle_approval` because no exported
+  browser JSON was supplied. This does not run P15, call a real Provider, populate Dev/Test,
+  lock Test, or promote P18 formal CP-DS2 Gold.
+
+## P15-D003 — Use a fixed Approved Blueprint for the CP-B0/P15 human comparison
+
+- Status: accepted
+- Decision: compare the legacy CP-B0 question generator with P15 under the same Approved CP-DS2
+  Blueprint and bounded Evidence. Skip the legacy LLM Planner and whole-exam repair loop; consolidate
+  all Approved Batches of one question type into one legacy generation group.
+- Rationale: the full legacy path duplicated question groups and repeatedly regenerated the whole
+  exam, so planner defects and call amplification would dominate the question-quality comparison.
+- Boundary: reports label this as a fixed-Blueprint legacy question-generation baseline, not a full
+  end-to-end CP-B0 reproduction.
+
+- **P14-D001 — CP-DS1 Pilot 组成：** 固定 3 条成功 Lesson Pilot，分别覆盖标准高校讲授、
+  实验实践和研讨/案例模板；另设 1 条不计入 Gold 的证据不足合同负例。正式 10 条 CP-DS1
+  留到 P18，负例不得调用 Provider 或产生副作用。
+- **P14-D002 — 评测轨道：** 三条 Pilot 使用固定 Track A Context/KP/Evidence Fixture；
+  另以两个 Approved CourseRAG Dev Query 做 DOCX/PDF Track B 集成烟测。禁止读取 Test 或
+  DS3 Holdout，Track B 结果不能反推 Agent Gold。
+- **P14-D003 — 基线与人工评分：** Gold 批准后先用相同真实模型配置捕获 CP-B0 三条基线，
+  P14 完成后再运行三条并分别执行一次 L-H1—L-H8 与 Edit Burden 评分；输入 Candidate
+  仍要求首轮和盲化二轮完整审核。未获得精确 Candidate Bundle 批准前不调用真实 Provider。
+
+## P15-D004 — Close P15 with a provisional Exam Profile and whole-exam quality debt
+
+- Status: accepted_and_recorded
+- Date: 2026-08-20
+- Evidence: the Course Owner completed the final 17-question targeted-repair review. Decision
+  SHA-256 is `d83ad908cf18c0317cf05ab7e461f987553ff74bc1b009ecba9a375223012aae`, bound to source report
+  `d95d79e787e7d5e5b0173691715bc0f16548bf929a9975e52c54c200da20c7d0`; results are 6 `pass`,
+  2 `minor_edit` and 9 `major_edit`.
+- Decision: stop the question-local repair loop and close P15 as `completed_with_quality_debt`.
+  Core workflow, parallel consistency, review/export boundary and scoped-writeback contracts pass,
+  but the current Exam V2 Profile remains `provisional_dev_only` and default-off.
+- Rationale: remaining defects are whole-exam semantic repetition, repeated assessment targets and
+  cross-question answer clues. The bounded Repair Patch cannot change Slot KP/Evidence/Assessment
+  Target, so repeated local rewrites cannot reliably solve the root cause.
+- Follow-up: P15.1 must add unique Slot-level assessment allocation, an exam-wide used-fact and
+  exclusion plan, cross-question semantic/clue graph validation, and Blueprint/Batch-level
+  regeneration. P16 may start; P15.1 must be resolved or explicitly dispositioned before P17/P18
+  promotes the Exam Profile.
+
+## P16-D001 — Owner-selected external PPT template source
+
+- Status: accepted_for_p16_pilot
+- Date: 2026-08-20
+- Decision: use `lrkrol/powerpoint` Velis at commit
+  `0f18f3f1fe2d76413c45b0106e7585d64beb920d`, retaining its CC0 attribution and recording
+  source and normalized PPTX hashes. The repository was selected because it provides a
+  reusable, openly licensed editable template with stable Master/Layout/Placeholder structure.
+
+## P16-D002 — Constraint Gold with renderer hold
+
+- Status: candidate_generated_renderer_pending
+- Date: 2026-08-20
+- Evidence: CP-DS3 SHA `667a4373d9fd177302f2cfc6d8468e56d88141fd51baa6a69695f80c9d1030d8`,
+  CP-DS7 SHA `e765fba3643913036f4a04029d91b28b62df36c763b6da47ba365b365aa81c95`, Bundle SHA
+  `697a00183e3c84ab7ff70152a54479e6802a3c353250740291bcb51c84f4d57c`.
+- Decision: freeze slide architecture, evidence/KP bindings and template contract cases without
+  fixing generated wording. The unavailable LibreOffice/Docker renderer blocks approval and Gold
+  promotion; no P16 output or provider result is used to author the Candidate.
+
+## P16-D003 — PowerPoint template instantiation with frozen LibreOffice verification
+
+- Status: accepted_for_candidate_r2
+- Date: 2026-08-20
+- Decision: the Course Owner explicitly authorized local PowerPoint 2021 automation after the
+  public npm registry returned `404` for `@oai/artifact-tool` and the expected private Codex runtime
+  dependency was absent. PowerPoint is used only to instantiate the editable eight-slide Velis
+  smoke; the evaluation renderer remains Dockerized LibreOffice 7.4.7.2 with Poppler 22.12.0.
+- Evidence: r2 CP-DS3 SHA `7001ec09...`, CP-DS7 SHA `ef6ec83b...`, Bundle SHA
+  `e8fa261a...`; two renderer passes produced identical hashes for all 17 pages. The reviewer must
+  still inspect the declared font substitutions, the fixed template date/footer, the Close-layout
+  star, and the three byte-identical built-in template baselines.
+- Scope: Candidate and review tooling only. This does not approve P16 Gold, visual quality, a
+  Provider run, runtime configuration, or the built-in template baseline.
+
+## P16-D004 — Exact CP-DS3/CP-DS7 Pilot input approval
+
+- Status: approved_for_p16_formal_evaluation
+- Date: 2026-08-20
+- Evidence: first review 55/55 PASS, blind second review 23/23 PASS, exact Bundle
+  `e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91`; Approval artifact SHA
+  `e9017dd61a02843750036d2112515c8c47e93f36fcc764b17f5d8a9e6eda6d58`.
+- Decision: approve the 46 constraint-based Slide Targets, four template positives and two
+  fail-closed negatives as P16 Pilot input. All 55 review objects carry record-level approval
+  provenance. The three identical built-in template files remain an explicit implementation debt,
+  not an approved claim of visual diversity.
+- Scope: P16 implementation and formal Pilot comparison may start. This approval does not run the
+  Provider, approve generated decks, pass the P16 Exit Gate, or promote P18 formal Gold.
+- Correction audit: the first two same-turn approval serializations used the review-card identity
+  where the repository loader requires the approval-free record digest, then used the architecture
+  review ID instead of the embedded Deck record ID in the log. Both were rejected by the repository
+  boundary test and retained as superseded provenance; the final artifact above passes the common
+  Candidate/Approved/ReviewLog contract.
+
+## P16-D005 — One-shot Critical-only closure repair
+
+- Status: executed_pending_owner_recheck
+- Date: 2026-08-21
+- Evidence: the Course Owner reviewed all 46 final slides and marked exactly 17 as
+  `critical_defect`. The repair report is `storage_eval/p16_critical_repair/report.json`; the
+  focused rendered review package is `storage_eval/p16_critical_repair_closure/review/`.
+- Decision: perform exactly one repair round on those 17 pages, at most one Provider request per
+  page, preserve the other 29 page hashes, and cap execution at CNY 0.45, 20 requests, 130,000 input
+  tokens and 60,000 output/Thinking tokens. No second repair round is allowed.
+- Result: all 17 pages were updated in one round; eight use successful Provider checkpoints and
+  nine use deterministic Evidence-bound completion after Provider stop. Actual usage was 9
+  requests, 19,971 input tokens, 53,342 output/Thinking tokens and CNY 0.266655. All three decks
+  reopen and render with zero automatic severe overflow/out-of-bounds/empty-slide findings.
+- Gate consequence: the Course Owner must re-review only these 17 rendered pages. Remaining
+  noncritical visual preferences may be recorded as quality debt; a remaining hard defect is
+  reported without another repair and requires an explicit disposition before P17.
+
+## P16-D006 — Provider-consistent completion and quality-debt closure — 2026-08-21
+
+- Decision: after the original bounded repair left nine of the 17 owner-selected Critical pages on
+  deterministic completion, the Course Owner authorized one exact Provider-completion run for
+  those nine pages. The same Provider, model, logical Profile and payload contract were retained;
+  fallback and model switching remained prohibited. A timeout could be retried once with a longer
+  timeout. If all nine returned valid Provider output, P16 would close without a new review package.
+- Execution correction: the scheduled PowerShell wrapper stopped after two pages because a Python
+  stderr warning was promoted to a terminating error. The wrapper now checks native exit codes
+  explicitly and does not treat ordinary stderr as task failure. Resume reused the two completed
+  checkpoints and did not duplicate their successful Provider requests.
+- Result: the completion report records 9/9 valid Provider responses, 9 physical requests,
+  26,657 input tokens and 64,073 output/Thinking tokens. One response with an invalid self-authored
+  content Hash was recovered locally from the same Provider JSON; it was not re-requested. The
+  merged result proves 17/17 Critical pages are Provider-backed. Fixed Docker rendering then passed
+  all 24/12/10 slides with zero severe overflow, out-of-bounds or empty-required-placeholder
+  findings, and CP-DS7 remained green with zero additional Provider requests.
+- Status: accepted and implemented. P16 is `completed_with_quality_debt`; the original human review
+  still documents non-blocking visual and pedagogical variance, but no further tuning or owner
+  re-review is required for this release. P17 may start, while P10-D013 security debt remains a
+  mandatory P17 exit concern.

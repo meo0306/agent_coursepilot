@@ -98,11 +98,37 @@
           "title": "Expected Resolved Issue Codes",
           "type": "array"
         },
+        "fixture_variant_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Variant Id"
+        },
         "forbidden_paths": {
           "items": {
             "type": "string"
           },
           "title": "Forbidden Paths",
+          "type": "array"
+        },
+        "issue_layers": {
+          "items": {
+            "enum": [
+              "L0",
+              "L1",
+              "L2",
+              "L3",
+              "L4"
+            ],
+            "type": "string"
+          },
+          "title": "Issue Layers",
           "type": "array"
         },
         "max_repair_rounds": {
@@ -119,6 +145,20 @@
           "title": "Original Correct Paths",
           "type": "array"
         },
+        "preconditions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Preconditions",
+          "type": "array"
+        },
+        "preservation_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Preservation Paths",
+          "type": "array"
+        },
         "record_id": {
           "maxLength": 160,
           "minLength": 1,
@@ -126,9 +166,26 @@
           "title": "Record Id",
           "type": "string"
         },
+        "repair_strategy": {
+          "default": "deterministic_patch",
+          "title": "Repair Strategy",
+          "type": "string"
+        },
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
           "default": "candidate"
+        },
+        "source_fault_case_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Fault Case Id"
         }
       },
       "required": [

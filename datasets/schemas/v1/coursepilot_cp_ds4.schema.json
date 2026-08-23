@@ -135,6 +135,18 @@
           "title": "Clean Artifact",
           "type": "boolean"
         },
+        "fixture_variant_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Variant Id"
+        },
         "gold_issues": {
           "items": {
             "$ref": "#/$defs/ValidationIssue"
@@ -149,6 +161,13 @@
           "title": "Injection Ids",
           "type": "array"
         },
+        "injection_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Injection Paths",
+          "type": "array"
+        },
         "record_id": {
           "maxLength": 160,
           "minLength": 1,
@@ -159,6 +178,13 @@
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
           "default": "candidate"
+        },
+        "source_provenance": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Provenance",
+          "type": "array"
         }
       },
       "required": [
@@ -172,6 +198,16 @@
     "ValidationIssue": {
       "additionalProperties": false,
       "properties": {
+        "actual": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Actual"
+        },
         "allowed_parent_paths": {
           "items": {
             "type": "string"
@@ -187,6 +223,58 @@
           "maxLength": 160,
           "minLength": 1,
           "title": "Code",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "expected": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "issue_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Issue Id"
+        },
+        "layer": {
+          "default": "L1",
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
+          ],
+          "title": "Layer",
+          "type": "string"
+        },
+        "message": {
+          "default": "",
+          "title": "Message",
+          "type": "string"
+        },
+        "repair_strategy": {
+          "default": "deterministic_patch",
+          "title": "Repair Strategy",
           "type": "string"
         },
         "scope": {

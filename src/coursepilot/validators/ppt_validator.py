@@ -8,6 +8,7 @@ from coursepilot.schemas.ppt_schema import (
     SlideOutlineContent,
     SlideValidationReport,
 )
+from coursepilot.validation.service import ValidationContext, ValidatorService
 
 SESSION_BOUND_SLIDE_TYPES = {"objectives", "content", "activity"}
 
@@ -39,6 +40,24 @@ def inherit_session_references(
 
 class PPTValidator:
     allowed_slide_types = {"title", "objectives", "content", "activity", "summary", "references"}
+
+    def validate_structured(
+        self,
+        outline: SlideOutlineContent,
+        *,
+        expected_slide_count: int | None = None,
+        artifact_id: str = "ppt",
+        artifact_version: int | str = 1,
+    ):
+        return ValidatorService().validate_typed(
+            "ppt",
+            outline.model_dump(mode="python"),
+            ValidationContext(
+                artifact_id=artifact_id,
+                artifact_version=artifact_version,
+                expected_slide_count=expected_slide_count,
+            ),
+        )
 
     def validate(
         self,
