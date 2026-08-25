@@ -45,7 +45,7 @@ HASH_B = "b" * 64
 
 
 def test_all_p02_dataset_models_have_exported_schema_names():
-    assert len(SCHEMA_MODELS) == 95
+    assert len(SCHEMA_MODELS) == 107
     assert "course_eval_candidate_revision_history.schema.json" in SCHEMA_MODELS
     assert "courserag_corpus_fixture_manifest.schema.json" in SCHEMA_MODELS
     assert "courserag_ds1_sampling_plan.schema.json" in SCHEMA_MODELS
@@ -89,6 +89,12 @@ def test_all_p02_dataset_models_have_exported_schema_names():
     assert "coursepilot_p15_review_decisions.schema.json" in SCHEMA_MODELS
     assert "coursepilot_p15_bundle_approval.schema.json" in SCHEMA_MODELS
     assert "coursepilot_sys_ds1.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds1_p18.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_cp_ds8_p18.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_sys_ds1_p18.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p18_bundle_manifest.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p18_review_decisions.schema.json" in SCHEMA_MODELS
+    assert "coursepilot_p18_formal_approval.schema.json" in SCHEMA_MODELS
     assert "courserag_qa_human_score_record.schema.json" in SCHEMA_MODELS
     assert "coursepilot_human_score_record.schema.json" in SCHEMA_MODELS
 

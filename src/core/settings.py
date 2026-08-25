@@ -1,3 +1,4 @@
+from decimal import Decimal
 from enum import StrEnum
 from typing import Annotated, Any, Literal
 
@@ -306,7 +307,11 @@ class Settings(BaseSettings):
         "resources/security_profiles/prompt_injection_candidate_v2.json"
     )
     COURSERAG_PROMPT_INJECTION_PROVIDER: Literal[
-        "legacy_rules", "local_prompt_guard", "multi_axis_local"
+        "legacy_rules",
+        "local_prompt_guard",
+        "multi_axis_local",
+        "dual_hypothesis_local",
+        "tri_state_dual_hypothesis_local",
     ] = "legacy_rules"
     COURSERAG_PROMPT_GUARD_MODEL_PATH: str | None = None
     COURSERAG_PROMPT_GUARD_MODEL_MANIFEST_PATH: str | None = None
@@ -324,7 +329,7 @@ class Settings(BaseSettings):
     COURSERAG_SECURITY_HIKMA_MODEL_PATH: str | None = None
     COURSERAG_SECURITY_HIKMA_MANIFEST_PATH: str | None = None
     COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256: str | None = None
-    COURSERAG_SECURITY_HIKMA_DEVICE: Literal["cuda"] = "cuda"
+    COURSERAG_SECURITY_HIKMA_DEVICE: Literal["cuda", "cpu"] = "cuda"
     COURSERAG_SECURITY_OVERRIDE_AXIS: Literal["disabled", "required"] = "disabled"
     COURSERAG_SECURITY_LLAMA_MODEL_PATH: str | None = None
     COURSERAG_SECURITY_LLAMA_MANIFEST_PATH: str | None = None
@@ -332,8 +337,25 @@ class Settings(BaseSettings):
     COURSERAG_SECURITY_STRUCTURED_ROLE_AXIS: bool = True
     COURSERAG_SECURITY_STRUCTURED_SECRET_AXIS: bool = True
     COURSERAG_SECURITY_STRUCTURED_TOOL_AXIS: bool = True
+    COURSERAG_P17_1_SECURITY_PROFILE_PATH: str | None = None
+    COURSERAG_P17_3_SECURITY_PROFILE_PATH: str | None = None
+    COURSERAG_SECURITY_SEMANTIC_ENCODER: Literal["disabled", "local_qwen3"] = "disabled"
+    COURSERAG_SECURITY_SEMANTIC_BATCH_SIZE: int = Field(default=16, ge=1, le=128)
+    COURSERAG_SECURITY_EVAL_MODE: Literal["disabled", "calibration", "qualification", "blind"] = (
+        "disabled"
+    )
     COURSERAG_P10_DEV_MAX_DEEPSEEK_TOKENS: int = Field(default=180_000, ge=1)
     COURSERAG_P10_DEV_MAX_COHERE_SEARCH_UNITS: Literal[0] = 0
+    COURSEPILOT_P18_MODE: Literal["dev", "test"] = "dev"
+    COURSEPILOT_P18_OUTPUT_DIR: str = "storage_eval/p18"
+    COURSEPILOT_P18_CP_DS0_PATH: str | None = None
+    COURSEPILOT_P18_FROZEN_MANIFEST_PATH: str | None = None
+    COURSEPILOT_P18_MAX_COST_CNY: Decimal = Field(default=Decimal("5"), gt=0)
+    COURSEPILOT_P18_MAX_INPUT_TOKENS: int = Field(default=2_000_000, ge=1)
+    COURSEPILOT_P18_MAX_OUTPUT_TOKENS: int = Field(default=1_500_000, ge=1)
+    COURSEPILOT_P18_MAX_REQUESTS: int = Field(default=300, ge=1)
+    COURSEPILOT_P18_ALLOW_FALLBACK: Literal[False] = False
+    COURSEPILOT_P18_TRACK_B_ENABLED: bool = False
 
     def __init__(self, **values: Any) -> None:
         if values.get("_env_file") is None and "_env_file" in values:
@@ -387,6 +409,29 @@ class Settings(BaseSettings):
                 and self.COURSERAG_SECURITY_LLAMA_MANIFEST_SHA256
             ):
                 raise ValueError("required Override axis needs a complete Llama model identity")
+        if self.COURSERAG_PROMPT_INJECTION_PROVIDER in {
+            "dual_hypothesis_local",
+            "tri_state_dual_hypothesis_local",
+        }:
+            if not (
+                self.COURSERAG_P17_1_SECURITY_PROFILE_PATH
+                and self.COURSERAG_SECURITY_SEMANTIC_ENCODER == "local_qwen3"
+                and self.COURSERAG_SECURITY_HIKMA_MODEL_PATH
+                and self.COURSERAG_SECURITY_HIKMA_MANIFEST_PATH
+                and self.COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256
+                and self.COURSERAG_EMBEDDING_PROVIDER == "local_sentence_transformers"
+                and self.COURSERAG_EMBEDDING_MODEL_PATH
+                and self.COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256
+                and self.COURSERAG_EMBEDDING_WEIGHTS_SHA256
+            ):
+                raise ValueError(
+                    "Dual-hypothesis security requires frozen Hikma and local Qwen3 identities"
+                )
+            if (
+                self.COURSERAG_PROMPT_INJECTION_PROVIDER == "tri_state_dual_hypothesis_local"
+                and not self.COURSERAG_P17_3_SECURITY_PROFILE_PATH
+            ):
+                raise ValueError("Tri-state security requires its frozen decision Profile")
         if self.COURSERAG_RETRIEVAL_TOP_N > self.COURSERAG_RETRIEVAL_CANDIDATE_K:
             raise ValueError("CourseRAG retrieval Top-N cannot exceed Candidate-K")
         if self.COURSERAG_RERANKER_TOP_N > self.COURSERAG_RERANKER_CANDIDATE_K:

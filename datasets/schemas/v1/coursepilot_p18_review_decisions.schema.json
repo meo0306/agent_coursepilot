@@ -1,0 +1,126 @@
+{
+  "$defs": {
+    "P18ReviewDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "title": "Component",
+          "type": "string"
+        },
+        "decision": {
+          "default": "pending",
+          "enum": [
+            "pending",
+            "approve",
+            "reject"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "title": "Notes",
+          "type": "string"
+        },
+        "record_id": {
+          "title": "Record Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "component"
+      ],
+      "title": "P18ReviewDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bundle_kind": {
+      "enum": [
+        "business",
+        "quality_recovery",
+        "integration_export"
+      ],
+      "title": "Bundle Kind",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/P18ReviewDecision"
+      },
+      "minItems": 1,
+      "title": "Decisions",
+      "type": "array"
+    },
+    "instructions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Instructions",
+      "type": "array"
+    },
+    "readable_records": {
+      "additionalProperties": {
+        "items": {
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": "Readable Records",
+      "type": "object"
+    },
+    "review_pass": {
+      "const": "single",
+      "default": "single",
+      "title": "Review Pass",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewed At"
+    },
+    "reviewer_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer Id"
+    },
+    "schema_version": {
+      "const": "coursepilot.p18-review-decisions.v1",
+      "default": "coursepilot.p18-review-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_kind",
+    "bundle_sha256",
+    "instructions",
+    "decisions"
+  ],
+  "title": "P18ReviewTemplate",
+  "type": "object"
+}

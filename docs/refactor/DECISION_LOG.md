@@ -2010,3 +2010,77 @@ the P14 Exit Gate. Future P14 review pages must autosave and export schema-valid
   still documents non-blocking visual and pedagogical variance, but no further tuning or owner
   re-review is required for this release. P17 may start, while P10-D013 security debt remains a
   mandatory P17 exit concern.
+
+## P17-D001 — Replace r2 hard A–T–E gating with an independent dual-hypothesis release
+
+- Status: approved_for_implementation
+- Date: 2026-08-23
+- Decision: preserve the failed r2 Blind verdict and prohibit any rerun or case-level tuning. Build P17.1 as a separate release using the existing local HikmaAI classifier, the frozen local Qwen3 Embedding through a security-owned Port, soft structured evidence, and competing operative-attack versus benign-scope hypotheses.
+- Calibration boundary: a new 240-case visible Calibration Candidate is reviewed before local scoring. Parameter selection maximizes the minimum language/family recall subject to specificity `>=0.975`, returns at most two finalists, and cannot access the consumed r2 Blind. A fresh Qualification and later independent Blind require separate owner approvals.
+- Runtime boundary: the candidate is default-off, does not authorize ACL, Approval, tools, export or writeback, performs no network or paid Provider calls, and adds no database migration or public API break.
+- Evidence: checkpoint commit `3f5c415`; Calibration Candidate SHA-256 `474425a80638ee0ba7ebd716229d1edaede3fd0b6683305698fb79198f140031`.
+
+## P17-D002 — Use a fail-closed tri-state security decision contract
+
+- Status: approved_for_implementation
+- Date: 2026-08-23
+- Decision: replace the unsatisfiable binary attack/safe contract with `attack / needs_review / safe`. `needs_review` is not a successful safety decision: it blocks model, tool, export, writeback, enrichment and active-index publication until a version-bound human decision exists.
+- Release metric: malicious `safe` count and unauthorized side effects remain zero; malicious capture is `attack + needs_review`; Hard-negative Attack Specificity remains `>=0.975`; review rate is reported as L2 operational debt rather than hidden as an attack.
+- Boundary: Detector output never authorizes ACL, Approval, course access or side effects. The r2 Blind remains consumed and inaccessible. P17.3 uses frozen P17.2 component scores for one Candidate and still requires a fresh Qualification and independent Blind before release.
+
+## P17-D003 — Close P17 with isolated security automation debt and allow P18 startup
+
+- Status: owner-approved
+- Date: 2026-08-23
+- Decision: close P17 as `completed_with_isolated_security_automation_debt` and permit P18 to start. This is an explicit dependency waiver for stage progression, not a retroactive pass of the P17.3 Qualification or detector release.
+- Evidence: the unique P17.3 Qualification report `143e386d23f7a1b256b7e922fe4daf2572412e89365495a854b30b25022c79d3` captured 60/60 malicious samples but reached only 0.90 hard-negative Attack Specificity and routed 82/120 cases to review. The Profile remains `candidate_rejected_default_off`; no Blind was prepared or accessed.
+- Safety boundary: P18 cannot use this detector as a trusted boundary or as evidence that prompt-injection classification passed. ACL, Approval, cross-course validation, tool denial, Secret isolation, untrusted-context handling, Trace and idempotent side-effect controls remain mandatory and independently testable.
+- P18 boundary: P18 may begin formal convergence work, but its own L0 security events must remain zero. Any future detector promotion requires a new independent release process; the failed Qualification may not be tuned, rerun or rewritten as success.
+
+## P18-D001 — Formal dataset split, carry-forward and public custom templates
+
+- Status: candidate-construction-applied
+- Date: 2026-08-23
+- Decision: construct 30 new business tasks with Dev/Test 18/12; count the approved P13 CP-DS4/5 records toward the formal 90/60 totals but keep them Dev-only; create new CP-DS6 24, CP-DS8 30 with Dev/Blind 20/10, and eight held-out SYS-DS1 journeys.
+- Template decision: use a pinned MIT-licensed public DOCX from `sverrejb/docxide-template@a149926f...` and reuse the P16-approved CC0 Velis PPTX. The originally assumed `Invoice.docx` does not exist at that commit, so the real `test-crate/templates/combined_areas.docx` is used without changing repository, commit or license.
+- Approval boundary: three Candidate bundles use one complete JSON review each. Final CP-DS0 and Test lock are deferred until the Approved Dev configuration, Graph/Profile/Renderer/Exporter/CourseRAG Index and code identity freeze.
+
+## P18-D002 — Exact Formal Gold approval before Dev evaluation
+
+- Status: owner-approved
+- Date: 2026-08-23
+- Decision: approve Business Bundle `4ce0ac60ca70c1f1fd23e62aaab911718dc763882ceee0d371d726926bd9a869`, Quality/Recovery Bundle `d724a1c430ed1c02ae42b770b46714fe3ff0b73abb94d83906d9e6268470a082`, and Integration/Export Bundle `5d42d4428aad1f31b07434febcd9ff9b487436095c5c99d3f3e2348627a46683` as the P18 formal Dev/Test/Blind Gold identity.
+- Evidence: Business review passed 30/30; Quality/Recovery combined r1+r2 review passed 129/129; Integration/Export combined r1+r2 review passed 39/39. Approval promotes nine datasets and 208 record identities, with component split manifest `acf9421a8dfa2512ae568a0eb8d468c5994ec757edf912b3683473ad8005cf4e`.
+- Boundary: this approval enables formal Dev evaluation only. `test.lock.json` remains `locked=false`; CP-DS0, frozen runtime configuration and formal Test execution remain pending and require the later P18 freeze boundary.
+
+## P18-D003 — Approve the exact Dev freeze identities
+
+- Status: owner-approved
+- Date: 2026-08-24
+- Decision: approve CP-DS0 Candidate SHA-256 `8814701173860a76a9db559e3cfb6cc094c2580446bfc12be33ebf02a675ba01` and P18 Frozen Manifest Candidate SHA-256 `fb2c13716cc329110b58d87358667323c2ab825cd3b609f6ef2cf6aa6afb23d6` as the immutable Dev freeze identities for the later formal Test.
+
+## P18-D004 — Authorize and consume the unique formal Test release
+
+- Decision: approve Test Preflight `2a9e3cd3b5e8135d40d27d53b83aab468f8cf22edb509657f1a6bea94309ccd1`, create the exact Test Lock, authorize the approved Test task/evidence scope, and run the unique formal Test under Frozen Manifest `fb2c13716cc329110b58d87358667323c2ab825cd3b609f6ef2cf6aa6afb23d6`.
+- Budget: DeepSeek CNY 4.00 / 260 requests / 1.2M input / 1.2M output-and-Thinking; Cohere 40 Search Units. Actual cumulative DeepSeek use through stability was 197 / 761,098 / 701,816 / CNY 2.164730; Cohere use was zero.
+- Result boundary: the automatic Gate failed on frozen contract/output completeness and missing formal Track-B index provisioning. The result is immutable for this release and cannot be used for Test-driven tuning or another same-Manifest generation run.
+- Evidence: CP-B10 Provider/contract/citation/trace results are 18/18, export/render is 18/18, and Dev L0 counts are zero. Approval is recorded separately so neither exact candidate file is mutated.
+- Boundary: the exact Test Lock was created and consumed under the authorization above. It remains
+  immutable; no same-release tuning or second formal generation run is allowed.
+
+## P18-D005 — Portfolio-only disposition and P19 physical split
+
+- Status: owner-approved
+- Date: 2026-08-25
+- Decision: record P18 evaluation execution as complete while preserving the failed formal quality
+  Gate. Permit P19 to publish a Portfolio/Engineering MVP with known limitations; this is not a
+  production release and does not turn any failed P18 metric into a pass.
+- Repository scope: create public `meo0306/course-rag` and `meo0306/course-pilot` repositories from
+  a clean source checkpoint, retain MIT/upstream attribution, and preserve the monorepo as the
+  development-history source.
+- Database scope: both services may share one PostgreSQL instance and database, but must use
+  independent `courserag` and `coursepilot` schemas, roles and Alembic version tables. Runtime
+  access across service schemas is prohibited; cross-service access remains HTTP-only.
+- Publication boundary: P18 Test is not rerun or tuned. Public documentation may emphasize verified
+  engineering capabilities but must disclose the failed formal quality Gate, rejected automatic
+  prompt-injection profile and missing formal Track-B index.

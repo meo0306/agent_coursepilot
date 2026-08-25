@@ -92,7 +92,10 @@ class PromptInjectionFinding(BaseModel):
         "model_rule_consensus",
         "axis_high_confidence_union",
         "scope_aware_consensus",
+        "dual_hypothesis_calibrated",
+        "tri_state_calibrated",
     ] = "legacy_rule"
+    security_decision: Literal["attack", "needs_review", "safe"] | None = None
     axis_id: str | None = None
     signal_ids: tuple[str, ...] = ()
     decision_path: tuple[str, ...] = ()

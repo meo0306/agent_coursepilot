@@ -1,0 +1,21 @@
+{
+  "dataset_id": "coursepilot-p18-cp-ds7",
+  "dataset_version": "p18-formal-r2",
+  "revisions": [
+    {
+      "candidate_file_sha256": "d268e87c333eea67f295af6b0b3c00d989f18046b0fc8ab174143c493eb3e0c8",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds7/p18_export_templates_formal_r1.json",
+      "reason": "Superseded without deletion by the owner-requested r2 repair.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "c4d05f4155efc08e92e48574c913b3397035ab553a504661133d8259cee4695f",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds7/p18_export_templates_formal_r2.json",
+      "reason": "Exact P18 formal Bundle approved by the Course Owner.",
+      "revision": 2,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

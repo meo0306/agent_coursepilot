@@ -1,0 +1,1178 @@
+{
+  "cases": [
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-approve",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-edit_resume",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-replan",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-reject",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-approve",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-edit_resume",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-replan",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-reject",
+      "review_status": "candidate",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-approve",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-edit_resume",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-replan",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-reject",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-approve",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-edit_resume",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-replan",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-reject",
+      "review_status": "candidate",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-approve",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-edit_resume",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-replan",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-reject",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-approve",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-edit_resume",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-replan",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": null,
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-reject",
+      "review_status": "candidate",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-r1",
+  "historical_regression_source_sha256": "1def8ba6bdb774bc744e4bac2cc70793867c96cc2d8a0929efbe62d32cc4f078",
+  "schema_version": "coursepilot.cp-ds6-p18.v1"
+}

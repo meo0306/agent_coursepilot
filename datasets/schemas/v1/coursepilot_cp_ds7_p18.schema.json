@@ -1,0 +1,345 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P18TemplateCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "artifact_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt"
+          ],
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "custom_template": {
+          "title": "Custom Template",
+          "type": "boolean"
+        },
+        "license": {
+          "title": "License",
+          "type": "string"
+        },
+        "normalized_path": {
+          "title": "Normalized Path",
+          "type": "string"
+        },
+        "normalized_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Normalized Sha256",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "render_evidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P18TemplateRenderEvidence"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "render_status": {
+          "enum": [
+            "prior_phase_verified",
+            "verified_current",
+            "pending_environment"
+          ],
+          "title": "Render Status",
+          "type": "string"
+        },
+        "required_roles": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Roles",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "security_findings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Security Findings",
+          "type": "array"
+        },
+        "source_commit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Commit"
+        },
+        "source_kind": {
+          "enum": [
+            "project_builtin",
+            "github_public",
+            "p16_approved_velis"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "source_path": {
+          "title": "Source Path",
+          "type": "string"
+        },
+        "source_repository": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Repository"
+        },
+        "source_repository_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Repository Path"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Sha256",
+          "type": "string"
+        },
+        "split_role": {
+          "enum": [
+            "dev_contract",
+            "heldout_custom"
+          ],
+          "title": "Split Role",
+          "type": "string"
+        },
+        "template_id": {
+          "title": "Template Id",
+          "type": "string"
+        },
+        "verification_evidence_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Verification Evidence Paths",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "split_role",
+        "artifact_type",
+        "template_id",
+        "custom_template",
+        "source_kind",
+        "source_path",
+        "source_sha256",
+        "normalized_path",
+        "normalized_sha256",
+        "license",
+        "required_roles",
+        "security_findings",
+        "render_status",
+        "verification_evidence_paths"
+      ],
+      "title": "P18TemplateCase",
+      "type": "object"
+    },
+    "P18TemplateRenderEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "page_count": {
+          "minimum": 1,
+          "title": "Page Count",
+          "type": "integer"
+        },
+        "png_sha256s": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Png Sha256S",
+          "type": "array"
+        },
+        "renderer": {
+          "const": "libreoffice-headless",
+          "default": "libreoffice-headless",
+          "title": "Renderer",
+          "type": "string"
+        },
+        "renderer_version": {
+          "const": "7.4.7.2",
+          "default": "7.4.7.2",
+          "title": "Renderer Version",
+          "type": "string"
+        },
+        "repeat_render_equal": {
+          "const": true,
+          "default": true,
+          "title": "Repeat Render Equal",
+          "type": "boolean"
+        },
+        "visual_findings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Visual Findings",
+          "type": "array"
+        },
+        "visually_inspected": {
+          "const": true,
+          "default": true,
+          "title": "Visually Inspected",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "page_count",
+        "png_sha256s",
+        "visual_findings"
+      ],
+      "title": "P18TemplateRenderEvidence",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P18TemplateCase"
+      },
+      "maxItems": 11,
+      "minItems": 11,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p18-formal-r1",
+      "enum": [
+        "p18-formal-r1",
+        "p18-formal-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds7-p18.v1",
+      "default": "coursepilot.cp-ds7-p18.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "P18TemplateDataset",
+  "type": "object"
+}

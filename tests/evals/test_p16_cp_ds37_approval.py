@@ -59,7 +59,7 @@ def test_p16_reviews_and_governance_are_consistent() -> None:
     )
     assert manifest["gold_components"]["cp_ds3_p16_pilot"] == "approved"
     assert manifest["gold_components"]["cp_ds7_p16_pilot"] == "approved"
-    assert manifest["gold_status"] == "p17_integration_pilot_approved"
+    assert manifest["gold_status"] == "p18_formal_gold_approved"
     assert manifest["phase_input_status"]["p16"] == "completed_gate_passed"
     assert manifest["phase_execution_status"]["p16"] == "completed_with_quality_debt"
 

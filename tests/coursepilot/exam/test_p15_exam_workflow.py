@@ -157,6 +157,26 @@ def test_global_validator_requires_real_multi_select_and_consistent_assessments(
     assert not report.answer_set_valid
     assert "EXAM_ANSWER_SET_INCONSISTENT" in report.question_issue_codes[first.question_id]
 
+    chinese_separator = inconsistent.model_copy(
+        update={
+            "answer": "B、A",
+            "option_assessments": {
+                "A": OptionAssessment(
+                    is_correct=True, rationale="Supported", evidence_ids=["ev-1"]
+                ),
+                "B": OptionAssessment(
+                    is_correct=True, rationale="Supported", evidence_ids=["ev-1"]
+                ),
+                "C": OptionAssessment(
+                    is_correct=False, rationale="Not supported", evidence_ids=["ev-1"]
+                ),
+            },
+        }
+    )
+    report = validate_exam_global(bp, [chinese_separator, question(bp.slots[1])])
+    assert report.choice_contract_valid
+    assert report.answer_set_valid
+
 
 def test_global_validator_requires_inline_stimulus_for_table_reference() -> None:
     bp = blueprint()

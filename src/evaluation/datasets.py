@@ -58,6 +58,17 @@ from evaluation.p10_schemas import (
     P10SecurityDataset,
     P17SecurityQualificationDataset,
 )
+from evaluation.p18_schemas import (
+    P18ExamDataset,
+    P18FaultDataset,
+    P18JourneyDataset,
+    P18LessonDataset,
+    P18PPTDataset,
+    P18RecoveryDataset,
+    P18RepairDataset,
+    P18TemplateDataset,
+    P18ValidationDataset,
+)
 
 
 class DatasetValidationError(ValueError):
@@ -92,6 +103,15 @@ SCHEMA_VERSION_MODELS: dict[str, type[BaseModel]] = {
     "coursepilot.cp-ds7-p16-pilot.v1": CPDS7P16PilotDataset,
     "coursepilot.cp-ds8-p17.v1": CPDS8P17Dataset,
     "coursepilot.sys-ds1-p17.v1": SYSDS1P17Dataset,
+    "coursepilot.cp-ds1-p18.v1": P18LessonDataset,
+    "coursepilot.cp-ds2-p18.v1": P18ExamDataset,
+    "coursepilot.cp-ds3-p18.v1": P18PPTDataset,
+    "coursepilot.cp-ds4-p18.v1": P18ValidationDataset,
+    "coursepilot.cp-ds5-p18.v1": P18RepairDataset,
+    "coursepilot.cp-ds6-p18.v1": P18RecoveryDataset,
+    "coursepilot.cp-ds7-p18.v1": P18TemplateDataset,
+    "coursepilot.cp-ds8-p18.v1": P18FaultDataset,
+    "coursepilot.sys-ds1-p18.v1": P18JourneyDataset,
     "courserag.p09-qa-gold.v1": P09QAGoldDataset,
     "courserag.p09-context-gold.v1": P09ContextGoldDataset,
     "courserag.ds6-formal.v1": P10DS6Dataset,
@@ -362,6 +382,17 @@ def records_from_envelope(envelope: BaseModel) -> list[ReviewableRecord]:
     if isinstance(envelope, SYSDS1JourneyDataset):
         return list(envelope.cases)
     if isinstance(envelope, SYSDS1P17Dataset):
+        return list(envelope.cases)
+    if isinstance(envelope, (P18LessonDataset, P18ExamDataset, P18PPTDataset)):
+        return list(envelope.cases)
+    if isinstance(envelope, P18ValidationDataset):
+        return list(envelope.new_cases)
+    if isinstance(envelope, P18RepairDataset):
+        return list(envelope.new_cases)
+    if isinstance(
+        envelope,
+        (P18RecoveryDataset, P18TemplateDataset, P18FaultDataset, P18JourneyDataset),
+    ):
         return list(envelope.cases)
     raise TypeError(f"unsupported dataset envelope: {type(envelope).__name__}")
 

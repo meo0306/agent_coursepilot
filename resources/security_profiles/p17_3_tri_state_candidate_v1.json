@@ -1,0 +1,14 @@
+{
+  "attack_boundary": 0.6362914214315304,
+  "attack_semantic_weight": 0.4,
+  "base_profile_sha256": "f2c2104273ed842a5cbbf315dc63ffee0ad968bb9c5abd7bc4f7d7c2ce8080fa",
+  "enabled": false,
+  "hikma_weight": 0.6,
+  "name": "p17_3_tri_state_candidate_v1",
+  "safe_boundary": -0.47551293464495803,
+  "safe_semantic_weight": 0.4,
+  "schema_version": "courserag.tri-state-security-profile.v1",
+  "scope_weight": 0.6,
+  "structured_weight": 0.0,
+  "version": "1.0.0-candidate"
+}

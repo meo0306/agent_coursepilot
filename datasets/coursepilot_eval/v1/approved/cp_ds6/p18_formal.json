@@ -1,0 +1,1346 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "aff765e0e8201b06a62f14e70bd68483d9909c064c6d555c6d1c525cf31b250f",
+        "candidate_sha256": "e7001147259c796ea72a2052c074387586714a7e79189dce8ea70c543c119919",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-01-approve",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-approve",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a474795a158cc6d654f8b24c58221ab8a6efcdc5b93993557dbeeaf2121286c8",
+        "candidate_sha256": "efc476fb564afe76e3bbe95f14f6731c3a49b8062a88d050165b615d0b00db86",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-01-edit_resume",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-edit_resume",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c5033d844e6f932e54b657f3282e9efff969f8d73136c1a0d3c78d9e4adf92b0",
+        "candidate_sha256": "f234521c929bd9834066741a314b6b01338db83f426e57f6f18c02746b618bd0",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-01-replan",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-replan",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "620f8359f4bb110079b67d0833ed0a9a1330132c9871c29df7ed9082e842a8a9",
+        "candidate_sha256": "a08f5401dba4ecf12c07f914f152ad6aa2ef475b57d7d58dd190e23f7499fc27",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-01-reject",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p18-ds6-01-reject",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "81105087fd4f7791999e340f8ca6ced165b1a6c043985f400686380212d1e964",
+        "candidate_sha256": "f5be92ec34944b4edb642c6d2c1327a15f6b6c4f59f9dade88050077176d3e33",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-02-approve",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-approve",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0707cde4c8d904b2ee015ff4fca5e1d4a4906e03dd132df94ea2877ae4d7f616",
+        "candidate_sha256": "e22b4cffc0b65b6f120887bb4096ddf100dad55ce3fdbb5cbc9e0e660ce4ca5d",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-02-edit_resume",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-edit_resume",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8c58f911b100b20d91cc1500973482248c7829f858e895fa1fe7d3fa6f5e8388",
+        "candidate_sha256": "0b4a9ccf5c3b1b441984c02659da8ce1f813acdfb005aa897bf27d278aadb1f2",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-02-replan",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-replan",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-04",
+      "split": "test",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8ba50240aad0e97f17207d67fba1d823b1cd64495a24c796e2c0d13fee15a3c8",
+        "candidate_sha256": "c1f98fdaf9d23f983ea08a93aa39f61fb5cf414078126597b49d77531d2ecbff",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-02-reject",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p18-ds6-02-reject",
+      "review_status": "approved",
+      "source_task_id": "p18-lesson-01",
+      "split": "dev",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c703d70efa05ce9780a65e13176c1e00238d7fb5e336527d6be6207d0e6f546e",
+        "candidate_sha256": "35081cf30921acf10d1bec9ad1ad98de37d772e1ce3fb56610e240c4211b76ac",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-03-approve",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-approve",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a42971b0c60d9f5888d1b3aa050a4fb541e719646c5cb1074ebef0c2d10e0599",
+        "candidate_sha256": "5ddf0cdbb1cd6d29d449ef50662e6f86c0000d287ef3d554a4b57ec2f7f9f173",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-03-edit_resume",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-edit_resume",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "aea64945eecbd1b3e94d78460dcc49020c870b3a089a4b9326f539030ef83ac9",
+        "candidate_sha256": "e7e3160efbd6f91c58b0e404fe1e1267fae8fc60cd233e0135a2e19d4634f61b",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-03-replan",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-replan",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "cdf7e9bdf5c6bfb45642472ee494ddab42c88910742946d8065813cc14dde5cc",
+        "candidate_sha256": "5bc7dbaec32f822bfbd3999e95de14d7990d23417ce5b8922ddcd978e51c3e64",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-03-reject",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p18-ds6-03-reject",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c6f96b19f140a00d2110354f43d0cef44613971783a267877bcae7d1b53bda23",
+        "candidate_sha256": "9a10dce787087512b6c7b40974d7273690855cea85c5a7197984432b8d4cd3aa",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-04-approve",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-approve",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "3db0ef9958cde778a8c2d969d3a56f57d6c6a4cee695970394a66a3a5fb3ba79",
+        "candidate_sha256": "018575d693539a273d5424a3e45e64e72946c919fdc881a157c2995e5f7e7bea",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-04-edit_resume",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-edit_resume",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6f153df4ef1208f34fce0334e61509373412082ff84b4e6b774b6d2d1b029f85",
+        "candidate_sha256": "a2d4c3439fff355ffecae9666a8a8c9b3b60482d376b4afdae425d5fbec22bac",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-04-replan",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-replan",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-04",
+      "split": "test",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "51f4b488d03341edaa57c0e628152066b19eaa5c77a1ba59d73793e1bba55098",
+        "candidate_sha256": "794d526033e2131483504deff5c19895304984eef6253a8c204632882d494302",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-04-reject",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p18-ds6-04-reject",
+      "review_status": "approved",
+      "source_task_id": "p18-exam-01",
+      "split": "dev",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "50492a072893fc2c80af14c8a3286fe1b97ce3bd5557b214cc637f159e4a4e37",
+        "candidate_sha256": "ecd0419c17fe995642c71435112501c01f5b14fd6a2ef3216e8c98313d6e3443",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-05-approve",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-approve",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "faff56d074d462543105721d73ac66302479b5a94659d46ce291694787863c92",
+        "candidate_sha256": "f4b0212da0ff3591be0de87d286886560b3bb7bd9351e433285a939405b69ddd",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-05-edit_resume",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-edit_resume",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "717787ba431fe92ae4818feadd6d666fb1efa163b7a31a848e51481923400b02",
+        "candidate_sha256": "8919657cd46674d953f5d5b0ddabb9a68d986df02e12f0e668b3e6c04b8d6827",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-05-replan",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-replan",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2878ec31cb80b8ab63b25e753d74b23245d6e6a415d7105652cdd2eb32d35b35",
+        "candidate_sha256": "32bd8701514d319ec06737d1cf005e19be41fcc15f6aa2d44db0cf3d8fbff752",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-05-reject",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p18-ds6-05-reject",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "dce03a2b94d2eb10d46718b53a26499a072de1e621100a07c899f044b12f71bb",
+        "candidate_sha256": "8a10c7ba4430687d2e0f5ccb9a11a2bd4e661c46f4b4c25f284ec18d1c9bfd3b",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-06-approve",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "approve",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-approve",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "788541237929ecc416d44c92cc5db40e5c281e76c68d36261f39f4d2c152c066",
+        "candidate_sha256": "1f8762253c97adb3e0f8427a02b518ada1e4c8163c2bd4c386508c02e9fd01e8",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-06-edit_resume",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "edit_resume",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-edit_resume",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "5f54d3b4e07d8df0f0449115f67f08527456a55123f906bcb6104e12c60b94b7",
+        "candidate_sha256": "de5bfd30fc1eb4f13bf5dfdda008d5e9b903ff0496be650f7026496b42e1dad4",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-06-replan",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "replan",
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [
+        "generate_current_artifact",
+        "validate_current_artifact"
+      ],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 1,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-replan",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-04",
+      "split": "test",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "56ae906af5d73d4567994ad7b778ef9a165a7028a5110c50f7c7e232d9182ab4",
+        "candidate_sha256": "2fa362c778d8ffc51f3f5008f4f7e3826c2ca29288b48f72075c3d14589062bd",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds6.p18-ds6-06-reject",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "cross_course_read",
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "candidate_source": "deterministic_recovery_contract",
+      "course_id": "course_ai_algorithms_systems",
+      "decision": "reject",
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_context",
+        "load_template_snapshot"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_side_effects": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled"
+      ],
+      "fault_sequence": [
+        "service_restart_after_decision_persisted",
+        "duplicate_resume_delivery"
+      ],
+      "initial_state": {
+        "approval": "none",
+        "artifact": "v1",
+        "checkpoint": "durable-before-interrupt",
+        "task": "running"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p18-ds6-06-reject",
+      "review_status": "approved",
+      "source_task_id": "p18-ppt-01",
+      "split": "dev",
+      "workflow_type": "ppt"
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-r1",
+  "historical_regression_source_sha256": "1def8ba6bdb774bc744e4bac2cc70793867c96cc2d8a0929efbe62d32cc4f078",
+  "schema_version": "coursepilot.cp-ds6-p18.v1"
+}

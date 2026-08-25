@@ -183,3 +183,56 @@ def test_multi_axis_required_override_requires_llama_identity() -> None:
                 COURSERAG_SECURITY_OVERRIDE_AXIS="required",
                 _env_file=None,
             )
+
+
+def test_dual_hypothesis_security_requires_frozen_local_model_identities() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(
+            ValueError,
+            match="requires frozen Hikma and local Qwen3 identities",
+        ):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="dual_hypothesis_local",
+                COURSERAG_P17_1_SECURITY_PROFILE_PATH="profile.json",
+                COURSERAG_SECURITY_SEMANTIC_ENCODER="local_qwen3",
+                _env_file=None,
+            )
+
+
+def test_dual_hypothesis_security_accepts_complete_local_model_identities() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        settings = Settings(
+            COURSERAG_PROMPT_INJECTION_PROVIDER="dual_hypothesis_local",
+            COURSERAG_P17_1_SECURITY_PROFILE_PATH="profile.json",
+            COURSERAG_SECURITY_SEMANTIC_ENCODER="local_qwen3",
+            COURSERAG_SECURITY_HIKMA_MODEL_PATH="D:/AI/models/hikma",
+            COURSERAG_SECURITY_HIKMA_MANIFEST_PATH="hikma.json",
+            COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256="1" * 64,
+            COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+            COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+            COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+            COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256="2" * 64,
+            COURSERAG_EMBEDDING_WEIGHTS_SHA256="3" * 64,
+            _env_file=None,
+        )
+
+    assert settings.COURSERAG_SECURITY_EVAL_MODE == "disabled"
+
+
+def test_tri_state_security_requires_its_decision_profile() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(ValueError, match="requires its frozen decision Profile"):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="tri_state_dual_hypothesis_local",
+                COURSERAG_P17_1_SECURITY_PROFILE_PATH="base-profile.json",
+                COURSERAG_SECURITY_SEMANTIC_ENCODER="local_qwen3",
+                COURSERAG_SECURITY_HIKMA_MODEL_PATH="D:/AI/models/hikma",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_PATH="hikma.json",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256="1" * 64,
+                COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+                COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+                COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+                COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256="2" * 64,
+                COURSERAG_EMBEDDING_WEIGHTS_SHA256="3" * 64,
+                _env_file=None,
+            )

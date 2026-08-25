@@ -1,0 +1,28 @@
+{
+  "schema_version": "coursepilot.cp-ds0.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-freeze-r1",
+  "records": [
+    {
+      "record_id": "p18-cp-ds0-dev-freeze-r1",
+      "review_status": "approved",
+      "candidate_source": "p18_dev_freeze",
+      "approval": {
+        "review_id": "p18-freeze.cp_ds0.p18-cp-ds0-dev-freeze-r1",
+        "reviewer_id": "course_owner",
+        "reviewed_at": "2026-08-24T11:37:18.825388Z",
+        "candidate_sha256": "278a52ceea17ca23ede51e0cd0717c860d3ace3bfaf1c872175e5c17e85a1622",
+        "approved_record_sha256": "4a9a5d1c8f87a1b754ad8fc2e47caa9a4fbeac0cebe62a8bcf6b714defe6f8e1",
+        "notes": "Exact CP-DS0 and Frozen Manifest owner approval; formal Test authorization binds preflight 2a9e3cd3b5e8135d40d27d53b83aab468f8cf22edb509657f1a6bea94309ccd1."
+      },
+      "graph_version": "8cb4fa9236d0ca49f5b31864b6a2f3670211efb75a7dd5781142bf0a153ca61d",
+      "courserag_fixture_version": "7eb5b0c0e998b9f83d4b018b2c88754c44f466fbcac3a3dbcc49c0699c38ab4a",
+      "template_registry_version": "b0f4c7c8a097459de10247bb0e5ccd4542e89a13217586c387398ce4cacce4a4",
+      "validator_version": "34221a849e81bc721b0ec3ffa775d657c0f872984d505870293356929ed58490",
+      "repair_policy_version": "34221a849e81bc721b0ec3ffa775d657c0f872984d505870293356929ed58490",
+      "exporter_version": "142e07ec81de54327522d6466593ffba8d883e968ba67f082ad59e1bc2a9025a",
+      "rubric_version": "p18-human-review-v1",
+      "p11_foundation_input": null
+    }
+  ]
+}

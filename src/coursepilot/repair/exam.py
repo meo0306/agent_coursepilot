@@ -1,6 +1,11 @@
 from __future__ import annotations
 
-from coursepilot.domain.exam import ExamGlobalReport, ExamQuestion
+from coursepilot.domain.exam import (
+    ExamConflict,
+    ExamConflictGraph,
+    ExamGlobalReport,
+    ExamQuestion,
+)
 from coursepilot.repair.models import RepairAction, RepairPlan
 
 
@@ -93,3 +98,83 @@ class ExamRepairPlanner:
             forbidden_json_paths=["$", "$.blueprint", "$.questions"],
             requires_full_regeneration=False,
         )
+
+
+def build_exam_conflict_graph(
+    report: ExamGlobalReport, questions: list[ExamQuestion]
+) -> ExamConflictGraph:
+    """Select the later/conflicting question once for whole-question regeneration."""
+
+    order = {question.question_id: index for index, question in enumerate(questions)}
+    conflicts: list[ExamConflict] = []
+    seen: set[tuple[str, str, str | None]] = set()
+
+    def add(
+        kind: str,
+        target_id: str,
+        issue_codes: list[str],
+        source_id: str | None = None,
+    ) -> None:
+        if target_id not in order:
+            return
+        key = (kind, target_id, source_id)
+        if key in seen:
+            return
+        seen.add(key)
+        conflicts.append(
+            ExamConflict(
+                kind=kind,  # type: ignore[arg-type]
+                target_question_id=target_id,
+                source_question_id=source_id,
+                issue_codes=sorted(set(issue_codes)),
+            )
+        )
+
+    for left_id, right_id in report.duplicate_pairs:
+        if left_id not in order or right_id not in order:
+            continue
+        target_id, source_id = (
+            (right_id, left_id) if order[right_id] >= order[left_id] else (left_id, right_id)
+        )
+        add(
+            "semantic_duplicate",
+            target_id,
+            [f"DUPLICATE_QUESTIONS:{left_id}:{right_id}"],
+            source_id,
+        )
+    for target_id in report.answer_leakage_question_ids:
+        add("answer_leakage", target_id, [f"ANSWER_LEAKAGE:{target_id}"])
+    for target_id, source_id in report.cross_answer_leakage_pairs:
+        add(
+            "answer_leakage",
+            target_id,
+            [f"CROSS_ANSWER_LEAKAGE:{target_id}:{source_id}"],
+            source_id,
+        )
+    structural = {
+        "EXAM_MULTIPLE_CHOICE_CARDINALITY": "choice_contract",
+        "EXAM_ANSWER_NOT_IN_OPTIONS": "choice_contract",
+        "EXAM_OPTION_ASSESSMENT_MISMATCH": "answer_set",
+        "EXAM_ANSWER_SET_INCONSISTENT": "answer_set",
+        "EXAM_REQUIRED_STIMULUS_MISSING": "stimulus_contract",
+        "EXAM_OMITTED_STIMULUS_REFERENCE": "stimulus_contract",
+    }
+    for question_id, issue_codes in report.question_issue_codes.items():
+        by_kind: dict[str, list[str]] = {}
+        for issue_code in issue_codes:
+            kind = structural.get(issue_code)
+            if kind:
+                by_kind.setdefault(kind, []).append(issue_code)
+        for kind, codes in by_kind.items():
+            add(kind, question_id, codes)
+
+    return ExamConflictGraph(
+        conflicts=sorted(
+            conflicts,
+            key=lambda item: (
+                order[item.target_question_id],
+                item.kind,
+                item.source_question_id or "",
+            ),
+        )
+    )

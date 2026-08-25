@@ -1,0 +1,261 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P18JourneyCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "expected_final_status": {
+          "title": "Expected Final Status",
+          "type": "string"
+        },
+        "expected_side_effects": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Expected Side Effects",
+          "type": "object"
+        },
+        "forbidden_side_effects": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Forbidden Side Effects",
+          "type": "array"
+        },
+        "journey_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt",
+            "writeback_loop",
+            "fault_recovery",
+            "insufficient_evidence",
+            "malicious_material",
+            "version_change"
+          ],
+          "title": "Journey Type",
+          "type": "string"
+        },
+        "p17_signature_difference": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "title": "P17 Signature Difference",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "source_task_id": {
+          "title": "Source Task Id",
+          "type": "string"
+        },
+        "split": {
+          "const": "test",
+          "default": "test",
+          "title": "Split",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/P18JourneyStep"
+          },
+          "minItems": 3,
+          "title": "Steps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "journey_type",
+        "course_id",
+        "source_task_id",
+        "p17_signature_difference",
+        "steps",
+        "expected_final_status",
+        "expected_side_effects",
+        "forbidden_side_effects"
+      ],
+      "title": "P18JourneyCase",
+      "type": "object"
+    },
+    "P18JourneyStep": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "title": "Action",
+          "type": "string"
+        },
+        "assertions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Assertions",
+          "type": "array"
+        },
+        "expected_side_effect_count": {
+          "minimum": 0,
+          "title": "Expected Side Effect Count",
+          "type": "integer"
+        },
+        "expected_state": {
+          "title": "Expected State",
+          "type": "string"
+        },
+        "state_before": {
+          "title": "State Before",
+          "type": "string"
+        },
+        "step_index": {
+          "minimum": 1,
+          "title": "Step Index",
+          "type": "integer"
+        },
+        "version_assertion": {
+          "title": "Version Assertion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "step_index",
+        "action",
+        "state_before",
+        "expected_state",
+        "version_assertion",
+        "expected_side_effect_count",
+        "assertions"
+      ],
+      "title": "P18JourneyStep",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P18JourneyCase"
+      },
+      "maxItems": 8,
+      "minItems": 8,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p18-formal-r1",
+      "enum": [
+        "p18-formal-r1",
+        "p18-formal-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.sys-ds1-p18.v1",
+      "default": "coursepilot.sys-ds1-p18.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "P18JourneyDataset",
+  "type": "object"
+}

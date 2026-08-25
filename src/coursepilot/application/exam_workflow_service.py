@@ -14,7 +14,8 @@ from coursepilot.domain.exam import (
     QuestionBatchResult,
     batch_job_id,
 )
-from coursepilot.repair.exam import ExamRepairPlanner
+from coursepilot.llm import CoursePilotLLMBudgetExceeded
+from coursepilot.repair.exam import ExamRepairPlanner, build_exam_conflict_graph
 from coursepilot.validation.exam import validate_exam_global
 
 
@@ -66,6 +67,8 @@ class ExamWorkflowService:
             async with semaphore:
                 try:
                     questions = await generator(batch, blueprint)
+                except CoursePilotLLMBudgetExceeded:
+                    raise
                 except Exception as exc:
                     return QuestionBatchResult(
                         batch_id=batch.batch_id,
@@ -193,6 +196,8 @@ class ExamWorkflowService:
             repaired_once.add(original.question_id)
             try:
                 candidate = await repairer(original, action.issue_ids, list(questions), blueprint)
+            except CoursePilotLLMBudgetExceeded:
+                raise
             except Exception as exc:
                 repair_events.append(f"FAILED:{original.question_id}:{type(exc).__name__}")
                 continue
@@ -229,6 +234,71 @@ class ExamWorkflowService:
                 break
         repaired_artifact = artifact.model_copy(update={"questions": questions})
         return repaired_artifact, current_report, repair_events
+
+    async def regenerate_conflicts(
+        self,
+        blueprint: ExamBlueprintV2,
+        artifact: ExamArtifact,
+        report: ExamGlobalReport,
+        regenerator: QuestionRepairer,
+        *,
+        max_regenerations: int,
+        resolvable_evidence_ids: set[str] | None = None,
+    ) -> tuple[ExamArtifact, ExamGlobalReport, list[str]]:
+        """Run one immutable whole-exam conflict round without rewriting the exam.
+
+        Targets are selected from the initial global report.  A target is
+        regenerated at most once; newly introduced conflicts are reported but
+        never start another tuning loop.
+        """
+
+        questions = list(artifact.questions)
+        graph = build_exam_conflict_graph(report, questions)
+        by_id = {question.question_id: index for index, question in enumerate(questions)}
+        issue_ids: dict[str, list[str]] = {}
+        for conflict in graph.conflicts:
+            issue_ids.setdefault(conflict.target_question_id, []).extend(conflict.issue_codes)
+        target_ids = graph.target_question_ids[: max(0, max_regenerations)]
+        events: list[str] = []
+        for target_id in target_ids:
+            index = by_id[target_id]
+            original = questions[index]
+            try:
+                candidate = await regenerator(
+                    original,
+                    sorted(set(issue_ids[target_id])),
+                    list(questions),
+                    blueprint,
+                )
+            except CoursePilotLLMBudgetExceeded:
+                raise
+            except Exception as exc:
+                events.append(f"FAILED:{target_id}:{type(exc).__name__}")
+                continue
+            if candidate.slot_id != original.slot_id:
+                events.append(f"REJECTED_SLOT_CHANGE:{target_id}")
+                continue
+            if candidate.question_id != original.question_id:
+                events.append(f"REJECTED_QUESTION_ID_CHANGE:{target_id}")
+                continue
+            questions[index] = original.model_copy(
+                update={
+                    "stimulus": candidate.stimulus,
+                    "stem": candidate.stem,
+                    "options": candidate.options,
+                    "option_assessments": candidate.option_assessments,
+                    "answer": candidate.answer,
+                    "explanation": candidate.explanation,
+                }
+            )
+            events.append(f"REGENERATED:{target_id}")
+
+        final_report = validate_exam_global(
+            blueprint,
+            questions,
+            resolvable_evidence_ids=resolvable_evidence_ids,
+        )
+        return artifact.model_copy(update={"questions": questions}), final_report, events
 
 
 def _batch_fingerprint(blueprint: ExamBlueprintV2, batch: QuestionBatchPlan) -> str:

@@ -209,10 +209,15 @@ def test_p11_existing_approval_replays_after_governance_reporting_changes() -> N
     assert result["formal_gold_promoted"] is False
 
 
-def test_coursepilot_dev_test_remain_empty_and_unlocked_after_p14_approval() -> None:
+def test_coursepilot_formal_splits_and_lock_reflect_consumed_p18_release() -> None:
     dataset_root = ROOT / DATASET_ROOT
     manifest = (dataset_root / "manifest.json").read_text(encoding="utf-8")
-    assert '"gold_status": "p17_integration_pilot_approved"' in manifest
-    assert not (dataset_root / "splits/dev_ids.txt").read_text(encoding="utf-8").strip()
-    assert not (dataset_root / "splits/test_ids.txt").read_text(encoding="utf-8").strip()
-    assert '"locked": false' in (dataset_root / "test.lock.json").read_text(encoding="utf-8")
+    lock = (dataset_root / "test.lock.json").read_text(encoding="utf-8")
+    dev_ids = (dataset_root / "splits/dev_ids.txt").read_text(encoding="utf-8").splitlines()
+    test_ids = (dataset_root / "splits/test_ids.txt").read_text(encoding="utf-8").splitlines()
+    business_prefixes = ("p18-lesson-", "p18-exam-", "p18-ppt-")
+    assert '"gold_status": "p18_formal_gold_approved"' in manifest
+    assert sum(item.startswith(business_prefixes) for item in dev_ids) == 18
+    assert sum(item.startswith(business_prefixes) for item in test_ids) == 12
+    assert '"locked": true' in lock
+    assert '"locked_by": "course_owner"' in lock

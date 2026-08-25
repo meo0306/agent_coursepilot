@@ -1,0 +1,26 @@
+{
+  "category_distribution": {
+    "courserag": 2,
+    "persistence": 1,
+    "provider": 2,
+    "security": 4,
+    "worker": 1
+  },
+  "commitment_sha256": "97ecc727a40fce805fc501ad000363f49d734026aec0ac47103017626381c017",
+  "loader_policy": "dev loaders fail closed; content is released only by the P18 Test lock",
+  "record_count": 10,
+  "record_ids": [
+    "p18-ds8-03",
+    "p18-ds8-06",
+    "p18-ds8-09",
+    "p18-ds8-12",
+    "p18-ds8-15",
+    "p18-ds8-18",
+    "p18-ds8-21",
+    "p18-ds8-24",
+    "p18-ds8-27",
+    "p18-ds8-30"
+  ],
+  "schema_version": "coursepilot.cp-ds8-p18-blind-commitment.v1",
+  "status": "candidate_review_visible_runtime_sealed"
+}

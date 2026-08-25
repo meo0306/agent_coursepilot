@@ -1,0 +1,271 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P18CarriedRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "final_metrics_eligible": {
+          "const": true,
+          "default": true,
+          "title": "Final Metrics Eligible",
+          "type": "boolean"
+        },
+        "record_id": {
+          "title": "Record Id",
+          "type": "string"
+        },
+        "requires_new_review": {
+          "const": false,
+          "default": false,
+          "title": "Requires New Review",
+          "type": "boolean"
+        },
+        "source_path": {
+          "title": "Source Path",
+          "type": "string"
+        },
+        "split": {
+          "const": "dev",
+          "default": "dev",
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "source_path",
+        "approved_record_sha256"
+      ],
+      "title": "P18CarriedRecord",
+      "type": "object"
+    },
+    "P18RepairCase": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Allowed Paths",
+          "type": "array"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "artifact_before": {
+          "title": "Artifact Before",
+          "type": "object"
+        },
+        "artifact_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt"
+          ],
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "expected_after": {
+          "title": "Expected After",
+          "type": "object"
+        },
+        "forbidden_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Forbidden Paths",
+          "type": "array"
+        },
+        "issue_code": {
+          "title": "Issue Code",
+          "type": "string"
+        },
+        "max_repair_rounds": {
+          "default": 2,
+          "maximum": 2,
+          "minimum": 1,
+          "title": "Max Repair Rounds",
+          "type": "integer"
+        },
+        "preservation_assertions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Preservation Assertions",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "source_validation_case_id": {
+          "title": "Source Validation Case Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "split",
+        "artifact_type",
+        "course_id",
+        "source_validation_case_id",
+        "issue_code",
+        "artifact_before",
+        "expected_after",
+        "allowed_paths",
+        "forbidden_paths",
+        "preservation_assertions"
+      ],
+      "title": "P18RepairCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "carried_dev_records": {
+      "items": {
+        "$ref": "#/$defs/P18CarriedRecord"
+      },
+      "maxItems": 15,
+      "minItems": 15,
+      "title": "Carried Dev Records",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p18-formal-r1",
+      "enum": [
+        "p18-formal-r1",
+        "p18-formal-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "new_cases": {
+      "items": {
+        "$ref": "#/$defs/P18RepairCase"
+      },
+      "maxItems": 45,
+      "minItems": 45,
+      "title": "New Cases",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds5-p18.v1",
+      "default": "coursepilot.cp-ds5-p18.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "carried_dev_records",
+    "new_cases"
+  ],
+  "title": "P18RepairDataset",
+  "type": "object"
+}

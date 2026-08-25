@@ -68,8 +68,9 @@ def _answer_keys(question: ExamQuestion) -> list[str]:
     raw = question.answer.strip()
     if not raw:
         return []
-    if "," in raw:
-        return [item.strip() for item in raw.split(",") if item.strip()]
+    separated = [item.strip() for item in re.split(r"[,，、;/；]+", raw) if item.strip()]
+    if len(separated) > 1:
+        return separated
     if raw in question.options:
         return [raw]
     if question.options and all(character in question.options for character in raw):
@@ -97,7 +98,7 @@ def detect_answer_leakage_findings(
     for question in questions:
         stem = normalize_question_text(question.stem)
         answer_values = [
-            question.options.get(key, question.answer) for key in question.answer.split(",")
+            question.options.get(key, question.answer) for key in _answer_keys(question)
         ]
         for answer in answer_values:
             answer_text = normalize_question_text(answer)
@@ -111,9 +112,7 @@ def detect_answer_leakage_findings(
         for other in questions:
             if other.question_id == question.question_id:
                 continue
-            other_answers = [
-                other.options.get(key, other.answer) for key in other.answer.split(",")
-            ]
+            other_answers = [other.options.get(key, other.answer) for key in _answer_keys(other)]
             pair = (question.question_id, other.question_id)
             if pair in seen_cross:
                 continue
@@ -219,7 +218,7 @@ def validate_exam_global(
                     _append_issue(
                         issue_codes, question.question_id, "EXAM_OPTION_ASSESSMENT_MISMATCH"
                     )
-                if correct_keys != answer_keys:
+                if set(correct_keys) != set(answer_keys):
                     if question.question_id not in answer_set_ids:
                         answer_set_ids.append(question.question_id)
                     _append_issue(issue_codes, question.question_id, "EXAM_ANSWER_SET_INCONSISTENT")
@@ -247,7 +246,9 @@ def validate_exam_global(
     duplicate_pairs = detect_duplicate_pairs(
         questions,
         threshold=blueprint.duplicate_similarity_threshold,
-        slot_target_ids={slot.slot_id: slot.target_id for slot in blueprint.slots},
+        slot_target_ids={
+            slot.slot_id: slot.assessment_target or slot.target_id for slot in blueprint.slots
+        },
     )
     if duplicate_pairs:
         errors.append("DUPLICATE_QUESTIONS")

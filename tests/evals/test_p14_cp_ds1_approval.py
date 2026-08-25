@@ -54,19 +54,16 @@ def test_p14_conversation_reviews_and_governance_are_consistent() -> None:
         (ROOT / "datasets/coursepilot_eval/v1/manifest.json").read_text(encoding="utf-8")
     )
     assert manifest["gold_components"]["cp_ds1_p14_pilot"] == "approved"
-    assert manifest["gold_status"] == "p17_integration_pilot_approved"
+    assert manifest["gold_status"] == "p18_formal_gold_approved"
     assert manifest["phase_input_status"]["p14"] == "completed_gate_passed"
     assert manifest["phase_execution_status"]["p14"] == "completed_with_quality_debt"
-    assert (
-        not (ROOT / "datasets/coursepilot_eval/v1/splits/dev_ids.txt")
-        .read_text(encoding="utf-8")
-        .strip()
+    dev_ids = (ROOT / "datasets/coursepilot_eval/v1/splits/dev_ids.txt").read_text(encoding="utf-8")
+    test_ids = (ROOT / "datasets/coursepilot_eval/v1/splits/test_ids.txt").read_text(
+        encoding="utf-8"
     )
-    assert (
-        not (ROOT / "datasets/coursepilot_eval/v1/splits/test_ids.txt")
-        .read_text(encoding="utf-8")
-        .strip()
-    )
+    business_prefixes = ("p18-lesson-", "p18-exam-", "p18-ppt-")
+    assert sum(item.startswith(business_prefixes) for item in dev_ids.splitlines()) == 18
+    assert sum(item.startswith(business_prefixes) for item in test_ids.splitlines()) == 12
 
 
 def test_p14_approval_is_idempotent_and_rejects_wrong_bundle() -> None:

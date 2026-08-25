@@ -1,0 +1,1208 @@
+{
+    "candidate_id":  "p17-1-dual-hypothesis-calibration-r1",
+    "dataset_sha256":  "474425a80638ee0ba7ebd716229d1edaede3fd0b6683305698fb79198f140031",
+    "decisions":  [
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-001"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-002"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-003"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-004"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-005"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-006"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-007"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-008"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-009"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-010"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-011"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-012"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-013"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-014"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-015"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-016"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-017"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-018"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-019"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-020"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-021"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-022"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-023"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-024"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-025"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-026"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-027"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-028"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-029"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-030"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-031"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-032"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-033"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-034"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-035"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-036"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-037"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-038"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-039"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-040"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-041"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-042"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-043"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-044"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-045"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-046"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-047"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-048"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-049"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-050"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-051"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-052"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-053"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-054"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-055"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-056"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-057"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-058"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-059"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-060"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-061"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-062"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-063"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-064"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-065"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-066"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-067"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-068"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-069"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-070"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-071"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-072"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-073"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-074"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-075"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-076"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-077"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-078"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-079"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-080"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-081"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-082"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-083"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-084"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-085"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-086"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-087"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-088"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-089"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-090"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-091"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-092"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-093"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-094"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-095"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-096"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-097"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-098"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-099"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-100"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-101"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-102"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-103"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-104"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-105"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-106"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-107"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-108"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-109"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-110"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-111"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-112"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-113"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-114"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-115"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-116"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-117"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-118"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-119"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-120"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-121"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-122"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-123"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-124"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-125"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-126"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-127"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-128"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-129"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-130"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-131"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-132"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-133"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-134"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-135"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-136"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-137"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-138"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-139"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-140"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-141"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-142"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-143"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-144"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-145"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-146"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-147"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-148"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-149"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-150"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-151"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-152"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-153"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-154"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-155"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-156"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-157"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-158"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-159"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-160"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-161"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-162"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-163"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-164"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-165"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-166"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-167"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-168"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-169"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-170"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-171"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-172"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-173"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-174"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-175"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-176"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-177"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-178"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-179"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-180"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-181"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-182"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-183"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-184"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-185"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-186"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-187"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-188"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-189"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-190"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-191"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-192"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-193"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-194"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-195"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-196"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-197"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-198"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-199"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-200"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-201"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-202"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-203"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-204"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-205"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-206"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-207"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-208"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-209"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-210"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-211"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-212"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-213"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-214"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-215"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-216"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-217"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-218"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-219"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-220"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-221"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-222"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-223"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-224"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-225"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-226"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-227"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-228"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-229"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-230"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-231"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-232"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-233"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-234"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-235"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-236"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-237"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-238"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-239"
+                      },
+                      {
+                          "decision":  "pass",
+                          "note":  "",
+                          "record_id":  "p17-1-cal-240"
+                      }
+                  ],
+    "review_status":  "owner_approved",
+    "schema_version":  "courserag.p17-1-security-calibration-review.v1"
+}

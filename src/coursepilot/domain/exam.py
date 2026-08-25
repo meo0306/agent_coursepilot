@@ -19,6 +19,15 @@ ContentRole = Literal[
     "table",
     "example",
 ]
+StimulusRequirement = Literal["optional", "required", "forbidden"]
+ExamConflictKind = Literal[
+    "semantic_duplicate",
+    "assessment_target_overlap",
+    "answer_leakage",
+    "choice_contract",
+    "answer_set",
+    "stimulus_contract",
+]
 
 
 class EvidenceRef(DomainModel):
@@ -43,6 +52,55 @@ class QuestionSlotPlan(DomainModel):
     target_id: str = Field(min_length=1)
     knowledge_point_ids: list[str] = Field(min_length=1)
     evidence_ids: list[str] = Field(min_length=1)
+    # P18 pre-freeze generation constraints.  Defaults preserve historical P15
+    # Blueprint payloads while the V2 evaluator supplies the complete contract.
+    assessment_target: str | None = None
+    fact_signature: str | None = None
+    answer_signature: str | None = None
+    stimulus_requirement: StimulusRequirement = "optional"
+    distractor_constraints: list[str] = Field(default_factory=list)
+    excluded_fact_signatures: list[str] = Field(default_factory=list)
+    excluded_answer_signatures: list[str] = Field(default_factory=list)
+
+
+class SlotGenerationConstraint(DomainModel):
+    slot_id: str = Field(min_length=1)
+    assessment_target: str = Field(min_length=1)
+    fact_signature: str = Field(min_length=1)
+    answer_signature: str = Field(min_length=1)
+    stimulus_requirement: StimulusRequirement = "optional"
+    excluded_fact_signatures: list[str] = Field(default_factory=list)
+    excluded_answer_signatures: list[str] = Field(default_factory=list)
+
+
+class ExamGenerationPlan(DomainModel):
+    blueprint_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    constraints: list[SlotGenerationConstraint] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_unique_targets(self) -> ExamGenerationPlan:
+        slot_ids = [item.slot_id for item in self.constraints]
+        if len(slot_ids) != len(set(slot_ids)):
+            raise ValueError("generation plan slot_id must be unique")
+        targets = [item.assessment_target for item in self.constraints]
+        if len(targets) != len(set(targets)):
+            raise ValueError("assessment_target must be unique across an exam")
+        return self
+
+
+class ExamConflict(DomainModel):
+    kind: ExamConflictKind
+    target_question_id: str = Field(min_length=1)
+    source_question_id: str | None = None
+    issue_codes: list[str] = Field(min_length=1)
+
+
+class ExamConflictGraph(DomainModel):
+    conflicts: list[ExamConflict] = Field(default_factory=list)
+
+    @property
+    def target_question_ids(self) -> list[str]:
+        return list(dict.fromkeys(item.target_question_id for item in self.conflicts))
 
 
 class QuestionBatchPlan(DomainModel):
@@ -84,7 +142,42 @@ class ExamBlueprintV2(DomainModel):
             raise ValueError("batches must cover every slot exactly once")
         if len(planned) != len(set(planned)):
             raise ValueError("a slot cannot occur in multiple batches")
+        assessment_targets = [
+            slot.assessment_target for slot in self.slots if slot.assessment_target is not None
+        ]
+        if assessment_targets and len(assessment_targets) != len(self.slots):
+            raise ValueError("assessment targets must be supplied for every slot or none")
+        if len(assessment_targets) != len(set(assessment_targets)):
+            raise ValueError("assessment_target must be unique")
         return self
+
+    def generation_plan(self) -> ExamGenerationPlan:
+        constraints: list[SlotGenerationConstraint] = []
+        fact_signatures = [slot.fact_signature for slot in self.slots if slot.fact_signature]
+        answer_signatures = [slot.answer_signature for slot in self.slots if slot.answer_signature]
+        if len(fact_signatures) != len(self.slots) or len(answer_signatures) != len(self.slots):
+            raise ValueError("complete fact and answer signatures are required")
+        for slot in self.slots:
+            if not slot.assessment_target or not slot.fact_signature or not slot.answer_signature:
+                raise ValueError("complete generation constraints are required")
+            constraints.append(
+                SlotGenerationConstraint(
+                    slot_id=slot.slot_id,
+                    assessment_target=slot.assessment_target,
+                    fact_signature=slot.fact_signature,
+                    answer_signature=slot.answer_signature,
+                    stimulus_requirement=slot.stimulus_requirement,
+                    excluded_fact_signatures=sorted(
+                        set(slot.excluded_fact_signatures)
+                        | {value for value in fact_signatures if value != slot.fact_signature}
+                    ),
+                    excluded_answer_signatures=sorted(
+                        set(slot.excluded_answer_signatures)
+                        | {value for value in answer_signatures if value != slot.answer_signature}
+                    ),
+                )
+            )
+        return ExamGenerationPlan(blueprint_hash=self.stable_hash(), constraints=constraints)
 
     def stable_hash(self) -> str:
         payload = self.model_dump(mode="json", exclude={"content_hash"})

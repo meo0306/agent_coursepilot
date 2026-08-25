@@ -1,0 +1,346 @@
+{
+  "cases": [
+    {
+      "approval": null,
+      "artifact_type": "lesson",
+      "candidate_source": "approved_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/lesson_default_v1.docx",
+      "normalized_sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+      "record_id": "p18-ds7-lesson_standard_university_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "session_plan",
+        "content",
+        "references"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P11/P14 内置资源，复用既有审批并重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/lesson_default_v1.docx",
+      "source_sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+      "split_role": "dev_contract",
+      "template_id": "lesson_standard_university_v1",
+      "verification_evidence_paths": [
+        "docs/refactor/baselines/b0/export_samples/lesson_sample.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "lesson",
+      "candidate_source": "approved_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/lesson_default_v1.docx",
+      "normalized_sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+      "record_id": "p18-ds7-lesson_seminar_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "session_plan",
+        "content",
+        "references"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P11/P14 内置资源，复用既有审批并重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/lesson_default_v1.docx",
+      "source_sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+      "split_role": "dev_contract",
+      "template_id": "lesson_seminar_v1",
+      "verification_evidence_paths": [
+        "docs/refactor/baselines/b0/export_samples/lesson_sample.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "lesson",
+      "candidate_source": "approved_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/lesson_default_v1.docx",
+      "normalized_sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+      "record_id": "p18-ds7-lesson_lab_practice_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "session_plan",
+        "content",
+        "references"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P11/P14 内置资源，复用既有审批并重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/lesson_default_v1.docx",
+      "source_sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956",
+      "split_role": "dev_contract",
+      "template_id": "lesson_lab_practice_v1",
+      "verification_evidence_paths": [
+        "docs/refactor/baselines/b0/export_samples/lesson_sample.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "exam",
+      "candidate_source": "approved_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/exam_default_v1.docx",
+      "normalized_sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+      "record_id": "p18-ds7-exam_chapter_assignment_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "questions",
+        "answer_sheet",
+        "explanations"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P11/P15 内置资源，复用既有审批并重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/exam_default_v1.docx",
+      "source_sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+      "split_role": "dev_contract",
+      "template_id": "exam_chapter_assignment_v1",
+      "verification_evidence_paths": [
+        "docs/refactor/baselines/b0/export_samples/student_exam_sample.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "exam",
+      "candidate_source": "approved_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/exam_default_v1.docx",
+      "normalized_sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+      "record_id": "p18-ds7-exam_unit_quiz_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "questions",
+        "answer_sheet",
+        "explanations"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P11/P15 内置资源，复用既有审批并重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/exam_default_v1.docx",
+      "source_sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+      "split_role": "dev_contract",
+      "template_id": "exam_unit_quiz_v1",
+      "verification_evidence_paths": [
+        "docs/refactor/baselines/b0/export_samples/student_exam_sample.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "exam",
+      "candidate_source": "approved_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/exam_default_v1.docx",
+      "normalized_sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+      "record_id": "p18-ds7-exam_midterm_final_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "questions",
+        "answer_sheet",
+        "explanations"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P11/P15 内置资源，复用既有审批并重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/exam_default_v1.docx",
+      "source_sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e",
+      "split_role": "dev_contract",
+      "template_id": "exam_midterm_final_v1",
+      "verification_evidence_paths": [
+        "docs/refactor/baselines/b0/export_samples/student_exam_sample.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "p16_final_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/p16_standard_lecture_v2.pptx",
+      "normalized_sha256": "a16a462b6c89168ee711cc832dc62ecf771de22374c5ccfe167f2b36916d6a88",
+      "record_id": "p18-ds7-ppt_standard_lecture_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "content",
+        "comparison",
+        "picture",
+        "references"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P16 修复后真实可编辑模板，重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/p16_standard_lecture_v2.pptx",
+      "source_sha256": "a16a462b6c89168ee711cc832dc62ecf771de22374c5ccfe167f2b36916d6a88",
+      "split_role": "dev_contract",
+      "template_id": "ppt_standard_lecture_v1",
+      "verification_evidence_paths": [
+        "storage_eval/cpds37_p16_review/e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91/assets/ppt_standard_lecture_v1"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "p16_final_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/p16_concept_explanation_v2.pptx",
+      "normalized_sha256": "738a7efbddb11e68c34ba841f28ec48ebd3600d57b7c6ea06ded4dd3c0f91ebe",
+      "record_id": "p18-ds7-ppt_concept_explanation_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "content",
+        "comparison",
+        "picture",
+        "references"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P16 修复后真实可编辑模板，重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/p16_concept_explanation_v2.pptx",
+      "source_sha256": "738a7efbddb11e68c34ba841f28ec48ebd3600d57b7c6ea06ded4dd3c0f91ebe",
+      "split_role": "dev_contract",
+      "template_id": "ppt_concept_explanation_v1",
+      "verification_evidence_paths": [
+        "storage_eval/cpds37_p16_review/e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91/assets/ppt_concept_explanation_v1"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "p16_final_runtime_binding",
+      "custom_template": false,
+      "license": "project MIT",
+      "normalized_path": "resources/templates/exporters/p16_case_seminar_v2.pptx",
+      "normalized_sha256": "50364085e71f71fd23901f431966a58f25f8b7ec16fb7ffdccb08a266a0abde5",
+      "record_id": "p18-ds7-ppt_case_seminar_v1",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "title",
+        "content",
+        "comparison",
+        "picture",
+        "references"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P16 修复后真实可编辑模板，重新核验实际 Hash"
+      ],
+      "source_commit": null,
+      "source_kind": "project_builtin",
+      "source_path": "resources/templates/exporters/p16_case_seminar_v2.pptx",
+      "source_sha256": "50364085e71f71fd23901f431966a58f25f8b7ec16fb7ffdccb08a266a0abde5",
+      "split_role": "dev_contract",
+      "template_id": "ppt_case_seminar_v1",
+      "verification_evidence_paths": [
+        "storage_eval/cpds37_p16_review/e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91/assets/ppt_case_seminar_v1"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "lesson",
+      "candidate_source": "owner_selected_github_public_template",
+      "custom_template": true,
+      "license": "MIT",
+      "normalized_path": "storage_eval/p18_template_sources/a149926faf92265e86eee80717434fe946fdbadb/combined_areas.coursepilot.normalized.docx",
+      "normalized_sha256": "e68b5506b9cde7a7e787bfd5db2d98931f33332280eea8039107766b3a8bc1a3",
+      "record_id": "p18-ds7-custom-docx-combined-areas",
+      "render_status": "pending_environment",
+      "required_roles": [
+        "title",
+        "header_title",
+        "section_title",
+        "section_content",
+        "page_number"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "ZIP 路径安全，无目录穿越",
+        "无 VBA、ActiveX、OLE 或嵌入对象",
+        "无 External Relationship 或远程资源",
+        "占位符仅作为静态文本处理，不执行模板代码"
+      ],
+      "source_commit": "a149926faf92265e86eee80717434fe946fdbadb",
+      "source_kind": "github_public",
+      "source_path": "storage_eval/p18_template_sources/a149926faf92265e86eee80717434fe946fdbadb/combined_areas.docx",
+      "source_sha256": "45b4b86d5927381b0502659c4604e2ce6bd28f6ff6a4a5a0b76f170628f319bc",
+      "split_role": "heldout_custom",
+      "template_id": "custom_docx_combined_areas_v1",
+      "verification_evidence_paths": [
+        "storage_eval/p18_template_sources/a149926faf92265e86eee80717434fe946fdbadb/combined_areas.coursepilot.smoke.docx"
+      ]
+    },
+    {
+      "approval": null,
+      "artifact_type": "ppt",
+      "candidate_source": "p16_owner_selected_external_template",
+      "custom_template": true,
+      "license": "CC0",
+      "normalized_path": "storage_eval/p16_template_sources/0f18f3f1fe2d76413c45b0106e7585d64beb920d/lrk-slides-velis.normalized.pptx",
+      "normalized_sha256": "caec81e7bbcc4712dc60e90af2bae26a3a7890b3300432c0b1cfaa8dc024e32a",
+      "record_id": "p18-ds7-custom-pptx-velis",
+      "render_status": "prior_phase_verified",
+      "required_roles": [
+        "Presentation Title",
+        "Section Title",
+        "Title and Content",
+        "Two Columns",
+        "Picture",
+        "Close"
+      ],
+      "review_status": "candidate",
+      "security_findings": [
+        "P16 已完成来源、许可证、映射、可编辑性和8页烟测审核"
+      ],
+      "source_commit": "0f18f3f1fe2d76413c45b0106e7585d64beb920d",
+      "source_kind": "p16_approved_velis",
+      "source_path": "storage_eval/p16_template_sources/0f18f3f1fe2d76413c45b0106e7585d64beb920d/lrk-slides-velis.normalized.pptx",
+      "source_sha256": "caec81e7bbcc4712dc60e90af2bae26a3a7890b3300432c0b1cfaa8dc024e32a",
+      "split_role": "heldout_custom",
+      "template_id": "custom_pptx_velis_v1",
+      "verification_evidence_paths": [
+        "storage_eval/cpds37_p16_review/e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91/assets/velis-smoke-8slides.pptx"
+      ]
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-r1",
+  "schema_version": "coursepilot.cp-ds7-p18.v1"
+}

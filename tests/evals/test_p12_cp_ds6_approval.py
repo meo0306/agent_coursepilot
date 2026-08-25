@@ -31,10 +31,10 @@ def test_p12_approved_package_and_governance_are_hash_bound() -> None:
     manifest = json.loads(
         (ROOT / "datasets/coursepilot_eval/v1/manifest.json").read_text(encoding="utf-8")
     )
-    assert manifest["gold_status"] == "p17_integration_pilot_approved"
+    assert manifest["gold_status"] == "p18_formal_gold_approved"
     assert manifest["phase_input_status"]["p12"] == "completed_gate_passed"
     assert manifest["phase_input_status"]["p13"] == "completed_gate_passed"
-    assert '"locked": false' in (ROOT / "datasets/coursepilot_eval/v1/test.lock.json").read_text(
+    assert '"locked": true' in (ROOT / "datasets/coursepilot_eval/v1/test.lock.json").read_text(
         encoding="utf-8"
     )
 

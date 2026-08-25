@@ -4,6 +4,8 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
+import pytest
+
 from coursepilot.evals.formal_schemas import CPDS8P17Dataset, SYSDS1P17Dataset
 from evaluation.p10_schemas import P17SecurityQualificationDataset
 from evaluation.p17_input_approval import approve_p17_inputs
@@ -64,14 +66,15 @@ def test_p17_normalized_reviews_cover_all_final_records() -> None:
     assert all(item["decision"] == "approve" for item in security["records"])
 
 
-def test_p17_approval_replay_is_idempotent() -> None:
-    result = approve_p17_inputs(
-        repository_root=Path("."),
-        integration_bundle_sha256=(
-            "c44c94779b83731a3a3029498703ff3929173e36637272faac548ed2662bc7d1"
-        ),
-        security_bundle_sha256=("be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b"),
-        reviewed_at=datetime(2099, 1, 1, tzinfo=UTC),
-    )
-    assert result["approved_record_counts"] == {"integration": 38, "security": 120}
-    assert result["blind_content_status"] == "empty_unread"
+def test_p17_approval_mutation_is_rejected_after_p18_test_lock() -> None:
+    with pytest.raises(ValueError, match="cannot modify a locked CoursePilot Test"):
+        approve_p17_inputs(
+            repository_root=Path("."),
+            integration_bundle_sha256=(
+                "c44c94779b83731a3a3029498703ff3929173e36637272faac548ed2662bc7d1"
+            ),
+            security_bundle_sha256=(
+                "be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b"
+            ),
+            reviewed_at=datetime(2099, 1, 1, tzinfo=UTC),
+        )

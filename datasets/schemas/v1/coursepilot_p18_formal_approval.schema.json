@@ -1,0 +1,110 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "p18_formal_gold_without_cp_ds0_or_test_lock",
+      "default": "p18_formal_gold_without_cp_ds0_or_test_lock",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "approved_dataset_sha256s": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 9,
+      "minProperties": 9,
+      "title": "Approved Dataset Sha256S",
+      "type": "object"
+    },
+    "approved_record_count": {
+      "minimum": 1,
+      "title": "Approved Record Count",
+      "type": "integer"
+    },
+    "approved_record_sha256s": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 1,
+      "title": "Approved Record Sha256S",
+      "type": "object"
+    },
+    "bundle_sha256s": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 3,
+      "minProperties": 3,
+      "title": "Bundle Sha256S",
+      "type": "object"
+    },
+    "candidate_dataset_sha256s": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 9,
+      "minProperties": 9,
+      "title": "Candidate Dataset Sha256S",
+      "type": "object"
+    },
+    "component_split_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Component Split Manifest Sha256",
+      "type": "string"
+    },
+    "cp_ds0_created": {
+      "const": false,
+      "default": false,
+      "title": "Cp Ds0 Created",
+      "type": "boolean"
+    },
+    "review_source_sha256s": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 3,
+      "title": "Review Source Sha256S",
+      "type": "object"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "const": "course_owner",
+      "default": "course_owner",
+      "title": "Reviewer Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.p18-formal-approval.v1",
+      "default": "coursepilot.p18-formal-approval.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "test_locked": {
+      "const": false,
+      "default": false,
+      "title": "Test Locked",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "reviewed_at",
+    "bundle_sha256s",
+    "review_source_sha256s",
+    "candidate_dataset_sha256s",
+    "approved_dataset_sha256s",
+    "approved_record_sha256s",
+    "approved_record_count",
+    "component_split_manifest_sha256"
+  ],
+  "title": "P18FormalApproval",
+  "type": "object"
+}

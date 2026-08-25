@@ -1,0 +1,310 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P18CarriedRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "final_metrics_eligible": {
+          "const": true,
+          "default": true,
+          "title": "Final Metrics Eligible",
+          "type": "boolean"
+        },
+        "record_id": {
+          "title": "Record Id",
+          "type": "string"
+        },
+        "requires_new_review": {
+          "const": false,
+          "default": false,
+          "title": "Requires New Review",
+          "type": "boolean"
+        },
+        "source_path": {
+          "title": "Source Path",
+          "type": "string"
+        },
+        "split": {
+          "const": "dev",
+          "default": "dev",
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "source_path",
+        "approved_record_sha256"
+      ],
+      "title": "P18CarriedRecord",
+      "type": "object"
+    },
+    "P18IssueGold": {
+      "additionalProperties": false,
+      "properties": {
+        "auto_repairable": {
+          "title": "Auto Repairable",
+          "type": "boolean"
+        },
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "json_path": {
+          "pattern": "^\\$",
+          "title": "Json Path",
+          "type": "string"
+        },
+        "layer": {
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
+          ],
+          "title": "Layer",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error",
+            "critical"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "layer",
+        "json_path",
+        "auto_repairable",
+        "rationale"
+      ],
+      "title": "P18IssueGold",
+      "type": "object"
+    },
+    "P18ValidationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "artifact_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt"
+          ],
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "clean_artifact": {
+          "title": "Clean Artifact",
+          "type": "boolean"
+        },
+        "clean_fragment": {
+          "title": "Clean Fragment",
+          "type": "object"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "faulty_fragment": {
+          "title": "Faulty Fragment",
+          "type": "object"
+        },
+        "fixture_family_id": {
+          "title": "Fixture Family Id",
+          "type": "string"
+        },
+        "gold_issues": {
+          "items": {
+            "$ref": "#/$defs/P18IssueGold"
+          },
+          "title": "Gold Issues",
+          "type": "array"
+        },
+        "injection_description": {
+          "title": "Injection Description",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "source_task_id": {
+          "title": "Source Task Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "split",
+        "artifact_type",
+        "course_id",
+        "source_task_id",
+        "fixture_family_id",
+        "clean_artifact",
+        "clean_fragment",
+        "faulty_fragment",
+        "injection_description",
+        "gold_issues"
+      ],
+      "title": "P18ValidationCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "carried_dev_records": {
+      "items": {
+        "$ref": "#/$defs/P18CarriedRecord"
+      },
+      "maxItems": 30,
+      "minItems": 30,
+      "title": "Carried Dev Records",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p18-formal-r1",
+      "enum": [
+        "p18-formal-r1",
+        "p18-formal-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "new_cases": {
+      "items": {
+        "$ref": "#/$defs/P18ValidationCase"
+      },
+      "maxItems": 60,
+      "minItems": 60,
+      "title": "New Cases",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds4-p18.v1",
+      "default": "coursepilot.cp-ds4-p18.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "carried_dev_records",
+    "new_cases"
+  ],
+  "title": "P18ValidationDataset",
+  "type": "object"
+}

@@ -3,17 +3,27 @@
   "dataset_version": "v1",
   "gold_components": {
     "cp_ds1_p14_pilot": "approved",
+    "cp_ds1_p18_formal": "approved",
     "cp_ds2_p15_pilot": "approved",
+    "cp_ds2_p18_formal": "approved",
     "cp_ds3_p16_pilot": "approved",
+    "cp_ds3_p18_formal": "approved",
     "cp_ds4_p13_pilot": "approved",
+    "cp_ds4_p18_formal": "approved",
     "cp_ds5_p13_pilot": "approved",
+    "cp_ds5_p18_formal": "approved",
+    "cp_ds6_p18_formal": "approved",
     "cp_ds7_p16_pilot": "approved",
+    "cp_ds7_p18_formal": "approved",
     "cp_ds8_p17_pilot": "approved",
-    "sys_ds1_p17_pilot": "approved"
+    "cp_ds8_p18_formal": "approved",
+    "sys_ds1_p17_pilot": "approved",
+    "sys_ds1_p18_formal": "approved"
   },
-  "gold_status": "p17_integration_pilot_approved",
+  "gold_status": "p18_formal_gold_approved",
   "human_score_pilot": "human_scores/pilot.jsonl",
   "outputs_inside_dataset_allowed": false,
+  "p18_test_lock_status": "locked_owner_authorized",
   "phase_execution_status": {
     "p11": "completed",
     "p12": "completed",
@@ -29,7 +39,8 @@
     "p14": "completed_gate_passed",
     "p15": "completed_gate_passed",
     "p16": "completed_gate_passed",
-    "p17": "formal_dev_eval_ready"
+    "p17": "formal_dev_eval_ready",
+    "p18": "formal_dev_eval_ready"
   },
   "schema_version": "coursepilot.dataset-manifest.v1",
   "tracks": [

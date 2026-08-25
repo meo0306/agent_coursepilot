@@ -15,6 +15,10 @@ from courserag.parsers.quality import build_parse_preview, build_quality_report
 from courserag.persistence.models import ArtifactRecord
 from courserag.persistence.repositories import CourseRAGRepository
 from courserag.security.detector import PromptInjectionDetector
+from courserag.security.dual_hypothesis import (
+    DualHypothesisSecurityEnsemble,
+    TriStateDualHypothesisDecisionLayer,
+)
 from courserag.security.ensemble import MultiAxisSecurityEnsemble
 from courserag.security.policy import PromptInjectionDecisionPolicy
 from courserag.security.prompt_injection import apply_prompt_injection_findings
@@ -188,4 +192,141 @@ def multi_axis_security_stage_config(
         "override_manifest_sha256": profile.override_manifest_sha256,
         "structured_profile_sha256": profile.structured_profile_sha256,
         "axes": [axis.model_dump(mode="json") for axis in profile.axes],
+    }
+
+
+@dataclass(frozen=True)
+class DualHypothesisSecurityAnnotationStage:
+    """Candidate v3 annotation stage; disabled Profiles cannot execute."""
+
+    parsed_artifact: bytes
+    document_version_id: str
+    ensemble: DualHypothesisSecurityEnsemble
+    window_builder: SecurityWindowBuilder
+    name: str = "security_annotation"
+    version: str = "3.0"
+
+    def execute(self, context: StageContext) -> StageOutput:
+        artifact_sha256 = sha256_bytes(self.parsed_artifact)
+        if context.input_hashes != (artifact_sha256,):
+            raise ValueError("security Stage input Hash differs from parsed Artifact")
+        if context.input_identities != (f"{self.document_version_id}:parsed_document",):
+            raise ValueError("security Stage input identity differs from document version")
+        if not self.ensemble.profile.enabled:
+            raise RuntimeError("dual-hypothesis security Profile is not released")
+        expected = dual_hypothesis_security_stage_config(self.ensemble)
+        if context.config != expected:
+            raise ValueError("security Stage config differs from dual-hypothesis Profile")
+        document = ParsedDocumentIR.model_validate_json(
+            read_bundle_json(self.parsed_artifact, "document_ir.json")
+        )
+        if document.document_version_id != self.document_version_id:
+            raise ValueError("parsed Artifact document version differs from security Stage")
+        windows = self.window_builder.build(document)
+        scores = self.ensemble.score(windows)
+        findings = self.ensemble.decide(document, windows, scores)
+        annotated = apply_prompt_injection_findings(
+            document,
+            findings,
+            profile_name=self.ensemble.profile.name,
+            profile_sha256=self.ensemble.profile.sha256,
+            detector_id="dual_hypothesis_local",
+        )
+        quality = build_quality_report(annotated)
+        preview = build_parse_preview(annotated)
+        bundle = replace_parsed_artifact_document(self.parsed_artifact, annotated, quality, preview)
+        return StageOutput(
+            content=bundle.content,
+            media_type="application/vnd.courserag.parsed-document+zip",
+            counts={
+                "windows": len(windows),
+                "findings": len(findings),
+                "marked_windows": sum(score.marked for score in scores),
+                "warnings": len(annotated.warnings),
+            },
+            warnings=quality.warning_codes,
+        )
+
+
+def dual_hypothesis_security_stage_config(
+    ensemble: DualHypothesisSecurityEnsemble,
+) -> dict[str, object]:
+    profile = ensemble.profile
+    return {
+        "provider": "dual_hypothesis_local",
+        "decision_profile_name": profile.name,
+        "decision_profile_sha256": profile.sha256,
+        "semantic_encoder_identity": profile.semantic_encoder_identity,
+        "hikma_detector_id": profile.hikma_detector_id,
+        "attack_threshold": profile.attack_threshold,
+        "minimum_margin": profile.minimum_margin,
+    }
+
+
+@dataclass(frozen=True)
+class TriStateSecurityAnnotationStage:
+    parsed_artifact: bytes
+    document_version_id: str
+    ensemble: DualHypothesisSecurityEnsemble
+    decision_layer: TriStateDualHypothesisDecisionLayer
+    window_builder: SecurityWindowBuilder
+    name: str = "security_annotation"
+    version: str = "4.0"
+
+    def execute(self, context: StageContext) -> StageOutput:
+        artifact_sha256 = sha256_bytes(self.parsed_artifact)
+        if context.input_hashes != (artifact_sha256,):
+            raise ValueError("security Stage input Hash differs from parsed Artifact")
+        if context.input_identities != (f"{self.document_version_id}:parsed_document",):
+            raise ValueError("security Stage input identity differs from document version")
+        if not self.decision_layer.profile.enabled:
+            raise RuntimeError("tri-state security Profile is not released")
+        expected = tri_state_security_stage_config(self.ensemble, self.decision_layer)
+        if context.config != expected:
+            raise ValueError("security Stage config differs from tri-state Profile")
+        document = ParsedDocumentIR.model_validate_json(
+            read_bundle_json(self.parsed_artifact, "document_ir.json")
+        )
+        if document.document_version_id != self.document_version_id:
+            raise ValueError("parsed Artifact document version differs from security Stage")
+        windows = self.window_builder.build(document)
+        scores = self.ensemble.score(windows)
+        decisions = self.decision_layer.decide_scores(scores)
+        findings = self.decision_layer.build_findings(document, windows, scores, decisions)
+        annotated = apply_prompt_injection_findings(
+            document,
+            findings,
+            profile_name=self.decision_layer.profile.name,
+            profile_sha256=self.decision_layer.profile.sha256,
+            detector_id="tri_state_dual_hypothesis_local",
+        )
+        quality = build_quality_report(annotated)
+        preview = build_parse_preview(annotated)
+        bundle = replace_parsed_artifact_document(self.parsed_artifact, annotated, quality, preview)
+        counts = {
+            "windows": len(windows),
+            "findings": len(findings),
+            "warnings": len(annotated.warnings),
+        }
+        for decision in ("attack", "needs_review", "safe"):
+            counts[f"decision_{decision}"] = sum(item.decision == decision for item in decisions)
+        return StageOutput(
+            content=bundle.content,
+            media_type="application/vnd.courserag.parsed-document+zip",
+            counts=counts,
+            warnings=quality.warning_codes,
+        )
+
+
+def tri_state_security_stage_config(
+    ensemble: DualHypothesisSecurityEnsemble,
+    decision_layer: TriStateDualHypothesisDecisionLayer,
+) -> dict[str, object]:
+    return {
+        "provider": "tri_state_dual_hypothesis_local",
+        "base_profile_sha256": ensemble.profile.sha256,
+        "decision_profile_name": decision_layer.profile.name,
+        "decision_profile_sha256": decision_layer.profile.sha256,
+        "attack_boundary": decision_layer.profile.attack_boundary,
+        "safe_boundary": decision_layer.profile.safe_boundary,
     }

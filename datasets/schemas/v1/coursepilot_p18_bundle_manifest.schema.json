@@ -1,0 +1,94 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "bundle_kind": {
+      "enum": [
+        "business",
+        "quality_recovery",
+        "integration_export"
+      ],
+      "title": "Bundle Kind",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 1,
+      "title": "Candidate Hashes",
+      "type": "object"
+    },
+    "candidate_record_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 1,
+      "title": "Candidate Record Hashes",
+      "type": "object"
+    },
+    "html_review_generated": {
+      "const": false,
+      "default": false,
+      "title": "Html Review Generated",
+      "type": "boolean"
+    },
+    "provider_calls": {
+      "const": 0,
+      "default": 0,
+      "title": "Provider Calls",
+      "type": "integer"
+    },
+    "review_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Review Record Ids",
+      "type": "array"
+    },
+    "review_rounds_required": {
+      "const": 1,
+      "default": 1,
+      "title": "Review Rounds Required",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "coursepilot.p18-bundle-manifest.v1",
+      "default": "coursepilot.p18-bundle-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "test_locked": {
+      "const": false,
+      "default": false,
+      "title": "Test Locked",
+      "type": "boolean"
+    },
+    "upstream_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 1,
+      "title": "Upstream Hashes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_kind",
+    "bundle_sha256",
+    "candidate_hashes",
+    "candidate_record_hashes",
+    "upstream_hashes",
+    "review_record_ids"
+  ],
+  "title": "P18BundleManifest",
+  "type": "object"
+}

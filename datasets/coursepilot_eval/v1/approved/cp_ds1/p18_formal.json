@@ -1,0 +1,1100 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "ec6e61cc3a5bd1fb2a8bbc64542c1d57772b9ec7c3b821d96cb750e171f77805",
+        "candidate_sha256": "4458d66b147dd000c706b6a0f122dd861d19c1700b5e6ce77d68817653e14d98",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-01",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-01",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "阿兰·图灵(Alan Mathison Turing)于1950年提出了图灵测试[2]，这是一种用于评估机器是否具有智能的测试方法。",
+        "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 45,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-8d768f09760ca8acfed4297b",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+          "evidence_record_sha256": "86da370f51ed5f9f2b7e682792d62e770006332160f1bb3a35809d45fc1124bc",
+          "evidence_text": "阿兰·图灵(Alan Mathison Turing)于1950年提出了图灵测试[2]，这是一种用于评估机器是否具有智能的测试方法。",
+          "knowledge_point_id": "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048",
+          "knowledge_point_name": "图灵测试",
+          "knowledge_point_record_sha256": "dfba63b139c6126bd134e35b761e34b3f944f695336c84ed68a211832c64d7df",
+          "knowledge_point_summary": "阿兰·图灵(Alan Mathison Turing)于1950年提出了图灵测试[2]，这是一种用于评估机器是否具有智能的测试方法。",
+          "necessary_neighbors": [],
+          "page_end": 6,
+          "page_start": 6,
+          "section_ids": [
+            "ds3-scope-docx-1-1-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-b7c8d01afe0a722792a9d4b3",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+          "evidence_record_sha256": "d4c62d41b9d16e59e5280fed8d3b5558756a4d89a9da51f43ca526cc11d0529d",
+          "evidence_text": "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。",
+          "knowledge_point_id": "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+          "knowledge_point_name": "Scikit-Learn二分类数据构造",
+          "knowledge_point_record_sha256": "900d3060bcc917255d7241229aaf82871e412acf83d01bc31f565758655186cb",
+          "knowledge_point_summary": "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。",
+          "necessary_neighbors": [
+            "该案例基于Python语言的Scikit-Learn机器学习库实现感知机模型，并完成二分类任务。"
+          ],
+          "page_end": 51,
+          "page_start": 51,
+          "section_ids": [
+            "ds3-scope-docx-2-2"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-cf0ebf129d1d7dc0f54123bd",
+      "task_prompt": "仅依据绑定证据，围绕“图灵测试、Scikit-Learn二分类数据构造”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_standard_university_v1",
+      "title": "图灵测试、Scikit-Learn二分类数据构造教案任务",
+      "total_sessions": 2,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+          "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "该案例基于Python语言的Scikit-Learn机器学习库实现感知机模型，并完成二分类任务。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+          "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b"
+        ],
+        "retrieval_intent": "检索支持“图灵测试、Scikit-Learn二分类数据构造”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "00ef95e4a2a32ad2c99fbec1f1e31f6660f83049a2c91bbff241c4e4f72e1883",
+        "candidate_sha256": "1995dfb1ef3a4759840ff2828079e92dc78356ae141be651a2aedb54c3ec0ed2",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-02",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-02",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "感知机是一种有监督的二元分类器，即一个可以表明输入样本是否属于特定的一个类别的函数。",
+        "语音处理\t语音识别、语音合成等"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 50,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-82611e9056f1879259e53d79",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "evidence_record_sha256": "32d035442a67e296f5f6d26fa9f65165d35c3ce3a45a1e3b3c04e90a734dd2d5",
+          "evidence_text": "感知机是一种有监督的二元分类器，即一个可以表明输入样本是否属于特定的一个类别的函数。",
+          "knowledge_point_id": "gold-kp-aa2da4d3c15ccea6516e7df6436d8de1",
+          "knowledge_point_name": "感知机",
+          "knowledge_point_record_sha256": "996fdc16ddfd71829b53892f2c854aa5bc0f25228b238f4ed91de87f43421406",
+          "knowledge_point_summary": "感知机是一种有监督的二元分类器，即一个可以表明输入样本是否属于特定的一个类别的函数。",
+          "necessary_neighbors": [],
+          "page_end": 45,
+          "page_start": 45,
+          "section_ids": [
+            "ds3-scope-docx-2-2-2"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-835fb00f8d1f491fdf2e39d5",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9",
+          "evidence_record_sha256": "08f12e921b0108e84d2f8e7402496a71584e000b752eb714bf0f5038e860505d",
+          "evidence_text": "语音处理\t语音识别、语音合成等",
+          "knowledge_point_id": "gold-kp-37b7a1d9c6f2d19ce8443f3f3b21fac7",
+          "knowledge_point_name": "深度学习在语音处理中的应用",
+          "knowledge_point_record_sha256": "4a3f34f5294932e0badf30ce12f1eeb01b039db5d403d06e56de320f59c47322",
+          "knowledge_point_summary": "语音处理\t语音识别、语音合成等",
+          "necessary_neighbors": [
+            "表3.1 深度学习应用场景",
+            "应用领域\t具体应用方向"
+          ],
+          "page_end": 92,
+          "page_start": 92,
+          "section_ids": [
+            "ds3-scope-docx-3-1-3"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-5650a20dd608f07892f29972",
+      "task_prompt": "仅依据绑定证据，围绕“感知机、深度学习在语音处理中的应用”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_seminar_v1",
+      "title": "感知机、深度学习在语音处理中的应用教案任务",
+      "total_sessions": 3,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "表3.1 深度学习应用场景",
+          "应用领域\t具体应用方向"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9"
+        ],
+        "retrieval_intent": "检索支持“感知机、深度学习在语音处理中的应用”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c3a2c209b594615db672cfd6ac7326230fd2d233d474cef4fe32a5f950d2e6e6",
+        "candidate_sha256": "1cf8b82dff978ef58feeb16074c2efe441c5b9620d70ed76f6f00bc332298de6",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-03",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-03",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+        "大模型是基于深度学习技术构建的，具有高度复杂性和巨大规模的人工智能模型，通常由数十亿甚至数万亿个参数组成。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 45,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-d0936ca7439fa55df21f12bc",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+          "evidence_record_sha256": "93adc09d169ad6c349644177445042c3ded7c1c86bc31d030a9df5e06e212008",
+          "evidence_text": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+          "knowledge_point_id": "gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+          "knowledge_point_name": "注意力机制中Q、K、V的来源",
+          "knowledge_point_record_sha256": "654ffbd898be791f07e69206b7d4a32bb5ab4c135734610a7ebc7c34865642ed",
+          "knowledge_point_summary": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+          "necessary_neighbors": [],
+          "page_end": 146,
+          "page_start": 146,
+          "section_ids": [
+            "ds3-scope-docx-3-5-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-8f092f758960ce67458523de",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+          "evidence_record_sha256": "1f22eb01d97185a63577caf75ef21dad4bc63344c64f9a42b8b5ec2ecabc72ed",
+          "evidence_text": "大模型是基于深度学习技术构建的，具有高度复杂性和巨大规模的人工智能模型，通常由数十亿甚至数万亿个参数组成。",
+          "knowledge_point_id": "gold-kp-b848f1b022a479c770521458bce143a4",
+          "knowledge_point_name": "大模型",
+          "knowledge_point_record_sha256": "eb17ed4ee35d2be97f3682427737afb757aa571112a6808f6ce4e54c308892eb",
+          "knowledge_point_summary": "大模型是基于深度学习技术构建的，具有高度复杂性和巨大规模的人工智能模型，通常由数十亿甚至数万亿个参数组成。",
+          "necessary_neighbors": [],
+          "page_end": 230,
+          "page_start": 230,
+          "section_ids": [
+            "ds3-scope-docx-5-1-1"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-13fd8e3f70bcaa2b9a28ca8c",
+      "task_prompt": "仅依据绑定证据，围绕“注意力机制中Q、K、V的来源、大模型”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_lab_practice_v1",
+      "title": "注意力机制中Q、K、V的来源、大模型教案任务",
+      "total_sessions": 4,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-9abde4ba81915c311db9ade93789806e",
+          "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-9abde4ba81915c311db9ade93789806e",
+          "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+        ],
+        "retrieval_intent": "检索支持“注意力机制中Q、K、V的来源、大模型”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d9e65ec4306aaff0266efb3c7bef1d9b8c71fb89228b1bc289187815783b94f2",
+        "candidate_sha256": "9ad6255829db257d12984a3d56bca497f5fec3a1d3da9d5d9582eee91aa1ba2f",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-04",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-04",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+        "微调（Fine-Tuning）是一种迁移学习（Transfer Learning）技术，旨在利用预训练模型在特定任务上的性能。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 90,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-a275e7e90f3742e441b2f6b9",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-bd7d355279cc06aac5841601572cfe04",
+          "evidence_record_sha256": "4539e422912b001693364383c3e4cc587fa831b44140678f72bf997b3449cea4",
+          "evidence_text": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+          "knowledge_point_id": "gold-kp-3a201b005a2597cc062d5c8b79227c96",
+          "knowledge_point_name": "大规模高维数据的计算资源消耗",
+          "knowledge_point_record_sha256": "aa78f55ef63e41e7b7c7921e093926600014d26aaed452c6cb05fd82cad5cba4",
+          "knowledge_point_summary": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+          "necessary_neighbors": [
+            "同时，通过数据预处理，如通过降维和特征选择，可以有效减少数据的复杂度，从而降低模型训练和预测时所需的计算资源。"
+          ],
+          "page_end": 242,
+          "page_start": 242,
+          "section_ids": [
+            "ds3-scope-docx-5-2-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-8044505ecbbe6c4e04d949a8",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f",
+          "evidence_record_sha256": "d20a386450869fa79c20475a3036b10c04dfa46e235b56f23f1665c0641a3f84",
+          "evidence_text": "微调（Fine-Tuning）是一种迁移学习（Transfer Learning）技术，旨在利用预训练模型在特定任务上的性能。",
+          "knowledge_point_id": "gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+          "knowledge_point_name": "微调",
+          "knowledge_point_record_sha256": "841f6c95db6f67ccdf243445131df5af924cefb20f62e1d06dd612efef934889",
+          "knowledge_point_summary": "微调（Fine-Tuning）是一种迁移学习（Transfer Learning）技术，旨在利用预训练模型在特定任务上的性能。",
+          "necessary_neighbors": [],
+          "page_end": 251,
+          "page_start": 251,
+          "section_ids": [
+            "ds3-scope-docx-5-3"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-da24b94f985119c69adbe3ab",
+      "task_prompt": "仅依据绑定证据，围绕“大规模高维数据的计算资源消耗、微调”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_standard_university_v1",
+      "title": "大规模高维数据的计算资源消耗、微调教案任务",
+      "total_sessions": 2,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-bd7d355279cc06aac5841601572cfe04",
+          "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "同时，通过数据预处理，如通过降维和特征选择，可以有效减少数据的复杂度，从而降低模型训练和预测时所需的计算资源。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-bd7d355279cc06aac5841601572cfe04",
+          "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+        ],
+        "retrieval_intent": "检索支持“大规模高维数据的计算资源消耗、微调”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "fbbda095a4fd534ca78c05db9e21dc5e76f384e259cc4c79c6afe076ee51880f",
+        "candidate_sha256": "78b61b0f24f13c24550e27582eb82807c7f846c10799bd6bd17cd352c03ac414",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-05",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-05",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "首先配置预测json文件，主要修改cls_ernie_fc_ch_infer.json文件的预测模型的输入路径、预测文件的输入路径、预测结果的输出路径，如下图所示。",
+        "特别的，T(t)为累积透射率，表示射线从采样近平面t_n到采样远平面t_f期间射线未被阻挡的概率：\nT(t)=exp(-∫_{t_n}^{t}σ(r(s))ds)"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 45,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-a30b4af3ad71ce1097654bfe",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+          "evidence_record_sha256": "504858cadbc6f212b1393df7bd3e20846a0e0c4346e9a506d30783398ba096bd",
+          "evidence_text": "首先配置预测json文件，主要修改cls_ernie_fc_ch_infer.json文件的预测模型的输入路径、预测文件的输入路径、预测结果的输出路径，如下图所示。",
+          "knowledge_point_id": "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+          "knowledge_point_name": "ERNIE预测配置",
+          "knowledge_point_record_sha256": "a686b696217796b3c13e02d632705aab897d3b905070700f104f8f395a3096c3",
+          "knowledge_point_summary": "首先配置预测json文件，主要修改cls_ernie_fc_ch_infer.json文件的预测模型的输入路径、预测文件的输入路径、预测结果的输出路径，如下图所示。",
+          "necessary_neighbors": [
+            "（4）在测试数据集上对微调后模型与初始模型做效果比对"
+          ],
+          "page_end": 271,
+          "page_start": 271,
+          "section_ids": [
+            "ds3-scope-docx-5-3-4"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-ccc138a205ce6f97a41bab6b",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-6f70e7f62938bf78ba45c307de1adaef",
+          "evidence_record_sha256": "3915d72eb20e6f160f86d51ae5b122e13145e81d16e438d174fa7d3b3e4c5c2c",
+          "evidence_text": "特别的，T(t)为累积透射率，表示射线从采样近平面t_n到采样远平面t_f期间射线未被阻挡的概率：\nT(t)=exp(-∫_{t_n}^{t}σ(r(s))ds)",
+          "knowledge_point_id": "gold-kp-fccb808f30813de371dd5645d2498922",
+          "knowledge_point_name": "NeRF累积透射率",
+          "knowledge_point_record_sha256": "d5bd7343f00ee5cff5b3d35fd9ac1ac3b2da80ff9df017f560ac54dd3b7b8f77",
+          "knowledge_point_summary": "特别的，T(t)为累积透射率，表示射线从采样近平面t_n到采样远平面t_f期间射线未被阻挡的概率：\nT(t)=exp(-∫_{t_n}^{t}σ(r(s))ds)",
+          "necessary_neighbors": [
+            "式中，σ(r(t))和c(r(t),d)代表沿摄像机射线观察方向d，r(t)的体积密度和颜色，dt代表射线在每个积分步长上的移动距离差。"
+          ],
+          "page_end": 341,
+          "page_start": 341,
+          "section_ids": [
+            "ds3-scope-docx-6-2-2"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-111b6c1a9febdbc9e0fd3f92",
+      "task_prompt": "仅依据绑定证据，围绕“ERNIE预测配置、NeRF累积透射率”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_seminar_v1",
+      "title": "ERNIE预测配置、NeRF累积透射率教案任务",
+      "total_sessions": 3,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+          "gold-ev-6f70e7f62938bf78ba45c307de1adaef"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "（4）在测试数据集上对微调后模型与初始模型做效果比对",
+          "式中，σ(r(t))和c(r(t),d)代表沿摄像机射线观察方向d，r(t)的体积密度和颜色，dt代表射线在每个积分步长上的移动距离差。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+          "gold-ev-6f70e7f62938bf78ba45c307de1adaef"
+        ],
+        "retrieval_intent": "检索支持“ERNIE预测配置、NeRF累积透射率”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "71d3385d2ae76aab0c53fe7ae4f97bb1fdf43ebe159c1675e25ada0d7e8c9d21",
+        "candidate_sha256": "4259f7c3b40d3c4edf9534fc90e36628dcd36f399a480d165d4a8db1a4481652",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-06",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-06",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "马文·明斯基的另一重\n要贡献是创建了著名的“思维机器公司”，开发具有智能属性的计算机。",
+        "人工智能(Artif icial Intelligence，AI)是计算机学科的一个分支，20世纪70年代以来被\n称为世界三大尖端技术(空间技术、能源技术、人工智能)之一，也被认为是21世纪三大\n尖端技术(基因工程、纳米科学、人工智能)之一。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 45,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-2149219544fc6010008ae38c",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-203251897a3d2eef2cfa747cbbe59fc2",
+          "evidence_record_sha256": "96be7345342b7379c4a8295c26d660da3b0cf0175876f24a6d2114d88b34e505",
+          "evidence_text": "马文·明斯基的另一重\n要贡献是创建了著名的“思维机器公司”，开发具有智能属性的计算机。",
+          "knowledge_point_id": "gold-kp-5332dff31d6b5135944ad9e19819f610",
+          "knowledge_point_name": "思维机器公司",
+          "knowledge_point_record_sha256": "5de2410f00c1619f22744749ea39e378d4e5a372fbe5acf2f71b62a3477bc055",
+          "knowledge_point_summary": "马文·明斯基的另一重\n要贡献是创建了著名的“思维机器公司”，开发具有智能属性的计算机。",
+          "necessary_neighbors": [
+            "1969年被授予图灵奖的是人工智能学者马文·明斯基。1975年，他首创框架理论(Frame Theory)。"
+          ],
+          "page_end": 12,
+          "page_start": 12,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-ccb800f4ed64dae32a79489d",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-47ac1a377be899cf37f3403ae7f7568d",
+          "evidence_record_sha256": "db6db04049cde3c776b1dd15fff3155777f5b540e6ec8b93660126907101a350",
+          "evidence_text": "人工智能(Artif icial Intelligence，AI)是计算机学科的一个分支，20世纪70年代以来被\n称为世界三大尖端技术(空间技术、能源技术、人工智能)之一，也被认为是21世纪三大\n尖端技术(基因工程、纳米科学、人工智能)之一。",
+          "knowledge_point_id": "gold-kp-9fea9aad0349530b8fecd24d8685f488",
+          "knowledge_point_name": "人工智能",
+          "knowledge_point_record_sha256": "4cc80971609ec1649a6ea1048a537a921a0aea321fdea0f964435c6c950a2f49",
+          "knowledge_point_summary": "人工智能(Artif icial Intelligence，AI)是计算机学科的一个分支，20世纪70年代以来被\n称为世界三大尖端技术(空间技术、能源技术、人工智能)之一，也被认为是21世纪三大\n尖端技术(基因工程、纳米科学、人工智能)之一。",
+          "necessary_neighbors": [],
+          "page_end": 13,
+          "page_start": 12,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-2"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-868768bfe4530fbd8708cd84",
+      "task_prompt": "仅依据绑定证据，围绕“思维机器公司、人工智能”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_lab_practice_v1",
+      "title": "思维机器公司、人工智能教案任务",
+      "total_sessions": 2,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-203251897a3d2eef2cfa747cbbe59fc2",
+          "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "1969年被授予图灵奖的是人工智能学者马文·明斯基。1975年，他首创框架理论(Frame Theory)。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-203251897a3d2eef2cfa747cbbe59fc2",
+          "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+        ],
+        "retrieval_intent": "检索支持“思维机器公司、人工智能”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ec5934511e53737b056f4f9559b79433e964f745b6c822fd80504961b6495575",
+        "candidate_sha256": "c86a313457e936ec167fd1b012e7f52a93eb0ef3387c813000f492ea220a5362",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-07",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-07",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "1950年，著名的“图灵测试”诞生，按照图灵的定义：如果一台机器能够与人类展开\n对话(通过电传设备)而不能被辨别出其机器身份，那么称这台机器具有智能。",
+        "BBC基于剑桥大学研究者Michael Osborne和CarlFrey的数据体系分析了未来365种\n职业在英国的被淘汰概率，部分职业的被淘汰概率如表1-1所示。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 50,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-9ffa99b16924069c04f76f23",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd",
+          "evidence_record_sha256": "a2681cdb104633dd8d8d0c90f41b05d41b8bc37e5b1ae63a9b968621732084c9",
+          "evidence_text": "1950年，著名的“图灵测试”诞生，按照图灵的定义：如果一台机器能够与人类展开\n对话(通过电传设备)而不能被辨别出其机器身份，那么称这台机器具有智能。",
+          "knowledge_point_id": "gold-kp-2f1b1578adda98423fe4457e957f7d56",
+          "knowledge_point_name": "图灵测试",
+          "knowledge_point_record_sha256": "229a48738cc6850bdde7120867d290bba2f1815681bd3b00d30765ff0f9c904c",
+          "knowledge_point_summary": "1950年，著名的“图灵测试”诞生，按照图灵的定义：如果一台机器能够与人类展开\n对话(通过电传设备)而不能被辨别出其机器身份，那么称这台机器具有智能。",
+          "necessary_neighbors": [],
+          "page_end": 16,
+          "page_start": 15,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-432f5d90047942fa22be6680",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-73452f80b793aba65cdb9b1032838d27",
+          "evidence_record_sha256": "0f5e849e8675c1275d01d90f2c01f17011ff6b2d2fa4b8a6a3b8519d178c26c1",
+          "evidence_text": "BBC基于剑桥大学研究者Michael Osborne和CarlFrey的数据体系分析了未来365种\n职业在英国的被淘汰概率，部分职业的被淘汰概率如表1-1所示。",
+          "knowledge_point_id": "gold-kp-72d89298dfc07914d1f62d4a3c98eb76",
+          "knowledge_point_name": "职业自动化风险分析",
+          "knowledge_point_record_sha256": "07e817d4b0eefeb35bdb7e60ec502fb602f9ab6baf6a6fd37dabc86e1acb1d1b",
+          "knowledge_point_summary": "BBC基于剑桥大学研究者Michael Osborne和CarlFrey的数据体系分析了未来365种\n职业在英国的被淘汰概率，部分职业的被淘汰概率如表1-1所示。",
+          "necessary_neighbors": [],
+          "page_end": 20,
+          "page_start": 20,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-2"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-e685b5a950002166837ddd81",
+      "task_prompt": "仅依据绑定证据，围绕“图灵测试、职业自动化风险分析”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_standard_university_v1",
+      "title": "图灵测试、职业自动化风险分析教案任务",
+      "total_sessions": 3,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd",
+          "gold-ev-73452f80b793aba65cdb9b1032838d27"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd",
+          "gold-ev-73452f80b793aba65cdb9b1032838d27"
+        ],
+        "retrieval_intent": "检索支持“图灵测试、职业自动化风险分析”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "dc517e279e3bab23d993433b6f0d5722f79b6ce73bfaf7fa9946253d3f631906",
+        "candidate_sha256": "cb5693383f60420fc2993ba6b8880bb22ed070453c45662018b7eacfd9805ee9",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-08",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-08",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "通用人工智能(Artiﬁcial General Intelligence，AGI)是一种未来的计算机程序，可以执\n行相当于人类甚至超越人类智力水平的任务。",
+        "因为特定领域的任务相对单一、需求明确、应用边界清晰、领域知识丰富，所以建模\n相对简单，人工智能在特定领域更容易取得突破，更容易超越人类的智能水平。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 45,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-42548972c66dfab2eaa9310f",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "evidence_record_sha256": "3ee890c3f7ea507b224aff85e0a89a93bd82ee467e62f95dfd697a2b6c9be741",
+          "evidence_text": "通用人工智能(Artiﬁcial General Intelligence，AGI)是一种未来的计算机程序，可以执\n行相当于人类甚至超越人类智力水平的任务。",
+          "knowledge_point_id": "gold-kp-9042005569bcb8403b20f3b7e22b43db",
+          "knowledge_point_name": "通用人工智能",
+          "knowledge_point_record_sha256": "8de0a24b29cd1f6d356846bc4a3e3588279ec2ed791d2f4bbede16095b14b7f4",
+          "knowledge_point_summary": "通用人工智能(Artiﬁcial General Intelligence，AGI)是一种未来的计算机程序，可以执\n行相当于人类甚至超越人类智力水平的任务。",
+          "necessary_neighbors": [],
+          "page_end": 21,
+          "page_start": 21,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-3bddcdb389a424667bb59ce1",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+          "evidence_record_sha256": "abd57f233327af86beb4a9b6c710c042dadd403d5179195a9859dc0682609bd7",
+          "evidence_text": "因为特定领域的任务相对单一、需求明确、应用边界清晰、领域知识丰富，所以建模\n相对简单，人工智能在特定领域更容易取得突破，更容易超越人类的智能水平。",
+          "knowledge_point_id": "gold-kp-5f7ca387331ded27517b7d64a59ec7dc",
+          "knowledge_point_name": "特定领域人工智能突破条件",
+          "knowledge_point_record_sha256": "932838f272a0355a5f948770cf997ab1808eef7a21f1cae779a94d92731d6419",
+          "knowledge_point_summary": "因为特定领域的任务相对单一、需求明确、应用边界清晰、领域知识丰富，所以建模\n相对简单，人工智能在特定领域更容易取得突破，更容易超越人类的智能水平。",
+          "necessary_neighbors": [],
+          "page_end": 22,
+          "page_start": 22,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-1"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-e86535dd5140ecdfcfc1d0f9",
+      "task_prompt": "仅依据绑定证据，围绕“通用人工智能、特定领域人工智能突破条件”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_seminar_v1",
+      "title": "通用人工智能、特定领域人工智能突破条件教案任务",
+      "total_sessions": 4,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold-ev-e7f49db4c61d212c410a7cf2964c96d9"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "gold-ev-e7f49db4c61d212c410a7cf2964c96d9"
+        ],
+        "retrieval_intent": "检索支持“通用人工智能、特定领域人工智能突破条件”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "964f81cb78302f1c4eb9c4aab79f6f62200968511b99eb2a189a82974699c453",
+        "candidate_sha256": "fa88edb971148ce4c2aa2e9d0d2094ae4ac986794b531f528664483769a972bc",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-09",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-09",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "传统阅卷需要占用大量人力、物力资源，且费时费力，而借助人工智能技术，越来越\n多的阅卷工作可以交给智能测评系统来完成。",
+        "随着人工智能的发展，出现了用生物识别替代通用的“介\n质安全认证＋密码认证”识别方式的趋势。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 90,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-2df64ec91cae7b7978dbac23",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992",
+          "evidence_record_sha256": "9f3fc2f6ded496bb93195a5cc639f52a88304ce8fa9a4b5fd790c2172e5cc4a9",
+          "evidence_text": "传统阅卷需要占用大量人力、物力资源，且费时费力，而借助人工智能技术，越来越\n多的阅卷工作可以交给智能测评系统来完成。",
+          "knowledge_point_id": "gold-kp-3e1375d7e1a8d205d76b60a7c934a7fa",
+          "knowledge_point_name": "智能测评阅卷",
+          "knowledge_point_record_sha256": "da738b5662bc676ea0dad36bf18b7fe6bbdbefad79c304f9fa62107a2ae7928d",
+          "knowledge_point_summary": "传统阅卷需要占用大量人力、物力资源，且费时费力，而借助人工智能技术，越来越\n多的阅卷工作可以交给智能测评系统来完成。",
+          "necessary_neighbors": [],
+          "page_end": 27,
+          "page_start": 27,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-4"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-f1d4b1c8d457759649526268",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-be751fca2dda9ea3000329029002714c",
+          "evidence_record_sha256": "9a73c070ace6762070a729c876431f1ea44241efa01601bacc5a88de14333189",
+          "evidence_text": "随着人工智能的发展，出现了用生物识别替代通用的“介\n质安全认证＋密码认证”识别方式的趋势。",
+          "knowledge_point_id": "gold-kp-344713c4ac2ba2354922adc470161bb9",
+          "knowledge_point_name": "生物识别支付认证",
+          "knowledge_point_record_sha256": "043351271a91f68045107bd9005b6f79c3605335bfc025e590360d92fb7bf337",
+          "knowledge_point_summary": "随着人工智能的发展，出现了用生物识别替代通用的“介\n质安全认证＋密码认证”识别方式的趋势。",
+          "necessary_neighbors": [
+            "用户身份识别是支付起点。"
+          ],
+          "page_end": 31,
+          "page_start": 31,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-7"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-4d1885afe1b4544feae412ba",
+      "task_prompt": "仅依据绑定证据，围绕“智能测评阅卷、生物识别支付认证”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_lab_practice_v1",
+      "title": "智能测评阅卷、生物识别支付认证教案任务",
+      "total_sessions": 2,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992",
+          "gold-ev-be751fca2dda9ea3000329029002714c"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "用户身份识别是支付起点。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992",
+          "gold-ev-be751fca2dda9ea3000329029002714c"
+        ],
+        "retrieval_intent": "检索支持“智能测评阅卷、生物识别支付认证”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "1b5a93879a68b7449c4a2eea33556ad7cd2e9aafb594f1c68876e14216395140",
+        "candidate_sha256": "95d2eb9d1b913884a829fdf296cd8f851cfe1b39451a32f91a894c469f26ec22",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds1.p18-lesson-10",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "audience": "高校本科生",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "record_id": "p18-lesson-10",
+      "required_activity_types": [
+        "讲授",
+        "证据核对",
+        "课堂活动"
+      ],
+      "required_claims": [
+        "1936年，图灵提\n出了一种Copy抽象的计算模型——图灵机(Turing Machine)。",
+        "因为要界定机\n器是否具有智能，必然要涉及什么是智能的问题，但这却是一个难以准确回答的问题。"
+      ],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ],
+      "review_status": "approved",
+      "session_duration_minutes": 45,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-acae4b964c99ff208f6cb974",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-5f615419a6355000cd637eb5bcd473a3",
+          "evidence_record_sha256": "45dff2b32c12c2d4f170ced0d6de92c507b3fb778062dcaf57fd9fe4fc3df2cd",
+          "evidence_text": "1936年，图灵提\n出了一种Copy抽象的计算模型——图灵机(Turing Machine)。",
+          "knowledge_point_id": "gold-kp-31bff4d251545530f9d14b3e28fc2560",
+          "knowledge_point_name": "图灵机",
+          "knowledge_point_record_sha256": "839e89d18c9846ce4ff28ebc34752a7c4451fdce5cee853ed7ef17f9fd885184",
+          "knowledge_point_summary": "1936年，图灵提\n出了一种Copy抽象的计算模型——图灵机(Turing Machine)。",
+          "necessary_neighbors": [],
+          "page_end": 12,
+          "page_start": 12,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-e78fdcc11e60c2fe0265e991",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-4f40dc8586ca6829794799ceae4826cd",
+          "evidence_record_sha256": "d472b0cd0c2b9c8a5226e96a286cb04aa71c25906652474ffe09f8cb0f00b212",
+          "evidence_text": "因为要界定机\n器是否具有智能，必然要涉及什么是智能的问题，但这却是一个难以准确回答的问题。",
+          "knowledge_point_id": "gold-kp-fca87d1214a2b210c9224de0eac73138",
+          "knowledge_point_name": "机器智能的界定难题",
+          "knowledge_point_record_sha256": "c77d14f67b5ef0ebbda0257623ba8b4d72d6cf4fe638545f4ceb03c78f2ca1dd",
+          "knowledge_point_summary": "因为要界定机\n器是否具有智能，必然要涉及什么是智能的问题，但这却是一个难以准确回答的问题。",
+          "necessary_neighbors": [
+            "但如何来界定一台计算机(机器)是否具有智能，它们都没有提及。"
+          ],
+          "page_end": 14,
+          "page_start": 14,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-2"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-5d0dc52c732aad1d189b9270",
+      "task_prompt": "仅依据绑定证据，围绕“图灵机、机器智能的界定难题”构造教案；不得补充语料外事实。",
+      "template_id": "lesson_standard_university_v1",
+      "title": "图灵机、机器智能的界定难题教案任务",
+      "total_sessions": 3,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-5f615419a6355000cd637eb5bcd473a3",
+          "gold-ev-4f40dc8586ca6829794799ceae4826cd"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "但如何来界定一台计算机(机器)是否具有智能，它们都没有提及。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-5f615419a6355000cd637eb5bcd473a3",
+          "gold-ev-4f40dc8586ca6829794799ceae4826cd"
+        ],
+        "retrieval_intent": "检索支持“图灵机、机器智能的界定难题”教学任务的直接证据与最小必要邻接"
+      }
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-r1",
+  "schema_version": "coursepilot.cp-ds1-p18.v1"
+}

@@ -5,6 +5,20 @@ from courserag.security.detector import (
     WindowSegment,
 )
 from courserag.security.documents import DocumentSecurityPolicy, SecurityInspection
+from courserag.security.dual_hypothesis import (
+    DualHypothesisSecurityEnsemble,
+    DualHypothesisSecurityProfile,
+    DualHypothesisWindowScore,
+    EmbeddingPortSecurityEncoder,
+    SecuritySemanticEncoder,
+    SecurityTriState,
+    SemanticPrototype,
+    TriStateDualHypothesisDecisionLayer,
+    TriStateDualHypothesisProfile,
+    TriStateWindowDecision,
+    load_dual_hypothesis_profile,
+    load_tri_state_profile,
+)
 from courserag.security.ensemble import (
     MultiAxisSecurityEnsemble,
     MultiAxisSecurityProfile,
@@ -36,9 +50,13 @@ from courserag.security.prompt_injection import (
 )
 from courserag.security.redaction import redact_secrets
 from courserag.security.stage import (
+    DualHypothesisSecurityAnnotationStage,
     SecurityAnnotationCoordinator,
     SecurityAnnotationStage,
+    TriStateSecurityAnnotationStage,
+    dual_hypothesis_security_stage_config,
     security_annotation_stage_config,
+    tri_state_security_stage_config,
 )
 from courserag.security.structured_axes import StructuredCapabilityAxes
 from courserag.security.windowing import SecurityWindowBuilder, SecurityWindowProfile
@@ -46,6 +64,11 @@ from courserag.security.windowing import SecurityWindowBuilder, SecurityWindowPr
 __all__ = [
     "DocumentSecurityPolicy",
     "DetectorScore",
+    "DualHypothesisSecurityEnsemble",
+    "DualHypothesisSecurityAnnotationStage",
+    "DualHypothesisSecurityProfile",
+    "DualHypothesisWindowScore",
+    "EmbeddingPortSecurityEncoder",
     "LocalPromptGuardDetector",
     "OnnxPromptGuardDetector",
     "MultiAxisSecurityEnsemble",
@@ -64,15 +87,24 @@ __all__ = [
     "PromptInjectionRule",
     "PromptInjectionScanner",
     "SecurityAnnotationCoordinator",
+    "SecuritySemanticEncoder",
+    "SecurityTriState",
     "SecurityAnnotationStage",
     "SecurityInspection",
     "SecurityTextWindow",
     "SecurityWindowBuilder",
     "SecurityWindowProfile",
+    "SemanticPrototype",
+    "TriStateDualHypothesisDecisionLayer",
+    "TriStateDualHypothesisProfile",
+    "TriStateSecurityAnnotationStage",
+    "TriStateWindowDecision",
     "TrustedPrincipal",
     "WindowSegment",
     "apply_prompt_injection_findings",
     "load_decision_profile",
+    "load_dual_hypothesis_profile",
+    "load_tri_state_profile",
     "load_prompt_guard_manifest",
     "load_prompt_injection_profile",
     "mark_untrusted_instructions",
@@ -80,4 +112,6 @@ __all__ = [
     "redact_secrets",
     "require_course_role",
     "security_annotation_stage_config",
+    "dual_hypothesis_security_stage_config",
+    "tri_state_security_stage_config",
 ]
