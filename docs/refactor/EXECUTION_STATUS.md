@@ -3,7 +3,7 @@
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
 - Current branch: `refactor/p00-baseline`
-- Current phase: P18 execution and human review are complete. Its formal quality Gate remains failed and immutable: Track A has 4 generation failures, 8 frozen-contract failures and 4 missing exports; Track B lacks a restorable formal CourseRAG Test Index, leaving 7/8 live Journeys blocked; human Acceptable Rate is 29.17%, mean Rubric 2.8884 and mean Edit Burden 2.625. Safety side-effect counts remain zero. By Course Owner disposition this evidence may support a clearly labelled portfolio MVP, but it is not a production release and the Test results cannot feed back into this version. P19 is authorized for portfolio-scoped physical repository separation.
+- Current phase: P19 portfolio release is complete. P18 execution and human review remain complete with an immutable failed formal quality Gate: Track A has 4 generation failures, 8 frozen-contract failures and 4 missing exports; Track B lacks a restorable formal CourseRAG Test Index, leaving 7/8 live Journeys blocked; human Acceptable Rate is 29.17%, mean Rubric 2.8884 and mean Edit Burden 2.625. Those results were not tuned or rewritten. Two public, clean-history engineering MVP repositories are released at `meo0306/course-rag` and `meo0306/course-pilot`, with HTTP-only runtime integration and separate PostgreSQL schemas.
 - Current data checkpoint: Business remains `4ce0ac60...a869`; Quality/Recovery r2 is `d724a1c4...a082` with 18 repaired CP-DS5 contracts; Integration/Export r2 is `5d42d442...6683` with eight repaired template/fault/Journey records. Fixed LibreOffice 7.4.7.2 rendered the custom DOCX twice with identical page PNG Hash `9265d1d0...2e79`.
 - Last updated: 2026-08-25
 
@@ -77,7 +77,7 @@ real targeted run succeeds and the Course Owner approves its incremental review 
 | P16 | completed_with_quality_debt | uncommitted | — | passed_core_contracts_provider_consistency_rendering_quality_debt_recorded | `phase_reports/P16_ppt_architecture_template_rendering.md` |
 | P17 | completed_with_isolated_security_automation_debt | `b2cc47b` | `3f5c415` + uncommitted P17.1-P17.3 | passed_system_integration_hard_controls_detector_rejected_default_off | `phase_reports/P17_3_tri_state_security_convergence.md` |
 | P18 | completed | `3f5c415` | uncommitted | formal_quality_gate_failed_owner_portfolio_disposition | `phase_reports/P18_coursepilot_system_formal_evaluation.md` |
-| P19 | in_progress | uncommitted | | portfolio_release_gate_pending | `phase_reports/P19_repository_split_ci_portfolio.md` |
+| P19 | completed | `334de3a` | `79a19f9` / `e27118d` | passed_portfolio_release_gate | `phase_reports/P19_repository_split_ci_portfolio.md` |
 
 ## P16 Critical-only closure checkpoint
 
