@@ -9,6 +9,11 @@ histories:
 - CourseRAG: <https://github.com/meo0306/course-rag>, release `v0.1.0`, commit `79a19f9`;
 - CoursePilot: <https://github.com/meo0306/course-pilot>, release `v0.1.0`, commit `e27118d`.
 
+The necessary local-portfolio closure was subsequently verified at CourseRAG commit `f80cac0` and
+CoursePilot commit `90174af`. Both commits are present in the independent local repositories. A
+GitHub network outage prevented their final remote synchronization during the verification turn;
+the existing public `v0.1.0` release remains available and unchanged.
+
 P18 was not re-run or tuned. Its execution status remains complete and its formal quality Gate
 remains failed. Both READMEs label the artifacts as portfolio/engineering MVPs and disclose the
 quality and automatic prompt-injection-classifier limitations.
@@ -28,23 +33,26 @@ quality and automatic prompt-injection-classifier limitations.
   call path.
 - Each repository retains MIT licensing, upstream attribution, provenance, `.env.example`, a
   deterministic no-paid-provider demo mode, and its own CI workflow.
+- The CoursePilot default server install no longer pulls Chroma or Streamlit. Both are explicit
+  optional extras; the legacy in-process RAG path is disabled unless the operator opts in.
 
 ## Verification
 
-CourseRAG local clean-baseline results:
+CourseRAG final local results:
 
-- Pytest: `198 passed, 2 skipped`;
+- Pytest: `199 passed, 2 skipped`;
 - Ruff Format/Check: passed;
 - Mypy: `148` source files passed;
 - Alembic: `0001_courserag_clean_baseline (head)`;
 - Git diff check: passed;
 - public GitHub Actions: passed, <https://github.com/meo0306/course-rag/actions/runs/32841529106>.
 
-CoursePilot local clean-baseline results:
+CoursePilot final local results:
 
-- Pytest: `257 passed, 8 skipped`;
+- Pytest: `258 passed, 8 skipped`;
 - Ruff Format/Check: passed;
-- Mypy: `216` source files passed;
+- Mypy: `214` default-runtime source files passed; the optional Streamlit UI is excluded from the
+  default-runtime type target;
 - Alembic: `0001_coursepilot_clean_baseline (head)`;
 - Git diff check: passed;
 - public GitHub Actions: passed, <https://github.com/meo0306/course-pilot/actions/runs/32843077844>.
@@ -54,12 +62,23 @@ ownership was `51` CourseRAG tables in `courserag` and `22` CoursePilot tables i
 Template definitions now use line-ending-normalized text hashes, so Windows and Linux checkouts
 resolve the same snapshot identity; binary DOCX/PPTX resources continue to use raw byte hashes.
 
+On 2026-08-26 the local portfolio Compose was rebuilt from the two clean repositories and verified
+end to end. PostgreSQL, CourseRAG and CoursePilot were all healthy; schemas `courserag` and
+`coursepilot` existed; `scripts/demo_local.py` created an idempotent course, completed a lesson task
+through the remote CourseRAG HTTP boundary, and returned a lesson artifact with zero paid Provider
+calls. The local machine's existing port 5432 was not disturbed because demo PostgreSQL is exposed
+only to the Compose network. GHCR publication is intentionally not a portfolio Gate: the supported
+demonstration target is a local Docker build from the two public source repositories.
+
 ## P19 task closure
 
 - Physical split and clean histories: completed.
 - HTTP-only CoursePilot-to-CourseRAG production boundary: completed.
 - Shared PostgreSQL with dual schemas and independent migration histories: completed.
 - Public CI, releases, README, licensing and provenance: completed.
+- Local Docker cold-build, health checks, dual-schema verification and deterministic journey:
+  completed.
+- Architecture, local-demo, legacy-deprecation and interview deep-dive documentation: completed.
 - P18 truthful portfolio disposition: completed; failed formal quality metrics remain visible.
 
 ## Remaining limitations
@@ -70,6 +89,7 @@ resolve the same snapshot identity; binary DOCX/PPTX resources continue to use r
 - The automatic prompt-injection classifier remains rejected/default-off; ACL, course scope, tool
   denial, Secret isolation and idempotent side-effect controls remain the enforced boundaries.
 - The demo database login is shared even though schemas and migration histories are separate.
+- Image distribution is source-build/local only; GHCR publication is optional backlog work.
 - P15 semantic diversity and P14/P16 content-quality debts remain backlog items, not release blockers.
 
 ## Exit Gate
