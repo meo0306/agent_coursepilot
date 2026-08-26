@@ -77,7 +77,7 @@ real targeted run succeeds and the Course Owner approves its incremental review 
 | P16 | completed_with_quality_debt | uncommitted | — | passed_core_contracts_provider_consistency_rendering_quality_debt_recorded | `phase_reports/P16_ppt_architecture_template_rendering.md` |
 | P17 | completed_with_isolated_security_automation_debt | `b2cc47b` | `3f5c415` + uncommitted P17.1-P17.3 | passed_system_integration_hard_controls_detector_rejected_default_off | `phase_reports/P17_3_tri_state_security_convergence.md` |
 | P18 | completed | `3f5c415` | uncommitted | formal_quality_gate_failed_owner_portfolio_disposition | `phase_reports/P18_coursepilot_system_formal_evaluation.md` |
-| P19 | completed | `334de3a` | `f80cac0` / `90174af` (local portfolio closure; GitHub sync pending network recovery) | passed_local_portfolio_demo_and_release_gate | `phase_reports/P19_repository_split_ci_portfolio.md` |
+| P19 | completed | `334de3a` | `f80cac0` / `90174af` | passed_local_portfolio_demo_and_release_gate | `phase_reports/P19_repository_split_ci_portfolio.md` |
 
 ## P16 Critical-only closure checkpoint
 

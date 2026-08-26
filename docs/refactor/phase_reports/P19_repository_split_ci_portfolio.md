@@ -9,10 +9,9 @@ histories:
 - CourseRAG: <https://github.com/meo0306/course-rag>, release `v0.1.0`, commit `79a19f9`;
 - CoursePilot: <https://github.com/meo0306/course-pilot>, release `v0.1.0`, commit `e27118d`.
 
-The necessary local-portfolio closure was subsequently verified at CourseRAG commit `f80cac0` and
-CoursePilot commit `90174af`. Both commits are present in the independent local repositories. A
-GitHub network outage prevented their final remote synchronization during the verification turn;
-the existing public `v0.1.0` release remains available and unchanged.
+The necessary local-portfolio closure was subsequently verified and published at CourseRAG commit
+`f80cac0` and CoursePilot commit `90174af`. The existing public `v0.1.0` release remains available;
+the closure commits advance `main` without rewriting that release tag.
 
 P18 was not re-run or tuned. Its execution status remains complete and its formal quality Gate
 remains failed. Both READMEs label the artifacts as portfolio/engineering MVPs and disclose the
@@ -45,7 +44,8 @@ CourseRAG final local results:
 - Mypy: `148` source files passed;
 - Alembic: `0001_courserag_clean_baseline (head)`;
 - Git diff check: passed;
-- public GitHub Actions: passed, <https://github.com/meo0306/course-rag/actions/runs/32841529106>.
+- public GitHub Actions for `f80cac0`: passed,
+  <https://github.com/meo0306/course-rag/actions/runs/32931478320>.
 
 CoursePilot final local results:
 
@@ -55,7 +55,8 @@ CoursePilot final local results:
   default-runtime type target;
 - Alembic: `0001_coursepilot_clean_baseline (head)`;
 - Git diff check: passed;
-- public GitHub Actions: passed, <https://github.com/meo0306/course-pilot/actions/runs/32843077844>.
+- public GitHub Actions for `90174af`: passed,
+  <https://github.com/meo0306/course-pilot/actions/runs/32931535620>.
 
 Both clean migrations were applied to the same local PostgreSQL database. The resulting logical
 ownership was `51` CourseRAG tables in `courserag` and `22` CoursePilot tables in `coursepilot`.
