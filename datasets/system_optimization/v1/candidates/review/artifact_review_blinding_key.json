@@ -1,0 +1,170 @@
+{
+  "schema_version": "system-optimization.artifact-review-key.v1",
+  "records": [
+    {
+      "blind_artifact_id": "sysopt-blind-7c90049b13f0b5e76814",
+      "case_id": "sysopt-v1-lesson-01",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-9e062dd510b2d54ef03b",
+      "case_id": "sysopt-v1-lesson-02",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-910e25971ebc341e31f2",
+      "case_id": "sysopt-v1-lesson-03",
+      "repeat_group_id": "repeat-d6f1e3a8a33a43ef"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-7e6bdae9673d1641c565",
+      "case_id": "sysopt-v1-lesson-03",
+      "repeat_group_id": "repeat-d6f1e3a8a33a43ef"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-426dc73391c73791b019",
+      "case_id": "sysopt-v1-lesson-04",
+      "repeat_group_id": "repeat-e9858f5bfa60bdc2"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-a49346fdf7c7a03366b4",
+      "case_id": "sysopt-v1-lesson-04",
+      "repeat_group_id": "repeat-e9858f5bfa60bdc2"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-8ea7f900cedd5ce10585",
+      "case_id": "sysopt-v1-lesson-05",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-1c3dc1cea0f854073e65",
+      "case_id": "sysopt-v1-lesson-06",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-9f292b14c5437b4a4468",
+      "case_id": "sysopt-v1-lesson-07",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-bf8eb648399689bdecdc",
+      "case_id": "sysopt-v1-lesson-08",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-bd23419e7a56d987c20b",
+      "case_id": "sysopt-v1-lesson-09",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-7011c42a469c8bb5c477",
+      "case_id": "sysopt-v1-exam-01",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-ce37b211282fd824b7ee",
+      "case_id": "sysopt-v1-exam-02",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-89b75f5e39b335779038",
+      "case_id": "sysopt-v1-exam-03",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-44fb9b766a6b03f0ef96",
+      "case_id": "sysopt-v1-exam-04",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-ef05c2b7fa7ad26058b8",
+      "case_id": "sysopt-v1-exam-05",
+      "repeat_group_id": "repeat-1d26e85d8a22c842"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-a73ae7a50bf895fbf3bb",
+      "case_id": "sysopt-v1-exam-05",
+      "repeat_group_id": "repeat-1d26e85d8a22c842"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-856d7bd68c8a3c79c504",
+      "case_id": "sysopt-v1-exam-06",
+      "repeat_group_id": "repeat-85b66ef2857fc4e9"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-b812957012b4ec63528d",
+      "case_id": "sysopt-v1-exam-06",
+      "repeat_group_id": "repeat-85b66ef2857fc4e9"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-4f1f98fbde23a2c982ba",
+      "case_id": "sysopt-v1-exam-07",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-1e541dbe16003abe769c",
+      "case_id": "sysopt-v1-exam-08",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-3bef4a25de3e1efea51b",
+      "case_id": "sysopt-v1-exam-09",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-b43b2b993b30936cd44f",
+      "case_id": "sysopt-v1-ppt-01",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-91263d257d8987e152de",
+      "case_id": "sysopt-v1-ppt-02",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-a47f7a75183eebbaf36b",
+      "case_id": "sysopt-v1-ppt-03",
+      "repeat_group_id": "repeat-b120c714b0b3e71c"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-2ac7c1389efca160089a",
+      "case_id": "sysopt-v1-ppt-03",
+      "repeat_group_id": "repeat-b120c714b0b3e71c"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-6ec7d900e686f55c65ff",
+      "case_id": "sysopt-v1-ppt-04",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-d587845c2cbc683f24bb",
+      "case_id": "sysopt-v1-ppt-05",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-ae09456d1129bae2614d",
+      "case_id": "sysopt-v1-ppt-06",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-0c1c883621e16393528c",
+      "case_id": "sysopt-v1-ppt-07",
+      "repeat_group_id": null
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-a0d1fc24b2aa75ed30d5",
+      "case_id": "sysopt-v1-ppt-08",
+      "repeat_group_id": "repeat-c71eb2c3a6319cd1"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-0ec1a5aa7e8bef833daa",
+      "case_id": "sysopt-v1-ppt-08",
+      "repeat_group_id": "repeat-c71eb2c3a6319cd1"
+    },
+    {
+      "blind_artifact_id": "sysopt-blind-050c3b4e4acf48316f91",
+      "case_id": "sysopt-v1-ppt-09",
+      "repeat_group_id": null
+    }
+  ]
+}

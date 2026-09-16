@@ -1,0 +1,168 @@
+{
+  "schema_version": "system-optimization.failure-replays.v1",
+  "dataset_id": "system-optimization-dev",
+  "dataset_version": "v1",
+  "records": [
+    {
+      "record_id": "sysopt-v1-failure-01",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "schema",
+      "artifact_type": "lesson",
+      "injection_point": "lesson.generator.response",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "invalid_model_output",
+        "user_status": "failed_closed",
+        "retry_allowed": false,
+        "resume_allowed": false,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    },
+    {
+      "record_id": "sysopt-v1-failure-02",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "schema",
+      "artifact_type": "exam",
+      "injection_point": "exam.batch.response",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "invalid_model_output",
+        "user_status": "failed_closed",
+        "retry_allowed": false,
+        "resume_allowed": false,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    },
+    {
+      "record_id": "sysopt-v1-failure-03",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "schema",
+      "artifact_type": "ppt",
+      "injection_point": "ppt.slide.response",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "invalid_model_output",
+        "user_status": "failed_closed",
+        "retry_allowed": false,
+        "resume_allowed": false,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    },
+    {
+      "record_id": "sysopt-v1-failure-04",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "timeout",
+      "artifact_type": null,
+      "injection_point": "provider.request",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "provider_timeout",
+        "user_status": "needs_reconciliation",
+        "retry_allowed": false,
+        "resume_allowed": true,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    },
+    {
+      "record_id": "sysopt-v1-failure-05",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "missing_batch",
+      "artifact_type": "exam",
+      "injection_point": "exam.fan_in",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "missing_batch",
+        "user_status": "resuming",
+        "retry_allowed": false,
+        "resume_allowed": true,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    },
+    {
+      "record_id": "sysopt-v1-failure-06",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "incomplete_group",
+      "artifact_type": null,
+      "injection_point": "courserag.generation_context",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "incomplete_evidence_group",
+        "user_status": "needs_more_evidence",
+        "retry_allowed": false,
+        "resume_allowed": false,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    },
+    {
+      "record_id": "sysopt-v1-failure-07",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "approval": null,
+      "split": "dev",
+      "category": "index_missing",
+      "artifact_type": null,
+      "injection_point": "courserag.index_probe",
+      "fixture": {
+        "injected": true,
+        "source": "new_ep00_fixture",
+        "attempt": 1
+      },
+      "expectation": {
+        "error_class": "index_missing",
+        "user_status": "blocked_missing_index",
+        "retry_allowed": false,
+        "resume_allowed": false,
+        "maximum_side_effects": 0
+      },
+      "p18_case_reused": false
+    }
+  ]
+}

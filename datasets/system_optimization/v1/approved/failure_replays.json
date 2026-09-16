@@ -1,0 +1,217 @@
+{
+  "dataset_id": "system-optimization-dev",
+  "dataset_version": "v1",
+  "records": [
+    {
+      "approval": {
+        "approved_record_sha256": "a35e1d09d091028c6dab0c2cc4dc8979374821e4400ee980c85fd1726f5ea71c",
+        "candidate_sha256": "3799fe4bb05a43e963bec4791b9dd291dbc875d18fadbdc09fa404cba7aac219",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-01",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "lesson",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "schema",
+      "expectation": {
+        "error_class": "invalid_model_output",
+        "maximum_side_effects": 0,
+        "resume_allowed": false,
+        "retry_allowed": false,
+        "user_status": "failed_closed"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "lesson.generator.response",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-01",
+      "review_status": "approved",
+      "split": "dev"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "38a3c417a0a66f3b3ba6f3d6f092764d9d4d0dfe97e6935ff1e8863be0db2894",
+        "candidate_sha256": "2814d7e332fffcb69069f9587e417c43542e8b9aa497737ea29dcb06d8ed7aeb",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-02",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "schema",
+      "expectation": {
+        "error_class": "invalid_model_output",
+        "maximum_side_effects": 0,
+        "resume_allowed": false,
+        "retry_allowed": false,
+        "user_status": "failed_closed"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "exam.batch.response",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-02",
+      "review_status": "approved",
+      "split": "dev"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "00c6e745c850f887479038c18184a664ff7d3b785a063352de3fe17e5cca7f70",
+        "candidate_sha256": "8a246256b745ba48c2e47105a7c8d1dd09cc13e24366928c3b17689f55d24ec2",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-03",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "schema",
+      "expectation": {
+        "error_class": "invalid_model_output",
+        "maximum_side_effects": 0,
+        "resume_allowed": false,
+        "retry_allowed": false,
+        "user_status": "failed_closed"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "ppt.slide.response",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-03",
+      "review_status": "approved",
+      "split": "dev"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "49f3cbb56547f55f383cb7b950ebc3904973740c2f0d4218a3edcf04426fcc52",
+        "candidate_sha256": "62e050bd4c07af7d819c02347ac2863ede6366c4227684b04c02e42be66417ad",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-04",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": null,
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "timeout",
+      "expectation": {
+        "error_class": "provider_timeout",
+        "maximum_side_effects": 0,
+        "resume_allowed": true,
+        "retry_allowed": false,
+        "user_status": "needs_reconciliation"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "provider.request",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-04",
+      "review_status": "approved",
+      "split": "dev"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "06d87dfeebd4c66b461b5df639d5a33cf9f8a7cc207c3fb67a19f8681339fc23",
+        "candidate_sha256": "6960390ca2bdefe7c461c55612d3ac2a11ca21e211f8402e34ba742ab8cec559",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-05",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "missing_batch",
+      "expectation": {
+        "error_class": "missing_batch",
+        "maximum_side_effects": 0,
+        "resume_allowed": true,
+        "retry_allowed": false,
+        "user_status": "resuming"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "exam.fan_in",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-05",
+      "review_status": "approved",
+      "split": "dev"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f1c967ea01d3e982c15ef83e0f781756b15519073be64ef34acf52c19455f32d",
+        "candidate_sha256": "2dbcf9b31b4dcbe22619f25b8bd7d5b687d7f988681a59f7a03d5c11488e3b22",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-06",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": null,
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "incomplete_group",
+      "expectation": {
+        "error_class": "incomplete_evidence_group",
+        "maximum_side_effects": 0,
+        "resume_allowed": false,
+        "retry_allowed": false,
+        "user_status": "needs_more_evidence"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "courserag.generation_context",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-06",
+      "review_status": "approved",
+      "split": "dev"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "8a301b002bfb7fafcce38a7e05a6716e06ed00edb76087eb6c1e668b5724b7a3",
+        "candidate_sha256": "bf323d3e1a1acf0d448968c69747d4435f67462fb7b4d7fa0692a2b2b6975491",
+        "notes": "Course Owner explicitly approved all seven EP-00 Failure Replays and authorized approved Dev materialization on 2026-08-31.",
+        "review_id": "ep00-r2-failure-07",
+        "reviewed_at": "2026-08-31T10:48:14+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": null,
+      "candidate_source": "codex_ep00_failure_class_replay",
+      "category": "index_missing",
+      "expectation": {
+        "error_class": "index_missing",
+        "maximum_side_effects": 0,
+        "resume_allowed": false,
+        "retry_allowed": false,
+        "user_status": "blocked_missing_index"
+      },
+      "fixture": {
+        "attempt": 1,
+        "injected": true,
+        "source": "new_ep00_fixture"
+      },
+      "injection_point": "courserag.index_probe",
+      "p18_case_reused": false,
+      "record_id": "sysopt-v1-failure-07",
+      "review_status": "approved",
+      "split": "dev"
+    }
+  ],
+  "schema_version": "system-optimization.failure-replays.v1"
+}
