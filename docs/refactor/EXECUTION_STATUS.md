@@ -2,10 +2,10 @@
 
 - Frozen document set: v1.0
 - Baseline commit: `eb9b3a6aa51348cf1fba0de7a21e5d073761939b`
-- Current branch: `refactor/p00-baseline`
-- Current phase: P19 portfolio release is complete. P18 execution and human review remain complete with an immutable failed formal quality Gate: Track A has 4 generation failures, 8 frozen-contract failures and 4 missing exports; Track B lacks a restorable formal CourseRAG Test Index, leaving 7/8 live Journeys blocked; human Acceptable Rate is 29.17%, mean Rubric 2.8884 and mean Edit Burden 2.625. Those results were not tuned or rewritten. Two public, clean-history engineering MVP repositories are released at `meo0306/course-rag` and `meo0306/course-pilot`, with HTTP-only runtime integration and separate PostgreSQL schemas.
+- Current branch: `refactor/private-archive-20260916`
+- Current phase: P19 portfolio release is complete and its failed P18 quality conclusion remains unchanged. Post-P18 optimization EP-00, EP-01 and EP-02 are complete. EP-02 adds the versioned Generation Context contract, deterministic Adequacy report, HTTP endpoint and CoursePilot Remote/Local/Mock transport without connecting any Lesson/Exam/PPT Graph or Worker. Focused and affected regression tests, the full importlib-mode repository suite, Ruff and Mypy pass; EP-03 is ready to plan but has not started.
 - Current data checkpoint: Business remains `4ce0ac60...a869`; Quality/Recovery r2 is `d724a1c4...a082` with 18 repaired CP-DS5 contracts; Integration/Export r2 is `5d42d442...6683` with eight repaired template/fault/Journey records. Fixed LibreOffice 7.4.7.2 rendered the custom DOCX twice with identical page PNG Hash `9265d1d0...2e79`.
-- Last updated: 2026-08-25
+- Last updated: 2026-09-16
 
 | Phase | Status | Start Commit | End Commit | Gate | Report |
 |---|---|---|---|---|---|
@@ -78,6 +78,9 @@ real targeted run succeeds and the Course Owner approves its incremental review 
 | P17 | completed_with_isolated_security_automation_debt | `b2cc47b` | `3f5c415` + uncommitted P17.1-P17.3 | passed_system_integration_hard_controls_detector_rejected_default_off | `phase_reports/P17_3_tri_state_security_convergence.md` |
 | P18 | completed | `3f5c415` | uncommitted | formal_quality_gate_failed_owner_portfolio_disposition | `phase_reports/P18_coursepilot_system_formal_evaluation.md` |
 | P19 | completed | `334de3a` | `f80cac0` / `90174af` | passed_local_portfolio_demo_and_release_gate | `phase_reports/P19_repository_split_ci_portfolio.md` |
+| EP-00 | completed | `e55370e` | `6f9cf8a` | passed_approved_dev_loader_and_isolation | `phase_reports/EP00_system_optimization_dev_workbench.md` |
+| EP-01 | completed | `6f9cf8a` | `158496c` | passed_fake_adequacy_domain_gate_no_runtime_connection | `phase_reports/EP01_coursepilot_demand_feasibility_domain.md` |
+| EP-02 | completed | `158496c` | `639cbd5` | passed_versioned_generation_context_and_deterministic_adequacy | `phase_reports/EP02_generation_context_adequacy.md` |
 
 ## P16 Critical-only closure checkpoint
 
@@ -1249,3 +1252,21 @@ available. Trace/version and writeback-loop focused validation passed 62 tests; 
 affected contract/security/writeback/runtime set passed 108 tests. No external provider, Blind
 data, migration or commit was used. SYS-DS1, 34 fault/security variants and the independent
 security release remain pending, so P17 is not yet completed and P18 remains blocked.
+
+## EP-02 generation-context checkpoint
+
+EP-02 is complete. CourseRAG now exposes a versioned Generation Context contract and
+`POST /api/courserag/v1/knowledge-bases/{course_id}/generation-contexts`. Deterministic Adequacy
+uses only authoritative Evidence type, KP role, document/version, source tier and explicit
+structured semantic metadata; it never infers numeric, case or visual material from text. An
+`unresolvable` result remains HTTP 200 business data. Capability negotiation declares both
+`build_generation_context` and contract version `v1`, and CoursePilot Remote/Local/Mock adapters
+do not fall back to the legacy Context operation.
+
+`ArtifactDemand` now maps to the public requirements contract and the report maps back to the
+EP-01 `AdequacySnapshot`, but no Lesson/Exam/PPT Graph or Worker consumes the result yet. No
+database migration, configuration, Provider call or real generation execution occurred. Focused
+and affected regression tests passed 85 cases; the full importlib suite passed 912 with 13
+skipped. Ruff passed and Mypy passed across 525 source files. Default Pytest collection remains
+blocked by the pre-existing duplicate `test_schemas.py` module identity. EP-02 Exit Gate passes;
+EP-03 is ready to plan but has not started.

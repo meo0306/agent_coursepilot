@@ -2084,3 +2084,90 @@ the P14 Exit Gate. Future P14 review pages must autosave and export schema-valid
 - Publication boundary: P18 Test is not rerun or tuned. Public documentation may emphasize verified
   engineering capabilities but must disclose the failed formal quality Gate, rejected automatic
   prompt-injection profile and missing formal Track-B index.
+
+## EP00-D001 — Joint workspace and strict post-P18 Dev isolation
+
+- Status: owner-approved
+- Date: 2026-08-29
+- Decision: keep the current joint monorepo as the EP-00—EP-12 integration source of truth; do not
+  synchronize or modify the two public split repositories during this optimization sequence.
+- Data boundary: the new Dev dataset excludes every old P18 Case, including P18 Dev records. Source
+  material is limited to non-P18 CourseRAG Evidence/KP assets referenced by approved P09
+  `split=dev` Context records, combined into new tasks.
+- Approved implementation matrix: 27 Task Cases (Lesson/Exam/PPT each thin/medium/rich 3/3/3),
+  seven failure replays and six repeated blind-review assignments.
+- Approval boundary: EP-00 implementation may generate Candidate data and review tooling only.
+  `approved/`, metric-eligible Adequacy Gold, real Provider baseline execution and EP-01 require a
+  later explicit Course Owner decision.
+
+## EP00-D002 — JSON-only human review handoff
+
+- Status: owner-approved
+- Date: 2026-08-30
+- Decision: EP-00 and subsequent optimization-stage human review handoffs use directly editable
+  JSON decision templates; no new browser review interface is required.
+- Validation boundary: completed JSON remains subject to the existing Pydantic Schema, record
+  coverage and human identity/time checks. This decision changes the input mechanism only and does
+  not authorize automatic approval, creation of `approved/` data or EP-01 execution.
+- Compatibility: existing HTML files are retained as unused historical candidate artifacts, but
+  the review package generator no longer creates or depends on them.
+
+## EP00-D003 — Reduce task scope to existing approved Evidence
+
+- Status: owner-approved
+- Date: 2026-08-30
+- Context: the first EP-00 review returned 24 `request_changes`, three `reject` and zero `approve`;
+  every generator-labelled `adequate` Case was reclassified because unrelated filler Evidence
+  inflated apparent capacity.
+- Decision: do not create new CourseRAG Evidence in EP-00. Keep the 27-Case and thin/medium/rich
+  matrix, remove Evidence outside declared task KPs, replace the three unresolvable compositions
+  and reduce output scale to Lesson 1/1/2 sessions, Exam 2/4/6 questions and PPT 3/5/7 slides for
+  single/adjacent/non-adjacent topic demands.
+- Approval boundary: r2 remains Candidate data. Its automatic Adequacy labels are not Gold, no
+  `approved/` directory may be created, and EP-01 remains blocked until a second explicit human
+  review approves all records.
+
+## EP00-D004 — Approve and materialize the r2 Dev dataset
+
+- Status: owner-approved
+- Date: 2026-08-31
+- Decision: approve the r2 set of 27 Task Cases and seven unchanged Failure Replays, and authorize
+  creation of the EP-00 approved Dev dataset plus final Loader/Gate validation.
+- Evidence: the r2 JSON review contains 27 `approve` and 27 human `adequate` decisions by
+  `course_owner` at `2026-08-31T10:41:29+08:00`; the separate owner instruction explicitly
+  approves all seven Failure Replays.
+- Materialization: 34 ApprovalRecord/ReviewLogEntry pairs bind Candidate and Approved record
+  digests. The approved Loader validates those bindings, exact ID coverage and P18 isolation.
+- Boundary: this authorization does not permit Provider execution or EP-01 implementation. Dev
+  approval does not promote any record to formal Test Gold; `formal_gold_eligible` remains false.
+
+## EP01-D001 — Balanced internal Demand and conditional unresolvable mapping
+
+- Status: owner-approved
+- Date: 2026-09-01
+- Decision: use a balanced first-version capacity policy: each output unit requires at least one
+  independent semantic unit, with deterministic Artifact-, difficulty- and material-specific
+  additions. Keep all structured KP and special-material hints in an internal
+  `DemandBuildContext`; do not extend the current Lesson/Exam/PPT HTTP request schemas in EP-01.
+- Feasibility mapping: CoursePilot owns the four states `feasible`, `needs_more_evidence`,
+  `scope_reduction_required` and `needs_human_review`. An Adequacy `unresolvable` result maps to
+  scope reduction only when the reported supported quantity remains at or above the Artifact's
+  minimum viable size; otherwise it maps to human review.
+- Boundary: EP-01 uses Fake Adequacy and reserves optional runtime state only. It does not change
+  CourseRAG contracts, call a Provider or connect Demand/Decision to a generation Graph. The
+  thresholds remain Dev-calibratable in later phases without Test-driven tuning.
+
+## EP02-D001 — Versioned deterministic Generation Context contract
+
+- Status: owner-approved
+- Date: 2026-09-01
+- Decision: expose `unresolvable` as an HTTP 200 business result carrying the complete Context and
+  Adequacy report. Invalid requests, unavailable indexes, version mismatches, course/tier boundary
+  violations and unavailable capabilities remain structured execution errors.
+- Semantic evidence policy: only authoritative Evidence types, KP roles and explicit structured
+  metadata may establish roles or materials. Text, character counts, keywords and regular
+  expressions cannot establish `numeric`, `case` or `visual_relationship` support.
+- Capability policy: advertise `build_generation_context` together with supported contract version
+  `v1`. Absence of that capability must never cause CoursePilot to fall back to legacy `/contexts`.
+- Boundary: EP-02 adds contracts, deterministic assessment, HTTP and Port adapters only. It does
+  not authorize EP-03 retrieval expansion or EP-04 generation-workflow integration.
