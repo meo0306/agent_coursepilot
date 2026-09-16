@@ -43,7 +43,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        uv run pytest --cov=src/ --cov-report=xml
+        uv run pytest --import-mode=importlib --cov=src/ --cov-report=xml
 
   test-docker:
     runs-on: ubuntu-latest
