@@ -35,6 +35,10 @@ def knowledge_base_contexts_path(course_id: str) -> str:
     return f"{API_PREFIX}/knowledge-bases/{_path_segment(course_id)}/contexts"
 
 
+def knowledge_base_generation_contexts_path(course_id: str) -> str:
+    return f"{API_PREFIX}/knowledge-bases/{_path_segment(course_id)}/generation-contexts"
+
+
 def knowledge_base_qa_path(course_id: str) -> str:
     return f"{API_PREFIX}/knowledge-bases/{_path_segment(course_id)}/qa"
 

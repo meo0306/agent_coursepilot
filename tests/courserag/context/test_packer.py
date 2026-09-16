@@ -199,3 +199,19 @@ def test_item_limit_groups_evidence_by_search_hit_without_losing_citation_ids() 
         first_a.text,
         first_b.text,
     ]
+
+    generation_limited = ContextPacker(
+        resolve_evidence=lambda evidence_id: records[evidence_id],
+        tokenizer=Tokenizer(),
+        profile=ContextProfile(max_items=2, max_tokens=20),
+    ).pack(
+        context=context,
+        query="q",
+        purpose="generation:lesson",
+        search=search,
+        max_items=1,
+        max_tokens=10,
+    )
+    assert len(generation_limited.items) == 1
+    assert generation_limited.packing_report.token_budget == 10
+    assert generation_limited.packing_report.discarded_for_item_limit == 2

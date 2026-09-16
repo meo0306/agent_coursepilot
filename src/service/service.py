@@ -24,6 +24,7 @@ from courserag.api import (
     courserag_api_error_handler,
     documents_router,
     evidence_router,
+    generation_context_router,
     knowledge_point_router,
     retrieval_qa_router,
     service_info_router,
@@ -255,6 +256,7 @@ if settings.COURSEPILOT_SERVICE_ROLE in {"combined", "coursepilot"}:
 if settings.COURSEPILOT_SERVICE_ROLE in {"combined", "courserag"}:
     app.include_router(knowledge_point_router, dependencies=[Depends(verify_bearer)])
     app.include_router(retrieval_qa_router, dependencies=[Depends(verify_bearer)])
+    app.include_router(generation_context_router, dependencies=[Depends(verify_bearer)])
     app.include_router(verified_content_router, dependencies=[Depends(verify_bearer)])
     app.include_router(service_info_router, dependencies=[Depends(verify_bearer)])
     app.include_router(documents_router, dependencies=[Depends(verify_bearer)])

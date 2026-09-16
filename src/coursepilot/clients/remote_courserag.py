@@ -18,6 +18,7 @@ from courserag.api.http_schema import (
     evidence_path,
     knowledge_base_contexts_path,
     knowledge_base_documents_path,
+    knowledge_base_generation_contexts_path,
     knowledge_base_qa_path,
     knowledge_base_search_path,
     knowledge_points_snapshot_path,
@@ -42,6 +43,8 @@ from courserag.contracts import (
     ErrorResponse,
     EvidenceBatch,
     EvidenceRecord,
+    GenerationContextRequest,
+    GenerationContextResponse,
     GetEvidenceRequest,
     HealthResponse,
     KnowledgePointSnapshot,
@@ -171,6 +174,17 @@ class RemoteCourseRAGClient:
             knowledge_base_contexts_path(request.course_id),
             request,
             ContextPackage,
+            context=request.context,
+        )
+
+    def build_generation_context(
+        self, request: GenerationContextRequest
+    ) -> GenerationContextResponse:
+        return self._request(
+            "POST",
+            knowledge_base_generation_contexts_path(request.course_id),
+            request,
+            GenerationContextResponse,
             context=request.context,
         )
 

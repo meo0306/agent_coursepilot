@@ -6,11 +6,14 @@ from datetime import UTC, datetime
 from uuid import uuid4
 
 from courserag.contracts import (
+    AdequacyCoverageResult,
     BatchGetEvidenceRequest,
     BuildJob,
     BuildProgress,
     BuildStatus,
     CapabilitiesResponse,
+    ContextAdequacyReport,
+    ContextAdequacyStatus,
     ContextBindingValidationRequest,
     ContextBindingValidationResponse,
     ContextItem,
@@ -27,6 +30,8 @@ from courserag.contracts import (
     ErrorCode,
     EvidenceBatch,
     EvidenceRecord,
+    GenerationContextRequest,
+    GenerationContextResponse,
     GetEvidenceRequest,
     HealthResponse,
     HealthStatus,
@@ -74,6 +79,10 @@ class MockCourseRAGService:
         self._revoke_idempotency: dict[str, tuple[str, RevokeVerifiedContentResult]] = {}
         self._failures: dict[str, tuple[ErrorCode, str, bool]] = {}
         self._knowledge_points: dict[str, list[KnowledgePointSnapshotItem]] = {}
+        self._generation_context_responses: dict[str, GenerationContextResponse] = {}
+
+    def seed_generation_context(self, course_id: str, response: GenerationContextResponse) -> None:
+        self._generation_context_responses[course_id] = response
 
     def seed_search(self, course_id: str, hits: list[SearchHit]) -> None:
         self._search_hits[course_id] = list(hits)
@@ -334,6 +343,102 @@ class MockCourseRAGService:
             answer_status="abstained_insufficient_evidence",
         )
 
+    def build_generation_context(
+        self, request: GenerationContextRequest
+    ) -> GenerationContextResponse:
+        self._record(CourseRAGOperation.BUILD_GENERATION_CONTEXT, request.context)
+        self._maybe_fail(CourseRAGOperation.BUILD_GENERATION_CONTEXT, request.context)
+        seeded = self._generation_context_responses.get(request.course_id)
+        if seeded is not None:
+            context = seeded.context.model_copy(
+                update={"meta": ResponseMeta.from_context(request.context)}
+            )
+            return seeded.model_copy(
+                update={
+                    "meta": ResponseMeta.from_context(request.context),
+                    "context": context,
+                }
+            )
+
+        requirements = request.requirements
+        context = self.build_context(
+            ContextRequest(
+                context=request.context,
+                course_id=request.course_id,
+                query=request.query,
+                purpose=f"generation:{requirements.artifact_type.value}",
+                packing={
+                    "max_tokens": requirements.max_context_tokens,
+                    "max_items": requirements.max_context_items,
+                },
+            )
+        )
+        kp_results = [
+            AdequacyCoverageResult(
+                requirement_id=item.knowledge_point_id,
+                required_count=item.minimum_semantic_units,
+                available_count=0,
+                satisfied=False,
+            )
+            for item in requirements.knowledge_point_requirements
+        ]
+        semantic_results = [
+            AdequacyCoverageResult(
+                requirement_id=item.requirement_id,
+                required_count=item.minimum_count,
+                available_count=0,
+                satisfied=False,
+            )
+            for item in requirements.semantic_requirements
+        ]
+        missing_semantic = sorted(
+            item.requirement_id for item in requirements.semantic_requirements if item.required
+        )
+        missing = sorted(missing_semantic + ["minimum_distinct_sources", "minimum_semantic_units"])
+        can_supplement = requirements.supplement_round < requirements.max_supplement_rounds
+        status = (
+            ContextAdequacyStatus.NEEDS_MORE_EVIDENCE
+            if can_supplement
+            else ContextAdequacyStatus.UNRESOLVABLE
+        )
+        report = ContextAdequacyReport(
+            status=status,
+            reason_codes=[
+                "knowledge_point_coverage_missing",
+                "semantic_requirement_missing",
+                "distinct_source_capacity_insufficient",
+                "semantic_unit_capacity_insufficient",
+                ("adequacy_needs_more_evidence" if can_supplement else "adequacy_unresolvable"),
+            ],
+            knowledge_point_results=kp_results,
+            requirement_results=semantic_results,
+            evidence_count=0,
+            distinct_semantic_units=0,
+            distinct_sources=0,
+            complete_evidence_group_count=0,
+            incomplete_evidence_group_count=0,
+            selected_item_count=len(context.items),
+            selected_evidence_count=0,
+            token_count=context.token_count,
+            token_budget=requirements.max_context_tokens,
+            discarded_for_budget=context.packing_report.discarded_for_budget,
+            discarded_for_item_limit=context.packing_report.discarded_for_item_limit,
+            discarded_for_token_limit=context.packing_report.discarded_for_token_limit,
+            parent_expansion_count=context.packing_report.parent_expansion_count,
+            neighbor_expansion_count=context.packing_report.neighbor_expansion_count,
+            missing_requirement_ids=missing,
+            missing_knowledge_point_ids=sorted(
+                item.knowledge_point_id for item in requirements.knowledge_point_requirements
+            ),
+            supported_target_unit_count=0,
+            supplement_allowed=can_supplement,
+        )
+        return GenerationContextResponse(
+            meta=ResponseMeta.from_context(request.context),
+            context=context,
+            adequacy=report,
+        )
+
     def get_evidence(self, request: GetEvidenceRequest) -> EvidenceRecord:
         self._record(CourseRAGOperation.GET_EVIDENCE, request.context)
         self._maybe_fail(CourseRAGOperation.GET_EVIDENCE, request.context)
@@ -459,6 +564,7 @@ class MockCourseRAGService:
         return CapabilitiesResponse(
             supported_retrieval_modes=["dense", "sparse", "hybrid"],
             supported_operations=list(CourseRAGOperation),
+            supported_generation_context_versions=["v1"],
             supports_rerank=True,
             supports_query_rewrite=True,
             supports_streaming_progress=True,

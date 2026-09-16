@@ -15,6 +15,8 @@ from coursepilot.ports.courserag import CourseRAGServicePort
 from courserag.contracts import (
     ContextPackage,
     ContextRequest,
+    GenerationContextRequest,
+    GenerationContextResponse,
     QARequest,
     QAResponse,
     RevokeVerifiedContentRequest,
@@ -41,6 +43,9 @@ class VersionedCourseRAGRuntime:
     ) = None
     revoke_verified_content: (
         Callable[[RevokeVerifiedContentRequest], RevokeVerifiedContentResult] | None
+    ) = None
+    build_generation_context: (
+        Callable[[GenerationContextRequest], GenerationContextResponse] | None
     ) = None
 
 
@@ -87,6 +92,7 @@ def get_courserag_service(session: Session | None = None) -> CourseRAGServicePor
         retrieval_backend=settings.COURSERAG_RETRIEVAL_BACKEND,
         versioned_search=runtime.search if runtime else None,
         versioned_context=runtime.build_context if runtime else None,
+        versioned_generation_context=runtime.build_generation_context if runtime else None,
         versioned_answer=runtime.answer if runtime else None,
         versioned_write_verified=runtime.write_verified_content if runtime else None,
         versioned_revoke_verified=runtime.revoke_verified_content if runtime else None,

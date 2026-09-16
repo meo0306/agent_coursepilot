@@ -1,11 +1,15 @@
 from __future__ import annotations
 
-from fastapi import APIRouter
+from typing import Annotated
 
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+
+from coursepilot.db.session import get_session
+from courserag.api.dependencies import get_courserag_service
 from courserag.api.http_schema import CAPABILITIES_PATH, HEALTH_PATH
 from courserag.contracts import (
     CapabilitiesResponse,
-    CourseRAGOperation,
     HealthResponse,
     HealthStatus,
 )
@@ -21,10 +25,7 @@ def health() -> HealthResponse:
 
 
 @router.get(CAPABILITIES_PATH, response_model=CapabilitiesResponse)
-def capabilities() -> CapabilitiesResponse:
-    return CapabilitiesResponse(
-        supported_operations=list(CourseRAGOperation),
-        supports_verified_writeback=True,
-        supports_enrichment=True,
-        supports_incremental_build=True,
-    )
+def capabilities(
+    session: Annotated[Session, Depends(get_session)],
+) -> CapabilitiesResponse:
+    return get_courserag_service(session).capabilities()

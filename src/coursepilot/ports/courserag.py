@@ -15,6 +15,8 @@ from courserag.contracts import (
     DocumentPage,
     EvidenceBatch,
     EvidenceRecord,
+    GenerationContextRequest,
+    GenerationContextResponse,
     GetEvidenceRequest,
     HealthResponse,
     KnowledgePointSnapshot,
@@ -60,6 +62,10 @@ class RetrievalPort(Protocol):
     def search(self, request: SearchRequest) -> SearchResponse: ...
 
     def build_context(self, request: ContextRequest) -> ContextPackage: ...
+
+    def build_generation_context(
+        self, request: GenerationContextRequest
+    ) -> GenerationContextResponse: ...
 
 
 @runtime_checkable

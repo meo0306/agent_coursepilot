@@ -25,7 +25,21 @@ class EvidenceContextService:
         package, _search = self.build_with_search(request)
         return package
 
-    def build_with_search(self, request: ContextRequest) -> tuple[ContextPackage, SearchResponse]:
+    def build_generation_base(self, request: ContextRequest) -> ContextPackage:
+        package, _search = self.build_with_search(
+            request,
+            max_tokens=request.packing.max_tokens,
+            max_items=request.packing.max_items,
+        )
+        return package
+
+    def build_with_search(
+        self,
+        request: ContextRequest,
+        *,
+        max_tokens: int | None = None,
+        max_items: int | None = None,
+    ) -> tuple[ContextPackage, SearchResponse]:
         search_request = request.search_request or SearchRequest(
             context=request.context,
             course_id=request.course_id,
@@ -40,6 +54,8 @@ class EvidenceContextService:
                 purpose=request.purpose,
                 search=search,
                 intent_route=intent,
+                max_tokens=max_tokens,
+                max_items=max_items,
             ),
             search,
         )

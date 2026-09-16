@@ -63,7 +63,11 @@ class ContextPacker:
         purpose: str,
         search: SearchResponse,
         intent_route: str = "fact",
+        max_tokens: int | None = None,
+        max_items: int | None = None,
     ) -> ContextPackage:
+        token_limit = min(self.profile.max_tokens, max_tokens or self.profile.max_tokens)
+        item_limit = min(self.profile.max_items, max_items or self.profile.max_items)
         candidates = _retrieval_candidates(search)
         records, missing = self._resolve_unique(candidates)
         if intent_route in self.profile.include_neighbors_for:
@@ -106,13 +110,13 @@ class ContextPacker:
         for group in groups:
             group_text = _group_text(group.records)
             item_tokens = self.tokenizer.count(group_text)
-            if item_tokens > self.profile.max_tokens:
+            if item_tokens > token_limit:
                 oversized += len(group.records)
                 continue
-            if len(selected) >= self.profile.max_items:
+            if len(selected) >= item_limit:
                 discarded_for_item_limit += len(group.records)
                 continue
-            if token_count + item_tokens > self.profile.max_tokens:
+            if token_count + item_tokens > token_limit:
                 discarded_for_token_limit += len(group.records)
                 continue
             evidence_ids = [record.evidence_id for record in group.records]
@@ -172,7 +176,7 @@ class ContextPacker:
                 item.expansion_source != ExpansionSource.RETRIEVAL.value for item in selected
             ),
             selected_by_hit_rank=_selected_by_hit_rank(selected),
-            token_budget=self.profile.max_tokens,
+            token_budget=token_limit,
             token_count=token_count,
             tokenizer_id=self.tokenizer.tokenizer_id,
             tokenizer_sha256=self.tokenizer.tokenizer_sha256,

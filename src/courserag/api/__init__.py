@@ -3,6 +3,7 @@
 from courserag.api.bindings import router as bindings_router
 from courserag.api.documents import router as documents_router
 from courserag.api.evidence import router as evidence_router
+from courserag.api.generation_context import router as generation_context_router
 from courserag.api.http_schema import API_PREFIX
 from courserag.api.knowledge_points import (
     CourseRAGAPIError,
@@ -25,5 +26,6 @@ __all__ = [
     "service_info_router",
     "documents_router",
     "evidence_router",
+    "generation_context_router",
     "bindings_router",
 ]

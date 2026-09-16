@@ -45,6 +45,8 @@ from courserag.contracts import (
     ErrorDetail,
     EvidenceBatch,
     EvidenceRecord,
+    GenerationContextRequest,
+    GenerationContextResponse,
     GetEvidenceRequest,
     HealthResponse,
     HealthStatus,
@@ -88,6 +90,9 @@ class LocalCourseRAGAdapter:
         retrieval_backend: str = "legacy",
         versioned_search: Callable[[SearchRequest], SearchResponse] | None = None,
         versioned_context: Callable[[ContextRequest], ContextPackage] | None = None,
+        versioned_generation_context: (
+            Callable[[GenerationContextRequest], GenerationContextResponse] | None
+        ) = None,
         versioned_answer: Callable[[QARequest], QAResponse] | None = None,
         versioned_write_verified: Callable[
             [VerifiedContentWriteRequest], VerifiedContentWriteResult
@@ -106,6 +111,7 @@ class LocalCourseRAGAdapter:
         self.retrieval_backend = retrieval_backend
         self.versioned_search = versioned_search
         self.versioned_context = versioned_context
+        self.versioned_generation_context = versioned_generation_context
         self.versioned_answer = versioned_answer
         self.versioned_write_verified = versioned_write_verified
         self.versioned_revoke_verified = versioned_revoke_verified
@@ -434,6 +440,21 @@ class LocalCourseRAGAdapter:
             )
         self._unsupported(request.context, CourseRAGOperation.QA)
 
+    def build_generation_context(
+        self, request: GenerationContextRequest
+    ) -> GenerationContextResponse:
+        callback = self.versioned_generation_context
+        if callback is None:
+            self._unsupported(
+                request.context,
+                CourseRAGOperation.BUILD_GENERATION_CONTEXT,
+            )
+        return self._with_structured_errors(
+            request.context,
+            CourseRAGOperation.BUILD_GENERATION_CONTEXT,
+            lambda: callback(request),
+        )
+
     def get_evidence(self, request: GetEvidenceRequest) -> EvidenceRecord:
         self._unsupported(request.context, CourseRAGOperation.GET_EVIDENCE)
 
@@ -492,8 +513,13 @@ class LocalCourseRAGAdapter:
             supported.append(CourseRAGOperation.WRITE_VERIFIED_CONTENT)
         if self.versioned_revoke_verified is not None:
             supported.append(CourseRAGOperation.REVOKE_VERIFIED_CONTENT)
+        if self.versioned_generation_context is not None:
+            supported.append(CourseRAGOperation.BUILD_GENERATION_CONTEXT)
         return CapabilitiesResponse(
             supported_operations=supported,
+            supported_generation_context_versions=(
+                ["v1"] if self.versioned_generation_context is not None else []
+            ),
             supports_verified_writeback=self.versioned_write_verified is not None,
             supports_enrichment=self.versioned_write_verified is not None,
             supports_incremental_build=self.retrieval_backend == "versioned",
