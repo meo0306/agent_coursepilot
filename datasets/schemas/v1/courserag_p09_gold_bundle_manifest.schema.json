@@ -1,0 +1,265 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "ds5_qa_and_context_only",
+      "default": "ds5_qa_and_context_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "approved_p08_retrieval": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "context_candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "context_candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 100,
+      "minProperties": 100,
+      "title": "Context Candidate Record Sha256",
+      "type": "object"
+    },
+    "context_changed_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Context Changed Record Ids",
+      "type": "array"
+    },
+    "coverage_audit": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HashedArtifact"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "first_review_groups": {
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "title": "First Review Groups",
+      "type": "array"
+    },
+    "inherited_first_review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HashedArtifact"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "inherited_second_review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HashedArtifact"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "p08_retrieval_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 100,
+      "minProperties": 100,
+      "title": "P08 Retrieval Record Sha256",
+      "type": "object"
+    },
+    "parent_bundle_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Bundle Sha256"
+    },
+    "preserved_p08_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 3,
+      "title": "Preserved P08 Sha256",
+      "type": "object"
+    },
+    "qa_candidate": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "qa_candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 100,
+      "minProperties": 100,
+      "title": "Qa Candidate Record Sha256",
+      "type": "object"
+    },
+    "review_pack_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Pack Index Sha256",
+      "type": "string"
+    },
+    "review_pack_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Review Pack Relative Path",
+      "type": "string"
+    },
+    "revision": {
+      "default": 1,
+      "enum": [
+        1,
+        2
+      ],
+      "title": "Revision",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "courserag.p09-gold-bundle-manifest.v1",
+      "default": "courserag.p09-gold-bundle-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "second_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Second Review Ids",
+      "type": "array"
+    },
+    "second_review_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Second Review Index Sha256",
+      "type": "string"
+    },
+    "semantic_changed_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Semantic Changed Record Ids",
+      "type": "array"
+    },
+    "test_locked": {
+      "const": false,
+      "default": false,
+      "title": "Test Locked",
+      "type": "boolean"
+    },
+    "upstream_approved_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 5,
+      "title": "Upstream Approved Sha256",
+      "type": "object"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "qa_candidate",
+    "context_candidate",
+    "approved_p08_retrieval",
+    "qa_candidate_record_sha256",
+    "context_candidate_record_sha256",
+    "p08_retrieval_record_sha256",
+    "upstream_approved_sha256",
+    "preserved_p08_sha256",
+    "first_review_groups",
+    "second_review_ids",
+    "review_pack_relative_path",
+    "review_pack_index_sha256",
+    "second_review_index_sha256",
+    "bundle_sha256"
+  ],
+  "title": "P09GoldBundleManifest",
+  "type": "object"
+}

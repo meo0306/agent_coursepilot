@@ -1,0 +1,14 @@
+{
+  "candidate_must_not_enumerate_test_ids": true,
+  "current_state": "unlocked_hash_only",
+  "dataset_id": "courserag-p10-test-freeze",
+  "dataset_version": "r1",
+  "required_future_approvals": [
+    "one_preregistered_dev_calibration_and_external_budget",
+    "frozen_manifest_and_test_lock",
+    "one_formal_test_execution_or_exact_manifest_resume"
+  ],
+  "same_release_test_tuning_forbidden": true,
+  "schema_version": "courserag.p10-test-freeze-protocol.v1",
+  "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134"
+}

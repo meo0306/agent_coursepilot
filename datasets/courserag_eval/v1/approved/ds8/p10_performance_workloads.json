@@ -1,0 +1,723 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "03cee4f5580c7d529ea5cb4192ae492cd1b72e92682eaa5e92ac2a05a11fcdcd",
+        "candidate_sha256": "0cd3de1e04097bad836f79c8b9c63ce23051938c88273e748bb5471aa793a421",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.001",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "artifact_bytes",
+        "peak_memory",
+        "stage_reuse"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-full-build-cold",
+      "referenced_case_ids": [
+        "six-isolated-single-document-builds"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "full_build"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "3b5e1cdcbedd47ef94882a9db3a3e133feaa34b1614e14c4fa0f2fae0a51e24b",
+        "candidate_sha256": "c9dbe3a24b79635fa4f719829b7485753eed1d4f2c62a609daeb628e0b00c424",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.002",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "artifact_bytes",
+        "peak_memory",
+        "stage_reuse"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-full-build-warm",
+      "referenced_case_ids": [
+        "six-isolated-single-document-builds"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "full_build"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "55ae1df917f8fa084908aa06a18e46622fcb7cc7eb17121401472d43bd787465",
+        "candidate_sha256": "822ff406cb2f13d9c6aca95a56f7df0c7fc27160a66dc592e8694fa917579e6f",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.003",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "artifact_bytes",
+        "peak_memory"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-single-document-build-cold",
+      "referenced_case_ids": [
+        "doc_ai_algorithms_systems"
+      ],
+      "repetitions": 3,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "single_document_build"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "afecfde434a1c3d53d1b6676bf706067f23d9b6da60118cda7140b44297d2ae7",
+        "candidate_sha256": "9e2795e60a137432b9747daf22afdd1792c4110dd52b578df24ddd9240cebfa8",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.004",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "artifact_bytes",
+        "peak_memory"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-single-document-build-warm",
+      "referenced_case_ids": [
+        "doc_ai_algorithms_systems"
+      ],
+      "repetitions": 3,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "single_document_build"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "9691729e67472f070127c805dcf233c538f0f016fa42e50d7bd2b5339d35ae72",
+        "candidate_sha256": "c56cc4b9bf2396436176ad6340fb38d5eaaeddd048e89db42ad76fe640c4444d",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.005",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "affected_sections",
+        "artifact_reuse_ratio"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-single-section-update-cold",
+      "referenced_case_ids": [
+        "p10-ds7-02-modify-section"
+      ],
+      "repetitions": 5,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "single_section_update"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "11ab571ce8a84e924bb6fd4c35a817a077a1b17a1e6c5fbf3d338d7267fa2f43",
+        "candidate_sha256": "428a1b3e241ccf4dc82ac76fcfb2af9550a3d418b51e1c65b28d8833045d3888",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.006",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "affected_sections",
+        "artifact_reuse_ratio"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-single-section-update-warm",
+      "referenced_case_ids": [
+        "p10-ds7-02-modify-section"
+      ],
+      "repetitions": 5,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "single_section_update"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "df227c8aa0cc25c37cd050d05ed67ebb1b2fec0faf2a0d40e003657bc8beb121",
+        "candidate_sha256": "4dba7b1cd8f1be57119ed12e09e1461a9268342bccedf2e7b6e6b4a7cbe61880",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.007",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "pages_per_second",
+        "peak_memory"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-ocr-batch-cold",
+      "referenced_case_ids": [
+        "approved-p05-15-pages"
+      ],
+      "repetitions": 3,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "ocr_batch"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "baf138e2aa0a29a646cd1f67e205d8394fa4f84d967463707fc46a21d9e7b15b",
+        "candidate_sha256": "e3f27a4048e36b6b5ce59869550e6a13f4c4b0a803fac4101fb1935c0c0c7b3e",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.008",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "pages_per_second",
+        "peak_memory"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-ocr-batch-warm",
+      "referenced_case_ids": [
+        "approved-p05-15-pages"
+      ],
+      "repetitions": 3,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "ocr_batch"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "25dc38251c02a032378e408260b28ee761a26b1fe68798bf49db402084ffec7a",
+        "candidate_sha256": "5b034c9f8e5f81c5af6db7b945c199cb484bb328b71d34d2355ae92acf0ac2fd",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.009",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "token_count",
+        "provider_cost",
+        "artifact_reuse_ratio"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-enrichment-batch-cold",
+      "referenced_case_ids": [
+        "p10-ds7-11-auto-enrichment"
+      ],
+      "repetitions": 5,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "enrichment_batch"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a8cbf174eda93d472afa0c8fc59a9740b49a5498c5b299c48be3b98ed74a48e8",
+        "candidate_sha256": "8b4cd2eb897fe8ff1c1536cacd74ffbd9ea9527837e0046116f8b3f3286e5241",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.010",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "duration",
+        "token_count",
+        "provider_cost",
+        "artifact_reuse_ratio"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-enrichment-batch-warm",
+      "referenced_case_ids": [
+        "p10-ds7-11-auto-enrichment"
+      ],
+      "repetitions": 5,
+      "resolved_dev_query_count": 0,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 7200,
+      "workload_domain": "offline",
+      "workload_type": "enrichment_batch"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "08203bd9681583492f289ece56c735216b0dbe085927c602084b448ac680034c",
+        "candidate_sha256": "53b414ebb0363e5b99915d4371838a66bfb4ae285d3239cf4ac39bfaef1925f3",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.011",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "throughput"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-search-cold",
+      "referenced_case_ids": [
+        "approved-ds5"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "search"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c48d79dbd8bda01b70e467dfe2cabafc5eda3345834a437b31027e6a240997c9",
+        "candidate_sha256": "3e1982f474c8608ea807576761dbcf66dc9478c12ece948505c297631e2b3a80",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.012",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "throughput"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-search-warm",
+      "referenced_case_ids": [
+        "approved-ds5"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "search"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d03b0b936a5499ab9b56addc0d5336b8f04d813d1ed87c06528a15f6a0c8bcf3",
+        "candidate_sha256": "43c8a997eb165b90f748d7f78a1fa9970949aa60d187a30bd966f0f36371bc54",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.013",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "throughput",
+        "provider_cost"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-search-rerank-cold",
+      "referenced_case_ids": [
+        "approved-ds5"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "search_rerank"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "933d2ff84e30f5c72e4a9439a3aea00be10a2ec3cde7c2b8bff59adf6ae1bf73",
+        "candidate_sha256": "0b468d5ac9d0afc1d343004e476e73bddeb0b3069ab46a851757359c717e4137",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.014",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "throughput",
+        "provider_cost"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-search-rerank-warm",
+      "referenced_case_ids": [
+        "approved-ds5"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "search_rerank"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2df3d8cb84a29eada35190f8486f28bb1cf472a1a68707d438ddbcf75954c6bf",
+        "candidate_sha256": "d14c941f49033608368f773198cae0509af3df4633eec24c273e1907fe93a84e",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.015",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "context_tokens"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-context-cold",
+      "referenced_case_ids": [
+        "approved-ds5",
+        "approved-p09-context"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "context"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a68e48fb49086903c26c78b7b695b4fdd3646af551cc88bec99d8dede4a5c9bd",
+        "candidate_sha256": "6f12c4700ff305b3f3d06c3521b75225caed8a5b50cea7fff01178191a68e09e",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.016",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "context_tokens"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-context-warm",
+      "referenced_case_ids": [
+        "approved-ds5",
+        "approved-p09-context"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "context"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d96ece99a0b4213c7ab7e4fe69eaff4a7e16b8dc95d32a16159d2a990f8b525d",
+        "candidate_sha256": "64cdf2324111b7aac57183f7c92ea27da7c53244f41408573004702a1624e140",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.017",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "token_count",
+        "provider_cost"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-qa-cold",
+      "referenced_case_ids": [
+        "approved-ds5",
+        "approved-p09-qa"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "qa"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "5106ccf005c179c98ad5d93ab68915db4d2a47dbba91bec765766b201c2dc178",
+        "candidate_sha256": "d643f587d58eb51516071236fde5d637bfde7e02715b1d5060628f0533eed1c3",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.018",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "token_count",
+        "provider_cost"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-qa-warm",
+      "referenced_case_ids": [
+        "approved-ds5",
+        "approved-p09-qa"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "qa"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "b63a311904ff200d8e2268b3179d8eb59317cf60205ffd01e874774d4e16305c",
+        "candidate_sha256": "d4ef9dd2bfc283357f79f1f0834cc60911982238b7f52363df7cdcbe919cb857",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.019",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "cold",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "false_answer_rate",
+        "provider_cost"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-qa-abstention-cold",
+      "referenced_case_ids": [
+        "approved-ds5-unanswerable",
+        "approved-p09-qa"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "qa_abstention"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "ec7666fbefdaab9b95ecc90f7875efcf140dc21fc254017ebf9455589605587b",
+        "candidate_sha256": "3006b79b727dce4d10b2c7351df690449ba346a5b428104961fa2b905ffc7905",
+        "notes": "P10 input Gold approval only; no Dev/Test execution or Test lock.",
+        "review_id": "p10-input-owner-approval-20260810.002.ds8.020",
+        "reviewed_at": "2026-08-10T21:15:38.037086+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "cache_state": "warm",
+      "candidate_source": "approved_ids_plus_workload_template",
+      "concurrency": 1,
+      "dev_ids_sha256": "307228a9197dc312a03105867109c18c62c7271ca3999547c8223f96cd557b3a",
+      "metrics": [
+        "latency_p50",
+        "latency_p95",
+        "false_answer_rate",
+        "provider_cost"
+      ],
+      "profile_refs": [
+        "frozen-at-p10-test-lock"
+      ],
+      "record_id": "p10-ds8-qa-abstention-warm",
+      "referenced_case_ids": [
+        "approved-ds5-unanswerable",
+        "approved-p09-qa"
+      ],
+      "repetitions": 1,
+      "resolved_dev_query_count": 60,
+      "resolved_test_query_count": 0,
+      "review_status": "approved",
+      "test_id_resolution": "deferred_until_test_lock",
+      "test_ids_sha256": "e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134",
+      "timeout_seconds": 120,
+      "workload_domain": "online",
+      "workload_type": "qa_abstention"
+    }
+  ],
+  "dataset_id": "courserag-ds8-formal",
+  "dataset_version": "r1",
+  "schema_version": "courserag.ds8-formal.v1"
+}

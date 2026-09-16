@@ -1,0 +1,222 @@
+{
+  "schema_version": "system-optimization.case-review-decisions.v1",
+  "dataset_status": "candidate",
+  "decisions": [
+    {
+      "record_id": "sysopt-v1-lesson-01",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-02",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-03",
+      "decision": "reject",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "unresolvable",
+      "notes": "缺少两个必需知识点的可见 Evidence，当前范围不可解决；请缩小任务范围或重建候选。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-04",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-05",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-06",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-07",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-08",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-lesson-09",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-01",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-02",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-03",
+      "decision": "reject",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "unresolvable",
+      "notes": "缺少两个必需知识点的可见 Evidence，当前范围不可解决；请缩小任务范围或重建候选。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-04",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-05",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-06",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-07",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-08",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-exam-09",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-01",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-02",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-03",
+      "decision": "reject",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "unresolvable",
+      "notes": "缺少两个必需知识点的可见 Evidence，当前范围不可解决；请缩小任务范围或重建候选。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-04",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-05",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-06",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-07",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-08",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    },
+    {
+      "record_id": "sysopt-v1-ppt-09",
+      "decision": "request_changes",
+      "reviewer_id": "course_owner",
+      "reviewed_at": "2026-08-30T12:21:31+08:00",
+      "adequacy_decision": "needs_more_evidence",
+      "notes": "任务相关 Evidence 通常每个知识点仅一条，其余多为无关补量内容，不足以支撑要求的课时、题量或幻灯片数；请补充与目标知识点直接相关且覆盖输出规模的 Evidence。"
+    }
+  ]
+}

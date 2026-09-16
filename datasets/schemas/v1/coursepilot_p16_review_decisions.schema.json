@@ -1,0 +1,91 @@
+{
+  "$defs": {
+    "P16ReviewDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "enum": [
+            "pass",
+            "return"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "decision"
+      ],
+      "title": "P16ReviewDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/P16ReviewDecision"
+      },
+      "title": "Decisions",
+      "type": "array"
+    },
+    "expected_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Expected Record Ids",
+      "type": "array"
+    },
+    "review_pass": {
+      "enum": [
+        "first",
+        "second"
+      ],
+      "title": "Review Pass",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "minLength": 1,
+      "title": "Reviewer Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.p16-review-decisions.v1",
+      "default": "coursepilot.p16-review-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_sha256",
+    "review_pass",
+    "reviewer_id",
+    "reviewed_at",
+    "expected_record_ids",
+    "decisions"
+  ],
+  "title": "P16ReviewDecisions",
+  "type": "object"
+}

@@ -4,6 +4,7 @@
 
 from typing import Literal
 
+from langgraph.checkpoint.base import BaseCheckpointSaver
 from langgraph.graph import END, StateGraph
 
 from agents.coursepilot.nodes.lesson_nodes import (
@@ -54,39 +55,36 @@ def should_repair(state: LessonGraphState) -> Literal["repair", "done"]:
     return "done"
 
 
-# 构造
-graph = StateGraph(LessonGraphState)
-graph.add_node("route", lambda state: {})
-graph.add_node("chat_response", chat_response)
-graph.add_node("retrieve_course_context", retrieve_course_context)
-graph.add_node("extract_knowledge_points", extract_knowledge_points)
-graph.add_node("plan_sessions", plan_sessions)
-graph.add_node("generate_lesson_design", generate_lesson_design)
-graph.add_node("validate_lesson_design", validate_lesson_design)
-graph.add_node("reflect_and_revise", reflect_and_revise)
+def build_lesson_graph(checkpointer: BaseCheckpointSaver | None = None):
+    graph = StateGraph[
+        LessonGraphState,
+        None,
+        LessonGraphState,
+        LessonGraphState,
+    ](LessonGraphState)
+    graph.add_node("route", lambda state: {})
+    graph.add_node("chat_response", chat_response)
+    graph.add_node("retrieve_course_context", retrieve_course_context)
+    graph.add_node("extract_knowledge_points", extract_knowledge_points)
+    graph.add_node("plan_sessions", plan_sessions)
+    graph.add_node("generate_lesson_design", generate_lesson_design)
+    graph.add_node("validate_lesson_design", validate_lesson_design)
+    graph.add_node("reflect_and_revise", reflect_and_revise)
 
-graph.set_entry_point("route")
-graph.add_conditional_edges(
-    "route",
-    route_entry,
-    {
-        "chat": "chat_response",
-        "workflow": "retrieve_course_context",
-    },
-)
-graph.add_edge("chat_response", END)
-graph.add_edge("retrieve_course_context", "extract_knowledge_points")
-graph.add_edge("extract_knowledge_points", "plan_sessions")
-graph.add_edge("plan_sessions", "generate_lesson_design")
-graph.add_edge("generate_lesson_design", "validate_lesson_design")
-graph.add_conditional_edges(
-    "validate_lesson_design",
-    should_repair,
-    {
-        "repair": "reflect_and_revise",
-        "done": END,
-    },
-)
-graph.add_edge("reflect_and_revise", "validate_lesson_design")
+    graph.set_entry_point("route")
+    graph.add_conditional_edges(
+        "route", route_entry, {"chat": "chat_response", "workflow": "retrieve_course_context"}
+    )
+    graph.add_edge("chat_response", END)
+    graph.add_edge("retrieve_course_context", "extract_knowledge_points")
+    graph.add_edge("extract_knowledge_points", "plan_sessions")
+    graph.add_edge("plan_sessions", "generate_lesson_design")
+    graph.add_edge("generate_lesson_design", "validate_lesson_design")
+    graph.add_conditional_edges(
+        "validate_lesson_design", should_repair, {"repair": "reflect_and_revise", "done": END}
+    )
+    graph.add_edge("reflect_and_revise", "validate_lesson_design")
+    return graph.compile(checkpointer=checkpointer)
 
-coursepilot_lesson_agent = graph.compile()
+
+coursepilot_lesson_agent = build_lesson_graph()

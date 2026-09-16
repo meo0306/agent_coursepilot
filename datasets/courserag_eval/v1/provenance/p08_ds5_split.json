@@ -1,0 +1,864 @@
+{
+  "assignments": [
+    {
+      "case_id": "gold-rq-6546dd467a6ff32dd31c672236661f73",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-2f2a04875f8045f6e4331308",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-8683f7ef5d2126932f2ea9432e68c3cb",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-c2d2191168d18eb42ec79dd9",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-c87f8303bd82f530eb13745ec7ae4b24",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-891458445f34e9508d5c6581",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-d29d60073729feee8ca538873e174ce0",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-05fd40fa1168beac8a89ba52",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-68f180aa1ae24e13b6638507281758ff",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-edba842ec22be858d514fb35",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-d9863325f5d9a35c0c22db25f2245a81",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-9d13a785314c0c8f6823f392",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-8defb2cb2d4c729ed300065e2ec0a0af",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-9f6ba4e67a7b9aaeae0602b2",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-75f882a2555c176e772f78305b24cb4d",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-71185aa4ccb396ea7b4390cf",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-3502a03e10e24deb6a1d667056085f38",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-0cf068a74c70f0517e4074fb",
+      "query_type": "exact_fact",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-f99fb737f14527a3302c0e6231441254",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-d329d0dc324a51007e9558fc",
+      "query_type": "exact_fact",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-95685b2191c26701d0c94a38ed73622b",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-1917147b2f75d51a6eb5fd27",
+      "query_type": "exact_fact",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-0bca99af4a924241a1aa5b7efcce186b",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-1be0615570ad854ba0d92ee9",
+      "query_type": "exact_fact",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-7eb0857a4454471776f13e108c298939",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-bcb2191b0439a231a4336498",
+      "query_type": "exact_fact",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-6a1ead9815160f290ae4661db1d353b5",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-480b2dd4c8d805a0be6c53e7",
+      "query_type": "exact_fact",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-ffbf1007b57536e4650200ba464c2671",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-bb1846904ca57428a9c28c05",
+      "query_type": "exact_fact",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-5b769cd00a48b6d8b17fba1dec059bbb",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-545da11adc670fbc17961b0f",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-fc16a8d5c2543af34f756b4ddbc957eb",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-071adc6ea60b20d7234ca3c6",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-2c4dc78aa0790f5bcde0783b2155bea9",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-b9aea07f4f2fcf92134a0940",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-637f02e7fe4829e8c69b47248ea89eac",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-b1c3b37a9e4df49a29a1293a",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-ba9049b88a123e1a402bb580a81d7def",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-234e11c0c417bb54de4461d3",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-6420de2a5731334f4c21a21f02ff5be8",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-6924597f854f863f2e66df48",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-f3c51be017e287889106d5630f107cc7",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-e0b935ad79be274d21c1b3d5",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-fafff84989a81e3682b12de2d39f1a56",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-19dd1e14ac53e3db34b0153e",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-5178e715327fed95d093129606b48964",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-7c0ae9a221de08bd112972b3",
+      "query_type": "definition",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-f4a9fcc60f049c0f744d396e3aafdadb",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-5b25d9000d854330078c9755",
+      "query_type": "definition",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-bf9b1f91980c24979dcb79ee82e8247a",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-2e512ce384665b06e5b02d0a",
+      "query_type": "definition",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-23af66ac72ee56f75fdb709df2f8214d",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-25a2636e8647b2a548c51a8a",
+      "query_type": "definition",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-b023f02aa78b0a7f1fba69762de1c1e3",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-870aab835123496cb49025f8",
+      "query_type": "definition",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-713a7c6be4b73454396c0b5c04419ebf",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-b8970a31e161ea5cd6c0e7f5",
+      "query_type": "definition",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-f52a5eeab2d281d555e6738c9d279ae8",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-ac8fa719b9c3ac909c5872e0",
+      "query_type": "definition",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-239ebbd32ffc401c2c89fae087d89614",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-a20369543dbad8bad6966284",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e215895eb0ec348196d2fc162664b5c7",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-55b828640668a8d2ce0410dc",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-1d2d3426a53bc035167af623d7766f9e",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-534519d7d655109305cbc14b",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-ce08156be2f7307227052a793712e7e7",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-4a11dc6d1532d59739409ee3",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-8e3ffac1f9bbcbd712867cab9d01f5cb",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-6f41996837578a5a02e3af8c",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-ace3565eb2d98eda7ae9e00e9529ca34",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-0ee2efb9d1a2a23aab713a6d",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-ef6dd249fa3afab524c56b64f9e21434",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-04b7c48a5e042bc4002f2e32",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-f58ff6ba43fa8d00e4f19371cb8a0bb0",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-71a7cab3f0403133f548df2e",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-a3ac5f4aeba2be704d4c8bea78468d12",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-2075a4c457b4fe605122caa4",
+      "query_type": "paraphrase",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-044911d936ef458adede8195d84e182d",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-a43cefee002c205bef6d044e",
+      "query_type": "paraphrase",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-2134db212dc779edc87dc4e4dd433d8e",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-fdfb6cd5cab840b403d98855",
+      "query_type": "paraphrase",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-bc85db9b6cc781aee8576633dba8ec00",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-966757cea43f290ad52b7705",
+      "query_type": "paraphrase",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-7a72cfc65cf9c9b7bee0393763986898",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-c9eaf586ea665f3488864f6d",
+      "query_type": "paraphrase",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-1112fb98d5284428d124d0be7afbd2d0",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-8d7c80fd8c2153225a65b23e",
+      "query_type": "paraphrase",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-3204ff675a1e73d1a548f97d9a8b5a0f",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-a4c50009a78613cb58427049",
+      "query_type": "paraphrase",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-96ca7ac2b9c2c2b28011bb9488506fb5",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-a64dfb854f95834014d4c86e",
+      "query_type": "comparison",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-3c877908f0472f1a7aa2f9c61fe6886f",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-0c881b213cf7de3ba076267f",
+      "query_type": "comparison",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-f08e19db0ca6329364e9dd2e86cc975d",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-0aac675dc2f9ff173b426a7b",
+      "query_type": "comparison",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-d35279d6bae4cfddde0a5167475a0815",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-3e240c82ef9b619b669768b5",
+      "query_type": "comparison",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-9ce372a9681af5bbecbc79b511e1dc9c",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-9557ac617272868e71f474da",
+      "query_type": "comparison",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-4f0a8f2ed6fb448880435c1173c85e1b",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-3f7ee55284d8f6d65dc78936",
+      "query_type": "comparison",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-1e202de03a7884b3458a9a2635fe2b19",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-f61422093dcc0010f37cca6b",
+      "query_type": "comparison",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-d08ba084ca5a18d808d532c6f3c59957",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-dfe4487b9b736ae034b43b06",
+      "query_type": "comparison",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-482c4ee6d22073d2777389d42d7bbbfa",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-367316bfa103046be35c39bd",
+      "query_type": "comparison",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-898f835f50708362043107d0f1861b5f",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-9bea4bccba473c22e92557ec",
+      "query_type": "comparison",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-abaf93468be694e7a681cca584ecf2cc",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-1184eb92fdeae3f5a5177b7d",
+      "query_type": "procedure",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-352d8cf3b0f8aaf35d1795926472cfa2",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-ae532f6eed3d0708c5c337c1",
+      "query_type": "procedure",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-cd0b315640afcc0de2fdb5c1d9cf4ca4",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-ed12bfbfbf72b598ede6ec46",
+      "query_type": "procedure",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-4ffdef086ebe67ff8e8755dee28066fd",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-5e66096246df71b81c0ae382",
+      "query_type": "procedure",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e5ea31714c219993b7be3e0b4779ddfd",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-33db48454d7bfc059f6bc508",
+      "query_type": "procedure",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-ffd3db8be133d93470d73b9bb07cb0c9",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-b60af7c7230a224d521296a9",
+      "query_type": "procedure",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-3f50328e063e8f961f6ba89db307abbe",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-d2c7d74b32be5d5326c35ca5",
+      "query_type": "procedure",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-bb46d90bc13835038a2c697b4189c4d6",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-cdb8e737b6f7c09eba812ca4",
+      "query_type": "procedure",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-9ecd4fae4d720e5ac917284e749f1b93",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-eac4b5abf29a19e3b1333a60",
+      "query_type": "procedure",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-75c0c40df0fe8c62b7cd02dd3cff0b97",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-c9eaf586ea665f3488864f6d",
+      "query_type": "procedure",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-64b0a9a713614d23d44b1d1197bbf96e",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-41b671da99a63aef343946df",
+      "query_type": "application",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-27c624bc4167bb7408694aa3322d57b0",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-26fbb151a5005a2ec93f4852",
+      "query_type": "application",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e7fb2b1502ee253850bcc9e989000eb8",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-2a1e7ef50fddb92f46f18fe6",
+      "query_type": "application",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-260ea430b2abd12e0f66c0aaa3303e13",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-f2036dcf1826607b93f8ca62",
+      "query_type": "application",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-07197f3becdbacfd4976b1e3ee84bb43",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-f2f045d22eaf616bee6a18c8",
+      "query_type": "application",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-ebb7cf7ef8758813ec6db80bae8028d6",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-8fdeb466940201066b83120f",
+      "query_type": "application",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-c73b0d28243b84ae414ab91c5584d3cb",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-95219aff975bffda940bfc04",
+      "query_type": "application",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-294125b141226b53fb56d1e6ef509e36",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-e9c0382306f9011d122a43db",
+      "query_type": "application",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-5e44e4e2aeb63fdd8aefc5c8437a8f82",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-51050f4078956e073269d01e",
+      "query_type": "application",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-8e5d6540a567c6070481227fcef21ce2",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-c259bde4093c5edca4682e94",
+      "query_type": "application",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-6dc01cab65135a1dffe5ae4b4748ba30",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-c50dccdc92a7991e0a31d092",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-37d38e12d840f2997e9e9b39201e47da",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-166c39397d6431e18c230ea2",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-9f388a142a1cf3b826be08b46b3011bf",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-7da855734feb5fed21429de3",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-27751e274ce26ea489dc82276b3de963",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-78e9ae06e00999d99ebe3ffb",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-7112c3aced5c6ea2c91842b272992bd8",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-24bd2715a84a4acf4e3b67b5",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-d0d1f40137818a4504d9abaa68f391a2",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-3823d4ef7551d9e241c6ded7",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e0cbd38be0555e3d191dd68b07bd1633",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-52d108f836815693259a0846",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e1996c10957a48bd7fe12928737416b5",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-69811faea593d6357d32f68a",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-2c1283ab0f2a7ddec44f955e3f7db444",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-a1e2d1e45ce4aaea52e8c262",
+      "query_type": "cross_section",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e1375ae9e6e9fbdbd439eaf936b6ed06",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-a8e4b9fc7cabf8e3d44b6e45",
+      "query_type": "cross_section",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-5afcdd17d13558128b4f27d30737eae0",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-1917147b2f75d51a6eb5fd27",
+      "query_type": "cross_section",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-87494e847f30717610563a7aa835be14",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "upstream_gap_diagnostic",
+      "query_family_id": "p08-family-1e65caa5d83de5e945802b8a",
+      "query_type": "cross_section",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-88658e979c98448d39b0d7c3b3095c15",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-8dc611af29d342bae7b75d58",
+      "query_type": "cross_section",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-f6231a4ddb66ab94af6cf6b9b689c2c8",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-619719684f864052a96f61b7",
+      "query_type": "cross_section",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-6625c7a4588ebc851accec618f557934",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-8beaafb41973e0a295c29a72",
+      "query_type": "cross_section",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-5c380cc9bc38c11d7a3548a8d07e28c3",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-df0149c8263b093c8d7a",
+      "query_type": "unanswerable",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-c9d461f0c0b9e228260cca186de0afba",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-8229f8042ff7fba123e5",
+      "query_type": "unanswerable",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-e88ab433e04ef0c0d93451b14a25f388",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-ad37794c341a4e27015b",
+      "query_type": "unanswerable",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-df571ef52b218b797b4226675db85524",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-ce0774065bf491751fd4",
+      "query_type": "unanswerable",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-22577203db904f0c6bb6a6226cf08098",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-26db02caa9f53590ed29",
+      "query_type": "unanswerable",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-a533064cb579dd7c2edc98bab8c88517",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-50fd374db7913395a23d",
+      "query_type": "unanswerable",
+      "split": "dev"
+    },
+    {
+      "case_id": "gold-rq-8fe5fa20cbc300e255e9008d86e2d575",
+      "course_id": "course_ai_general_education",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-dbe1eae66ed8a6334a2c",
+      "query_type": "unanswerable",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-b2144c2b649a6c45737a58e065d13e74",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-c463842710c32585b9d0",
+      "query_type": "unanswerable",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-3567c6d1da6d8ef8c5f4c856636a07eb",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-ad8edf4b61337e630dc8",
+      "query_type": "unanswerable",
+      "split": "test"
+    },
+    {
+      "case_id": "gold-rq-c2162806d5995668c3f81a3582299120",
+      "course_id": "course_ai_algorithms_systems",
+      "evaluation_stratum": "retrieval_main",
+      "query_family_id": "p08-family-unanswerable-4fe5d655a02156efe0fa",
+      "query_type": "unanswerable",
+      "split": "test"
+    }
+  ],
+  "dataset_id": "courserag-p08-ds5-split",
+  "dataset_version": "p08-r1",
+  "p08_tuning_allowed_ids": [
+    "gold-rq-6546dd467a6ff32dd31c672236661f73",
+    "gold-rq-8683f7ef5d2126932f2ea9432e68c3cb",
+    "gold-rq-c87f8303bd82f530eb13745ec7ae4b24",
+    "gold-rq-68f180aa1ae24e13b6638507281758ff",
+    "gold-rq-d9863325f5d9a35c0c22db25f2245a81",
+    "gold-rq-8defb2cb2d4c729ed300065e2ec0a0af",
+    "gold-rq-75f882a2555c176e772f78305b24cb4d",
+    "gold-rq-3502a03e10e24deb6a1d667056085f38",
+    "gold-rq-fc16a8d5c2543af34f756b4ddbc957eb",
+    "gold-rq-2c4dc78aa0790f5bcde0783b2155bea9",
+    "gold-rq-637f02e7fe4829e8c69b47248ea89eac",
+    "gold-rq-ba9049b88a123e1a402bb580a81d7def",
+    "gold-rq-6420de2a5731334f4c21a21f02ff5be8",
+    "gold-rq-f3c51be017e287889106d5630f107cc7",
+    "gold-rq-fafff84989a81e3682b12de2d39f1a56",
+    "gold-rq-5178e715327fed95d093129606b48964",
+    "gold-rq-239ebbd32ffc401c2c89fae087d89614",
+    "gold-rq-e215895eb0ec348196d2fc162664b5c7",
+    "gold-rq-1d2d3426a53bc035167af623d7766f9e",
+    "gold-rq-8e3ffac1f9bbcbd712867cab9d01f5cb",
+    "gold-rq-ace3565eb2d98eda7ae9e00e9529ca34",
+    "gold-rq-ef6dd249fa3afab524c56b64f9e21434",
+    "gold-rq-f58ff6ba43fa8d00e4f19371cb8a0bb0",
+    "gold-rq-a3ac5f4aeba2be704d4c8bea78468d12",
+    "gold-rq-96ca7ac2b9c2c2b28011bb9488506fb5",
+    "gold-rq-3c877908f0472f1a7aa2f9c61fe6886f",
+    "gold-rq-f08e19db0ca6329364e9dd2e86cc975d",
+    "gold-rq-d35279d6bae4cfddde0a5167475a0815",
+    "gold-rq-9ce372a9681af5bbecbc79b511e1dc9c",
+    "gold-rq-4f0a8f2ed6fb448880435c1173c85e1b",
+    "gold-rq-abaf93468be694e7a681cca584ecf2cc",
+    "gold-rq-cd0b315640afcc0de2fdb5c1d9cf4ca4",
+    "gold-rq-4ffdef086ebe67ff8e8755dee28066fd",
+    "gold-rq-e5ea31714c219993b7be3e0b4779ddfd",
+    "gold-rq-ffd3db8be133d93470d73b9bb07cb0c9",
+    "gold-rq-27c624bc4167bb7408694aa3322d57b0",
+    "gold-rq-e7fb2b1502ee253850bcc9e989000eb8",
+    "gold-rq-260ea430b2abd12e0f66c0aaa3303e13",
+    "gold-rq-07197f3becdbacfd4976b1e3ee84bb43",
+    "gold-rq-ebb7cf7ef8758813ec6db80bae8028d6",
+    "gold-rq-6dc01cab65135a1dffe5ae4b4748ba30",
+    "gold-rq-37d38e12d840f2997e9e9b39201e47da",
+    "gold-rq-27751e274ce26ea489dc82276b3de963",
+    "gold-rq-7112c3aced5c6ea2c91842b272992bd8",
+    "gold-rq-d0d1f40137818a4504d9abaa68f391a2",
+    "gold-rq-e0cbd38be0555e3d191dd68b07bd1633",
+    "gold-rq-e1996c10957a48bd7fe12928737416b5",
+    "gold-rq-2c1283ab0f2a7ddec44f955e3f7db444",
+    "gold-rq-5c380cc9bc38c11d7a3548a8d07e28c3",
+    "gold-rq-c9d461f0c0b9e228260cca186de0afba",
+    "gold-rq-e88ab433e04ef0c0d93451b14a25f388",
+    "gold-rq-df571ef52b218b797b4226675db85524",
+    "gold-rq-22577203db904f0c6bb6a6226cf08098",
+    "gold-rq-a533064cb579dd7c2edc98bab8c88517"
+  ],
+  "schema_version": "courserag.p08-ds5-split.v1",
+  "test_locked": false
+}

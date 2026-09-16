@@ -1,0 +1,57 @@
+{
+  "schema_version": "system-optimization.historical-dev-baseline.v1",
+  "optimization_eligible": false,
+  "reason": "historical scopes are not a unified new-Dev human comparison",
+  "automatic_dev": {
+    "source": "storage_eval/p18/dev_freeze_candidate_r2/dev_freeze_summary.json",
+    "source_kind": "ignored_local_historical_aggregate",
+    "cp_b0": {
+      "samples": 18,
+      "succeeded": 14,
+      "contract_pass_rate": 0.6111111111111112,
+      "citation_resolvability": 0.7777777777777778,
+      "p50_latency_ms": 88894.0,
+      "p95_latency_ms": 359699.35,
+      "input_tokens": 160283,
+      "output_tokens": 253214,
+      "cost_cny": 0.666711
+    },
+    "cp_b10": {
+      "samples": 18,
+      "succeeded": 18,
+      "contract_pass_rate": 1.0,
+      "citation_resolvability": 1.0,
+      "p50_latency_ms": 123409.5,
+      "p95_latency_ms": 297824.4,
+      "input_tokens": 504595,
+      "output_tokens": 292248,
+      "cost_cny": 1.089091
+    }
+  },
+  "human_dev": {
+    "lesson": {
+      "source": "docs/refactor/phase_reports/P14_lesson_workflow_closure.md",
+      "cp_b0_mean_rubric": 3.833,
+      "cp_b0_mean_edit_burden": 2.0,
+      "candidate_mean_rubric": 3.5,
+      "candidate_mean_edit_burden": 2.667
+    },
+    "exam": {
+      "source": "docs/refactor/phase_reports/P15_exam_blueprint_fanout_global_repair.md",
+      "cp_b0_mean_rubric": 3.122,
+      "cp_b0_mean_edit_burden": 1.667,
+      "cp_b0_acceptable_rate": 0.6444,
+      "candidate_mean_rubric": 3.524,
+      "candidate_mean_edit_burden": 1.311,
+      "candidate_acceptable_rate": 0.4889
+    },
+    "ppt": {
+      "source": "docs/refactor/phase_reports/P16_ppt_architecture_template_rendering.md",
+      "comparable_aggregate_available": false
+    }
+  },
+  "new_dev_baseline": {
+    "status": "pending_human_approval_and_provider_authorization",
+    "provider_calls": 0
+  }
+}

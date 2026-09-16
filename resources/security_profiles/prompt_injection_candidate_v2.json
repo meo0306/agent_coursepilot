@@ -1,0 +1,80 @@
+{
+  "schema_version": "courserag.prompt-injection-profile.v2",
+  "name": "prompt_injection_candidate_v2",
+  "version": "2.0.0-candidate",
+  "enabled": true,
+  "normalize_nfkc": true,
+  "remove_zero_width": true,
+  "rules": [
+    {
+      "rule_id": "policy_override_en",
+      "category": "policy_override",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "\\b(?:ignore|disregard|bypass|override|forget|violate)\\b.{0,80}\\b(?:previous|prior|system|developer|application|safety|security)?\\s*(?:instructions?|rules?|polic(?:y|ies)|constraints?)\\b"
+    },
+    {
+      "rule_id": "policy_override_zh",
+      "category": "policy_override",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "(?:忽略|无视|绕过|覆盖|违反|不要遵守).{0,40}(?:之前|先前|系统|开发者|应用|安全)?(?:指令|规则|策略|政策|限制)"
+    },
+    {
+      "rule_id": "role_impersonation_en",
+      "category": "role_impersonation",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "\\b(?:you are now|act as|pretend to be|switch (?:your )?role to|assume the role of)\\b.{0,60}\\b(?:system|developer|administrator|admin|root|unrestricted)\\b"
+    },
+    {
+      "rule_id": "role_impersonation_zh",
+      "category": "role_impersonation",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "(?:你现在是|扮演|假装成为|切换为|充当).{0,30}(?:系统|开发者|管理员|超级用户|无限制)"
+    },
+    {
+      "rule_id": "secret_extraction_en",
+      "category": "secret_extraction",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "\\b(?:reveal|show|print|leak|expose|return|send|export)\\b.{0,80}\\b(?:hidden (?:data|instructions?)|system prompt|developer message|api[_ -]?key|password|secret|credential|token)\\b"
+    },
+    {
+      "rule_id": "secret_extraction_zh",
+      "category": "secret_extraction",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "(?:泄露|显示|打印|返回|发送|导出|公开).{0,40}(?:隐藏数据|系统提示|开发者消息|密钥|密码|凭据|令牌|秘密)"
+    },
+    {
+      "rule_id": "tool_coercion_en",
+      "category": "tool_coercion",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "\\b(?:execute|run|call|invoke|open|download|upload|send)\\b.{0,60}\\b(?:shell|command|tool|function|api|network|url|terminal)\\b"
+    },
+    {
+      "rule_id": "tool_coercion_zh",
+      "category": "tool_coercion",
+      "view": "normalized",
+      "severity": "warning",
+      "pattern": "(?:执行|运行|调用|打开|下载|上传|发送).{0,30}(?:命令|工具|函数|接口|网络|链接|终端|shell|api)"
+    },
+    {
+      "rule_id": "obfuscated_override_en",
+      "category": "obfuscation",
+      "view": "compact",
+      "severity": "warning",
+      "pattern": "(?:ignore|bypass|override)(?:all)?(?:previous|system|application|safety)?(?:instruction|instructions|policy|policies|rules)"
+    },
+    {
+      "rule_id": "obfuscated_override_zh",
+      "category": "obfuscation",
+      "view": "compact",
+      "severity": "warning",
+      "pattern": "(?:忽略|绕过|覆盖)(?:之前|系统|应用|安全)?(?:指令|策略|政策|规则)"
+    }
+  ]
+}

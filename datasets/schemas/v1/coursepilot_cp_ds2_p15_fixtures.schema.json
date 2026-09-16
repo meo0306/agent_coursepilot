@@ -1,0 +1,338 @@
+{
+  "$defs": {
+    "P15ConstraintConflictCase": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "computed_total_score": {
+          "minimum": 1,
+          "title": "Computed Total Score",
+          "type": "integer"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "expected_failure": {
+          "const": "blueprint_constraint_conflict",
+          "default": "blueprint_constraint_conflict",
+          "title": "Expected Failure",
+          "type": "string"
+        },
+        "provider_calls_allowed": {
+          "const": 0,
+          "default": 0,
+          "title": "Provider Calls Allowed",
+          "type": "integer"
+        },
+        "question_counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Question Counts",
+          "type": "object"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_total_score": {
+          "minimum": 1,
+          "title": "Required Total Score",
+          "type": "integer"
+        },
+        "score_per_question": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Score Per Question",
+          "type": "object"
+        },
+        "side_effects_allowed": {
+          "const": 0,
+          "default": 0,
+          "title": "Side Effects Allowed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "record_id",
+        "case_id",
+        "course_id",
+        "question_counts",
+        "score_per_question",
+        "required_total_score",
+        "computed_total_score"
+      ],
+      "title": "P15ConstraintConflictCase",
+      "type": "object"
+    },
+    "P15ContextFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "context_package_id": {
+          "minLength": 1,
+          "title": "Context Package Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_records": {
+          "items": {
+            "$ref": "#/$defs/P15EvidenceFixture"
+          },
+          "minItems": 1,
+          "title": "Evidence Records",
+          "type": "array"
+        },
+        "purpose": {
+          "const": "exam_generation",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "target_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Ids",
+          "type": "array"
+        },
+        "token_count": {
+          "minimum": 0,
+          "title": "Token Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "context_package_id",
+        "purpose",
+        "case_id",
+        "course_id",
+        "evidence_records",
+        "target_ids",
+        "content_hash",
+        "token_count"
+      ],
+      "title": "P15ContextFixture",
+      "type": "object"
+    },
+    "P15EvidenceFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "gold_text": {
+          "minLength": 1,
+          "title": "Gold Text",
+          "type": "string"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "semantic_unit_type": {
+          "minLength": 1,
+          "title": "Semantic Unit Type",
+          "type": "string"
+        },
+        "source_document_id": {
+          "minLength": 1,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "source_document_version": {
+          "minLength": 1,
+          "title": "Source Document Version",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "native_text",
+            "ocr_derived"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "record_sha256",
+        "course_id",
+        "gold_text",
+        "source_document_id",
+        "source_document_version",
+        "source_type",
+        "semantic_unit_type",
+        "content_sha256"
+      ],
+      "title": "P15EvidenceFixture",
+      "type": "object"
+    },
+    "P15InsufficientEvidenceCase": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "context_package_id": {
+          "minLength": 1,
+          "title": "Context Package Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "expected_failure": {
+          "const": "context_insufficient_evidence",
+          "default": "context_insufficient_evidence",
+          "title": "Expected Failure",
+          "type": "string"
+        },
+        "omitted_required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Omitted Required Evidence Ids",
+          "type": "array"
+        },
+        "provider_calls_allowed": {
+          "const": 0,
+          "default": 0,
+          "title": "Provider Calls Allowed",
+          "type": "integer"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_target_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Target Ids",
+          "type": "array"
+        },
+        "side_effects_allowed": {
+          "const": 0,
+          "default": 0,
+          "title": "Side Effects Allowed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "record_id",
+        "case_id",
+        "course_id",
+        "required_target_ids",
+        "omitted_required_evidence_ids",
+        "context_package_id"
+      ],
+      "title": "P15InsufficientEvidenceCase",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "constraint_conflict_case": {
+      "$ref": "#/$defs/P15ConstraintConflictCase"
+    },
+    "context_fixtures": {
+      "items": {
+        "$ref": "#/$defs/P15ContextFixture"
+      },
+      "minItems": 3,
+      "title": "Context Fixtures",
+      "type": "array"
+    },
+    "insufficient_evidence_case": {
+      "$ref": "#/$defs/P15InsufficientEvidenceCase"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds2-p15-fixtures.v1",
+      "default": "coursepilot.cp-ds2-p15-fixtures.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_fixtures",
+    "insufficient_evidence_case",
+    "constraint_conflict_case"
+  ],
+  "title": "P15FixtureBundle",
+  "type": "object"
+}

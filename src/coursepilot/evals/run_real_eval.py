@@ -4,9 +4,11 @@ import json
 import os
 import sqlite3
 import zipfile
+from collections import Counter
+from collections.abc import Sequence
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 from xml.etree import ElementTree as ET
 
 from dotenv import load_dotenv
@@ -31,13 +33,26 @@ from coursepilot.evals.metrics import (  # noqa: E402
 from coursepilot.rag.vector_store import collection_name_for_course  # noqa: E402
 from coursepilot.token_usage import get_deepseek_tokenizer  # noqa: E402
 
-DEFAULT_RETRIEVAL_CASES = [
+
+class RetrievalProbe(TypedDict):
+    query: str
+    expected_terms: list[str]
+
+
+DEFAULT_RETRIEVAL_CASES: list[RetrievalProbe] = [
     {"query": "状态空间搜索", "expected_terms": ["状态空间", "搜索"]},
     {"query": "启发式搜索", "expected_terms": ["启发式", "搜索"]},
     {"query": "知识图谱", "expected_terms": ["知识图谱"]},
     {"query": "机器学习", "expected_terms": ["机器学习"]},
     {"query": "智能体", "expected_terms": ["智能体"]},
 ]
+
+EVAL_GENERATION_TASK_TYPES = (
+    "lesson_design",
+    "exam_blueprint",
+    "exam_questions",
+    "ppt_outline",
+)
 
 
 def main() -> None:
@@ -150,18 +165,22 @@ def _main(runtime: dict[str, Any]) -> None:
         source_type = source_type_for_file(path)
         file_digest = file_sha256(path)
         step_suffix = f"{path.name}:{file_digest[:16]}"
-        upload = runner.call(
-            f"document.upload:{step_suffix}",
-            f"upload:{path.name}",
-            lambda path=path, source_type=source_type: client.upload_document(
+
+        def upload_current_document() -> dict[str, Any]:
+            return client.upload_document(
                 course_id,
                 filename=path.name,
                 content=path.read_bytes(),
                 source_type=source_type,
-            ),
+            )
+
+        upload = runner.call(
+            f"document.upload:{step_suffix}",
+            f"upload:{path.name}",
+            upload_current_document,
         )
         upload_results.append(upload)
-        document_id = upload["result"]["id"]
+        document_id = str(upload["result"]["id"])
         documents = dict(runner.state["context"].get("documents", {}))
         documents[path.name] = {
             "document_id": document_id,
@@ -169,16 +188,19 @@ def _main(runtime: dict[str, Any]) -> None:
         }
         runner.update_context(documents=documents)
         build_step_id = f"document.build_kb:{step_suffix}"
+
+        def build_current_document() -> dict[str, Any]:
+            return client.build_kb(
+                document_id,
+                timeout=args.build_kb_timeout,
+                idempotency_key=runner.idempotency_key(build_step_id),
+            )
+
         build_results.append(
             runner.call(
                 build_step_id,
                 f"build_kb:{path.name}",
-                lambda document_id=document_id,
-                idempotency_key=runner.idempotency_key(build_step_id): client.build_kb(
-                    document_id,
-                    timeout=args.build_kb_timeout,
-                    idempotency_key=idempotency_key,
-                ),
+                build_current_document,
             )
         )
 
@@ -200,6 +222,7 @@ def _main(runtime: dict[str, Any]) -> None:
         )
 
     db_stats = read_db_stats(course_id, task_ids)
+    validate_task_coverage(task_ids, db_stats["tasks"])
     chroma_stats = read_chroma_stats(Path(args.chroma_dir), course_id)
     chunk_token_stats = read_chroma_chunk_token_stats(Path(args.chroma_dir), course_id)
 
@@ -300,8 +323,7 @@ def _main(runtime: dict[str, Any]) -> None:
     runtime["finished"] = True
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
-    if fallback_violations and not args.allow_fallback:
-        raise SystemExit("Fallback was used during real evaluation.")
+    enforce_strict_fallback(fallback_violations, allow_fallback=args.allow_fallback)
 
 
 def source_type_for_file(path: Path) -> str:
@@ -372,13 +394,18 @@ def run_retrieval_cases(
     cases: list[RetrievalCase] = []
     details: list[dict[str, Any]] = []
     for index, case in enumerate(DEFAULT_RETRIEVAL_CASES, start=1):
+        query = case["query"]
+
+        def search_current_case() -> dict[str, Any]:
+            return client.search_kb(
+                course_id,
+                {"query": query, "top_k": top_k},
+            )
+
         response = runner.call(
             f"retrieval.case:{index}",
-            f"search:{case['query']}",
-            lambda case=case: client.search_kb(
-                course_id,
-                {"query": case["query"], "top_k": top_k},
-            ),
+            f"search:{query}",
+            search_current_case,
         )
         results = response["result"].get("results", [])
         retrieved_ids = [item["chunk_id"] for item in results]
@@ -408,7 +435,7 @@ def run_retrieval_cases(
     return cases, details
 
 
-def content_matches_terms(content: str, terms: list[str]) -> bool:
+def content_matches_terms(content: str, terms: Sequence[str]) -> bool:
     normalized = content.lower()
     return all(term.lower() in normalized for term in terms)
 
@@ -497,15 +524,27 @@ def run_generation_workflows(
         "confirm_exam_blueprint",
         lambda: client.confirm_exam_blueprint(blueprint_id),
     )
-    questions_step_id = "generation.exam_questions"
+    questions_enqueue_step_id = "generation.exam_questions.enqueue"
+    questions_accepted = runner.call(
+        questions_enqueue_step_id,
+        "enqueue_questions",
+        lambda: client.enqueue_questions(
+            blueprint_id,
+            idempotency_key=runner.idempotency_key(questions_enqueue_step_id),
+        ),
+    )
+    question_task_id = str(questions_accepted["result"]["task_id"])
+    task_ids.append(question_task_id)
+    questions_step_id = "generation.exam_questions.wait"
+
+    def wait_for_questions() -> dict[str, Any]:
+        result = client.wait_for_task(question_task_id, timeout=generation_timeout)
+        return {**result, "task_id": question_task_id}
+
     questions = runner.call(
         questions_step_id,
-        "generate_questions",
-        lambda: client.generate_questions(
-            blueprint_id,
-            timeout=generation_timeout,
-            idempotency_key=runner.idempotency_key(questions_step_id),
-        ),
+        "wait_for_task:exam_questions",
+        wait_for_questions,
     )
     workflows["exam_questions"] = questions
     workflows["exam_export"] = runner.call(
@@ -665,62 +704,85 @@ def build_eval_payload(
 
 
 def read_db_stats(course_id: str, task_ids: list[str]) -> dict[str, Any]:
-    try:
-        engine = get_coursepilot_engine()
-        with engine.connect() as conn:
-            chunk_count = conn.execute(
-                text("select count(*) from coursepilot_chunks where course_id = :course_id"),
-                {"course_id": course_id},
-            ).scalar()
-            source_rows = conn.execute(
+    engine = get_coursepilot_engine()
+    with engine.connect() as conn:
+        chunk_count = conn.execute(
+            text("select count(*) from coursepilot_chunks where course_id = :course_id"),
+            {"course_id": course_id},
+        ).scalar()
+        source_rows = conn.execute(
+            text(
+                """
+                select source_type, count(*) as count
+                from coursepilot_chunks
+                where course_id = :course_id
+                group by source_type
+                order by source_type
+                """
+            ),
+            {"course_id": course_id},
+        ).mappings()
+        tasks = []
+        if task_ids:
+            task_rows = conn.execute(
                 text(
                     """
-                    select source_type, count(*) as count
-                    from coursepilot_chunks
+                    select id, task_type, status, created_at, updated_at,
+                           input_params_json, intermediate_outputs_json,
+                           validation_report_json, error_message
+                    from coursepilot_generation_tasks
                     where course_id = :course_id
-                    group by source_type
-                    order by source_type
+                      and task_type = any(:task_types)
+                    order by created_at
                     """
                 ),
-                {"course_id": course_id},
-            ).mappings()
-            tasks = []
-            if task_ids:
-                task_rows = conn.execute(
-                    text(
-                        """
-                        select id, task_type, status, created_at, updated_at,
-                               input_params_json, intermediate_outputs_json,
-                               validation_report_json, error_message
-                        from coursepilot_generation_tasks
-                        where id = any(:task_ids)
-                        order by created_at
-                        """
-                    ),
-                    {"task_ids": task_ids},
-                ).mappings()
-                for row in task_rows:
-                    item = dict(row)
-                    created_at = item.pop("created_at")
-                    updated_at = item.pop("updated_at")
-                    item["created_at"] = created_at.isoformat()
-                    item["updated_at"] = updated_at.isoformat()
-                    item["latency_ms"] = int((updated_at - created_at).total_seconds() * 1000)
-                    outputs = item.get("intermediate_outputs_json") or {}
-                    item["llm_usage_summary"] = outputs.get("llm_usage_summary")
-                    item["repair_attempts"] = (item.get("validation_report_json") or {}).get(
-                        "repair_attempts"
-                    )
-                    tasks.append(item)
-            return {
-                "chunk_count": int(chunk_count or 0),
-                "chunk_count_by_source_type": {
-                    row["source_type"]: int(row["count"]) for row in source_rows
+                {
+                    "course_id": course_id,
+                    "task_types": list(EVAL_GENERATION_TASK_TYPES),
                 },
-                "tasks": tasks,
-            }
-    except Exception as exc:
-        return {"error": str(exc), "tasks": []}
+            ).mappings()
+            for row in task_rows:
+                item = dict(row)
+                created_at = item.pop("created_at")
+                updated_at = item.pop("updated_at")
+                item["created_at"] = created_at.isoformat()
+                item["updated_at"] = updated_at.isoformat()
+                item["latency_ms"] = int((updated_at - created_at).total_seconds() * 1000)
+                outputs = item.get("intermediate_outputs_json") or {}
+                item["llm_usage_summary"] = outputs.get("llm_usage_summary")
+                item["repair_attempts"] = (item.get("validation_report_json") or {}).get(
+                    "repair_attempts"
+                )
+                tasks.append(item)
+        return {
+            "chunk_count": int(chunk_count or 0),
+            "chunk_count_by_source_type": {
+                row["source_type"]: int(row["count"]) for row in source_rows
+            },
+            "tasks": tasks,
+        }
+
+
+def validate_task_coverage(
+    expected_task_ids: Sequence[str],
+    tasks: Sequence[dict[str, Any]],
+) -> None:
+    expected = [str(task_id) for task_id in expected_task_ids]
+    observed = [str(task.get("id")) for task in tasks]
+    expected_counts = Counter(expected)
+    observed_counts = Counter(observed)
+
+    duplicate_expected = sorted(task_id for task_id, count in expected_counts.items() if count > 1)
+    duplicate_observed = sorted(task_id for task_id, count in observed_counts.items() if count > 1)
+    missing = sorted(set(expected_counts) - set(observed_counts))
+    unexpected = sorted(set(observed_counts) - set(expected_counts))
+    if duplicate_expected or duplicate_observed or missing or unexpected:
+        raise ValueError(
+            "Generation task coverage audit failed: "
+            f"missing={missing}, unexpected={unexpected}, "
+            f"duplicate_expected={duplicate_expected}, "
+            f"duplicate_observed={duplicate_observed}"
+        )
 
 
 def read_chroma_stats(chroma_dir: Path, course_id: str) -> dict[str, Any]:
@@ -787,17 +849,61 @@ def read_chroma_chunk_token_stats(chroma_dir: Path, course_id: str) -> dict[str,
 def fallback_violations_from_tasks(tasks: list[dict[str, Any]]) -> list[dict[str, Any]]:
     violations = []
     for task in tasks:
-        usage = task.get("llm_usage_summary") or {}
-        fallback_count = int(usage.get("fallback_count") or 0)
+        violation = {
+            "task_id": task.get("id"),
+            "task_type": task.get("task_type"),
+        }
+        usage = task.get("llm_usage_summary")
+        if not isinstance(usage, dict):
+            violations.append(
+                {
+                    **violation,
+                    "fallback_count": None,
+                    "reason": "missing_or_invalid_llm_usage_summary",
+                }
+            )
+            continue
+        if "fallback_count" not in usage:
+            violations.append(
+                {
+                    **violation,
+                    "fallback_count": None,
+                    "reason": "missing_fallback_count",
+                }
+            )
+            continue
+        fallback_count = usage["fallback_count"]
+        if (
+            isinstance(fallback_count, bool)
+            or not isinstance(fallback_count, int)
+            or fallback_count < 0
+        ):
+            violations.append(
+                {
+                    **violation,
+                    "fallback_count": fallback_count,
+                    "reason": "invalid_fallback_count",
+                }
+            )
+            continue
         if fallback_count > 0:
             violations.append(
                 {
-                    "task_id": task["id"],
-                    "task_type": task["task_type"],
+                    **violation,
                     "fallback_count": fallback_count,
+                    "reason": "fallback_used",
                 }
             )
     return violations
+
+
+def enforce_strict_fallback(
+    fallback_violations: Sequence[dict[str, Any]],
+    *,
+    allow_fallback: bool,
+) -> None:
+    if fallback_violations and not allow_fallback:
+        raise SystemExit("Fallback audit failed during real evaluation.")
 
 
 def sample_data_card(sample_dir: Path) -> dict[str, Any]:

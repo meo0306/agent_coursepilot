@@ -1,0 +1,16 @@
+{
+  "schema_version": "courserag.query-profile.v1",
+  "profile_id": "b6_candidate_v1",
+  "status": "candidate",
+  "steps": {
+    "normalize": true,
+    "filter_parser": true,
+    "kp_link": true,
+    "alias_expansion": true,
+    "intent_router": false,
+    "retrieval_strategy": false,
+    "multi_query": false,
+    "low_recall_retry": false
+  },
+  "kp_hard_filter_threshold": 0.9
+}

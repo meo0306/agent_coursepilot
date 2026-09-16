@@ -1,0 +1,1 @@
+"""CourseRAG infrastructure layer."""

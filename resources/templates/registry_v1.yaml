@@ -1,0 +1,72 @@
+{
+  "definitions": [
+    {
+      "path": "lesson/lesson_standard_university_v1.yaml",
+      "sha256": "ba488e6966a4c5f21c83f2b9ca55d0a1e52380c72dd978d83456c9260c0ba523",
+      "template_id": "lesson_standard_university_v1"
+    },
+    {
+      "path": "lesson/lesson_seminar_v1.yaml",
+      "sha256": "7c0191e17cdbfc15d67806bb7980b2c3929d1f6688786e9e4f8997d5f4a99b90",
+      "template_id": "lesson_seminar_v1"
+    },
+    {
+      "path": "lesson/lesson_lab_practice_v1.yaml",
+      "sha256": "58b36deba6d1bbc3cc20206b7a04fcef42181fc6dea7544a43e38043aa8e77b3",
+      "template_id": "lesson_lab_practice_v1"
+    },
+    {
+      "path": "exam/exam_chapter_assignment_v1.yaml",
+      "sha256": "e09fa4fb41eb9489d67d0e77acaa03955e6fa209045ea8a05dfd92913ba1c68f",
+      "template_id": "exam_chapter_assignment_v1"
+    },
+    {
+      "path": "exam/exam_unit_quiz_v1.yaml",
+      "sha256": "20d369e3b49e8da6db4cb8c23552f9f75cc66fb78315d8a34628cefba093112f",
+      "template_id": "exam_unit_quiz_v1"
+    },
+    {
+      "path": "exam/exam_midterm_final_v1.yaml",
+      "sha256": "7b32951863d135b45884c4620bfd1bc85e6879794357257a9795f5217b3f418d",
+      "template_id": "exam_midterm_final_v1"
+    },
+    {
+      "path": "ppt/ppt_standard_lecture_v1.yaml",
+      "sha256": "b42a3bbd80c913bce9dc590f4d99de657c3c349c6a35813cab8a681000ed54d3",
+      "template_id": "ppt_standard_lecture_v1"
+    },
+    {
+      "path": "ppt/ppt_concept_explanation_v1.yaml",
+      "sha256": "5e3ec6feab92a31c280f07c88106a8600dcddd022c414865fbe62693ab512a23",
+      "template_id": "ppt_concept_explanation_v1"
+    },
+    {
+      "path": "ppt/ppt_case_seminar_v1.yaml",
+      "sha256": "0c60a8cef92a91f2675f7ab23becf7315c6bde315f6bd98e4006dd03e90c694b",
+      "template_id": "ppt_case_seminar_v1"
+    }
+  ],
+  "resources": {
+    "exam_default_docx": {
+      "path": "exporters/exam_default_v1.docx",
+      "sha256": "b498d2558db8b51a88c4af2b5ba8c5a8e7d872d34a53b946996dac599d10a11e"
+    },
+    "lesson_default_docx": {
+      "path": "exporters/lesson_default_v1.docx",
+      "sha256": "1e7023c7e95eca913f956921323b79514fa3d75ca6d1dd32eec749565669e956"
+    },
+    "ppt_case_seminar_pptx": {
+      "path": "exporters/ppt_case_seminar_v1.pptx",
+      "sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+    },
+    "ppt_concept_explanation_pptx": {
+      "path": "exporters/ppt_concept_explanation_v1.pptx",
+      "sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+    },
+    "ppt_standard_lecture_pptx": {
+      "path": "exporters/ppt_standard_lecture_v1.pptx",
+      "sha256": "5210284ebf4697fe51ea6fab80854763f8f35ad2c188ce8d06b199e04d3023c6"
+    }
+  },
+  "schema_version": "coursepilot.template-registry.v1"
+}

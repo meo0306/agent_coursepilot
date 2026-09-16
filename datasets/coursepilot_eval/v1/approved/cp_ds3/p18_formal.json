@@ -1,0 +1,1141 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "469b55c678ae65c407ca7f623d1ef014af5c0385132e7474d1b76ff30c0527c0",
+        "candidate_sha256": "c7865b62a632cdbad5d8d44a5728308034731ceaa1b50ab88e90bdaf95a5bc8a",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-01",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-01",
+      "required_claims": [
+        "位置编码与每个单词的特征向量具有相同的维数，因此可以对两者进行求和。",
+        "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 12,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-fd1a6091d4f89f4fd7383277",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-7b34285b5785dc23f07c5cf1f076aff5",
+          "evidence_record_sha256": "c5407f0a4fb97513260c677145284f032c35b22cbf46ca131355f79af73c8707",
+          "evidence_text": "位置编码与每个单词的特征向量具有相同的维数，因此可以对两者进行求和。",
+          "knowledge_point_id": "gold-kp-971fdaabc3b48934cafd2cac33433c18",
+          "knowledge_point_name": "位置编码",
+          "knowledge_point_record_sha256": "b28356470d1abd1db196d4e5b3a8a6d2130ef71bb76fcedcf775f2984df780b4",
+          "knowledge_point_summary": "位置编码与每个单词的特征向量具有相同的维数，因此可以对两者进行求和。",
+          "necessary_neighbors": [],
+          "page_end": 150,
+          "page_start": 150,
+          "section_ids": [
+            "ds3-scope-docx-3-5-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-a4ad7e22d713ebfa994d6c06",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+          "evidence_record_sha256": "0ad374876c0cc334defa9f7527216aa7512059345e8141c52807cb133767c56f",
+          "evidence_text": "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。",
+          "knowledge_point_id": "gold-kp-07c87ce697fc1dd864b09c4c99776978",
+          "knowledge_point_name": "大规模训练数据与涌现能力",
+          "knowledge_point_record_sha256": "9596a53c297816570feb9b90aa601740e3982b304421e254e07c004acdc8cdc7",
+          "knowledge_point_summary": "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。",
+          "necessary_neighbors": [
+            "涌现能力的形成基于几个关键因素。"
+          ],
+          "page_end": 232,
+          "page_start": 232,
+          "section_ids": [
+            "ds3-scope-docx-5-1-1"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-cadf422b3f6efff5dc29be2d",
+      "task_prompt": "仅依据绑定证据，围绕“位置编码、大规模训练数据与涌现能力”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_standard_lecture_v1",
+      "title": "位置编码、大规模训练数据与涌现能力演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-7b34285b5785dc23f07c5cf1f076aff5",
+          "gold-ev-365b0dc23cff9bb089df5923e2212264"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "涌现能力的形成基于几个关键因素。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-7b34285b5785dc23f07c5cf1f076aff5",
+          "gold-ev-365b0dc23cff9bb089df5923e2212264"
+        ],
+        "retrieval_intent": "检索支持“位置编码、大规模训练数据与涌现能力”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2adeba5c6ec19bc33800f1b459cb7fc36e25af9f8ac6b58bb0bd77e82665a943",
+        "candidate_sha256": "4e044ce25f84522723f229fa6d1bbb1429c30e90f8d4ed4a0a5a40eefc848ba2",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-02",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-02",
+      "required_claims": [
+        "隐私保护的目的是保护数据中个人的隐私，确保数据的使用不会侵犯个人隐私权，同时遵守相关的法律法规，如2021年11月起实施的《个人信息保护法》确立个人信息保护原则，严格保护敏感个人信息，强化个人信息处理者义务。",
+        "有用性：有用性关注于大模型是否能够在实际应用中为用户提供准确、相关且实用的信息或服务。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 16,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-f5a9d8dadeb03f32ff7cf0af",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d",
+          "evidence_record_sha256": "b99369af233903f170c79d43473ffe62df96a176972521b1274acafe85516d87",
+          "evidence_text": "隐私保护的目的是保护数据中个人的隐私，确保数据的使用不会侵犯个人隐私权，同时遵守相关的法律法规，如2021年11月起实施的《个人信息保护法》确立个人信息保护原则，严格保护敏感个人信息，强化个人信息处理者义务。",
+          "knowledge_point_id": "gold-kp-cecfd411235e4765b3f234a7a466a755",
+          "knowledge_point_name": "训练数据隐私保护",
+          "knowledge_point_record_sha256": "1bea8c0cb25ef9706d4f860338d96890a3c8f32cc293fec85adc0d5b153f9281",
+          "knowledge_point_summary": "隐私保护的目的是保护数据中个人的隐私，确保数据的使用不会侵犯个人隐私权，同时遵守相关的法律法规，如2021年11月起实施的《个人信息保护法》确立个人信息保护原则，严格保护敏感个人信息，强化个人信息处理者义务。",
+          "necessary_neighbors": [],
+          "page_end": 243,
+          "page_start": 243,
+          "section_ids": [
+            "ds3-scope-docx-5-2-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-b3148bfb07a10275f1f9f752",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-3194476eb80e21fa4c9e96b32c08065d",
+          "evidence_record_sha256": "9944837688a4eb6c6584ad2d63dc62a4c18174ef36f5e390377d1211aa61b2c0",
+          "evidence_text": "有用性：有用性关注于大模型是否能够在实际应用中为用户提供准确、相关且实用的信息或服务。",
+          "knowledge_point_id": "gold-kp-ef197ec205d33d81a950294275317f25",
+          "knowledge_point_name": "大模型对齐的有用性",
+          "knowledge_point_record_sha256": "10b0ac70c524bc0f99516ee0fe26113d659dc00a77009cb9455e3e7c79e06e08",
+          "knowledge_point_summary": "有用性：有用性关注于大模型是否能够在实际应用中为用户提供准确、相关且实用的信息或服务。",
+          "necessary_neighbors": [],
+          "page_end": 264,
+          "page_start": 264,
+          "section_ids": [
+            "ds3-scope-docx-5-3"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-b6f3b7691987e9831df289c2",
+      "task_prompt": "仅依据绑定证据，围绕“训练数据隐私保护、大模型对齐的有用性”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_concept_explanation_v1",
+      "title": "训练数据隐私保护、大模型对齐的有用性演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d",
+          "gold-ev-3194476eb80e21fa4c9e96b32c08065d"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d",
+          "gold-ev-3194476eb80e21fa4c9e96b32c08065d"
+        ],
+        "retrieval_intent": "检索支持“训练数据隐私保护、大模型对齐的有用性”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2a7529768eb53459e07e70a57cf7b84e9c5671818f66bf67c2aadae19cd9406f",
+        "candidate_sha256": "90476dab6cf1850e963a844fd28921f1a582a90f3277615cd1ed57ed21547ef8",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-03",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-03",
+      "required_claims": [
+        "这进一步证明了通过对大模型进行微调，能够在自己的数据集上获得更好的结果。",
+        "L=∑_{r∈R}||Ĉ(r)-C_{gt}(r)||_2^2\n式中，C_{gt}(r)代表与r相关的训练图像像素的真实颜色，R代表与待合成图像相关的射线集合。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 20,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-b6cf7cf295e5baa4eebb2030",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+          "evidence_record_sha256": "e31290e63b9bcbbc413eb7c1b11ed5ac30bd7e9b209a973285e55afa4b3effb0",
+          "evidence_text": "这进一步证明了通过对大模型进行微调，能够在自己的数据集上获得更好的结果。",
+          "knowledge_point_id": "gold-kp-5e850c884a96c9624bd0bfc4832930ab",
+          "knowledge_point_name": "微调在自有数据集上的效果",
+          "knowledge_point_record_sha256": "755ea1410f942d9180382afea1b2087187287ff88e60a9080cf9686059e209f1",
+          "knowledge_point_summary": "这进一步证明了通过对大模型进行微调，能够在自己的数据集上获得更好的结果。",
+          "necessary_neighbors": [
+            "通过以上代码，我们可以绘制出柱状图，如图5.11所示，从图中可以清晰地看出，使用基础模型（即预训练模型）进行预测时，错误分类的概率在26%左右。然而经过微调后，使用微调模型进行预测时，错误分类的概率几乎为0。"
+          ],
+          "page_end": 275,
+          "page_start": 275,
+          "section_ids": [
+            "ds3-scope-docx-5-3-4"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-dae6a19a4f756b454bcab904",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-488132baeca3f0acc28854e2d6ab51b8",
+          "evidence_record_sha256": "a0aa3fbcc8997e18a78affe15fd500e569baf33e8e7888b81a23dafbbb2f5056",
+          "evidence_text": "L=∑_{r∈R}||Ĉ(r)-C_{gt}(r)||_2^2\n式中，C_{gt}(r)代表与r相关的训练图像像素的真实颜色，R代表与待合成图像相关的射线集合。",
+          "knowledge_point_id": "gold-kp-e7ed3f70cf3b923fa46d3ed2d9f37486",
+          "knowledge_point_name": "NeRF渲染损失",
+          "knowledge_point_record_sha256": "17ea3b65f54785e6e058e3e244a8a0329c68fdd7bd054cfc04e763facef8888d",
+          "knowledge_point_summary": "L=∑_{r∈R}||Ĉ(r)-C_{gt}(r)||_2^2\n式中，C_{gt}(r)代表与r相关的训练图像像素的真实颜色，R代表与待合成图像相关的射线集合。",
+          "necessary_neighbors": [
+            "在训练过程中，通过不断最小化生成新视角图像和真实图像之间的像素差异，神经辐射场模型中的多层感知机参数将被迭代优化，从而使预测的射线颜色尽可能接近真实的射线颜色，平方误差光度损失函数被用于这一优化过程："
+          ],
+          "page_end": 342,
+          "page_start": 342,
+          "section_ids": [
+            "ds3-scope-docx-6-2-2"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-678aebedda58cda3b0616495",
+      "task_prompt": "仅依据绑定证据，围绕“微调在自有数据集上的效果、NeRF渲染损失”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_case_seminar_v1",
+      "title": "微调在自有数据集上的效果、NeRF渲染损失演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+          "gold-ev-488132baeca3f0acc28854e2d6ab51b8"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "通过以上代码，我们可以绘制出柱状图，如图5.11所示，从图中可以清晰地看出，使用基础模型（即预训练模型）进行预测时，错误分类的概率在26%左右。然而经过微调后，使用微调模型进行预测时，错误分类的概率几乎为0。",
+          "在训练过程中，通过不断最小化生成新视角图像和真实图像之间的像素差异，神经辐射场模型中的多层感知机参数将被迭代优化，从而使预测的射线颜色尽可能接近真实的射线颜色，平方误差光度损失函数被用于这一优化过程："
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+          "gold-ev-488132baeca3f0acc28854e2d6ab51b8"
+        ],
+        "retrieval_intent": "检索支持“微调在自有数据集上的效果、NeRF渲染损失”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "7d48cb0d91854759c2e5ddf4a213c3f3b2c0fc0430cacbddc9f9d664eabbce87",
+        "candidate_sha256": "090a9f5587b9db91cb5d754a4c8434481c1d9140aeed9a866d3ad775a2297f8f",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-04",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-04",
+      "required_claims": [
+        "3D高斯点染三维重建技术是一种先进的三维场景表示和渲染方法，其通过使用大量的三维高斯粒子或微粒来细致描绘复杂的三维场景，每个高斯粒子都具备位置、方向、比例、不透明度和颜色信息等属性信息，共同定义了粒子的几何和光学特性。",
+        "不同的传感器具有不同的硬件布局和输出频率，这为多传感器数据处理带来了相当大的挑战。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 10,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-6536a2c73223e8682c77b81b",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-6b00087df687acba07757febbd553d19",
+          "evidence_record_sha256": "7e532a5c2460118a10eed7e96edfb861e3506ceaaa9d99622c0437e64fefc7b8",
+          "evidence_text": "3D高斯点染三维重建技术是一种先进的三维场景表示和渲染方法，其通过使用大量的三维高斯粒子或微粒来细致描绘复杂的三维场景，每个高斯粒子都具备位置、方向、比例、不透明度和颜色信息等属性信息，共同定义了粒子的几何和光学特性。",
+          "knowledge_point_id": "gold-kp-fb9db166a268fd3b93e2b6907fd0d5ed",
+          "knowledge_point_name": "3D高斯点染三维重建",
+          "knowledge_point_record_sha256": "2d5819a8f51bed1abf9a9851fb9e3091a3f26e7ab3b61af1486f96be4b67ae05",
+          "knowledge_point_summary": "3D高斯点染三维重建技术是一种先进的三维场景表示和渲染方法，其通过使用大量的三维高斯粒子或微粒来细致描绘复杂的三维场景，每个高斯粒子都具备位置、方向、比例、不透明度和颜色信息等属性信息，共同定义了粒子的几何和光学特性。",
+          "necessary_neighbors": [],
+          "page_end": 345,
+          "page_start": 345,
+          "section_ids": [
+            "ds3-scope-docx-6-2-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-a82f76634716f55660e023f2",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-cb0846fb32a5dd3d31485859a0290141",
+          "evidence_record_sha256": "86ea7b525a58b8847c5767325993f14e23d0423ce9dfd48b31f4ba7c950dfb7d",
+          "evidence_text": "不同的传感器具有不同的硬件布局和输出频率，这为多传感器数据处理带来了相当大的挑战。",
+          "knowledge_point_id": "gold-kp-065c5ece3c3203c045afd3857f132688",
+          "knowledge_point_name": "多传感器异构数据处理挑战",
+          "knowledge_point_record_sha256": "007c0cf3754964e11a9818cd18b1d1572d17b08ae88f7ba5a7df65c56a5ae9c1",
+          "knowledge_point_summary": "不同的传感器具有不同的硬件布局和输出频率，这为多传感器数据处理带来了相当大的挑战。",
+          "necessary_neighbors": [
+            "在SLAM系统中，最常用的传感器是激光雷达（Light Detection and Ranging，LiDAR）和相机。"
+          ],
+          "page_end": 354,
+          "page_start": 354,
+          "section_ids": [
+            "ds3-scope-docx-6-3"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-81f121e6575c209d54a39476",
+      "task_prompt": "仅依据绑定证据，围绕“3D高斯点染三维重建、多传感器异构数据处理挑战”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_standard_lecture_v1",
+      "title": "3D高斯点染三维重建、多传感器异构数据处理挑战演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-6b00087df687acba07757febbd553d19",
+          "gold-ev-cb0846fb32a5dd3d31485859a0290141"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "在SLAM系统中，最常用的传感器是激光雷达（Light Detection and Ranging，LiDAR）和相机。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-6b00087df687acba07757febbd553d19",
+          "gold-ev-cb0846fb32a5dd3d31485859a0290141"
+        ],
+        "retrieval_intent": "检索支持“3D高斯点染三维重建、多传感器异构数据处理挑战”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0ceb89c69d9d5ec033667c62370e3a9d7068de873e676690397b0e7f3d9f11de",
+        "candidate_sha256": "fdc555d8b6048cf938c0e30a23f271b8a13be5c72efac438df40fbc7fa8b544c",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-05",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-05",
+      "required_claims": [
+        "数据\t算法类型\t计算类型\t具体算法\n传感数据\t监督式\t离散-分类\tSVM、ANN、kNN、决策树、随机森林等\n\t\t连续-回归\t线性化、SVM、ANN、贝叶斯回归等\n\t半监督式\t\t生成模型\n\t\t\t强化学习\n\t无监督式\t离散-聚类\tk-means、高斯均值、分层聚类等\n\t\t连续\t数据降维、特征提取、模式识别",
+        "针对非结构化场景的军用自动驾驶技术研究取得了较大的进展，其中发展最迅速的即是计算机视觉技术在感知系统的应用。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 14,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-750bc465bf26f18fbc9cb16b",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-9376f75284ba93d51d39a91efd40fe3c",
+          "evidence_record_sha256": "a7487a2e40b7df45d37f9ebeb91e9b099599ee4ba4452d70c71a97c22ef38006",
+          "evidence_text": "数据\t算法类型\t计算类型\t具体算法\n传感数据\t监督式\t离散-分类\tSVM、ANN、kNN、决策树、随机森林等\n\t\t连续-回归\t线性化、SVM、ANN、贝叶斯回归等\n\t半监督式\t\t生成模型\n\t\t\t强化学习\n\t无监督式\t离散-聚类\tk-means、高斯均值、分层聚类等\n\t\t连续\t数据降维、特征提取、模式识别",
+          "knowledge_point_id": "gold-kp-c016211ffa5d73f31ce8a1e8cd3fa290",
+          "knowledge_point_name": "可穿戴传感数据算法类型",
+          "knowledge_point_record_sha256": "f36dce6311a7dec0bf461955b6a74e43899f00ac1cce3373cd9becce97321761",
+          "knowledge_point_summary": "数据\t算法类型\t计算类型\t具体算法\n传感数据\t监督式\t离散-分类\tSVM、ANN、kNN、决策树、随机森林等\n\t\t连续-回归\t线性化、SVM、ANN、贝叶斯回归等\n\t半监督式\t\t生成模型\n\t\t\t强化学习\n\t无监督式\t离散-聚类\tk-means、高斯均值、分层聚类等\n\t\t连续\t数据降维、特征提取、模式识别",
+          "necessary_neighbors": [
+            "表9.2智能可穿戴系统中的人工智能算法类型"
+          ],
+          "page_end": 523,
+          "page_start": 523,
+          "section_ids": [
+            "ds3-scope-docx-9-1-2"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-f718da67c9d519a314af007a",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-dacfc351ae9150a5594070769c072068",
+          "evidence_record_sha256": "00a910cf16597cc10118c89445098a5db604da453fc91d2a2624772dcce955c3",
+          "evidence_text": "针对非结构化场景的军用自动驾驶技术研究取得了较大的进展，其中发展最迅速的即是计算机视觉技术在感知系统的应用。",
+          "knowledge_point_id": "gold-kp-6e2b05246ce2d5e442aa6711c47a4dc3",
+          "knowledge_point_name": "计算机视觉在军用自动驾驶感知中的应用",
+          "knowledge_point_record_sha256": "d50b3a912eead1bd2e449e0ce467be61d3d50d13e8ed7b10afc2e2a24ddf3e1c",
+          "knowledge_point_summary": "针对非结构化场景的军用自动驾驶技术研究取得了较大的进展，其中发展最迅速的即是计算机视觉技术在感知系统的应用。",
+          "necessary_neighbors": [],
+          "page_end": 542,
+          "page_start": 542,
+          "section_ids": [
+            "ds3-scope-docx-9-2-2"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-c9aad06d93c733edee274892",
+      "task_prompt": "仅依据绑定证据，围绕“可穿戴传感数据算法类型、计算机视觉在军用自动驾驶感知中的应用”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_concept_explanation_v1",
+      "title": "可穿戴传感数据算法类型、计算机视觉在军用自动驾驶感知中的应用演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-9376f75284ba93d51d39a91efd40fe3c",
+          "gold-ev-dacfc351ae9150a5594070769c072068"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "表9.2智能可穿戴系统中的人工智能算法类型"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-9376f75284ba93d51d39a91efd40fe3c",
+          "gold-ev-dacfc351ae9150a5594070769c072068"
+        ],
+        "retrieval_intent": "检索支持“可穿戴传感数据算法类型、计算机视觉在军用自动驾驶感知中的应用”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a2a0d92578a60d177272f840ff4d482d8af2fb24247667aaf938e5b6ffa73ef9",
+        "candidate_sha256": "db44c9554c2afe70dbd76620e88035dc428de3043492fa81810a64ee5585637a",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-06",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-06",
+      "required_claims": [
+        "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。",
+        "传媒领域存在大量跨文化、跨语言的交流和互动，应用人工智能语音识别、合成技术，\n能够根据声纹特征，将不同的声音识别成文字，同时能够根据特定人的声音特征，将文本\n转换成特定人的声音，并能在不同的语言之间进行实时翻译，将语音合成技术和视频技术\n相结合，合成虚拟主播，播报新闻。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 24,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-c865e0b6d7d2fd985cfa519f",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+          "evidence_record_sha256": "b7c5b3aa04bd605172971dcc5fa7be3b1cb2c7e6dd28fb397bc796db1362a0a4",
+          "evidence_text": "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。",
+          "knowledge_point_id": "gold-kp-b49206a1595be66884b9d6fc3a61684f",
+          "knowledge_point_name": "通用人工智能的跨领域任务能力",
+          "knowledge_point_record_sha256": "36ce89dec64227594b4b7ea31dacf69418a0efa4ba1a7f7d1671886b5718abee",
+          "knowledge_point_summary": "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。",
+          "necessary_neighbors": [],
+          "page_end": 21,
+          "page_start": 21,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-e18c69377f3f674ade8524be",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-1c9a57c874696d23336a0cf4aa6990ff",
+          "evidence_record_sha256": "904dadf1799e34656908c707061aa5e4d063f04f28582b40d818755fc8b600b5",
+          "evidence_text": "传媒领域存在大量跨文化、跨语言的交流和互动，应用人工智能语音识别、合成技术，\n能够根据声纹特征，将不同的声音识别成文字，同时能够根据特定人的声音特征，将文本\n转换成特定人的声音，并能在不同的语言之间进行实时翻译，将语音合成技术和视频技术\n相结合，合成虚拟主播，播报新闻。",
+          "knowledge_point_id": "gold-kp-36c706993b11ac2127de9a718bf90295",
+          "knowledge_point_name": "人工智能语音识别、合成与实时翻译",
+          "knowledge_point_record_sha256": "3a0317419db4df857068091b16aa170ac43332634aa3db8c9471f461288e9d14",
+          "knowledge_point_summary": "传媒领域存在大量跨文化、跨语言的交流和互动，应用人工智能语音识别、合成技术，\n能够根据声纹特征，将不同的声音识别成文字，同时能够根据特定人的声音特征，将文本\n转换成特定人的声音，并能在不同的语言之间进行实时翻译，将语音合成技术和视频技术\n相结合，合成虚拟主播，播报新闻。",
+          "necessary_neighbors": [],
+          "page_end": 22,
+          "page_start": 22,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-1"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-433675f24ebd76375f8980ce",
+      "task_prompt": "仅依据绑定证据，围绕“通用人工智能的跨领域任务能力、人工智能语音识别、合成与实时翻译”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_case_seminar_v1",
+      "title": "通用人工智能的跨领域任务能力、人工智能语音识别、合成与实时翻译演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+          "gold-ev-1c9a57c874696d23336a0cf4aa6990ff"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+          "gold-ev-1c9a57c874696d23336a0cf4aa6990ff"
+        ],
+        "retrieval_intent": "检索支持“通用人工智能的跨领域任务能力、人工智能语音识别、合成与实时翻译”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "84a54f04e4bae0f642bf1bff37a3afd8553b1a3dd28058cc82f8c0726b18cab7",
+        "candidate_sha256": "e51cbdf0030809e7d96f97b682489caf8cce44f346cbd17eacb2db408a5b5664",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-07",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-07",
+      "required_claims": [
+        "在教室正前方设置摄\n像头采集视频，通过前置计算设备或服务器集成的专注度分析模型进行检测与识别，自动\n分析学生的专注度，实时将专注度及各种行为统计结果反馈给学校管理系统，并在课后生\n成教学报告，从而实现教学与管理的联动。",
+        "AI通过分析用户画像、交易特征，可以做到异常检\n测、判断预警。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 12,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-1358a9dafc0a5f3c5b8196fe",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a",
+          "evidence_record_sha256": "bfb8e30bddca5d125e46bad7a03c8584071dd7e98d0101a0734e107ff7642012",
+          "evidence_text": "在教室正前方设置摄\n像头采集视频，通过前置计算设备或服务器集成的专注度分析模型进行检测与识别，自动\n分析学生的专注度，实时将专注度及各种行为统计结果反馈给学校管理系统，并在课后生\n成教学报告，从而实现教学与管理的联动。",
+          "knowledge_point_id": "gold-kp-f4381fad242d4d450c87bf8b330f59ba",
+          "knowledge_point_name": "学生专注度分析流程",
+          "knowledge_point_record_sha256": "10a8b38a9ad9ff215219f972191ce2c6e95c838a2137953d1e3d1af055f86bd2",
+          "knowledge_point_summary": "在教室正前方设置摄\n像头采集视频，通过前置计算设备或服务器集成的专注度分析模型进行检测与识别，自动\n分析学生的专注度，实时将专注度及各种行为统计结果反馈给学校管理系统，并在课后生\n成教学报告，从而实现教学与管理的联动。",
+          "necessary_neighbors": [
+            "课堂教学智能反馈系统可以分析学生的课堂专注度和学习状态。"
+          ],
+          "page_end": 27,
+          "page_start": 27,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-4"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-9f1e74617525590f6f84d39b",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+          "evidence_record_sha256": "9f75972831c631cbaa320522f28b570e92221b38689448eb5dbf187b0a150e11",
+          "evidence_text": "AI通过分析用户画像、交易特征，可以做到异常检\n测、判断预警。",
+          "knowledge_point_id": "gold-kp-beb17dbcc8eb8fe7ad9aa87fe676b722",
+          "knowledge_point_name": "人工智能交易异常检测",
+          "knowledge_point_record_sha256": "d8437397eae100793e63993942e1108087da8a3db9b273ae0b5275033629e654",
+          "knowledge_point_summary": "AI通过分析用户画像、交易特征，可以做到异常检\n测、判断预警。",
+          "necessary_neighbors": [],
+          "page_end": 32,
+          "page_start": 32,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-7"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-4726500b78727fcb71a44edd",
+      "task_prompt": "仅依据绑定证据，围绕“学生专注度分析流程、人工智能交易异常检测”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_standard_lecture_v1",
+      "title": "学生专注度分析流程、人工智能交易异常检测演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a",
+          "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "课堂教学智能反馈系统可以分析学生的课堂专注度和学习状态。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a",
+          "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+        ],
+        "retrieval_intent": "检索支持“学生专注度分析流程、人工智能交易异常检测”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "05a06b0ca4c71e49579ff28e376222b47557fdc49e48fd61b3ab1c17a14eb305",
+        "candidate_sha256": "c22ecc8c95231de685772ea6854477fbbb3b66864db0d8103a2c8bb07dd92abb",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-08",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-08",
+      "required_claims": [
+        "在2018年的谷歌开发者大会上，谷歌向外界展示了其人工智能技术\n在语音通话应用上的最新进展，比如通过谷歌Duplex个人助理帮助用户\n在真实世界中预约了美发沙龙和餐馆。",
+        "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 18,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-a0bd2ef9f15da1c5ef2ad235",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-38cd360af1237ea0f2ab5fa2a180c208",
+          "evidence_record_sha256": "ec38efeb38b9f894d5a50d51ed6d5ce3ee02229f0df36b91de2a23cd4a0aa050",
+          "evidence_text": "在2018年的谷歌开发者大会上，谷歌向外界展示了其人工智能技术\n在语音通话应用上的最新进展，比如通过谷歌Duplex个人助理帮助用户\n在真实世界中预约了美发沙龙和餐馆。",
+          "knowledge_point_id": "gold-kp-4e659c3501ecbb1ce06e3455ee4b9e51",
+          "knowledge_point_name": "Google Duplex语音助理",
+          "knowledge_point_record_sha256": "5dffa6ed6feb4d599b5e13331deeeba7c07152050ef8f7a17ce035ee221ab0ba",
+          "knowledge_point_summary": "在2018年的谷歌开发者大会上，谷歌向外界展示了其人工智能技术\n在语音通话应用上的最新进展，比如通过谷歌Duplex个人助理帮助用户\n在真实世界中预约了美发沙龙和餐馆。",
+          "necessary_neighbors": [],
+          "page_end": 15,
+          "page_start": 15,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-2"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-03e04adb65188820e1900fd6",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+          "evidence_record_sha256": "caad5b639b1038dca8b1e1cc106b599dfe4a4a0d4ec7e8ce1a13abe64af07c87",
+          "evidence_text": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+          "knowledge_point_id": "gold-kp-90ccc5c8790242574c98edd956313bd0",
+          "knowledge_point_name": "IBM沃森问答系统",
+          "knowledge_point_record_sha256": "e0f7c686d5777258777e118825470c944a41397089695c15d6572eb2976bde1f",
+          "knowledge_point_summary": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+          "necessary_neighbors": [],
+          "page_end": 18,
+          "page_start": 18,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-1"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-70791f708981eeece64ec617",
+      "task_prompt": "仅依据绑定证据，围绕“Google Duplex语音助理、IBM沃森问答系统”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_concept_explanation_v1",
+      "title": "Google Duplex语音助理、IBM沃森问答系统演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-38cd360af1237ea0f2ab5fa2a180c208",
+          "gold-ev-a95425415c717538eb8e12984a3caaef"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-38cd360af1237ea0f2ab5fa2a180c208",
+          "gold-ev-a95425415c717538eb8e12984a3caaef"
+        ],
+        "retrieval_intent": "检索支持“Google Duplex语音助理、IBM沃森问答系统”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c40dcc02e88abd61871217a134855dc9e48c13aad2a69564d749d097798ce8cb",
+        "candidate_sha256": "ff98598ba3b8d528b5d7e874ceaf31c475973e7e4a09d6ce0845a157821cbbf8",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-09",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-09",
+      "required_claims": [
+        "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+        "(1)通用人工智能强调的是拥有像人一样的能力，可以通过学习胜任人可以做的任何工\n作，但不要求它有自我意识。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 10,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-7a8f295b27b2857839928626",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+          "evidence_record_sha256": "a2ca1f7592e46410b667ea0c678bdab623713e05c17ec064b1703844bbe956e0",
+          "evidence_text": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+          "knowledge_point_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+          "knowledge_point_name": "职业自动化淘汰概率",
+          "knowledge_point_record_sha256": "b68499c15c01617b5ac50dfeb2ed6a6bcf36e1de02874e98ebe195bbd4f9f2b3",
+          "knowledge_point_summary": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+          "necessary_neighbors": [
+            "表1-1\n部分职业的被淘汰概率"
+          ],
+          "page_end": 20,
+          "page_start": 20,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-2"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-6100c1f31ea9d9de649690c8",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002",
+          "evidence_record_sha256": "04b66d46b46366f76cb14b0443f502f84bde37a1442c45f5a6b8c78bbdf3e5a3",
+          "evidence_text": "(1)通用人工智能强调的是拥有像人一样的能力，可以通过学习胜任人可以做的任何工\n作，但不要求它有自我意识。",
+          "knowledge_point_id": "gold-kp-178b3f85ded00640ce7ef7752cc2140a",
+          "knowledge_point_name": "通用人工智能的人类能力与自我意识边界",
+          "knowledge_point_record_sha256": "12fcd22663fe2486db063d552db6dfb44ca6822766d92b9a13eff3ac68b1efad",
+          "knowledge_point_summary": "(1)通用人工智能强调的是拥有像人一样的能力，可以通过学习胜任人可以做的任何工\n作，但不要求它有自我意识。",
+          "necessary_neighbors": [
+            "通用人工智能与强人工智能的区别如下："
+          ],
+          "page_end": 21,
+          "page_start": 21,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-3"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-f3abaae8b06a11b68b9e8c70",
+      "task_prompt": "仅依据绑定证据，围绕“职业自动化淘汰概率、通用人工智能的人类能力与自我意识边界”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_case_seminar_v1",
+      "title": "职业自动化淘汰概率、通用人工智能的人类能力与自我意识边界演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+          "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "表1-1\n部分职业的被淘汰概率",
+          "通用人工智能与强人工智能的区别如下："
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+          "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+        ],
+        "retrieval_intent": "检索支持“职业自动化淘汰概率、通用人工智能的人类能力与自我意识边界”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "27b42461151e3ec6f5a2a00a366108f5feb1799ed439038fd97c043c3f53095f",
+        "candidate_sha256": "8579fb9ab832fb1cc52f7e06121311a1b0fc2fbee4068b3127d1da0bc35b782d",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds3.p18-ppt-10",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "ppt",
+      "candidate_source": "source_grounded_assisted",
+      "citations_required_for_fact_slides": true,
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "editable_objects_required": true,
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "notes_required_for_content_slides": true,
+      "pilot_record_reused": false,
+      "record_id": "p18-ppt-10",
+      "required_claims": [
+        "然而，AI语音合成技术在快速发展的同时，也带来了一些问题。",
+        "在自适应系统中，可以有一个学生身份的AI，有一个教师身份的AI，通过不断演\n练教学过程来强化AI的学习能力，为用户提供更智能的教学方案。"
+      ],
+      "required_interrupts": [
+        "ppt_architecture_review",
+        "ppt_final_review"
+      ],
+      "required_slide_types": [
+        "title",
+        "objectives",
+        "concept",
+        "activity",
+        "summary",
+        "references"
+      ],
+      "review_status": "approved",
+      "slide_count": 16,
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-0e539636960d98d828ce7a31",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-038b4413d51c1b35b884caf999ec92e0",
+          "evidence_record_sha256": "e85d01a4af51765f83cfc9786f73e79e65bac933b06c343878eae163ed6fa1af",
+          "evidence_text": "然而，AI语音合成技术在快速发展的同时，也带来了一些问题。",
+          "knowledge_point_id": "gold-kp-a03776e8707f7ff4cd71d6f63391351d",
+          "knowledge_point_name": "人工智能语音合成风险",
+          "knowledge_point_record_sha256": "ed7edebf43b95fd99461d19dc207d7ae5cb475754da0b0a4f0267a1344ddb850",
+          "knowledge_point_summary": "然而，AI语音合成技术在快速发展的同时，也带来了一些问题。",
+          "necessary_neighbors": [
+            "2024年出现了全国首例“AI生成声音人格权侵权案”，这就提醒我们，在享受技术带来的便利时，也要重视声音权益保护和技术的规范应用。"
+          ],
+          "page_end": 24,
+          "page_start": 24,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-af48679256f93b5ecec9cd1a",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-7a68a8df0bca457e22b2efb289d137bd",
+          "evidence_record_sha256": "7a264a0293d1915b9d0d75bfd96b8daf54e4d53a388119f6bc9f9812549c75d5",
+          "evidence_text": "在自适应系统中，可以有一个学生身份的AI，有一个教师身份的AI，通过不断演\n练教学过程来强化AI的学习能力，为用户提供更智能的教学方案。",
+          "knowledge_point_id": "gold-kp-9b8af2a4a77376bd25da2e8790ef50d4",
+          "knowledge_point_name": "双AI教学演练",
+          "knowledge_point_record_sha256": "8a7ced9558ccccde120836943d9fdaf848217829ba2ef32a3914d87fc10d3581",
+          "knowledge_point_summary": "在自适应系统中，可以有一个学生身份的AI，有一个教师身份的AI，通过不断演\n练教学过程来强化AI的学习能力，为用户提供更智能的教学方案。",
+          "necessary_neighbors": [],
+          "page_end": 26,
+          "page_start": 26,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-4"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-428486084e0de28d19d577dc",
+      "task_prompt": "仅依据绑定证据，围绕“人工智能语音合成风险、双AI教学演练”构造演示文稿；不得补充语料外事实。",
+      "template_id": "ppt_standard_lecture_v1",
+      "title": "人工智能语音合成风险、双AI教学演练演示文稿任务",
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-038b4413d51c1b35b884caf999ec92e0",
+          "gold-ev-7a68a8df0bca457e22b2efb289d137bd"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "2024年出现了全国首例“AI生成声音人格权侵权案”，这就提醒我们，在享受技术带来的便利时，也要重视声音权益保护和技术的规范应用。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-038b4413d51c1b35b884caf999ec92e0",
+          "gold-ev-7a68a8df0bca457e22b2efb289d137bd"
+        ],
+        "retrieval_intent": "检索支持“人工智能语音合成风险、双AI教学演练”教学任务的直接证据与最小必要邻接"
+      }
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-r1",
+  "schema_version": "coursepilot.cp-ds3-p18.v1"
+}

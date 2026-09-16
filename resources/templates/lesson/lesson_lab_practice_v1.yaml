@@ -1,0 +1,23 @@
+{
+  "artifact_type": "lesson",
+  "default_parameters": {
+    "mode": "lab_practice"
+  },
+  "exporter_profile": "lesson_exporter",
+  "generator_prompt_profile": "lesson_generator",
+  "input_schema_role": "lesson_task_input",
+  "model_route_profiles": [
+    "planner_main",
+    "generator_main",
+    "content_repair_main"
+  ],
+  "output_schema_role": "lesson_artifact_output",
+  "physical_resource_roles": [
+    "lesson_default_docx"
+  ],
+  "planner_prompt_profile": "lesson_planner",
+  "repair_profile": "lesson_repair",
+  "template_id": "lesson_lab_practice_v1",
+  "validator_profile": "lesson_validator",
+  "version": "1.0.0"
+}

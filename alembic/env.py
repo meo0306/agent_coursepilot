@@ -6,7 +6,7 @@ import sys
 from logging.config import fileConfig
 from pathlib import Path
 
-from sqlalchemy import engine_from_config, pool
+from sqlalchemy import engine_from_config, pool, text
 
 from alembic import context
 
@@ -21,15 +21,17 @@ if str(SRC) not in sys.path:
 # Importing coursepilot.models registers every ORM model on Base.metadata. The
 # migration environment then knows which CoursePilot tables exist in code.
 import coursepilot.models  # noqa: E402,F401
+import courserag.persistence.models  # noqa: E402,F401
 from coursepilot.db.base import Base  # noqa: E402
 from coursepilot.db.session import _build_postgres_url  # noqa: E402
+from courserag.persistence.base import CourseRAGBase  # noqa: E402
 
 config = context.config
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-target_metadata = Base.metadata  # 告诉 Alembic迁移时以 CoursePilot 的 metadata 为准
+target_metadata = [Base.metadata, CourseRAGBase.metadata]
 
 
 def run_migrations_offline() -> None:
@@ -58,6 +60,22 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
+        # Alembic's default version table uses VARCHAR(32), while this
+        # repository's immutable revision identities are longer.  Create or
+        # widen the bookkeeping column before Alembic performs its first
+        # revision update.  This is PostgreSQL-only and leaves SQLite fixtures
+        # unchanged.
+        if connection.dialect.name == "postgresql":
+            connection.execute(
+                text(
+                    "CREATE TABLE IF NOT EXISTS alembic_version "
+                    "(version_num VARCHAR(64) NOT NULL PRIMARY KEY)"
+                )
+            )
+            connection.execute(
+                text("ALTER TABLE alembic_version ALTER COLUMN version_num TYPE VARCHAR(64)")
+            )
+            connection.commit()
         context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():

@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from typing import Literal
 
@@ -28,16 +29,36 @@ class QuestionItem(BaseModel):
             if self.question_type == "single_choice" and self.correct_answer not in self.options:
                 raise ValueError("single_choice answer must match an option key")
             if self.question_type == "multiple_choice":
-                answers = {item.strip() for item in self.correct_answer.split(",") if item.strip()}
+                raw_answer = self.correct_answer.strip()
+                if raw_answer in self.options:
+                    answers = {raw_answer}
+                elif re.search(r"[,，、;/\s]", raw_answer):
+                    answers = {item for item in re.split(r"[,，、;/\s]+", raw_answer) if item}
+                else:
+                    # Providers commonly serialize a set of single-character option
+                    # keys as ``AB``. Accept that representation only when every
+                    # character is an exact declared key; arbitrary text still fails.
+                    answers = (
+                        set(raw_answer) if all(key in self.options for key in raw_answer) else set()
+                    )
                 if not answers or not answers.issubset(set(self.options)):
                     raise ValueError("multiple_choice answer must match option keys")
+                self.correct_answer = ",".join(key for key in self.options if key in answers)
         if self.question_type == "judgement":
             answer = self.correct_answer.strip()
+            if self.options and answer in self.options:
+                # Some providers express judgement answers through explicit
+                # option keys (for example A=correct, B=incorrect). Resolve
+                # only an exact declared key whose label is itself an accepted
+                # judgement value; never guess from the key position.
+                answer = self.options[answer].strip()
             lower_answer = answer.lower()
             if lower_answer in {"true", "false"}:
                 self.correct_answer = lower_answer
-            elif answer in {"\u6b63\u786e", "\u9519\u8bef"}:
-                self.correct_answer = answer
+            elif answer in {"\u6b63\u786e", "\u5bf9", "\u662f"}:
+                self.correct_answer = "\u6b63\u786e"
+            elif answer in {"\u9519\u8bef", "\u9519", "\u5426"}:
+                self.correct_answer = "\u9519\u8bef"
             else:
                 raise ValueError("judgement answer must be true/false or Chinese equivalents")
         return self

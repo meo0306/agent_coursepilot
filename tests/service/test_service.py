@@ -83,6 +83,11 @@ def test_auth_protects_prompt_and_coursepilot_routes(test_client, monkeypatch):
     )
     assert response.status_code == 200
 
+    response = test_client.get(
+        "/api/courserag/v1/knowledge-points/missing",
+    )
+    assert response.status_code == 401
+
 
 @pytest.mark.asyncio
 async def test_lifespan_loads_coursepilot_agents(monkeypatch, caplog):

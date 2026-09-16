@@ -1,0 +1,1574 @@
+{
+  "approval_scope": "cp_ds6_pilot_input_only",
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "a1353a84fc065f1d9e2e758fd5b54c3b032a8db3afd8c765553e3b77c59b99ae",
+        "candidate_sha256": "2a6bcf3c4c955ef74ea317c63fb1a738acbef5143ca75e6fb2b981cee8f9209e",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.001",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-lesson-session-plan-approve-01",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-session-plan-approve-01",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "long_pause",
+        "service_restart",
+        "duplicate_decision"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-session-plan",
+      "human_decision": "approve",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p12-lesson-session-plan-approve-01",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "approve",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-lesson-session-plan-approve-01",
+      "thread_ref": "thread:p12:lesson-p12-lesson-session-plan-approve-01",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "b1ee5811ef8c63861c1b57de04e04c159b4314352bdab6be235daed26a5fefa7",
+        "candidate_sha256": "8d880c4bbe0c74db5df54bf6b7e52c4308e71a41a40ff1d770bbecc7746fadad",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.002",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-lesson-session-plan-edit-resume-02",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-session-plan-edit-resume-02",
+      "edit_patch": {
+        "$.plan.title": "owner-edited-structure"
+      },
+      "editable_paths": [
+        "$.plan.title"
+      ],
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "worker_crash_before_resume",
+        "service_restart",
+        "edit_then_resume"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-session-plan",
+      "human_decision": "edit_resume",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p12-lesson-session-plan-edit-resume-02",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "edit_resume",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-lesson-session-plan-edit-resume-02",
+      "thread_ref": "thread:p12:lesson-p12-lesson-session-plan-edit-resume-02",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f844be688cf8aef604ad4e2d57564018918f4e3afd77b8f8ed9d60743362c970",
+        "candidate_sha256": "ae2f5f473fb66d86fdab341971a107b80e061ffc1b4549323d994651fb7a8652",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.003",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "replan"
+      ],
+      "artifact_ref": "artifact:p12:p12-lesson-session-plan-replan-03",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-session-plan-replan-03",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "stale_context_version",
+      "expected_invalidated_nodes": [
+        "build_context_ref",
+        "generate_components"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->needs_review",
+        "needs_review->running"
+      ],
+      "fault_sequence": [
+        "courserag_index_version_changed",
+        "context_version_changed",
+        "replan_request"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-session-plan",
+      "human_decision": "replan",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p12-lesson-session-plan-replan-03",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "replan",
+      "stale_version_detected": true,
+      "task_ref": "task:p12:p12-lesson-session-plan-replan-03",
+      "thread_ref": "thread:p12:lesson-p12-lesson-session-plan-replan-03",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "3b9458b1f029c910bacf9573a974bb31e676a1f95a3ff43d70acaac910c945ad",
+        "candidate_sha256": "c2574786a3c0d8a1e47cbac600ee54269a7c982562bf4065793bca41e02e0ebd",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.004",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "artifact_ref": "artifact:p12:p12-lesson-session-plan-reject-04",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-session-plan-reject-04",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "task_cancelled",
+      "expected_invalidated_nodes": [
+        "generate_components",
+        "export",
+        "writeback"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled",
+        "cancelled->terminal"
+      ],
+      "fault_sequence": [
+        "template_version_changed",
+        "duplicate_cancel",
+        "cancel_request"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-session-plan",
+      "human_decision": "reject",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_session_plan_review",
+      "record_id": "p12-lesson-session-plan-reject-04",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "reject",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-lesson-session-plan-reject-04",
+      "thread_ref": "thread:p12:lesson-p12-lesson-session-plan-reject-04",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6272c2551723211a32357e46e34198b933be8d4be497302e4b5f23ee189a0774",
+        "candidate_sha256": "4778c3491129ceb4c1117ec53a2ce869688da77d8488eae02de26d8ed5545106",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.005",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-lesson-final-approve-01",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-final-approve-01",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "long_pause",
+        "service_restart",
+        "duplicate_decision"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-final",
+      "human_decision": "approve",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p12-lesson-final-approve-01",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "approve",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-lesson-final-approve-01",
+      "thread_ref": "thread:p12:lesson-p12-lesson-final-approve-01",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "b9528005a5a108704c8588718f7e9fcc66e9dd1f36ea86922aadba712409a21e",
+        "candidate_sha256": "8e7a838993993f1c5340d776794e7fcc66cd0d6ff5adc3926b0cd92d2e3a3254",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.006",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-lesson-final-edit-resume-02",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-final-edit-resume-02",
+      "edit_patch": {
+        "$.plan.title": "owner-edited-structure"
+      },
+      "editable_paths": [
+        "$.plan.title"
+      ],
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "worker_crash_before_resume",
+        "service_restart",
+        "edit_then_resume"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-final",
+      "human_decision": "edit_resume",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p12-lesson-final-edit-resume-02",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "edit_resume",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-lesson-final-edit-resume-02",
+      "thread_ref": "thread:p12:lesson-p12-lesson-final-edit-resume-02",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "a46c7f7161807b49055b4d49265cd3a052139ea8a3c655da52ac51491536f57b",
+        "candidate_sha256": "e7a4135e07fa47b6bd44b7695961d5e1d11d6fb7e434271a4940f3d7c08dfcec",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.007",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "replan"
+      ],
+      "artifact_ref": "artifact:p12:p12-lesson-final-replan-03",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-final-replan-03",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "stale_context_version",
+      "expected_invalidated_nodes": [
+        "build_context_ref",
+        "generate_components"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->needs_review",
+        "needs_review->running"
+      ],
+      "fault_sequence": [
+        "courserag_index_version_changed",
+        "context_version_changed",
+        "replan_request"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-final",
+      "human_decision": "replan",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p12-lesson-final-replan-03",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "replan",
+      "stale_version_detected": true,
+      "task_ref": "task:p12:p12-lesson-final-replan-03",
+      "thread_ref": "thread:p12:lesson-p12-lesson-final-replan-03",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "e49782f575f5cd1ed852fbbcc56d4c03923cc954f7aeee7555ce753109a98b94",
+        "candidate_sha256": "006de79a4fdb3b55489d0c1dcc63dd22dd640d1a0bf1bde56703d96e90083ad7",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.008",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "artifact_ref": "artifact:p12:p12-lesson-final-reject-04",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-lesson-final-reject-04",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "task_cancelled",
+      "expected_invalidated_nodes": [
+        "generate_components",
+        "export",
+        "writeback"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled",
+        "cancelled->terminal"
+      ],
+      "fault_sequence": [
+        "template_version_changed",
+        "duplicate_cancel",
+        "cancel_request"
+      ],
+      "fixture_id": "p12-structure-lesson-lesson-final",
+      "human_decision": "reject",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "lesson_final_review",
+      "record_id": "p12-lesson-final-reject-04",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "reject",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-lesson-final-reject-04",
+      "thread_ref": "thread:p12:lesson-p12-lesson-final-reject-04",
+      "workflow_type": "lesson"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "64c6131e7ce9d4b6fd4fd956daabf57823ecc79bfa5f39e569fb0678077639c9",
+        "candidate_sha256": "0df9c645964885b044c68a7859c11f58cc80c9b7e1485b7967ed5f598dd2ffde",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.009",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-exam-blueprint-approve-01",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-blueprint-approve-01",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "long_pause",
+        "service_restart",
+        "duplicate_decision"
+      ],
+      "fixture_id": "p12-structure-exam-exam-blueprint",
+      "human_decision": "approve",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p12-exam-blueprint-approve-01",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "approve",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-exam-blueprint-approve-01",
+      "thread_ref": "thread:p12:exam-p12-exam-blueprint-approve-01",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "d25cbcbb6a56cd182486f9caec68ffc692ea005b5d4ea12c6a440759b4b35a12",
+        "candidate_sha256": "2e8279ea8cde15f830a7e9f16d84c96d8b14ee165ff14f385543af22e101429e",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.010",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-exam-blueprint-edit-resume-02",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-blueprint-edit-resume-02",
+      "edit_patch": {
+        "$.plan.title": "owner-edited-structure"
+      },
+      "editable_paths": [
+        "$.plan.title"
+      ],
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "worker_crash_before_resume",
+        "service_restart",
+        "edit_then_resume"
+      ],
+      "fixture_id": "p12-structure-exam-exam-blueprint",
+      "human_decision": "edit_resume",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p12-exam-blueprint-edit-resume-02",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "edit_resume",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-exam-blueprint-edit-resume-02",
+      "thread_ref": "thread:p12:exam-p12-exam-blueprint-edit-resume-02",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "6cda7941a6dcac6921347d1dd1b6dc61c64308645e3c34fb1d62839a03d33c32",
+        "candidate_sha256": "864d2eddfbcc85e593b9b9546e0913897b09c862b5d3c30269a3f4a3c99590ba",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.011",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "replan"
+      ],
+      "artifact_ref": "artifact:p12:p12-exam-blueprint-replan-03",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-blueprint-replan-03",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "stale_context_version",
+      "expected_invalidated_nodes": [
+        "build_context_ref",
+        "generate_components"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->needs_review",
+        "needs_review->running"
+      ],
+      "fault_sequence": [
+        "courserag_index_version_changed",
+        "context_version_changed",
+        "replan_request"
+      ],
+      "fixture_id": "p12-structure-exam-exam-blueprint",
+      "human_decision": "replan",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p12-exam-blueprint-replan-03",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "replan",
+      "stale_version_detected": true,
+      "task_ref": "task:p12:p12-exam-blueprint-replan-03",
+      "thread_ref": "thread:p12:exam-p12-exam-blueprint-replan-03",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f9401753f087f6694082e303b693ac69b504c004fb7221271367f68c0459c81c",
+        "candidate_sha256": "385762e47fb56cf2720addafe3c959f5da4eab0c842567d9c49eb4442f747463",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.012",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "artifact_ref": "artifact:p12:p12-exam-blueprint-reject-04",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-blueprint-reject-04",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "task_cancelled",
+      "expected_invalidated_nodes": [
+        "generate_components",
+        "export",
+        "writeback"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled",
+        "cancelled->terminal"
+      ],
+      "fault_sequence": [
+        "template_version_changed",
+        "duplicate_cancel",
+        "cancel_request"
+      ],
+      "fixture_id": "p12-structure-exam-exam-blueprint",
+      "human_decision": "reject",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_blueprint_review",
+      "record_id": "p12-exam-blueprint-reject-04",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "reject",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-exam-blueprint-reject-04",
+      "thread_ref": "thread:p12:exam-p12-exam-blueprint-reject-04",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "2f01cf4ef067a8ca37f08d5479183e5b7314676b2d2e3a7c7a741317499e2c95",
+        "candidate_sha256": "f2502f7649f019c7c5048452773fd64b36518274f62822fff843e7a6fc0ef3e1",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.013",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-exam-global-approve-01",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-global-approve-01",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "long_pause",
+        "service_restart",
+        "duplicate_decision"
+      ],
+      "fixture_id": "p12-structure-exam-exam-global",
+      "human_decision": "approve",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p12-exam-global-approve-01",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "approve",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-exam-global-approve-01",
+      "thread_ref": "thread:p12:exam-p12-exam-global-approve-01",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "82a4823d4c13ea6a30e2e32d08b263898f8ed0105205fae610ee88e585e240d6",
+        "candidate_sha256": "b2073bc1d0a9da32a577d65dfd25707d870f606562a9123df8ab99d805b8ff13",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.014",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-exam-global-edit-resume-02",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-global-edit-resume-02",
+      "edit_patch": {
+        "$.plan.title": "owner-edited-structure"
+      },
+      "editable_paths": [
+        "$.plan.title"
+      ],
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "worker_crash_before_resume",
+        "service_restart",
+        "edit_then_resume"
+      ],
+      "fixture_id": "p12-structure-exam-exam-global",
+      "human_decision": "edit_resume",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p12-exam-global-edit-resume-02",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "edit_resume",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-exam-global-edit-resume-02",
+      "thread_ref": "thread:p12:exam-p12-exam-global-edit-resume-02",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "cfded70fdc450813e42d85272fdd29e16609de6ba4ff02fb275237b0029d20da",
+        "candidate_sha256": "c8064a63b8d7f9f702d569cf778b83e493e39cc538afc41769b4c578bc5a5ecd",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.015",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "replan"
+      ],
+      "artifact_ref": "artifact:p12:p12-exam-global-replan-03",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-global-replan-03",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "stale_context_version",
+      "expected_invalidated_nodes": [
+        "build_context_ref",
+        "generate_components"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->needs_review",
+        "needs_review->running"
+      ],
+      "fault_sequence": [
+        "courserag_index_version_changed",
+        "context_version_changed",
+        "replan_request"
+      ],
+      "fixture_id": "p12-structure-exam-exam-global",
+      "human_decision": "replan",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p12-exam-global-replan-03",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "replan",
+      "stale_version_detected": true,
+      "task_ref": "task:p12:p12-exam-global-replan-03",
+      "thread_ref": "thread:p12:exam-p12-exam-global-replan-03",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f122d97a2276c5d192b3455226b90fc525f6164e0daf365861b127270a543723",
+        "candidate_sha256": "792b287a77121a3a0cc3583e02ced95fa2a1d4b86eccfc06ca3e03be330af386",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.016",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "artifact_ref": "artifact:p12:p12-exam-global-reject-04",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-exam-global-reject-04",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "task_cancelled",
+      "expected_invalidated_nodes": [
+        "generate_components",
+        "export",
+        "writeback"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled",
+        "cancelled->terminal"
+      ],
+      "fault_sequence": [
+        "template_version_changed",
+        "duplicate_cancel",
+        "cancel_request"
+      ],
+      "fixture_id": "p12-structure-exam-exam-global",
+      "human_decision": "reject",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "exam_global_review",
+      "record_id": "p12-exam-global-reject-04",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "reject",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-exam-global-reject-04",
+      "thread_ref": "thread:p12:exam-p12-exam-global-reject-04",
+      "workflow_type": "exam"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "aa4e27c891a665d05194e6cc5368b820ef468a4ff0fc5e3128ef97405522f5f5",
+        "candidate_sha256": "b474c10b58209a9706c445fe16180d745430b912a2b695aada6560700a873f4a",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.017",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-ppt-architecture-approve-01",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-architecture-approve-01",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "long_pause",
+        "service_restart",
+        "duplicate_decision"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-architecture",
+      "human_decision": "approve",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p12-ppt-architecture-approve-01",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "approve",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-ppt-architecture-approve-01",
+      "thread_ref": "thread:p12:ppt-p12-ppt-architecture-approve-01",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0d426351ab75a1cee5e04393da82abf878d7ed1bd8c3255c5f47bba7c00c5b5d",
+        "candidate_sha256": "b34c9507ad6142c14d772013bb0796d1e431ac6cf0f84e9261368d4614658b86",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.018",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-ppt-architecture-edit-resume-02",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-architecture-edit-resume-02",
+      "edit_patch": {
+        "$.architecture.slides[0].title": "owner-edited-structure"
+      },
+      "editable_paths": [
+        "$.architecture.slides[0].title"
+      ],
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "worker_crash_before_resume",
+        "service_restart",
+        "edit_then_resume"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-architecture",
+      "human_decision": "edit_resume",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p12-ppt-architecture-edit-resume-02",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "edit_resume",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-ppt-architecture-edit-resume-02",
+      "thread_ref": "thread:p12:ppt-p12-ppt-architecture-edit-resume-02",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "80f135e14f46bd52a174dbf9ecec09eb7c85b6c1252f0380631b6d6d386c4c1e",
+        "candidate_sha256": "330c0dc4dd4ba20d23b325086b955f3875772d1ba4ce2ac47ac428e7ddcce7ff",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.019",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "replan"
+      ],
+      "artifact_ref": "artifact:p12:p12-ppt-architecture-replan-03",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-architecture-replan-03",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "stale_context_version",
+      "expected_invalidated_nodes": [
+        "build_context_ref",
+        "generate_components"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->needs_review",
+        "needs_review->running"
+      ],
+      "fault_sequence": [
+        "courserag_index_version_changed",
+        "context_version_changed",
+        "replan_request"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-architecture",
+      "human_decision": "replan",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p12-ppt-architecture-replan-03",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "replan",
+      "stale_version_detected": true,
+      "task_ref": "task:p12:p12-ppt-architecture-replan-03",
+      "thread_ref": "thread:p12:ppt-p12-ppt-architecture-replan-03",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "81cbfc92725a0e89e8286d36dacb2d3fd86e2007a08c252b6c499524d20bdf56",
+        "candidate_sha256": "d61385e74298e21ad283d3d42b081f71900895250fbdfe88fac0b78047206bcb",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.020",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "artifact_ref": "artifact:p12:p12-ppt-architecture-reject-04",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-architecture-reject-04",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "task_cancelled",
+      "expected_invalidated_nodes": [
+        "generate_components",
+        "export",
+        "writeback"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled",
+        "cancelled->terminal"
+      ],
+      "fault_sequence": [
+        "template_version_changed",
+        "duplicate_cancel",
+        "cancel_request"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-architecture",
+      "human_decision": "reject",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_architecture_review",
+      "record_id": "p12-ppt-architecture-reject-04",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "reject",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-ppt-architecture-reject-04",
+      "thread_ref": "thread:p12:ppt-p12-ppt-architecture-reject-04",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "fa3fa2ffcab656bf737f34f402dc70904ee81f53752953f76c7927e86e0cc0a7",
+        "candidate_sha256": "7caa74c6beb674da0f58215316c2b7971af701135c3f2815d6197e2a19f6ee9c",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.021",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-ppt-final-approve-01",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-final-approve-01",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "long_pause",
+        "service_restart",
+        "duplicate_decision"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-final",
+      "human_decision": "approve",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p12-ppt-final-approve-01",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "approve",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-ppt-final-approve-01",
+      "thread_ref": "thread:p12:ppt-p12-ppt-final-approve-01",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f1d9b4bb0c8544b667a26677d04387688a21aab4ddadcbbe0600eda6b21c2d01",
+        "candidate_sha256": "9f7276e4ee98cc14301012bce8f3dbbe865b5c975b6a3ea86c8fa097385137a2",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.022",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "continue_generation"
+      ],
+      "artifact_ref": "artifact:p12:p12-ppt-final-edit-resume-02",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-final-edit-resume-02",
+      "edit_patch": {
+        "$.architecture.slides[0].title": "owner-edited-structure"
+      },
+      "editable_paths": [
+        "$.architecture.slides[0].title"
+      ],
+      "expected_artifact_version_after": 2,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": null,
+      "expected_invalidated_nodes": [],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 1,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->running",
+        "running->completed"
+      ],
+      "fault_sequence": [
+        "worker_crash_before_resume",
+        "service_restart",
+        "edit_then_resume"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-final",
+      "human_decision": "edit_resume",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p12-ppt-final-edit-resume-02",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "edit_resume",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-ppt-final-edit-resume-02",
+      "thread_ref": "thread:p12:ppt-p12-ppt-final-edit-resume-02",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c45d36a262d3d63daa626d5cf3600a8a7544ff5cd2b73092fef76c86aa9dabe7",
+        "candidate_sha256": "26d9e62a5e8362f6f080aee53ebd9abfcd17fb3bc9910c3767c79d1ad615ae30",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.023",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [
+        "replan"
+      ],
+      "artifact_ref": "artifact:p12:p12-ppt-final-replan-03",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-final-replan-03",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "stale_context_version",
+      "expected_invalidated_nodes": [
+        "build_context_ref",
+        "generate_components"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->needs_review",
+        "needs_review->running"
+      ],
+      "fault_sequence": [
+        "courserag_index_version_changed",
+        "context_version_changed",
+        "replan_request"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-final",
+      "human_decision": "replan",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p12-ppt-final-replan-03",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "replan",
+      "stale_version_detected": true,
+      "task_ref": "task:p12:p12-ppt-final-replan-03",
+      "thread_ref": "thread:p12:ppt-p12-ppt-final-replan-03",
+      "workflow_type": "ppt"
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0e5a9d23d4934d20ba3298c434e7b8a8100f60d1031c8de420a8bcfa7ff1df64",
+        "candidate_sha256": "ad15c6fd1a9f9b8be1302c7594ce8e0da896fbf6e4636be6ab26cc90cd31a4dc",
+        "notes": "P12 CP-DS6 Pilot input approval only; no runtime evaluation or formal Gold promotion.",
+        "review_id": "p12-cp-ds6-input-approval-e0b854c2.024",
+        "reviewed_at": "2026-08-13T00:00:00+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "approval_scope_forbidden": [
+        "verified_writeback"
+      ],
+      "approval_scope_granted": [],
+      "artifact_ref": "artifact:p12:p12-ppt-final-reject-04",
+      "candidate_source": "p12_deterministic_structure_fixture",
+      "checkpoint_ref": "checkpoint:p12:p12-ppt-final-reject-04",
+      "edit_patch": {},
+      "editable_paths": [],
+      "expected_artifact_version_after": 1,
+      "expected_artifact_version_before": 1,
+      "expected_error_class": "task_cancelled",
+      "expected_invalidated_nodes": [
+        "generate_components",
+        "export",
+        "writeback"
+      ],
+      "expected_reused_nodes": [
+        "load_template_snapshot",
+        "build_context_ref"
+      ],
+      "expected_side_effects": {
+        "artifact_versions_created": 0,
+        "decision_records": 1,
+        "duplicate_decision_records": 0,
+        "exports": 0,
+        "writebacks": 0
+      },
+      "expected_state_transitions": [
+        "running->waiting_human",
+        "waiting_human->cancelled",
+        "cancelled->terminal"
+      ],
+      "fault_sequence": [
+        "template_version_changed",
+        "duplicate_cancel",
+        "cancel_request"
+      ],
+      "fixture_id": "p12-structure-ppt-ppt-final",
+      "human_decision": "reject",
+      "initial_state": {
+        "artifact": "v1",
+        "course_context": "opaque-structure-fixture",
+        "queued": "running",
+        "running": "waiting_human"
+      },
+      "interrupt_type": "ppt_final_review",
+      "record_id": "p12-ppt-final-reject-04",
+      "resume_after_cancel_forbidden": true,
+      "review_status": "approved",
+      "scenario_type": "reject",
+      "stale_version_detected": false,
+      "task_ref": "task:p12:p12-ppt-final-reject-04",
+      "thread_ref": "thread:p12:ppt-p12-ppt-final-reject-04",
+      "workflow_type": "ppt"
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p12-pilot-r1",
+  "schema_version": "coursepilot.cp-ds6-p12.v1"
+}

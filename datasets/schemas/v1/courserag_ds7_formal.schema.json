@@ -1,0 +1,405 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P10DS7Case": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Affected Section Ids",
+          "type": "array"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "enrichment_probes": {
+          "items": {
+            "$ref": "#/$defs/P10EnrichmentProbe"
+          },
+          "title": "Enrichment Probes",
+          "type": "array"
+        },
+        "expected_change_coverage": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Expected Change Coverage",
+          "type": "number"
+        },
+        "expected_duplicate_writes": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Expected Duplicate Writes",
+          "type": "integer"
+        },
+        "expected_primary_overwrites": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Expected Primary Overwrites",
+          "type": "integer"
+        },
+        "invalidated_artifact_kinds": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Invalidated Artifact Kinds",
+          "type": "array"
+        },
+        "operation": {
+          "enum": [
+            "rename_document",
+            "modify_section",
+            "add_section",
+            "change_chunker",
+            "change_kp_prompt",
+            "change_embedding",
+            "change_reranker",
+            "delete_section",
+            "replace_ocr_page",
+            "writeback_lifecycle",
+            "automatic_enrichment_boundaries",
+            "manual_enrichment"
+          ],
+          "title": "Operation",
+          "type": "string"
+        },
+        "preserve_review_status": {
+          "title": "Preserve Review Status",
+          "type": "boolean"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "reusable_artifact_kinds": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reusable Artifact Kinds",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "should_create_index_version": {
+          "title": "Should Create Index Version",
+          "type": "boolean"
+        },
+        "should_trigger_kp_extraction": {
+          "title": "Should Trigger Kp Extraction",
+          "type": "boolean"
+        },
+        "source_course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Source Course Id",
+          "type": "string"
+        },
+        "source_document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "source_fixture_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Fixture Sha256",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Steps",
+          "type": "array"
+        },
+        "unaffected_section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unaffected Section Ids",
+          "type": "array"
+        },
+        "writeback_payloads": {
+          "items": {
+            "$ref": "#/$defs/P10WritebackPayload"
+          },
+          "title": "Writeback Payloads",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "split",
+        "operation",
+        "source_course_id",
+        "source_document_id",
+        "source_fixture_sha256",
+        "steps",
+        "should_trigger_kp_extraction",
+        "should_create_index_version",
+        "preserve_review_status",
+        "expected_change_coverage"
+      ],
+      "title": "P10DS7Case",
+      "type": "object"
+    },
+    "P10EnrichmentProbe": {
+      "additionalProperties": false,
+      "properties": {
+        "age_seconds": {
+          "minimum": 0,
+          "title": "Age Seconds",
+          "type": "integer"
+        },
+        "expected_trigger": {
+          "title": "Expected Trigger",
+          "type": "boolean"
+        },
+        "manual_trigger": {
+          "title": "Manual Trigger",
+          "type": "boolean"
+        },
+        "probe_id": {
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Probe Id",
+          "type": "string"
+        },
+        "record_count": {
+          "minimum": 0,
+          "title": "Record Count",
+          "type": "integer"
+        },
+        "token_count": {
+          "minimum": 0,
+          "title": "Token Count",
+          "type": "integer"
+        },
+        "trigger_reason": {
+          "enum": [
+            "none",
+            "record_count",
+            "token_count",
+            "age",
+            "manual"
+          ],
+          "title": "Trigger Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "probe_id",
+        "record_count",
+        "token_count",
+        "age_seconds",
+        "manual_trigger",
+        "expected_trigger",
+        "trigger_reason"
+      ],
+      "title": "P10EnrichmentProbe",
+      "type": "object"
+    },
+    "P10WritebackPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "content_id": {
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Content Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "content_text": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "title": "Content Text",
+          "type": "string"
+        },
+        "content_type": {
+          "enum": [
+            "verified_question",
+            "verified_answer_explanation",
+            "verified_lesson_fragment"
+          ],
+          "title": "Content Type",
+          "type": "string"
+        },
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "source_record_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Record Ids",
+          "type": "array"
+        },
+        "source_record_sha256": {
+          "items": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Record Sha256",
+          "type": "array"
+        },
+        "source_tier": {
+          "const": "teacher_verified",
+          "default": "teacher_verified",
+          "title": "Source Tier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "content_id",
+        "course_id",
+        "content_type",
+        "content_text",
+        "content_sha256",
+        "source_record_ids",
+        "source_record_sha256",
+        "idempotency_key"
+      ],
+      "title": "P10WritebackPayload",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P10DS7Case"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds7-formal.v1",
+      "default": "courserag.ds7-formal.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "cases"
+  ],
+  "title": "P10DS7Dataset",
+  "type": "object"
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "courserag.retrieval-default-profile.v1",
+  "profile_id": "default_v1",
+  "status": "owner_approved",
+  "approval": {
+    "authority": "course_owner",
+    "approved_on": "2026-08-07",
+    "freeze_candidate_path": "storage_eval/p08_hybrid_retrieval/freeze_candidate.json",
+    "freeze_candidate_sha256": "5b5d973ebf70d32cc10fa0ad4103261eee745dc4604f9e9f1a693817d3c3c95f"
+  },
+  "embedding": {
+    "profile_path": "resources/retrieval_profiles/qwen3_embedding_0_6b_local_v1.json",
+    "profile_sha256": "2997420bb441f7ae6d5149041acae66f24e379aee0b53878c3a5b235dd4a65a0",
+    "provider": "local_sentence_transformers",
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "dimensions": 1024
+  },
+  "sparse": {
+    "profile_path": "resources/retrieval_profiles/bm25_v1.json",
+    "profile_sha256": "5ff4a685409c2dcb96c7d1f5581abf2497903ce70c9709d39e914b5eb2485536"
+  },
+  "fusion": {
+    "profile_path": "resources/retrieval_profiles/rrf_v1.json",
+    "profile_sha256": "ec9c689f57d93f500aadad55e0cb00d32055b3193e98ddbdc23686362131b2c5",
+    "method": "rrf",
+    "k": 60,
+    "dense_weight": 1.0,
+    "sparse_weight": 1.0,
+    "candidate_k": 30
+  },
+  "reranker": {
+    "candidate_profile_path": "resources/retrieval_profiles/cohere_candidate_v1.json",
+    "candidate_profile_sha256": "4355d8fc6383255f77821e7561679d415a7b74aea870a4ae04e317547823313d",
+    "provider": "cohere",
+    "model": "rerank-v4.0-pro",
+    "endpoint_env": "COURSERAG_COHERE_RERANKER_BASE_URL",
+    "api_key_env": "COURSERAG_COHERE_RERANKER_API_KEY",
+    "rejection_threshold": 0.7502601,
+    "threshold_scope": "cohere_rerank-v4.0-pro_only",
+    "candidate_k": 30,
+    "top_n": 8,
+    "max_document_tokens": 1200,
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "evaluation_failure_policy": "fail_sample",
+    "production_failure_policy": "fusion_order_with_warning"
+  },
+  "evaluation_evidence": {
+    "approved_gold_bundle_sha256": "ff64abba71d392496e7ce530f7de5c612794616557b65a7aa11e739e20759396",
+    "run_identity_sha256": "ded5d0cf63500c0776f430f2a3e65e532f94fe22697b626262becd0bafb2eb5a",
+    "run_report_sha256": [
+      "1e9f3ff788c241a2244dd98e36d8f6de0e0f0cfa65ac904b8c77d0da5208830f",
+      "4e0baf7eeeec96597e4506a556d7b63a1a4e7db0dbe7d0312e8d53e64893d463"
+    ],
+    "selected_system_result_sha256": "c920d4e74124f207f41da9ac536265ca3c2b76285137cc5cb812a6d0a653dd87",
+    "answerability_accuracy": 0.9814814814814815,
+    "recall_at_10": 0.8858024691358025,
+    "mrr_at_10": 0.7384259259259259,
+    "ndcg_at_10": 0.8259008049499584,
+    "complete_group_recall_at_8": 0.8425925925925926
+  },
+  "runtime_activation": {
+    "automatic_secret_loading": false,
+    "safe_provider_default": "disabled",
+    "rollback_retrieval_backend": "legacy",
+    "fallback_must_be_reported": true
+  }
+}

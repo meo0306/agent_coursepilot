@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "candidate_file_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Candidate File Sha256",
+      "type": "string"
+    },
+    "notes": {
+      "default": "",
+      "maxLength": 4000,
+      "title": "Notes",
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 1,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "returned_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Returned Record Ids",
+      "type": "array"
+    },
+    "reviewed_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Reviewed Record Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "courserag.ds1-review-decisions.v1",
+      "default": "courserag.ds1-review-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_file_sha256",
+    "reviewed_record_ids",
+    "record_count"
+  ],
+  "title": "DS1ReviewDecisions",
+  "type": "object"
+}

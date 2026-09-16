@@ -1,0 +1,20 @@
+{
+  "files": {
+    "README.md": "84ce49a26afe71cf0e4e56f5cf0570aeb444834d4799acda0dd4ebff429e8dfc",
+    "config.json": "97c6763d722d746443d9d071e1f63c8d89176cbf8f81ba7bdeb2ccc527932382",
+    "model_card.json": "d043eddec58b05709ac8f4aa5d60e2b489189b8655e51e4797ec0a0b8ad4498b",
+    "onnx/fp16/model.onnx": "52b3cd13715689772c8608edf31cc0a1261f684d4600521b2283d0a8f8f8afb0",
+    "threshold.json": "c31f28fec6c5741804fb84a3317f805d903b6e11ecb94fe140a1547d12e085e7",
+    "tokenizer/special_tokens_map.json": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+    "tokenizer/tokenizer.json": "9ddbe35b768b22d6cd0d61a0a88ea3a188b7c00bbb7b825f9f247cf0b79c2365",
+    "tokenizer/tokenizer_config.json": "6571a0a748f2d95da6a289f63946a2f56a234b33ad14952f309d51b0da1a6414"
+  },
+  "license": "Apache License 2.0",
+  "license_accepted_by_owner": true,
+  "license_url": "https://huggingface.co/HikmaAI/hikmaai-mdeberta-v3-base-prompt-injection-multilingual",
+  "model_bundle_sha256": "b1aa09e9aafc2e19e65d977a37347a79cd71de05091fdfd11b71e24cb004ef82",
+  "model_id": "HikmaAI/hikmaai-mdeberta-v3-base-prompt-injection-multilingual",
+  "revision": "aef60fed9674e497a7ba08e43b41e8666483934e",
+  "runtime_network_required": false,
+  "schema_version": "courserag.prompt-guard-model-manifest.v1"
+}

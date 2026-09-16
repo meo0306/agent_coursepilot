@@ -1,0 +1,615 @@
+{
+  "attestation_source": "course_owner_conversation_attestation",
+  "bundle_sha256": "0634c618279e8c4ddd432eeff2a20974924c06ddfe641f48da528d8311bb30e0",
+  "dataset_id": "courserag-p09-r1-owner-attestation-first",
+  "dataset_version": "r1",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-fb3103f59de48b7cf25d3156a1e1c397"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-78aa66e747df675f48bff6dc8bcd6426"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-51ca4a9238dcad5e54d9342933ed7626"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-8a9049cdee907a563c717d551bcbc200"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-444bc607a871330f4b841c236b81afef"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-523f6ea6ce71abe65e608fc4af134faf"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2adae254c7d38fbb6099af397e0e0fd7"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-ffd2f1fc77428204f92610a31857001f"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-b4a1154cfaccddc9b9fc5764196e6a54"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-63e132b98c5aa7bb104bb01c898730aa"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-20ffb757d8f66e7ae9b5b42820d907ae"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-88df7a33d6aafc988099d1a87df97201"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-eac085c3ad6777c4ac19193774547e9c"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-1603a7fa121868c26812f81ee6786ef2"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-ef3abe972f21f3e18b8b01b237499ebd"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a0720bfe30a553ba7989fccaffae4570"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-17be63571ed1b00ee41daf14fd53a9d7"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-cf79e8f4131e0ef0d7ed61b8fc7b7c99"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-7c2c4e325ca18b31270a328bd7a155e9"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-faaec5d3494eccd00b66b87ebd7cc1ee"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-bd67064e58eee9b3f2b8ae6c9038b41e"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-e366cc9f6394a434f442a876ae1276ed"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-e0dfa69f55d5f5730c717db5910117e9"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-fe2dd70293f03568192745681ed7a6f9"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-4597623b256e3140208f1b63ff59ae0a"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-c286bb50cc6faa00b887d3a0fad427b2"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a9539e8d3b3af73347bb749ac968222d"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-4f42d60b8c7264cdba6f8df9c307bbea"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-c865394a5aec16a32df9d149dc539473"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-e1454554d0dbf3b077be9a64e20c4065"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-b74daec0d96e5c27ee9bf853fd2f25f1"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-72e6e8db4b46565ca8ab1214551936df"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-b491606999ab00176cbce9e5246e8fb8"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-218127997549437931fb84695ae92bde"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-97c3f7d3ee617e8dff517b41021b0fa6"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-ec16b25a4afecf8ba07e2cdff51100aa"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-bf65aa1cc8cd71adb2eb4cd355eb0627"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-486024f248911ec6c91406ccffa2b230"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-9cb501d3517e4e09c4134390390b8291"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-27bc0decd37ef6fab8d5d1ae1c334fe0"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-3b42020950b1b2d410b6524c63fe6399"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-d5a038b9abdb2ff4f0b590e86ce43664"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-0fa1d3d95290385e4674c30f03a6e3e3"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-9826d9b44c88d10f59c55550835aaa9e"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-e91048269a12fa818e0f984d48453057"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-66684d10f319b15e2e14d55dcbe9132c"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-99bdcdec3d279f05f1f4827c732654ce"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-be1129ed5bab0194204d61c20289052d"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-56699731978f57c0cd188022798e8de0"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2838a2f0ea48d43b27f58c9e191a5421"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2b8972b47de56a5b6b62e68091320557"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-720907acf5c019bca8604d8bbaddf311"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-ae7a2fadc743507c01dc579c6a728f06"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a74bb4b9fcefc7df08ea2063151445b8"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-730f317833bc4b6f6d458f42814069be"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-7efcb21383c840fa94d106b878b972b1"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-6d6fd218b558b8ffa95108ad476ce333"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-574fc80decab989823e88f69bc850f15"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-0ce2025962b5691d0cb3f1522ed1aaa8"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-f287be490a3c23fdd7bc3d027b70051a"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-3fb25a77b0babbb4229043bd1d18c2e3"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-30f2763771f9878e537540245c2e3da2"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-3513e4ae011f3940d8b22e9133f521e6"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-85f36bd95f87dee48bfbd557cf2fd8ec"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a757beb0a8f3417f1edac33f2ba74641"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a780b549d3dff2c9147866f531884fff"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-f6ec6bb28fa466f2958eb45ee887480e"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-8c06ebb9dbe88f5bed7c7222f86a6ecf"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-3ede89e996f60335d9a2ae10301b9cf5"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-25256332859b77b1cdd706b11210e56c"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-9386490fda8661bad07a0b6ae945917d"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-ca48d7cefc3efe948ae2042a907af5ec"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-8d0e19580c13ed58a3fbd49f4e87d68c"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-54cf62defbe1fe9c59aaaf7eabbef0dc"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-e67489d890fc0dd4d9dd36aab7438c8c"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-bddb742ed9b70540fe24e93e101cc4db"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2d8b390d6ce3bf8f52469750daf83c8e"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-08e3e45fa957fb061d69c7f8dacb7412"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-6008640bfe85562d6598e3805655f820"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-f9aea3f33c261e97222b15cf5b46fddf"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2a2684775884b34032cd3adf427ec866"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-252adaf1a1cbe9d9371796e0f770889b"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-b261cc6b50d239ec45c44c0ecdf27e41"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a9d45653719933fd1bc9790cf1f0db87"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-18b8640afc285e8d4ecebec3db23684f"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-74304d145c41aaf7ea44b17108ef39ef"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-10caf16efab833ad40e600359b5239c2"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-0648404d129e3f821130335e1c50e844"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-1ee8a80dd507b611e5f3f5b777574004"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-1ccdcf8cabf43a9200d414f646c65eb3"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-b12e97209c8dda78c1a6860e0a3496d0"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2019ea7a364967965438d17427a04e4e"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2eb8ebc56f13e68555bc8e9f98563df2"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-34d323129cb0f9d11aaa51de780a44f4"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-b3fd5374f947ba9b44725130bf823a69"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-c72c1748a719659a19d6149819689762"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-ae09dd4f25e139a88c4ed0e1749d6fc1"
+    }
+  ],
+  "expected_record_ids": [
+    "gold-qa-fb3103f59de48b7cf25d3156a1e1c397",
+    "gold-qa-78aa66e747df675f48bff6dc8bcd6426",
+    "gold-qa-51ca4a9238dcad5e54d9342933ed7626",
+    "gold-qa-8a9049cdee907a563c717d551bcbc200",
+    "gold-qa-444bc607a871330f4b841c236b81afef",
+    "gold-qa-523f6ea6ce71abe65e608fc4af134faf",
+    "gold-qa-2adae254c7d38fbb6099af397e0e0fd7",
+    "gold-qa-ffd2f1fc77428204f92610a31857001f",
+    "gold-qa-b4a1154cfaccddc9b9fc5764196e6a54",
+    "gold-qa-63e132b98c5aa7bb104bb01c898730aa",
+    "gold-qa-20ffb757d8f66e7ae9b5b42820d907ae",
+    "gold-qa-88df7a33d6aafc988099d1a87df97201",
+    "gold-qa-eac085c3ad6777c4ac19193774547e9c",
+    "gold-qa-1603a7fa121868c26812f81ee6786ef2",
+    "gold-qa-ef3abe972f21f3e18b8b01b237499ebd",
+    "gold-qa-a0720bfe30a553ba7989fccaffae4570",
+    "gold-qa-17be63571ed1b00ee41daf14fd53a9d7",
+    "gold-qa-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+    "gold-qa-7c2c4e325ca18b31270a328bd7a155e9",
+    "gold-qa-faaec5d3494eccd00b66b87ebd7cc1ee",
+    "gold-qa-bd67064e58eee9b3f2b8ae6c9038b41e",
+    "gold-qa-e366cc9f6394a434f442a876ae1276ed",
+    "gold-qa-e0dfa69f55d5f5730c717db5910117e9",
+    "gold-qa-fe2dd70293f03568192745681ed7a6f9",
+    "gold-qa-4597623b256e3140208f1b63ff59ae0a",
+    "gold-qa-c286bb50cc6faa00b887d3a0fad427b2",
+    "gold-qa-a9539e8d3b3af73347bb749ac968222d",
+    "gold-qa-4f42d60b8c7264cdba6f8df9c307bbea",
+    "gold-qa-c865394a5aec16a32df9d149dc539473",
+    "gold-qa-e1454554d0dbf3b077be9a64e20c4065",
+    "gold-qa-b74daec0d96e5c27ee9bf853fd2f25f1",
+    "gold-qa-72e6e8db4b46565ca8ab1214551936df",
+    "gold-qa-b491606999ab00176cbce9e5246e8fb8",
+    "gold-qa-218127997549437931fb84695ae92bde",
+    "gold-qa-97c3f7d3ee617e8dff517b41021b0fa6",
+    "gold-qa-ec16b25a4afecf8ba07e2cdff51100aa",
+    "gold-qa-bf65aa1cc8cd71adb2eb4cd355eb0627",
+    "gold-qa-486024f248911ec6c91406ccffa2b230",
+    "gold-qa-9cb501d3517e4e09c4134390390b8291",
+    "gold-qa-27bc0decd37ef6fab8d5d1ae1c334fe0",
+    "gold-qa-3b42020950b1b2d410b6524c63fe6399",
+    "gold-qa-d5a038b9abdb2ff4f0b590e86ce43664",
+    "gold-qa-0fa1d3d95290385e4674c30f03a6e3e3",
+    "gold-qa-9826d9b44c88d10f59c55550835aaa9e",
+    "gold-qa-e91048269a12fa818e0f984d48453057",
+    "gold-qa-66684d10f319b15e2e14d55dcbe9132c",
+    "gold-qa-99bdcdec3d279f05f1f4827c732654ce",
+    "gold-qa-be1129ed5bab0194204d61c20289052d",
+    "gold-qa-56699731978f57c0cd188022798e8de0",
+    "gold-qa-2838a2f0ea48d43b27f58c9e191a5421",
+    "gold-qa-2b8972b47de56a5b6b62e68091320557",
+    "gold-qa-720907acf5c019bca8604d8bbaddf311",
+    "gold-qa-ae7a2fadc743507c01dc579c6a728f06",
+    "gold-qa-a74bb4b9fcefc7df08ea2063151445b8",
+    "gold-qa-730f317833bc4b6f6d458f42814069be",
+    "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f",
+    "gold-qa-7efcb21383c840fa94d106b878b972b1",
+    "gold-qa-6d6fd218b558b8ffa95108ad476ce333",
+    "gold-qa-574fc80decab989823e88f69bc850f15",
+    "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9",
+    "gold-qa-0ce2025962b5691d0cb3f1522ed1aaa8",
+    "gold-qa-f287be490a3c23fdd7bc3d027b70051a",
+    "gold-qa-3fb25a77b0babbb4229043bd1d18c2e3",
+    "gold-qa-30f2763771f9878e537540245c2e3da2",
+    "gold-qa-3513e4ae011f3940d8b22e9133f521e6",
+    "gold-qa-85f36bd95f87dee48bfbd557cf2fd8ec",
+    "gold-qa-a757beb0a8f3417f1edac33f2ba74641",
+    "gold-qa-a780b549d3dff2c9147866f531884fff",
+    "gold-qa-f6ec6bb28fa466f2958eb45ee887480e",
+    "gold-qa-8c06ebb9dbe88f5bed7c7222f86a6ecf",
+    "gold-qa-3ede89e996f60335d9a2ae10301b9cf5",
+    "gold-qa-25256332859b77b1cdd706b11210e56c",
+    "gold-qa-9386490fda8661bad07a0b6ae945917d",
+    "gold-qa-ca48d7cefc3efe948ae2042a907af5ec",
+    "gold-qa-8d0e19580c13ed58a3fbd49f4e87d68c",
+    "gold-qa-54cf62defbe1fe9c59aaaf7eabbef0dc",
+    "gold-qa-e67489d890fc0dd4d9dd36aab7438c8c",
+    "gold-qa-bddb742ed9b70540fe24e93e101cc4db",
+    "gold-qa-2d8b390d6ce3bf8f52469750daf83c8e",
+    "gold-qa-08e3e45fa957fb061d69c7f8dacb7412",
+    "gold-qa-6008640bfe85562d6598e3805655f820",
+    "gold-qa-f9aea3f33c261e97222b15cf5b46fddf",
+    "gold-qa-2a2684775884b34032cd3adf427ec866",
+    "gold-qa-252adaf1a1cbe9d9371796e0f770889b",
+    "gold-qa-b261cc6b50d239ec45c44c0ecdf27e41",
+    "gold-qa-a9d45653719933fd1bc9790cf1f0db87",
+    "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+    "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca",
+    "gold-qa-74304d145c41aaf7ea44b17108ef39ef",
+    "gold-qa-10caf16efab833ad40e600359b5239c2",
+    "gold-qa-0648404d129e3f821130335e1c50e844",
+    "gold-qa-1ee8a80dd507b611e5f3f5b777574004",
+    "gold-qa-1ccdcf8cabf43a9200d414f646c65eb3",
+    "gold-qa-b12e97209c8dda78c1a6860e0a3496d0",
+    "gold-qa-2019ea7a364967965438d17427a04e4e",
+    "gold-qa-2eb8ebc56f13e68555bc8e9f98563df2",
+    "gold-qa-34d323129cb0f9d11aaa51de780a44f4",
+    "gold-qa-b3fd5374f947ba9b44725130bf823a69",
+    "gold-qa-c72c1748a719659a19d6149819689762",
+    "gold-qa-ae09dd4f25e139a88c4ed0e1749d6fc1"
+  ],
+  "notes": "Course Owner stated in conversation that all P09 r1 records passed both human-review rounds and that no exported review JSON would be provided; this batch attestation preserves that explicit statement without changing Gold.",
+  "review_pass": "first",
+  "reviewed_at": null,
+  "reviewer_id": "course_owner",
+  "schema_version": "courserag.p09-review-decisions.v1"
+}

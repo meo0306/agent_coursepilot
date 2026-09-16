@@ -8,6 +8,10 @@ validation, export, review, and verified write-back.
 
 [中文说明](README.zh-CN.md)
 
+The versioned CourseRAG subsystem is documented in
+[`docs/courserag/`](docs/courserag/README.md), including its stable API,
+incremental/index architecture, trusted-gateway boundary, and operating limits.
+
 ## Core Capabilities
 
 - Dynamic course knowledge base: upload course files, parse them, split them into
@@ -323,6 +327,22 @@ Run deterministic evaluation metrics:
 $env:PYTHONPATH='src'
 .\.venv\Scripts\python.exe -m coursepilot.evals.run_sample_eval --output storage\coursepilot_eval_report.json
 ```
+
+Run the P00 local B0 smoke with the owner-supplied, independent DOCX and PDF in
+`data/sample_files/`:
+
+```powershell
+$env:PYTHONPATH='src'
+uv run python -m coursepilot.evals.run_b0_smoke `
+  --sample-dir data/sample_files `
+  --output docs/refactor/baselines/b0/05_b0_smoke_report.json
+```
+
+The B0 runner uses isolated SQLite/Chroma state, deterministic generation, and
+hashing embeddings. It makes no external provider calls and stores only file
+fingerprints and structural results, never source text. Its retrieval probes are
+non-Gold smoke checks and must not be reported as quality metrics. To execute the
+gated fixture test, set `COURSEPILOT_RUN_B0_SAMPLE_SMOKE=1`.
 
 Run a real-model evaluation with isolated Postgres and Chroma state:
 

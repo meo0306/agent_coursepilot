@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "P09ReviewDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "enum": [
+            "pass",
+            "return"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 8000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "decision"
+      ],
+      "title": "P09ReviewDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "attestation_source": {
+      "default": "html_export",
+      "enum": [
+        "html_export",
+        "course_owner_conversation_attestation"
+      ],
+      "title": "Attestation Source",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/P09ReviewDecision"
+      },
+      "title": "Decisions",
+      "type": "array"
+    },
+    "expected_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Expected Record Ids",
+      "type": "array"
+    },
+    "notes": {
+      "default": "",
+      "maxLength": 8000,
+      "title": "Notes",
+      "type": "string"
+    },
+    "review_pass": {
+      "enum": [
+        "first",
+        "second"
+      ],
+      "title": "Review Pass",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewed At"
+    },
+    "reviewer_id": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer Id"
+    },
+    "schema_version": {
+      "const": "courserag.p09-review-decisions.v1",
+      "default": "courserag.p09-review-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "bundle_sha256",
+    "review_pass",
+    "expected_record_ids"
+  ],
+  "title": "P09ReviewDecisions",
+  "type": "object"
+}

@@ -1,0 +1,17 @@
+{
+  "excluded_inputs": [
+    "P07 runtime output",
+    "P06 retrieval hits",
+    "external knowledge"
+  ],
+  "schema_version": "courserag.ds3-generation-policy.v1",
+  "source_unit_selection": "teachable concepts only; no quota filling",
+  "stable_id_fields": [
+    "course_id",
+    "normalized_name",
+    "ordered_primary_evidence_ids"
+  ],
+  "strategy": "independent_source_grounded_owner_review_candidate",
+  "summary": "verbatim Approved DS2 gold_text",
+  "supplemental_evidence_count": 0
+}

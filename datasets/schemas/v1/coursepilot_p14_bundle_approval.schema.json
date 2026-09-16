@@ -1,0 +1,109 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approved_dataset_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approved Dataset Sha256",
+      "type": "string"
+    },
+    "approved_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Approved Record Sha256",
+      "type": "object"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Candidate Hashes",
+      "type": "object"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "external_provider_calls": {
+      "const": 0,
+      "default": 0,
+      "title": "External Provider Calls",
+      "type": "integer"
+    },
+    "final_coursepilot_gold_promoted": {
+      "const": false,
+      "default": false,
+      "title": "Final Coursepilot Gold Promoted",
+      "type": "boolean"
+    },
+    "first_review_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "First Review Sha256",
+      "type": "string"
+    },
+    "record_count": {
+      "maximum": 3,
+      "minimum": 3,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "review_id": {
+      "minLength": 1,
+      "title": "Review Id",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "minLength": 1,
+      "title": "Reviewer Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.p14-cp-ds1-bundle-approval.v1",
+      "default": "coursepilot.p14-cp-ds1-bundle-approval.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "const": "cp_ds1_p14_pilot_input_only",
+      "default": "cp_ds1_p14_pilot_input_only",
+      "title": "Scope",
+      "type": "string"
+    },
+    "second_review_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Second Review Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_sha256",
+    "candidate_hashes",
+    "candidate_record_sha256",
+    "approved_record_sha256",
+    "approved_dataset_sha256",
+    "first_review_sha256",
+    "second_review_sha256",
+    "record_count",
+    "reviewer_id",
+    "reviewed_at",
+    "review_id"
+  ],
+  "title": "P14BundleApproval",
+  "type": "object"
+}

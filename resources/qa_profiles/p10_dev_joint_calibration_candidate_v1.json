@@ -1,0 +1,41 @@
+{
+  "schema_version": "courserag.p10-dev-joint-calibration-profile.v1",
+  "profile_id": "p10-dev-joint-calibration-candidate-v1",
+  "scope": "approved_dev_delta_only",
+  "contracts": {
+    "factoid": "p09_q2_concise_factoid_v1",
+    "list": "p09_generation_reliability_list_v1",
+    "other": "p09_answer_grounding_v3"
+  },
+  "list_contract": {
+    "evidence_reference": "deterministic_short_alias",
+    "max_output_tokens": 3200,
+    "every_item_requires_citation": true
+  },
+  "preserved_guards": [
+    "sufficiency",
+    "abstention",
+    "context_evidence_validation",
+    "programmatic_citation",
+    "single_schema_repair",
+    "fail_closed"
+  ],
+  "gates": {
+    "false_answer_count": 0,
+    "invalid_citation_count": 0,
+    "silent_fallback_count": 0,
+    "citation_resolvability": 1.0,
+    "claim_citation_completeness": 1.0,
+    "unanswerable_recall": 1.0,
+    "qa_failure_count": 0,
+    "factoid_token_f1_min": 0.406108,
+    "all_list_cases_answered_with_cited_items": true
+  },
+  "budgets": {
+    "deepseek_tokens": 180000,
+    "cohere_search_units": 0
+  },
+  "test_access": false,
+  "single_candidate_only": true,
+  "post_result_tuning_allowed": false
+}

@@ -1,0 +1,11 @@
+{
+  "capability_id": "minimal_openai_compatible",
+  "json_mode": true,
+  "structured_output": true,
+  "reasoning_parameter": false,
+  "thinking_toggle": false,
+  "usage_returned": false,
+  "tool_calling": false,
+  "reasoning_field": null,
+  "thinking_field": null
+}

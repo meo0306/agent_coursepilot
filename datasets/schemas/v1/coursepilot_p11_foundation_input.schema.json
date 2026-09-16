@@ -1,0 +1,581 @@
+{
+  "$defs": {
+    "P11CourseRAGContract": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_query_record_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approved Query Record Sha256"
+        },
+        "context_contract_version": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Context Contract Version",
+          "type": "string"
+        },
+        "dev_query_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dev Query Id"
+        },
+        "expected_context_fields": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Expected Context Fields",
+          "type": "array"
+        },
+        "expected_course_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Course Id"
+        },
+        "scenario": {
+          "enum": [
+            "docx_dev",
+            "pdf_dev",
+            "fail_closed"
+          ],
+          "title": "Scenario",
+          "type": "string"
+        },
+        "test_or_holdout_ids_allowed": {
+          "const": false,
+          "default": false,
+          "title": "Test Or Holdout Ids Allowed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "scenario",
+        "context_contract_version",
+        "expected_context_fields"
+      ],
+      "title": "P11CourseRAGContract",
+      "type": "object"
+    },
+    "P11FoundationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "enum": [
+            "foundation_manifest",
+            "template_contract",
+            "model_gateway",
+            "runtime"
+          ],
+          "title": "Component",
+          "type": "string"
+        },
+        "courserag_contract": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P11CourseRAGContract"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "dependency": {
+          "default": "independent",
+          "enum": [
+            "independent",
+            "p10_exit_gate"
+          ],
+          "title": "Dependency",
+          "type": "string"
+        },
+        "expected_behavior": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Expected Behavior",
+          "type": "array"
+        },
+        "forbidden_behavior": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Forbidden Behavior",
+          "type": "array"
+        },
+        "foundation_contract": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P11FoundationIdentityContract"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "input_fixture": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Input Fixture",
+          "type": "array"
+        },
+        "model_gateway_contract": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P11ModelGatewayContract"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "pass_conditions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Pass Conditions",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "source_references": {
+          "items": {
+            "$ref": "#/$defs/P11SourceReference"
+          },
+          "minItems": 1,
+          "title": "Source References",
+          "type": "array"
+        },
+        "template_contract": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P11TemplateContract"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "title": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "component",
+        "title",
+        "input_fixture",
+        "expected_behavior",
+        "forbidden_behavior",
+        "pass_conditions",
+        "source_references"
+      ],
+      "title": "P11FoundationCase",
+      "type": "object"
+    },
+    "P11FoundationIdentityContract": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_schema_sha256": {
+          "default": null,
+          "title": "Artifact Schema Sha256",
+          "type": "null"
+        },
+        "b0_interface_snapshot_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "B0 Interface Snapshot Sha256",
+          "type": "string"
+        },
+        "frozen_document_hashes": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Frozen Document Hashes",
+          "type": "object"
+        },
+        "logical_template_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 9,
+          "minItems": 9,
+          "title": "Logical Template Ids",
+          "type": "array"
+        },
+        "migration_sha256": {
+          "default": null,
+          "title": "Migration Sha256",
+          "type": "null"
+        },
+        "model_capability_manifest_sha256": {
+          "default": null,
+          "title": "Model Capability Manifest Sha256",
+          "type": "null"
+        },
+        "model_profile_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 6,
+          "minItems": 6,
+          "title": "Model Profile Ids",
+          "type": "array"
+        },
+        "p10_contract_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P10 Contract Sha256"
+        },
+        "p10_frozen_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P10 Frozen Manifest Sha256"
+        },
+        "physical_template_roles": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 5,
+          "title": "Physical Template Roles",
+          "type": "array"
+        },
+        "prompt_manifest_sha256": {
+          "default": null,
+          "title": "Prompt Manifest Sha256",
+          "type": "null"
+        },
+        "runtime_binding_status": {
+          "const": "pending_p11_output",
+          "default": "pending_p11_output",
+          "title": "Runtime Binding Status",
+          "type": "string"
+        },
+        "state_schema_sha256": {
+          "default": null,
+          "title": "State Schema Sha256",
+          "type": "null"
+        },
+        "template_registry_sha256": {
+          "default": null,
+          "title": "Template Registry Sha256",
+          "type": "null"
+        }
+      },
+      "required": [
+        "frozen_document_hashes",
+        "b0_interface_snapshot_sha256",
+        "logical_template_ids",
+        "physical_template_roles",
+        "model_profile_ids"
+      ],
+      "title": "P11FoundationIdentityContract",
+      "type": "object"
+    },
+    "P11ModelGatewayContract": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_resolution": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Expected Resolution",
+          "type": "string"
+        },
+        "expected_trace_fields": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Expected Trace Fields",
+          "type": "array"
+        },
+        "external_provider_calls": {
+          "const": 0,
+          "default": 0,
+          "title": "External Provider Calls",
+          "type": "integer"
+        },
+        "fake_provider_capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Fake Provider Capabilities",
+          "type": "array"
+        },
+        "invocation_condition": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Invocation Condition",
+          "type": "string"
+        },
+        "requested_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Requested Profile",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requested_profile",
+        "fake_provider_capabilities",
+        "invocation_condition",
+        "expected_resolution",
+        "expected_trace_fields"
+      ],
+      "title": "P11ModelGatewayContract",
+      "type": "object"
+    },
+    "P11SourceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "enum": [
+            "frozen_document",
+            "b0_snapshot",
+            "p10_contract",
+            "approved_dev_gold"
+          ],
+          "title": "Authority",
+          "type": "string"
+        },
+        "relative_path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "section": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Section",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority",
+        "relative_path",
+        "sha256",
+        "section"
+      ],
+      "title": "P11SourceReference",
+      "type": "object"
+    },
+    "P11TemplateContract": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt"
+          ],
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "default_parameters": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Default Parameters",
+          "type": "array"
+        },
+        "exporter_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Exporter Profile",
+          "type": "string"
+        },
+        "generator_prompt_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Generator Prompt Profile",
+          "type": "string"
+        },
+        "input_schema_role": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Input Schema Role",
+          "type": "string"
+        },
+        "model_route_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Model Route Profile",
+          "type": "string"
+        },
+        "output_schema_role": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Output Schema Role",
+          "type": "string"
+        },
+        "physical_resource_roles": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Physical Resource Roles",
+          "type": "array"
+        },
+        "planner_prompt_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Planner Prompt Profile",
+          "type": "string"
+        },
+        "repair_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Repair Profile",
+          "type": "string"
+        },
+        "required_snapshot_fields": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Snapshot Fields",
+          "type": "array"
+        },
+        "template_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Template Id",
+          "type": "string"
+        },
+        "validator_profile": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Validator Profile",
+          "type": "string"
+        },
+        "visual_quality_in_scope": {
+          "const": false,
+          "default": false,
+          "title": "Visual Quality In Scope",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "template_id",
+        "artifact_type",
+        "input_schema_role",
+        "output_schema_role",
+        "planner_prompt_profile",
+        "generator_prompt_profile",
+        "validator_profile",
+        "repair_profile",
+        "model_route_profile",
+        "exporter_profile",
+        "default_parameters",
+        "required_snapshot_fields",
+        "physical_resource_roles"
+      ],
+      "title": "P11TemplateContract",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "p11_foundation_input_contract_only",
+      "default": "p11_foundation_input_contract_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "dataset_id": {
+      "const": "coursepilot-p11-foundation-input",
+      "default": "coursepilot-p11-foundation-input",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "const": "r1",
+      "default": "r1",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/P11FoundationCase"
+      },
+      "maxItems": 40,
+      "minItems": 40,
+      "title": "Records",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "coursepilot.p11-foundation-input.v1",
+      "default": "coursepilot.p11-foundation-input.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "records"
+  ],
+  "title": "P11FoundationCandidateDataset",
+  "type": "object"
+}

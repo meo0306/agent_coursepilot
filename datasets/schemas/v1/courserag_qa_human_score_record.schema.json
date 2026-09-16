@@ -1,0 +1,196 @@
+{
+  "$defs": {
+    "HumanReviewMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "blinded_sample_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Blinded Sample Id",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 8000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "rubric_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Rubric Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "rubric_version",
+        "reviewed_at",
+        "blinded_sample_id"
+      ],
+      "title": "HumanReviewMetadata",
+      "type": "object"
+    },
+    "QACitationHumanAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Citation Id",
+          "type": "string"
+        },
+        "supported_gold_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Supported Gold Claim Ids",
+          "type": "array"
+        },
+        "supports_claim": {
+          "title": "Supports Claim",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "citation_id",
+        "supports_claim"
+      ],
+      "title": "QACitationHumanAssessment",
+      "type": "object"
+    },
+    "QAClaimHumanAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/QACitationHumanAssessment"
+          },
+          "title": "Citations",
+          "type": "array"
+        },
+        "label": {
+          "enum": [
+            "correct_supported",
+            "correct_but_uncited",
+            "unsupported",
+            "contradictory",
+            "irrelevant"
+          ],
+          "title": "Label",
+          "type": "string"
+        },
+        "matched_gold_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Matched Gold Claim Ids",
+          "type": "array"
+        },
+        "system_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Claim Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_claim_id",
+        "label"
+      ],
+      "title": "QAClaimHumanAssessment",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "answer_should_be_refused": {
+      "title": "Answer Should Be Refused",
+      "type": "boolean"
+    },
+    "case_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Case Id",
+      "type": "string"
+    },
+    "claims": {
+      "items": {
+        "$ref": "#/$defs/QAClaimHumanAssessment"
+      },
+      "title": "Claims",
+      "type": "array"
+    },
+    "conciseness_pass": {
+      "title": "Conciseness Pass",
+      "type": "boolean"
+    },
+    "metadata": {
+      "$ref": "#/$defs/HumanReviewMetadata"
+    },
+    "missed_gold_claim_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missed Gold Claim Ids",
+      "type": "array"
+    },
+    "system_answer_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "System Answer Id",
+      "type": "string"
+    },
+    "system_refused": {
+      "title": "System Refused",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "metadata",
+    "case_id",
+    "system_answer_id",
+    "claims",
+    "missed_gold_claim_ids",
+    "conciseness_pass",
+    "answer_should_be_refused",
+    "system_refused"
+  ],
+  "title": "QAHumanReviewRecord",
+  "type": "object"
+}

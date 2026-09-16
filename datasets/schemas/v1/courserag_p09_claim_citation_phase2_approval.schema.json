@@ -1,0 +1,73 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approval_date": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "title": "Approval Date",
+      "type": "string"
+    },
+    "approval_statement": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "title": "Approval Statement",
+      "type": "string"
+    },
+    "approval_statement_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Approval Statement Sha256",
+      "type": "string"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "decisions_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Decisions Sha256",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Reviewer Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p09-claim-citation-phase2-approval.v1",
+      "default": "courserag.p09-claim-citation-phase2-approval.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Package Sha256",
+      "type": "string"
+    },
+    "status": {
+      "const": "approved",
+      "default": "approved",
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "reviewer_id",
+    "approval_date",
+    "source_package_sha256",
+    "decisions_sha256",
+    "approval_statement",
+    "approval_statement_sha256"
+  ],
+  "title": "P09ClaimCitationPhase2Approval",
+  "type": "object"
+}

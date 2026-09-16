@@ -1,0 +1,85 @@
+{
+  "$defs": {
+    "P11P10GateCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Check Id",
+          "type": "string"
+        },
+        "observed": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Observed",
+          "type": "string"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "required": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Required",
+          "type": "string"
+        }
+      },
+      "required": [
+        "check_id",
+        "passed",
+        "observed",
+        "required"
+      ],
+      "title": "P11P10GateCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/P11P10GateCheck"
+      },
+      "minItems": 1,
+      "title": "Checks",
+      "type": "array"
+    },
+    "deferred_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Deferred Record Ids",
+      "type": "array"
+    },
+    "disposition": {
+      "enum": [
+        "fail_closed_draft_only",
+        "eligible_for_candidate"
+      ],
+      "title": "Disposition",
+      "type": "string"
+    },
+    "eligible_for_full_candidate": {
+      "title": "Eligible For Full Candidate",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "coursepilot.p11-p10-gate-audit.v1",
+      "default": "coursepilot.p11-p10-gate-audit.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "eligible_for_full_candidate",
+    "checks",
+    "deferred_record_ids",
+    "disposition"
+  ],
+  "title": "P11P10GateAudit",
+  "type": "object"
+}

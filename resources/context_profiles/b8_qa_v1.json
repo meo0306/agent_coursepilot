@@ -1,0 +1,12 @@
+{
+  "schema_version": "courserag.context-profile.v1",
+  "profile_id": "b8_qa_v1",
+  "status": "candidate",
+  "purpose": "question_answering",
+  "max_items": 8,
+  "max_tokens": 4000,
+  "deduplicate_by": "evidence_id",
+  "preserve_evidence_boundaries": true,
+  "oversized_evidence_policy": "drop_with_warning",
+  "neighbor_intents": ["procedure", "comparison", "cross_section"]
+}

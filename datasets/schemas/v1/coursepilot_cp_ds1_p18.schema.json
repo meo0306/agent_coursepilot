@@ -1,0 +1,478 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P18LessonTask": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "artifact_type": {
+          "const": "lesson",
+          "default": "lesson",
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "audience": {
+          "minLength": 1,
+          "title": "Audience",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "critical_defects": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Critical Defects",
+          "type": "array"
+        },
+        "forbidden_claims": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "pilot_record_reused": {
+          "const": false,
+          "default": false,
+          "title": "Pilot Record Reused",
+          "type": "boolean"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_activity_types": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Activity Types",
+          "type": "array"
+        },
+        "required_claims": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "title": "Required Claims",
+          "type": "array"
+        },
+        "required_interrupts": {
+          "items": {
+            "enum": [
+              "lesson_session_plan_review",
+              "lesson_final_review"
+            ],
+            "type": "string"
+          },
+          "title": "Required Interrupts",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "session_duration_minutes": {
+          "maximum": 240,
+          "minimum": 15,
+          "title": "Session Duration Minutes",
+          "type": "integer"
+        },
+        "source_snapshots": {
+          "items": {
+            "$ref": "#/$defs/P18SourceSnapshot"
+          },
+          "minItems": 2,
+          "title": "Source Snapshots",
+          "type": "array"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "task_family_id": {
+          "minLength": 1,
+          "title": "Task Family Id",
+          "type": "string"
+        },
+        "task_prompt": {
+          "minLength": 1,
+          "title": "Task Prompt",
+          "type": "string"
+        },
+        "template_id": {
+          "minLength": 1,
+          "title": "Template Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "total_sessions": {
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Total Sessions",
+          "type": "integer"
+        },
+        "track_a_context": {
+          "$ref": "#/$defs/P18TrackAContext"
+        },
+        "track_b_request": {
+          "$ref": "#/$defs/P18TrackBRequest"
+        }
+      },
+      "required": [
+        "record_id",
+        "split",
+        "course_id",
+        "task_family_id",
+        "template_id",
+        "title",
+        "task_prompt",
+        "source_snapshots",
+        "required_claims",
+        "forbidden_claims",
+        "track_a_context",
+        "track_b_request",
+        "critical_defects",
+        "total_sessions",
+        "session_duration_minutes",
+        "audience",
+        "required_activity_types",
+        "required_interrupts"
+      ],
+      "title": "P18LessonTask",
+      "type": "object"
+    },
+    "P18SourceSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_family_id": {
+          "minLength": 1,
+          "title": "Concept Family Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "document_id": {
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Evidence Record Sha256",
+          "type": "string"
+        },
+        "evidence_text": {
+          "minLength": 1,
+          "title": "Evidence Text",
+          "type": "string"
+        },
+        "knowledge_point_id": {
+          "minLength": 1,
+          "title": "Knowledge Point Id",
+          "type": "string"
+        },
+        "knowledge_point_name": {
+          "minLength": 1,
+          "title": "Knowledge Point Name",
+          "type": "string"
+        },
+        "knowledge_point_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Knowledge Point Record Sha256",
+          "type": "string"
+        },
+        "knowledge_point_summary": {
+          "minLength": 1,
+          "title": "Knowledge Point Summary",
+          "type": "string"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Section Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "course_id",
+        "knowledge_point_id",
+        "knowledge_point_name",
+        "knowledge_point_summary",
+        "knowledge_point_record_sha256",
+        "concept_family_id",
+        "section_ids",
+        "evidence_id",
+        "evidence_text",
+        "evidence_record_sha256",
+        "document_id",
+        "document_version"
+      ],
+      "title": "P18SourceSnapshot",
+      "type": "object"
+    },
+    "P18TrackAContext": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_group_complete": {
+          "const": true,
+          "default": true,
+          "title": "Evidence Group Complete",
+          "type": "boolean"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "purpose": {
+          "const": "fixed_context_quality",
+          "default": "fixed_context_quality",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "required_neighbor_texts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Neighbor Texts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence_ids"
+      ],
+      "title": "P18TrackAContext",
+      "type": "object"
+    },
+    "P18TrackBRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "course_rag_test_query_reused": {
+          "const": false,
+          "default": false,
+          "title": "Course Rag Test Query Reused",
+          "type": "boolean"
+        },
+        "live_result_is_gold": {
+          "const": false,
+          "default": false,
+          "title": "Live Result Is Gold",
+          "type": "boolean"
+        },
+        "purpose": {
+          "const": "frozen_index_integration",
+          "default": "frozen_index_integration",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "required_evidence_ids_for_scoring": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids For Scoring",
+          "type": "array"
+        },
+        "retrieval_intent": {
+          "minLength": 1,
+          "title": "Retrieval Intent",
+          "type": "string"
+        }
+      },
+      "required": [
+        "course_id",
+        "retrieval_intent",
+        "required_evidence_ids_for_scoring"
+      ],
+      "title": "P18TrackBRequest",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P18LessonTask"
+      },
+      "maxItems": 10,
+      "minItems": 10,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p18-formal-r1",
+      "enum": [
+        "p18-formal-r1",
+        "p18-formal-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds1-p18.v1",
+      "default": "coursepilot.cp-ds1-p18.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "P18LessonDataset",
+  "type": "object"
+}

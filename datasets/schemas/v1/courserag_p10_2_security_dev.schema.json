@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "P102SecurityCase": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Blocks",
+          "type": "array"
+        },
+        "construction": {
+          "enum": [
+            "direct",
+            "indirect",
+            "paraphrase",
+            "cross_block",
+            "long_context",
+            "light_obfuscation",
+            "quoted_discussion",
+            "benign_imperative",
+            "technical_documentation",
+            "policy_description"
+          ],
+          "title": "Construction",
+          "type": "string"
+        },
+        "expected_marked": {
+          "title": "Expected Marked",
+          "type": "boolean"
+        },
+        "family": {
+          "enum": [
+            "policy_override",
+            "role_impersonation",
+            "secret_extraction",
+            "tool_coercion",
+            "obfuscation",
+            "hard_negative"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "zh"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "record_id": {
+          "pattern": "^p10-2-sec-dev-[0-9]{3}$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "const": "candidate_pending_owner_review",
+          "default": "candidate_pending_owner_review",
+          "title": "Review Status",
+          "type": "string"
+        },
+        "semantic_content": {
+          "const": false,
+          "default": false,
+          "title": "Semantic Content",
+          "type": "boolean"
+        },
+        "split": {
+          "const": "dev",
+          "default": "dev",
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "family",
+        "language",
+        "construction",
+        "blocks",
+        "expected_marked"
+      ],
+      "title": "P102SecurityCase",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P102SecurityCase"
+      },
+      "maxItems": 160,
+      "minItems": 160,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "courserag-p10-2-security",
+      "default": "courserag-p10-2-security",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "const": "dev-candidate-r1",
+      "default": "dev-candidate-r1",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "generation_method": {
+      "const": "deterministic_human_review_candidate",
+      "default": "deterministic_human_review_candidate",
+      "title": "Generation Method",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p10-2-security-dev.v1",
+      "default": "courserag.p10-2-security-dev.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "const": "candidate_pending_owner_review",
+      "default": "candidate_pending_owner_review",
+      "title": "Status",
+      "type": "string"
+    },
+    "test_content_included": {
+      "const": false,
+      "default": false,
+      "title": "Test Content Included",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "P102SecurityDevCandidate",
+  "type": "object"
+}

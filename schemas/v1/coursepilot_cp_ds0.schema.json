@@ -1,0 +1,325 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "CPManifestRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "courserag_fixture_version": {
+          "title": "Courserag Fixture Version",
+          "type": "string"
+        },
+        "exporter_version": {
+          "title": "Exporter Version",
+          "type": "string"
+        },
+        "graph_version": {
+          "title": "Graph Version",
+          "type": "string"
+        },
+        "p11_foundation_input": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/P11FoundationInputBinding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "repair_policy_version": {
+          "title": "Repair Policy Version",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "rubric_version": {
+          "title": "Rubric Version",
+          "type": "string"
+        },
+        "template_registry_version": {
+          "title": "Template Registry Version",
+          "type": "string"
+        },
+        "validator_version": {
+          "title": "Validator Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "graph_version",
+        "courserag_fixture_version",
+        "template_registry_version",
+        "validator_version",
+        "repair_policy_version",
+        "exporter_version",
+        "rubric_version"
+      ],
+      "title": "CPManifestRecord",
+      "type": "object"
+    },
+    "P11FoundationInputBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Schema Sha256"
+        },
+        "b0_interface_snapshot_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "B0 Interface Snapshot Sha256",
+          "type": "string"
+        },
+        "binding_status": {
+          "enum": [
+            "pending_p11_output",
+            "resolved"
+          ],
+          "title": "Binding Status",
+          "type": "string"
+        },
+        "frozen_document_hashes": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Frozen Document Hashes",
+          "type": "object"
+        },
+        "logical_template_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 9,
+          "minItems": 9,
+          "title": "Logical Template Ids",
+          "type": "array"
+        },
+        "migration_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Migration Sha256"
+        },
+        "model_capability_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Capability Manifest Sha256"
+        },
+        "model_profile_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 6,
+          "minItems": 6,
+          "title": "Model Profile Ids",
+          "type": "array"
+        },
+        "p10_contract_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "P10 Contract Sha256",
+          "type": "string"
+        },
+        "p10_frozen_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "P10 Frozen Manifest Sha256",
+          "type": "string"
+        },
+        "prompt_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Manifest Sha256"
+        },
+        "state_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "State Schema Sha256"
+        },
+        "template_registry_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Template Registry Sha256"
+        }
+      },
+      "required": [
+        "frozen_document_hashes",
+        "b0_interface_snapshot_sha256",
+        "p10_frozen_manifest_sha256",
+        "p10_contract_sha256",
+        "logical_template_ids",
+        "model_profile_ids",
+        "binding_status"
+      ],
+      "title": "P11FoundationInputBinding",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/CPManifestRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds0.v1",
+      "default": "coursepilot.cp-ds0.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "CPDS0ManifestDataset",
+  "type": "object"
+}

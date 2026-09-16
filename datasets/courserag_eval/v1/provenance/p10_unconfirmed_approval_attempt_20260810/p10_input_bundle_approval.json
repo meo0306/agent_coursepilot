@@ -1,0 +1,141 @@
+{
+  "approved": {
+    "ds6": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds6/p10_citation_migration.json",
+      "sha256": "13e3289d1a9d5281538f97e3844191019646a71c2a3371f29f05ffc5214b0967",
+      "size_bytes": 73995
+    },
+    "ds7": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds7/p10_incremental_writeback.json",
+      "sha256": "4009bdc7906cc3d2be7925ef7dfbbe9cab09ea401642f357f12b35bec1f1e038",
+      "size_bytes": 41033
+    },
+    "ds8": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds8/p10_performance_workloads.json",
+      "sha256": "c0d634b75ed8f0748439b037c06dd68c8fc2b7bb493737c1467b567543961e98",
+      "size_bytes": 27918
+    },
+    "security": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/security/p10_security_fault.json",
+      "sha256": "434d530a4217c8c07dce9c8380b276e10994e52c557a072ae53641a74071469b",
+      "size_bytes": 19341
+    }
+  },
+  "approved_record_sha256": {
+    "ds6": {
+      "p10-ds6-01-rename": "200efb5b71431b895bd64efba12958f13ff4b502fef4604a47de7a38162916c0",
+      "p10-ds6-02-modify-paragraph": "90c11407866d8c387ed67fe676bdf18637840372466575bba46513c07364f8e1",
+      "p10-ds6-03-insert-blank-page": "924525fa7b2e0522a3bca8f39083882b2052d24e0007a17dab49b56c987b3b78",
+      "p10-ds6-04-parser-profile": "c3822b1123891d7af7d4f20eb503377f956352501d2679715508b2d99de7b612",
+      "p10-ds6-05-chunker-profile": "5e3e5f947b66c966e1e6ac190134c861316eeacdf3e4d33bc2a274bd48565ba4",
+      "p10-ds6-06-replace-ocr-page": "57986addb8258ec068431e4f3f2d61c4bc7049f6e41007413eac70c4e4c7409f",
+      "p10-ds6-07-duplicate-source": "1e7958cf4c6c8963151c5e2e16834a71d310a69233d41e7c6b1f5043eee5dd7c",
+      "p10-ds6-08-partial-delete": "005f5639d86b161fdd95f0f6adee2dd404d80129c23865dcf23556e73f4d61a0",
+      "p10-ds6-09-delete-evidence": "903378c614fa99376905b8e3c5b07734e7dd61ae3d2d929489c5549a28807bd4"
+    },
+    "ds7": {
+      "p10-ds7-01-rename": "8cd9bb5e8deb3a6b76482b93e9ca91bd0326009ba8c1e79a7309a2b4217dd934",
+      "p10-ds7-02-modify-section": "f9c3990a78129c2609ecf4c0db3cbcc43a9f5e9a78c5e34319e161b47fc6b770",
+      "p10-ds7-03-add-section": "cf5801b87ed3fb7d29482609a02171212c6abfdc41370c757c71c2eff346d6df",
+      "p10-ds7-04-chunker": "9a4bb8b31d7ef3226ac7698bb47bf091fcc49bc14993c7dd83a252a9fdf13f3d",
+      "p10-ds7-05-kp-prompt": "89fed8ffde15b332d27eb95208055b13e1f8f3a397b81b6d69b68360e1c9c289",
+      "p10-ds7-06-embedding": "af83e0bc71c4ca23081b285c6337ce5bd75cc7a3305b1066508b2fe99a6e8576",
+      "p10-ds7-07-reranker": "8c40e23f2043d2b97aafe8ffe7fad8b1e522de945de350bcfa556b568243a068",
+      "p10-ds7-08-delete-section": "ad18d2922de0746d6d38d21c6779417919b8347515a3135aa62fbd7ca415fdd0",
+      "p10-ds7-09-replace-ocr": "5172a91e5f900c1aa0aa1dd635eeef3aacbad161a20b04975b1c223adf821a8e",
+      "p10-ds7-10-writeback-lifecycle": "644e21d806abb9655bfc4220f2bb4a263dec1231849795c11faaac5686338a3f",
+      "p10-ds7-11-auto-enrichment": "c44e417d1a186a32b703357090bc486f1dba01e1fcd295321a9310e7a1c24c8b",
+      "p10-ds7-12-manual-enrichment": "7fc169cb85f586d9bf0879da4c0833312b1454979ec47e2a3e76f38209a74492"
+    },
+    "ds8": {
+      "p10-ds8-context-cold": "2df3d8cb84a29eada35190f8486f28bb1cf472a1a68707d438ddbcf75954c6bf",
+      "p10-ds8-context-warm": "a68e48fb49086903c26c78b7b695b4fdd3646af551cc88bec99d8dede4a5c9bd",
+      "p10-ds8-enrichment-batch-cold": "25dc38251c02a032378e408260b28ee761a26b1fe68798bf49db402084ffec7a",
+      "p10-ds8-enrichment-batch-warm": "a8cbf174eda93d472afa0c8fc59a9740b49a5498c5b299c48be3b98ed74a48e8",
+      "p10-ds8-full-build-cold": "03cee4f5580c7d529ea5cb4192ae492cd1b72e92682eaa5e92ac2a05a11fcdcd",
+      "p10-ds8-full-build-warm": "3b5e1cdcbedd47ef94882a9db3a3e133feaa34b1614e14c4fa0f2fae0a51e24b",
+      "p10-ds8-ocr-batch-cold": "df227c8aa0cc25c37cd050d05ed67ebb1b2fec0faf2a0d40e003657bc8beb121",
+      "p10-ds8-ocr-batch-warm": "baf138e2aa0a29a646cd1f67e205d8394fa4f84d967463707fc46a21d9e7b15b",
+      "p10-ds8-qa-abstention-cold": "b63a311904ff200d8e2268b3179d8eb59317cf60205ffd01e874774d4e16305c",
+      "p10-ds8-qa-abstention-warm": "ec7666fbefdaab9b95ecc90f7875efcf140dc21fc254017ebf9455589605587b",
+      "p10-ds8-qa-cold": "d96ece99a0b4213c7ab7e4fe69eaff4a7e16b8dc95d32a16159d2a990f8b525d",
+      "p10-ds8-qa-warm": "5106ccf005c179c98ad5d93ab68915db4d2a47dbba91bec765766b201c2dc178",
+      "p10-ds8-search-cold": "08203bd9681583492f289ece56c735216b0dbe085927c602084b448ac680034c",
+      "p10-ds8-search-rerank-cold": "d03b0b936a5499ab9b56addc0d5336b8f04d813d1ed87c06528a15f6a0c8bcf3",
+      "p10-ds8-search-rerank-warm": "933d2ff84e30f5c72e4a9439a3aea00be10a2ec3cde7c2b8bff59adf6ae1bf73",
+      "p10-ds8-search-warm": "c48d79dbd8bda01b70e467dfe2cabafc5eda3345834a437b31027e6a240997c9",
+      "p10-ds8-single-document-build-cold": "55ae1df917f8fa084908aa06a18e46622fcb7cc7eb17121401472d43bd787465",
+      "p10-ds8-single-document-build-warm": "afecfde434a1c3d53d1b6676bf706067f23d9b6da60118cda7140b44297d2ae7",
+      "p10-ds8-single-section-update-cold": "9691729e67472f070127c805dcf233c538f0f016fa42e50d7bd2b5339d35ae72",
+      "p10-ds8-single-section-update-warm": "11ab571ce8a84e924bb6fd4c35a817a077a1b17a1e6c5fbf3d338d7267fa2f43"
+    },
+    "security": {
+      "p10-sec-01-pdf-as-docx": "c3c47a968b59b2b54e8fe9d98b12dc119d724f2804e3e94d19fa7999e6b9d2b7",
+      "p10-sec-02-docx-as-pdf": "20372392240cd22437ce704bd3fdf6570efbb6bd09b7211b6d33b119a2ac0a1b",
+      "p10-sec-03-unsupported": "3f4e192e461debb8197ed5eb2ced431010e3ccf6c123894c63bd06bed6b2b86b",
+      "p10-sec-04-encrypted-pdf": "e31cee677834e9a0f389685720af02a76ba601cbcd97f819a0b30aee42177e17",
+      "p10-sec-05-compression": "e5466905baf0f8dc21e79e70ab5d20718a704085681009882cce2783c5f93e05",
+      "p10-sec-06-filename-traversal": "a621517e40f4e06a08888506774e7ecc843ba7a2bf36abbb09c4e5425691295d",
+      "p10-sec-07-page-limit": "0c66af31784cdd28e3d17afb567c07aea1be5644eeb04b727f1c5185910f8177",
+      "p10-sec-08-dpi-limit": "172baed983f3e50c04bf766a3a37ef3ef27702bba7cc0f005445790aa0a70e85",
+      "p10-sec-09-parse-timeout": "51cf7c021af2e718433d475db1725d0bc21e2f32b70ee0ad0cc2d7af3ebbfffa",
+      "p10-sec-10-cross-course-read": "0444f2446bff412de061d2eaf4a32ccf3064224309d3c41daa958d14c44b6a93",
+      "p10-sec-11-zip-entry-traversal": "bb034f57849bfd35666db1674429110dda3533451882cd46e0a97c8d5e0e5e18",
+      "p10-sec-12-cross-course-search": "c5e0c9bfc64fc19bf4dca9e114e7abcaa7ed846be069061d3e35c027c27aab99",
+      "p10-sec-13-cross-course-write": "084b543ec8bc8a57fbcfda405cdbab6c16de3055b40f33c54296bd1f5562e457",
+      "p10-sec-14-unauthorized-revoke": "f1f1ebfb6472748474fddc40ff47542e60b0affc35dbf0c9b107f8cb6616745a",
+      "p10-sec-15-prompt-injection": "0d9f5d08aeea920293d8c8611034255e43c19a30a40acc0b51a06eb8f6c68be4",
+      "p10-sec-16-secret-redaction": "02e088e82a2480b210cae1e626f2b08f61b53ec05e633f85ac6bc4d168be1798"
+    }
+  },
+  "bundle_sha256": "5b6d756a39c988f952536ec93d2aa23b9c593908c3ea24c6af6816cff92b6702",
+  "candidates": {
+    "ds6": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds6/p10_citation_migration_r1.json",
+      "sha256": "38d90246321af245eb4fae361f272ffac7ffeda534088dba9711c296ea66edc4",
+      "size_bytes": 69963
+    },
+    "ds7": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds7/p10_incremental_writeback_r1.json",
+      "sha256": "54597bb55719124f3a2b9f5e7b88ea8698805acbf3f17ad256568433fabfa358",
+      "size_bytes": 35657
+    },
+    "ds8": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds8/p10_performance_workloads_r1.json",
+      "sha256": "ec8be5d3eb4e49a23d342ac511c5c143db15a2bc91f3b60be3fa4a1bd7bd16cb",
+      "size_bytes": 18958
+    },
+    "security": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/security/p10_security_fault_r1.json",
+      "sha256": "2fa925d212e77e96c773ace124b3ae9404f7642d1cf6c8a8f7d2cb63f9dcfb87",
+      "size_bytes": 12093
+    }
+  },
+  "dataset_id": "courserag-p10-input-bundle-approval",
+  "dataset_version": "r1",
+  "first_review_decisions": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/reviews/p10_first_review_decisions.json",
+    "sha256": "3271bf2c375972ab945e9cfe6089b1e6cc86f2e81aaa9380582edbacec01b9a3",
+    "size_bytes": 8546
+  },
+  "notes": "Course Owner explicitly approved exact P10 Input Gold Bundle 5b6d756a39c988f952536ec93d2aa23b9c593908c3ea24c6af6816cff92b6702 and attested both review rounds passed with no changes; conversation attestation used instead of browser JSON export.",
+  "review_id": "p10-input-owner-approval-20260810.001",
+  "reviewed_at": "2026-08-10T15:00:00+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "courserag.p10-input-bundle-approval.v1",
+  "second_review_decisions": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/reviews/p10_second_review_decisions.json",
+    "sha256": "b579f57ad414371507aaadac7eaca99fda9b63c621f958b5976dfbcbf6110818",
+    "size_bytes": 4697
+  }
+}

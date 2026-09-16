@@ -1,10 +1,13 @@
+from pathlib import Path
+
 from streamlit.testing.v1 import AppTest
 
 
 def test_app_loads_coursepilot_page(mock_coursepilot_client):
     client, mocked_client_class = mock_coursepilot_client
 
-    at = AppTest.from_file("../../src/streamlit_app.py").run(timeout=10)
+    app_path = Path(__file__).resolve().parents[2] / "src" / "streamlit_app.py"
+    at = AppTest.from_file(str(app_path)).run(timeout=10)
 
     mocked_client_class.assert_called_with(
         base_url="http://coursepilot.test",

@@ -26,14 +26,21 @@ class AsyncTaskService:
         course_id: str,
         task_type: str,
         input_params: dict[str, Any],
+        workflow_type: str | None = None,
+        workflow_mode: str = "legacy",
     ) -> AsyncTaskAccepted:
         task = GenerationTask(
             course_id=course_id,
             task_type=task_type,
             status="pending",
+            workflow_type=workflow_type,
+            workflow_mode=workflow_mode,
             input_params_json=jsonable_encoder(input_params),
         )
         self.session.add(task)
+        self.session.flush()
+        if workflow_mode == "recoverable":
+            task.thread_id = f"coursepilot:{workflow_type}:{task.id}"
         self.session.commit()
         self.session.refresh(task)
         return AsyncTaskAccepted(
@@ -82,17 +89,17 @@ def prepare_execution_task(
         session.refresh(task)
         return task
 
-    task = session.get(GenerationTask, task_id)
-    if task is None:
+    existing_task = session.get(GenerationTask, task_id)
+    if existing_task is None:
         raise ValueError(f"Generation task not found: {task_id}")
-    if task.course_id != course_id or task.task_type != task_type:
+    if existing_task.course_id != course_id or existing_task.task_type != task_type:
         raise ValueError("Generation task does not match the requested operation")
-    task.status = "running"
-    task.input_params_json = jsonable_encoder(input_params)
-    task.error_message = None
-    task.started_at = task.started_at or utc_now()
+    existing_task.status = "running"
+    existing_task.input_params_json = jsonable_encoder(input_params)
+    existing_task.error_message = None
+    existing_task.started_at = existing_task.started_at or utc_now()
     session.commit()
-    return task
+    return existing_task
 
 
 def complete_execution_task(

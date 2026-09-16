@@ -1,0 +1,11 @@
+{
+  "schema_version": "coursepilot.model-profiles.v1",
+  "profiles": [
+    {"profile_id":"planner_main","tier":"main","temperature":0.1,"max_output_tokens":4096,"timeout_seconds":180,"requires_structured_output":true,"reasoning_effort":"high","thinking":"enabled","escalation_target":null},
+    {"profile_id":"generator_main","tier":"main","temperature":0.2,"max_output_tokens":8192,"timeout_seconds":240,"requires_structured_output":true,"reasoning_effort":"high","thinking":"enabled","escalation_target":null},
+    {"profile_id":"content_repair_main","tier":"main","temperature":0.1,"max_output_tokens":4096,"timeout_seconds":180,"requires_structured_output":true,"reasoning_effort":"medium","thinking":"enabled","escalation_target":null},
+    {"profile_id":"classifier_light","tier":"light","temperature":0.0,"max_output_tokens":1024,"timeout_seconds":45,"requires_structured_output":true,"reasoning_effort":null,"thinking":"disabled","escalation_target":"planner_main"},
+    {"profile_id":"json_repair_light","tier":"light","temperature":0.0,"max_output_tokens":2048,"timeout_seconds":60,"requires_structured_output":true,"reasoning_effort":null,"thinking":"disabled","escalation_target":"content_repair_main"},
+    {"profile_id":"compression_light","tier":"light","temperature":0.0,"max_output_tokens":2048,"timeout_seconds":60,"requires_structured_output":true,"reasoning_effort":null,"thinking":"disabled","escalation_target":"generator_main"}
+  ]
+}

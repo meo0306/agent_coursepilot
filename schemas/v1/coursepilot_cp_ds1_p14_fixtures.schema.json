@@ -1,0 +1,278 @@
+{
+  "$defs": {
+    "P14ContextFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_map": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "minProperties": 1,
+          "title": "Citation Map",
+          "type": "object"
+        },
+        "content_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "context_package_id": {
+          "minLength": 1,
+          "title": "Context Package Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "evidence_records": {
+          "items": {
+            "$ref": "#/$defs/P14EvidenceFixture"
+          },
+          "minItems": 1,
+          "title": "Evidence Records",
+          "type": "array"
+        },
+        "index_version": {
+          "minLength": 1,
+          "title": "Index Version",
+          "type": "string"
+        },
+        "purpose": {
+          "const": "lesson_generation",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "retrieval_trace_summary": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Retrieval Trace Summary",
+          "type": "object"
+        },
+        "token_count": {
+          "minimum": 0,
+          "title": "Token Count",
+          "type": "integer"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "context_package_id",
+        "purpose",
+        "course_id",
+        "index_version",
+        "content_hash",
+        "trace_id",
+        "evidence_ids",
+        "evidence_records",
+        "citation_map",
+        "token_count"
+      ],
+      "title": "P14ContextFixture",
+      "type": "object"
+    },
+    "P14EvidenceFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "gold_text": {
+          "minLength": 1,
+          "title": "Gold Text",
+          "type": "string"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "source_document_id": {
+          "minLength": 1,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "source_document_version": {
+          "minLength": 1,
+          "title": "Source Document Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "record_sha256",
+        "course_id",
+        "gold_text",
+        "source_document_id",
+        "source_document_version",
+        "content_sha256"
+      ],
+      "title": "P14EvidenceFixture",
+      "type": "object"
+    },
+    "P14InsufficientEvidenceCase": {
+      "additionalProperties": false,
+      "properties": {
+        "context_fixture_id": {
+          "minLength": 1,
+          "title": "Context Fixture Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "expected_failure": {
+          "const": "context_insufficient_evidence",
+          "default": "context_insufficient_evidence",
+          "title": "Expected Failure",
+          "type": "string"
+        },
+        "omitted_required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Omitted Required Evidence Ids",
+          "type": "array"
+        },
+        "provider_calls_allowed": {
+          "const": 0,
+          "default": 0,
+          "title": "Provider Calls Allowed",
+          "type": "integer"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Knowledge Point Ids",
+          "type": "array"
+        },
+        "side_effects_allowed": {
+          "const": 0,
+          "default": 0,
+          "title": "Side Effects Allowed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "record_id",
+        "course_id",
+        "required_knowledge_point_ids",
+        "context_fixture_id",
+        "omitted_required_evidence_ids"
+      ],
+      "title": "P14InsufficientEvidenceCase",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "context_fixtures": {
+      "items": {
+        "$ref": "#/$defs/P14ContextFixture"
+      },
+      "minItems": 4,
+      "title": "Context Fixtures",
+      "type": "array"
+    },
+    "negative_case": {
+      "$ref": "#/$defs/P14InsufficientEvidenceCase"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds1-p14-fixtures.v1",
+      "default": "coursepilot.cp-ds1-p14-fixtures.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_fixtures",
+    "negative_case"
+  ],
+  "title": "P14FixtureBundle",
+  "type": "object"
+}

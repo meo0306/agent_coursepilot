@@ -1,0 +1,20 @@
+{
+  "artifacts": [
+    {
+      "document_id": "local-c93df4cb4bb533e3",
+      "evidence_candidate_count": 5,
+      "input_sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b"
+    },
+    {
+      "document_id": "local-15344771664d40cf",
+      "evidence_candidate_count": 5,
+      "input_sha256": "15344771664d40cf190be7790be3d266eb94a2798a4c2608fcf4d1ffa8fd231d"
+    }
+  ],
+  "ds0_sha256": "ee1e2446daf904f7945f48d10649cb849e48d54767fc6509ebb2eb438b423865",
+  "ds2_sha256": "bf9666de55481769ee0feee6ca810cb8020a1ccef76558781a2dbe22838bf330",
+  "external_model_used": false,
+  "generator": "legacy-parser-local-candidates-v1",
+  "gold_status": "candidate_only_not_approved",
+  "schema_version": "course-eval.p02.local-candidate-summary.v1"
+}

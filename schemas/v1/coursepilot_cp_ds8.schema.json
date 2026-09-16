@@ -1,0 +1,183 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "FaultSecurityCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "provider",
+            "courserag",
+            "worker",
+            "persistence",
+            "security"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "cross_course_leakage_expected": {
+          "default": false,
+          "title": "Cross Course Leakage Expected",
+          "type": "boolean"
+        },
+        "duplicate_side_effect_expected": {
+          "default": false,
+          "title": "Duplicate Side Effect Expected",
+          "type": "boolean"
+        },
+        "expected_error_class": {
+          "title": "Expected Error Class",
+          "type": "string"
+        },
+        "expected_graceful_failure": {
+          "title": "Expected Graceful Failure",
+          "type": "boolean"
+        },
+        "fault_code": {
+          "title": "Fault Code",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "secret_leakage_expected": {
+          "default": false,
+          "title": "Secret Leakage Expected",
+          "type": "boolean"
+        },
+        "unauthorized_action_expected": {
+          "default": false,
+          "title": "Unauthorized Action Expected",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "record_id",
+        "category",
+        "fault_code",
+        "expected_error_class",
+        "expected_graceful_failure"
+      ],
+      "title": "FaultSecurityCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/FaultSecurityCase"
+      },
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds8.v1",
+      "default": "coursepilot.cp-ds8.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "CPDS8FaultSecurityDataset",
+  "type": "object"
+}

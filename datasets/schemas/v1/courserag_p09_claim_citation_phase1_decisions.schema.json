@@ -1,0 +1,200 @@
+{
+  "$defs": {
+    "P09ClaimCitationSupportCaseDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationSupportClaimDecision"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "conciseness_pass": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Conciseness Pass"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "reviewed": {
+          "default": false,
+          "title": "Reviewed",
+          "type": "boolean"
+        },
+        "system_answer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Answer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "system_answer_id"
+      ],
+      "title": "P09ClaimCitationSupportCaseDecision",
+      "type": "object"
+    },
+    "P09ClaimCitationSupportClaimDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationSupportLinkDecision"
+          },
+          "minItems": 1,
+          "title": "Citations",
+          "type": "array"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "enum": [
+                "correct_supported",
+                "correct_but_uncited",
+                "unsupported",
+                "contradictory",
+                "irrelevant"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "system_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Claim Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_claim_id",
+        "citations"
+      ],
+      "title": "P09ClaimCitationSupportClaimDecision",
+      "type": "object"
+    },
+    "P09ClaimCitationSupportLinkDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Citation Id",
+          "type": "string"
+        },
+        "supports_claim": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Supports Claim"
+        }
+      },
+      "required": [
+        "citation_id"
+      ],
+      "title": "P09ClaimCitationSupportLinkDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09ClaimCitationSupportCaseDecision"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "review_status": {
+      "default": "draft",
+      "enum": [
+        "draft",
+        "submitted"
+      ],
+      "title": "Review Status",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer Id"
+    },
+    "schema_version": {
+      "const": "courserag.p09-claim-citation-phase1-decisions.v1",
+      "default": "courserag.p09-claim-citation-phase1-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Package Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "source_package_sha256",
+    "cases"
+  ],
+  "title": "P09ClaimCitationPhase1Decisions",
+  "type": "object"
+}

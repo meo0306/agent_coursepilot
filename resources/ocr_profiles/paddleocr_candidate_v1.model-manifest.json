@@ -1,0 +1,8 @@
+{
+  "artifacts": [],
+  "distribution": "paddleocr",
+  "identity_status": "resolve_in_eval_image",
+  "license_review_required": true,
+  "provider": "paddleocr",
+  "schema_version": "courserag.ocr-model-manifest.v1"
+}

@@ -1,0 +1,39 @@
+{
+  "accepted_return_ids": [
+    "gold-qp-1295e08027ba26ed94310256d4caa620",
+    "gold-qp-7b85e02e75b7d33f8cb9d41e92740763",
+    "gold-qp-9a7bb5277e494f08086e403e259b1596",
+    "gold-qp-ca3f73c937d2f3fc63a319dab0ab56ab",
+    "gold-qp-e4e5466f41b3b4633c96bab9a656f07e",
+    "gold-qp-f2d8efac5f90b9a5f49565d07e7ace08",
+    "gold-rq-1103d3ea159992c9570eb513449849dc",
+    "gold-rq-2779836e970d177064a610c3ba3da039",
+    "gold-rq-29a425eb2806b4415d1399c7b1108090",
+    "gold-rq-2a22ed6208732e08129e8f26d82827c5",
+    "gold-rq-46b271bcca79ba38c735ff560695bdaf",
+    "gold-rq-4f1337c82359ed99cacadc072fff7f3e",
+    "gold-rq-56d560c3f3d460cee13cefde4aa3d139",
+    "gold-rq-669a25ccdac0e79134acce61e630d231",
+    "gold-rq-7090618bec396c846333abfb81029d56",
+    "gold-rq-b89ee3f2821f58f3ac89f4490b675206",
+    "gold-rq-d9dd4101ac8fb9efafb64c72e9945dbe"
+  ],
+  "decision": "option_b_comprehensive_r3",
+  "overridden_return_reasons": {
+    "gold-qp-02603bbe9adeec81f3255460d8e4cd95": "保留：这是 MLP 专名必须保留、同时允许扩展为多层感知机的改写边界。",
+    "gold-qp-0f01916ce1816bb190ce6c806b355ee3": "保留：Q/K/V 是必须原样保留的复合专名，允许扩展为空是合法约束。",
+    "gold-qp-6526a622079ad85f6df4ee79fe5df3d2": "保留：NeRF 必须保留且神经辐射场是原文支持的允许扩展。",
+    "gold-qp-ada746579b9e2d233b2e5e683daa611d": "保留：下载地址在课程中不可回答，KP Linker 应避免错误链接。",
+    "gold-qp-b921b4a7c536cff24e4285a4acd36e34": "保留：支付合规监控与异常交易检测是同课程内可合理区分的近似意图。",
+    "gold-qp-d2f7138edd4205e32b8489f228e927e0": "保留：样本人数与统计显著性在课程中不可回答，Router 应进入审计路由。",
+    "gold-rq-210ff8d07fcc867a6b785dcd9fe9e836": "保留：这是同课程两种不同 AI 应用模式的多证据比较案例。",
+    "gold-rq-c7768ff4e1d2cf335e9904a63587632a": "保留：Required Evidence 完整定义大模型，微调、应用和有用性片段不回答定义。"
+  },
+  "r2_bundle_sha256": "7f6b22556e3261d242dbd2b425812eeb18489dc75f6086697d808bbffbfbdf52",
+  "schema_version": "courserag.p08-r2-first-review-adjudication.v1",
+  "source_feedback": {
+    "path": "storage_eval/ds45_p08_review/7f6b22556e3261d242dbd2b425812eeb18489dc75f6086697d808bbffbfbdf52/review/p08_r2_first_review_7f6b22556e32.json",
+    "record_notes_present": false,
+    "sha256": "b6d6551bddcc6606fe6728ac230e054ec0e4468a7374892492150f135119f967"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifact_schema_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Artifact Schema Sha256",
+      "type": "string"
+    },
+    "b0_compatibility_report_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "B0 Compatibility Report Sha256",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "capability_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Capability Manifest Sha256",
+      "type": "string"
+    },
+    "legacy_compatibility_roles": {
+      "items": {
+        "enum": [
+          "validator",
+          "repair",
+          "exporter"
+        ],
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Legacy Compatibility Roles",
+      "type": "array"
+    },
+    "migration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Migration Sha256",
+      "type": "string"
+    },
+    "migration_version": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Migration Version",
+      "type": "string"
+    },
+    "model_profile_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Model Profile Manifest Sha256",
+      "type": "string"
+    },
+    "p10_contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P10 Contract Sha256",
+      "type": "string"
+    },
+    "p10_frozen_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P10 Frozen Manifest Sha256",
+      "type": "string"
+    },
+    "p11_phase_report_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P11 Phase Report Sha256",
+      "type": "string"
+    },
+    "p11_test_report_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "P11 Test Report Sha256",
+      "type": "string"
+    },
+    "prompt_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Prompt Manifest Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.p11-runtime-foundation-snapshot.v1",
+      "default": "coursepilot.p11-runtime-foundation-snapshot.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "state_schema_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "State Schema Sha256",
+      "type": "string"
+    },
+    "template_resource_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Template Resource Hashes",
+      "type": "object"
+    },
+    "template_snapshot_schema_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Template Snapshot Schema Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_sha256",
+    "template_resource_hashes",
+    "model_profile_manifest_sha256",
+    "capability_manifest_sha256",
+    "prompt_manifest_sha256",
+    "state_schema_sha256",
+    "artifact_schema_sha256",
+    "template_snapshot_schema_sha256",
+    "p10_contract_sha256",
+    "p10_frozen_manifest_sha256",
+    "migration_version",
+    "migration_sha256",
+    "b0_compatibility_report_sha256",
+    "p11_test_report_sha256",
+    "p11_phase_report_sha256",
+    "legacy_compatibility_roles"
+  ],
+  "title": "P11RuntimeFoundationSnapshot",
+  "type": "object"
+}

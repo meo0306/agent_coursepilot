@@ -1,0 +1,50 @@
+{
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "gold_component_status": {},
+  "gold_components": {
+    "ds0": "approved",
+    "ds1_native_docx": "approved",
+    "ds1_ocr": "approved",
+    "ds2": "approved",
+    "ds2_p07_kp_support": "approved",
+    "ds3": "approved",
+    "ds4": "approved",
+    "ds5_context": "approved",
+    "ds5_qa": "approved",
+    "ds5_retrieval": "approved",
+    "ds6": "approved",
+    "ds7": "approved",
+    "ds8": "approved",
+    "p10_security": "approved",
+    "p17_security_qualification_dev": "approved"
+  },
+  "gold_status": "p10_input_gold_approved",
+  "human_score_pilot": "human_scores/pilot.jsonl",
+  "outputs_inside_dataset_allowed": false,
+  "phase_execution_status": {
+    "p09": "completed_with_quality_debt"
+  },
+  "phase_input_status": {
+    "p04": "formal_eval_ready",
+    "p05": "completed_gate_passed",
+    "p06": "completed_gate_passed",
+    "p07": "completed_gate_passed",
+    "p08": "completed_gate_passed",
+    "p09": "completed_gate_passed",
+    "p10": "formal_dev_eval_ready",
+    "p17_security": "qualification_dev_ready"
+  },
+  "schema_version": "courserag.dataset-manifest.v1",
+  "tracks": [
+    "ds0",
+    "ds1",
+    "ds2",
+    "ds3",
+    "ds4",
+    "ds5",
+    "ds6",
+    "ds7",
+    "ds8"
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "schema_version": "coursepilot.p18-human-review.v1",
+  "decisions": [
+    {
+      "blind_artifact_id": "p18-blind-3870bdd294115d79ef19",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-3960f8af6f20db72810d",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-3985d145264895ae6c56",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-3d03b4637059f4ab6c30",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-3ee18cf1934014e7f0cc",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-55f4079f7ac32a695620",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-564d75e2f1802e3557de",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-675e8f58025320f02c16",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-7145dc2f7f9f5912cb1d",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-830982881dd46661d1a9",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-8ec73c91387711692064",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-a1763e6d029a7bf25bcf",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-a4ea6ee9aba79379f22d",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-ba8e05153ba5692d01ab",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-bae66c19d16b6a0f1535",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-c1d1ce14d65fc7be0875",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-c7cc79acafe7047fc066",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-c958d76ed39c130eea58",
+      "artifact_type": "ppt",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "P-H1": null,
+        "P-H2": null,
+        "P-H3": null,
+        "P-H4": null,
+        "P-H5": null,
+        "P-H6": null,
+        "P-H7": null,
+        "P-H8": null,
+        "P-H9": null,
+        "P-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-d4e97def1f6f37b76b6a",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-d9dc5cfd52d6bd44dd41",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-dba8f8c15c178e5a705e",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-dc962d81393780501883",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-e97b3aa588e87d002b2c",
+      "artifact_type": "lesson",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "L-H1": null,
+        "L-H2": null,
+        "L-H3": null,
+        "L-H4": null,
+        "L-H5": null,
+        "L-H6": null,
+        "L-H7": null,
+        "L-H8": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    },
+    {
+      "blind_artifact_id": "p18-blind-ecd1906a9b2f48ba9898",
+      "artifact_type": "exam",
+      "decision": "pending",
+      "artifact_status": null,
+      "rubric_scores": {
+        "E-H1": null,
+        "E-H2": null,
+        "E-H3": null,
+        "E-H4": null,
+        "E-H5": null,
+        "E-H6": null,
+        "E-H7": null,
+        "E-H8": null,
+        "E-H9": null,
+        "E-H10": null
+      },
+      "edit_burden": null,
+      "critical_defect": null,
+      "notes": ""
+    }
+  ]
+}

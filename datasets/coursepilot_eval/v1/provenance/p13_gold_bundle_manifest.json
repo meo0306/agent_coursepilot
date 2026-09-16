@@ -1,0 +1,20 @@
+{
+  "approval_scope": "cp_ds4_validation_and_cp_ds5_repair_pilot_only",
+  "bundle_sha256": "b436f6e1901bb9447359e4fd0524f27ba39bfa24742b3ec006e451ae0bec9cd0",
+  "candidate_hashes": {
+    "ds4": "78db80ea161e9c4802a44e2948aa66c31de225734b7807ba691b86538d11dac7",
+    "ds5": "57c1c315589ca4e59fd82186954d05744743a7b83f6eed77f3db2a6af1386a9d",
+    "fixtures": "f385c0a0d4602dc090d388c27134dd83c8311327e3a4c39584621fae8bf23e4b"
+  },
+  "record_counts": {
+    "ds4": 30,
+    "ds5": 15
+  },
+  "review_pack": "storage_eval/cpds45_p13_review/b436f6e1901bb9447359e4fd0524f27ba39bfa24742b3ec006e451ae0bec9cd0",
+  "schema_version": "coursepilot.p13-gold-bundle-manifest.v1",
+  "source_strategy": "hybrid",
+  "upstream": {
+    "ds2": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+    "ds3": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566"
+  }
+}

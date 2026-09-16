@@ -1,0 +1,32 @@
+{
+  "schema_version": "coursepilot.cp-ds4.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "v1",
+  "cases": [
+    {
+      "record_id": "cp-ds4-synthetic-validation",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "artifact_type": "lesson",
+      "artifact_fixture_id": "synthetic-lesson-valid",
+      "injection_ids": [
+        "time-total-mismatch"
+      ],
+      "gold_issues": [
+        {
+          "code": "LESSON_TIME_TOTAL_MISMATCH",
+          "severity": "error",
+          "scope": {
+            "artifact_type": "lesson",
+            "item_id": "session-1",
+            "json_path": "$.sessions[0].minutes"
+          },
+          "allowed_parent_paths": [],
+          "auto_repairable": true
+        }
+      ],
+      "clean_artifact": false
+    }
+  ]
+}

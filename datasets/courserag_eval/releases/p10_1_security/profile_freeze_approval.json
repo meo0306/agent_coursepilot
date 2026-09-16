@@ -1,0 +1,22 @@
+{
+  "schema_version": "courserag.p10-1-profile-freeze-approval.v1",
+  "status": "owner_approved_for_independent_blind_test",
+  "approved_at": "2026-08-11T10:36:52.9121276Z",
+  "approved_by": "course_owner",
+  "approval_source": "explicit_conversation_attestation",
+  "candidate_path": "storage_eval/p10_1/frozen_manifest_candidate.json",
+  "candidate_sha256": "ffe8f58220cf3b1b821d25e25a681a34cef039d8cf20d8ab87c929c5cb71401e",
+  "security_profile_sha256": "8ce80b54cd2cd7a8b3c7af9294302691278ff0034a9fb925dbb43ba41a6bb8a2",
+  "authorization_scope": [
+    "freeze_p10_1_prompt_injection_profile",
+    "construct_and_review_independent_12_case_blind_security_test",
+    "prepare_hash_only_blind_test_lock_candidate"
+  ],
+  "not_authorized": [
+    "read_blind_test_content_before_lock",
+    "change_frozen_profile_or_scanner",
+    "rerun_original_p10_40_case_semantic_test",
+    "invoke_external_model_provider",
+    "start_p11"
+  ]
+}

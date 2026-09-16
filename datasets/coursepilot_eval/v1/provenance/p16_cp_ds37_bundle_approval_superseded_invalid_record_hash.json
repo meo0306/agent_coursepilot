@@ -1,0 +1,577 @@
+{
+  "approval_scope": "cp_ds3_and_cp_ds7_p16_pilot_input_only",
+  "approved_dataset_hashes": {
+    "cp_ds3": "dc54dff36d8deaf75856482a4cc112a123bdea8f42530e75df8b5ecc5427232e",
+    "cp_ds7": "65c2ed959519c7eb9a8cf295d3343a85af82974c24bb2514d0da56018229fa34"
+  },
+  "approved_record_hashes": {
+    "arch::p16-ds3-occupation-risk": "6320b22a8843195009f472285ec475748bbeaafeeac55609d41bb72d609617f3",
+    "arch::p16-ds3-perceptron": "770610d3288fbfbd446b7a060a6995b1ce048c045cc1cd1e53d93d84f1fee27c",
+    "arch::p16-ds3-transformer": "9eb1554d2a5d1b49bd3d09fa1841689f4d5ffa215a196c6d1aaec5258e34f178",
+    "p14-lesson-01-transformer-slide-01": "c8ec6024471a28ba55898448d8565a5382a6b6ce46e067ba5e7c774a563d547c",
+    "p14-lesson-01-transformer-slide-02": "4eb9fc208fbe199b8b4b368d2e87438cb60dfd0fa59f7d7ed7f9923bc0c56c25",
+    "p14-lesson-01-transformer-slide-03": "2448c66fbeacfc9206e4863cdea5a6308515d8eb8253d420c0563a61932554ab",
+    "p14-lesson-01-transformer-slide-04": "8817ff3f78094dbb986ebbdd5d19ec9636a4e64e0339e5a135f4bc1c20088973",
+    "p14-lesson-01-transformer-slide-05": "f5f93342a5e97e0506be653bace82dd2eb54ad922c5b4fabeb16b097bc5524a0",
+    "p14-lesson-01-transformer-slide-06": "c1839ac6ec5255530472129610afb07bab1392e96ba924002456b5f65499caca",
+    "p14-lesson-01-transformer-slide-07": "8e4b39348472a898b03f5982ab4959bc4e2409cfda46e2b4f834d31f56fcfd77",
+    "p14-lesson-01-transformer-slide-08": "d1c7745c683331bf43744e23cc7863ccf8632c79ac86b863b203227a227a3d0d",
+    "p14-lesson-01-transformer-slide-09": "c1d31fb1f85524c8f4ca2050c29c04e140b6b084935486fa82505cf7d1bc74ab",
+    "p14-lesson-01-transformer-slide-10": "04ae3c85119228ee474f0047ebfa25374e78781cbc9c21e20df6298e5ef84f55",
+    "p14-lesson-01-transformer-slide-11": "1a468fa52f0d3089394146e7e695a4b03da59140556039451413dd358218cf83",
+    "p14-lesson-01-transformer-slide-12": "1f4badf0e9d2d8501046d9eaf8273f27513bbf67fe294c84bd2e2d6282912a19",
+    "p14-lesson-01-transformer-slide-13": "cac1168d21ee9bfafbf3c3b984113a9f56eafc4b47bd2413426bfaf996d479c1",
+    "p14-lesson-01-transformer-slide-14": "a6e06a1f41907b0c06c40e93403885fda0a16dd3a66d48c279ffeed62deb0514",
+    "p14-lesson-01-transformer-slide-15": "a94c463cf4e9e6525d8366f67b011266dd578c92f302ff85cd11b1c3c201d8a2",
+    "p14-lesson-01-transformer-slide-16": "dc14a6374d684b365225c58a8407ff422848358175eae6eb0229d286567c48a8",
+    "p14-lesson-01-transformer-slide-17": "0612efeedc7dde73b10ac2b50fc244bdb904ae9eead21ba7201fbf988f1e0e9e",
+    "p14-lesson-01-transformer-slide-18": "a41ae18f93cc46dee5295188b6e25d672f5f664c64a3120556c7ab6608088001",
+    "p14-lesson-01-transformer-slide-19": "e38da8b231d45b7c69f4d41ac062109dc4634321f1c99b0eb50c95054b09e243",
+    "p14-lesson-01-transformer-slide-20": "46a9d01fdef55cae270fd66b98007abc7cd0c8078f0ac6b7c7e9ab7db69e207b",
+    "p14-lesson-01-transformer-slide-21": "593b89b138ae9115a2f40a9ccada21ceb61f40f0f15de0dc881c2c6df40c84d2",
+    "p14-lesson-01-transformer-slide-22": "bd6e8802173be595efd848d675062a61926118eaec3ef9e5a6d7dbeb09371358",
+    "p14-lesson-01-transformer-slide-23": "df2b68d0153d312ab27127cf760f13c02121c0d2ac4749e3c0b804177b17522d",
+    "p14-lesson-01-transformer-slide-24": "294e74d9e9ec606332525ba3fc30d329c4ccb6912be98a043144eb109798e7f9",
+    "p14-lesson-02-perceptron-lab-slide-01": "aa5e9f41614e902bbd1069dc483f69fa5cc76e7113697fa4b754a68117ccd01a",
+    "p14-lesson-02-perceptron-lab-slide-02": "9b7130d4d86585ceffb17912dc3c5d7ef8a9f27279501f295d5c31762a58cc73",
+    "p14-lesson-02-perceptron-lab-slide-03": "26658882e62500250e4897caa2e85cf5c2c2e1b83796b66bb38a34dac0276ff6",
+    "p14-lesson-02-perceptron-lab-slide-04": "edf69c95073d1399479ad698c0cf0c7d3dba463819f0ac50e4ef8ac515ebdc8f",
+    "p14-lesson-02-perceptron-lab-slide-05": "0baae25cb49a73399b80a3a2b79726d6519dc1e95d0edbe530d11635ca4caa28",
+    "p14-lesson-02-perceptron-lab-slide-06": "96910c932e4473f06d6dc9cc6930e243ba5556de202089a2688502954b1c66fe",
+    "p14-lesson-02-perceptron-lab-slide-07": "fe502bbec9900f5c7d09ae5bef597299077e579a620d9e2d577f984e1f93fdaf",
+    "p14-lesson-02-perceptron-lab-slide-08": "bf6c0d6cc144b4fdb357a55827931c89c244e04a04334f7decde0efdcc424afb",
+    "p14-lesson-02-perceptron-lab-slide-09": "66ce412edf9d209d1f41bc9bfabb052f39c3b1ec62c4688c6375e7509c32617f",
+    "p14-lesson-02-perceptron-lab-slide-10": "730758d772b56d7ebec56ef3cee5529842f7b05badc8fcffc528618707915ab3",
+    "p14-lesson-02-perceptron-lab-slide-11": "89cd2707d0cd5de14ee76676e5e24d00be322e6ed645c48f010a9c8455eb537f",
+    "p14-lesson-02-perceptron-lab-slide-12": "5bbb1904f8af1c696c2d79b92817ce51cfa221f54cbc66eff97b590267a97c23",
+    "p14-lesson-03-occupation-risk-seminar-slide-01": "e8aba0b9bb1ab42b0640fbdf223ec172fb5276dff777326d02b3120b30c7d792",
+    "p14-lesson-03-occupation-risk-seminar-slide-02": "64f3c1b09ca1d0c4020b8c9ed6f786cd984db088a1ef0c092f932fe9fc48e5dd",
+    "p14-lesson-03-occupation-risk-seminar-slide-03": "7d744d4bbca4ecfcb7c02cb971ddb93c6605a62028269fa9cb58f6efa7e9b630",
+    "p14-lesson-03-occupation-risk-seminar-slide-04": "fec470b6f603f3c4303e9dbe83f908e5ea32556fc9ffd42c3124ad3ef7a4b00d",
+    "p14-lesson-03-occupation-risk-seminar-slide-05": "66d0561448a8a4c0d5dfe2daa4c1c10ce6f33fcd5158b70f3fdfc16ee469e2be",
+    "p14-lesson-03-occupation-risk-seminar-slide-06": "e61f7d82a0b7d4c105f1b116e8624b34e00d6ad90f655fa3781f38844632f7c5",
+    "p14-lesson-03-occupation-risk-seminar-slide-07": "7c43e374e362c5a631d3e66937d716a132185945d211e0f7bb350949cdaee488",
+    "p14-lesson-03-occupation-risk-seminar-slide-08": "51d313d9a7a4b91d071dba52f56071844d58ab735f69feb4f0bd8e9b2a253d7f",
+    "p14-lesson-03-occupation-risk-seminar-slide-09": "3a2c5757119c1f4212d258af957a06fad391254e69a6302857d3efb371361dd3",
+    "p14-lesson-03-occupation-risk-seminar-slide-10": "3d4aecb3074b1c3f97dbb04b863e7a0012fe9f278993232f6ef47904f055968d",
+    "p16-ds7-external-velis": "547c840c8df297f42e2447581bb29980058472e75abd8b1a3ceac808b87cba84",
+    "p16-ds7-negative-hash": "363f125fcc489cf05019fd54f8bfc43ddb6d9078a6fe2a5b544d8ed320178cfb",
+    "p16-ds7-negative-mapping": "0a4fe3f29e16c70d352f8eb628b7c31a5bfa11989db9321c188870124fd6f67e",
+    "p16-ds7-ppt_case_seminar_v1": "833fca8d1a4a4e8928bb52da2f8f240ca651e676439a6e4719f27bc29163cb59",
+    "p16-ds7-ppt_concept_explanation_v1": "9d4cbcdb94bbe1ee7aa3d8d73cb6d92bc76e88092d3fcb8f161aa910cde625a5",
+    "p16-ds7-ppt_standard_lecture_v1": "0f2c0d42416cb42c709f35bae67ad0cef1c7c9c7e5c5f41db967096ce62327ac"
+  },
+  "bundle_sha256": "e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91",
+  "candidate_hashes": {
+    "cp_ds3": "7001ec09dcf7ca782fadb2468a39fb5b0a51b81dc8be35d8f14e4d57bdd5b039",
+    "cp_ds7": "ef6ec83bba30a1ddb02bc93437421034eaab87acbc5b6e54dc4fa316d02fccb9"
+  },
+  "external_provider_calls": 0,
+  "final_coursepilot_gold_promoted": false,
+  "first_review_sha256": "f31b60124091a9a90d636ac80d0da9e0458155dc0cfc1eea06227cd13612898c",
+  "record_approvals": {
+    "arch::p16-ds3-occupation-risk": {
+      "approved_record_sha256": "6320b22a8843195009f472285ec475748bbeaafeeac55609d41bb72d609617f3",
+      "candidate_sha256": "c452161f8641ca30a321eeb0f64401aca2ba3cfe044ea231228823309c01734e",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.003",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "arch::p16-ds3-perceptron": {
+      "approved_record_sha256": "770610d3288fbfbd446b7a060a6995b1ce048c045cc1cd1e53d93d84f1fee27c",
+      "candidate_sha256": "87be12e34dea239188fdc8839df1da87b06292f0f29e4e841b7512da5c235545",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.002",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "arch::p16-ds3-transformer": {
+      "approved_record_sha256": "9eb1554d2a5d1b49bd3d09fa1841689f4d5ffa215a196c6d1aaec5258e34f178",
+      "candidate_sha256": "0a4618afedc7010aab9cfb9229061c152737001ae6c8cc69ec69c59ec3ad30c1",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.001",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-01": {
+      "approved_record_sha256": "c8ec6024471a28ba55898448d8565a5382a6b6ce46e067ba5e7c774a563d547c",
+      "candidate_sha256": "c8ec6024471a28ba55898448d8565a5382a6b6ce46e067ba5e7c774a563d547c",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.004",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-02": {
+      "approved_record_sha256": "4eb9fc208fbe199b8b4b368d2e87438cb60dfd0fa59f7d7ed7f9923bc0c56c25",
+      "candidate_sha256": "4eb9fc208fbe199b8b4b368d2e87438cb60dfd0fa59f7d7ed7f9923bc0c56c25",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.005",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-03": {
+      "approved_record_sha256": "2448c66fbeacfc9206e4863cdea5a6308515d8eb8253d420c0563a61932554ab",
+      "candidate_sha256": "2448c66fbeacfc9206e4863cdea5a6308515d8eb8253d420c0563a61932554ab",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.006",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-04": {
+      "approved_record_sha256": "8817ff3f78094dbb986ebbdd5d19ec9636a4e64e0339e5a135f4bc1c20088973",
+      "candidate_sha256": "8817ff3f78094dbb986ebbdd5d19ec9636a4e64e0339e5a135f4bc1c20088973",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.007",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-05": {
+      "approved_record_sha256": "f5f93342a5e97e0506be653bace82dd2eb54ad922c5b4fabeb16b097bc5524a0",
+      "candidate_sha256": "f5f93342a5e97e0506be653bace82dd2eb54ad922c5b4fabeb16b097bc5524a0",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.008",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-06": {
+      "approved_record_sha256": "c1839ac6ec5255530472129610afb07bab1392e96ba924002456b5f65499caca",
+      "candidate_sha256": "c1839ac6ec5255530472129610afb07bab1392e96ba924002456b5f65499caca",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.009",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-07": {
+      "approved_record_sha256": "8e4b39348472a898b03f5982ab4959bc4e2409cfda46e2b4f834d31f56fcfd77",
+      "candidate_sha256": "8e4b39348472a898b03f5982ab4959bc4e2409cfda46e2b4f834d31f56fcfd77",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.010",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-08": {
+      "approved_record_sha256": "d1c7745c683331bf43744e23cc7863ccf8632c79ac86b863b203227a227a3d0d",
+      "candidate_sha256": "d1c7745c683331bf43744e23cc7863ccf8632c79ac86b863b203227a227a3d0d",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.011",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-09": {
+      "approved_record_sha256": "c1d31fb1f85524c8f4ca2050c29c04e140b6b084935486fa82505cf7d1bc74ab",
+      "candidate_sha256": "c1d31fb1f85524c8f4ca2050c29c04e140b6b084935486fa82505cf7d1bc74ab",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.012",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-10": {
+      "approved_record_sha256": "04ae3c85119228ee474f0047ebfa25374e78781cbc9c21e20df6298e5ef84f55",
+      "candidate_sha256": "04ae3c85119228ee474f0047ebfa25374e78781cbc9c21e20df6298e5ef84f55",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.013",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-11": {
+      "approved_record_sha256": "1a468fa52f0d3089394146e7e695a4b03da59140556039451413dd358218cf83",
+      "candidate_sha256": "1a468fa52f0d3089394146e7e695a4b03da59140556039451413dd358218cf83",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.014",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-12": {
+      "approved_record_sha256": "1f4badf0e9d2d8501046d9eaf8273f27513bbf67fe294c84bd2e2d6282912a19",
+      "candidate_sha256": "1f4badf0e9d2d8501046d9eaf8273f27513bbf67fe294c84bd2e2d6282912a19",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.015",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-13": {
+      "approved_record_sha256": "cac1168d21ee9bfafbf3c3b984113a9f56eafc4b47bd2413426bfaf996d479c1",
+      "candidate_sha256": "cac1168d21ee9bfafbf3c3b984113a9f56eafc4b47bd2413426bfaf996d479c1",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.016",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-14": {
+      "approved_record_sha256": "a6e06a1f41907b0c06c40e93403885fda0a16dd3a66d48c279ffeed62deb0514",
+      "candidate_sha256": "a6e06a1f41907b0c06c40e93403885fda0a16dd3a66d48c279ffeed62deb0514",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.017",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-15": {
+      "approved_record_sha256": "a94c463cf4e9e6525d8366f67b011266dd578c92f302ff85cd11b1c3c201d8a2",
+      "candidate_sha256": "a94c463cf4e9e6525d8366f67b011266dd578c92f302ff85cd11b1c3c201d8a2",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.018",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-16": {
+      "approved_record_sha256": "dc14a6374d684b365225c58a8407ff422848358175eae6eb0229d286567c48a8",
+      "candidate_sha256": "dc14a6374d684b365225c58a8407ff422848358175eae6eb0229d286567c48a8",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.019",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-17": {
+      "approved_record_sha256": "0612efeedc7dde73b10ac2b50fc244bdb904ae9eead21ba7201fbf988f1e0e9e",
+      "candidate_sha256": "0612efeedc7dde73b10ac2b50fc244bdb904ae9eead21ba7201fbf988f1e0e9e",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.020",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-18": {
+      "approved_record_sha256": "a41ae18f93cc46dee5295188b6e25d672f5f664c64a3120556c7ab6608088001",
+      "candidate_sha256": "a41ae18f93cc46dee5295188b6e25d672f5f664c64a3120556c7ab6608088001",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.021",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-19": {
+      "approved_record_sha256": "e38da8b231d45b7c69f4d41ac062109dc4634321f1c99b0eb50c95054b09e243",
+      "candidate_sha256": "e38da8b231d45b7c69f4d41ac062109dc4634321f1c99b0eb50c95054b09e243",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.022",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-20": {
+      "approved_record_sha256": "46a9d01fdef55cae270fd66b98007abc7cd0c8078f0ac6b7c7e9ab7db69e207b",
+      "candidate_sha256": "46a9d01fdef55cae270fd66b98007abc7cd0c8078f0ac6b7c7e9ab7db69e207b",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.023",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-21": {
+      "approved_record_sha256": "593b89b138ae9115a2f40a9ccada21ceb61f40f0f15de0dc881c2c6df40c84d2",
+      "candidate_sha256": "593b89b138ae9115a2f40a9ccada21ceb61f40f0f15de0dc881c2c6df40c84d2",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.024",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-22": {
+      "approved_record_sha256": "bd6e8802173be595efd848d675062a61926118eaec3ef9e5a6d7dbeb09371358",
+      "candidate_sha256": "bd6e8802173be595efd848d675062a61926118eaec3ef9e5a6d7dbeb09371358",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.025",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-23": {
+      "approved_record_sha256": "df2b68d0153d312ab27127cf760f13c02121c0d2ac4749e3c0b804177b17522d",
+      "candidate_sha256": "df2b68d0153d312ab27127cf760f13c02121c0d2ac4749e3c0b804177b17522d",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.026",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-01-transformer-slide-24": {
+      "approved_record_sha256": "294e74d9e9ec606332525ba3fc30d329c4ccb6912be98a043144eb109798e7f9",
+      "candidate_sha256": "294e74d9e9ec606332525ba3fc30d329c4ccb6912be98a043144eb109798e7f9",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.027",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-01": {
+      "approved_record_sha256": "aa5e9f41614e902bbd1069dc483f69fa5cc76e7113697fa4b754a68117ccd01a",
+      "candidate_sha256": "aa5e9f41614e902bbd1069dc483f69fa5cc76e7113697fa4b754a68117ccd01a",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.028",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-02": {
+      "approved_record_sha256": "9b7130d4d86585ceffb17912dc3c5d7ef8a9f27279501f295d5c31762a58cc73",
+      "candidate_sha256": "9b7130d4d86585ceffb17912dc3c5d7ef8a9f27279501f295d5c31762a58cc73",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.029",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-03": {
+      "approved_record_sha256": "26658882e62500250e4897caa2e85cf5c2c2e1b83796b66bb38a34dac0276ff6",
+      "candidate_sha256": "26658882e62500250e4897caa2e85cf5c2c2e1b83796b66bb38a34dac0276ff6",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.030",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-04": {
+      "approved_record_sha256": "edf69c95073d1399479ad698c0cf0c7d3dba463819f0ac50e4ef8ac515ebdc8f",
+      "candidate_sha256": "edf69c95073d1399479ad698c0cf0c7d3dba463819f0ac50e4ef8ac515ebdc8f",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.031",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-05": {
+      "approved_record_sha256": "0baae25cb49a73399b80a3a2b79726d6519dc1e95d0edbe530d11635ca4caa28",
+      "candidate_sha256": "0baae25cb49a73399b80a3a2b79726d6519dc1e95d0edbe530d11635ca4caa28",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.032",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-06": {
+      "approved_record_sha256": "96910c932e4473f06d6dc9cc6930e243ba5556de202089a2688502954b1c66fe",
+      "candidate_sha256": "96910c932e4473f06d6dc9cc6930e243ba5556de202089a2688502954b1c66fe",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.033",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-07": {
+      "approved_record_sha256": "fe502bbec9900f5c7d09ae5bef597299077e579a620d9e2d577f984e1f93fdaf",
+      "candidate_sha256": "fe502bbec9900f5c7d09ae5bef597299077e579a620d9e2d577f984e1f93fdaf",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.034",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-08": {
+      "approved_record_sha256": "bf6c0d6cc144b4fdb357a55827931c89c244e04a04334f7decde0efdcc424afb",
+      "candidate_sha256": "bf6c0d6cc144b4fdb357a55827931c89c244e04a04334f7decde0efdcc424afb",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.035",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-09": {
+      "approved_record_sha256": "66ce412edf9d209d1f41bc9bfabb052f39c3b1ec62c4688c6375e7509c32617f",
+      "candidate_sha256": "66ce412edf9d209d1f41bc9bfabb052f39c3b1ec62c4688c6375e7509c32617f",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.036",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-10": {
+      "approved_record_sha256": "730758d772b56d7ebec56ef3cee5529842f7b05badc8fcffc528618707915ab3",
+      "candidate_sha256": "730758d772b56d7ebec56ef3cee5529842f7b05badc8fcffc528618707915ab3",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.037",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-11": {
+      "approved_record_sha256": "89cd2707d0cd5de14ee76676e5e24d00be322e6ed645c48f010a9c8455eb537f",
+      "candidate_sha256": "89cd2707d0cd5de14ee76676e5e24d00be322e6ed645c48f010a9c8455eb537f",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.038",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-02-perceptron-lab-slide-12": {
+      "approved_record_sha256": "5bbb1904f8af1c696c2d79b92817ce51cfa221f54cbc66eff97b590267a97c23",
+      "candidate_sha256": "5bbb1904f8af1c696c2d79b92817ce51cfa221f54cbc66eff97b590267a97c23",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.039",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-01": {
+      "approved_record_sha256": "e8aba0b9bb1ab42b0640fbdf223ec172fb5276dff777326d02b3120b30c7d792",
+      "candidate_sha256": "e8aba0b9bb1ab42b0640fbdf223ec172fb5276dff777326d02b3120b30c7d792",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.040",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-02": {
+      "approved_record_sha256": "64f3c1b09ca1d0c4020b8c9ed6f786cd984db088a1ef0c092f932fe9fc48e5dd",
+      "candidate_sha256": "64f3c1b09ca1d0c4020b8c9ed6f786cd984db088a1ef0c092f932fe9fc48e5dd",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.041",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-03": {
+      "approved_record_sha256": "7d744d4bbca4ecfcb7c02cb971ddb93c6605a62028269fa9cb58f6efa7e9b630",
+      "candidate_sha256": "7d744d4bbca4ecfcb7c02cb971ddb93c6605a62028269fa9cb58f6efa7e9b630",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.042",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-04": {
+      "approved_record_sha256": "fec470b6f603f3c4303e9dbe83f908e5ea32556fc9ffd42c3124ad3ef7a4b00d",
+      "candidate_sha256": "fec470b6f603f3c4303e9dbe83f908e5ea32556fc9ffd42c3124ad3ef7a4b00d",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.043",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-05": {
+      "approved_record_sha256": "66d0561448a8a4c0d5dfe2daa4c1c10ce6f33fcd5158b70f3fdfc16ee469e2be",
+      "candidate_sha256": "66d0561448a8a4c0d5dfe2daa4c1c10ce6f33fcd5158b70f3fdfc16ee469e2be",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.044",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-06": {
+      "approved_record_sha256": "e61f7d82a0b7d4c105f1b116e8624b34e00d6ad90f655fa3781f38844632f7c5",
+      "candidate_sha256": "e61f7d82a0b7d4c105f1b116e8624b34e00d6ad90f655fa3781f38844632f7c5",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.045",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-07": {
+      "approved_record_sha256": "7c43e374e362c5a631d3e66937d716a132185945d211e0f7bb350949cdaee488",
+      "candidate_sha256": "7c43e374e362c5a631d3e66937d716a132185945d211e0f7bb350949cdaee488",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.046",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-08": {
+      "approved_record_sha256": "51d313d9a7a4b91d071dba52f56071844d58ab735f69feb4f0bd8e9b2a253d7f",
+      "candidate_sha256": "51d313d9a7a4b91d071dba52f56071844d58ab735f69feb4f0bd8e9b2a253d7f",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.047",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-09": {
+      "approved_record_sha256": "3a2c5757119c1f4212d258af957a06fad391254e69a6302857d3efb371361dd3",
+      "candidate_sha256": "3a2c5757119c1f4212d258af957a06fad391254e69a6302857d3efb371361dd3",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.048",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p14-lesson-03-occupation-risk-seminar-slide-10": {
+      "approved_record_sha256": "3d4aecb3074b1c3f97dbb04b863e7a0012fe9f278993232f6ef47904f055968d",
+      "candidate_sha256": "3d4aecb3074b1c3f97dbb04b863e7a0012fe9f278993232f6ef47904f055968d",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.049",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p16-ds7-external-velis": {
+      "approved_record_sha256": "547c840c8df297f42e2447581bb29980058472e75abd8b1a3ceac808b87cba84",
+      "candidate_sha256": "fe07ba754c4a3ff482f091ede8353947d575ab5124c51800a394b6cbc4c0e4fd",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.053",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p16-ds7-negative-hash": {
+      "approved_record_sha256": "363f125fcc489cf05019fd54f8bfc43ddb6d9078a6fe2a5b544d8ed320178cfb",
+      "candidate_sha256": "28757f570b48ec94d29febc62b0588ec5c530fd4e53778a9271efde9ea2498bf",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.054",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p16-ds7-negative-mapping": {
+      "approved_record_sha256": "0a4fe3f29e16c70d352f8eb628b7c31a5bfa11989db9321c188870124fd6f67e",
+      "candidate_sha256": "f04d444cd7d23f96a5f4d33032583f36d290b0d0ba4583edf4fb0e89e980d831",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.055",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p16-ds7-ppt_case_seminar_v1": {
+      "approved_record_sha256": "833fca8d1a4a4e8928bb52da2f8f240ca651e676439a6e4719f27bc29163cb59",
+      "candidate_sha256": "df7d8204f3130df232318e0040d94eb9a30e8920edf47845fbaf69e6303c428b",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.052",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p16-ds7-ppt_concept_explanation_v1": {
+      "approved_record_sha256": "9d4cbcdb94bbe1ee7aa3d8d73cb6d92bc76e88092d3fcb8f161aa910cde625a5",
+      "candidate_sha256": "5c2cee278d5d1d79feec07e0105e9f8f77d0b899c3946a5fc0d416a8e9351e3a",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.051",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    },
+    "p16-ds7-ppt_standard_lecture_v1": {
+      "approved_record_sha256": "0f2c0d42416cb42c709f35bae67ad0cef1c7c9c7e5c5f41db967096ce62327ac",
+      "candidate_sha256": "70b0a3be8fab25b10f688d80fd963f844a2f5c6003e6644114498f9d44fc304d",
+      "notes": "P16 CP-DS3/CP-DS7 Pilot input Gold only; generated slide wording, visual quality and P18 formal Gold remain out of scope.",
+      "review_id": "p16-cp-ds37-pilot-bundle-approval.record.050",
+      "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+      "reviewer_id": "course_owner"
+    }
+  },
+  "record_count": 55,
+  "record_hashes": {
+    "arch::p16-ds3-occupation-risk": "c452161f8641ca30a321eeb0f64401aca2ba3cfe044ea231228823309c01734e",
+    "arch::p16-ds3-perceptron": "87be12e34dea239188fdc8839df1da87b06292f0f29e4e841b7512da5c235545",
+    "arch::p16-ds3-transformer": "0a4618afedc7010aab9cfb9229061c152737001ae6c8cc69ec69c59ec3ad30c1",
+    "p14-lesson-01-transformer-slide-01": "c8ec6024471a28ba55898448d8565a5382a6b6ce46e067ba5e7c774a563d547c",
+    "p14-lesson-01-transformer-slide-02": "4eb9fc208fbe199b8b4b368d2e87438cb60dfd0fa59f7d7ed7f9923bc0c56c25",
+    "p14-lesson-01-transformer-slide-03": "2448c66fbeacfc9206e4863cdea5a6308515d8eb8253d420c0563a61932554ab",
+    "p14-lesson-01-transformer-slide-04": "8817ff3f78094dbb986ebbdd5d19ec9636a4e64e0339e5a135f4bc1c20088973",
+    "p14-lesson-01-transformer-slide-05": "f5f93342a5e97e0506be653bace82dd2eb54ad922c5b4fabeb16b097bc5524a0",
+    "p14-lesson-01-transformer-slide-06": "c1839ac6ec5255530472129610afb07bab1392e96ba924002456b5f65499caca",
+    "p14-lesson-01-transformer-slide-07": "8e4b39348472a898b03f5982ab4959bc4e2409cfda46e2b4f834d31f56fcfd77",
+    "p14-lesson-01-transformer-slide-08": "d1c7745c683331bf43744e23cc7863ccf8632c79ac86b863b203227a227a3d0d",
+    "p14-lesson-01-transformer-slide-09": "c1d31fb1f85524c8f4ca2050c29c04e140b6b084935486fa82505cf7d1bc74ab",
+    "p14-lesson-01-transformer-slide-10": "04ae3c85119228ee474f0047ebfa25374e78781cbc9c21e20df6298e5ef84f55",
+    "p14-lesson-01-transformer-slide-11": "1a468fa52f0d3089394146e7e695a4b03da59140556039451413dd358218cf83",
+    "p14-lesson-01-transformer-slide-12": "1f4badf0e9d2d8501046d9eaf8273f27513bbf67fe294c84bd2e2d6282912a19",
+    "p14-lesson-01-transformer-slide-13": "cac1168d21ee9bfafbf3c3b984113a9f56eafc4b47bd2413426bfaf996d479c1",
+    "p14-lesson-01-transformer-slide-14": "a6e06a1f41907b0c06c40e93403885fda0a16dd3a66d48c279ffeed62deb0514",
+    "p14-lesson-01-transformer-slide-15": "a94c463cf4e9e6525d8366f67b011266dd578c92f302ff85cd11b1c3c201d8a2",
+    "p14-lesson-01-transformer-slide-16": "dc14a6374d684b365225c58a8407ff422848358175eae6eb0229d286567c48a8",
+    "p14-lesson-01-transformer-slide-17": "0612efeedc7dde73b10ac2b50fc244bdb904ae9eead21ba7201fbf988f1e0e9e",
+    "p14-lesson-01-transformer-slide-18": "a41ae18f93cc46dee5295188b6e25d672f5f664c64a3120556c7ab6608088001",
+    "p14-lesson-01-transformer-slide-19": "e38da8b231d45b7c69f4d41ac062109dc4634321f1c99b0eb50c95054b09e243",
+    "p14-lesson-01-transformer-slide-20": "46a9d01fdef55cae270fd66b98007abc7cd0c8078f0ac6b7c7e9ab7db69e207b",
+    "p14-lesson-01-transformer-slide-21": "593b89b138ae9115a2f40a9ccada21ceb61f40f0f15de0dc881c2c6df40c84d2",
+    "p14-lesson-01-transformer-slide-22": "bd6e8802173be595efd848d675062a61926118eaec3ef9e5a6d7dbeb09371358",
+    "p14-lesson-01-transformer-slide-23": "df2b68d0153d312ab27127cf760f13c02121c0d2ac4749e3c0b804177b17522d",
+    "p14-lesson-01-transformer-slide-24": "294e74d9e9ec606332525ba3fc30d329c4ccb6912be98a043144eb109798e7f9",
+    "p14-lesson-02-perceptron-lab-slide-01": "aa5e9f41614e902bbd1069dc483f69fa5cc76e7113697fa4b754a68117ccd01a",
+    "p14-lesson-02-perceptron-lab-slide-02": "9b7130d4d86585ceffb17912dc3c5d7ef8a9f27279501f295d5c31762a58cc73",
+    "p14-lesson-02-perceptron-lab-slide-03": "26658882e62500250e4897caa2e85cf5c2c2e1b83796b66bb38a34dac0276ff6",
+    "p14-lesson-02-perceptron-lab-slide-04": "edf69c95073d1399479ad698c0cf0c7d3dba463819f0ac50e4ef8ac515ebdc8f",
+    "p14-lesson-02-perceptron-lab-slide-05": "0baae25cb49a73399b80a3a2b79726d6519dc1e95d0edbe530d11635ca4caa28",
+    "p14-lesson-02-perceptron-lab-slide-06": "96910c932e4473f06d6dc9cc6930e243ba5556de202089a2688502954b1c66fe",
+    "p14-lesson-02-perceptron-lab-slide-07": "fe502bbec9900f5c7d09ae5bef597299077e579a620d9e2d577f984e1f93fdaf",
+    "p14-lesson-02-perceptron-lab-slide-08": "bf6c0d6cc144b4fdb357a55827931c89c244e04a04334f7decde0efdcc424afb",
+    "p14-lesson-02-perceptron-lab-slide-09": "66ce412edf9d209d1f41bc9bfabb052f39c3b1ec62c4688c6375e7509c32617f",
+    "p14-lesson-02-perceptron-lab-slide-10": "730758d772b56d7ebec56ef3cee5529842f7b05badc8fcffc528618707915ab3",
+    "p14-lesson-02-perceptron-lab-slide-11": "89cd2707d0cd5de14ee76676e5e24d00be322e6ed645c48f010a9c8455eb537f",
+    "p14-lesson-02-perceptron-lab-slide-12": "5bbb1904f8af1c696c2d79b92817ce51cfa221f54cbc66eff97b590267a97c23",
+    "p14-lesson-03-occupation-risk-seminar-slide-01": "e8aba0b9bb1ab42b0640fbdf223ec172fb5276dff777326d02b3120b30c7d792",
+    "p14-lesson-03-occupation-risk-seminar-slide-02": "64f3c1b09ca1d0c4020b8c9ed6f786cd984db088a1ef0c092f932fe9fc48e5dd",
+    "p14-lesson-03-occupation-risk-seminar-slide-03": "7d744d4bbca4ecfcb7c02cb971ddb93c6605a62028269fa9cb58f6efa7e9b630",
+    "p14-lesson-03-occupation-risk-seminar-slide-04": "fec470b6f603f3c4303e9dbe83f908e5ea32556fc9ffd42c3124ad3ef7a4b00d",
+    "p14-lesson-03-occupation-risk-seminar-slide-05": "66d0561448a8a4c0d5dfe2daa4c1c10ce6f33fcd5158b70f3fdfc16ee469e2be",
+    "p14-lesson-03-occupation-risk-seminar-slide-06": "e61f7d82a0b7d4c105f1b116e8624b34e00d6ad90f655fa3781f38844632f7c5",
+    "p14-lesson-03-occupation-risk-seminar-slide-07": "7c43e374e362c5a631d3e66937d716a132185945d211e0f7bb350949cdaee488",
+    "p14-lesson-03-occupation-risk-seminar-slide-08": "51d313d9a7a4b91d071dba52f56071844d58ab735f69feb4f0bd8e9b2a253d7f",
+    "p14-lesson-03-occupation-risk-seminar-slide-09": "3a2c5757119c1f4212d258af957a06fad391254e69a6302857d3efb371361dd3",
+    "p14-lesson-03-occupation-risk-seminar-slide-10": "3d4aecb3074b1c3f97dbb04b863e7a0012fe9f278993232f6ef47904f055968d",
+    "p16-ds7-external-velis": "fe07ba754c4a3ff482f091ede8353947d575ab5124c51800a394b6cbc4c0e4fd",
+    "p16-ds7-negative-hash": "28757f570b48ec94d29febc62b0588ec5c530fd4e53778a9271efde9ea2498bf",
+    "p16-ds7-negative-mapping": "f04d444cd7d23f96a5f4d33032583f36d290b0d0ba4583edf4fb0e89e980d831",
+    "p16-ds7-ppt_case_seminar_v1": "df7d8204f3130df232318e0040d94eb9a30e8920edf47845fbaf69e6303c428b",
+    "p16-ds7-ppt_concept_explanation_v1": "5c2cee278d5d1d79feec07e0105e9f8f77d0b899c3946a5fc0d416a8e9351e3a",
+    "p16-ds7-ppt_standard_lecture_v1": "70b0a3be8fab25b10f688d80fd963f844a2f5c6003e6644114498f9d44fc304d"
+  },
+  "review_id": "p16-cp-ds37-pilot-bundle-approval",
+  "reviewed_at": "2026-08-20T19:11:15.911311+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p16-bundle-approval.v1",
+  "second_review_sha256": "08ea6ca3b2855e00785a78deb3452ce1943323938455a2bae9023c0e971fb1fe"
+}

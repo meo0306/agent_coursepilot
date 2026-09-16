@@ -1,0 +1,26 @@
+services:
+  postgres:
+    environment:
+      POSTGRES_DB: coursepilot_p18
+  courserag_service:
+    environment:
+      COURSERAG_RETRIEVAL_BACKEND: versioned
+      COURSERAG_ENRICHMENT_WORKER_ENABLED: "true"
+      COURSERAG_EMBEDDING_PROVIDER: local_sentence_transformers
+      COURSERAG_EMBEDDING_MODEL: Qwen/Qwen3-Embedding-0.6B
+      COURSERAG_EMBEDDING_MODEL_PATH: /models/qwen3-embedding-0.6b
+      COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256: 1db2c971796b1b286f6b73a22ee05c213a51211fdb595640cc361c1b790c9920
+      COURSERAG_EMBEDDING_WEIGHTS_SHA256: 0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd
+      COURSERAG_EMBEDDING_DEVICE: cpu
+      COURSERAG_EMBEDDING_DTYPE: float32
+      COURSERAG_EMBEDDING_MAX_LENGTH: "2048"
+      COURSERAG_EMBEDDING_LOCAL_BATCH_SIZE: "8"
+      COURSERAG_EMBEDDING_QUERY_PROMPT_NAME: query
+    volumes:
+      - D:/AI/models/modelscope/Qwen/Qwen3-Embedding-0.6B:/models/qwen3-embedding-0.6b:ro
+  agent_service:
+    environment:
+      COURSEPILOT_MODEL_GATEWAY_MODE: evaluation
+      COURSEPILOT_COURSERAG_MODE: remote
+      COURSEPILOT_EXAM_V2_ENABLED: "true"
+      COURSEPILOT_PPT_V2_ENABLED: "true"

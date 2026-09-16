@@ -1,0 +1,738 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P15AssessmentTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_question_types": {
+          "items": {
+            "enum": [
+              "single_choice",
+              "multiple_choice",
+              "judgement",
+              "short_answer"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Allowed Question Types",
+          "type": "array"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "case_id": {
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "content_role": {
+          "enum": [
+            "definition",
+            "principle",
+            "procedure",
+            "comparison",
+            "application",
+            "formula",
+            "table",
+            "example"
+          ],
+          "title": "Content Role",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "difficulty_range": {
+          "items": {
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Difficulty Range",
+          "type": "array"
+        },
+        "forbidden_claims": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "hard_negative_evidence": {
+          "items": {
+            "$ref": "#/$defs/P15EvidenceFixture"
+          },
+          "title": "Hard Negative Evidence",
+          "type": "array"
+        },
+        "hard_negative_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Hard Negative Evidence Ids",
+          "type": "array"
+        },
+        "knowledge_point": {
+          "$ref": "#/$defs/P15KnowledgePointFixture"
+        },
+        "optional_claims": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional Claims",
+          "type": "array"
+        },
+        "primary_evidence": {
+          "$ref": "#/$defs/P15EvidenceFixture"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_claims": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Claims",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "risk_flags": {
+          "items": {
+            "enum": [
+              "formula",
+              "table",
+              "ocr",
+              "hard_negative"
+            ],
+            "type": "string"
+          },
+          "title": "Risk Flags",
+          "type": "array"
+        },
+        "source_provenance": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Provenance",
+          "type": "array"
+        },
+        "supporting_evidence": {
+          "items": {
+            "$ref": "#/$defs/P15EvidenceFixture"
+          },
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "target_id",
+        "course_id",
+        "case_id",
+        "knowledge_point",
+        "primary_evidence",
+        "allowed_question_types",
+        "content_role",
+        "difficulty_range",
+        "required_claims",
+        "source_provenance"
+      ],
+      "title": "P15AssessmentTarget",
+      "type": "object"
+    },
+    "P15BlueprintGold": {
+      "additionalProperties": false,
+      "properties": {
+        "batch_plan": {
+          "items": {
+            "$ref": "#/$defs/P15QuestionBatchPlan"
+          },
+          "minItems": 1,
+          "title": "Batch Plan",
+          "type": "array"
+        },
+        "blueprint_review_action": {
+          "enum": [
+            "approve",
+            "edit_resume",
+            "replan"
+          ],
+          "title": "Blueprint Review Action",
+          "type": "string"
+        },
+        "case_id": {
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "chapter_range": {
+          "minLength": 1,
+          "title": "Chapter Range",
+          "type": "string"
+        },
+        "context_package_id": {
+          "minLength": 1,
+          "title": "Context Package Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "difficulty_counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "propertyNames": {
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ]
+          },
+          "title": "Difficulty Counts",
+          "type": "object"
+        },
+        "difficulty_distribution": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "propertyNames": {
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ]
+          },
+          "title": "Difficulty Distribution",
+          "type": "object"
+        },
+        "global_review_action": {
+          "enum": [
+            "approve",
+            "edit_resume",
+            "replan"
+          ],
+          "title": "Global Review Action",
+          "type": "string"
+        },
+        "max_concurrency": {
+          "maximum": 8,
+          "minimum": 1,
+          "title": "Max Concurrency",
+          "type": "integer"
+        },
+        "question_counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "propertyNames": {
+            "enum": [
+              "single_choice",
+              "multiple_choice",
+              "judgement",
+              "short_answer"
+            ]
+          },
+          "title": "Question Counts",
+          "type": "object"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        },
+        "required_knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Knowledge Point Ids",
+          "type": "array"
+        },
+        "required_total_score": {
+          "minimum": 1,
+          "title": "Required Total Score",
+          "type": "integer"
+        },
+        "score_per_question": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "propertyNames": {
+            "enum": [
+              "single_choice",
+              "multiple_choice",
+              "judgement",
+              "short_answer"
+            ]
+          },
+          "title": "Score Per Question",
+          "type": "object"
+        },
+        "source_provenance": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Provenance",
+          "type": "array"
+        },
+        "target_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Ids",
+          "type": "array"
+        },
+        "template_id": {
+          "enum": [
+            "exam_chapter_assignment_v1",
+            "exam_unit_quiz_v1",
+            "exam_midterm_final_v1"
+          ],
+          "title": "Template Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "course_id",
+        "template_id",
+        "chapter_range",
+        "question_counts",
+        "score_per_question",
+        "difficulty_distribution",
+        "difficulty_counts",
+        "required_total_score",
+        "required_knowledge_point_ids",
+        "required_evidence_ids",
+        "target_ids",
+        "batch_plan",
+        "context_package_id",
+        "max_concurrency",
+        "blueprint_review_action",
+        "global_review_action",
+        "source_provenance"
+      ],
+      "title": "P15BlueprintGold",
+      "type": "object"
+    },
+    "P15EvidenceFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "gold_text": {
+          "minLength": 1,
+          "title": "Gold Text",
+          "type": "string"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "semantic_unit_type": {
+          "minLength": 1,
+          "title": "Semantic Unit Type",
+          "type": "string"
+        },
+        "source_document_id": {
+          "minLength": 1,
+          "title": "Source Document Id",
+          "type": "string"
+        },
+        "source_document_version": {
+          "minLength": 1,
+          "title": "Source Document Version",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "native_text",
+            "ocr_derived"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "record_sha256",
+        "course_id",
+        "gold_text",
+        "source_document_id",
+        "source_document_version",
+        "source_type",
+        "semantic_unit_type",
+        "content_sha256"
+      ],
+      "title": "P15EvidenceFixture",
+      "type": "object"
+    },
+    "P15ExamPilotCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "blueprint": {
+          "$ref": "#/$defs/P15BlueprintGold"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "case_role": {
+          "const": "gold_pilot",
+          "default": "gold_pilot",
+          "title": "Case Role",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_interrupts": {
+          "items": {
+            "enum": [
+              "exam_blueprint_review",
+              "exam_global_review"
+            ],
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Required Interrupts",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "target_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Ids",
+          "type": "array"
+        },
+        "track_b_query_id": {
+          "minLength": 1,
+          "title": "Track B Query Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "blueprint",
+        "track_b_query_id",
+        "target_ids",
+        "required_interrupts"
+      ],
+      "title": "P15ExamPilotCase",
+      "type": "object"
+    },
+    "P15KnowledgePointFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_name": {
+          "minLength": 1,
+          "title": "Canonical Name",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "gold_kp_id": {
+          "minLength": 1,
+          "title": "Gold Kp Id",
+          "type": "string"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Section Ids",
+          "type": "array"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gold_kp_id",
+        "record_sha256",
+        "course_id",
+        "canonical_name",
+        "summary",
+        "section_ids"
+      ],
+      "title": "P15KnowledgePointFixture",
+      "type": "object"
+    },
+    "P15QuestionBatchPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "batch_id": {
+          "minLength": 1,
+          "title": "Batch Id",
+          "type": "string"
+        },
+        "question_count": {
+          "minimum": 1,
+          "title": "Question Count",
+          "type": "integer"
+        },
+        "question_type": {
+          "enum": [
+            "single_choice",
+            "multiple_choice",
+            "judgement",
+            "short_answer"
+          ],
+          "title": "Question Type",
+          "type": "string"
+        },
+        "target_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "batch_id",
+        "question_type",
+        "question_count",
+        "target_ids"
+      ],
+      "title": "P15QuestionBatchPlan",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds2_p15_pilot_input_only",
+      "default": "cp_ds2_p15_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P15ExamPilotCase"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "const": "p15-pilot-r1",
+      "default": "p15-pilot-r1",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds2-p15-pilot.v1",
+      "default": "coursepilot.cp-ds2-p15-pilot.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "targets": {
+      "items": {
+        "$ref": "#/$defs/P15AssessmentTarget"
+      },
+      "maxItems": 26,
+      "minItems": 26,
+      "title": "Targets",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cases",
+    "targets"
+  ],
+  "title": "CPDS2P15PilotDataset",
+  "type": "object"
+}

@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "check_id": "p10.d013.dependency_waiver",
+      "observed": "P10-D013 owner waiver and ready_to_start status present",
+      "passed": true,
+      "required": "exact owner-approved P10-D013 dependency waiver remains authoritative"
+    },
+    {
+      "check_id": "p10.d013.failed_profile_preserved",
+      "observed": "report=26e5eb98bfe08536987cd8a6b36d769ce3e3370319f8479d57c15b1ba596f0bb, status=failed, profile_emitted=false",
+      "passed": true,
+      "required": "failed P10.3 report remains exact and no Profile is emitted"
+    },
+    {
+      "check_id": "p10.d013.blind_unread",
+      "observed": "blind_status=awaiting_independent_construction, visible=False, report_blind_access=False",
+      "passed": true,
+      "required": "P10.3 Blind content remains unbuilt, invisible and unread"
+    },
+    {
+      "check_id": "p10.frozen_manifest.authorized",
+      "observed": "authorization=cad5df9ce87fc9682bef2441ed66aa957064f467a5ffdbd209b37e358c40937a, file=cad5df9ce87fc9682bef2441ed66aa957064f467a5ffdbd209b37e358c40937a",
+      "passed": true,
+      "required": "authorization and owner approval bind the exact Frozen Manifest"
+    },
+    {
+      "check_id": "p10.lock.and.run.identity",
+      "observed": "lock_file=06c6473e3beb8bd22b77de1f9d9387d6a5106fa321c29d0113750e0ad7c477ef, canonical_test_ids=b21a030a790ee30a11ee83417469ad28a6b78bba1e89081d3ad6a30b4cc561ea, split_file=e910d726f450957c6d30ecee7314a02f64d5063ae3dbc2567e325d2e33660134, frozen=cad5df9ce87fc9682bef2441ed66aa957064f467a5ffdbd209b37e358c40937a",
+      "passed": true,
+      "required": "formal runs bind both Test identity layers and the exact Frozen Manifest"
+    },
+    {
+      "check_id": "p10.formal_reports.complete",
+      "observed": "report.json=present, report.json=present, component_test_report.json=present",
+      "passed": true,
+      "required": "QA, retrieval and component final reports all present"
+    },
+    {
+      "check_id": "p10.courserag_port.present",
+      "observed": "src/coursepilot/ports/courserag.py",
+      "passed": true,
+      "required": "CoursePilot CourseRAG consumer Port artifact exists"
+    }
+  ],
+  "deferred_record_ids": [
+    "p11-runtime-16-courserag-docx-context",
+    "p11-runtime-17-courserag-pdf-context",
+    "p11-runtime-18-courserag-fail-closed"
+  ],
+  "disposition": "eligible_for_candidate",
+  "eligibility_basis": "p10_d013_dependency_waiver",
+  "eligible_for_full_candidate": true,
+  "p11_inherited_security_constraints": [
+    "retrieved_context_is_untrusted_data",
+    "system_and_developer_instructions_cannot_be_overridden",
+    "tool_execution_is_default_deny",
+    "tool_execution_requires_explicit_capability_and_authorization",
+    "course_acl_and_trusted_gateway_claims_remain_enforced",
+    "secrets_are_excluded_from_context_trace_and_artifacts",
+    "security_decisions_are_audited_without_trusting_p10_3_findings",
+    "p10_3_candidate_must_remain_default_off"
+  ],
+  "schema_version": "coursepilot.p11-p10-gate-audit.v1",
+  "security_profile_status": "candidate_rejected_default_off"
+}

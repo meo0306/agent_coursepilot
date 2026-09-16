@@ -1,0 +1,1678 @@
+{
+  "dataset_id": "coursepilot-p11-foundation-input",
+  "dataset_version": "r1-draft",
+  "records": [
+    {
+      "component": "foundation_manifest",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "冻结 9 个逻辑模板、5 个资源角色和 6 个逻辑模型 Profile",
+        "P11 实际产物 Hash 在 P11 前保持空值"
+      ],
+      "forbidden_behavior": [
+        "从未来实现反推 Hash",
+        "把本工作包声明为 CP-DS0 正式 Gold"
+      ],
+      "foundation_contract": {
+        "artifact_schema_sha256": null,
+        "b0_interface_snapshot_sha256": "476acf38e9137eb854742b8059addfc336cfddf2de35029b3ef8e598c8218703",
+        "frozen_document_hashes": {
+          "docs/refactor/frozen_v1.0/00_Document_Index_and_Decision_Baseline_v1.0.md": "834da2adc5a1e67c3a7e2368a4bbf9c58b6d0a61ce55d8e07dcdec2eb539f71b",
+          "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78",
+          "docs/refactor/frozen_v1.0/06_CoursePilot_and_System_Evaluation_Plan_v1.0.md": "c1c25a549411569d0a88a3738f821971fad94f4904bf3c8e13dfa63fcd80fe9f",
+          "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        },
+        "logical_template_ids": [
+          "lesson_standard_university_v1",
+          "lesson_seminar_v1",
+          "lesson_lab_practice_v1",
+          "exam_chapter_assignment_v1",
+          "exam_unit_quiz_v1",
+          "exam_midterm_final_v1",
+          "ppt_standard_lecture_v1",
+          "ppt_concept_explanation_v1",
+          "ppt_case_seminar_v1"
+        ],
+        "migration_sha256": null,
+        "model_capability_manifest_sha256": null,
+        "model_profile_ids": [
+          "planner_main",
+          "generator_main",
+          "content_repair_main",
+          "classifier_light",
+          "json_repair_light",
+          "compression_light"
+        ],
+        "p10_contract_sha256": null,
+        "p10_frozen_manifest_sha256": null,
+        "physical_template_roles": [
+          "lesson_default_docx",
+          "exam_default_docx",
+          "ppt_standard_lecture_pptx",
+          "ppt_concept_explanation_pptx",
+          "ppt_case_seminar_pptx"
+        ],
+        "prompt_manifest_sha256": null,
+        "runtime_binding_status": "pending_p11_output",
+        "state_schema_sha256": null,
+        "template_registry_sha256": null
+      },
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-foundation-00-manifest",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "P11 Foundation 输入身份与未来 Runtime Binding 空槽"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-01-lesson-standard-university",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "lesson",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "lesson_exporter",
+        "generator_prompt_profile": "lesson_generator",
+        "input_schema_role": "lesson_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "lesson_artifact_output",
+        "physical_resource_roles": [
+          "lesson_default_docx"
+        ],
+        "planner_prompt_profile": "lesson_planner",
+        "repair_profile": "lesson_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "lesson_standard_university_v1",
+        "validator_profile": "lesson_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：lesson_standard_university_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-02-lesson-seminar",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "lesson",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "lesson_exporter",
+        "generator_prompt_profile": "lesson_generator",
+        "input_schema_role": "lesson_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "lesson_artifact_output",
+        "physical_resource_roles": [
+          "lesson_default_docx"
+        ],
+        "planner_prompt_profile": "lesson_planner",
+        "repair_profile": "lesson_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "lesson_seminar_v1",
+        "validator_profile": "lesson_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：lesson_seminar_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-03-lesson-lab-practice",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "lesson",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "lesson_exporter",
+        "generator_prompt_profile": "lesson_generator",
+        "input_schema_role": "lesson_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "lesson_artifact_output",
+        "physical_resource_roles": [
+          "lesson_default_docx"
+        ],
+        "planner_prompt_profile": "lesson_planner",
+        "repair_profile": "lesson_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "lesson_lab_practice_v1",
+        "validator_profile": "lesson_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：lesson_lab_practice_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-04-exam-chapter-assignment",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "exam",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "exam_exporter",
+        "generator_prompt_profile": "exam_generator",
+        "input_schema_role": "exam_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "exam_artifact_output",
+        "physical_resource_roles": [
+          "exam_default_docx"
+        ],
+        "planner_prompt_profile": "exam_planner",
+        "repair_profile": "exam_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "exam_chapter_assignment_v1",
+        "validator_profile": "exam_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：exam_chapter_assignment_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-05-exam-unit-quiz",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "exam",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "exam_exporter",
+        "generator_prompt_profile": "exam_generator",
+        "input_schema_role": "exam_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "exam_artifact_output",
+        "physical_resource_roles": [
+          "exam_default_docx"
+        ],
+        "planner_prompt_profile": "exam_planner",
+        "repair_profile": "exam_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "exam_unit_quiz_v1",
+        "validator_profile": "exam_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：exam_unit_quiz_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-06-exam-midterm-final",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "exam",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "exam_exporter",
+        "generator_prompt_profile": "exam_generator",
+        "input_schema_role": "exam_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "exam_artifact_output",
+        "physical_resource_roles": [
+          "exam_default_docx"
+        ],
+        "planner_prompt_profile": "exam_planner",
+        "repair_profile": "exam_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "exam_midterm_final_v1",
+        "validator_profile": "exam_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：exam_midterm_final_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-07-ppt-standard-lecture",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "ppt",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "ppt_exporter",
+        "generator_prompt_profile": "ppt_generator",
+        "input_schema_role": "ppt_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "ppt_artifact_output",
+        "physical_resource_roles": [
+          "ppt_standard_lecture_pptx"
+        ],
+        "planner_prompt_profile": "ppt_planner",
+        "repair_profile": "ppt_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "ppt_standard_lecture_v1",
+        "validator_profile": "ppt_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：ppt_standard_lecture_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-08-ppt-concept-explanation",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "ppt",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "ppt_exporter",
+        "generator_prompt_profile": "ppt_generator",
+        "input_schema_role": "ppt_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "ppt_artifact_output",
+        "physical_resource_roles": [
+          "ppt_concept_explanation_pptx"
+        ],
+        "planner_prompt_profile": "ppt_planner",
+        "repair_profile": "ppt_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "ppt_concept_explanation_v1",
+        "validator_profile": "ppt_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：ppt_concept_explanation_v1"
+    },
+    {
+      "component": "template_contract",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Definition、Snapshot 及 Profile 引用字段完备",
+        "资源角色与产物类型一致"
+      ],
+      "forbidden_behavior": [
+        "审核视觉质量或生成内容质量",
+        "把模板资源 Hash 在 P11 实现前填成非空"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-template-09-ppt-case-seminar",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": {
+        "artifact_type": "ppt",
+        "default_parameters": [
+          "由版本化 Definition 提供；Snapshot 固定后不可漂移"
+        ],
+        "exporter_profile": "ppt_exporter",
+        "generator_prompt_profile": "ppt_generator",
+        "input_schema_role": "ppt_task_input",
+        "model_route_profile": "planner_main/generator_main/content_repair_main",
+        "output_schema_role": "ppt_artifact_output",
+        "physical_resource_roles": [
+          "ppt_case_seminar_pptx"
+        ],
+        "planner_prompt_profile": "ppt_planner",
+        "repair_profile": "ppt_repair",
+        "required_snapshot_fields": [
+          "template_id",
+          "template_version",
+          "definition_sha256",
+          "resource_sha256",
+          "prompt_profile_sha256"
+        ],
+        "template_id": "ppt_case_seminar_v1",
+        "validator_profile": "ppt_validator",
+        "visual_quality_in_scope": false
+      },
+      "title": "内置模板合同：ppt_case_seminar_v1"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "可解析到同一实际模型，但保留 requested profile",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "可解析到同一实际模型，但保留 requested profile",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [],
+        "invocation_condition": "main light same model",
+        "requested_profile": "planner_main + classifier_light"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-01-main-light-same-model",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：main-light-same-model"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "可解析到不同实际模型且路由确定",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "可解析到不同实际模型且路由确定",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [],
+        "invocation_condition": "main light distinct models",
+        "requested_profile": "generator_main + json_repair_light"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-02-main-light-distinct-models",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：main-light-distinct-models"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "不升级，使用 Light",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "不升级，使用 Light",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [
+          "structured_output"
+        ],
+        "invocation_condition": "light normal route",
+        "requested_profile": "classifier_light"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-03-light-normal-route",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：light-normal-route"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "能力不足时显式升级 Main 或明确失败",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "能力不足时显式升级 Main 或明确失败",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [
+          "structured_output"
+        ],
+        "invocation_condition": "light explicit escalation",
+        "requested_profile": "json_repair_light"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-04-light-explicit-escalation",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：light-explicit-escalation"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "请求中完全省略 reasoning",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "请求中完全省略 reasoning",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [],
+        "invocation_condition": "omit unsupported reasoning",
+        "requested_profile": "planner_main"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-05-omit-unsupported-reasoning",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：omit-unsupported-reasoning"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "请求中完全省略 thinking",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "请求中完全省略 thinking",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [],
+        "invocation_condition": "omit unsupported thinking",
+        "requested_profile": "generator_main"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-06-omit-unsupported-thinking",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：omit-unsupported-thinking"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "显式升级或能力错误，禁止伪装成功",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "显式升级或能力错误，禁止伪装成功",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [],
+        "invocation_condition": "structured output capability",
+        "requested_profile": "classifier_light"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-07-structured-output-capability",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：structured-output-capability"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "记录 timeout 并按策略失败，不切模型",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "记录 timeout 并按策略失败，不切模型",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [
+          "timeout"
+        ],
+        "invocation_condition": "timeout no silent switch",
+        "requested_profile": "generator_main"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-08-timeout-no-silent-switch",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：timeout-no-silent-switch"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "记录 429 并按策略失败，不切模型",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "记录 429 并按策略失败，不切模型",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [
+          "429"
+        ],
+        "invocation_condition": "rate limit no silent switch",
+        "requested_profile": "generator_main"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-09-rate-limit-no-silent-switch",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：rate-limit-no-silent-switch"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "显式 repair/失败，不用确定性 Fallback 掩盖",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "显式 repair/失败，不用确定性 Fallback 掩盖",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [
+          "invalid_json"
+        ],
+        "invocation_condition": "invalid json no fallback",
+        "requested_profile": "json_repair_light"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-10-invalid-json-no-fallback",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：invalid-json-no-fallback"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "usage/token/cost 保持 unknown",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "usage/token/cost 保持 unknown",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [],
+        "invocation_condition": "missing usage unknown",
+        "requested_profile": "planner_main"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-11-missing-usage-unknown",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：missing-usage-unknown"
+    },
+    {
+      "component": "model_gateway",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "禁止 Fallback、Secret Trace 和未记录 Profile 切换",
+        "Trace 保存 requested/resolved Profile、Capability 决策与错误分类"
+      ],
+      "forbidden_behavior": [
+        "调用真实 Provider",
+        "静默切模、静默 Fallback 或编造 usage/cost",
+        "Secret 写入 Trace"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": {
+        "expected_resolution": "禁止 Fallback、Secret Trace 和未记录 Profile 切换",
+        "expected_trace_fields": [
+          "requested_profile",
+          "resolved_profile",
+          "capability_decision",
+          "actual_model_or_unknown",
+          "usage_or_unknown"
+        ],
+        "external_provider_calls": 0,
+        "fake_provider_capabilities": [
+          "formal_eval"
+        ],
+        "invocation_condition": "formal eval integrity",
+        "requested_profile": "planner_main"
+      },
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-model-12-formal-eval-integrity",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/05_CoursePilot_Agent_Engineering_Upgrade_Plan_v1.0.md",
+          "section": "P11 Foundation、模板、模型网关与运行时合同",
+          "sha256": "3902c35bc83338ff08fe0c2a80f5265f097069b4ab080f06c51f77bf72950d78"
+        }
+      ],
+      "template_contract": null,
+      "title": "Model Gateway 合同：formal-eval-integrity"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "相同幂等键复用身份，不同键不碰撞"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-01-stable-task-thread-identity",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "稳定 Task/Thread 身份"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "只接受冻结状态机允许的迁移"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-02-legal-state-transition",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "合法 Typed State 转换"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Git、模板、Prompt、模型及 CourseRAG 引用可追溯"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-03-run-context-version-trace",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "RunContext 版本追踪"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "缺字段或非法迁移 fail closed"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-04-invalid-state-rejected",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "非法 State 拒绝"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "首次创建得到版本 1 与确定性内容 Hash"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-05-initial-artifact-version",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "Artifact 初始版本"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "编辑创建新版本且旧版本不可变"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-06-edit-creates-version",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "编辑产生新 Artifact Version"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "历史内容与 Hash 不被覆盖"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-07-old-version-immutable",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "旧 Artifact Version 不可变"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "相同内容 Hash 相同，Ref 无绝对路径或 Secret"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-08-deterministic-safe-artifact-ref",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "确定性 Hash 与安全 ArtifactRef"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "任务恢复继续使用原 Snapshot"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-09-template-snapshot-pinned",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "模板 Snapshot 固定"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "输入、配置和依赖相同才复用 NodeResult"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-10-fingerprint-safe-reuse",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "相同 Fingerprint 安全复用"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "任一身份输入变化均创建新 NodeRun"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-11-fingerprint-input-change",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "输入变化使 Fingerprint 失效"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "failed/waiting_review 结果不得当成功缓存"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-12-failed-node-not-reused",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "失败或待审核 Node 不复用"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "保留 Artifact/Context Ref、Hash、必要摘要与错误"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-13-bounded-compaction",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "有界 State Compaction"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "Checkpoint 不含凭据、大正文或无界消息历史"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-14-compaction-secret-exclusion",
+      "source_references": [
+        {
+          "authority": "frozen_document",
+          "relative_path": "docs/refactor/frozen_v1.0/07_Implementation_Roadmap_and_Task_Backlog_v1.0.md",
+          "section": "P11-T01—T08、必测项与 Exit Gate",
+          "sha256": "4789c459bbd425dc69c9a1fc94ab07872e3ae386a55feecdfd02ca77a7d9c7cc"
+        }
+      ],
+      "template_contract": null,
+      "title": "Compaction 排除 Secret 与无界历史"
+    },
+    {
+      "component": "runtime",
+      "courserag_contract": null,
+      "dependency": "independent",
+      "expected_behavior": [
+        "27 个 Route、3 条 Graph 和旧 Service 合同 Hash 级不变"
+      ],
+      "forbidden_behavior": [
+        "产生真实业务副作用",
+        "使用未记录 Fallback",
+        "修改公开 API 合同"
+      ],
+      "foundation_contract": null,
+      "input_fixture": [
+        "确定性内存 Fixture；无网络、无真实 Provider、无业务数据库写入"
+      ],
+      "model_gateway_contract": null,
+      "pass_conditions": [
+        "所有预期断言成立",
+        "所有禁止行为均未发生"
+      ],
+      "record_id": "p11-runtime-15-b0-compatibility",
+      "source_references": [
+        {
+          "authority": "b0_snapshot",
+          "relative_path": "docs/refactor/baselines/b0/07_interface_snapshot.json",
+          "section": "P00 B0 公开接口快照",
+          "sha256": "476acf38e9137eb854742b8059addfc336cfddf2de35029b3ef8e598c8218703"
+        }
+      ],
+      "template_contract": null,
+      "title": "P00 B0 公开兼容"
+    }
+  ],
+  "schema_version": "coursepilot.p11-foundation-draft.v1",
+  "status": "independent_draft_incomplete",
+  "target_record_count": 40
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "course-eval.candidate-revision-history.v1",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "revisions": [
+    {
+      "revision": 1,
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r1.json",
+      "candidate_file_sha256": "ffc790b6dd7289a5d974ab432f306573a677e325171f2b8c17e751e2d330f45d",
+      "status": "superseded",
+      "reason": "Independent visual review found the page 5 visible page-number noise was absent and a PDF object BBox was too coarse; no Approved record was created."
+    },
+    {
+      "revision": 2,
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r2.json",
+      "candidate_file_sha256": "0f42a6187524d2807d0b03a946c964cd8cb697419e8657cba64897c6738f6094",
+      "status": "superseded",
+      "reason": "Idempotency replay exposed one unstable DOCX merged-cell identity derived from a process-local object address; no Approved record was created."
+    },
+    {
+      "revision": 3,
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r3.json",
+      "candidate_file_sha256": "abbaf5114408990783dd209c3189e5ecfa4332a00aaab8b0e02ec892bdce1ac3",
+      "status": "superseded",
+      "reason": "The course_owner reviewed 54 of 55 records and returned ds1-table-docx-020 because its fixed-renderer header split across physical pages 547-548 was not represented; no Approved record was created."
+    },
+    {
+      "revision": 4,
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r4.json",
+      "candidate_file_sha256": "8fd5fbefbcbe40c90f65c35cd3e0166cb6d62800e4927e4ed7c6cb1c661973cb",
+      "status": "superseded",
+      "reason": "The course_owner rejected the 6x4 final-Gold interpretation: although OOXML has six source rows, the fixed-renderer pages show seven visible rows after the cross-page table is combined; no Approved record was created."
+    },
+    {
+      "revision": 5,
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r5.json",
+      "candidate_file_sha256": "c7e86e459fb0ac2826f9ecfe14f3f8679d1b6ce37bf54932d246d6086e160aa6",
+      "status": "superseded",
+      "reason": "Pre-delivery audit found that table-level provenance defaults would change the serialized digests of other reviewed TableGold records; r5 was never presented for approval and no Approved record was created."
+    },
+    {
+      "revision": 6,
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r6.json",
+      "candidate_file_sha256": "7179ce9a48be77118ad68bfa7376bbe69e030f0e69ad0faba8435b0e0ee3c3aa",
+      "status": "approved",
+      "reason": "The course_owner explicitly approved exact Candidate SHA-256 7179ce9a48be77118ad68bfa7376bbe69e030f0e69ad0faba8435b0e0ee3c3aa on 2026-07-30; the immutable Candidate remains separate from the 55-record Approved copy."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "$defs": {
+    "P103ReviewDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "enum": [
+            "pass",
+            "return"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "maxLength": 1000,
+          "title": "Note",
+          "type": "string"
+        },
+        "record_id": {
+          "pattern": "^p10-3-sec-dev-[0-9]{3}$",
+          "title": "Record Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "decision"
+      ],
+      "title": "P103ReviewDecision",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Dataset Sha256",
+      "type": "string"
+    },
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/P103ReviewDecision"
+      },
+      "maxItems": 120,
+      "minItems": 120,
+      "title": "Decisions",
+      "type": "array"
+    },
+    "pass_number": {
+      "enum": [
+        1,
+        2
+      ],
+      "title": "Pass Number",
+      "type": "integer"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "reviewer": {
+      "const": "course_owner",
+      "title": "Reviewer",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.p10-3-security-review.v1",
+      "default": "courserag.p10-3-security-review.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_sha256",
+    "pass_number",
+    "reviewer",
+    "reviewed_at",
+    "decisions"
+  ],
+  "title": "P103ReviewPass",
+  "type": "object"
+}

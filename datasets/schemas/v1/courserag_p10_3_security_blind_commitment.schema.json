@@ -1,0 +1,111 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approved_manifest_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approved Manifest Sha256"
+    },
+    "bundle_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bundle Sha256"
+    },
+    "case_count": {
+      "const": 48,
+      "default": 48,
+      "title": "Case Count",
+      "type": "integer"
+    },
+    "content_visible_to_implementation": {
+      "const": false,
+      "default": false,
+      "title": "Content Visible To Implementation",
+      "type": "boolean"
+    },
+    "dataset_id": {
+      "const": "courserag-p10-3-security",
+      "default": "courserag-p10-3-security",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "const": "blind-test-r1",
+      "default": "blind-test-r1",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "hard_negative_count": {
+      "const": 24,
+      "default": 24,
+      "title": "Hard Negative Count",
+      "type": "integer"
+    },
+    "locked_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Locked At"
+    },
+    "locked_by": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Locked By"
+    },
+    "positive_count": {
+      "const": 24,
+      "default": 24,
+      "title": "Positive Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "courserag.p10-3-security-blind-commitment.v1",
+      "default": "courserag.p10-3-security-blind-commitment.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "default": "awaiting_independent_construction",
+      "enum": [
+        "awaiting_independent_construction",
+        "hash_committed",
+        "locked",
+        "consumed"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "title": "P103BlindCommitment",
+  "type": "object"
+}

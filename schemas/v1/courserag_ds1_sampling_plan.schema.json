@@ -1,0 +1,120 @@
+{
+  "$defs": {
+    "DS1SampleSelection": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_page_numbers": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Document Page Numbers",
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        },
+        "sample_kind": {
+          "enum": [
+            "native_pdf_page",
+            "docx_structure_anchor",
+            "ocr_page"
+          ],
+          "title": "Sample Kind",
+          "type": "string"
+        },
+        "section_anchors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Anchors",
+          "type": "array"
+        },
+        "selection_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Selection Id",
+          "type": "string"
+        },
+        "source_page_numbers": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Source Page Numbers",
+          "type": "array"
+        },
+        "status": {
+          "const": "candidate",
+          "default": "candidate",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selection_id",
+        "document_id",
+        "sample_kind"
+      ],
+      "title": "DS1SampleSelection",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Blockers",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "review_status": {
+      "const": "candidate",
+      "default": "candidate",
+      "title": "Review Status",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds1-sampling-plan.v1",
+      "default": "courserag.ds1-sampling-plan.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "selections": {
+      "items": {
+        "$ref": "#/$defs/DS1SampleSelection"
+      },
+      "minItems": 1,
+      "title": "Selections",
+      "type": "array"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "selections"
+  ],
+  "title": "DS1SamplingPlan",
+  "type": "object"
+}

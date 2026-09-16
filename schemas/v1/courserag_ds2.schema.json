@@ -1,0 +1,732 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "EvidenceBBox": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Bbox",
+          "type": "array"
+        },
+        "coordinate_space": {
+          "anyOf": [
+            {
+              "enum": [
+                "pdf_points_top_left",
+                "rendered_pdf_points_top_left"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Coordinate Space"
+        },
+        "page_height": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Height"
+        },
+        "page_number": {
+          "minimum": 1,
+          "title": "Page Number",
+          "type": "integer"
+        },
+        "page_width": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Width"
+        },
+        "rendered_pdf_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rendered Pdf Sha256"
+        },
+        "source_region_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Region Id"
+        }
+      },
+      "required": [
+        "page_number",
+        "bbox"
+      ],
+      "title": "EvidenceBBox",
+      "type": "object"
+    },
+    "EvidenceNeighbor": {
+      "additionalProperties": false,
+      "properties": {
+        "relation": {
+          "enum": [
+            "parent_heading",
+            "previous",
+            "next"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "text": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relation",
+        "source_span",
+        "text",
+        "text_sha256"
+      ],
+      "title": "EvidenceNeighbor",
+      "type": "object"
+    },
+    "EvidenceOCRProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_ocr_record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Approved Ocr Record Id",
+          "type": "string"
+        },
+        "approved_ocr_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Ocr Record Sha256",
+          "type": "string"
+        },
+        "ocr_input_document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Ocr Input Document Id",
+          "type": "string"
+        },
+        "ocr_input_document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Ocr Input Document Sha256",
+          "type": "string"
+        },
+        "ocr_input_document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Ocr Input Document Version",
+          "type": "string"
+        },
+        "ocr_input_page_number": {
+          "minimum": 1,
+          "title": "Ocr Input Page Number",
+          "type": "integer"
+        },
+        "source_page_number": {
+          "minimum": 1,
+          "title": "Source Page Number",
+          "type": "integer"
+        },
+        "source_region_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Region Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "approved_ocr_record_id",
+        "approved_ocr_record_sha256",
+        "ocr_input_document_id",
+        "ocr_input_document_version",
+        "ocr_input_document_sha256",
+        "ocr_input_page_number",
+        "source_page_number",
+        "source_region_ids"
+      ],
+      "title": "EvidenceOCRProvenance",
+      "type": "object"
+    },
+    "EvidenceRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "annotation_profile": {
+          "default": "legacy_v1",
+          "enum": [
+            "legacy_v1",
+            "formal_ds2_v1"
+          ],
+          "title": "Annotation Profile",
+          "type": "string"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "bboxes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceBBox"
+          },
+          "title": "Bboxes",
+          "type": "array"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "course_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Course Id"
+        },
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "gold_text": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Gold Text",
+          "type": "string"
+        },
+        "necessary_neighbor_text": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Necessary Neighbor Text",
+          "type": "array"
+        },
+        "necessary_neighbors": {
+          "items": {
+            "$ref": "#/$defs/EvidenceNeighbor"
+          },
+          "title": "Necessary Neighbors",
+          "type": "array"
+        },
+        "normalized_content_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Content Sha256"
+        },
+        "ocr_confidence": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ocr Confidence"
+        },
+        "ocr_provenance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EvidenceOCRProvenance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "other_type_review_reason": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Other Type Review Reason"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "requires_parent": {
+          "default": false,
+          "title": "Requires Parent",
+          "type": "boolean"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "semantic_unit_type": {
+          "enum": [
+            "definition",
+            "principle",
+            "procedure",
+            "list",
+            "table",
+            "example",
+            "comparison",
+            "formula",
+            "application",
+            "other"
+          ],
+          "title": "Semantic Unit Type",
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "source_type": {
+          "enum": [
+            "native_text",
+            "ocr",
+            "ocr_derived",
+            "verified_content",
+            "synthetic"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        },
+        "source_units": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSourceUnit"
+          },
+          "title": "Source Units",
+          "type": "array"
+        },
+        "text_assembly": {
+          "anyOf": [
+            {
+              "enum": [
+                "single_source_unit",
+                "ordered_source_units_newline",
+                "table_tsv",
+                "ocr_regions_newline",
+                "rendered_formula_linearization"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text Assembly"
+        },
+        "upstream_record_refs": {
+          "items": {
+            "$ref": "#/$defs/UpstreamApprovedRecordRef"
+          },
+          "title": "Upstream Record Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "evidence_id",
+        "source_span",
+        "source_type",
+        "gold_text",
+        "content_sha256",
+        "semantic_unit_type"
+      ],
+      "title": "EvidenceRecord",
+      "type": "object"
+    },
+    "EvidenceSourceUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "char_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char End"
+        },
+        "char_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char Start"
+        },
+        "source_unit_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Source Unit Id",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_unit_id",
+        "text_sha256"
+      ],
+      "title": "EvidenceSourceUnit",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "block_end": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block End"
+        },
+        "block_start": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Start"
+        },
+        "char_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char End"
+        },
+        "char_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char Start"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "document_sha256"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    },
+    "UpstreamApprovedRecordRef": {
+      "additionalProperties": false,
+      "properties": {
+        "dataset_component": {
+          "enum": [
+            "ds1_p04_native_docx",
+            "ds1_p05_ocr"
+          ],
+          "title": "Dataset Component",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "record_type": {
+          "enum": [
+            "page",
+            "section",
+            "table",
+            "ocr"
+          ],
+          "title": "Record Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataset_component",
+        "record_type",
+        "record_id",
+        "record_sha256"
+      ],
+      "title": "UpstreamApprovedRecordRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceRecord"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "courserag.ds2.v1",
+      "default": "courserag.ds2.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "DS2EvidenceDataset",
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "courserag.ds1-review-decisions.v1",
+  "candidate_file_sha256": "2e48d78b1f48e9357bd32c02d7aa75b907318db2d71a5423a1da8cb348068865",
+  "reviewed_record_ids": [
+    "ds1-ocr-02",
+    "ds1-ocr-03",
+    "ds1-ocr-04",
+    "ds1-ocr-05",
+    "ds1-ocr-06",
+    "ds1-ocr-08",
+    "ds1-ocr-09",
+    "ds1-ocr-10",
+    "ds1-ocr-11",
+    "ds1-ocr-13",
+    "ds1-ocr-14"
+  ],
+  "returned_record_ids": [
+    "ds1-ocr-01",
+    "ds1-ocr-07",
+    "ds1-ocr-12",
+    "ds1-ocr-15"
+  ],
+  "record_count": 15,
+  "notes": "Course Owner returned r1 because QR-related text, embedded-image text, and ambiguous figure/text ordering entered the body projection. The approved r2 policy preserves every raw region but excludes headers, footers, page numbers, QR-related regions, figures, embedded-image text, and figure captions from body CER. This review decision records the explicit feedback; it does not approve Gold."
+}

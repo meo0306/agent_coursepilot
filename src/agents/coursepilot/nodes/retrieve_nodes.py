@@ -1,7 +1,9 @@
 from collections.abc import Mapping
 from typing import Any
 
-from coursepilot.rag.retriever import CoursePilotRetriever
+from coursepilot.adapters.courserag_mapping import search_hit_to_legacy_result
+from coursepilot.services.courserag_runtime import get_courserag_service
+from courserag.contracts import RetrievalOptions, SearchRequest
 
 LESSON_CONTEXT_ERROR = (
     "No course knowledge base context found. "
@@ -29,7 +31,18 @@ def retrieve_course_context(state: Any) -> dict[str, Any]:
         return {"retrieved_contexts": []}
     # 如果state无已检索到的上下文且有 course_id，则根据 state 中的参数构造查询，调用 CoursePilotRetriever 检索上下文
     query, top_k = _query_from_state(state)
-    results = CoursePilotRetriever().search(course_id=course_id, query=query, top_k=top_k)
+    response = get_courserag_service().search(
+        SearchRequest(
+            course_id=str(course_id),
+            query=query,
+            retrieval=RetrievalOptions(
+                candidate_k=top_k,
+                rerank_top_n=top_k,
+                return_top_n=top_k,
+            ),
+        )
+    )
+    results = [search_hit_to_legacy_result(hit, course_id=str(course_id)) for hit in response.hits]
     if not results and required_context_error:
         raise ValueError(required_context_error)
     return {"retrieved_contexts": [result.model_dump(mode="json") for result in results]}

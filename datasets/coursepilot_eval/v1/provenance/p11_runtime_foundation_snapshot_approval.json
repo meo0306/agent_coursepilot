@@ -1,0 +1,15 @@
+{
+  "approval_scope": "p11_runtime_foundation_snapshot",
+  "approved_at": "2026-08-13T04:58:31.363Z",
+  "approved_snapshot": {
+    "media_type": "application/json",
+    "path": "datasets/coursepilot_eval/v1/candidates/work_packages/p11_runtime_foundation_snapshot_r1.json",
+    "sha256": "2d9b902a9dfa67a749e561b7c82ced0f82beebebcb324516306493c91aa87837",
+    "size_bytes": 2035
+  },
+  "approval_id": "p11-runtime-foundation-snapshot-approval-2d9b902a9dfa",
+  "p11_exit_gate": "passed",
+  "p12_start_prerequisite": "satisfied",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p11-runtime-foundation-approval.v1"
+}

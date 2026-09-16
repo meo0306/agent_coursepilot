@@ -1,0 +1,19 @@
+{
+  "schema_version": "courserag.p10-1-blind-bundle-approval.v1",
+  "status": "owner_approved_and_authorized_once",
+  "approved_at": "2026-08-11T14:13:59.4526726Z",
+  "approved_by": "course_owner",
+  "approval_source": "explicit_conversation_attestation",
+  "bundle_path": "storage_eval/p10_1_blind_inbox/p10_1_blind_test_r1.json",
+  "bundle_sha256": "7394dfd462993c54e0b262d63c276e097c83eb2f32c99574472c81fdac0a62ee",
+  "first_review_sha256": "a44d36b5b3767081460d3191f6b8a82ba07b2014433b34cfbf68bbe07f2a1998",
+  "second_review_sha256": "f7cb11aa5d51093491b17b783cc2897575e2751c25d95cdcc6243929d727f4fb",
+  "approved_profile_freeze_candidate_sha256": "ffe8f58220cf3b1b821d25e25a681a34cef039d8cf20d8ab87c929c5cb71401e",
+  "authorization_scope": [
+    "lock_exact_blind_bundle",
+    "execute_blind_security_gate_once"
+  ],
+  "post_result_tuning_authorized": false,
+  "repeat_execution_authorized": false,
+  "external_provider_calls_authorized": false
+}

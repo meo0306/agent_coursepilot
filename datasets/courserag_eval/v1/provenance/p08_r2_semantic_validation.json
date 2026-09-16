@@ -1,0 +1,17 @@
+{
+  "bundle_revision": 2,
+  "checks": {
+    "ds4_cross_course_kp_links": 0,
+    "ds4_forbidden_linked_name_or_alias": 0,
+    "ds4_records": 60,
+    "ds5_answerable_records": 90,
+    "ds5_cross_course_judgments": 0,
+    "ds5_hard_negative_required_package_collisions": 0,
+    "ds5_judgments": 515,
+    "ds5_query_kp_required_evidence_mismatches": 0,
+    "ds5_records": 100,
+    "ds5_unverified_one_point_judgments": 0
+  },
+  "note": "These deterministic checks remove known systemic defects; the Course Owner must still judge semantic relevance for every displayed source excerpt.",
+  "schema_version": "courserag.p08-r2-semantic-validation.v1"
+}

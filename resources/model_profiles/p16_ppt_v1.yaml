@@ -1,0 +1,8 @@
+profiles:
+  architecture: planner_main
+  slide_content: generator_main
+  repair: content_repair_main
+limits:
+  max_concurrency: 3
+  max_slide_repairs: 6
+  evaluation_fallback: false

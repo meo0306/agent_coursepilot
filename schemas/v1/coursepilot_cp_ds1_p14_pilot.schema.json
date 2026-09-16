@@ -1,0 +1,399 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P14KnowledgePointFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_name": {
+          "minLength": 1,
+          "title": "Canonical Name",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "gold_kp_id": {
+          "minLength": 1,
+          "title": "Gold Kp Id",
+          "type": "string"
+        },
+        "importance": {
+          "enum": [
+            "core",
+            "supporting"
+          ],
+          "title": "Importance",
+          "type": "string"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        },
+        "section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Section Ids",
+          "type": "array"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gold_kp_id",
+        "record_sha256",
+        "course_id",
+        "canonical_name",
+        "summary",
+        "importance",
+        "section_ids",
+        "evidence_ids"
+      ],
+      "title": "P14KnowledgePointFixture",
+      "type": "object"
+    },
+    "P14LessonTaskCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "audience": {
+          "minLength": 1,
+          "title": "Audience",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "case_role": {
+          "const": "gold_pilot",
+          "default": "gold_pilot",
+          "title": "Case Role",
+          "type": "string"
+        },
+        "chapter_range": {
+          "minLength": 1,
+          "title": "Chapter Range",
+          "type": "string"
+        },
+        "context_fixture_id": {
+          "minLength": 1,
+          "title": "Context Fixture Id",
+          "type": "string"
+        },
+        "course_id": {
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "forbidden_claims": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "knowledge_point_snapshot": {
+          "items": {
+            "$ref": "#/$defs/P14KnowledgePointFixture"
+          },
+          "minItems": 1,
+          "title": "Knowledge Point Snapshot",
+          "type": "array"
+        },
+        "optional_knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional Knowledge Point Ids",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "required_activity_types": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Activity Types",
+          "type": "array"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        },
+        "required_interrupts": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "title": "Required Interrupts",
+          "type": "array"
+        },
+        "required_knowledge_point_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Knowledge Point Ids",
+          "type": "array"
+        },
+        "review_scenario": {
+          "$ref": "#/$defs/P14ReviewScenario"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "rubric_version": {
+          "const": "coursepilot.lesson-rubric.v1",
+          "default": "coursepilot.lesson-rubric.v1",
+          "title": "Rubric Version",
+          "type": "string"
+        },
+        "session_duration": {
+          "maximum": 240,
+          "minimum": 15,
+          "title": "Session Duration",
+          "type": "integer"
+        },
+        "source_provenance": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Provenance",
+          "type": "array"
+        },
+        "teaching_focus": {
+          "minLength": 1,
+          "title": "Teaching Focus",
+          "type": "string"
+        },
+        "template_id": {
+          "enum": [
+            "lesson_standard_university_v1",
+            "lesson_seminar_v1",
+            "lesson_lab_practice_v1"
+          ],
+          "title": "Template Id",
+          "type": "string"
+        },
+        "total_sessions": {
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Total Sessions",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "record_id",
+        "course_id",
+        "template_id",
+        "chapter_range",
+        "teaching_focus",
+        "total_sessions",
+        "session_duration",
+        "audience",
+        "required_knowledge_point_ids",
+        "required_evidence_ids",
+        "required_activity_types",
+        "required_interrupts",
+        "context_fixture_id",
+        "knowledge_point_snapshot",
+        "review_scenario",
+        "source_provenance"
+      ],
+      "title": "P14LessonTaskCase",
+      "type": "object"
+    },
+    "P14ReviewScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "field_edits": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Field Edits",
+          "type": "object"
+        },
+        "final_export_approved": {
+          "default": true,
+          "title": "Final Export Approved",
+          "type": "boolean"
+        },
+        "plan_action": {
+          "enum": [
+            "approve",
+            "edit",
+            "replan"
+          ],
+          "title": "Plan Action",
+          "type": "string"
+        },
+        "replan_instruction": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Replan Instruction"
+        },
+        "writeback_scope": {
+          "default": "none",
+          "enum": [
+            "none",
+            "verified_lesson_fragment"
+          ],
+          "title": "Writeback Scope",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_action"
+      ],
+      "title": "P14ReviewScenario",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds1_p14_pilot_input_only",
+      "default": "cp_ds1_p14_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P14LessonTaskCase"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "const": "p14-pilot-r1",
+      "default": "p14-pilot-r1",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds1-p14-pilot.v1",
+      "default": "coursepilot.cp-ds1-p14-pilot.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "CPDS1P14PilotDataset",
+  "type": "object"
+}

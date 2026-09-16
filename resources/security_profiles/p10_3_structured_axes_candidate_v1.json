@@ -1,0 +1,9 @@
+{
+  "schema_version": "courserag.structured-capability-axes.v1",
+  "name": "p10_3_structured_axes_candidate_v1",
+  "version": "1.0.0",
+  "axes": ["role_impersonation", "secret_extraction", "tool_coercion"],
+  "context_guard": ["quoted_discussion", "policy_description", "technical_documentation", "explicit_negation"],
+  "obfuscation_is_modifier_only": true,
+  "decision_contract": "action_and_target_and_effect_without_context_guard"
+}

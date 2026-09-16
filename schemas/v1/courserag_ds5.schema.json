@@ -1,0 +1,791 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "ClaimEvidenceSupport": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Evidence Record Sha256",
+          "type": "string"
+        },
+        "exact_support_excerpt": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Exact Support Excerpt",
+          "type": "string"
+        },
+        "exact_support_excerpt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Exact Support Excerpt Sha256",
+          "type": "string"
+        },
+        "necessary_neighbor_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Necessary Neighbor Id"
+        },
+        "support_role": {
+          "enum": [
+            "primary",
+            "supporting"
+          ],
+          "title": "Support Role",
+          "type": "string"
+        },
+        "support_source": {
+          "default": "evidence_text",
+          "enum": [
+            "evidence_text",
+            "necessary_neighbor"
+          ],
+          "title": "Support Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "evidence_record_sha256",
+        "support_role",
+        "exact_support_excerpt",
+        "exact_support_excerpt_sha256"
+      ],
+      "title": "ClaimEvidenceSupport",
+      "type": "object"
+    },
+    "EvidenceGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "group_id": {
+          "title": "Group Id",
+          "type": "string"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        },
+        "sufficiency": {
+          "enum": [
+            "complete",
+            "partial"
+          ],
+          "title": "Sufficiency",
+          "type": "string"
+        }
+      },
+      "required": [
+        "group_id",
+        "sufficiency",
+        "required_evidence_ids"
+      ],
+      "title": "EvidenceGroup",
+      "type": "object"
+    },
+    "GoldClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "annotation_rationale": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation Rationale"
+        },
+        "claim_id": {
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "claim_text": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Claim Text",
+          "type": "string"
+        },
+        "claim_text_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Claim Text Sha256"
+        },
+        "evidence_supports": {
+          "items": {
+            "$ref": "#/$defs/ClaimEvidenceSupport"
+          },
+          "title": "Evidence Supports",
+          "type": "array"
+        },
+        "importance": {
+          "default": "required",
+          "enum": [
+            "required",
+            "optional"
+          ],
+          "title": "Importance",
+          "type": "string"
+        },
+        "normalized_claim_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Claim Sha256"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Required Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_text",
+        "required_evidence_ids"
+      ],
+      "title": "GoldClaim",
+      "type": "object"
+    },
+    "RetrievalEvidenceJudgment": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Evidence Record Sha256",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "relevance": {
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "title": "Relevance",
+          "type": "integer"
+        },
+        "role": {
+          "enum": [
+            "required",
+            "helpful",
+            "hard_negative"
+          ],
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "relevance",
+        "role",
+        "evidence_record_sha256",
+        "rationale"
+      ],
+      "title": "RetrievalEvidenceJudgment",
+      "type": "object"
+    },
+    "RetrievalQACase": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_answer_variants": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Answer Variants",
+          "type": "array"
+        },
+        "answerable": {
+          "title": "Answerable",
+          "type": "boolean"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "approval_scope": {
+          "anyOf": [
+            {
+              "const": "ds4_query_processing_and_ds5_retrieval_only",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approval Scope"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Course Id"
+        },
+        "diagnostic_evidence_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Diagnostic Evidence Id"
+        },
+        "difficulty": {
+          "enum": [
+            "easy",
+            "medium",
+            "hard"
+          ],
+          "title": "Difficulty",
+          "type": "string"
+        },
+        "evaluation_stratum": {
+          "anyOf": [
+            {
+              "enum": [
+                "retrieval_main",
+                "upstream_gap_diagnostic"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Evaluation Stratum"
+        },
+        "evidence_judgments": {
+          "items": {
+            "$ref": "#/$defs/RetrievalEvidenceJudgment"
+          },
+          "title": "Evidence Judgments",
+          "type": "array"
+        },
+        "expected_behavior": {
+          "anyOf": [
+            {
+              "enum": [
+                "answer",
+                "no_relevant_evidence",
+                "abstained_insufficient_evidence"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Behavior"
+        },
+        "expected_knowledge_points": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected Knowledge Points",
+          "type": "array"
+        },
+        "filters": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "title": "Filters",
+          "type": "object"
+        },
+        "forbidden_claims": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "generation_strategy_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Generation Strategy Sha256"
+        },
+        "gold_answer_type": {
+          "enum": [
+            "factoid",
+            "list",
+            "explanatory",
+            "comparison",
+            "procedure",
+            "unanswerable",
+            "pending_p09"
+          ],
+          "title": "Gold Answer Type",
+          "type": "string"
+        },
+        "gold_claims": {
+          "items": {
+            "$ref": "#/$defs/GoldClaim"
+          },
+          "title": "Gold Claims",
+          "type": "array"
+        },
+        "gold_evidence_groups": {
+          "items": {
+            "$ref": "#/$defs/EvidenceGroup"
+          },
+          "title": "Gold Evidence Groups",
+          "type": "array"
+        },
+        "gold_short_answers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Gold Short Answers",
+          "type": "array"
+        },
+        "graded_relevance": {
+          "additionalProperties": {
+            "enum": [
+              0,
+              1,
+              2
+            ],
+            "type": "integer"
+          },
+          "title": "Graded Relevance",
+          "type": "object"
+        },
+        "hard_negative_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Hard Negative Evidence Ids",
+          "type": "array"
+        },
+        "p06_runtime_resolvable": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P06 Runtime Resolvable"
+        },
+        "properties": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "title": "Properties",
+          "type": "object"
+        },
+        "qa_gold_status": {
+          "anyOf": [
+            {
+              "const": "pending_p09",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Qa Gold Status"
+        },
+        "query": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "query_family_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Query Family Id"
+        },
+        "query_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Query Sha256"
+        },
+        "query_type": {
+          "enum": [
+            "exact_fact",
+            "definition",
+            "paraphrase",
+            "comparison",
+            "procedure",
+            "application",
+            "cross_section",
+            "unanswerable"
+          ],
+          "title": "Query Type",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "retrieval_gold_status": {
+          "anyOf": [
+            {
+              "enum": [
+                "candidate",
+                "approved"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieval Gold Status"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "source_package_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Package Id"
+        },
+        "split": {
+          "anyOf": [
+            {
+              "enum": [
+                "dev",
+                "test"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Split"
+        },
+        "supporting_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Supporting Evidence Ids",
+          "type": "array"
+        },
+        "unanswerable_audit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UnanswerableRetrievalAudit"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "upstream_approved_sha256": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Upstream Approved Sha256",
+          "type": "object"
+        }
+      },
+      "required": [
+        "record_id",
+        "query",
+        "query_type",
+        "answerable",
+        "difficulty",
+        "gold_answer_type"
+      ],
+      "title": "RetrievalQACase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "UnanswerableRetrievalAudit": {
+      "additionalProperties": false,
+      "properties": {
+        "audit_scope": {
+          "const": "entire_course_approved_ds2",
+          "default": "entire_course_approved_ds2",
+          "title": "Audit Scope",
+          "type": "string"
+        },
+        "exact_match_count": {
+          "minimum": 0,
+          "title": "Exact Match Count",
+          "type": "integer"
+        },
+        "human_confirmation_items": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Human Confirmation Items",
+          "type": "array"
+        },
+        "nearest_false_positive_evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "title": "Nearest False Positive Evidence Ids",
+          "type": "array"
+        },
+        "search_rules": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Search Rules",
+          "type": "array"
+        },
+        "search_terms": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Search Terms",
+          "type": "array"
+        }
+      },
+      "required": [
+        "search_terms",
+        "search_rules",
+        "exact_match_count",
+        "nearest_false_positive_evidence_ids",
+        "human_confirmation_items"
+      ],
+      "title": "UnanswerableRetrievalAudit",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/RetrievalQACase"
+      },
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds5.v1",
+      "default": "courserag.ds5.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "DS5RetrievalQADataset",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "hybrid_max_native_text_area_ratio": 0.35,
+  "hybrid_min_image_area_ratio": 0.5,
+  "max_garbled_ratio": 0.2,
+  "min_native_chars": 30,
+  "min_printable_ratio": 0.8,
+  "name": "p05_balanced_v1"
+}

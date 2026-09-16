@@ -1,0 +1,114 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds3_and_cp_ds7_p16_pilot_input_only",
+      "default": "cp_ds3_and_cp_ds7_p16_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Candidate Hashes",
+      "type": "object"
+    },
+    "external_provider_calls": {
+      "default": 0,
+      "minimum": 0,
+      "title": "External Provider Calls",
+      "type": "integer"
+    },
+    "external_template": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "External Template",
+      "type": "object"
+    },
+    "gold_promotion": {
+      "default": false,
+      "title": "Gold Promotion",
+      "type": "boolean"
+    },
+    "record_counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Record Counts",
+      "type": "object"
+    },
+    "record_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Record Hashes",
+      "type": "object"
+    },
+    "render_artifacts": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Render Artifacts",
+      "type": "object"
+    },
+    "renderer_preflight": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Renderer Preflight",
+      "type": "object"
+    },
+    "review_sets": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Review Sets",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "coursepilot.p16-cp-ds37-bundle-manifest.v1",
+      "default": "coursepilot.p16-cp-ds37-bundle-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "upstream_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Upstream Hashes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_sha256",
+    "candidate_hashes",
+    "record_hashes",
+    "record_counts",
+    "upstream_hashes",
+    "external_template",
+    "renderer_preflight"
+  ],
+  "title": "P16BundleManifest",
+  "type": "object"
+}

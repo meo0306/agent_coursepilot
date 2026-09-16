@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 from streamlit.testing.v1 import AppTest
 
@@ -16,7 +18,8 @@ def test_service_prompt_entry_agent():
 
 @pytest.mark.docker
 def test_streamlit_app_loads_coursepilot_page():
-    at = AppTest.from_file("../../src/streamlit_app.py").run(timeout=10)
+    app_path = Path(__file__).resolve().parents[2] / "src" / "streamlit_app.py"
+    at = AppTest.from_file(str(app_path)).run(timeout=10)
 
     assert at.title[0].value == "CoursePilot Knowledge Base"
     assert not at.exception

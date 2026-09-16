@@ -1,4 +1,5 @@
 import logging
+from types import SimpleNamespace
 
 import httpx
 import pytest
@@ -176,8 +177,11 @@ def test_embedding_rate_limit_honors_retry_after_with_maximum():
     assert delays == [120]
 
 
-def test_coursepilot_llm_enables_deepseek_thinking(monkeypatch):
+def test_coursepilot_llm_uses_capability_manifest(monkeypatch):
     get_coursepilot_llm.cache_clear()
+    from coursepilot.llm import _configured_model_gateway
+
+    _configured_model_gateway.cache_clear()
     monkeypatch.setattr("coursepilot.llm.settings.COMPATIBLE_MODEL", "deepseek-v4-pro")
     monkeypatch.setattr("coursepilot.llm.settings.COMPATIBLE_BASE_URL", "https://api.deepseek.com")
     monkeypatch.setattr("coursepilot.llm.settings.COMPATIBLE_API_KEY", SecretStr("test-key"))
@@ -190,10 +194,15 @@ def test_coursepilot_llm_enables_deepseek_thinking(monkeypatch):
         assert llm.streaming is False
         assert llm.reasoning_effort == "high"
         assert llm.extra_body == {"thinking": {"type": "enabled"}}
-        assert llm.request_timeout == 12.5
+        assert isinstance(llm.request_timeout, httpx.Timeout)
+        assert llm.request_timeout.read == 120.0
+        assert llm.request_timeout.connect == 15.0
+        assert llm.request_timeout.write == 30.0
+        assert llm.request_timeout.pool == 10.0
         assert llm.max_retries == 0
     finally:
         get_coursepilot_llm.cache_clear()
+        _configured_model_gateway.cache_clear()
 
 
 def test_prompt_hash_and_language_policy_are_stable():
@@ -298,7 +307,7 @@ def test_generate_structured_estimates_usage_when_provider_usage_missing(monkeyp
     assert invocation["usage"]["usage_source"] == "deepseek_v3_tokenizer"
 
 
-def test_generate_structured_logs_retry_exhaustion_and_fallback(monkeypatch, caplog):
+def test_generate_structured_does_not_retry_read_timeout(monkeypatch, caplog):
     class FakeRunnable:
         def invoke(self, _messages):
             raise TimeoutError("timed out")
@@ -333,13 +342,174 @@ def test_generate_structured_logs_retry_exhaustion_and_fallback(monkeypatch, cap
     invocation = collector.to_task_metadata()["llm_invocations"][0]
 
     assert result == _StructuredOutput(answer="fallback")
-    assert invocation["attempt_count"] == 2
+    assert invocation["attempt_count"] == 1
     assert invocation["fallback_used"] is True
     assert invocation["fallback_reason"] == "timeout"
     assert invocation["error_category"] == "timeout"
     assert invocation["attempts"][0]["usage"]["output_tokens"] == 0
     assert invocation["attempts"][0]["usage"]["usage_estimated"] is True
+    assert invocation["attempts"][0]["will_retry"] is False
+    assert invocation["attempts"][0]["billing_status"] == "unknown_pending_reconciliation"
     assert "CoursePilot LLM fallback used" in caplog.text
+
+
+def test_generate_structured_retries_proven_connection_failure(monkeypatch):
+    calls = 0
+
+    class FakeRunnable:
+        def invoke(self, _messages):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise httpx.ConnectError("connection refused")
+            return {
+                "raw": _raw_message(),
+                "parsed": {"answer": "ok"},
+                "parsing_error": None,
+            }
+
+    class FakeLLM:
+        def with_structured_output(self, _schema, **_kwargs):
+            return FakeRunnable()
+
+    monkeypatch.setattr("coursepilot.llm.use_coursepilot_llm", lambda: True)
+    monkeypatch.setattr("coursepilot.llm.get_coursepilot_llm", lambda: FakeLLM())
+    monkeypatch.setattr("coursepilot.llm.settings.COURSEPILOT_LLM_MAX_RETRIES", 1)
+
+    with collect_coursepilot_llm_metadata(thread_id="thread-connect") as collector:
+        result = generate_structured(
+            prompt_name="lesson/generate_lesson_design",
+            output_schema=_StructuredOutput,
+            payload={"question": "hello"},
+            fallback=lambda: _StructuredOutput(answer="fallback"),
+        )
+
+    invocation = collector.to_task_metadata()["llm_invocations"][0]
+    assert result == _StructuredOutput(answer="ok")
+    assert calls == 2
+    assert invocation["attempt_count"] == 2
+    assert invocation["attempts"][0]["error_category"] == "connection_error"
+    assert invocation["attempts"][0]["billing_status"] == "not_sent"
+    assert invocation["attempts"][0]["will_retry"] is True
+
+
+def test_generate_structured_reuses_successful_response_checkpoint(monkeypatch):
+    calls = 0
+
+    class MemoryCheckpoint:
+        def __init__(self):
+            self.responses = {}
+            self.invocations = []
+
+        def load(self, request_sha256):
+            return self.responses.get(request_sha256)
+
+        def save(self, request_sha256, payload):
+            self.responses[request_sha256] = payload
+
+        def record_invocation(self, invocation):
+            self.invocations.append(invocation)
+
+    class FakeRunnable:
+        def invoke(self, _messages):
+            nonlocal calls
+            calls += 1
+            return {
+                "raw": _raw_message(),
+                "parsed": {"answer": "ok"},
+                "parsing_error": None,
+            }
+
+    class FakeLLM:
+        def with_structured_output(self, _schema, **_kwargs):
+            return FakeRunnable()
+
+    checkpoint = MemoryCheckpoint()
+    monkeypatch.setattr("coursepilot.llm.use_coursepilot_llm", lambda: True)
+    monkeypatch.setattr("coursepilot.llm.get_coursepilot_llm", lambda: FakeLLM())
+    monkeypatch.setattr("coursepilot.llm._structured_request_sha256", lambda **_kwargs: "request-1")
+
+    for _ in range(2):
+        with collect_coursepilot_llm_metadata(
+            thread_id="thread-cache", checkpoint=checkpoint
+        ) as collector:
+            result = generate_structured(
+                prompt_name="lesson/generate_lesson_design",
+                output_schema=_StructuredOutput,
+                payload={"question": "hello"},
+                fallback=lambda: _StructuredOutput(answer="fallback"),
+            )
+        assert result == _StructuredOutput(answer="ok")
+
+    summary = summarize_llm_invocations(collector.invocations)
+    assert calls == 1
+    assert checkpoint.invocations[-1]["cache_hit"] is True
+    assert summary["provider_request_count"] == 0
+    assert summary["cache_hit_count"] == 1
+
+
+def test_generate_structured_authorizes_paid_request_after_cache_miss(monkeypatch):
+    authorizations = []
+
+    class GuardCheckpoint:
+        def load(self, _request_sha256):
+            return None
+
+        def save(self, _request_sha256, _payload):
+            return None
+
+        def record_invocation(self, _invocation):
+            return None
+
+        def authorize_request(self, **payload):
+            authorizations.append(payload)
+
+    class FakeRunnable:
+        def invoke(self, _messages):
+            return {
+                "raw": _raw_message(),
+                "parsed": {"answer": "ok"},
+                "parsing_error": None,
+            }
+
+    class FakeLLM:
+        def with_structured_output(self, _schema, **_kwargs):
+            return FakeRunnable()
+
+    class FakeGateway:
+        def resolve(self, _profile_id):
+            return SimpleNamespace(request_parameters={"max_tokens": 4096})
+
+    monkeypatch.setattr("coursepilot.llm.use_coursepilot_llm", lambda: True)
+    monkeypatch.setattr("coursepilot.llm.get_coursepilot_llm", lambda *_args: FakeLLM())
+    monkeypatch.setattr("coursepilot.llm._configured_model_gateway", lambda: FakeGateway())
+    monkeypatch.setattr("coursepilot.llm._structured_request_sha256", lambda **_kwargs: "r1")
+    monkeypatch.setattr(
+        "coursepilot.llm.estimate_token_usage",
+        lambda _messages, _output: {
+            "input_tokens": 11,
+            "output_tokens": 0,
+            "total_tokens": 11,
+        },
+    )
+
+    with collect_coursepilot_llm_metadata(checkpoint=GuardCheckpoint(), thread_id="budgeted"):
+        generate_structured(
+            prompt_name="lesson/generate_lesson_design",
+            output_schema=_StructuredOutput,
+            payload={"question": "hello"},
+            fallback=lambda: _StructuredOutput(answer="fallback"),
+        )
+
+    assert authorizations == [
+        {
+            "request_sha256": "r1",
+            "prompt_name": "lesson/generate_lesson_design",
+            "profile_id": "generator_main",
+            "estimated_input_tokens": 11,
+            "configured_max_output_tokens": 4096,
+        }
+    ]
 
 
 @pytest.mark.parametrize(

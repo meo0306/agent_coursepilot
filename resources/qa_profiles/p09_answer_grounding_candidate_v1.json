@@ -1,0 +1,26 @@
+{
+  "schema_version": "courserag.qa-answer-grounding-profile.v1",
+  "profile_id": "p09-answer-grounding-candidate-v1",
+  "prompt_version": "p09_answer_grounding_v3",
+  "answer_types": [
+    "factoid",
+    "list",
+    "explanatory",
+    "comparison",
+    "procedure"
+  ],
+  "factoid_max_characters": 80,
+  "explanatory_max_characters": 200,
+  "list_item_max_characters": 120,
+  "list_max_items": 40,
+  "default_max_output_tokens": 600,
+  "list_max_output_tokens": 1600,
+  "max_repair_attempts": 1,
+  "citation_composer": {
+    "version": "claim_evidence_char_bigram_v1",
+    "selection": "top_lexical_overlap_per_atomic_unit",
+    "no_signal_policy": "retain_valid_model_reference_with_warning"
+  },
+  "runtime_activation": "pending_owner_freeze",
+  "test_access": false
+}

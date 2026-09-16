@@ -1,0 +1,45 @@
+{
+  "approval_scope": "cp_ds3_and_cp_ds7_p16_pilot_input_only",
+  "bundle_sha256": "697a00183e3c84ab7ff70152a54479e6802a3c353250740291bcb51c84f4d57c",
+  "candidate_hashes": {
+    "cp_ds3": "667a4373d9fd177302f2cfc6d8468e56d88141fd51baa6a69695f80c9d1030d8",
+    "cp_ds7": "e765fba3643913036f4a04029d91b28b62df36c763b6da47ba365b365aa81c95"
+  },
+  "external_provider_calls": 0,
+  "external_template": {
+    "commit": "0f18f3f1fe2d76413c45b0106e7585d64beb920d",
+    "license": "CC0-1.0",
+    "normalized": "caec81e7bbcc4712dc60e90af2bae26a3a7890b3300432c0b1cfaa8dc024e32a",
+    "source": "54f58da18846a40976c2b2aa13950343d4b24d112b5a0b64f1f8efbe251dcbcd"
+  },
+  "gold_promotion": false,
+  "record_counts": {
+    "cp_ds3_cases": 3,
+    "cp_ds7_negative": 2,
+    "cp_ds7_positive": 4,
+    "slide_targets": 46
+  },
+  "record_hashes": {
+    "p16-ds3-occupation-risk": "1beb84a9225049cc94a6fa0f18bd552fbbbcdb5e7277922d4bf51c63cc2f2d13",
+    "p16-ds3-perceptron": "8848cd15daaa775ccc718a7162d93946b5557884eb6185dd848d7486c4b95dda",
+    "p16-ds3-transformer": "1c2cf5e79ad1124656db32ddc4678e1a01a7b04de62a8b573591b09912705fb4",
+    "p16-ds7-external-velis": "63fd0631931d78cf1a038bfb188d0cc6e4b462b7c525a519935ab58cf13e9fa7",
+    "p16-ds7-negative-hash": "863461a331c1bf0e92cf8e2e303ca68b89f94fefacab97a21622f9068350f973",
+    "p16-ds7-negative-mapping": "ed2a21b36e10611f922c241a210071f84ca16c80a7a78ead1dda18e5ad7f7c22",
+    "p16-ds7-ppt_case_seminar_v1": "80f7a64040f384f192d521d17f49df7b62bca5608254f81bed8086748ebc690f",
+    "p16-ds7-ppt_concept_explanation_v1": "3922d8bce4f9a92784e713fc601e06bdcd3be48d1bf4160b8fb6876383f97154",
+    "p16-ds7-ppt_standard_lecture_v1": "3f41b9c1b78983de11890a0dfc1c28bb4905d78aec1cdf22d9d0852a446282b5"
+  },
+  "renderer_preflight": {
+    "available": false,
+    "profile": "libreoffice_headless_v1",
+    "provider": "libreoffice-headless"
+  },
+  "schema_version": "coursepilot.p16-cp-ds37-bundle-manifest.v1",
+  "upstream_hashes": {
+    "ds2_approved": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+    "ds3_approved": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+    "ds3_split": "de2da29ba2748777c7a0acb54c81106b0804e5980722d158b249e3e8a83e84af",
+    "p14_approved": "4533545ca0355e6c9a1581dd7024fc008b7e7f95e71e9c73b35dc52f88340e13"
+  }
+}

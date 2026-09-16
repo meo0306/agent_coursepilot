@@ -1,0 +1,198 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "p10_input_gold_only",
+      "default": "p10_input_gold_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "candidates": {
+      "additionalProperties": {
+        "$ref": "#/$defs/HashedArtifact"
+      },
+      "title": "Candidates",
+      "type": "object"
+    },
+    "component_splits": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "first_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "First Review Ids",
+      "type": "array"
+    },
+    "fixture_manifest": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "l0_zero_tolerance": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "L0 Zero Tolerance",
+      "type": "array"
+    },
+    "l1_thresholds": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "L1 Thresholds",
+      "type": "object"
+    },
+    "preserved_p09": {
+      "additionalProperties": {
+        "$ref": "#/$defs/HashedArtifact"
+      },
+      "title": "Preserved P09",
+      "type": "object"
+    },
+    "review_pack_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Pack Index Sha256",
+      "type": "string"
+    },
+    "review_pack_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Review Pack Relative Path",
+      "type": "string"
+    },
+    "review_ui_revision": {
+      "const": 2,
+      "default": 2,
+      "title": "Review Ui Revision",
+      "type": "integer"
+    },
+    "revision": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "courserag.p10-input-bundle-manifest.v1",
+      "default": "courserag.p10-input-bundle-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "second_review_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Second Review Ids",
+      "type": "array"
+    },
+    "second_review_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Second Review Index Sha256",
+      "type": "string"
+    },
+    "test_freeze_protocol": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "upstream_approved": {
+      "additionalProperties": {
+        "$ref": "#/$defs/HashedArtifact"
+      },
+      "title": "Upstream Approved",
+      "type": "object"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "bundle_sha256",
+    "candidates",
+    "candidate_record_sha256",
+    "fixture_manifest",
+    "component_splits",
+    "test_freeze_protocol",
+    "upstream_approved",
+    "preserved_p09",
+    "first_review_ids",
+    "second_review_ids",
+    "review_pack_relative_path",
+    "review_pack_index_sha256",
+    "second_review_index_sha256",
+    "l0_zero_tolerance",
+    "l1_thresholds"
+  ],
+  "title": "P10BundleManifest",
+  "type": "object"
+}

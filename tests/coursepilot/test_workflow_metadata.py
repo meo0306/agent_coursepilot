@@ -245,7 +245,7 @@ def test_lesson_service_persists_graph_and_llm_metadata(monkeypatch):
 
             assert task is not None
             outputs = task.intermediate_outputs_json
-            assert outputs["graph_invocations"][0]["thread_id"].startswith("coursepilot-lesson-")
+            assert outputs["graph_invocations"][0]["thread_id"] == (f"coursepilot:lesson:{task.id}")
             assert outputs["graph_invocations"][0]["status"] == "success"
             assert outputs["prompt_hashes"]["lesson/generate_lesson_design"]["prompt_sha256"]
             assert outputs["llm_invocations"][0]["fallback_reason"] == "generation_mode_disabled"

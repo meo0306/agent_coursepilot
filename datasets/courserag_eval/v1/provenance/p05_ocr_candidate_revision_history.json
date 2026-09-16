@@ -1,0 +1,28 @@
+{
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "revisions": [
+    {
+      "candidate_file_sha256": "2e48d78b1f48e9357bd32c02d7aa75b907318db2d71a5423a1da8cb348068865",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p05_ocr_r1.json",
+      "reason": "Returned after Course Owner review: body text mixed headers, page numbers, QR-related text, embedded image text, and ambiguous figure/text ordering.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "a497cc36cb599afcb77948821fe5a7e028041b0ade563c4b5d4062a0fc54b215",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p05_ocr_r2.json",
+      "reason": "Returned after Course Owner review: seven split captions marked only their figure numbers as captions while adjacent figure names remained body text.",
+      "revision": 2,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "c203f05d2cccc5cd5fcf557a7a5eed19d86c4ecae181cd14d88a863792baa065",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p05_ocr_r3.json",
+      "reason": "Preserves the accepted raw/body policy and groups same-baseline figure numbers plus adjacent figure names into complete captions.",
+      "revision": 3,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

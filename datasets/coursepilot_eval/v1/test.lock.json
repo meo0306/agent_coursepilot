@@ -1,0 +1,10 @@
+{
+  "schema_version": "course-eval.test-lock.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "v1",
+  "locked": true,
+  "test_ids_sha256": "21f89c83ed6a7a187433b145e287f88942b20020334813f6ca136188ef4b74c5",
+  "approved_manifest_sha256": "33d4cf83b5afc180d3fc242392d0e740d55e3ac72d2f65272c8fcbd16322b4d7",
+  "locked_at": "2026-08-24T11:37:18.825388Z",
+  "locked_by": "course_owner"
+}

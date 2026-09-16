@@ -1,0 +1,11 @@
+{
+  "capability_id": "deepseek_v4",
+  "json_mode": true,
+  "structured_output": true,
+  "reasoning_parameter": true,
+  "thinking_toggle": true,
+  "usage_returned": true,
+  "tool_calling": false,
+  "reasoning_field": "reasoning_effort",
+  "thinking_field": "thinking"
+}

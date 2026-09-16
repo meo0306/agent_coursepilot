@@ -1,0 +1,19 @@
+{
+  "schema_version": "courserag.intent-router-profile.v1",
+  "profile_id": "intent_router_rules_v2",
+  "status": "p09_gate_repair_candidate",
+  "precedence": [
+    "comparison.explicit_relation",
+    "cross_section.paired_sources",
+    "definition.explicit_definition",
+    "example_application.use_case",
+    "procedure.explicit_sequence",
+    "fact.default"
+  ],
+  "generic_how_is_not_procedure": true,
+  "minimum_source_count": {
+    "comparison": 2,
+    "cross_section": 2,
+    "default": 1
+  }
+}

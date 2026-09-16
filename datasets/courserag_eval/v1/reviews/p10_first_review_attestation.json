@@ -1,0 +1,358 @@
+{
+  "attestation_source": "course_owner_conversation_attestation",
+  "attestation_statement": "全部审核通过，没有需要修改的内容，就不导出JSON了",
+  "attestation_statement_sha256": "876279be2d5c02cc770fefdc63a8fb6e09b34fbe9d18cddcbbf4065e549eabc7",
+  "bundle_sha256": "5b6d756a39c988f952536ec93d2aa23b9c593908c3ea24c6af6816cff92b6702",
+  "dataset_id": "courserag-p10-review-attestation",
+  "dataset_version": "r1",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-01-rename"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-02-modify-paragraph"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-03-insert-blank-page"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-04-parser-profile"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-05-chunker-profile"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-06-replace-ocr-page"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-07-duplicate-source"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-08-partial-delete"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds6-09-delete-evidence"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-01-rename"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-02-modify-section"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-03-add-section"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-04-chunker"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-05-kp-prompt"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-06-embedding"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-07-reranker"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-08-delete-section"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-09-replace-ocr"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-10-writeback-lifecycle"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-11-auto-enrichment"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds7-12-manual-enrichment"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-full-build-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-full-build-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-single-document-build-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-single-document-build-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-single-section-update-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-single-section-update-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-ocr-batch-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-ocr-batch-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-enrichment-batch-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-enrichment-batch-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-search-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-search-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-search-rerank-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-search-rerank-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-context-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-context-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-qa-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-qa-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-qa-abstention-cold"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-ds8-qa-abstention-warm"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-01-pdf-as-docx"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-02-docx-as-pdf"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-03-unsupported"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-04-encrypted-pdf"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-05-compression"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-06-filename-traversal"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-07-page-limit"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-08-dpi-limit"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-09-parse-timeout"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-10-cross-course-read"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-11-zip-entry-traversal"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-12-cross-course-search"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-13-cross-course-write"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-14-unauthorized-revoke"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-15-prompt-injection"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p10-sec-16-secret-redaction"
+    }
+  ],
+  "expected_record_ids": [
+    "p10-ds6-01-rename",
+    "p10-ds6-02-modify-paragraph",
+    "p10-ds6-03-insert-blank-page",
+    "p10-ds6-04-parser-profile",
+    "p10-ds6-05-chunker-profile",
+    "p10-ds6-06-replace-ocr-page",
+    "p10-ds6-07-duplicate-source",
+    "p10-ds6-08-partial-delete",
+    "p10-ds6-09-delete-evidence",
+    "p10-ds7-01-rename",
+    "p10-ds7-02-modify-section",
+    "p10-ds7-03-add-section",
+    "p10-ds7-04-chunker",
+    "p10-ds7-05-kp-prompt",
+    "p10-ds7-06-embedding",
+    "p10-ds7-07-reranker",
+    "p10-ds7-08-delete-section",
+    "p10-ds7-09-replace-ocr",
+    "p10-ds7-10-writeback-lifecycle",
+    "p10-ds7-11-auto-enrichment",
+    "p10-ds7-12-manual-enrichment",
+    "p10-ds8-full-build-cold",
+    "p10-ds8-full-build-warm",
+    "p10-ds8-single-document-build-cold",
+    "p10-ds8-single-document-build-warm",
+    "p10-ds8-single-section-update-cold",
+    "p10-ds8-single-section-update-warm",
+    "p10-ds8-ocr-batch-cold",
+    "p10-ds8-ocr-batch-warm",
+    "p10-ds8-enrichment-batch-cold",
+    "p10-ds8-enrichment-batch-warm",
+    "p10-ds8-search-cold",
+    "p10-ds8-search-warm",
+    "p10-ds8-search-rerank-cold",
+    "p10-ds8-search-rerank-warm",
+    "p10-ds8-context-cold",
+    "p10-ds8-context-warm",
+    "p10-ds8-qa-cold",
+    "p10-ds8-qa-warm",
+    "p10-ds8-qa-abstention-cold",
+    "p10-ds8-qa-abstention-warm",
+    "p10-sec-01-pdf-as-docx",
+    "p10-sec-02-docx-as-pdf",
+    "p10-sec-03-unsupported",
+    "p10-sec-04-encrypted-pdf",
+    "p10-sec-05-compression",
+    "p10-sec-06-filename-traversal",
+    "p10-sec-07-page-limit",
+    "p10-sec-08-dpi-limit",
+    "p10-sec-09-parse-timeout",
+    "p10-sec-10-cross-course-read",
+    "p10-sec-11-zip-entry-traversal",
+    "p10-sec-12-cross-course-search",
+    "p10-sec-13-cross-course-write",
+    "p10-sec-14-unauthorized-revoke",
+    "p10-sec-15-prompt-injection",
+    "p10-sec-16-secret-redaction"
+  ],
+  "review_pass": "first",
+  "reviewed_at": "2026-08-10T21:06:56.819829+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "courserag.p10-review-decisions.v1"
+}

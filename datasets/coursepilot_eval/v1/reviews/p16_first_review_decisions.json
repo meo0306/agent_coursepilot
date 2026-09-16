@@ -1,0 +1,341 @@
+{
+  "bundle_sha256": "e8fa261a4bc8066432072255f18ed7e4fb3d607eeee74ffde29b840e212f4f91",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "arch::p16-ds3-transformer"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "arch::p16-ds3-perceptron"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "arch::p16-ds3-occupation-risk"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-05"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-06"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-07"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-08"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-09"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-10"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-11"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-12"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-13"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-14"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-15"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-16"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-17"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-18"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-19"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-20"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-21"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-22"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-23"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-01-transformer-slide-24"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-05"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-06"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-07"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-08"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-09"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-10"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-11"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-02-perceptron-lab-slide-12"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-05"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-06"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-07"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-08"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-09"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p14-lesson-03-occupation-risk-seminar-slide-10"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p16-ds7-ppt_standard_lecture_v1"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p16-ds7-ppt_concept_explanation_v1"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p16-ds7-ppt_case_seminar_v1"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p16-ds7-external-velis"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p16-ds7-negative-hash"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "p16-ds7-negative-mapping"
+    }
+  ],
+  "expected_record_ids": [
+    "arch::p16-ds3-transformer",
+    "arch::p16-ds3-perceptron",
+    "arch::p16-ds3-occupation-risk",
+    "p14-lesson-01-transformer-slide-01",
+    "p14-lesson-01-transformer-slide-02",
+    "p14-lesson-01-transformer-slide-03",
+    "p14-lesson-01-transformer-slide-04",
+    "p14-lesson-01-transformer-slide-05",
+    "p14-lesson-01-transformer-slide-06",
+    "p14-lesson-01-transformer-slide-07",
+    "p14-lesson-01-transformer-slide-08",
+    "p14-lesson-01-transformer-slide-09",
+    "p14-lesson-01-transformer-slide-10",
+    "p14-lesson-01-transformer-slide-11",
+    "p14-lesson-01-transformer-slide-12",
+    "p14-lesson-01-transformer-slide-13",
+    "p14-lesson-01-transformer-slide-14",
+    "p14-lesson-01-transformer-slide-15",
+    "p14-lesson-01-transformer-slide-16",
+    "p14-lesson-01-transformer-slide-17",
+    "p14-lesson-01-transformer-slide-18",
+    "p14-lesson-01-transformer-slide-19",
+    "p14-lesson-01-transformer-slide-20",
+    "p14-lesson-01-transformer-slide-21",
+    "p14-lesson-01-transformer-slide-22",
+    "p14-lesson-01-transformer-slide-23",
+    "p14-lesson-01-transformer-slide-24",
+    "p14-lesson-02-perceptron-lab-slide-01",
+    "p14-lesson-02-perceptron-lab-slide-02",
+    "p14-lesson-02-perceptron-lab-slide-03",
+    "p14-lesson-02-perceptron-lab-slide-04",
+    "p14-lesson-02-perceptron-lab-slide-05",
+    "p14-lesson-02-perceptron-lab-slide-06",
+    "p14-lesson-02-perceptron-lab-slide-07",
+    "p14-lesson-02-perceptron-lab-slide-08",
+    "p14-lesson-02-perceptron-lab-slide-09",
+    "p14-lesson-02-perceptron-lab-slide-10",
+    "p14-lesson-02-perceptron-lab-slide-11",
+    "p14-lesson-02-perceptron-lab-slide-12",
+    "p14-lesson-03-occupation-risk-seminar-slide-01",
+    "p14-lesson-03-occupation-risk-seminar-slide-02",
+    "p14-lesson-03-occupation-risk-seminar-slide-03",
+    "p14-lesson-03-occupation-risk-seminar-slide-04",
+    "p14-lesson-03-occupation-risk-seminar-slide-05",
+    "p14-lesson-03-occupation-risk-seminar-slide-06",
+    "p14-lesson-03-occupation-risk-seminar-slide-07",
+    "p14-lesson-03-occupation-risk-seminar-slide-08",
+    "p14-lesson-03-occupation-risk-seminar-slide-09",
+    "p14-lesson-03-occupation-risk-seminar-slide-10",
+    "p16-ds7-ppt_standard_lecture_v1",
+    "p16-ds7-ppt_concept_explanation_v1",
+    "p16-ds7-ppt_case_seminar_v1",
+    "p16-ds7-external-velis",
+    "p16-ds7-negative-hash",
+    "p16-ds7-negative-mapping"
+  ],
+  "review_pass": "first",
+  "reviewed_at": "2026-08-20T11:00:46.969000Z",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p16-review-decisions.v1"
+}

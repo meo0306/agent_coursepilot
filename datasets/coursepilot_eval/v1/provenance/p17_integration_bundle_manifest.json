@@ -1,0 +1,17 @@
+{
+  "bundle_sha256": "01b7549801efad637b4da39c271fe932c2ae44104ab73f3c618add0dfdac7b78",
+  "fault_candidate": "datasets/coursepilot_eval/v1/candidates/cp_ds8/p17_fault_security_r1.json",
+  "fault_sha256": "4b109191b4e4c2bce691e1133deafc6e720a7c32b151352d1e455adaa96f0187",
+  "journey_candidate": "datasets/coursepilot_eval/v1/candidates/sys_ds1/p17_system_journeys_r1.json",
+  "journey_sha256": "5357e724eebf27d68c4e10b5a3bb65728d58f9fce2e41ce92f475df9a164a358",
+  "p16_final_report_sha256": "50fd602d99d1a942e13bcc6a04f7588cc0eaafd44c4df6af7c6027262fe6c93c",
+  "record_counts": {
+    "cp_ds8": 30,
+    "sys_ds1": 8,
+    "variants": 34
+  },
+  "review_passes": [
+    "single"
+  ],
+  "schema_version": "coursepilot.p17-integration-bundle-manifest.v1"
+}

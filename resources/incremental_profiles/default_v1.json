@@ -1,0 +1,15 @@
+{
+  "schema_version": "courserag.incremental-profile.v1",
+  "profile_id": "default_v1",
+  "matching_order": [
+    "stable_path_and_content_hash",
+    "unique_content_hash",
+    "stable_path",
+    "unique_structure",
+    "ambiguous_conservative_reprocess"
+  ],
+  "modified_section_boundary_neighbors": 1,
+  "ambiguity_policy": "reprocess",
+  "silent_full_build_fallback": false,
+  "require_change_coverage": 1.0
+}

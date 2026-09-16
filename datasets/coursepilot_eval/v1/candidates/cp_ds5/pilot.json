@@ -1,0 +1,28 @@
+{
+  "schema_version": "coursepilot.cp-ds5.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "v1",
+  "cases": [
+    {
+      "record_id": "cp-ds5-synthetic-repair",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "artifact_type": "lesson",
+      "artifact_before_id": "synthetic-lesson-fault",
+      "allowed_paths": [
+        "$.sessions[0].minutes"
+      ],
+      "forbidden_paths": [
+        "$.sessions[1:]"
+      ],
+      "expected_resolved_issue_codes": [
+        "LESSON_TIME_TOTAL_MISMATCH"
+      ],
+      "original_correct_paths": [
+        "$.title"
+      ],
+      "max_repair_rounds": 2
+    }
+  ]
+}

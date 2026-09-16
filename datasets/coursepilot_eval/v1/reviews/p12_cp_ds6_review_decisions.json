@@ -1,0 +1,129 @@
+{
+  "attestation": "Owner approved the exact Candidate SHA in conversation.",
+  "candidate_sha256": "e0b854c2fe261571b6319447e9e0feabd732e67a1b509e121ddb18b3ae1701a1",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-session-plan-approve-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-session-plan-edit-resume-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-session-plan-replan-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-session-plan-reject-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-final-approve-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-final-edit-resume-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-final-replan-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-lesson-final-reject-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-blueprint-approve-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-blueprint-edit-resume-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-blueprint-replan-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-blueprint-reject-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-global-approve-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-global-edit-resume-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-global-replan-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-exam-global-reject-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-architecture-approve-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-architecture-edit-resume-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-architecture-replan-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-architecture-reject-04"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-final-approve-01"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-final-edit-resume-02"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-final-replan-03"
+    },
+    {
+      "decision": "pass",
+      "notes": "Exact Candidate approved.",
+      "record_id": "p12-ppt-final-reject-04"
+    }
+  ],
+  "reviewed_at": "2026-08-13T00:00:00+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p12-cp-ds6-review-decisions.v1"
+}

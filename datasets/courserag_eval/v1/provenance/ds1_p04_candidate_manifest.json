@@ -1,0 +1,200 @@
+{
+  "candidate_file_sha256": "7179ce9a48be77118ad68bfa7376bbe69e030f0e69ad0faba8435b0e0ee3c3aa",
+  "candidate_record_sha256": {
+    "ds1-page-pdf-005": "0a54a9b787f604847f93d69a082bde24f97dcb58ecc7fce3c4849d65f891589d",
+    "ds1-page-pdf-010": "01dacc4ae6840cac20c38c0abc237074cd75d49c4a6c2a08ae58078433b2c158",
+    "ds1-page-pdf-011": "35f44f57732ba5b927f0dfbcf247216299deeb8ffd005b652d007d0d720ef1a0",
+    "ds1-page-pdf-012": "256f8dc4f038072ca0095677b8e7cdb0a40a1b5635fc7798aa6d7044e29a0a8f",
+    "ds1-page-pdf-015": "9d579eeca21eaf9f532c688d8ed38353980eb291675f00b11e13eb75487ada6b",
+    "ds1-page-pdf-018": "97c2cd5215b1502246710bf84ade44c89450cd9833670577f70b5d0bfe3c461d",
+    "ds1-page-pdf-020": "71ea71929457e7331ff1ae48231fa5c11d0ac02c1b1f67663110ee88745513c5",
+    "ds1-page-pdf-021": "b7cffd1907788a18b2f7989b529669978ad8c2c5c581ff6d6ee5d4df71f5fb41",
+    "ds1-page-pdf-023": "c13a3d05ed591340c5ce8631b2a66ec89a596c2490afdcf8aed4157b8b762ce3",
+    "ds1-page-pdf-024": "57ca8c03d361c1486ef1f9a6b8c760719a9e3ff91e820feb6af69bc66d429ddc",
+    "ds1-page-pdf-026": "b0076c9876aac7aa15046071231eccdd4815f631acc29874709a928ccd9fce41",
+    "ds1-page-pdf-027": "132caaca6106fda315fc85a9d7a63413a491df975f226b23c51339cbfde49d1c",
+    "ds1-page-pdf-030": "34b654b6008b87e6262ee994f5741d560b5c12642a066cf940fe703c1782d78b",
+    "ds1-page-pdf-031": "1b68c66479c7e6f1b045d40c736598da127f40363da111c5427a43ca77fe8060",
+    "ds1-page-pdf-032": "78482bf83c157322efb1357fa83393fad8df971a63125c8652f4e8bc106efa15",
+    "ds1-pagination-doc-ai-algorithms-systems-1.1.1": "512e55b9b50a2699aa9baf3dc947ee74e0e38933cec6d80b986267888d707675",
+    "ds1-pagination-doc-ai-algorithms-systems-2.2": "71042081c7a11fdee1597fcfb3c0921bcb21b2c7019fbf1ae4024cde3fd9dee2",
+    "ds1-pagination-doc-ai-algorithms-systems-3.5.3": "f056db3f3ab5777490a3d60a55f3c4ab7b69f12990ee9055b1eb2ce5c93072e2",
+    "ds1-pagination-doc-ai-algorithms-systems-5.3": "8487201ccef003044d5e8c3f3d304b011644ff785dd47377207d060e27e8171b",
+    "ds1-pagination-doc-ai-algorithms-systems-9.7": "efe910e385ebb735194ec1158c2cac4da7f548af760e3b09f0de207c4dab2b2f",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-1.1.1": "e5b56270606d78ea10128c2363aaf13dda7ccaedad014f694690e0f744b6ec5f",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-2.2": "cc176e958c71640d38ef2b9330977c8a82e2c6d7959f8348604b21621034e8bd",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-3.5.3": "7f054379b3e8ebb03f57f0b5b8c19a29072042ee52bdecddc4ce3c9883c174a1",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-5.3": "2917388c8bce91d74cc3b2a749053344b0681fd79b804471f5c16e63045d67b0",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-9.7": "8d9e668bf2771762e7166958dacc1786b996fece53da3cafb6f5efbec7f25d9a",
+    "ds1-section-docx-1-1-1": "56f16487d6fa5575a73bfdcbc914243e840fdaa49ebedcbb20844a8f32255c6e",
+    "ds1-section-docx-2-2": "6b55b23e78faee843353ab703daa33bd09b249e3fa62430044c0f7c9d9ef275e",
+    "ds1-section-docx-2-2-2": "34d5fe25310435bc003c6f8315a6766266d27ad42e99ad204fb6e88b76748674",
+    "ds1-section-docx-3-1-3": "e13a57c7e4d70cd78e6011a8f3ea8b7e66138c8f89bcfe1065ac6618480705d2",
+    "ds1-section-docx-3-5-3": "e6e70ff700b8ecc299ac900aba5a334be6563b2dcc2448b4b81a225a1343c11e",
+    "ds1-section-docx-5-1-1": "9d0f70f05f117e32eee03c72a632a3b1dc2ce5ab26a52c8f1df2498e655bddca",
+    "ds1-section-docx-5-2-1": "4f436c90dc064b5d03791f238e70bf02fa48e9d06fab61bc785fe5c3d2186161",
+    "ds1-section-docx-5-3": "248c2645b2f03baea66c516bdffbec8cb5246ae442a1610a9cac86650dcd877c",
+    "ds1-section-docx-6-2-2": "3baaafcea6ab835235bdbf7a42df934807ca0081e0a5eba6a2d6efae8167f85b",
+    "ds1-section-docx-6-2-3": "2cceafb30ac989e517a6313015bc54e63ec55cd63b7cd6007d035263c40e2a01",
+    "ds1-section-docx-9-1-2": "d0ce9874abc3d3b64cff85651a785af75bbc8cd10dd39ab5d34a8b7650db1f9a",
+    "ds1-section-docx-9-7": "2405c5b9776204d4aefcf2175ea549f097bc8a935bd1b524dec838f2b235098b",
+    "ds1-section-pdf-1-1-1": "14865fba3942d42d6fcc63f2fed5110e5f7f552894a733a47fc2f33e54c3cd04",
+    "ds1-section-pdf-1-1-2": "aac2e3a346ce1377ce77331a95b144eec6f8883d9f93ce4daac521a42cff056e",
+    "ds1-section-pdf-1-2-1": "14f8add1bf891d1377e84e3a383f393018fedb58577b6abb8e9a1ba94609cd10",
+    "ds1-section-pdf-1-2-2": "305a4802875526395b871dcda886bab7f4672801410487aa14d52cb9e4b7591b",
+    "ds1-section-pdf-1-2-3": "7a4a33db9e27997d5cfe20a997c191f51fba33f8bb99369805d3ae98a7a658af",
+    "ds1-section-pdf-1-3-1": "d2673dfd70a64df787867d348c3cb1eba84c1055b16356738383ffab6b2f205d",
+    "ds1-section-pdf-1-3-4": "b990c60b083a7b8921bc4e1c388f538a04b23db8c2a1a3fafe114c97f3263d49",
+    "ds1-section-pdf-1-4-1": "6c2866d23e078821b0c67a30c6450e516f11b854116832a8239862af644e3103",
+    "ds1-table-docx-000": "66ef2071b874e32e301a0811ee8521488501eb50fc62581df82b1c383af2bc94",
+    "ds1-table-docx-001": "d9a3f5ed7d07a9a86cce70572709ecb1c80409fccdaa6f37e027225dc12385df",
+    "ds1-table-docx-006": "14e1b4df1eb7d7b32cd3bd573030532e897888ca40b39b062ee5801c5ae9495d",
+    "ds1-table-docx-008": "34d3ba6ee54e0dcad30abff8109b90e6fe2f91e9b5e1af8056e796b1a9da49b2",
+    "ds1-table-docx-010": "86b58cfd6817e1470cf9f63b816d2ac3a0d6b99e9c1f33b6fc72542b25a0fec7",
+    "ds1-table-docx-012": "4a4114c66dcb4333ba5362231d87a03759ab0350ed3eff5032325fc5cc9441de",
+    "ds1-table-docx-018": "495cbcc7e74770bb12900fd684b58d262dcc8d90d17848af6fadf49069430a69",
+    "ds1-table-docx-020": "abd1063fcc0e5f5122dd332019fb697ce5fbfa9ee8243be52fb36162fd093066",
+    "ds1-table-docx-021": "f8ae52078e1f1c69b69cc3e8cdcfea9709e0a410a56c37abe0680bfe265e445e",
+    "ds1-table-pdf-020-000": "879576cd6e0ee8bd9f8ead6d178b882636ebf795049e0e49a2c041714ff1041b"
+  },
+  "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p04_native_docx_r6.json",
+  "candidate_revision": 6,
+  "canonical_rendered_pdf_sha256": {
+    "doc_ai_algorithms_systems": "4642e5c653b265b71bdbf9878218ca058188a9420b8b5930317cf4442c09fb95",
+    "doc_ai_algorithms_systems_structure_stress": "68c178e0ecb7ef615564bbef92c068037dba20ca600e418e53300b5a92cf570c"
+  },
+  "constraints": [
+    "Candidate only; exact course_owner approval is required before Approved DS1 exists.",
+    "Only two independent semantic source lineages exist.",
+    "The structure-stress DOCX is a non-retrievable derived fixture.",
+    "OCR transcription and OCR Gold are deferred to P05.",
+    "P04 Parser predictions were not used as Candidate labels.",
+    "DOCX table 20 has a 6x4 OOXML source grid but a course_owner-confirmed 7x4 rendered-visible Gold grid spanning physical pages 547-548.",
+    "Word cross-render check: anchor_presence_verified_full_pdf_unavailable."
+  ],
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "predecessor_candidate_file_sha256": "8fd5fbefbcbe40c90f65c35cd3e0166cb6d62800e4927e4ed7c6cb1c661973cb",
+  "raw_rendered_pdf_run_sha256": {
+    "doc_ai_algorithms_systems": [
+      "b62d7ec1c18d760f7ab4eecbff27c53c5ecdf540d7889beb11cfc9417dde0282",
+      "664cc18731666c00761ab769ec9d646cb831040ba66977096274a767db4e259e"
+    ],
+    "doc_ai_algorithms_systems_structure_stress": [
+      "4fa42ec6bcb76d2b8efe14d87d3511600b6474b563c6454de680392813874dab",
+      "4df6172a9498c6763e5083b0bd70ff72f081720ad7136eac4ee9858ab75ad253"
+    ]
+  },
+  "record_counts": {
+    "docx_pagination": 10,
+    "ocr": 0,
+    "page": 15,
+    "section": 20,
+    "table": 10
+  },
+  "renderer_profile": {
+    "font_manifest_sha256": "780fbf5bed4c88c289940b40060ed9abee2fdceda87f2a2a4bf46aaefd200baf",
+    "profile_sha256": "77a88e1a58abb0360578be12a3316570f314cb0d03e12608d7ff36ea553aae25",
+    "provider": "libreoffice-headless",
+    "renderer_version": "7.4.7.2"
+  },
+  "required_rereview_record_ids": [
+    "ds1-table-docx-020"
+  ],
+  "review_decisions_artifact": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/reviews/ds1_p04_review_decisions_r4.json",
+    "sha256": "acaba867ed1377ce71eca915e713ecf97933b3768269194d85f008d7f26cf895",
+    "size_bytes": 2285
+  },
+  "review_decisions_source_filename": "ds1_p04_review_decisions_r4.json",
+  "review_decisions_source_sha256": "acaba867ed1377ce71eca915e713ecf97933b3768269194d85f008d7f26cf895",
+  "review_pack_relative_path": "storage_eval/ds1_p04_review/7179ce9a48be77118ad68bfa7376bbe69e030f0e69ad0faba8435b0e0ee3c3aa/index.html",
+  "schema_version": "courserag.ds1-candidate-manifest.v1",
+  "second_review_record_ids": [
+    "ds1-pagination-doc-ai-algorithms-systems-1.1.1",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-1.1.1",
+    "ds1-pagination-doc-ai-algorithms-systems-2.2",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-2.2",
+    "ds1-pagination-doc-ai-algorithms-systems-3.5.3",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-3.5.3",
+    "ds1-pagination-doc-ai-algorithms-systems-5.3",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-5.3",
+    "ds1-pagination-doc-ai-algorithms-systems-9.7",
+    "ds1-pagination-doc-ai-algorithms-systems-structure-stress-9.7",
+    "ds1-section-pdf-1-1-1",
+    "ds1-section-pdf-1-3-4",
+    "ds1-section-docx-2-2",
+    "ds1-section-docx-3-5-3",
+    "ds1-section-docx-9-7"
+  ],
+  "semantic_source_count": 2,
+  "source_artifacts": [
+    {
+      "media_type": "application/pdf",
+      "path": "data/sample_files/人工智能通识教程.pdf",
+      "sha256": "15344771664d40cf190be7790be3d266eb94a2798a4c2608fcf4d1ffa8fd231d",
+      "size_bytes": 2889768
+    },
+    {
+      "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "path": "data/sample_files/教材-人工智能：从算法到系统.docx",
+      "sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "size_bytes": 27288237
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/work_packages/p04_input.json",
+      "sha256": "06700604f3c69724090ee6a995c2696b41278f5bf45d64e90beeddba4a484e5c",
+      "size_bytes": 45159
+    },
+    {
+      "media_type": "application/json",
+      "path": "resources/renderers/libreoffice_headless_v1/profile.json",
+      "sha256": "ef0aaf252226ec5c22c93820cefe09debbc5ce3825ed64c3517b5e35c3151b57",
+      "size_bytes": 281
+    },
+    {
+      "media_type": "application/json",
+      "path": "resources/renderers/libreoffice_headless_v1/fonts.lock.json",
+      "sha256": "2e2c2760841423b5ad4f4a531d7b749c17c253ad4d96fdc61077d236d2b367ad",
+      "size_bytes": 303
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/p04_primary_render/run1/教材-人工智能：从算法到系统.pdf",
+      "sha256": "b62d7ec1c18d760f7ab4eecbff27c53c5ecdf540d7889beb11cfc9417dde0282",
+      "size_bytes": 14444313
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/p04_primary_render/run2/教材-人工智能：从算法到系统.pdf",
+      "sha256": "664cc18731666c00761ab769ec9d646cb831040ba66977096274a767db4e259e",
+      "size_bytes": 14444313
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/courserag_corpus/v1/docx_qa_render_r3/doc_ai_algorithms_systems_structure_stress.pdf",
+      "sha256": "4fa42ec6bcb76d2b8efe14d87d3511600b6474b563c6454de680392813874dab",
+      "size_bytes": 1814294
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/courserag_corpus/v1/docx_qa_render_r4/doc_ai_algorithms_systems_structure_stress.pdf",
+      "sha256": "4df6172a9498c6763e5083b0bd70ff72f081720ad7136eac4ee9858ab75ad253",
+      "size_bytes": 1814294
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/reviews/ds1_p04_review_decisions_r4.json",
+      "sha256": "acaba867ed1377ce71eca915e713ecf97933b3768269194d85f008d7f26cf895",
+      "size_bytes": 2285
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/reviews/ds1_p04_review_decisions_r3.json",
+      "sha256": "1a5247480815c5b6832e4b9899fbff1a0cce51e26edccb30e695a12fb8043a14",
+      "size_bytes": 2004
+    }
+  ]
+}

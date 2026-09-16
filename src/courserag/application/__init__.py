@@ -1,0 +1,1 @@
+"""CourseRAG application layer."""

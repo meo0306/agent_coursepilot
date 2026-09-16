@@ -1,0 +1,13 @@
+{
+  "approval_scope": "p17_security_qualification_dev_only",
+  "approved_dataset_sha256": "145b70ca68dd8534e696fce2853bdae48ed763e75d8e78ca3a2c22c20b7346af",
+  "blind_commitment_sha256": "994a69c38689736f351023ec4aa48897a0e0ff6991178918a6791d24088e5a48",
+  "blind_content_status": "empty_unread",
+  "bundle_sha256": "be1f7a235b5c40e55b8b6814b78f8759d17b4987dfcbe0175af3ab099f869b8b",
+  "candidate_sha256": "8acf102c674666844cccc5ae5c4e215e41ca212d344ba0394d3f92f14a95ad47",
+  "record_count": 120,
+  "review_decisions_sha256": "cc4a735e78fd589bc11aad724c31b0d216175ec4ea37b75d75f6c991e14264d2",
+  "reviewed_at": "2026-08-21T15:02:00.947552+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "courserag.p17-security-qualification-dev-approval.v1"
+}

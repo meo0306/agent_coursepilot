@@ -1,0 +1,1291 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "DocxPaginationGold": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "block_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Block Id",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "char_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char End"
+        },
+        "char_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char Start"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "expected_display_page_label": {
+          "anyOf": [
+            {
+              "maxLength": 32,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Display Page Label"
+        },
+        "expected_physical_page_index": {
+          "minimum": 1,
+          "title": "Expected Physical Page Index",
+          "type": "integer"
+        },
+        "expected_section_page_index": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Section Page Index"
+        },
+        "paragraph_index": {
+          "minimum": 0,
+          "title": "Paragraph Index",
+          "type": "integer"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "docx_pagination",
+          "default": "docx_pagination",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "render_profile": {
+          "$ref": "#/$defs/DocxRenderProfile"
+        },
+        "rendered_pdf_hash_basis": {
+          "default": "raw_pdf",
+          "enum": [
+            "raw_pdf",
+            "canonical_pdf_without_volatile_metadata"
+          ],
+          "title": "Rendered Pdf Hash Basis",
+          "type": "string"
+        },
+        "rendered_pdf_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Rendered Pdf Sha256",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        },
+        "source_text": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Text"
+        },
+        "source_text_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Text Sha256"
+        },
+        "source_unit_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Unit Id"
+        }
+      },
+      "required": [
+        "record_id",
+        "document_id",
+        "document_version",
+        "render_profile",
+        "block_id",
+        "paragraph_index",
+        "expected_physical_page_index",
+        "expected_display_page_label",
+        "expected_section_page_index",
+        "rendered_pdf_sha256"
+      ],
+      "title": "DocxPaginationGold",
+      "type": "object"
+    },
+    "DocxRenderProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "font_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Font Manifest Sha256",
+          "type": "string"
+        },
+        "profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Profile Sha256",
+          "type": "string"
+        },
+        "provider": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Provider",
+          "type": "string"
+        },
+        "renderer_version": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Renderer Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "renderer_version",
+        "font_manifest_sha256",
+        "profile_sha256"
+      ],
+      "title": "DocxRenderProfile",
+      "type": "object"
+    },
+    "OCRGold": {
+      "additionalProperties": false,
+      "properties": {
+        "annotation_policy": {
+          "const": "p05_body_projection_v2",
+          "default": "p05_body_projection_v2",
+          "title": "Annotation Policy",
+          "type": "string"
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "bbox_coordinate_space": {
+          "const": "image_pixels_top_left",
+          "default": "image_pixels_top_left",
+          "title": "Bbox Coordinate Space",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "dpi": {
+          "maximum": 600,
+          "minimum": 72,
+          "title": "Dpi",
+          "type": "integer"
+        },
+        "gold_text": {
+          "minLength": 1,
+          "title": "Gold Text",
+          "type": "string"
+        },
+        "gold_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Gold Text Sha256",
+          "type": "string"
+        },
+        "ignore_line_break_difference": {
+          "default": true,
+          "title": "Ignore Line Break Difference",
+          "type": "boolean"
+        },
+        "image_height": {
+          "minimum": 1,
+          "title": "Image Height",
+          "type": "integer"
+        },
+        "image_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Image Sha256",
+          "type": "string"
+        },
+        "image_width": {
+          "minimum": 1,
+          "title": "Image Width",
+          "type": "integer"
+        },
+        "inherited_page_gold_record_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Inherited Page Gold Record Id"
+        },
+        "inherited_page_gold_record_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Inherited Page Gold Record Sha256"
+        },
+        "normalize_full_width": {
+          "default": true,
+          "title": "Normalize Full Width",
+          "type": "boolean"
+        },
+        "ocr_input_document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Ocr Input Document Id",
+          "type": "string"
+        },
+        "ocr_input_document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Ocr Input Document Sha256",
+          "type": "string"
+        },
+        "ocr_input_document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Ocr Input Document Version",
+          "type": "string"
+        },
+        "ocr_input_page_number": {
+          "minimum": 1,
+          "title": "Ocr Input Page Number",
+          "type": "integer"
+        },
+        "raw_text": {
+          "minLength": 1,
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "raw_text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Raw Text Sha256",
+          "type": "string"
+        },
+        "reading_order": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reading Order",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "ocr",
+          "default": "ocr",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "regions": {
+          "items": {
+            "$ref": "#/$defs/OCRRegion"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "remove_spaces_between_chinese": {
+          "default": true,
+          "title": "Remove Spaces Between Chinese",
+          "type": "boolean"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "source_page_height_points": {
+          "exclusiveMinimum": 0.0,
+          "title": "Source Page Height Points",
+          "type": "number"
+        },
+        "source_page_width_points": {
+          "exclusiveMinimum": 0.0,
+          "title": "Source Page Width Points",
+          "type": "number"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        }
+      },
+      "required": [
+        "record_id",
+        "source_span",
+        "ocr_input_document_id",
+        "ocr_input_document_version",
+        "ocr_input_document_sha256",
+        "ocr_input_page_number",
+        "image_sha256",
+        "image_width",
+        "image_height",
+        "dpi",
+        "source_page_width_points",
+        "source_page_height_points",
+        "raw_text",
+        "raw_text_sha256",
+        "gold_text",
+        "gold_text_sha256",
+        "reading_order"
+      ],
+      "title": "OCRGold",
+      "type": "object"
+    },
+    "OCRRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Bbox",
+          "type": "array"
+        },
+        "body_order_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Body Order Index"
+        },
+        "gold_text": {
+          "anyOf": [
+            {
+              "maxLength": 20000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gold Text"
+        },
+        "include_in_body_text": {
+          "title": "Include In Body Text",
+          "type": "boolean"
+        },
+        "region_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Region Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "title",
+            "body",
+            "list",
+            "table",
+            "figure",
+            "figure_caption",
+            "formula",
+            "header",
+            "footer",
+            "page_number",
+            "qr_related",
+            "figure_embedded_text",
+            "noise",
+            "other"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "source_bbox_pdf_points": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Source Bbox Pdf Points",
+          "type": "array"
+        },
+        "source_page_region_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Page Region Id"
+        }
+      },
+      "required": [
+        "region_id",
+        "bbox",
+        "source_bbox_pdf_points",
+        "role",
+        "include_in_body_text"
+      ],
+      "title": "OCRRegion",
+      "type": "object"
+    },
+    "PageGold": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "bbox_coordinate_space": {
+          "anyOf": [
+            {
+              "const": "pdf_points_top_left",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bbox Coordinate Space"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "title": "Document Version",
+          "type": "string"
+        },
+        "needs_ocr": {
+          "title": "Needs Ocr",
+          "type": "boolean"
+        },
+        "noise_regions": {
+          "items": {
+            "$ref": "#/$defs/PageRegion"
+          },
+          "title": "Noise Regions",
+          "type": "array"
+        },
+        "noise_types": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Noise Types",
+          "type": "array"
+        },
+        "page_height": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Height"
+        },
+        "page_number": {
+          "minimum": 1,
+          "title": "Page Number",
+          "type": "integer"
+        },
+        "page_type": {
+          "enum": [
+            "native_text",
+            "scanned",
+            "hybrid",
+            "complex_layout"
+          ],
+          "title": "Page Type",
+          "type": "string"
+        },
+        "page_width": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Width"
+        },
+        "reading_order": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reading Order",
+          "type": "array"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "page",
+          "default": "page",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "regions": {
+          "items": {
+            "$ref": "#/$defs/PageRegion"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        }
+      },
+      "required": [
+        "record_id",
+        "document_id",
+        "document_version",
+        "page_number",
+        "page_type",
+        "needs_ocr"
+      ],
+      "title": "PageGold",
+      "type": "object"
+    },
+    "PageRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "anyOf": [
+            {
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bbox"
+        },
+        "block_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Id"
+        },
+        "order_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Order Index"
+        },
+        "region_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Region Id",
+          "type": "string"
+        },
+        "region_type": {
+          "enum": [
+            "title",
+            "body",
+            "list",
+            "table",
+            "figure",
+            "formula",
+            "header",
+            "footer",
+            "page_number",
+            "noise",
+            "other"
+          ],
+          "title": "Region Type",
+          "type": "string"
+        },
+        "text": {
+          "anyOf": [
+            {
+              "maxLength": 20000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text"
+        }
+      },
+      "required": [
+        "region_id",
+        "region_type"
+      ],
+      "title": "PageRegion",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SectionGold": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_version": {
+          "title": "Document Version",
+          "type": "string"
+        },
+        "first_text": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Text"
+        },
+        "last_text": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Text"
+        },
+        "level": {
+          "minimum": 1,
+          "title": "Level",
+          "type": "integer"
+        },
+        "parent_section_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Section Id"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "section",
+          "default": "section",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "section_id": {
+          "title": "Section Id",
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "document_id",
+        "document_version",
+        "section_id",
+        "title",
+        "level",
+        "source_span"
+      ],
+      "title": "SectionGold",
+      "type": "object"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "block_end": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block End"
+        },
+        "block_start": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Start"
+        },
+        "char_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char End"
+        },
+        "char_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Char Start"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "document_version": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Document Version",
+          "type": "string"
+        },
+        "page_end": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page End"
+        },
+        "page_start": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Start"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_id",
+        "document_version",
+        "document_sha256"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    },
+    "TableGold": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "cells": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "minItems": 1,
+          "title": "Cells",
+          "type": "array"
+        },
+        "column_count": {
+          "minimum": 1,
+          "title": "Column Count",
+          "type": "integer"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "record_type": {
+          "const": "table",
+          "default": "table",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "rendered_page_fragments": {
+          "items": {
+            "$ref": "#/$defs/TablePageFragment"
+          },
+          "title": "Rendered Page Fragments",
+          "type": "array"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "row_count": {
+          "minimum": 1,
+          "title": "Row Count",
+          "type": "integer"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "table_id": {
+          "title": "Table Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "table_id",
+        "source_span",
+        "row_count",
+        "column_count",
+        "cells"
+      ],
+      "title": "TableGold",
+      "type": "object"
+    },
+    "TablePageFragment": {
+      "additionalProperties": false,
+      "properties": {
+        "continuation_from_previous_page": {
+          "default": false,
+          "title": "Continuation From Previous Page",
+          "type": "boolean"
+        },
+        "continuation_to_next_page": {
+          "default": false,
+          "title": "Continuation To Next Page",
+          "type": "boolean"
+        },
+        "physical_page_index": {
+          "minimum": 1,
+          "title": "Physical Page Index",
+          "type": "integer"
+        },
+        "row_indices": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1,
+          "title": "Row Indices",
+          "type": "array"
+        },
+        "visible_cells": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "minItems": 1,
+          "title": "Visible Cells",
+          "type": "array"
+        }
+      },
+      "required": [
+        "physical_page_index",
+        "row_indices",
+        "visible_cells"
+      ],
+      "title": "TablePageFragment",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "docx_pagination": "#/$defs/DocxPaginationGold",
+            "ocr": "#/$defs/OCRGold",
+            "page": "#/$defs/PageGold",
+            "section": "#/$defs/SectionGold",
+            "table": "#/$defs/TableGold"
+          },
+          "propertyName": "record_type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/PageGold"
+          },
+          {
+            "$ref": "#/$defs/SectionGold"
+          },
+          {
+            "$ref": "#/$defs/TableGold"
+          },
+          {
+            "$ref": "#/$defs/DocxPaginationGold"
+          },
+          {
+            "$ref": "#/$defs/OCRGold"
+          }
+        ]
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "courserag.ds1.v1",
+      "default": "courserag.ds1.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version"
+  ],
+  "title": "DS1ParsingDataset",
+  "type": "object"
+}

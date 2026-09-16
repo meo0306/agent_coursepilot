@@ -1,0 +1,305 @@
+{
+  "approval_scope": "p10_input_gold_only",
+  "bundle_sha256": "5b6d756a39c988f952536ec93d2aa23b9c593908c3ea24c6af6816cff92b6702",
+  "candidate_record_sha256": {
+    "ds6": {
+      "p10-ds6-01-rename": "37771265dad6cb428122e60e4637990fa25cb14a8d902b11ad85822a6c042c42",
+      "p10-ds6-02-modify-paragraph": "348c2b630647608de6a0c4218ccca8d3ac29feca3285bdf62a7a0ec482f2a425",
+      "p10-ds6-03-insert-blank-page": "e1eab458c966e8e1e10d9693c7fc331cc4e2299a39731ca4fd81441036034773",
+      "p10-ds6-04-parser-profile": "85b09d5fe92d28664ce659606a3b6a5f6e665be1e8c3a0b2cc026832fa186825",
+      "p10-ds6-05-chunker-profile": "3cd292f26b35ad896587931914a5831014ca8a7ceeaa253ac5c0531edb3911bb",
+      "p10-ds6-06-replace-ocr-page": "a590b632da1d4ed8fcd035d771d8271a19c998e97973caf3292be36c0ce1364f",
+      "p10-ds6-07-duplicate-source": "3d8bd0c638097107a9c8ce538ff8140459303262dcd8b1d6f46661f968d851d5",
+      "p10-ds6-08-partial-delete": "511feb76f398fd40f0293b50108be7a624b6ed3ee4910e9f1ce86c51595b5910",
+      "p10-ds6-09-delete-evidence": "4f11cb3b66893bc2144aee712bab005924beb679a26acd90db47d08ad2df03b2"
+    },
+    "ds7": {
+      "p10-ds7-01-rename": "4646f93be8125b973a13aacbff197c0e60453ffc9bc8f0a79b8afa61e18a55a0",
+      "p10-ds7-02-modify-section": "c39368fa48421c0ec0a2632a52c4a865f054318b6f2624782f66a91803319f31",
+      "p10-ds7-03-add-section": "549595b5679c17a05c9a3c856304e028607f0061f6062699bc6c93fd9e8062e7",
+      "p10-ds7-04-chunker": "0b509a2ee803312eefa6cfd8f7f036e086cd0222906c092fb1e9f68574e0473b",
+      "p10-ds7-05-kp-prompt": "64ef97ae1094ad9d72ee4d5183da4fbfa6f7306b21f1efce2181faf83a8ca2b8",
+      "p10-ds7-06-embedding": "de3740d59abfee2aef843ac9d273013ab0019a3be705b7109b8057e5359aeeae",
+      "p10-ds7-07-reranker": "93fab33b87ce980fffdeda14762b036fe6276e3dd2ea974e651f878f9703b125",
+      "p10-ds7-08-delete-section": "32cf09df6935b645936e34e708d4c1025bcb619804c353d31f4fb27e01094723",
+      "p10-ds7-09-replace-ocr": "32181ab197f8361833f2d141fc655a5db6290ca39c244a2b1cefc0c34cafebd4",
+      "p10-ds7-10-writeback-lifecycle": "330f5fbb07b19ce8485fde13862cde0086ea11fdfb8ed0ff22f4ddaddc389c15",
+      "p10-ds7-11-auto-enrichment": "9ce53c2864e16a878794ed69103db4d5483674a99014c9cfb281310a823e6389",
+      "p10-ds7-12-manual-enrichment": "82b8b4cf4fcea90d3f9adcfc6bfb5ddc4948b9299085630d2a9c7520a68f4d62"
+    },
+    "ds8": {
+      "p10-ds8-context-cold": "d14c941f49033608368f773198cae0509af3df4633eec24c273e1907fe93a84e",
+      "p10-ds8-context-warm": "6f12c4700ff305b3f3d06c3521b75225caed8a5b50cea7fff01178191a68e09e",
+      "p10-ds8-enrichment-batch-cold": "5b034c9f8e5f81c5af6db7b945c199cb484bb328b71d34d2355ae92acf0ac2fd",
+      "p10-ds8-enrichment-batch-warm": "8b4cd2eb897fe8ff1c1536cacd74ffbd9ea9527837e0046116f8b3f3286e5241",
+      "p10-ds8-full-build-cold": "0cd3de1e04097bad836f79c8b9c63ce23051938c88273e748bb5471aa793a421",
+      "p10-ds8-full-build-warm": "c9dbe3a24b79635fa4f719829b7485753eed1d4f2c62a609daeb628e0b00c424",
+      "p10-ds8-ocr-batch-cold": "4dba7b1cd8f1be57119ed12e09e1461a9268342bccedf2e7b6e6b4a7cbe61880",
+      "p10-ds8-ocr-batch-warm": "e3f27a4048e36b6b5ce59869550e6a13f4c4b0a803fac4101fb1935c0c0c7b3e",
+      "p10-ds8-qa-abstention-cold": "d4ef9dd2bfc283357f79f1f0834cc60911982238b7f52363df7cdcbe919cb857",
+      "p10-ds8-qa-abstention-warm": "3006b79b727dce4d10b2c7351df690449ba346a5b428104961fa2b905ffc7905",
+      "p10-ds8-qa-cold": "64cdf2324111b7aac57183f7c92ea27da7c53244f41408573004702a1624e140",
+      "p10-ds8-qa-warm": "d643f587d58eb51516071236fde5d637bfde7e02715b1d5060628f0533eed1c3",
+      "p10-ds8-search-cold": "53b414ebb0363e5b99915d4371838a66bfb4ae285d3239cf4ac39bfaef1925f3",
+      "p10-ds8-search-rerank-cold": "43c8a997eb165b90f748d7f78a1fa9970949aa60d187a30bd966f0f36371bc54",
+      "p10-ds8-search-rerank-warm": "0b468d5ac9d0afc1d343004e476e73bddeb0b3069ab46a851757359c717e4137",
+      "p10-ds8-search-warm": "3e1982f474c8608ea807576761dbcf66dc9478c12ece948505c297631e2b3a80",
+      "p10-ds8-single-document-build-cold": "822ff406cb2f13d9c6aca95a56f7df0c7fc27160a66dc592e8694fa917579e6f",
+      "p10-ds8-single-document-build-warm": "9e2795e60a137432b9747daf22afdd1792c4110dd52b578df24ddd9240cebfa8",
+      "p10-ds8-single-section-update-cold": "c56cc4b9bf2396436176ad6340fb38d5eaaeddd048e89db42ad76fe640c4444d",
+      "p10-ds8-single-section-update-warm": "428a1b3e241ccf4dc82ac76fcfb2af9550a3d418b51e1c65b28d8833045d3888"
+    },
+    "security": {
+      "p10-sec-01-pdf-as-docx": "26efc7167d9fac44132b1e2913b6907c3da9407fe3b5d01d0a778577744db88a",
+      "p10-sec-02-docx-as-pdf": "7244760e9cc50270245964295a50ff0480c60340be295c67d5359a2ef47422b7",
+      "p10-sec-03-unsupported": "b8d00ee4a0195e119ed793cd764ca549d7e522f372d3c15e732b9384c531c278",
+      "p10-sec-04-encrypted-pdf": "9bfc0f58c2d6a636348f7defb5980c1285ba0b06d06e4e060f048fcaaab0bccf",
+      "p10-sec-05-compression": "51c5189fa48863056e0474c8043c12ef00dd0aa3aba54268b93ff95493c30e40",
+      "p10-sec-06-filename-traversal": "7bf6c73e169da9640e522c17b1ea5a00bf73ed640de4c0dd4e862dfee8ab791a",
+      "p10-sec-07-page-limit": "867219d499f856c93087024e460a259cddfa1facbda6cb6fa6bcef79ebd91b89",
+      "p10-sec-08-dpi-limit": "f09c8a2cc9bb2586708f63f8ce9dd46e5742148621873cd218bbab67e0e623cb",
+      "p10-sec-09-parse-timeout": "4765fc699e1dc50e2e8e3a4dba11dee6056075faf69bea2b62a4c705a4c43b07",
+      "p10-sec-10-cross-course-read": "eb336816f18e17c0392b5266909d0a7ead75b05c40cf0b5e4a5793661e8d7206",
+      "p10-sec-11-zip-entry-traversal": "03d033a332cb8ad0f82d2b8961985a838155a254c30501a662f9849c623952b2",
+      "p10-sec-12-cross-course-search": "12adb1f447c732803dbd674b7300092693443e9d9a481c61afde7d4e2822ab1b",
+      "p10-sec-13-cross-course-write": "9437729e2d68fc07cdcd7bdce43ccb469d9301b11eaae8d8d8e8770d454a44db",
+      "p10-sec-14-unauthorized-revoke": "e4cb2d4dd40e754cf7e81f025606f7add81b39bbee177f10f141c6a6962bb675",
+      "p10-sec-15-prompt-injection": "a82e4bd385ed8b16f6455a5c3f63af5317faed6c45ffd22b3ffec825550ec273",
+      "p10-sec-16-secret-redaction": "35460a0af245d2361262f95a6eceb0a46f4243b1b4b5e41246d687e24e20a604"
+    }
+  },
+  "candidates": {
+    "ds6": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds6/p10_citation_migration_r1.json",
+      "sha256": "38d90246321af245eb4fae361f272ffac7ffeda534088dba9711c296ea66edc4",
+      "size_bytes": 69963
+    },
+    "ds7": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds7/p10_incremental_writeback_r1.json",
+      "sha256": "54597bb55719124f3a2b9f5e7b88ea8698805acbf3f17ad256568433fabfa358",
+      "size_bytes": 35657
+    },
+    "ds8": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds8/p10_performance_workloads_r1.json",
+      "sha256": "ec8be5d3eb4e49a23d342ac511c5c143db15a2bc91f3b60be3fa4a1bd7bd16cb",
+      "size_bytes": 18958
+    },
+    "security": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/security/p10_security_fault_r1.json",
+      "sha256": "2fa925d212e77e96c773ace124b3ae9404f7642d1cf6c8a8f7d2cb63f9dcfb87",
+      "size_bytes": 12093
+    }
+  },
+  "component_splits": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/p10_component_splits.json",
+    "sha256": "e7d19acc044821d270788832b82705a43a24a968c0e11a72f11fc00a64f0e8e5",
+    "size_bytes": 2009
+  },
+  "dataset_id": "courserag-p10-input-bundle",
+  "dataset_version": "r1",
+  "first_review_ids": [
+    "p10-ds6-01-rename",
+    "p10-ds6-02-modify-paragraph",
+    "p10-ds6-03-insert-blank-page",
+    "p10-ds6-04-parser-profile",
+    "p10-ds6-05-chunker-profile",
+    "p10-ds6-06-replace-ocr-page",
+    "p10-ds6-07-duplicate-source",
+    "p10-ds6-08-partial-delete",
+    "p10-ds6-09-delete-evidence",
+    "p10-ds7-01-rename",
+    "p10-ds7-02-modify-section",
+    "p10-ds7-03-add-section",
+    "p10-ds7-04-chunker",
+    "p10-ds7-05-kp-prompt",
+    "p10-ds7-06-embedding",
+    "p10-ds7-07-reranker",
+    "p10-ds7-08-delete-section",
+    "p10-ds7-09-replace-ocr",
+    "p10-ds7-10-writeback-lifecycle",
+    "p10-ds7-11-auto-enrichment",
+    "p10-ds7-12-manual-enrichment",
+    "p10-ds8-full-build-cold",
+    "p10-ds8-full-build-warm",
+    "p10-ds8-single-document-build-cold",
+    "p10-ds8-single-document-build-warm",
+    "p10-ds8-single-section-update-cold",
+    "p10-ds8-single-section-update-warm",
+    "p10-ds8-ocr-batch-cold",
+    "p10-ds8-ocr-batch-warm",
+    "p10-ds8-enrichment-batch-cold",
+    "p10-ds8-enrichment-batch-warm",
+    "p10-ds8-search-cold",
+    "p10-ds8-search-warm",
+    "p10-ds8-search-rerank-cold",
+    "p10-ds8-search-rerank-warm",
+    "p10-ds8-context-cold",
+    "p10-ds8-context-warm",
+    "p10-ds8-qa-cold",
+    "p10-ds8-qa-warm",
+    "p10-ds8-qa-abstention-cold",
+    "p10-ds8-qa-abstention-warm",
+    "p10-sec-01-pdf-as-docx",
+    "p10-sec-02-docx-as-pdf",
+    "p10-sec-03-unsupported",
+    "p10-sec-04-encrypted-pdf",
+    "p10-sec-05-compression",
+    "p10-sec-06-filename-traversal",
+    "p10-sec-07-page-limit",
+    "p10-sec-08-dpi-limit",
+    "p10-sec-09-parse-timeout",
+    "p10-sec-10-cross-course-read",
+    "p10-sec-11-zip-entry-traversal",
+    "p10-sec-12-cross-course-search",
+    "p10-sec-13-cross-course-write",
+    "p10-sec-14-unauthorized-revoke",
+    "p10-sec-15-prompt-injection",
+    "p10-sec-16-secret-redaction"
+  ],
+  "fixture_manifest": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/p10_fixture_manifest.json",
+    "sha256": "d5180bbf8908f5b6003d2a229a87d203165cc3a65062d27fd9015f42f060e00a",
+    "size_bytes": 10133
+  },
+  "l0_zero_tolerance": [
+    "missed_change",
+    "stale_citation",
+    "cross_course_access",
+    "unauthorized_write",
+    "secret_leak",
+    "primary_overwrite",
+    "duplicate_write",
+    "silent_fallback",
+    "gold_or_test_leak"
+  ],
+  "l1_thresholds": {
+    "citation_migration_success": 0.95,
+    "manifest_resume_reproducibility": 1.0,
+    "theoretical_artifact_reuse": 0.85
+  },
+  "preserved_p09": {
+    "p09_automatic_gate": {
+      "media_type": "application/json",
+      "path": "storage_eval/p09_generation_reliability/automatic_gate_report.json",
+      "sha256": "a3f387973d669dedbfc83467857b11889ee93178d2ca9daed4607cbc0515c4b2",
+      "size_bytes": 3043
+    },
+    "p09_formal_report": {
+      "media_type": "application/json",
+      "path": "storage_eval/p09_query_context_qa/run-1/report.json",
+      "sha256": "8cf07e7026a58a8750ff455101440b9338f7713b9a51ed28dc52ad59b2f7f197",
+      "size_bytes": 627817
+    },
+    "p09_gate_repair_report": {
+      "media_type": "application/json",
+      "path": "storage_eval/p09_gate_repair/repair-run-1/report.json",
+      "sha256": "ccef34afff9a0286a1e331e2182e6cfd729c345e24e51180ea9040034622a3c3",
+      "size_bytes": 3825021
+    },
+    "p09_rejected_candidate_profile": {
+      "media_type": "application/json",
+      "path": "resources/qa_profiles/p09_generation_reliability_candidate_v1.json",
+      "sha256": "8b2c7b37964c146b50eb2878028ea881be5b9e47bbc364c364dcc0eac779bfc7",
+      "size_bytes": 1159
+    }
+  },
+  "review_pack_index_sha256": "4453e224c4d1e0748f1ae55d1bb8a2c74782b8eb84f6a1edce4fa964e0062301",
+  "review_pack_relative_path": "storage_eval/p10_input_review/5b6d756a39c988f952536ec93d2aa23b9c593908c3ea24c6af6816cff92b6702",
+  "review_ui_revision": 2,
+  "revision": 1,
+  "schema_version": "courserag.p10-input-bundle-manifest.v1",
+  "second_review_ids": [
+    "p10-sec-05-compression",
+    "p10-ds8-enrichment-batch-cold",
+    "p10-ds6-01-rename",
+    "p10-ds7-03-add-section",
+    "p10-sec-03-unsupported",
+    "p10-sec-14-unauthorized-revoke",
+    "p10-ds8-search-warm",
+    "p10-ds6-09-delete-evidence",
+    "p10-ds7-11-auto-enrichment",
+    "p10-sec-06-filename-traversal",
+    "p10-sec-02-docx-as-pdf",
+    "p10-sec-15-prompt-injection",
+    "p10-ds6-08-partial-delete",
+    "p10-ds7-06-embedding",
+    "p10-sec-07-page-limit",
+    "p10-sec-16-secret-redaction",
+    "p10-ds7-07-reranker",
+    "p10-ds8-qa-cold",
+    "p10-sec-08-dpi-limit",
+    "p10-sec-10-cross-course-read",
+    "p10-sec-01-pdf-as-docx",
+    "p10-ds7-12-manual-enrichment",
+    "p10-ds6-07-duplicate-source",
+    "p10-sec-11-zip-entry-traversal",
+    "p10-ds7-10-writeback-lifecycle",
+    "p10-sec-09-parse-timeout",
+    "p10-sec-04-encrypted-pdf",
+    "p10-sec-12-cross-course-search",
+    "p10-sec-13-cross-course-write"
+  ],
+  "second_review_index_sha256": "781169943f32ea383ef847b97676135afb12b49559d0e8cf0662625fe3b2ac33",
+  "test_freeze_protocol": {
+    "media_type": "application/json",
+    "path": "datasets/courserag_eval/v1/provenance/p10_test_freeze_protocol.json",
+    "sha256": "25a4745cb59ec45a8ad4f18b1f12a99845874488fa2deb38751e064dfe5259d2",
+    "size_bytes": 554
+  },
+  "upstream_approved": {
+    "ds0": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds0/pilot.json",
+      "sha256": "d9174a4dd75182b608ed161d803acb9ddb8bc16f0aa1933641b2328326eb1306",
+      "size_bytes": 10768
+    },
+    "ds2": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds2/p06_evidence.json",
+      "sha256": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+      "size_bytes": 471187
+    },
+    "ds3": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds3/p07_knowledge_points.json",
+      "sha256": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+      "size_bytes": 249988
+    },
+    "ds5_retrieval": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds5/p08_retrieval.json",
+      "sha256": "ff266ec674490ae69480b1b119cc157cc7f70006e4efc8335a8b2cd44e1e9afd",
+      "size_bytes": 592428
+    },
+    "p05_ocr": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds1/p05_ocr.json",
+      "sha256": "62824129f3525a90bcbdd3d4570d9aa6a3768c0db6949c3c2ceafa7e7ce53c51",
+      "size_bytes": 368186
+    },
+    "p09_approval": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/provenance/p09_gold_bundle_approval.json",
+      "sha256": "a19ab29918c4b6b53da0c148c04849ab6e570b8b8ff2350dd58a3c858f4d8cef",
+      "size_bytes": 48734
+    },
+    "p09_context": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds5/p09_context.json",
+      "sha256": "0f23da3eba8b76e29040e4a5a8632f24b170e65e8fd792d7a98a6633c51ee330",
+      "size_bytes": 352589
+    },
+    "p09_qa": {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds5/p09_qa.json",
+      "sha256": "d3460b0831b5ce7567e0c97c82b0574c2aeb31776944fba9982e3f21d84d62c7",
+      "size_bytes": 592108
+    }
+  }
+}

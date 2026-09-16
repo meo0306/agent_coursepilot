@@ -1,0 +1,123 @@
+{
+  "attestation_source": "course_owner_conversation_attestation",
+  "bundle_sha256": "5a84bac041375310d5bb80f17f7481464d07dbcf75f9f980c6b8a030e58af0c1",
+  "dataset_id": "courserag-p09-r2-owner-attestation-first",
+  "dataset_version": "r2",
+  "decisions": [
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a74bb4b9fcefc7df08ea2063151445b8"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-f287be490a3c23fdd7bc3d027b70051a"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2a2684775884b34032cd3adf427ec866"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-a9d45653719933fd1bc9790cf1f0db87"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-574fc80decab989823e88f69bc850f15"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-18b8640afc285e8d4ecebec3db23684f"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-10caf16efab833ad40e600359b5239c2"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-78aa66e747df675f48bff6dc8bcd6426"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-2b8972b47de56a5b6b62e68091320557"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-720907acf5c019bca8604d8bbaddf311"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-6008640bfe85562d6598e3805655f820"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-252adaf1a1cbe9d9371796e0f770889b"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-730f317833bc4b6f6d458f42814069be"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-f9aea3f33c261e97222b15cf5b46fddf"
+    },
+    {
+      "decision": "pass",
+      "notes": "",
+      "record_id": "gold-qa-74304d145c41aaf7ea44b17108ef39ef"
+    }
+  ],
+  "expected_record_ids": [
+    "gold-qa-a74bb4b9fcefc7df08ea2063151445b8",
+    "gold-qa-f287be490a3c23fdd7bc3d027b70051a",
+    "gold-qa-2a2684775884b34032cd3adf427ec866",
+    "gold-qa-a9d45653719933fd1bc9790cf1f0db87",
+    "gold-qa-574fc80decab989823e88f69bc850f15",
+    "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+    "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9",
+    "gold-qa-10caf16efab833ad40e600359b5239c2",
+    "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca",
+    "gold-qa-78aa66e747df675f48bff6dc8bcd6426",
+    "gold-qa-2b8972b47de56a5b6b62e68091320557",
+    "gold-qa-720907acf5c019bca8604d8bbaddf311",
+    "gold-qa-6008640bfe85562d6598e3805655f820",
+    "gold-qa-252adaf1a1cbe9d9371796e0f770889b",
+    "gold-qa-730f317833bc4b6f6d458f42814069be",
+    "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f",
+    "gold-qa-f9aea3f33c261e97222b15cf5b46fddf",
+    "gold-qa-74304d145c41aaf7ea44b17108ef39ef"
+  ],
+  "notes": "Course Owner explicitly stated in the conversation that both P09 r2 difference-review passes were complete with no returns, then approved the exact Bundle SHA-256.",
+  "review_pass": "first",
+  "reviewed_at": null,
+  "reviewer_id": "course_owner",
+  "schema_version": "courserag.p09-review-decisions.v1"
+}

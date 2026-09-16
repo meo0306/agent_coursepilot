@@ -1,0 +1,12 @@
+FROM agent_coursepilot-agent_service:latest
+
+RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|g' \
+        /etc/apt/sources.list.d/debian.sources \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        fonts-noto-cjk \
+        libreoffice-writer \
+        poppler-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip install --no-cache-dir pdf2image==1.17.0

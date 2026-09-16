@@ -1,0 +1,17 @@
+{
+  "dpi": 200,
+  "language": "ch",
+  "low_region_confidence": 0.5,
+  "max_low_region_ratio": 0.25,
+  "max_memory_bytes": 1610612736,
+  "max_pixels": 20000000,
+  "max_workers": 1,
+  "min_confidence": 0.75,
+  "model_manifest_path": "resources/ocr_profiles/rapidocr_candidate_v1.model-manifest.json",
+  "model_manifest_sha256": "2270782b509c253958899477e1982ed111c4ec7a62b4b6a5b60f1fe68c05214f",
+  "model_name": "rapidocr-bundled",
+  "name": "rapidocr_candidate_v1",
+  "provider": "rapidocr",
+  "schema_version": "courserag.ocr-profile.v1",
+  "timeout_seconds": 60.0
+}

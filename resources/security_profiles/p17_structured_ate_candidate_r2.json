@@ -1,0 +1,27 @@
+{
+  "schema_version": "courserag.structured-capability-axes.v2",
+  "name": "p17_structured_ate_candidate_r2",
+  "version": "2.0.0-candidate",
+  "axes": [
+    "policy_override",
+    "role_impersonation",
+    "secret_extraction",
+    "tool_coercion"
+  ],
+  "scope_precedence": [
+    "quoted",
+    "negated",
+    "educational",
+    "defensive_description",
+    "approved_procedure",
+    "operative"
+  ],
+  "normalization_views": [
+    "normalized",
+    "deobfuscated"
+  ],
+  "decision_contract": "operative_and_action_and_target_and_effect",
+  "semantic_model_role": "corroboration_only",
+  "obfuscation_is_modifier_only": true,
+  "authorization_role": "none"
+}

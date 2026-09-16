@@ -1,0 +1,31 @@
+{
+  "schema_version": "coursepilot.cp-ds1.v1",
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "v1",
+  "cases": [
+    {
+      "record_id": "cp-ds1-synthetic-lesson",
+      "review_status": "candidate",
+      "candidate_source": "synthetic_p02_fixture",
+      "approval": null,
+      "course_id": "synthetic-course",
+      "template_id": "synthetic-lesson-template",
+      "chapter_range": "Synthetic section",
+      "total_sessions": 1,
+      "session_duration": 45,
+      "audience": "Synthetic learners",
+      "required_knowledge_point_ids": [],
+      "required_evidence_ids": [
+        "synthetic-ev-1"
+      ],
+      "required_activity_types": [
+        "practice"
+      ],
+      "forbidden_claims": [],
+      "required_interrupts": [
+        "lesson_session_plan_review",
+        "lesson_final_review"
+      ]
+    }
+  ]
+}

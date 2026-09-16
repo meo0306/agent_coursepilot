@@ -28,6 +28,12 @@ def test_settings_default_values():
     assert settings.USE_FAKE_MODEL is False
     assert settings.DEFAULT_MODEL == FakeModelName.FAKE
     assert settings.AVAILABLE_MODELS == set(FakeModelName)
+    assert settings.COURSERAG_OCR_PROVIDER == "rapidocr"
+    assert settings.COURSERAG_OCR_PROFILE_PATH == "resources/ocr_profiles/default_v1.json"
+    assert settings.COURSERAG_RETRIEVAL_PROFILE_PATH == (
+        "resources/retrieval_profiles/default_v1.json"
+    )
+    assert settings.COURSERAG_OCR_TIMEOUT_SECONDS == 90
 
 
 def test_settings_with_openai_key():
@@ -123,3 +129,110 @@ def test_settings_log_level_invalid():
     with patch.dict(os.environ, {"LOG_LEVEL": "INVALID"}, clear=True):
         with pytest.raises(ValueError, match="validation error for Settings\nLOG_LEVEL\n"):
             Settings(_env_file=None)
+
+
+def test_versioned_retrieval_accepts_frozen_local_embedding() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        settings = Settings(
+            COURSERAG_RETRIEVAL_BACKEND="versioned",
+            COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+            COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+            COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+            COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256="1" * 64,
+            COURSERAG_EMBEDDING_WEIGHTS_SHA256="2" * 64,
+            _env_file=None,
+        )
+
+    assert settings.COURSERAG_EMBEDDING_DEVICE == "cuda"
+    assert settings.COURSERAG_EMBEDDING_DTYPE == "bfloat16"
+
+
+def test_versioned_retrieval_rejects_unfrozen_local_embedding() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(
+            ValueError, match="Local Embedding requires path and frozen model Hashes"
+        ):
+            Settings(
+                COURSERAG_RETRIEVAL_BACKEND="versioned",
+                COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+                COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+                COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+                _env_file=None,
+            )
+
+
+def test_multi_axis_security_requires_complete_hikma_identity() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(ValueError, match="requires Profile and Hikma model identity"):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="multi_axis_local",
+                COURSERAG_SECURITY_ENSEMBLE_PROFILE_PATH="profile.json",
+                _env_file=None,
+            )
+
+
+def test_multi_axis_required_override_requires_llama_identity() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(ValueError, match="required Override axis"):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="multi_axis_local",
+                COURSERAG_SECURITY_ENSEMBLE_PROFILE_PATH="profile.json",
+                COURSERAG_SECURITY_HIKMA_MODEL_PATH="D:/AI/hikma",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_PATH="hikma.json",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256="1" * 64,
+                COURSERAG_SECURITY_OVERRIDE_AXIS="required",
+                _env_file=None,
+            )
+
+
+def test_dual_hypothesis_security_requires_frozen_local_model_identities() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(
+            ValueError,
+            match="requires frozen Hikma and local Qwen3 identities",
+        ):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="dual_hypothesis_local",
+                COURSERAG_P17_1_SECURITY_PROFILE_PATH="profile.json",
+                COURSERAG_SECURITY_SEMANTIC_ENCODER="local_qwen3",
+                _env_file=None,
+            )
+
+
+def test_dual_hypothesis_security_accepts_complete_local_model_identities() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        settings = Settings(
+            COURSERAG_PROMPT_INJECTION_PROVIDER="dual_hypothesis_local",
+            COURSERAG_P17_1_SECURITY_PROFILE_PATH="profile.json",
+            COURSERAG_SECURITY_SEMANTIC_ENCODER="local_qwen3",
+            COURSERAG_SECURITY_HIKMA_MODEL_PATH="D:/AI/models/hikma",
+            COURSERAG_SECURITY_HIKMA_MANIFEST_PATH="hikma.json",
+            COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256="1" * 64,
+            COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+            COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+            COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+            COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256="2" * 64,
+            COURSERAG_EMBEDDING_WEIGHTS_SHA256="3" * 64,
+            _env_file=None,
+        )
+
+    assert settings.COURSERAG_SECURITY_EVAL_MODE == "disabled"
+
+
+def test_tri_state_security_requires_its_decision_profile() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        with pytest.raises(ValueError, match="requires its frozen decision Profile"):
+            Settings(
+                COURSERAG_PROMPT_INJECTION_PROVIDER="tri_state_dual_hypothesis_local",
+                COURSERAG_P17_1_SECURITY_PROFILE_PATH="base-profile.json",
+                COURSERAG_SECURITY_SEMANTIC_ENCODER="local_qwen3",
+                COURSERAG_SECURITY_HIKMA_MODEL_PATH="D:/AI/models/hikma",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_PATH="hikma.json",
+                COURSERAG_SECURITY_HIKMA_MANIFEST_SHA256="1" * 64,
+                COURSERAG_EMBEDDING_PROVIDER="local_sentence_transformers",
+                COURSERAG_EMBEDDING_MODEL="Qwen/Qwen3-Embedding-0.6B",
+                COURSERAG_EMBEDDING_MODEL_PATH="D:/AI/models/qwen",
+                COURSERAG_EMBEDDING_MODEL_BUNDLE_SHA256="2" * 64,
+                COURSERAG_EMBEDDING_WEIGHTS_SHA256="3" * 64,
+                _env_file=None,
+            )

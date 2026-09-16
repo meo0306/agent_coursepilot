@@ -1,0 +1,277 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P18RecoveryCase": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "approval_scope_forbidden": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approval Scope Forbidden",
+          "type": "array"
+        },
+        "approval_scope_granted": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approval Scope Granted",
+          "type": "array"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "decision": {
+          "enum": [
+            "approve",
+            "edit_resume",
+            "replan",
+            "reject"
+          ],
+          "title": "Decision",
+          "type": "string"
+        },
+        "expected_artifact_version_after": {
+          "minimum": 1,
+          "title": "Expected Artifact Version After",
+          "type": "integer"
+        },
+        "expected_artifact_version_before": {
+          "minimum": 1,
+          "title": "Expected Artifact Version Before",
+          "type": "integer"
+        },
+        "expected_invalidated_nodes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected Invalidated Nodes",
+          "type": "array"
+        },
+        "expected_reused_nodes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected Reused Nodes",
+          "type": "array"
+        },
+        "expected_side_effects": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Expected Side Effects",
+          "type": "object"
+        },
+        "expected_state_transitions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "title": "Expected State Transitions",
+          "type": "array"
+        },
+        "fault_sequence": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Fault Sequence",
+          "type": "array"
+        },
+        "initial_state": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Initial State",
+          "type": "object"
+        },
+        "interrupt_type": {
+          "enum": [
+            "lesson_session_plan_review",
+            "lesson_final_review",
+            "exam_blueprint_review",
+            "exam_global_review",
+            "ppt_architecture_review",
+            "ppt_final_review"
+          ],
+          "title": "Interrupt Type",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "source_task_id": {
+          "title": "Source Task Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "workflow_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt"
+          ],
+          "title": "Workflow Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "split",
+        "course_id",
+        "workflow_type",
+        "source_task_id",
+        "interrupt_type",
+        "decision",
+        "initial_state",
+        "fault_sequence",
+        "expected_state_transitions",
+        "expected_artifact_version_before",
+        "expected_artifact_version_after",
+        "expected_reused_nodes",
+        "expected_invalidated_nodes",
+        "expected_side_effects",
+        "approval_scope_granted",
+        "approval_scope_forbidden"
+      ],
+      "title": "P18RecoveryCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P18RecoveryCase"
+      },
+      "maxItems": 24,
+      "minItems": 24,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "default": "p18-formal-r1",
+      "enum": [
+        "p18-formal-r1",
+        "p18-formal-r2"
+      ],
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "historical_regression_source_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Historical Regression Source Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds6-p18.v1",
+      "default": "coursepilot.cp-ds6-p18.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "historical_regression_source_sha256",
+    "cases"
+  ],
+  "title": "P18RecoveryDataset",
+  "type": "object"
+}

@@ -1,0 +1,109 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "attestation_source": {
+      "anyOf": [
+        {
+          "enum": [
+            "offline_review_package",
+            "course_owner_conversation_attestation"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Attestation Source"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "expected_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Expected Record Ids",
+      "type": "array"
+    },
+    "notes": {
+      "default": "",
+      "maxLength": 4000,
+      "title": "Notes",
+      "type": "string"
+    },
+    "record_notes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Record Notes",
+      "type": "object"
+    },
+    "returned_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Returned Record Ids",
+      "type": "array"
+    },
+    "review_pass": {
+      "enum": [
+        "first",
+        "second"
+      ],
+      "title": "Review Pass",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewed At"
+    },
+    "reviewed_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reviewed Record Ids",
+      "type": "array"
+    },
+    "reviewer_id": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer Id"
+    },
+    "schema_version": {
+      "const": "courserag.ds3-review-decisions.v1",
+      "default": "courserag.ds3-review-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_sha256",
+    "review_pass",
+    "expected_record_ids"
+  ],
+  "title": "DS3ReviewDecisions",
+  "type": "object"
+}

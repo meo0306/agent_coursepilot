@@ -12,7 +12,10 @@ from sqlalchemy.orm import Session
 
 from core.settings import settings
 from coursepilot.db.session import CoursePilotSessionLocal, get_coursepilot_engine
-from coursepilot.models import GenerationTask
+from coursepilot.domain import InterruptType
+from coursepilot.models import GenerationTask, ResumeCommandRecord
+from coursepilot.runtime import InterruptService, get_sync_recoverable_checkpointer
+from coursepilot.runtime.recoverable_graph import build_recoverable_graph, recoverable_graph_config
 from coursepilot.schemas.exam_schema import ExamGenerationParams
 from coursepilot.schemas.lesson_schema import LessonGenerationParams
 from coursepilot.schemas.ppt_schema import PPTGenerationParams
@@ -157,18 +160,27 @@ class CoursePilotTaskWorker:
                     task.task_type,
                 )
 
-    @staticmethod
-    def _dispatch(session: Session, task: GenerationTask) -> None:
+    def _dispatch(self, session: Session, task: GenerationTask) -> None:
+        if task.workflow_mode == "recoverable":
+            self._dispatch_recoverable(session, task)
+            return
         payload = dict(task.input_params_json or {})
         if task.task_type == "build_kb":
             from coursepilot.services.kb_service import KnowledgeBaseService
 
-            result = KnowledgeBaseService(session).build_document(
+            build_result = KnowledgeBaseService(session).build_document(
                 str(payload["document_id"]),
                 task_id=task.id,
             )
-            if result is None:
+            if build_result is None:
                 raise ValueError("Document not found while executing build-kb task")
+            return
+        if task.task_type == "courserag_build":
+            from coursepilot.adapters.courserag_build_bridge import (
+                CourseRAGBuildCompatibilityBridge,
+            )
+
+            CourseRAGBuildCompatibilityBridge(session).resume_task(task)
             return
         if task.task_type == "lesson_design":
             from coursepilot.services.lesson_service import LessonService
@@ -191,25 +203,125 @@ class CoursePilotTaskWorker:
         if task.task_type == "exam_questions":
             from coursepilot.services.exam_service import ExamService
 
-            result = ExamService(session).generate_questions(
+            question_result = ExamService(session).generate_questions(
                 str(payload["blueprint_id"]),
                 task_id=task.id,
             )
-            if result is None:
+            if question_result is None:
                 raise ValueError("Exam blueprint not found while executing question task")
             return
         if task.task_type == "ppt_outline":
             from coursepilot.services.ppt_service import PPTService
 
-            result = PPTService(session).generate_outline(
+            ppt_result = PPTService(session).generate_outline(
                 str(payload["lesson_id"]),
                 PPTGenerationParams.model_validate(payload["params"]),
                 task_id=task.id,
             )
-            if result is None:
+            if ppt_result is None:
                 raise ValueError("Lesson not found while executing PPT task")
             return
         raise ValueError(f"Unsupported async task type: {task.task_type}")
+
+    def _dispatch_recoverable(self, session: Session, task: GenerationTask) -> None:
+        if task.workflow_type not in {"lesson", "exam", "ppt"}:
+            raise ValueError("Unsupported recoverable workflow type")
+        from coursepilot.domain.common import canonical_sha256
+        from coursepilot.models import ArtifactRecord, ArtifactVersionRecord
+
+        pending_command = session.scalar(
+            select(ResumeCommandRecord)
+            .where(
+                ResumeCommandRecord.task_id == task.id,
+                ResumeCommandRecord.status == "pending",
+            )
+            .order_by(ResumeCommandRecord.created_at)
+        )
+        if pending_command is not None:
+            InterruptService(session).resume_command(pending_command)
+            return
+
+        artifact = session.scalar(
+            select(ArtifactRecord).where(
+                ArtifactRecord.task_id == task.id,
+                ArtifactRecord.artifact_type == f"{task.workflow_type}_draft",
+            )
+        )
+        if artifact is None:
+            artifact = ArtifactRecord(
+                task_id=task.id,
+                course_id=task.course_id,
+                artifact_type=f"{task.workflow_type}_draft",
+                active_version=1,
+            )
+            session.add(artifact)
+            session.flush()
+            content = dict(task.input_params_json or {})
+            session.add(
+                ArtifactVersionRecord(
+                    artifact_id=artifact.id,
+                    version=1,
+                    schema_version="p12-recoverable-v1",
+                    content_json=content,
+                    storage_kind="postgres",
+                    content_sha256=canonical_sha256(content),
+                    created_by="recoverable-runtime",
+                )
+            )
+            session.flush()
+            task.active_artifact_version = 1
+        config = recoverable_graph_config(task.workflow_type, task.id, task.course_id)
+        input_params = dict(task.input_params_json or {})
+        if (
+            task.workflow_type == "lesson"
+            and isinstance(input_params.get("knowledge_points"), dict)
+            and isinstance(input_params.get("context_ref"), dict)
+        ):
+            state = {
+                "task_id": task.id,
+                "course_id": task.course_id,
+                "request": dict(input_params.get("request", input_params)),
+                "template_snapshot_id": str(
+                    input_params.get("template_snapshot_id", "lesson_standard_university_v1")
+                ),
+                "knowledge_points": input_params["knowledge_points"],
+                "context_ref": input_params["context_ref"],
+            }
+        else:
+            state = {
+                "interrupt_payload": {
+                    "task_id": task.id,
+                    "artifact_id": artifact.id,
+                    "artifact_version": task.active_artifact_version,
+                }
+            }
+        with get_sync_recoverable_checkpointer() as saver:
+            graph = build_recoverable_graph(task.workflow_type, checkpointer=saver)
+            result = graph.invoke(state, config=config)
+        interrupts = result.get("__interrupt__", []) if isinstance(result, dict) else []
+        if interrupts:
+            item = interrupts[0]
+            value = dict(item.value)
+            interrupt_type = InterruptType(value.pop("interrupt_type"))
+            artifact_version = session.scalar(
+                select(ArtifactVersionRecord).where(
+                    ArtifactVersionRecord.artifact_id == artifact.id,
+                    ArtifactVersionRecord.version == task.active_artifact_version,
+                )
+            )
+            if artifact_version is None:
+                raise ValueError("Recoverable artifact version missing")
+            InterruptService(session).create(
+                task=task,
+                interrupt_type=interrupt_type,
+                checkpoint_id=item.id,
+                artifact_version_id=artifact_version.id,
+                payload=value,
+            )
+            session.commit()
+            return
+        task.status = "completed"
+        task.completed_at = utc_now()
 
 
 class _TaskLeaseHeartbeat:

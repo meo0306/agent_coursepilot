@@ -1,0 +1,1164 @@
+{
+  "cases": [
+    {
+      "approval": {
+        "approved_record_sha256": "d0bd4929bc25aff6a86019df9a87352f6eab7b1f76227322209772fcb4d67ed3",
+        "candidate_sha256": "da07f962c8c2f1f8b4eb12a18299bd22e0346f183f69a8391c0b864a26b2e8ad",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-01",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 2,
+        "hard": 2,
+        "medium": 4
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 8,
+      "question_type_counts": {
+        "judgment": 1,
+        "multiple_choice": 1,
+        "short_answer": 4,
+        "single_choice": 2
+      },
+      "record_id": "p18-exam-01",
+      "required_claims": [
+        "J=[[f_x/t_z,0,-f_x·t_x/t_z^2];[0,f_y/t_z,-f_y·t_y/t_z^2]]\n式中，f_x和f_y代表摄像机焦距。根据相机坐标系到世界坐标系的视角转换矩阵W，转换后的二维协方差矩阵Σ′∈R^{2×2}也随之确定：\nΣ′=JWΣW^T J^T",
+        "LIO-SAM是基于图优化的LiDAR与IMU融合的SLAM算法，它将IMU预积分因子、LiDAR测量因子和闭环检测因子整合到系统中。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-90d893d2ec1d819eaeaec0db",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-b4635872d741e3a6c0e764547d376516",
+          "evidence_record_sha256": "854af7d620c893f9e67af3a701068d261c0bc2280f64ee3362a0816d6d89e232",
+          "evidence_text": "J=[[f_x/t_z,0,-f_x·t_x/t_z^2];[0,f_y/t_z,-f_y·t_y/t_z^2]]\n式中，f_x和f_y代表摄像机焦距。根据相机坐标系到世界坐标系的视角转换矩阵W，转换后的二维协方差矩阵Σ′∈R^{2×2}也随之确定：\nΣ′=JWΣW^T J^T",
+          "knowledge_point_id": "gold-kp-c8b6dd9af44af9a218029f1cd7d4d4b7",
+          "knowledge_point_name": "3D高斯二维协方差变换",
+          "knowledge_point_record_sha256": "b304f355261f6660dd7ccac18d86d380a374d9c864991ef60e77f9cd564da69e",
+          "knowledge_point_summary": "J=[[f_x/t_z,0,-f_x·t_x/t_z^2];[0,f_y/t_z,-f_y·t_y/t_z^2]]\n式中，f_x和f_y代表摄像机焦距。根据相机坐标系到世界坐标系的视角转换矩阵W，转换后的二维协方差矩阵Σ′∈R^{2×2}也随之确定：\nΣ′=JWΣW^T J^T",
+          "necessary_neighbors": [
+            "然而，三维高斯的透视投影不会产生二维高斯。因此，协方差矩阵Σ在像素空间的投影需通过在摄像机帧中t处的一阶泰勒展开近似获得，且该仿射变换由雅可比矩阵J∈R^{2×3}计算得出："
+          ],
+          "page_end": 347,
+          "page_start": 347,
+          "section_ids": [
+            "ds3-scope-docx-6-2-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-6d283bc91835866895343ee8",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+          "evidence_record_sha256": "2d1cfde067ba5e9c28bc074dea7c3279d65226a938e08b8c6c43b72f77998700",
+          "evidence_text": "LIO-SAM是基于图优化的LiDAR与IMU融合的SLAM算法，它将IMU预积分因子、LiDAR测量因子和闭环检测因子整合到系统中。",
+          "knowledge_point_id": "gold-kp-8c0e8220f6fb5141bea100464036a6da",
+          "knowledge_point_name": "LIO-SAM",
+          "knowledge_point_record_sha256": "16a75425f85f618b378d26ae9c1bbfa4df13404fa51d294063e446fbbebca6d4",
+          "knowledge_point_summary": "LIO-SAM是基于图优化的LiDAR与IMU融合的SLAM算法，它将IMU预积分因子、LiDAR测量因子和闭环检测因子整合到系统中。",
+          "necessary_neighbors": [],
+          "page_end": 357,
+          "page_start": 357,
+          "section_ids": [
+            "ds3-scope-docx-6-3"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-a079deb97b77f42f880cc6e4",
+      "task_prompt": "仅依据绑定证据，围绕“3D高斯二维协方差变换、LIO-SAM”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_chapter_assignment_v1",
+      "title": "3D高斯二维协方差变换、LIO-SAM试卷任务",
+      "total_score": 50,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-b4635872d741e3a6c0e764547d376516",
+          "gold-ev-34207553fec0fd47868ebc31e2a7b86b"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "然而，三维高斯的透视投影不会产生二维高斯。因此，协方差矩阵Σ在像素空间的投影需通过在摄像机帧中t处的一阶泰勒展开近似获得，且该仿射变换由雅可比矩阵J∈R^{2×3}计算得出："
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-b4635872d741e3a6c0e764547d376516",
+          "gold-ev-34207553fec0fd47868ebc31e2a7b86b"
+        ],
+        "retrieval_intent": "检索支持“3D高斯二维协方差变换、LIO-SAM”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "f0d78f11f88c085a3e524e92273b68bd077a85bcd13236cb65d0ae25f1392604",
+        "candidate_sha256": "8b0ff5a217e44dd9e461531946e39d5e6e82a55a9bb3771afb6a3d47cca053f6",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-02",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 4,
+        "hard": 2,
+        "medium": 6
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 12,
+      "question_type_counts": {
+        "judgment": 2,
+        "multiple_choice": 2,
+        "short_answer": 4,
+        "single_choice": 4
+      },
+      "record_id": "p18-exam-02",
+      "required_claims": [
+        "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+        "毁伤情况的检测作为一个概念检测的任务，是对前述技术应用的系统集成，是根据实际经验迭代形成的，并且在实际应用中不断完善，不断优化以适应实际的战场需求。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-a25c4c7689cbf6f31e5f730b",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+          "evidence_record_sha256": "ed8d09553a893baf75b4d30f1352a4a70f007e25013ec3ae158eaf4072a5e0ec",
+          "evidence_text": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+          "knowledge_point_id": "gold-kp-db9d8be9eff604770a8280294e01ed70",
+          "knowledge_point_name": "智能可穿戴系统的技术链路",
+          "knowledge_point_record_sha256": "a5235315c25977064cfab664245cb373208db62d02e45c7993bbad124bd02a51",
+          "knowledge_point_summary": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+          "necessary_neighbors": [
+            "智能可穿戴系统基于实时检测系统的典型特征和便携穿戴式设计，以非侵入性或微创的方式持续监测个体生理特征，将高度自主性的检测和分析功能一体化集成，通过对日常穿戴物品的智能化设计实时监测人体状态。"
+          ],
+          "page_end": 521,
+          "page_start": 521,
+          "section_ids": [
+            "ds3-scope-docx-9-1-2"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-8b91250cae6ad591dd79c28e",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-8e7f5191ecc55a07bf9bd0c23da8a94c",
+          "evidence_record_sha256": "4d82f459be8c0b5dc019d12fed69ff13d6f72d69e381227b5866aa64e1d138dd",
+          "evidence_text": "毁伤情况的检测作为一个概念检测的任务，是对前述技术应用的系统集成，是根据实际经验迭代形成的，并且在实际应用中不断完善，不断优化以适应实际的战场需求。",
+          "knowledge_point_id": "gold-kp-6855c860bf28dfb511d635502586e898",
+          "knowledge_point_name": "军事目标毁伤检测",
+          "knowledge_point_record_sha256": "fbef75d9225ee9a54d7138dd4bbc634829b9f7f374040e04544fe41d6bb03aad",
+          "knowledge_point_summary": "毁伤情况的检测作为一个概念检测的任务，是对前述技术应用的系统集成，是根据实际经验迭代形成的，并且在实际应用中不断完善，不断优化以适应实际的战场需求。",
+          "necessary_neighbors": [
+            "典型的侦察感知能力包括目标检测、行为识别以及毁伤检测等。"
+          ],
+          "page_end": 552,
+          "page_start": 552,
+          "section_ids": [
+            "ds3-scope-docx-9-2-2"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-1004dcad81503c0188b7d9f3",
+      "task_prompt": "仅依据绑定证据，围绕“智能可穿戴系统的技术链路、军事目标毁伤检测”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_unit_quiz_v1",
+      "title": "智能可穿戴系统的技术链路、军事目标毁伤检测试卷任务",
+      "total_score": 50,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+          "gold-ev-8e7f5191ecc55a07bf9bd0c23da8a94c"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "智能可穿戴系统基于实时检测系统的典型特征和便携穿戴式设计，以非侵入性或微创的方式持续监测个体生理特征，将高度自主性的检测和分析功能一体化集成，通过对日常穿戴物品的智能化设计实时监测人体状态。",
+          "典型的侦察感知能力包括目标检测、行为识别以及毁伤检测等。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+          "gold-ev-8e7f5191ecc55a07bf9bd0c23da8a94c"
+        ],
+        "retrieval_intent": "检索支持“智能可穿戴系统的技术链路、军事目标毁伤检测”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "39846cb8edc9d8f8649883bfb421712367a708ab8421432e59f7f42420b26d00",
+        "candidate_sha256": "e3919f6ef61925c21aa94cd382fea8c677063b62055b8c508992f44725411b25",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-03",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 6,
+        "hard": 4,
+        "medium": 10
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 20,
+      "question_type_counts": {
+        "judgment": 4,
+        "multiple_choice": 4,
+        "short_answer": 6,
+        "single_choice": 6
+      },
+      "record_id": "p18-exam-03",
+      "required_claims": [
+        "c) 视觉交互界面：通过识别用户手势、表情等交互方式进行指令输入。",
+        "在综合管理方面，大模型技术通过整合学生的历史成绩数据、学习习惯、课程难度及教师评价等多源信息，能够有效分析并预测学生学业表现并及时预警，并提供针对性的学习建议和辅导资源。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-e521d947907461457ffae7df",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-45b6cf06eb11c87041e80cb332e0fb08",
+          "evidence_record_sha256": "7e54a6f28d11f20c8f1d4cf8a38bb819961d15b1772d21ae36d8485d8f58a960",
+          "evidence_text": "c) 视觉交互界面：通过识别用户手势、表情等交互方式进行指令输入。",
+          "knowledge_point_id": "gold-kp-3dc290c217ade6e86198f39cb5750262",
+          "knowledge_point_name": "服务机器人视觉交互",
+          "knowledge_point_record_sha256": "53f2827ac36de83e65d28ef331ed6574ec7110fff2dc2d3945bc9edd7ae3b01c",
+          "knowledge_point_summary": "c) 视觉交互界面：通过识别用户手势、表情等交互方式进行指令输入。",
+          "necessary_neighbors": [
+            "用户界面作为服务机器人与外界交互的窗口，包括图形用户界面、语音交互界面和视觉交互界面。"
+          ],
+          "page_end": 597,
+          "page_start": 597,
+          "section_ids": [
+            "ds3-scope-docx-9-5-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-1b1d5af5a0f27edc60c33338",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-4a2e9ba97e83437aff6a599a00127645",
+          "evidence_record_sha256": "2f57dfebb191e0a887f6d05ce6f2b419bad4452dc5c52c970eb55aa74feb9590",
+          "evidence_text": "在综合管理方面，大模型技术通过整合学生的历史成绩数据、学习习惯、课程难度及教师评价等多源信息，能够有效分析并预测学生学业表现并及时预警，并提供针对性的学习建议和辅导资源。",
+          "knowledge_point_id": "gold-kp-b24d7edac0d956fb6476ea75a759a909",
+          "knowledge_point_name": "大模型辅助学生学业预警",
+          "knowledge_point_record_sha256": "247171f80a7a103b8439a68375184f2aec4f7864d2c6fb587bef0636bc371d2e",
+          "knowledge_point_summary": "在综合管理方面，大模型技术通过整合学生的历史成绩数据、学习习惯、课程难度及教师评价等多源信息，能够有效分析并预测学生学业表现并及时预警，并提供针对性的学习建议和辅导资源。",
+          "necessary_neighbors": [],
+          "page_end": 630,
+          "page_start": 630,
+          "section_ids": [
+            "ds3-scope-docx-9-7"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-440d39f95b73c8135f33129b",
+      "task_prompt": "仅依据绑定证据，围绕“服务机器人视觉交互、大模型辅助学生学业预警”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_midterm_final_v1",
+      "title": "服务机器人视觉交互、大模型辅助学生学业预警试卷任务",
+      "total_score": 100,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-45b6cf06eb11c87041e80cb332e0fb08",
+          "gold-ev-4a2e9ba97e83437aff6a599a00127645"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "用户界面作为服务机器人与外界交互的窗口，包括图形用户界面、语音交互界面和视觉交互界面。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-45b6cf06eb11c87041e80cb332e0fb08",
+          "gold-ev-4a2e9ba97e83437aff6a599a00127645"
+        ],
+        "retrieval_intent": "检索支持“服务机器人视觉交互、大模型辅助学生学业预警”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "dc322a48efe86aa363b7dd9e8df9220615b1cbc7f4346f0fa57c8bc68578371c",
+        "candidate_sha256": "c8b326fb29bcb69b39e7f4be17e8c0e0329acb6e52fecb0201eb7856be26bc79",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-04",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 3,
+        "hard": 2,
+        "medium": 5
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 10,
+      "question_type_counts": {
+        "judgment": 2,
+        "multiple_choice": 2,
+        "short_answer": 3,
+        "single_choice": 3
+      },
+      "record_id": "p18-exam-04",
+      "required_claims": [
+        "要通过完整的图灵测试，机器人需要具备：（1）计算机视觉和语音识别来感知世界；（2）机器人技术来操控物体和移动。",
+        "第一行代码表示构造一个感知机模型，fit_intercept=False表示在训练过程假设数据已经中心化，训练过程迭代20次，并且在每次循环中将样本顺序打乱；"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-ff69c9d4ca971a1a594227b6",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-d6c42ef93972e95a95b7450032d8cadb",
+          "evidence_record_sha256": "bfaa2d33e51dd9dd90d55be0f8ae39454c442d994a898653662a02dac4a83991",
+          "evidence_text": "要通过完整的图灵测试，机器人需要具备：（1）计算机视觉和语音识别来感知世界；（2）机器人技术来操控物体和移动。",
+          "knowledge_point_id": "gold-kp-0b6d527040d02d50b72efa829ed4800a",
+          "knowledge_point_name": "完整图灵测试",
+          "knowledge_point_record_sha256": "c748509c531dae2d9ad5fa5527006e4b9ac0b09d78b053227f4c2a3c5aecca32",
+          "knowledge_point_summary": "要通过完整的图灵测试，机器人需要具备：（1）计算机视觉和语音识别来感知世界；（2）机器人技术来操控物体和移动。",
+          "necessary_neighbors": [],
+          "page_end": 7,
+          "page_start": 7,
+          "section_ids": [
+            "ds3-scope-docx-1-1-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-915cb2d3955e170a9590f52f",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-6ecdac141332a7cb4593a131ccfc4619",
+          "evidence_record_sha256": "b0354edd068f516352abcfc3b8ef731c56b7a0cc5052ae585234885179c7d922",
+          "evidence_text": "第一行代码表示构造一个感知机模型，fit_intercept=False表示在训练过程假设数据已经中心化，训练过程迭代20次，并且在每次循环中将样本顺序打乱；",
+          "knowledge_point_id": "gold-kp-58c23fe44da0d833d1e45a4f02e2fa3e",
+          "knowledge_point_name": "感知机模型训练配置",
+          "knowledge_point_record_sha256": "23c05becdafa409b2df411b87f6b8afb32c2854888a77da1afbbf5f6c8bed5a8",
+          "knowledge_point_summary": "第一行代码表示构造一个感知机模型，fit_intercept=False表示在训练过程假设数据已经中心化，训练过程迭代20次，并且在每次循环中将样本顺序打乱；",
+          "necessary_neighbors": [
+            "model=Perceptron(fit_intercept=False,n_iter=20,shuffle=True)",
+            "model.fit(x_train,y_train)",
+            "acc=model.score(x_test,y_test)"
+          ],
+          "page_end": 51,
+          "page_start": 51,
+          "section_ids": [
+            "ds3-scope-docx-2-2"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-842cff658d52070a679f2398",
+      "task_prompt": "仅依据绑定证据，围绕“完整图灵测试、感知机模型训练配置”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_chapter_assignment_v1",
+      "title": "完整图灵测试、感知机模型训练配置试卷任务",
+      "total_score": 50,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-d6c42ef93972e95a95b7450032d8cadb",
+          "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "model=Perceptron(fit_intercept=False,n_iter=20,shuffle=True)",
+          "model.fit(x_train,y_train)",
+          "acc=model.score(x_test,y_test)"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-d6c42ef93972e95a95b7450032d8cadb",
+          "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+        ],
+        "retrieval_intent": "检索支持“完整图灵测试、感知机模型训练配置”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "c213ec09ec86ecc4e3a29112d6531f8ef718a418e9cd3b74f2a877068dfe0e3c",
+        "candidate_sha256": "d896dc83f6e9dd04d87ad1699c5608e4c02aa99190699f48862701781883a455",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-05",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_algorithms_systems",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 4,
+        "hard": 3,
+        "medium": 8
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 15,
+      "question_type_counts": {
+        "judgment": 3,
+        "multiple_choice": 3,
+        "short_answer": 4,
+        "single_choice": 5
+      },
+      "record_id": "p18-exam-05",
+      "required_claims": [
+        "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。",
+        "金融风控\t信用评估、股市预测、风险控制等"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-40285822b4d91c521bf0259c",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+          "evidence_record_sha256": "ae9723ff8f8be1e82c0337e10c99f006ef0744e06d6a051f573196d9022b71ee",
+          "evidence_text": "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。",
+          "knowledge_point_id": "gold-kp-035e53095f2d3d832d751fc67073a16f",
+          "knowledge_point_name": "感知机算法收敛性",
+          "knowledge_point_record_sha256": "00f5658a62528a739056069957578380b9fa98a4d51cb9ecf9b57951e978e333",
+          "knowledge_point_summary": "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。",
+          "necessary_neighbors": [
+            "输入：样本集合{(X_i,Y_i)}_{i=1}^s\n输出：分类超平面的法向量ω和b\n初始化：ω_1←0∈R^n，b_1←0\nfor t=1,2,…,T：\n    随机挑选样本序号i=1,…,s\n    if 分类错误Y_{i(t)}(ω_t^T X_{i(t)})≤0：\n        更新ω_{t+1}←ω_t+ηY_{i(t)}X_{i(t)}\n            b_{t+1}←b_t+ηY_{i(t)}\n    else：\n        ω_{t+1}←ω_t\n返回ω_{T+1}"
+          ],
+          "page_end": 50,
+          "page_start": 50,
+          "section_ids": [
+            "ds3-scope-docx-2-2-2"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-02ac6eadf1a392bf9692f9bf",
+          "course_id": "course_ai_algorithms_systems",
+          "document_id": "doc_ai_algorithms_systems",
+          "document_version": "eval-v1-c93df4cb4bb533e3",
+          "evidence_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+          "evidence_record_sha256": "4285c7e5c35200d1af0e221732df064d00df2bd2b0822052feed62a368f54ca5",
+          "evidence_text": "金融风控\t信用评估、股市预测、风险控制等",
+          "knowledge_point_id": "gold-kp-8ad97ba53c176889334da8cc43294319",
+          "knowledge_point_name": "深度学习在金融风控中的应用",
+          "knowledge_point_record_sha256": "ded7a75de1d2596b466c63e3c53025925ed86a5861310b944b71d7894108b260",
+          "knowledge_point_summary": "金融风控\t信用评估、股市预测、风险控制等",
+          "necessary_neighbors": [
+            "表3.1 深度学习应用场景",
+            "应用领域\t具体应用方向"
+          ],
+          "page_end": 92,
+          "page_start": 92,
+          "section_ids": [
+            "ds3-scope-docx-3-1-3"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-1c5e1687cb22f33e95f51cf6",
+      "task_prompt": "仅依据绑定证据，围绕“感知机算法收敛性、深度学习在金融风控中的应用”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_unit_quiz_v1",
+      "title": "感知机算法收敛性、深度学习在金融风控中的应用试卷任务",
+      "total_score": 50,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-06bba04373bb42548483d596702e7e36",
+          "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "输入：样本集合{(X_i,Y_i)}_{i=1}^s\n输出：分类超平面的法向量ω和b\n初始化：ω_1←0∈R^n，b_1←0\nfor t=1,2,…,T：\n    随机挑选样本序号i=1,…,s\n    if 分类错误Y_{i(t)}(ω_t^T X_{i(t)})≤0：\n        更新ω_{t+1}←ω_t+ηY_{i(t)}X_{i(t)}\n            b_{t+1}←b_t+ηY_{i(t)}\n    else：\n        ω_{t+1}←ω_t\n返回ω_{T+1}",
+          "表3.1 深度学习应用场景",
+          "应用领域\t具体应用方向"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_algorithms_systems",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-06bba04373bb42548483d596702e7e36",
+          "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654"
+        ],
+        "retrieval_intent": "检索支持“感知机算法收敛性、深度学习在金融风控中的应用”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "0a1873a85f81f7b7ab3407b2f06e6036345b8ade05da867f6c6bc8eb145e0580",
+        "candidate_sha256": "6153a6f91bd1383771dc64aa311a7e3e514668a931354e8a63f9ba23a3649e9c",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-06",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 8,
+        "hard": 5,
+        "medium": 12
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 25,
+      "question_type_counts": {
+        "judgment": 5,
+        "multiple_choice": 5,
+        "short_answer": 7,
+        "single_choice": 8
+      },
+      "record_id": "p18-exam-06",
+      "required_claims": [
+        "其中，北京聚集了全国35%的大模型企业，杭\n州则依托阿里云构建了算法—算力闭环生态。",
+        "AlphaGo开发团队创始人戴密斯·哈萨比斯提出，要朝着“创造解决世界上一切问题\n的通用人工智能”这一目标前进。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-21a746ab0e3dd5927e0128c3",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-d388ee889882727dcfcd0d06ad3e6df0",
+          "evidence_record_sha256": "0ba3d11ae553718ab63c76d727e2d6849d4baf3671573334f809001dba4fc756",
+          "evidence_text": "其中，北京聚集了全国35%的大模型企业，杭\n州则依托阿里云构建了算法—算力闭环生态。",
+          "knowledge_point_id": "gold-kp-0589d4817d0d4c982dfc74532220cc1a",
+          "knowledge_point_name": "大模型区域产业生态",
+          "knowledge_point_record_sha256": "88e92b2147322f67650e5aa1d370b18b4e296fdb8a9faa3c0cc695202eb1b02d",
+          "knowledge_point_summary": "其中，北京聚集了全国35%的大模型企业，杭\n州则依托阿里云构建了算法—算力闭环生态。",
+          "necessary_neighbors": [
+            "北京、杭州、上海成AI城市前三强。"
+          ],
+          "page_end": 19,
+          "page_start": 19,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-db63e7eba687804e1dc1bbf1",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+          "evidence_record_sha256": "7f6bd3185dbfefbe75fc460ad199bd0363c544e9972d616b096c407778cfa663",
+          "evidence_text": "AlphaGo开发团队创始人戴密斯·哈萨比斯提出，要朝着“创造解决世界上一切问题\n的通用人工智能”这一目标前进。",
+          "knowledge_point_id": "gold-kp-4312e4de9cec49fb39d8518764bdf600",
+          "knowledge_point_name": "通用人工智能目标",
+          "knowledge_point_record_sha256": "e405f33738ac94f3bcd7a500e00ebba9184cfe7e348721410c21487c46dde0ae",
+          "knowledge_point_summary": "AlphaGo开发团队创始人戴密斯·哈萨比斯提出，要朝着“创造解决世界上一切问题\n的通用人工智能”这一目标前进。",
+          "necessary_neighbors": [],
+          "page_end": 21,
+          "page_start": 21,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-2"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-7a5a767e63c5e0cbb792e19d",
+      "task_prompt": "仅依据绑定证据，围绕“大模型区域产业生态、通用人工智能目标”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_midterm_final_v1",
+      "title": "大模型区域产业生态、通用人工智能目标试卷任务",
+      "total_score": 100,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-d388ee889882727dcfcd0d06ad3e6df0",
+          "gold-ev-09df817f5eea22a230d1926ee8a19036"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "北京、杭州、上海成AI城市前三强。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-d388ee889882727dcfcd0d06ad3e6df0",
+          "gold-ev-09df817f5eea22a230d1926ee8a19036"
+        ],
+        "retrieval_intent": "检索支持“大模型区域产业生态、通用人工智能目标”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "9acc7eb9dddf65e81dbe3ee5035b5a9ee24dd424fd5ef869af01aeb308a40d20",
+        "candidate_sha256": "7b68885d38ca07dd6ed32e291f81868d39b1ef140d9edea11646a1520560d432",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-07",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 3,
+        "hard": 2,
+        "medium": 4
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 9,
+      "question_type_counts": {
+        "judgment": 1,
+        "multiple_choice": 1,
+        "short_answer": 4,
+        "single_choice": 3
+      },
+      "record_id": "p18-exam-07",
+      "required_claims": [
+        "特斯拉创\n始人埃隆·马斯克参与创立并领导的OpenAI的使命是“建立安全的AGI，\n并确保AGI的好处尽可能广泛而均匀地分布”\n。",
+        "在2018年11月7日开幕的第五届世界互联网大会上，搜狗与新华社联合发布了全球\n首个全仿真智能AI主持人。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-0eb7d9b1f30ca449f426be04",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9",
+          "evidence_record_sha256": "c1a42bb14c8fca95be4c438ad05f3c84ab5e6e8e2e617e1e3fa8b5c97575e4b2",
+          "evidence_text": "特斯拉创\n始人埃隆·马斯克参与创立并领导的OpenAI的使命是“建立安全的AGI，\n并确保AGI的好处尽可能广泛而均匀地分布”\n。",
+          "knowledge_point_id": "gold-kp-e16d29a0b1bfb3c46cddbe1fcb8000fb",
+          "knowledge_point_name": "安全通用人工智能使命",
+          "knowledge_point_record_sha256": "919adf3e3675c853367b60475f84291e4d735025e17d81240e074e7cfdeb7159",
+          "knowledge_point_summary": "特斯拉创\n始人埃隆·马斯克参与创立并领导的OpenAI的使命是“建立安全的AGI，\n并确保AGI的好处尽可能广泛而均匀地分布”\n。",
+          "necessary_neighbors": [],
+          "page_end": 21,
+          "page_start": 21,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-3"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-bd1610bc7d9ac46a44c76303",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+          "evidence_record_sha256": "394f8b47eb5209f8fc893f57c7295d3ddac40eb7cce01c6998b295bccda20542",
+          "evidence_text": "在2018年11月7日开幕的第五届世界互联网大会上，搜狗与新华社联合发布了全球\n首个全仿真智能AI主持人。",
+          "knowledge_point_id": "gold-kp-c6cccd5082a97ff0f15d9b237abda2b9",
+          "knowledge_point_name": "全仿真智能AI主持人",
+          "knowledge_point_record_sha256": "42c82dab54dab3dd3550bd229a9f97f15d09fb49638ff29b64f26db84239a2dc",
+          "knowledge_point_summary": "在2018年11月7日开幕的第五届世界互联网大会上，搜狗与新华社联合发布了全球\n首个全仿真智能AI主持人。",
+          "necessary_neighbors": [],
+          "page_end": 23,
+          "page_start": 23,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-1"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-226f7f9b0462cab795dc487c",
+      "task_prompt": "仅依据绑定证据，围绕“安全通用人工智能使命、全仿真智能AI主持人”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_chapter_assignment_v1",
+      "title": "安全通用人工智能使命、全仿真智能AI主持人试卷任务",
+      "total_score": 50,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9",
+          "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9",
+          "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+        ],
+        "retrieval_intent": "检索支持“安全通用人工智能使命、全仿真智能AI主持人”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "4ddc0f25907b91bfe09ed6ada6db44c05c91fbe4cc7be5afdd5603ee9b00704b",
+        "candidate_sha256": "88c73c9fe02dbb952a0db8e11fd08d8679ce1824c4a6731ae48f4b14bf6a3327",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-08",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 4,
+        "hard": 3,
+        "medium": 7
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 14,
+      "question_type_counts": {
+        "judgment": 2,
+        "multiple_choice": 2,
+        "short_answer": 6,
+        "single_choice": 4
+      },
+      "record_id": "p18-exam-08",
+      "required_claims": [
+        "随着人工智能的逐步成熟，个性化的教育服务将得到进一步发展，“因材施教”可能成\n为现实。",
+        "在审查合规性时，AI可用于合规监控、风险评估、自动化报告。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-5ad7b2d07fe980b707f7df42",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-2b921c5153ba3d619e3b28d184af08b1",
+          "evidence_record_sha256": "cdf71150768bbd15f5fe9f34c2c7e22c45bc2195ad16b689cc2dc3ea2b9908f6",
+          "evidence_text": "随着人工智能的逐步成熟，个性化的教育服务将得到进一步发展，“因材施教”可能成\n为现实。",
+          "knowledge_point_id": "gold-kp-1256172f9295d9f6f23a2bc44095a112",
+          "knowledge_point_name": "人工智能个性化教育",
+          "knowledge_point_record_sha256": "c01bf32b65d3ce70051b0d4cac6956d27c23f6844f3a85de5d37a356e907e53d",
+          "knowledge_point_summary": "随着人工智能的逐步成熟，个性化的教育服务将得到进一步发展，“因材施教”可能成\n为现实。",
+          "necessary_neighbors": [],
+          "page_end": 26,
+          "page_start": 26,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-4"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-bfc916f3598e66ab8ef57126",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+          "evidence_record_sha256": "d9613db28ba21758c6063c987e7a48db7546e2f82c651becb2058e376f415406",
+          "evidence_text": "在审查合规性时，AI可用于合规监控、风险评估、自动化报告。",
+          "knowledge_point_id": "gold-kp-034045e71fc83557e1700d2b6c187807",
+          "knowledge_point_name": "人工智能支付合规监控",
+          "knowledge_point_record_sha256": "02d77971dc90d792c7a2f9664911d0d6e0dd6754e37b5fe823c8fb39674c3bd3",
+          "knowledge_point_summary": "在审查合规性时，AI可用于合规监控、风险评估、自动化报告。",
+          "necessary_neighbors": [],
+          "page_end": 32,
+          "page_start": 32,
+          "section_ids": [
+            "ds3-scope-pdf-1-3-7"
+          ]
+        }
+      ],
+      "split": "dev",
+      "task_family_id": "p18-family-305c665d9b57ce23e499613e",
+      "task_prompt": "仅依据绑定证据，围绕“人工智能个性化教育、人工智能支付合规监控”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_unit_quiz_v1",
+      "title": "人工智能个性化教育、人工智能支付合规监控试卷任务",
+      "total_score": 50,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-2b921c5153ba3d619e3b28d184af08b1",
+          "gold-ev-08b0d7882e524572142e7a1d5ba061ab"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": []
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-2b921c5153ba3d619e3b28d184af08b1",
+          "gold-ev-08b0d7882e524572142e7a1d5ba061ab"
+        ],
+        "retrieval_intent": "检索支持“人工智能个性化教育、人工智能支付合规监控”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "828e99dcbb70103471f8b66180e2dfff38f0af1670edfa51594122eac4f0a4c2",
+        "candidate_sha256": "477035ac7bd835a81a2bcb6ebe144b5ade82e7132a1525f91b4dd9630835c387",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-09",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 7,
+        "hard": 5,
+        "medium": 12
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 24,
+      "question_type_counts": {
+        "judgment": 4,
+        "multiple_choice": 4,
+        "short_answer": 8,
+        "single_choice": 8
+      },
+      "record_id": "p18-exam-09",
+      "required_claims": [
+        "在这段长达十余年的时间里，计算\n机被广泛应用于数学和自然语言领域，用来解决代数、几何和英语等相关问题。",
+        "对人工智能的理解可以分为两部分，即“人工”和“智能”。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-1ad76b3c05b26c37e816f890",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-b9857bdc1a027788ca9043a1001e9477",
+          "evidence_record_sha256": "834d7e35928462a62bcdc75d43ae24968d850ac0a05c3cc3530622d1df3c0061",
+          "evidence_text": "在这段长达十余年的时间里，计算\n机被广泛应用于数学和自然语言领域，用来解决代数、几何和英语等相关问题。",
+          "knowledge_point_id": "gold-kp-9c24f4aaf5cffc5a203170f78ae9da3b",
+          "knowledge_point_name": "早期计算机在数学和自然语言中的应用",
+          "knowledge_point_record_sha256": "74c5b7cdb3628e7610835ea3dce62471ce8ceb6e32647df2c5e81eae3f22e0ff",
+          "knowledge_point_summary": "在这段长达十余年的时间里，计算\n机被广泛应用于数学和自然语言领域，用来解决代数、几何和英语等相关问题。",
+          "necessary_neighbors": [
+            "在1956年的达特茅斯会议之后，人工智能迎来了属于它的第一股热潮。"
+          ],
+          "page_end": 12,
+          "page_start": 12,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-d7e38851a2e0d496dd260293",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-7898c01ada50d223ac64a6779dc775d3",
+          "evidence_record_sha256": "48bb9bc1c96c7d9bbb5151ee68095391d4ecbfa6427ad0feab6650f27eddf646",
+          "evidence_text": "对人工智能的理解可以分为两部分，即“人工”和“智能”。",
+          "knowledge_point_id": "gold-kp-159b2e8e8d4afce2bb39c5ded345b659",
+          "knowledge_point_name": "人工与智能的概念分解",
+          "knowledge_point_record_sha256": "4aafd0631e05e77f7795001553d17815b3e196f0b06da4e97b942836ff1c17e8",
+          "knowledge_point_summary": "对人工智能的理解可以分为两部分，即“人工”和“智能”。",
+          "necessary_neighbors": [],
+          "page_end": 13,
+          "page_start": 13,
+          "section_ids": [
+            "ds3-scope-pdf-1-1-2"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-f19e50fac2f32c39951ee715",
+      "task_prompt": "仅依据绑定证据，围绕“早期计算机在数学和自然语言中的应用、人工与智能的概念分解”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_midterm_final_v1",
+      "title": "早期计算机在数学和自然语言中的应用、人工与智能的概念分解试卷任务",
+      "total_score": 100,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-b9857bdc1a027788ca9043a1001e9477",
+          "gold-ev-7898c01ada50d223ac64a6779dc775d3"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "在1956年的达特茅斯会议之后，人工智能迎来了属于它的第一股热潮。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-b9857bdc1a027788ca9043a1001e9477",
+          "gold-ev-7898c01ada50d223ac64a6779dc775d3"
+        ],
+        "retrieval_intent": "检索支持“早期计算机在数学和自然语言中的应用、人工与智能的概念分解”教学任务的直接证据与最小必要邻接"
+      }
+    },
+    {
+      "approval": {
+        "approved_record_sha256": "e880436f693e995aabf8aabbca34b6d5bb14d7864131bb8eb122b2bfe2ca1c33",
+        "candidate_sha256": "bff3d9f206de93db2c8a09e381b19ab1e2ce47bfe5d47f7773e9f985415d0bdf",
+        "notes": "Exact P18 formal Bundle approval; CP-DS0 and Test lock remain out of scope.",
+        "review_id": "p18-formal.cp_ds2.p18-exam-10",
+        "reviewed_at": "2026-08-23T23:43:40.682125+08:00",
+        "reviewer_id": "course_owner"
+      },
+      "artifact_type": "exam",
+      "candidate_source": "source_grounded_assisted",
+      "course_id": "course_ai_general_education",
+      "critical_defects": [
+        "跨课程事实或引用",
+        "Required Claim 无直接 Evidence",
+        "未经批准的写回或导出副作用"
+      ],
+      "difficulty_counts": {
+        "easy": 9,
+        "hard": 6,
+        "medium": 15
+      },
+      "forbidden_claims": [
+        "不得加入未被绑定 Evidence 直接支持的课程事实",
+        "不得引用另一门课程的 Evidence"
+      ],
+      "pilot_record_reused": false,
+      "question_count": 30,
+      "question_type_counts": {
+        "judgment": 6,
+        "multiple_choice": 6,
+        "short_answer": 8,
+        "single_choice": 10
+      },
+      "record_id": "p18-exam-10",
+      "required_claims": [
+        "谷歌收购了语音和图像识别公司DNNResearch，推广深度\n学习平台；",
+        "(1)被人工智能取代可能性较小的工作具有如下特征。"
+      ],
+      "required_interrupts": [
+        "exam_blueprint_review",
+        "exam_global_review"
+      ],
+      "review_status": "approved",
+      "source_snapshots": [
+        {
+          "concept_family_id": "kp-family-b475ceab0b894dacd7e68607",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-63b2a09988aa11ff3c6d483a0b162917",
+          "evidence_record_sha256": "e0f41a969802603722c0604ce78e58674272f4d19f7743df173c0cb46bf2d21a",
+          "evidence_text": "谷歌收购了语音和图像识别公司DNNResearch，推广深度\n学习平台；",
+          "knowledge_point_id": "gold-kp-dda5c1fe396a386e759d371a71e90a82",
+          "knowledge_point_name": "深度学习平台推广",
+          "knowledge_point_record_sha256": "bb79d5c14f2370aa2c9c529cd0aa1f54492d151154ffcf59fdac7877b30937ef",
+          "knowledge_point_summary": "谷歌收购了语音和图像识别公司DNNResearch，推广深度\n学习平台；",
+          "necessary_neighbors": [
+            "2013年，Facebook成立了人工智能实验室，探索深度学习领域，借此为Facebook用户提供更加智能化的产品体验；"
+          ],
+          "page_end": 18,
+          "page_start": 18,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-1"
+          ]
+        },
+        {
+          "concept_family_id": "kp-family-fe4331563d3a96a0562a5d05",
+          "course_id": "course_ai_general_education",
+          "document_id": "doc_ai_general_education_excerpt",
+          "document_version": "eval-v1-15344771664d40cf",
+          "evidence_id": "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1",
+          "evidence_record_sha256": "537d4a23106b7b324651e3016f797850e3d3ae9ea9cd884124cef16d27fa2a5b",
+          "evidence_text": "(1)被人工智能取代可能性较小的工作具有如下特征。",
+          "knowledge_point_id": "gold-kp-45eb73abb93d6175f6177512183193aa",
+          "knowledge_point_name": "不易被人工智能取代的工作特征",
+          "knowledge_point_record_sha256": "2e42f5c0403a10ec569ca1f9e50de197ed2da98abe9eda6e325b1a393858c7ae",
+          "knowledge_point_summary": "(1)被人工智能取代可能性较小的工作具有如下特征。",
+          "necessary_neighbors": [
+            "①需要从业者具备较强的社交能力、协商能力及人际沟通能力。\n②需要从业者具备较强的同情心，并为他人提供真心实意的扶助。\n③创意性较强。"
+          ],
+          "page_end": 20,
+          "page_start": 20,
+          "section_ids": [
+            "ds3-scope-pdf-1-2-2"
+          ]
+        }
+      ],
+      "split": "test",
+      "task_family_id": "p18-family-dcd3d5377867ce626955e1df",
+      "task_prompt": "仅依据绑定证据，围绕“深度学习平台推广、不易被人工智能取代的工作特征”构造试卷；不得补充语料外事实。",
+      "template_id": "exam_chapter_assignment_v1",
+      "title": "深度学习平台推广、不易被人工智能取代的工作特征试卷任务",
+      "total_score": 100,
+      "track_a_context": {
+        "evidence_group_complete": true,
+        "evidence_ids": [
+          "gold-ev-63b2a09988aa11ff3c6d483a0b162917",
+          "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1"
+        ],
+        "purpose": "fixed_context_quality",
+        "required_neighbor_texts": [
+          "2013年，Facebook成立了人工智能实验室，探索深度学习领域，借此为Facebook用户提供更加智能化的产品体验；",
+          "①需要从业者具备较强的社交能力、协商能力及人际沟通能力。\n②需要从业者具备较强的同情心，并为他人提供真心实意的扶助。\n③创意性较强。"
+        ]
+      },
+      "track_b_request": {
+        "course_id": "course_ai_general_education",
+        "course_rag_test_query_reused": false,
+        "live_result_is_gold": false,
+        "purpose": "frozen_index_integration",
+        "required_evidence_ids_for_scoring": [
+          "gold-ev-63b2a09988aa11ff3c6d483a0b162917",
+          "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1"
+        ],
+        "retrieval_intent": "检索支持“深度学习平台推广、不易被人工智能取代的工作特征”教学任务的直接证据与最小必要邻接"
+      }
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p18-formal-r1",
+  "schema_version": "coursepilot.cp-ds2-p18.v1"
+}

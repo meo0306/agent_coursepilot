@@ -1,0 +1,42 @@
+{
+  "dataset_id": "coursepilot-p17-integration",
+  "dataset_version": "p17-pilot-r3",
+  "revisions": [
+    {
+      "candidate_file_sha256": "4b109191b4e4c2bce691e1133deafc6e720a7c32b151352d1e455adaa96f0187",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds8/p17_fault_security_r1.json",
+      "reason": "Owner review returned 14 CP-DS8 records; replaced by r2 without changing approved records.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "5357e724eebf27d68c4e10b5a3bb65728d58f9fce2e41ce92f475df9a164a358",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/sys_ds1/p17_system_journeys_r1.json",
+      "reason": "Owner review returned six SYS-DS1 records; replaced by r2 without changing approved records.",
+      "revision": 2,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "115a10d51591f90627c084b6d191cbacef24fb37d2974efa8a7f7ba731ea141b",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/cp_ds8/p17_fault_security_r2.json",
+      "reason": "Exact P17 Integration Candidate approved after complete owner review.",
+      "revision": 3,
+      "status": "approved"
+    },
+    {
+      "candidate_file_sha256": "5528a2a5fa3d9b895eb198588c2323e10fee8e857c0ecdd5f4e5001aecda896b",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/sys_ds1/p17_system_journeys_r2.json",
+      "reason": "Owner r2 review returned two SYS-DS1 records; replaced by r3.",
+      "revision": 4,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "6daaeb6ff64499bd32f12388e0400ba805ac52483ef1adf6701d13adfb74e99c",
+      "candidate_relative_path": "datasets/coursepilot_eval/v1/candidates/sys_ds1/p17_system_journeys_r3.json",
+      "reason": "Exact P17 Integration Candidate approved after complete owner review.",
+      "revision": 5,
+      "status": "approved"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

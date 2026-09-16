@@ -1,0 +1,10 @@
+{
+  "schema_version": "courserag.retrieval-profile.v1",
+  "profile_id": "bm25_v1",
+  "implementation": "bm25s",
+  "language": "zh-CN",
+  "tokenizer": "jieba_search_nfkc_v1",
+  "fallback": "cjk_character_bigram_on_zero_term_match",
+  "index_scope": "child_chunks",
+  "runtime_fallback": false
+}

@@ -1,0 +1,108 @@
+{
+  "candidate_file_sha256": "c203f05d2cccc5cd5fcf557a7a5eed19d86c4ecae181cd14d88a863792baa065",
+  "candidate_record_sha256": {
+    "ds1-ocr-01": "e6e1e523a63577b70ff6df273c17be603e263009df9f92ad673fb5439df02a31",
+    "ds1-ocr-02": "cf5c9d1a3dad3083c46631ae5c53c2d8ab2b09de6e695fdc41963d61dea1113c",
+    "ds1-ocr-03": "a72a789db0c687d18cf1b1b8d1bd9186e765310abe56d4d96fec78abcfd2f148",
+    "ds1-ocr-04": "e08282d5c12acdf136c36eebbe74ea59334cc568e8d89643139bdb121331758b",
+    "ds1-ocr-05": "61b7f796279042354be56b37fd6bd23a875adf8dc4448a6d06202021d103d5f4",
+    "ds1-ocr-06": "649e3d0eb93f842e237cb37fbd822b5b23c8029aa63aec11d0f39cb8685fca8e",
+    "ds1-ocr-07": "9bac2e360d239f33a7c27d3c71a9bea64cb649ae8900de788f2b703753778944",
+    "ds1-ocr-08": "b9631a3137e99fe0a94b0a22a8f5cd21eb3c4a48717f64c5e956f67f8c95a8ae",
+    "ds1-ocr-09": "64517f0f8fd387dfa468b674eae2430e9c1f749dc797ddd1c96cdf145aecac70",
+    "ds1-ocr-10": "f4087de4f3c31f091a625f89d8dc770fc788e1118ad155da82e4872dffa016d5",
+    "ds1-ocr-11": "cbdb7a8e86dec132827dd8ca7e1a1e0a9b462d38da7f67090a657916e870d41c",
+    "ds1-ocr-12": "82550f2805087cc29fd765083b9ddb879c9b2f31b7a871e50903d460afc2c3b7",
+    "ds1-ocr-13": "32dccfcb225de67cdac45cdcd8027fdd78bf98ed3dcd45973da9b13730c3d5d3",
+    "ds1-ocr-14": "bd39a3c980d1025388a8f171de14e57b17bf452ed1c5e02bd5102916d9791e7c",
+    "ds1-ocr-15": "f2c88e6f07963c387b0c72c40c22eda0126b64566524e163c461eea3f88256dd"
+  },
+  "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds1/p05_ocr_r3.json",
+  "dataset_id": "courserag-eval",
+  "dataset_version": "v1",
+  "dpi": 200,
+  "gold_source": "native_pdf_text_geometry",
+  "inherited_page_gold_record_sha256": {
+    "ds1-page-pdf-011": "e8673bca92d66fb24aed2fc17cc96e455a14a5437a5bcd19046b6c87f0bbe2ac",
+    "ds1-page-pdf-015": "627097fcc786968f95e90e3eed74f786effc65f76c322398160b1a73c966a5dd",
+    "ds1-page-pdf-018": "185414b9a27c389a30fe465056dbe3959c46a8317e98ff935164d0a517ffd1a5",
+    "ds1-page-pdf-021": "4acbaa82da0ebae8c09ef94dfa50f223d9ddc59bc5b572d90d5f1219308c1670",
+    "ds1-page-pdf-023": "28bc2d92c27d7126beca863ed889b0dea88e841e68766f2e70754c3d203e9d52",
+    "ds1-page-pdf-024": "ea6d68cdb1856af273d490bf51dffb0e75e2d82d9d598e1daf97859b2fe1f069",
+    "ds1-page-pdf-026": "b23dcaa25d782c20512586080f902c93828c5b6d08d4d5f09cdc14cc19d8898f",
+    "ds1-page-pdf-027": "80ebadbaf0aee137e8589afd9881534d0b5f6b821b5c1b7355d2b1d5f12da803",
+    "ds1-page-pdf-030": "194735899db5fe39913dbe164f1a7688165fc271cc4a39db784b47098d268338",
+    "ds1-page-pdf-031": "9feea6cdb16d37f4627f9d6cc9b3d1e2718ac347ec0ee947dc2a0bd670da6e5f",
+    "ds1-page-pdf-032": "a8245951e33bb5a6ee7b29553058f18ce75d60bfae0d73a7f47253a898387cef"
+  },
+  "newly_annotated_record_ids": [
+    "ds1-ocr-11",
+    "ds1-ocr-12",
+    "ds1-ocr-13",
+    "ds1-ocr-14"
+  ],
+  "p04_approved_ds1_sha256": "7e12edb2b66912d915b1d1ca3b7df873edb910cb7dcaf57d07872c83d84964ea",
+  "p04_work_package_sha256": "06700604f3c69724090ee6a995c2696b41278f5bf45d64e90beeddba4a484e5c",
+  "previous_candidate_file_sha256": "a497cc36cb599afcb77948821fe5a7e028041b0ade563c4b5d4062a0fc54b215",
+  "record_count": 15,
+  "review_decisions_sha256": "bef6f78a0d956bb57b6cd4064b787471c0ed9fb161a998358f93f8f9f14aa9a8",
+  "review_pack_index_sha256": "8446888b1836943c8c90efeca7c9cc53caef2f6deb4aed340c81920d099e0fb2",
+  "review_pack_relative_path": "datasets/courserag_eval/v1/candidates/work_packages/p05_ocr_review_r3",
+  "schema_version": "courserag.p05-ocr-candidate-manifest.v2",
+  "source_artifacts": [
+    {
+      "media_type": "application/pdf",
+      "path": "data/sample_files/人工智能通识教程.pdf",
+      "sha256": "15344771664d40cf190be7790be3d266eb94a2798a4c2608fcf4d1ffa8fd231d",
+      "size_bytes": 2889768
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/courserag_corpus/v1/doc_ai_general_education_mixed.pdf",
+      "sha256": "f5d384f9affff159c78a9f3654a0ec918c05a0ba8370405da9e8fd030d073e4a",
+      "size_bytes": 4194665
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/courserag_corpus/v1/doc_ai_general_education_scan_clean.pdf",
+      "sha256": "4f0166c18e79aa29d06ef2d32597d532b76da17a53292a09e58b5b7e783df7a1",
+      "size_bytes": 4353094
+    },
+    {
+      "media_type": "application/pdf",
+      "path": "storage_eval/courserag_corpus/v1/doc_ai_general_education_scan_compressed.pdf",
+      "sha256": "81b678dbf4737eafcbadbf6c7c9d3c8b92b955eccd6a8f1a4c28cbed98e93554",
+      "size_bytes": 1097677
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/approved/ds1/p04_native_docx.json",
+      "sha256": "7e12edb2b66912d915b1d1ca3b7df873edb910cb7dcaf57d07872c83d84964ea",
+      "size_bytes": 297283
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds1/p05_ocr_r1.json",
+      "sha256": "2e48d78b1f48e9357bd32c02d7aa75b907318db2d71a5423a1da8cb348068865",
+      "size_bytes": 237622
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/reviews/p05_ocr_review_decisions_r1.json",
+      "sha256": "e70874f59c0eae1af1df3adf34745819acc55bde90756daf52fa6fe590d7be1a",
+      "size_bytes": 916
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/candidates/ds1/p05_ocr_r2.json",
+      "sha256": "a497cc36cb599afcb77948821fe5a7e028041b0ade563c4b5d4062a0fc54b215",
+      "size_bytes": 359377
+    },
+    {
+      "media_type": "application/json",
+      "path": "datasets/courserag_eval/v1/reviews/p05_ocr_review_decisions_r2.json",
+      "sha256": "bef6f78a0d956bb57b6cd4064b787471c0ed9fb161a998358f93f8f9f14aa9a8",
+      "size_bytes": 829
+    }
+  ]
+}

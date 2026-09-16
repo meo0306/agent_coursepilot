@@ -1,0 +1,28 @@
+{
+  "dataset_id": "courserag-p08-ds4-query-processing",
+  "dataset_version": "p08-r3",
+  "revisions": [
+    {
+      "candidate_file_sha256": "506998e266c1687c1751161ce9359a2da89eb351d8e7cb6928a6fe39608822d3",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds4/p08_query_processing_r1.json",
+      "reason": "Superseded without deletion by the next immutable Candidate revision.",
+      "revision": 1,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "db3be43b2b5e3a0f732c328d99a9a0a9e20b7345402d8d0cfaa594106f6a1487",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds4/p08_query_processing_r2.json",
+      "reason": "Superseded without deletion by the next immutable Candidate revision.",
+      "revision": 2,
+      "status": "superseded"
+    },
+    {
+      "candidate_file_sha256": "40d1c8a185f8b64e22914d127853d3d452548cc659f853354f7e249392558485",
+      "candidate_relative_path": "datasets/courserag_eval/v1/candidates/ds4/p08_query_processing_r3.json",
+      "reason": "Comprehensive r3 relevance audit and source-readable review await Course Owner approval.",
+      "revision": 3,
+      "status": "pending_course_owner_review"
+    }
+  ],
+  "schema_version": "course-eval.candidate-revision-history.v1"
+}

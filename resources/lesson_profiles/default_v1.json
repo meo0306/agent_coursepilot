@@ -1,0 +1,9 @@
+{
+  "profile_id": "lesson_default_v1",
+  "template_id": "lesson_standard_university_v1",
+  "context_purpose": "lesson_generation",
+  "max_sessions": 12,
+  "max_concurrency": 1,
+  "require_evidence_for_facts": true,
+  "allow_whole_artifact_writeback": false
+}

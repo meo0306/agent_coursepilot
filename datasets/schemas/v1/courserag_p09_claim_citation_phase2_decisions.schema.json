@@ -1,0 +1,140 @@
+{
+  "$defs": {
+    "P09ClaimCitationPhase2CaseDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "mappings": {
+          "items": {
+            "$ref": "#/$defs/P09ClaimCitationPhase2ClaimMapping"
+          },
+          "title": "Mappings",
+          "type": "array"
+        },
+        "missed_gold_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missed Gold Claim Ids",
+          "type": "array"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "reviewed": {
+          "default": false,
+          "title": "Reviewed",
+          "type": "boolean"
+        },
+        "system_answer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Answer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "system_answer_id"
+      ],
+      "title": "P09ClaimCitationPhase2CaseDecision",
+      "type": "object"
+    },
+    "P09ClaimCitationPhase2ClaimMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "matched_gold_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Matched Gold Claim Ids",
+          "type": "array"
+        },
+        "system_claim_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "System Claim Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_claim_id"
+      ],
+      "title": "P09ClaimCitationPhase2ClaimMapping",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P09ClaimCitationPhase2CaseDecision"
+      },
+      "minItems": 1,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "review_status": {
+      "default": "draft",
+      "enum": [
+        "draft",
+        "submitted"
+      ],
+      "title": "Review Status",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer Id"
+    },
+    "schema_version": {
+      "const": "courserag.p09-claim-citation-phase2-decisions.v1",
+      "default": "courserag.p09-claim-citation-phase2-decisions.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Package Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "source_package_sha256",
+    "cases"
+  ],
+  "title": "P09ClaimCitationPhase2Decisions",
+  "type": "object"
+}

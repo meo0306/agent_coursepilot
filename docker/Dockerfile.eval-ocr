@@ -1,0 +1,47 @@
+FROM python:3.11-slim
+
+COPY --from=ghcr.io/astral-sh/uv:0.11.28 /uv /uvx /bin/
+
+ARG OCR_PROVIDER
+ARG OCR_PROFILE_PATH
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app/src \
+    DEBIAN_FRONTEND=noninteractive \
+    UV_HTTP_TIMEOUT=120
+
+WORKDIR /app
+COPY pyproject.toml uv.lock README.md LICENSE ./
+
+RUN if [ "$OCR_PROVIDER" = "tesseract" ]; then \
+         apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=120 update \
+           && apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=120 install -y --no-install-recommends tesseract-ocr tesseract-ocr-chi-sim; \
+       elif [ "$OCR_PROVIDER" = "rapidocr" ]; then \
+         apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=120 update \
+           && apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=120 install -y --no-install-recommends libglib2.0-0 libgomp1; \
+       else \
+         apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=120 update \
+           && apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=120 install -y --no-install-recommends libglib2.0-0 libgomp1 libgl1; \
+       fi \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN if [ "$OCR_PROVIDER" = "tesseract" ]; then \
+         uv sync --frozen --no-dev --only-group ocr-common; \
+       elif [ "$OCR_PROVIDER" = "rapidocr" ]; then \
+         uv sync --frozen --no-dev --only-group ocr-common --only-group ocr-rapidocr; \
+       else \
+         uv sync --frozen --no-dev --only-group ocr-common --only-group ocr-paddleocr; \
+       fi
+
+COPY src ./src
+COPY resources/ocr_profiles ./resources/ocr_profiles
+
+RUN if [ "$OCR_PROVIDER" = "paddleocr" ]; then \
+      .venv/bin/python -c "from paddleocr import PaddleOCR; PaddleOCR(lang='ch', use_doc_orientation_classify=False, use_doc_unwarping=False, use_textline_orientation=False)"; \
+    fi \
+    && profile_path="${OCR_PROFILE_PATH:-resources/ocr_profiles/${OCR_PROVIDER}_candidate_v1.json}" \
+    && .venv/bin/python -m courserag.parsers.ocr.runtime_profile \
+      --candidate-profile "$profile_path" \
+      --output-dir /opt/courserag-ocr
+
+ENTRYPOINT ["/app/.venv/bin/python"]

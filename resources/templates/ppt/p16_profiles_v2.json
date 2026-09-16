@@ -1,0 +1,32 @@
+{
+  "version": "p16_v2",
+  "templates": {
+    "ppt_standard_lecture_v2": {
+      "resource": "resources/templates/exporters/p16_standard_lecture_v2.pptx",
+      "master_role": "standard_lecture",
+      "slide_type_layout_map": {
+        "title": "Title Slide", "agenda": "Title and Content", "objectives": "Title and Content",
+        "concept": "Title and Content", "process": "Two Content", "comparison": "Comparison",
+        "example": "Picture with Caption", "activity": "Section Header", "summary": "Title and Content", "references": "Title and Content"
+      }
+    },
+    "ppt_concept_explanation_v2": {
+      "resource": "resources/templates/exporters/p16_concept_explanation_v2.pptx",
+      "master_role": "concept_explanation",
+      "slide_type_layout_map": {
+        "title": "Title Slide", "agenda": "Title and Content", "objectives": "Title and Content",
+        "concept": "Title and Content", "process": "Two Content", "comparison": "Comparison",
+        "example": "Picture with Caption", "activity": "Section Header", "summary": "Title and Content", "references": "Title and Content"
+      }
+    },
+    "ppt_case_seminar_v2": {
+      "resource": "resources/templates/exporters/p16_case_seminar_v2.pptx",
+      "master_role": "case_seminar",
+      "slide_type_layout_map": {
+        "title": "Title Slide", "agenda": "Title and Content", "objectives": "Title and Content",
+        "concept": "Title and Content", "process": "Two Content", "comparison": "Comparison",
+        "example": "Picture with Caption", "activity": "Section Header", "summary": "Title and Content", "references": "Title and Content"
+      }
+    }
+  }
+}

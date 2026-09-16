@@ -1,0 +1,8 @@
+{
+  "artifacts": [],
+  "distribution": "tesseract-ocr-and-chi-sim-traineddata",
+  "identity_status": "resolve_in_eval_image",
+  "license_review_required": true,
+  "provider": "tesseract",
+  "schema_version": "courserag.ocr-model-manifest.v1"
+}

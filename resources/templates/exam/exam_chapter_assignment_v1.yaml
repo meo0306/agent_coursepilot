@@ -1,0 +1,23 @@
+{
+  "artifact_type": "exam",
+  "default_parameters": {
+    "mode": "chapter_assignment"
+  },
+  "exporter_profile": "exam_exporter",
+  "generator_prompt_profile": "exam_generator",
+  "input_schema_role": "exam_task_input",
+  "model_route_profiles": [
+    "planner_main",
+    "generator_main",
+    "content_repair_main"
+  ],
+  "output_schema_role": "exam_artifact_output",
+  "physical_resource_roles": [
+    "exam_default_docx"
+  ],
+  "planner_prompt_profile": "exam_planner",
+  "repair_profile": "exam_repair",
+  "template_id": "exam_chapter_assignment_v1",
+  "validator_profile": "exam_validator",
+  "version": "1.0.0"
+}

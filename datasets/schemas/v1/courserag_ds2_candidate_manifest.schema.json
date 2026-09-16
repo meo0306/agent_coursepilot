@@ -1,0 +1,335 @@
+{
+  "$defs": {
+    "DS2ReviewGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "group_id": {
+          "enum": [
+            "group-01",
+            "group-02",
+            "group-03",
+            "group-04"
+          ],
+          "title": "Group Id",
+          "type": "string"
+        },
+        "record_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 30,
+          "minItems": 30,
+          "title": "Record Ids",
+          "type": "array"
+        },
+        "title": {
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "group_id",
+        "title",
+        "record_ids"
+      ],
+      "title": "DS2ReviewGroup",
+      "type": "object"
+    },
+    "DocxRenderProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "font_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Font Manifest Sha256",
+          "type": "string"
+        },
+        "profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Profile Sha256",
+          "type": "string"
+        },
+        "provider": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Provider",
+          "type": "string"
+        },
+        "renderer_version": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Renderer Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "renderer_version",
+        "font_manifest_sha256",
+        "profile_sha256"
+      ],
+      "title": "DocxRenderProfile",
+      "type": "object"
+    },
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_file_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Candidate File Sha256",
+      "type": "string"
+    },
+    "candidate_record_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 120,
+      "minProperties": 120,
+      "title": "Candidate Record Sha256",
+      "type": "object"
+    },
+    "candidate_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Candidate Relative Path",
+      "type": "string"
+    },
+    "candidate_revision": {
+      "minimum": 1,
+      "title": "Candidate Revision",
+      "type": "integer"
+    },
+    "canonical_rendered_pdf_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Canonical Rendered Pdf Sha256",
+      "type": "string"
+    },
+    "constraints": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Constraints",
+      "type": "array"
+    },
+    "dataset_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "duplicate_review_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Duplicate Review Record Ids",
+      "type": "array"
+    },
+    "normalization_profile_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Normalization Profile Sha256",
+      "type": "string"
+    },
+    "predecessor_candidate_file_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Predecessor Candidate File Sha256"
+    },
+    "record_counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Record Counts",
+      "type": "object"
+    },
+    "renderer_profile": {
+      "$ref": "#/$defs/DocxRenderProfile"
+    },
+    "required_rereview_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Rereview Record Ids",
+      "type": "array"
+    },
+    "retained_reviewed_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Retained Reviewed Record Ids",
+      "type": "array"
+    },
+    "review_asset_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 120,
+      "title": "Review Asset Sha256",
+      "type": "object"
+    },
+    "review_decisions_artifact": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HashedArtifact"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "review_groups": {
+      "items": {
+        "$ref": "#/$defs/DS2ReviewGroup"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "title": "Review Groups",
+      "type": "array"
+    },
+    "review_pack_index_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Review Pack Index Sha256",
+      "type": "string"
+    },
+    "review_pack_relative_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Review Pack Relative Path",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.ds2-candidate-manifest.v1",
+      "default": "courserag.ds2-candidate-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "section_record_counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "maxProperties": 24,
+      "minProperties": 24,
+      "title": "Section Record Counts",
+      "type": "object"
+    },
+    "semantic_source_count": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Source Count",
+      "type": "integer"
+    },
+    "semantic_type_counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Semantic Type Counts",
+      "type": "object"
+    },
+    "source_artifacts": {
+      "items": {
+        "$ref": "#/$defs/HashedArtifact"
+      },
+      "minItems": 6,
+      "title": "Source Artifacts",
+      "type": "array"
+    },
+    "stable_id_profile_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Stable Id Profile Sha256",
+      "type": "string"
+    },
+    "upstream_approved_file_sha256": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 2,
+      "minProperties": 2,
+      "title": "Upstream Approved File Sha256",
+      "type": "object"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "candidate_revision",
+    "candidate_relative_path",
+    "candidate_file_sha256",
+    "candidate_record_sha256",
+    "source_artifacts",
+    "upstream_approved_file_sha256",
+    "record_counts",
+    "section_record_counts",
+    "semantic_type_counts",
+    "review_groups",
+    "review_pack_relative_path",
+    "review_pack_index_sha256",
+    "review_asset_sha256",
+    "renderer_profile",
+    "canonical_rendered_pdf_sha256",
+    "stable_id_profile_sha256",
+    "normalization_profile_sha256",
+    "constraints"
+  ],
+  "title": "DS2CandidateManifest",
+  "type": "object"
+}

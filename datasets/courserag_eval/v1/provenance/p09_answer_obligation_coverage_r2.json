@@ -1,0 +1,3377 @@
+{
+  "cases": [
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-ef6a6aad338905d90680106a4f18a8a0"
+          ],
+          "evidence_ids": [
+            "gold-ev-0a09643ff9ca8345e5659613b1f7626f"
+          ],
+          "obligation_id": "gold-ob-644b71869635012994ad1084dbc8febf",
+          "obligation_text": "完整回答问题：教材如何说明“可穿戴传感器性能要求”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-fb3103f59de48b7cf25d3156a1e1c397",
+      "query_sha256": "575410cddaf2493a47e2dd4fd089105e2681e573ef7641478a66de1ad185e3dd",
+      "required_claim_ids": [
+        "gold-cl-ef6a6aad338905d90680106a4f18a8a0"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-f398064f081df5695890e37bce798911"
+          ],
+          "evidence_ids": [
+            "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+          ],
+          "obligation_id": "gold-ob-8e4f2d182b2d48817012dde338053d6c",
+          "obligation_text": "回答原子事实：该应用实例是全球首个全仿真智能 AI 主持人。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-da528ab827bc37c906616428cebefc66"
+          ],
+          "evidence_ids": [
+            "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+          ],
+          "obligation_id": "gold-ob-08beebe25f28ced3aff57ecd2eb522a2",
+          "obligation_text": "回答原子事实：发布者是搜狗与新华社。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-70e2a574a2389eec280564b700031ad0"
+          ],
+          "evidence_ids": [
+            "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+          ],
+          "obligation_id": "gold-ob-b1a8111282b321a1b3ee7459ed58164f",
+          "obligation_text": "回答原子事实：发布时间是2018年11月7日。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-06e9160a8a44deb7e14aeb2d2f6818a3"
+          ],
+          "evidence_ids": [
+            "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+          ],
+          "obligation_id": "gold-ob-a261f2e19702f05711c408b51e7d798d",
+          "obligation_text": "回答原子事实：发布场合是第五届世界互联网大会。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-78aa66e747df675f48bff6dc8bcd6426",
+      "query_sha256": "c5b4e482d68ca9fc12b8790465a4d1ba335f07799747818e524cda2807662360",
+      "required_claim_ids": [
+        "gold-cl-f398064f081df5695890e37bce798911",
+        "gold-cl-da528ab827bc37c906616428cebefc66",
+        "gold-cl-70e2a574a2389eec280564b700031ad0",
+        "gold-cl-06e9160a8a44deb7e14aeb2d2f6818a3"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-84bb4f037f56cb6bd8cb48e4145d82a9"
+          ],
+          "evidence_ids": [
+            "gold-ev-37c2653936a801fb1ace1e57b6e94fd8"
+          ],
+          "obligation_id": "gold-ob-298d391b88d1c5ecb9c63fb9deb1a8bf",
+          "obligation_text": "完整回答问题：教材如何说明“可穿戴传感数据挖掘”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-51ca4a9238dcad5e54d9342933ed7626",
+      "query_sha256": "a1b4ac9f835715b4fa6b542e43ea0149fb6a656d3ae02a33f621e669067c7eb2",
+      "required_claim_ids": [
+        "gold-cl-84bb4f037f56cb6bd8cb48e4145d82a9"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-badeab25597fbd2ec92d3c4123d3e635"
+          ],
+          "evidence_ids": [
+            "gold-ev-0acd252ac0318ce3b16d8d78f916db2c"
+          ],
+          "obligation_id": "gold-ob-f2b5529bedbb2421bf133a95cbd0bc83",
+          "obligation_text": "完整回答问题：教材如何说明“智能可穿戴系统低功耗设计”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-8a9049cdee907a563c717d551bcbc200",
+      "query_sha256": "4076635a6c0b6e494300fd47b97f48a8ce8925fa76123e09be6987c2d2e7e029",
+      "required_claim_ids": [
+        "gold-cl-badeab25597fbd2ec92d3c4123d3e635"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-6cc80e860e87b1df95d5f6c7eadbfa02"
+          ],
+          "evidence_ids": [
+            "gold-ev-1831686810531ef3dd015742629827e9"
+          ],
+          "obligation_id": "gold-ob-4d2c19066caf3109bda2f015884987ee",
+          "obligation_text": "完整回答问题：教材如何说明“开源语音技术生态”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-444bc607a871330f4b841c236b81afef",
+      "query_sha256": "9aaaeb73458e0ee84fc3e33cc9131dac17092da5d0a19b891ab1ed77d8c12174",
+      "required_claim_ids": [
+        "gold-cl-6cc80e860e87b1df95d5f6c7eadbfa02"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-f7417a7135d48f5095560b8a651044d3"
+          ],
+          "evidence_ids": [
+            "gold-ev-af3a3107e1f93c42fd335609b578ed70"
+          ],
+          "obligation_id": "gold-ob-708cb9f5797f30f8c56005e753267ad6",
+          "obligation_text": "完整回答问题：教材如何说明“人工智能天气预报”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-523f6ea6ce71abe65e608fc4af134faf",
+      "query_sha256": "acc6cc0cd9c9b2f8ce1aca2d840d3c947e9776c5dad56a793e3c039494786609",
+      "required_claim_ids": [
+        "gold-cl-f7417a7135d48f5095560b8a651044d3"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-917ed454977d90232cd91ef5af749439"
+          ],
+          "evidence_ids": [
+            "gold-ev-1b100e38a40ce3da44a2a2b530bef411"
+          ],
+          "obligation_id": "gold-ob-7b27181a87d62c566ccc25fe1899beb0",
+          "obligation_text": "完整回答问题：教材如何说明“深度学习在推荐系统中的应用”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-2adae254c7d38fbb6099af397e0e0fd7",
+      "query_sha256": "179cfa14818e63482a10eb0dbf01a4440879f3675e710202c1c10dac5a48dc9d",
+      "required_claim_ids": [
+        "gold-cl-917ed454977d90232cd91ef5af749439"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-8de5441657370b9858c024ce5c5aa654"
+          ],
+          "evidence_ids": [
+            "gold-ev-44b4860b2b3bdc81b634213a90212d8c"
+          ],
+          "obligation_id": "gold-ob-ec4d9b8ab3abc3d9e3eb7d704c02dbb5",
+          "obligation_text": "完整回答问题：教材如何说明刷脸支付从试点走向商用的应用进展？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-ffd2f1fc77428204f92610a31857001f",
+      "query_sha256": "e79079ea53d751574d8a2df2814d223f5ccffbc8b219ecff85c8af6d2ae4a4cb",
+      "required_claim_ids": [
+        "gold-cl-8de5441657370b9858c024ce5c5aa654"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-a545bec3d158a9916cd094d0ba403590"
+          ],
+          "evidence_ids": [
+            "gold-ev-45b6cf06eb11c87041e80cb332e0fb08"
+          ],
+          "obligation_id": "gold-ob-be45a3bc205d9c8b7332215b24594224",
+          "obligation_text": "完整回答问题：教材如何说明“服务机器人视觉交互”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-b4a1154cfaccddc9b9fc5764196e6a54",
+      "query_sha256": "3d9c8109cdf89222ff766a4ac70e0b593f5fa765c458315cce56f25f34058834",
+      "required_claim_ids": [
+        "gold-cl-a545bec3d158a9916cd094d0ba403590"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-f9ac7c8fc06a75ce1547245161f1aa94"
+          ],
+          "evidence_ids": [
+            "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654"
+          ],
+          "obligation_id": "gold-ob-64762ca3a9342e4289a07fd5c2585ba0",
+          "obligation_text": "完整回答问题：教材如何说明“深度学习在金融风控中的应用”的应用场景、作用或限制？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-63e132b98c5aa7bb104bb01c898730aa",
+      "query_sha256": "a50d8dbd55f500d50f3fa7d237704e99d218704ceb9e54742b8b382b3a9e43c5",
+      "required_claim_ids": [
+        "gold-cl-f9ac7c8fc06a75ce1547245161f1aa94"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-908dc46185fcc5676a1bb614a26d5928"
+          ],
+          "evidence_ids": [
+            "gold-ev-1c9a57c874696d23336a0cf4aa6990ff"
+          ],
+          "obligation_id": "gold-ob-b3e6af18a99e8b24d2a259af0cb57d87",
+          "obligation_text": "说明“人工智能语音识别、合成与实时翻译”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-a8fba2f6a6319dee2e7baa07cc35d03e"
+          ],
+          "evidence_ids": [
+            "gold-ev-44b4860b2b3bdc81b634213a90212d8c"
+          ],
+          "obligation_id": "gold-ob-b37ba6773fb01325f48fe16a725b03eb",
+          "obligation_text": "说明“刷脸支付”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-908dc46185fcc5676a1bb614a26d5928",
+            "gold-cl-a8fba2f6a6319dee2e7baa07cc35d03e"
+          ],
+          "evidence_ids": [
+            "gold-ev-1c9a57c874696d23336a0cf4aa6990ff",
+            "gold-ev-44b4860b2b3bdc81b634213a90212d8c"
+          ],
+          "obligation_id": "gold-ob-23b6a930959a1f50ed578f82b7d84dfd",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-20ffb757d8f66e7ae9b5b42820d907ae",
+      "query_sha256": "3e2bfa78cd37f74ec447d88e9a37b5025262859c9211581b1f1ce3f453581ece",
+      "required_claim_ids": [
+        "gold-cl-908dc46185fcc5676a1bb614a26d5928",
+        "gold-cl-a8fba2f6a6319dee2e7baa07cc35d03e"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-5284b1e2d1e41b71aceb52f601387bd8"
+          ],
+          "evidence_ids": [
+            "gold-ev-9f350313b9d2181d3fb13d62b08713e1"
+          ],
+          "obligation_id": "gold-ob-8499726e52dcd5cd6d072ef572cbc8a8",
+          "obligation_text": "说明“视觉-IMU子系统的无特征鲁棒性”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-71f4843b87a625c223668ba7c7768455"
+          ],
+          "evidence_ids": [
+            "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+          ],
+          "obligation_id": "gold-ob-96d86ee6eadac7c1ab8206c2fec883eb",
+          "obligation_text": "说明“SLAM传感器特性比较”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-5284b1e2d1e41b71aceb52f601387bd8",
+            "gold-cl-71f4843b87a625c223668ba7c7768455"
+          ],
+          "evidence_ids": [
+            "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+          ],
+          "obligation_id": "gold-ob-6a558593b777ab3b678767b19ce2a880",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-88df7a33d6aafc988099d1a87df97201",
+      "query_sha256": "b52355367ffb4d516bad37178944d29add591e2293da9ed4144e23669c7132f2",
+      "required_claim_ids": [
+        "gold-cl-5284b1e2d1e41b71aceb52f601387bd8",
+        "gold-cl-71f4843b87a625c223668ba7c7768455"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-7035790240b847e657a64f5d4befa541"
+          ],
+          "evidence_ids": [
+            "gold-ev-a95425415c717538eb8e12984a3caaef"
+          ],
+          "obligation_id": "gold-ob-249f8fc6f862a6885797b11ef56f1717",
+          "obligation_text": "说明“IBM沃森问答系统”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-6b5103a211d7077c0ad4f5b86421904d"
+          ],
+          "evidence_ids": [
+            "gold-ev-09df817f5eea22a230d1926ee8a19036"
+          ],
+          "obligation_id": "gold-ob-065226e203e0260730a4da9d67fb257f",
+          "obligation_text": "说明“通用人工智能目标”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-7035790240b847e657a64f5d4befa541",
+            "gold-cl-6b5103a211d7077c0ad4f5b86421904d"
+          ],
+          "evidence_ids": [
+            "gold-ev-a95425415c717538eb8e12984a3caaef",
+            "gold-ev-09df817f5eea22a230d1926ee8a19036"
+          ],
+          "obligation_id": "gold-ob-1ae4f6f83829612370b3be65499ef6aa",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-eac085c3ad6777c4ac19193774547e9c",
+      "query_sha256": "978dff1a7ab96c4ec63bc146bf17763334c1e75147810943e6d7e98829eb5a31",
+      "required_claim_ids": [
+        "gold-cl-7035790240b847e657a64f5d4befa541",
+        "gold-cl-6b5103a211d7077c0ad4f5b86421904d"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-5f7e960813b6bcc8befe8f6e33b4522e"
+          ],
+          "evidence_ids": [
+            "gold-ev-8678aa8ac3b7207a105135326cdd7109"
+          ],
+          "obligation_id": "gold-ob-0a2d296211e210d88f65f69cdeef51e9",
+          "obligation_text": "说明“服务机器人软件架构”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-c8f9d7aca17ae4e710dace2b072add56",
+            "gold-cl-914b8921c598c5165fe4693487e8e2bb",
+            "gold-cl-e2a2b5b18255146a27196eb77062e4d9",
+            "gold-cl-1a514cc0fa083e7509d6e28de1c1a451",
+            "gold-cl-e4b957c7a036aed34d6ff6fd4d5d6de0",
+            "gold-cl-3b5b69119f7e7a65e74682b4cc2df112",
+            "gold-cl-997ea8d1316d75de2271cb85b4a73f77",
+            "gold-cl-14819bc95a5d5c4b729b46f2cd6b48be"
+          ],
+          "evidence_ids": [
+            "gold-ev-a63ff5485aa0ef4684620c1ae70da74f"
+          ],
+          "obligation_id": "gold-ob-96ef90c1084512f6b7cc5049149f4089",
+          "obligation_text": "说明“智慧服务机器人政策环境”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-5f7e960813b6bcc8befe8f6e33b4522e",
+            "gold-cl-c8f9d7aca17ae4e710dace2b072add56",
+            "gold-cl-914b8921c598c5165fe4693487e8e2bb",
+            "gold-cl-e2a2b5b18255146a27196eb77062e4d9",
+            "gold-cl-1a514cc0fa083e7509d6e28de1c1a451",
+            "gold-cl-e4b957c7a036aed34d6ff6fd4d5d6de0",
+            "gold-cl-3b5b69119f7e7a65e74682b4cc2df112",
+            "gold-cl-997ea8d1316d75de2271cb85b4a73f77",
+            "gold-cl-14819bc95a5d5c4b729b46f2cd6b48be"
+          ],
+          "evidence_ids": [
+            "gold-ev-8678aa8ac3b7207a105135326cdd7109",
+            "gold-ev-a63ff5485aa0ef4684620c1ae70da74f"
+          ],
+          "obligation_id": "gold-ob-ff236dc750d432c4d894b1ea69e7ac18",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-1603a7fa121868c26812f81ee6786ef2",
+      "query_sha256": "1027e98aa8e60729a5d070d1c516fdddfb175e3dea1e4e77f3a6194267e8ee5e",
+      "required_claim_ids": [
+        "gold-cl-5f7e960813b6bcc8befe8f6e33b4522e",
+        "gold-cl-c8f9d7aca17ae4e710dace2b072add56",
+        "gold-cl-914b8921c598c5165fe4693487e8e2bb",
+        "gold-cl-e2a2b5b18255146a27196eb77062e4d9",
+        "gold-cl-1a514cc0fa083e7509d6e28de1c1a451",
+        "gold-cl-e4b957c7a036aed34d6ff6fd4d5d6de0",
+        "gold-cl-3b5b69119f7e7a65e74682b4cc2df112",
+        "gold-cl-997ea8d1316d75de2271cb85b4a73f77",
+        "gold-cl-14819bc95a5d5c4b729b46f2cd6b48be"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-066d8fae42f245e5fbb641222397c3eb"
+          ],
+          "evidence_ids": [
+            "gold-ev-3194476eb80e21fa4c9e96b32c08065d"
+          ],
+          "obligation_id": "gold-ob-15988bf600dca4fec35273386df08146",
+          "obligation_text": "说明“大模型对齐的有用性”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-85cf702121c76ab7618868ab8c031b36"
+          ],
+          "evidence_ids": [
+            "gold-ev-6b00087df687acba07757febbd553d19"
+          ],
+          "obligation_id": "gold-ob-6323206e1ad58fde5e375b8daaf1f368",
+          "obligation_text": "说明“3D高斯点染三维重建”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-066d8fae42f245e5fbb641222397c3eb",
+            "gold-cl-85cf702121c76ab7618868ab8c031b36"
+          ],
+          "evidence_ids": [
+            "gold-ev-3194476eb80e21fa4c9e96b32c08065d",
+            "gold-ev-6b00087df687acba07757febbd553d19"
+          ],
+          "obligation_id": "gold-ob-19541d2331027079e3b374dabec1a78e",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-ef3abe972f21f3e18b8b01b237499ebd",
+      "query_sha256": "09f39e0488291b13ceaaab3663ef0308eff79d151bd538fb0fb64758402c743f",
+      "required_claim_ids": [
+        "gold-cl-066d8fae42f245e5fbb641222397c3eb",
+        "gold-cl-85cf702121c76ab7618868ab8c031b36"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-9e8f89b3c7d178ad44063514d27726c3"
+          ],
+          "evidence_ids": [
+            "gold-ev-bd7d355279cc06aac5841601572cfe04"
+          ],
+          "obligation_id": "gold-ob-4157046f49b9f87b0b41b7cf4dce46f2",
+          "obligation_text": "说明“大规模高维数据的计算资源消耗”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-6ead3ec1584f15ed7dc9afe530b3c2b1"
+          ],
+          "evidence_ids": [
+            "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+          ],
+          "obligation_id": "gold-ob-2a736c3811283a57398da4a885eef04f",
+          "obligation_text": "说明“大模型训练数据准备与预处理”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-9e8f89b3c7d178ad44063514d27726c3",
+            "gold-cl-6ead3ec1584f15ed7dc9afe530b3c2b1"
+          ],
+          "evidence_ids": [
+            "gold-ev-bd7d355279cc06aac5841601572cfe04",
+            "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+          ],
+          "obligation_id": "gold-ob-25ed1cbf531fe54f8e63a17ce9101132",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-a0720bfe30a553ba7989fccaffae4570",
+      "query_sha256": "d9e8acd2fb7ec2c6ffd2d8804c71aa441666f2277903cbddd8d88349784609bd",
+      "required_claim_ids": [
+        "gold-cl-9e8f89b3c7d178ad44063514d27726c3",
+        "gold-cl-6ead3ec1584f15ed7dc9afe530b3c2b1"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-8559dab3f73ddb3f77ab85515ab699ec"
+          ],
+          "evidence_ids": [
+            "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d"
+          ],
+          "obligation_id": "gold-ob-a6fa1f6433e5175be5d8c27d122e12f2",
+          "obligation_text": "说明“训练数据隐私保护”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-9f6590b1cd97279403ac27f933779257",
+            "gold-cl-a9ff8fd9942804c0f560efabfc9750c4",
+            "gold-cl-490b1a3eae18d30ec55cd861f185c7fa",
+            "gold-cl-b2eabdfd827bd715b1cc8e3cc3940559",
+            "gold-cl-598ee415e218a59b9ad043dc9b4e8536",
+            "gold-cl-f9aa95e1871256e4811ebbfbb0537baf",
+            "gold-cl-af2bcce6dcb26b67c40c387fa16d8af8",
+            "gold-cl-10f37acbe847649addb2058d8979597d"
+          ],
+          "evidence_ids": [
+            "gold-ev-035088153234134744f10d335a333cc0"
+          ],
+          "obligation_id": "gold-ob-94a64fbad5a8b6a72fe43bff9a2e42e2",
+          "obligation_text": "说明“大模型参数规模演进”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-8559dab3f73ddb3f77ab85515ab699ec",
+            "gold-cl-9f6590b1cd97279403ac27f933779257",
+            "gold-cl-a9ff8fd9942804c0f560efabfc9750c4",
+            "gold-cl-490b1a3eae18d30ec55cd861f185c7fa",
+            "gold-cl-b2eabdfd827bd715b1cc8e3cc3940559",
+            "gold-cl-598ee415e218a59b9ad043dc9b4e8536",
+            "gold-cl-f9aa95e1871256e4811ebbfbb0537baf",
+            "gold-cl-af2bcce6dcb26b67c40c387fa16d8af8",
+            "gold-cl-10f37acbe847649addb2058d8979597d"
+          ],
+          "evidence_ids": [
+            "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d",
+            "gold-ev-035088153234134744f10d335a333cc0"
+          ],
+          "obligation_id": "gold-ob-0809f2f9371b141d473808fc43cecc63",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-17be63571ed1b00ee41daf14fd53a9d7",
+      "query_sha256": "f07003715e4454b2d38945c3927d6f6ba41bd0b1387142a44feebd8e62a697bb",
+      "required_claim_ids": [
+        "gold-cl-8559dab3f73ddb3f77ab85515ab699ec",
+        "gold-cl-9f6590b1cd97279403ac27f933779257",
+        "gold-cl-a9ff8fd9942804c0f560efabfc9750c4",
+        "gold-cl-490b1a3eae18d30ec55cd861f185c7fa",
+        "gold-cl-b2eabdfd827bd715b1cc8e3cc3940559",
+        "gold-cl-598ee415e218a59b9ad043dc9b4e8536",
+        "gold-cl-f9aa95e1871256e4811ebbfbb0537baf",
+        "gold-cl-af2bcce6dcb26b67c40c387fa16d8af8",
+        "gold-cl-10f37acbe847649addb2058d8979597d"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-36ff0d3e162e44b2bea920a4bb2ebaf7"
+          ],
+          "evidence_ids": [
+            "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+          ],
+          "obligation_id": "gold-ob-f8b2c4ec3f674c246a5c1455ecd5cd5a",
+          "obligation_text": "说明“智能可穿戴系统的技术链路”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-d42b62294f08c83135a1b17819e2bd22"
+          ],
+          "evidence_ids": [
+            "gold-ev-0a09643ff9ca8345e5659613b1f7626f"
+          ],
+          "obligation_id": "gold-ob-fbeaf06934e416237b47cbb40b756535",
+          "obligation_text": "说明“可穿戴传感器性能要求”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-36ff0d3e162e44b2bea920a4bb2ebaf7",
+            "gold-cl-d42b62294f08c83135a1b17819e2bd22"
+          ],
+          "evidence_ids": [
+            "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "gold-ev-0a09643ff9ca8345e5659613b1f7626f"
+          ],
+          "obligation_id": "gold-ob-3f7602a5398d76af5126005bd2db72d9",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+      "query_sha256": "a9f33c13ad2725b5b48e6d86fb61b2d8750457d06f1e83072a0a5ed536070ca9",
+      "required_claim_ids": [
+        "gold-cl-36ff0d3e162e44b2bea920a4bb2ebaf7",
+        "gold-cl-d42b62294f08c83135a1b17819e2bd22"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-f1c647ad448fd4c1f9e66180ce9145a9"
+          ],
+          "evidence_ids": [
+            "gold-ev-830849986bdfd10a7bd6767ec1a741fe"
+          ],
+          "obligation_id": "gold-ob-de7e0e32b8bd67d1d00ccf9da9277c0a",
+          "obligation_text": "说明“大模型安全对齐的目标”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-abec007dbf9596cdebd1e88d17ada9c2"
+          ],
+          "evidence_ids": [
+            "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb"
+          ],
+          "obligation_id": "gold-ob-e1007727748ebcf97fb028b9a90ac728",
+          "obligation_text": "说明“ERNIE 微调实践的具体任务”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-f1c647ad448fd4c1f9e66180ce9145a9",
+            "gold-cl-abec007dbf9596cdebd1e88d17ada9c2"
+          ],
+          "evidence_ids": [
+            "gold-ev-830849986bdfd10a7bd6767ec1a741fe",
+            "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb"
+          ],
+          "obligation_id": "gold-ob-18ab504b1519d9e6def39d79304826b9",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-7c2c4e325ca18b31270a328bd7a155e9",
+      "query_sha256": "347488652061ebcfef43f5a40452d20260ab78dc0024834ad52eac9e6811681e",
+      "required_claim_ids": [
+        "gold-cl-f1c647ad448fd4c1f9e66180ce9145a9",
+        "gold-cl-abec007dbf9596cdebd1e88d17ada9c2"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-aa1f50c0b41a6b23b7480c67a69790bb"
+          ],
+          "evidence_ids": [
+            "gold-ev-08b0d7882e524572142e7a1d5ba061ab"
+          ],
+          "obligation_id": "gold-ob-dd24f0ec068227fb06ebd4c286da2f95",
+          "obligation_text": "说明“人工智能支付合规监控”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-67f41eea4b35db70cbf8dff0eb50d9a2"
+          ],
+          "evidence_ids": [
+            "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+          ],
+          "obligation_id": "gold-ob-00a6d2e0911f9340c9fbc3fc5ec7a5db",
+          "obligation_text": "说明“人工智能交易异常检测”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-aa1f50c0b41a6b23b7480c67a69790bb",
+            "gold-cl-67f41eea4b35db70cbf8dff0eb50d9a2"
+          ],
+          "evidence_ids": [
+            "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+            "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+          ],
+          "obligation_id": "gold-ob-446098e076dd9771850a7a086d1f743f",
+          "obligation_text": "通过两组课程事实呈现二者关注点的区别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-faaec5d3494eccd00b66b87ebd7cc1ee",
+      "query_sha256": "d7ad2c75bb68cd9494d8c715f525917bbfe9043aa49fa4071bc349d820ebb671",
+      "required_claim_ids": [
+        "gold-cl-aa1f50c0b41a6b23b7480c67a69790bb",
+        "gold-cl-67f41eea4b35db70cbf8dff0eb50d9a2"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-fc92e680b7d322b811965894d20da7c9"
+          ],
+          "evidence_ids": [
+            "gold-ev-e7f49db4c61d212c410a7cf2964c96d9"
+          ],
+          "obligation_id": "gold-ob-4174299a357eb3127e7231cbb95f8a2c",
+          "obligation_text": "说明“特定领域人工智能突破条件”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-cb6bccc868daea3ddaad8fb090e770f3"
+          ],
+          "evidence_ids": [
+            "gold-ev-63b2a09988aa11ff3c6d483a0b162917"
+          ],
+          "obligation_id": "gold-ob-2254cbc64ce8a19f8482a86aff1f01cc",
+          "obligation_text": "说明“深度学习平台推广”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-bd67064e58eee9b3f2b8ae6c9038b41e",
+      "query_sha256": "828920b2b4846a4a7bc4bf36e607a37d0bdcb88254001600ee9223a407c5123d",
+      "required_claim_ids": [
+        "gold-cl-fc92e680b7d322b811965894d20da7c9",
+        "gold-cl-cb6bccc868daea3ddaad8fb090e770f3"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-6958f2266ba2a70985267793e985b564"
+          ],
+          "evidence_ids": [
+            "gold-ev-9806de881bae1e17c64362810b70b556"
+          ],
+          "obligation_id": "gold-ob-b0817b1d18daf6b06b5ee43a3bec451d",
+          "obligation_text": "说明“NeRF技术发展方向”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-f24bae3fc823804a3ae8957cd5f656b3"
+          ],
+          "evidence_ids": [
+            "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+          ],
+          "obligation_id": "gold-ob-cd5ff047c66ff5c462295058dcb66141",
+          "obligation_text": "说明“微调”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-e366cc9f6394a434f442a876ae1276ed",
+      "query_sha256": "8efb5915232558fb505c377265dee961bf145cf9b317b7fe4a8f7cf5e96e6ae9",
+      "required_claim_ids": [
+        "gold-cl-6958f2266ba2a70985267793e985b564",
+        "gold-cl-f24bae3fc823804a3ae8957cd5f656b3"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-6f2d966b09cb0b4c4acd5a658fdcf5ea"
+          ],
+          "evidence_ids": [
+            "gold-ev-92f41e50b2d92532b75cb347dbcaa6f3"
+          ],
+          "obligation_id": "gold-ob-98aa361faf4b989af01ea18c57461937",
+          "obligation_text": "说明“多层感知机的适用范围”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-fe88de1d904792280cbf4140c7217d8c"
+          ],
+          "evidence_ids": [
+            "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+          ],
+          "obligation_id": "gold-ob-8e1cd2742c5d1ceeb041cb1e6db45cc3",
+          "obligation_text": "说明“深度学习应用领域”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-e0dfa69f55d5f5730c717db5910117e9",
+      "query_sha256": "1911421370bb9f20c58096cf4216d52d6aa1d9bebe7ce9fdf63993930b519c57",
+      "required_claim_ids": [
+        "gold-cl-6f2d966b09cb0b4c4acd5a658fdcf5ea",
+        "gold-cl-fe88de1d904792280cbf4140c7217d8c"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-d6b4486a5181e5ffb7aaa29c94a66727"
+          ],
+          "evidence_ids": [
+            "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+          ],
+          "obligation_id": "gold-ob-8db6a20a80b560c563b5b8c270d65e17",
+          "obligation_text": "说明“3D高斯点的透视投影”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-12ee3ca7bd34c803f2d738172aaabb1e"
+          ],
+          "evidence_ids": [
+            "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+          ],
+          "obligation_id": "gold-ob-bece154e8d8653579a349cc342838b5c",
+          "obligation_text": "说明“智能可穿戴系统的技术链路”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-fe2dd70293f03568192745681ed7a6f9",
+      "query_sha256": "de9a2ec86673ac3f9660490833646b807adf6e5cdbad068cc55a72fa2117d951",
+      "required_claim_ids": [
+        "gold-cl-d6b4486a5181e5ffb7aaa29c94a66727",
+        "gold-cl-12ee3ca7bd34c803f2d738172aaabb1e"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-d294075f918fc7515adc07388a5b7306"
+          ],
+          "evidence_ids": [
+            "gold-ev-7056e327e4d297eadf4eeb60f00fcf21"
+          ],
+          "obligation_id": "gold-ob-5b0947d7e350798c9d11281ae06eb407",
+          "obligation_text": "说明“传统seq2seq的长序列局限”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-cd73dda1121cd2f2b1b452d92d373c86"
+          ],
+          "evidence_ids": [
+            "gold-ev-af3a3107e1f93c42fd335609b578ed70"
+          ],
+          "obligation_id": "gold-ob-a8e20189dfd066e4555d05175ff163a7",
+          "obligation_text": "说明“人工智能天气预报”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-4597623b256e3140208f1b63ff59ae0a",
+      "query_sha256": "856128029cea49e5a73aa669f6e2fa6de90122a9ecb901b2f21be203ea1c7717",
+      "required_claim_ids": [
+        "gold-cl-d294075f918fc7515adc07388a5b7306",
+        "gold-cl-cd73dda1121cd2f2b1b452d92d373c86"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-7f6ef1a1d22f21d194ab982da93c075f"
+          ],
+          "evidence_ids": [
+            "gold-ev-ac89df32946f7cbb44441b93711da3f5"
+          ],
+          "obligation_id": "gold-ob-d4b67530dea6a24a2edfe9f2be43b256",
+          "obligation_text": "说明“感知机的线性分类局限”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-31d5184d19c2d97ae8217646fdee0d8e"
+          ],
+          "evidence_ids": [
+            "gold-ev-1b100e38a40ce3da44a2a2b530bef411"
+          ],
+          "obligation_id": "gold-ob-f6430c0e9376e99102adb265d989e1c9",
+          "obligation_text": "说明“深度学习在推荐系统中的应用”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-c286bb50cc6faa00b887d3a0fad427b2",
+      "query_sha256": "b7ba6d6a37ea035d5553e6deb701a94d969a803132ca3192e35d1b2f17723dfc",
+      "required_claim_ids": [
+        "gold-cl-7f6ef1a1d22f21d194ab982da93c075f",
+        "gold-cl-31d5184d19c2d97ae8217646fdee0d8e"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-5b5bac0d5d36097c9453ef63bc01958d"
+          ],
+          "evidence_ids": [
+            "gold-ev-7ca952b51845ec8726626df3371c02a6"
+          ],
+          "obligation_id": "gold-ob-6dd093f3af80dc183e26cca0034dcbc1",
+          "obligation_text": "说明“指令微调”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-36af8159486e69e96cabc23bdf2cca25"
+          ],
+          "evidence_ids": [
+            "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+          ],
+          "obligation_id": "gold-ob-fb4ae3d8b5ae20984def5fcbf78bb00a",
+          "obligation_text": "说明“大模型训练数据准备与预处理”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-a9539e8d3b3af73347bb749ac968222d",
+      "query_sha256": "57db87544b80bdcad045052d6d0caadeb84c97ba7acac4d9e6f6e0368ab2689e",
+      "required_claim_ids": [
+        "gold-cl-5b5bac0d5d36097c9453ef63bc01958d",
+        "gold-cl-36af8159486e69e96cabc23bdf2cca25"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-730f89414b0e94ad95ab524ff3773338"
+          ],
+          "evidence_ids": [
+            "gold-ev-2b921c5153ba3d619e3b28d184af08b1"
+          ],
+          "obligation_id": "gold-ob-976dfb2c141d426abffdcfe6004b1919",
+          "obligation_text": "说明“人工智能个性化教育”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-fccb2e726d9645a6312942023744539c",
+            "gold-cl-093f5491f46000067bb769d5a5afd680",
+            "gold-cl-75e726cca56a8f76ecad811da98b875b",
+            "gold-cl-50ca9d9d576198153392f0542ae8f6ac",
+            "gold-cl-606837f3b821a254de50e29a0b700c51",
+            "gold-cl-030630bef2a09df04f5034149b6b7941",
+            "gold-cl-d400bf8a286dab4611fa628a4f1b69e2",
+            "gold-cl-6424c3fef1b274baead5082acfdd25d5",
+            "gold-cl-797668e1ce0797244ca78d85f7e6f995",
+            "gold-cl-9cb2127cbf06335e697271e33b89f2e1",
+            "gold-cl-1ffe52bc6a3658e65998de2e37883378",
+            "gold-cl-4c2308108f8ab186094b009840c3b9e3",
+            "gold-cl-2f33e3650fb54e4c6d7a666e29225db8",
+            "gold-cl-806aafd7d2544f86d5c9f48cb6b814f8",
+            "gold-cl-9367bf1fcf0b3d095dd4ced492f854ab",
+            "gold-cl-d6c92ed90df42955c150a8a588d39612",
+            "gold-cl-47b4e0c037602bdf812db84faa1692c9"
+          ],
+          "evidence_ids": [
+            "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+          ],
+          "obligation_id": "gold-ob-09030634280e532ebbb66eb436efef01",
+          "obligation_text": "说明“职业自动化淘汰概率”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-4f42d60b8c7264cdba6f8df9c307bbea",
+      "query_sha256": "8fa6e3d42e8b00683ab7fb973d479fb25d614da02ab98e12a6f2b596bb672eb4",
+      "required_claim_ids": [
+        "gold-cl-730f89414b0e94ad95ab524ff3773338",
+        "gold-cl-fccb2e726d9645a6312942023744539c",
+        "gold-cl-093f5491f46000067bb769d5a5afd680",
+        "gold-cl-75e726cca56a8f76ecad811da98b875b",
+        "gold-cl-50ca9d9d576198153392f0542ae8f6ac",
+        "gold-cl-606837f3b821a254de50e29a0b700c51",
+        "gold-cl-030630bef2a09df04f5034149b6b7941",
+        "gold-cl-d400bf8a286dab4611fa628a4f1b69e2",
+        "gold-cl-6424c3fef1b274baead5082acfdd25d5",
+        "gold-cl-797668e1ce0797244ca78d85f7e6f995",
+        "gold-cl-9cb2127cbf06335e697271e33b89f2e1",
+        "gold-cl-1ffe52bc6a3658e65998de2e37883378",
+        "gold-cl-4c2308108f8ab186094b009840c3b9e3",
+        "gold-cl-2f33e3650fb54e4c6d7a666e29225db8",
+        "gold-cl-806aafd7d2544f86d5c9f48cb6b814f8",
+        "gold-cl-9367bf1fcf0b3d095dd4ced492f854ab",
+        "gold-cl-d6c92ed90df42955c150a8a588d39612",
+        "gold-cl-47b4e0c037602bdf812db84faa1692c9"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-170b69593f9ced481bfee083d36fd88a"
+          ],
+          "evidence_ids": [
+            "gold-ev-4f40dc8586ca6829794799ceae4826cd"
+          ],
+          "obligation_id": "gold-ob-84ed22374a17b619dad6fef36457eb13",
+          "obligation_text": "说明“机器智能的界定难题”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-e74883e5dce6b441bb7bcf35da73bda1"
+          ],
+          "evidence_ids": [
+            "gold-ev-7a68a8df0bca457e22b2efb289d137bd"
+          ],
+          "obligation_id": "gold-ob-028cfa1fa0926bf93bf99715ba3d8851",
+          "obligation_text": "说明“双AI教学演练”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-c865394a5aec16a32df9d149dc539473",
+      "query_sha256": "22f4306c2ffe8b4b6304d353889d183b4dc1b0a4d5f38aca6ce1927f2bba60fe",
+      "required_claim_ids": [
+        "gold-cl-170b69593f9ced481bfee083d36fd88a",
+        "gold-cl-e74883e5dce6b441bb7bcf35da73bda1"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-b2e8fe618a97a0167bf05f116e919d89"
+          ],
+          "evidence_ids": [
+            "gold-ev-520d6a9a5468ceca52daee6f7de7e998"
+          ],
+          "obligation_id": "gold-ob-f846ad38b9e174b9497b41d5ef24d923",
+          "obligation_text": "说明“Transformer编码器结构”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-085c8e6f6ddff78d5628b92c8594d486"
+          ],
+          "evidence_ids": [
+            "gold-ev-365b0dc23cff9bb089df5923e2212264"
+          ],
+          "obligation_id": "gold-ob-95a0d42f632fb343ce93cce8c07744ae",
+          "obligation_text": "说明“大规模训练数据与涌现能力”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-e1454554d0dbf3b077be9a64e20c4065",
+      "query_sha256": "ae79d0e73bb7374b54a8a5108c168aad7c07db1d04c7d6879df2d363e10ee17a",
+      "required_claim_ids": [
+        "gold-cl-b2e8fe618a97a0167bf05f116e919d89",
+        "gold-cl-085c8e6f6ddff78d5628b92c8594d486"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-b165f30856f5c2fdeed28d645f708e3f"
+          ],
+          "evidence_ids": [
+            "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+          ],
+          "obligation_id": "gold-ob-1649a4549d6d6c93d94fff4d824a2973",
+          "obligation_text": "说明“大模型发现新知识的能力”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-66bde1b385135baec50087fe06d09da2"
+          ],
+          "evidence_ids": [
+            "gold-ev-ce0b58d4e9bed39607616060acc59261"
+          ],
+          "obligation_id": "gold-ob-60b1a03120d675c2c90025885d084056",
+          "obligation_text": "说明“高斯粒子瓦片深度排序”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-b74daec0d96e5c27ee9bf853fd2f25f1",
+      "query_sha256": "21a069bff42a8010c46467db272773259e8e38789064e41dc9b30beef1faa39f",
+      "required_claim_ids": [
+        "gold-cl-b165f30856f5c2fdeed28d645f708e3f",
+        "gold-cl-66bde1b385135baec50087fe06d09da2"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-c90a92d7732ac1372a02e5bb2f6cdf00"
+          ],
+          "evidence_ids": [
+            "gold-ev-7a68a8df0bca457e22b2efb289d137bd"
+          ],
+          "obligation_id": "gold-ob-2f1d32f3bfab217768f3ddadb0f89ccf",
+          "obligation_text": "说明“双AI教学演练”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-d82907c6e926d2ee986039e400351826"
+          ],
+          "evidence_ids": [
+            "gold-ev-203251897a3d2eef2cfa747cbbe59fc2"
+          ],
+          "obligation_id": "gold-ob-24b816517b7d0f10798ff2aa0dcd5dd0",
+          "obligation_text": "说明“思维机器公司”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-72e6e8db4b46565ca8ab1214551936df",
+      "query_sha256": "b9948366f3703c7e5cc5e285944d0d95d8398de2b670624fd9bf16a8bfc26b72",
+      "required_claim_ids": [
+        "gold-cl-c90a92d7732ac1372a02e5bb2f6cdf00",
+        "gold-cl-d82907c6e926d2ee986039e400351826"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-8e5267749bc51173f64f376b365694f2"
+          ],
+          "evidence_ids": [
+            "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b"
+          ],
+          "obligation_id": "gold-ob-85ade0827998f722083ccde850fa612c",
+          "obligation_text": "说明“Scikit-Learn二分类数据构造”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-616c4e86deacd1c2ea2577373316c1ad"
+          ],
+          "evidence_ids": [
+            "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+          ],
+          "obligation_id": "gold-ob-ad1b0a5c9bdc42eee8c891a0c0846db2",
+          "obligation_text": "说明“大模型”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-b491606999ab00176cbce9e5246e8fb8",
+      "query_sha256": "5f7c85b1c2d5e2e036080756a07d4e33b6554891eba4b686c654baa96820f8cf",
+      "required_claim_ids": [
+        "gold-cl-8e5267749bc51173f64f376b365694f2",
+        "gold-cl-616c4e86deacd1c2ea2577373316c1ad"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-c7368d6c47f086666f122c829e26db3a"
+          ],
+          "evidence_ids": [
+            "gold-ev-6f70e7f62938bf78ba45c307de1adaef"
+          ],
+          "obligation_id": "gold-ob-eb86b07666400244b4f45a8459a8995b",
+          "obligation_text": "说明“NeRF累积透射率”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-2f1c302d226e95e50c311ce33c71a843"
+          ],
+          "evidence_ids": [
+            "gold-ev-af3a3107e1f93c42fd335609b578ed70"
+          ],
+          "obligation_id": "gold-ob-2fb566e9aed04c8c4162867294e9ed18",
+          "obligation_text": "说明“人工智能天气预报”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-218127997549437931fb84695ae92bde",
+      "query_sha256": "614abb544a70c3c1e4116baeea9b49fdfcc157bf62c177d375ea1c6eb762439c",
+      "required_claim_ids": [
+        "gold-cl-c7368d6c47f086666f122c829e26db3a",
+        "gold-cl-2f1c302d226e95e50c311ce33c71a843"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-7b9aa204cb0f038c3ae144f085fe08ae"
+          ],
+          "evidence_ids": [
+            "gold-ev-6b00087df687acba07757febbd553d19"
+          ],
+          "obligation_id": "gold-ob-8df0b7b9876f6e7a9812d7d658e9041b",
+          "obligation_text": "说明“3D高斯点染三维重建”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-189995173961e847482ee8b7580caebe"
+          ],
+          "evidence_ids": [
+            "gold-ev-8678aa8ac3b7207a105135326cdd7109"
+          ],
+          "obligation_id": "gold-ob-ce9f4cdcb89d48c275cc6760926f96c5",
+          "obligation_text": "说明“服务机器人软件架构”",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-97c3f7d3ee617e8dff517b41021b0fa6",
+      "query_sha256": "0a1f67f9aa3e45ff35aa6eebe1d5d7ce3248f97069ed2d92a272b33abf2c0f30",
+      "required_claim_ids": [
+        "gold-cl-7b9aa204cb0f038c3ae144f085fe08ae",
+        "gold-cl-189995173961e847482ee8b7580caebe"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-77bcfbedc8bcdcc3db8685a22dd7bc74"
+          ],
+          "evidence_ids": [
+            "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+          ],
+          "obligation_id": "gold-ob-dccc8ef00c71427268106f73a46e0821",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“图灵测试”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-ec16b25a4afecf8ba07e2cdff51100aa",
+      "query_sha256": "0c029f930661aa63dee57d52857bc3c9128e14439b955a5e3dababb450f3589a",
+      "required_claim_ids": [
+        "gold-cl-77bcfbedc8bcdcc3db8685a22dd7bc74"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-e7173c1d3be5e50ca2f95fd0ffbb841b"
+          ],
+          "evidence_ids": [
+            "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+          ],
+          "obligation_id": "gold-ob-2ddc729f4adf252cb85ec971efd1a9ee",
+          "obligation_text": "完整回答问题：教材如何概括深度学习方法的应用范围及相对表现？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-bf65aa1cc8cd71adb2eb4cd355eb0627",
+      "query_sha256": "fe01d7d2cf98c73f337908ccb16f66bb4323575993443ee07139bab396cf5f3f",
+      "required_claim_ids": [
+        "gold-cl-e7173c1d3be5e50ca2f95fd0ffbb841b"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-028dd0123f8f7f8aa9d8e0cf85930b11"
+          ],
+          "evidence_ids": [
+            "gold-ev-a9911582c78e1c224211cd7b66f9ccbd"
+          ],
+          "obligation_id": "gold-ob-0046e89a040529e5a0ecdc9faad117eb",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“知识表达”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-486024f248911ec6c91406ccffa2b230",
+      "query_sha256": "ded64439b49d99cfce8c5cbbc4ea0b4c678de6d8fe4ff70e3f73155281088b47",
+      "required_claim_ids": [
+        "gold-cl-028dd0123f8f7f8aa9d8e0cf85930b11"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-16a46e99401a4fbf1d62c4461229e19f"
+          ],
+          "evidence_ids": [
+            "gold-ev-475a17360c717b3221789247426a4d70"
+          ],
+          "obligation_id": "gold-ob-8c358ecb94aa6b0e1b202f4f3bd1cdbf",
+          "obligation_text": "完整回答问题：教材在什么分类器背景下、从什么角度引出样本集的线性可分性？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-9cb501d3517e4e09c4134390390b8291",
+      "query_sha256": "367a6f0b720618aa5d308af54601f8dc24f68ea7c06f6a77e52db0b8c18eaf41",
+      "required_claim_ids": [
+        "gold-cl-16a46e99401a4fbf1d62c4461229e19f"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-c5ba7247fcd45554a6a28f0624bb6f1a"
+          ],
+          "evidence_ids": [
+            "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+          ],
+          "obligation_id": "gold-ob-65a4a356398c05dce6ff77e93665ef63",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“人工智能”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-27bc0decd37ef6fab8d5d1ae1c334fe0",
+      "query_sha256": "617c8277a38eeb79243d06344d0ec215ea5ef9f429c45069b8cc927401049767",
+      "required_claim_ids": [
+        "gold-cl-c5ba7247fcd45554a6a28f0624bb6f1a"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-d8307ac55074993a9fe10f5e755e5063"
+          ],
+          "evidence_ids": [
+            "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992"
+          ],
+          "obligation_id": "gold-ob-587a3489628728a505641483bbf052b8",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“智能测评阅卷”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-3b42020950b1b2d410b6524c63fe6399",
+      "query_sha256": "ec10b47cf352fdfbd103e13b3862ad05bf2ab4f5d94e99466b6302d6b5b06f1b",
+      "required_claim_ids": [
+        "gold-cl-d8307ac55074993a9fe10f5e755e5063"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-47fb9d17180035e86feb3fb7d92b370a"
+          ],
+          "evidence_ids": [
+            "gold-ev-34207553fec0fd47868ebc31e2a7b86b"
+          ],
+          "obligation_id": "gold-ob-9091b89021dbe9650178dc5908c81ef5",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“LIO-SAM”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-d5a038b9abdb2ff4f0b590e86ce43664",
+      "query_sha256": "4d97b0a271939ba12b0fc2ea245f462520439b45a6ad1d6100eca7ceefa0912c",
+      "required_claim_ids": [
+        "gold-cl-47fb9d17180035e86feb3fb7d92b370a"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-ea67d6a5f26c22b5ad3cd076f3290460"
+          ],
+          "evidence_ids": [
+            "gold-ev-09df817f5eea22a230d1926ee8a19036"
+          ],
+          "obligation_id": "gold-ob-8940a9971566053b7c438046ff682711",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“通用人工智能目标”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-0fa1d3d95290385e4674c30f03a6e3e3",
+      "query_sha256": "d2314d10e1f59c53486801df74773a142ba954f1ad16612775c0082fd9650638",
+      "required_claim_ids": [
+        "gold-cl-ea67d6a5f26c22b5ad3cd076f3290460"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-bf05d9a506f0a14895aaffde84490a92"
+          ],
+          "evidence_ids": [
+            "gold-ev-63b2a09988aa11ff3c6d483a0b162917"
+          ],
+          "obligation_id": "gold-ob-2caab05b00477e72fde6684656eb1fa0",
+          "obligation_text": "完整回答问题：教材如何说明谷歌为推广深度学习平台采取的行动？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-9826d9b44c88d10f59c55550835aaa9e",
+      "query_sha256": "2cc1e80a4b85551a3b8f37177c5a122190d88bdf5a3a0bfaf2a7057066539617",
+      "required_claim_ids": [
+        "gold-cl-bf05d9a506f0a14895aaffde84490a92"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-80290118aa72bc1c87b7c2454d844114"
+          ],
+          "evidence_ids": [
+            "gold-ev-7b34285b5785dc23f07c5cf1f076aff5"
+          ],
+          "obligation_id": "gold-ob-2f6d54f4b20526ff343bdd64966499fd",
+          "obligation_text": "完整回答问题：教材如何说明位置编码与词特征向量的维数关系及组合方式？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-e91048269a12fa818e0f984d48453057",
+      "query_sha256": "7cdf13f29ec8b2781e6a901ce4ac40f174626ea384f124c434c6311390671550",
+      "required_claim_ids": [
+        "gold-cl-80290118aa72bc1c87b7c2454d844114"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-b199722af968226d2c8db17f713f2007"
+          ],
+          "evidence_ids": [
+            "gold-ev-cbcdb714a5167c63838bba512eee2b4c"
+          ],
+          "obligation_id": "gold-ob-e26ed3fde37249ffae52d693ce230fc4",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“感知机”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-66684d10f319b15e2e14d55dcbe9132c",
+      "query_sha256": "2a7ae76ee6966275bd5eb3de40a5944b7c2dd14a93e33c801ae3f32165b73fc7",
+      "required_claim_ids": [
+        "gold-cl-b199722af968226d2c8db17f713f2007"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-65945cae446176d6b14759444af29842"
+          ],
+          "evidence_ids": [
+            "gold-ev-17538584dfe368014f1177acd147a2b9"
+          ],
+          "obligation_id": "gold-ob-768c8efc5f6231516efe35409ecb0aab",
+          "obligation_text": "完整回答问题：教材所述 SLAM 在 GNSS 信号缺失时能够提供哪些能力？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-99bdcdec3d279f05f1f4827c732654ce",
+      "query_sha256": "3b0251843435cc4ae1e5bf5a4f6a85a1f75d4c279b4f9b7642985e7b14ee3342",
+      "required_claim_ids": [
+        "gold-cl-65945cae446176d6b14759444af29842"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-611e3b8e40b818c20b5bfc0c6ee12e3d"
+          ],
+          "evidence_ids": [
+            "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+          ],
+          "obligation_id": "gold-ob-8ddeedcbafb0faa3cbb10fd71aeb6698",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“大模型”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-be1129ed5bab0194204d61c20289052d",
+      "query_sha256": "d5ebc41a79e85517a258179415ad58fcc8f6fdacceac7e2310c5134961732a46",
+      "required_claim_ids": [
+        "gold-cl-611e3b8e40b818c20b5bfc0c6ee12e3d"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-198aae3408bf9539467918520961fd64"
+          ],
+          "evidence_ids": [
+            "gold-ev-e45b2242f6d079448a93922b96e5c4d0"
+          ],
+          "obligation_id": "gold-ob-b4b48ed087f6282537099a50efc82fed",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“通用人工智能”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-56699731978f57c0cd188022798e8de0",
+      "query_sha256": "99005c5f69c4bc003d0af1fd114be4cf4766e46c9bbfdbf637e974cb44408dde",
+      "required_claim_ids": [
+        "gold-cl-198aae3408bf9539467918520961fd64"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-f047d3392661b4655ce41478a2a944e9"
+          ],
+          "evidence_ids": [
+            "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+          ],
+          "obligation_id": "gold-ob-a6527ab0c348d7268dee8c98abb6ad35",
+          "obligation_text": "完整回答问题：根据教材，如何定义或说明“微调”？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-2838a2f0ea48d43b27f58c9e191a5421",
+      "query_sha256": "e5bc70fc19ef9592743fc09d35f54affc9fd417f46ead46122bb9093ebe38e6c",
+      "required_claim_ids": [
+        "gold-cl-f047d3392661b4655ce41478a2a944e9"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-adfe5a0caf92929f3225c02390b6bed2"
+          ],
+          "evidence_ids": [
+            "gold-ev-33a7eeb84721f894d7224e97ba49e5f5"
+          ],
+          "obligation_id": "gold-ob-89e6b63e364a87ae23dbb07e3d9cab6b",
+          "obligation_text": "回答原子事实：基础模型预测时，错误分类的概率在26%左右。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-c623b5408bec4b558fab8d1f01e5b83d"
+          ],
+          "evidence_ids": [
+            "gold-ev-33a7eeb84721f894d7224e97ba49e5f5"
+          ],
+          "obligation_id": "gold-ob-05137a483c1b81136ff0f654e0c02bf0",
+          "obligation_text": "回答原子事实：微调模型预测时，错误分类的概率几乎为0。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-2b8972b47de56a5b6b62e68091320557",
+      "query_sha256": "5cd29e606efe4a874eea4560a3226fefb385d784882106bf2cbcf9c05f90d4ed",
+      "required_claim_ids": [
+        "gold-cl-adfe5a0caf92929f3225c02390b6bed2",
+        "gold-cl-c623b5408bec4b558fab8d1f01e5b83d"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-8348dc25979dc2d839150070d15e313f"
+          ],
+          "evidence_ids": [
+            "gold-ev-b4635872d741e3a6c0e764547d376516"
+          ],
+          "obligation_id": "gold-ob-c2e5faf6c52c67e7d593d4c74d6921e2",
+          "obligation_text": "回答原子事实：视角转换矩阵 W 决定转换后的二维协方差矩阵 Σ′∈R^{2×2}。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-08a50259be5c8f60c6f1715b52d3d4fa"
+          ],
+          "evidence_ids": [
+            "gold-ev-b4635872d741e3a6c0e764547d376516"
+          ],
+          "obligation_id": "gold-ob-14f8678a3f6a3fc0de4ebbe334700c62",
+          "obligation_text": "回答原子事实：二维协方差变换公式为 Σ′=JWΣW^T J^T。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-720907acf5c019bca8604d8bbaddf311",
+      "query_sha256": "b538bbe41c3fb2b9708b069b2cde6676bb2bbda3ea072a6c3862c647007f8446",
+      "required_claim_ids": [
+        "gold-cl-8348dc25979dc2d839150070d15e313f",
+        "gold-cl-08a50259be5c8f60c6f1715b52d3d4fa"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-dd32872c25933ff27e984e9af7fefdb7",
+            "gold-cl-3a60486c08ea0b948026ef6ab5755bd5",
+            "gold-cl-b34a9a2f0e9de7bff931c73884a4e5e5",
+            "gold-cl-1c81636f2b80ee592be582e6ee4f079d",
+            "gold-cl-037bdf55af623b896611d06a65a9a554",
+            "gold-cl-55ab98ca55cdd68ae6ca9937004f084d",
+            "gold-cl-7971dbb4180a8ccbe87eb2a7381e4981",
+            "gold-cl-04c95391408001ba94bcb1aaab454ab4",
+            "gold-cl-6f25f3fa7294bb9b0eede065a3c4a33c",
+            "gold-cl-84664b373872932b8b53e3a686a751df",
+            "gold-cl-a55e112375e1e00d593f2190e905edb5",
+            "gold-cl-2b492aa3c2a8f6768e4bebdafca72eaf",
+            "gold-cl-d561a256726bb5f02f3e7fadb5eaab88",
+            "gold-cl-8cc752c7bd1d563010a0c3644cd2de61",
+            "gold-cl-b25a1227eb45ddc7f886bd32168663de",
+            "gold-cl-9a761a8f3ae1ef64c967f5d240c32f71",
+            "gold-cl-b8196643a0a4c65fadb2e934cb431a02"
+          ],
+          "evidence_ids": [
+            "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+          ],
+          "obligation_id": "gold-ob-4fd85fc694b0f5f1bc52a0f41b4183c8",
+          "obligation_text": "完整回答问题：教材关于“职业自动化淘汰概率”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-ae7a2fadc743507c01dc579c6a728f06",
+      "query_sha256": "74d2b7da164f8f59e77d317073dc73fb30c7b0301cac9936333f63ab5a0bb7f1",
+      "required_claim_ids": [
+        "gold-cl-dd32872c25933ff27e984e9af7fefdb7",
+        "gold-cl-3a60486c08ea0b948026ef6ab5755bd5",
+        "gold-cl-b34a9a2f0e9de7bff931c73884a4e5e5",
+        "gold-cl-1c81636f2b80ee592be582e6ee4f079d",
+        "gold-cl-037bdf55af623b896611d06a65a9a554",
+        "gold-cl-55ab98ca55cdd68ae6ca9937004f084d",
+        "gold-cl-7971dbb4180a8ccbe87eb2a7381e4981",
+        "gold-cl-04c95391408001ba94bcb1aaab454ab4",
+        "gold-cl-6f25f3fa7294bb9b0eede065a3c4a33c",
+        "gold-cl-84664b373872932b8b53e3a686a751df",
+        "gold-cl-a55e112375e1e00d593f2190e905edb5",
+        "gold-cl-2b492aa3c2a8f6768e4bebdafca72eaf",
+        "gold-cl-d561a256726bb5f02f3e7fadb5eaab88",
+        "gold-cl-8cc752c7bd1d563010a0c3644cd2de61",
+        "gold-cl-b25a1227eb45ddc7f886bd32168663de",
+        "gold-cl-9a761a8f3ae1ef64c967f5d240c32f71",
+        "gold-cl-b8196643a0a4c65fadb2e934cb431a02"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-6089e605bdd0d4e99223e48969195839"
+          ],
+          "evidence_ids": [
+            "gold-ev-038b4413d51c1b35b884caf999ec92e0"
+          ],
+          "obligation_id": "gold-ob-275d6fcc39c18f3d193ff19c0a6238fd",
+          "obligation_text": "回答原子事实：2024年出现了全国首例“AI生成声音人格权侵权案”。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-090f263f27d39b7b49ea555758ce10da"
+          ],
+          "evidence_ids": [
+            "gold-ev-038b4413d51c1b35b884caf999ec92e0"
+          ],
+          "obligation_id": "gold-ob-423438d627752e1e8134fda830da2572",
+          "obligation_text": "回答原子事实：该案例提示需要重视声音权益保护和技术的规范应用。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-a74bb4b9fcefc7df08ea2063151445b8",
+      "query_sha256": "0835d906416cacc5e76896c194ae8b65049404c560f1dc99aefeb159457cdcf6",
+      "required_claim_ids": [
+        "gold-cl-6089e605bdd0d4e99223e48969195839",
+        "gold-cl-090f263f27d39b7b49ea555758ce10da"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-5d85d6660ac2e7449cd74730bc843a85"
+          ],
+          "evidence_ids": [
+            "gold-ev-f333ceb9cf96f580ec2a714438e94d27"
+          ],
+          "obligation_id": "gold-ob-1f5bbd49d8b8a04d2adfb0697e2b7c3a",
+          "obligation_text": "完整回答问题：教材关于“点到感知机超平面的距离”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-730f317833bc4b6f6d458f42814069be",
+      "query_sha256": "f469597f3f661b130990b41fd7f2098c5a663320ed1482a0a330dad172dfb212",
+      "required_claim_ids": [
+        "gold-cl-5d85d6660ac2e7449cd74730bc843a85"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-dc316c5d5c7a548cc6a548bf3f9e1a4b"
+          ],
+          "evidence_ids": [
+            "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+          ],
+          "obligation_id": "gold-ob-fbdc11af3628a05da50e47299ca62ffa",
+          "obligation_text": "回答原子事实：第一行代码构造了一个感知机模型。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-387b79f50df2a1cb258bab9c4e78902a"
+          ],
+          "evidence_ids": [
+            "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+          ],
+          "obligation_id": "gold-ob-fe6621e40f2e552c103b3b5bb889e1ba",
+          "obligation_text": "回答原子事实：fit_intercept=False 表示训练时假设数据已经中心化。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-748acbca382658dea68d08abf4d68f6e"
+          ],
+          "evidence_ids": [
+            "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+          ],
+          "obligation_id": "gold-ob-3dfeb07c7d08db06152a3f7ec6051da3",
+          "obligation_text": "回答原子事实：训练过程迭代20次。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-e7119ab0c159979f2364d63186367686"
+          ],
+          "evidence_ids": [
+            "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+          ],
+          "obligation_id": "gold-ob-376aeb8e2cf78fc35abcc869f1fdb850",
+          "obligation_text": "回答原子事实：每次循环都会打乱样本顺序。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-57e64654e5909a0c1a2c6f5b89d3315f",
+      "query_sha256": "2ce0b03ed20d194435ab0807ed74417b3fb9547bbf979f40e0afde4ed0b25090",
+      "required_claim_ids": [
+        "gold-cl-dc316c5d5c7a548cc6a548bf3f9e1a4b",
+        "gold-cl-387b79f50df2a1cb258bab9c4e78902a",
+        "gold-cl-748acbca382658dea68d08abf4d68f6e",
+        "gold-cl-e7119ab0c159979f2364d63186367686"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-040b8fcde9346fd4be74e24c14400020",
+            "gold-cl-536c5236d5b169b8a7e482e16a2859e3",
+            "gold-cl-9fc3139cddf432995f1dbeb50e300ef0",
+            "gold-cl-3a923865904d33722b7d9b0eb945b136",
+            "gold-cl-4f22c5e63ef4480dbe793cdff849cb54"
+          ],
+          "evidence_ids": [
+            "gold-ev-b5848cc84a30502e827293c903043ec2"
+          ],
+          "obligation_id": "gold-ob-a6c1721223cdc048781fe4422d0c26d7",
+          "obligation_text": "完整回答问题：教材关于“军事目标距离与图像像素尺寸”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-7efcb21383c840fa94d106b878b972b1",
+      "query_sha256": "dd513a6d087fec557432dfe8a55263d6c3105ca6f8ba7c39e28ffa2268fbcf44",
+      "required_claim_ids": [
+        "gold-cl-040b8fcde9346fd4be74e24c14400020",
+        "gold-cl-536c5236d5b169b8a7e482e16a2859e3",
+        "gold-cl-9fc3139cddf432995f1dbeb50e300ef0",
+        "gold-cl-3a923865904d33722b7d9b0eb945b136",
+        "gold-cl-4f22c5e63ef4480dbe793cdff849cb54"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-9982604dcc82cd88dd5c4cd46736628b",
+            "gold-cl-66b80247af39e48368bd344186d0b14a",
+            "gold-cl-47c40fd46a1583a579cbf48bc2123a6e",
+            "gold-cl-e43970c8e1b141e67bf393da3b76449b",
+            "gold-cl-f5e441f0bff33386f915bdd08a90600f",
+            "gold-cl-5d273ad2464a4e873d3ae672567e083d",
+            "gold-cl-48581b7a0c58a4c168cf5a56a0e8336b",
+            "gold-cl-cab7bb234f2108917042acafe011bd92"
+          ],
+          "evidence_ids": [
+            "gold-ev-a63ff5485aa0ef4684620c1ae70da74f"
+          ],
+          "obligation_id": "gold-ob-8cef3e91abd9d9e6ce5ba4ceaf3b6371",
+          "obligation_text": "完整回答问题：教材关于“智慧服务机器人政策环境”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-6d6fd218b558b8ffa95108ad476ce333",
+      "query_sha256": "ffdc4cc74a086da60aa310df714c529a7f5a97bc8dea5a0332ecb496347b90d8",
+      "required_claim_ids": [
+        "gold-cl-9982604dcc82cd88dd5c4cd46736628b",
+        "gold-cl-66b80247af39e48368bd344186d0b14a",
+        "gold-cl-47c40fd46a1583a579cbf48bc2123a6e",
+        "gold-cl-e43970c8e1b141e67bf393da3b76449b",
+        "gold-cl-f5e441f0bff33386f915bdd08a90600f",
+        "gold-cl-5d273ad2464a4e873d3ae672567e083d",
+        "gold-cl-48581b7a0c58a4c168cf5a56a0e8336b",
+        "gold-cl-cab7bb234f2108917042acafe011bd92"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-ff946192d8ad154e7303d89bcd99efc6"
+          ],
+          "evidence_ids": [
+            "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2"
+          ],
+          "obligation_id": "gold-ob-8aaeca92f5c64c49b0d8b3a26d21514a",
+          "obligation_text": "回答原子事实：这些文本训练数据集通常公开可用。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-dc621f2eb5c714c3da16da6cd24310e0"
+          ],
+          "evidence_ids": [
+            "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2"
+          ],
+          "obligation_id": "gold-ob-2cafb322c984dbb14b5ffe7ee06b38dc",
+          "obligation_text": "回答原子事实：这些数据集包含大量文本数据。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-9f7be0e8f2bac26896a426cb21777ccb"
+          ],
+          "evidence_ids": [
+            "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2"
+          ],
+          "obligation_id": "gold-ob-a8988fac9afdf0545507ee5ac783123c",
+          "obligation_text": "回答原子事实：这些数据集覆盖广泛的主题和领域。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-574fc80decab989823e88f69bc850f15",
+      "query_sha256": "eb6f10aab7ca6faef307654c27ab8c3da921e5e6d4eff2ccba01a24ddab4588c",
+      "required_claim_ids": [
+        "gold-cl-ff946192d8ad154e7303d89bcd99efc6",
+        "gold-cl-dc621f2eb5c714c3da16da6cd24310e0",
+        "gold-cl-9f7be0e8f2bac26896a426cb21777ccb"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-ce01b533ad64e9037ad1700a4c8b4898"
+          ],
+          "evidence_ids": [
+            "gold-ev-2a2e17d197342c4a0d463f3d331b123b"
+          ],
+          "obligation_id": "gold-ob-449cee794aa6caed392acbd44818586d",
+          "obligation_text": "回答原子事实：跨境支付中的汇率波动会直接影响交易成本。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-89312f7455c1baeaa8887ae6a9aa8c92"
+          ],
+          "evidence_ids": [
+            "gold-ev-2a2e17d197342c4a0d463f3d331b123b"
+          ],
+          "obligation_id": "gold-ob-714d19173b50ccf144a762aba660fd88",
+          "obligation_text": "回答原子事实：跨境支付中的汇率波动会直接影响结算金额。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-01fd462adc1638a1a81fcabdf58e0ac9",
+      "query_sha256": "74c730735d7a6190c75b96cfb5c781dd738883ac8d0c5d12197c9fdfad0923fb",
+      "required_claim_ids": [
+        "gold-cl-ce01b533ad64e9037ad1700a4c8b4898",
+        "gold-cl-89312f7455c1baeaa8887ae6a9aa8c92"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-16d61168fdbae5570897d61dc6c1ed74"
+          ],
+          "evidence_ids": [
+            "gold-ev-7898c01ada50d223ac64a6779dc775d3"
+          ],
+          "obligation_id": "gold-ob-9715e45f0e6a3742256666aef216521b",
+          "obligation_text": "完整回答问题：教材关于“人工与智能的概念分解”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-0ce2025962b5691d0cb3f1522ed1aaa8",
+      "query_sha256": "9b26314e7938ee893ad799c1756d7075b202983e92e152995d04c2b32af4c045",
+      "required_claim_ids": [
+        "gold-cl-16d61168fdbae5570897d61dc6c1ed74"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-07150140a461b04cf76ffcb65c38719b"
+          ],
+          "evidence_ids": [
+            "gold-ev-9182152f7e279d2cba2d2883a7a7f244"
+          ],
+          "obligation_id": "gold-ob-55c44712c9305c199fe40e4fdd520d21",
+          "obligation_text": "回答原子事实：感知机算法最初由 Frank Rosenblatt 提出。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-ff4e26b0c69f506471589850587bc9aa"
+          ],
+          "evidence_ids": [
+            "gold-ev-9182152f7e279d2cba2d2883a7a7f244"
+          ],
+          "obligation_id": "gold-ob-fe0d1e1e4b2f5b27d5f35e9880f09069",
+          "obligation_text": "回答原子事实：感知机算法于1957年提出。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-ea035f4830bf53d38766e5f09baf71d8"
+          ],
+          "evidence_ids": [
+            "gold-ev-9182152f7e279d2cba2d2883a7a7f244"
+          ],
+          "obligation_id": "gold-ob-fbc331886d9429bff90d1d0f581ba3e4",
+          "obligation_text": "回答原子事实：感知机算法在康奈尔航空实验提出。",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-f287be490a3c23fdd7bc3d027b70051a",
+      "query_sha256": "ba7830a141fe7a3d6b14fe86e0c401a8ea2da9c9767970c1b52d6c6c733b9a83",
+      "required_claim_ids": [
+        "gold-cl-07150140a461b04cf76ffcb65c38719b",
+        "gold-cl-ff4e26b0c69f506471589850587bc9aa",
+        "gold-cl-ea035f4830bf53d38766e5f09baf71d8"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-68ed6ef2f61a8b1b9ddce640463d3beb"
+          ],
+          "evidence_ids": [
+            "gold-ev-4f40dc8586ca6829794799ceae4826cd"
+          ],
+          "obligation_id": "gold-ob-c30cd268f75137f3a84b8717e457ea68",
+          "obligation_text": "完整回答问题：教材如何解释机器智能难以准确界定这一事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-3fb25a77b0babbb4229043bd1d18c2e3",
+      "query_sha256": "4b4cad0c620289809d5f1d1d6efbd1d2c2e5e37394483be2fc7c6a5d1f847796",
+      "required_claim_ids": [
+        "gold-cl-68ed6ef2f61a8b1b9ddce640463d3beb"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-64076e59049b1080a54e51dc4a78eae5",
+            "gold-cl-f3dfaf450926b2cbc012c61ae084685f",
+            "gold-cl-58a7be79a6b2f36eca800391a1a1241f",
+            "gold-cl-7a7e3c8691cab5b80ac09b03c5c26e7b",
+            "gold-cl-be8be03e1b84623241fff2d8bde1a865",
+            "gold-cl-40a0462003347e1ec9f427d6645125f1",
+            "gold-cl-ff89f7de385093f3282b652409dc3061",
+            "gold-cl-467ef2f4af4adc60c9fa703537d7a9c2"
+          ],
+          "evidence_ids": [
+            "gold-ev-035088153234134744f10d335a333cc0"
+          ],
+          "obligation_id": "gold-ob-98a4599fc0137f18abed9560d38917be",
+          "obligation_text": "完整回答问题：教材关于“大模型参数规模演进”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-30f2763771f9878e537540245c2e3da2",
+      "query_sha256": "187108cc798684692ca10f407d4aba977240530fdd19c434ba3b8271ecf08988",
+      "required_claim_ids": [
+        "gold-cl-64076e59049b1080a54e51dc4a78eae5",
+        "gold-cl-f3dfaf450926b2cbc012c61ae084685f",
+        "gold-cl-58a7be79a6b2f36eca800391a1a1241f",
+        "gold-cl-7a7e3c8691cab5b80ac09b03c5c26e7b",
+        "gold-cl-be8be03e1b84623241fff2d8bde1a865",
+        "gold-cl-40a0462003347e1ec9f427d6645125f1",
+        "gold-cl-ff89f7de385093f3282b652409dc3061",
+        "gold-cl-467ef2f4af4adc60c9fa703537d7a9c2"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-37b86e0a98509951bc121a3a436779b2",
+            "gold-cl-14c5996ca94fadc39a66cf1f274dcf23",
+            "gold-cl-dd5705deb0e064136bd6932d7511b224",
+            "gold-cl-7483ff9642df8aaedd954036e487c201"
+          ],
+          "evidence_ids": [
+            "gold-ev-f622172906b893ec87c367db5ea298b3"
+          ],
+          "obligation_id": "gold-ob-c883f8f65b3fbc06383a2166b956b431",
+          "obligation_text": "完整回答问题：教材关于“ERNIE微调实验环境”给出了哪些具体数据或事实？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-3513e4ae011f3940d8b22e9133f521e6",
+      "query_sha256": "05188797afcaa26a4a614bf0c281979317addced64342746a934cb5dc2f1b67e",
+      "required_claim_ids": [
+        "gold-cl-37b86e0a98509951bc121a3a436779b2",
+        "gold-cl-14c5996ca94fadc39a66cf1f274dcf23",
+        "gold-cl-dd5705deb0e064136bd6932d7511b224",
+        "gold-cl-7483ff9642df8aaedd954036e487c201"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-5458c55f3d764811b1fe23268c9c7f26"
+          ],
+          "evidence_ids": [
+            "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+          ],
+          "obligation_id": "gold-ob-3567a436cc622aebe934bf6055b25f49",
+          "obligation_text": "完整回答问题：支付系统如何利用 AI 识别异常交易？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-85f36bd95f87dee48bfbd557cf2fd8ec",
+      "query_sha256": "0dc616fcdfb2d2dedfd49a440f22205f2c3dafe41c0d5add22bfab650d6ef773",
+      "required_claim_ids": [
+        "gold-cl-5458c55f3d764811b1fe23268c9c7f26"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-3c53a48acedd73057f8501725458210f",
+            "gold-cl-8e7099863f0f1d190d1df34c162a1f7a"
+          ],
+          "evidence_ids": [
+            "gold-ev-d6c42ef93972e95a95b7450032d8cadb"
+          ],
+          "obligation_id": "gold-ob-6a9655d23a6600ee56e13d1aa96ccd9a",
+          "obligation_text": "完整回答问题：除了文字对话，扩展版图灵测试还要求机器具备哪些能力？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-a757beb0a8f3417f1edac33f2ba74641",
+      "query_sha256": "2be0ea9c3a3abffea8ee6c23cb8659fa0c497b8ed4826587bd7062a245f84aa2",
+      "required_claim_ids": [
+        "gold-cl-3c53a48acedd73057f8501725458210f",
+        "gold-cl-8e7099863f0f1d190d1df34c162a1f7a"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-acb74035ad8a004ae94e9eb29a3fad9c"
+          ],
+          "evidence_ids": [
+            "gold-ev-203251897a3d2eef2cfa747cbbe59fc2"
+          ],
+          "obligation_id": "gold-ob-dd2d405f4be499351e0c50eb26c3ca14",
+          "obligation_text": "完整回答问题：教材提到的那家早期并行计算企业是什么？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-a780b549d3dff2c9147866f531884fff",
+      "query_sha256": "79a8e3193d670efbe4d4d9d6b2ac7ec32378acca2bed75cf52a2573beb5315b3",
+      "required_claim_ids": [
+        "gold-cl-acb74035ad8a004ae94e9eb29a3fad9c"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-0b7cbb7434e502bf54dd0ed1ad7d61eb"
+          ],
+          "evidence_ids": [
+            "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb"
+          ],
+          "obligation_id": "gold-ob-45549bc567f70ff24032ef2eb6a88e01",
+          "obligation_text": "完整回答问题：课程实践要求掌握使用 ERNIE 完成哪一项 fine-tune 任务的全过程？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-f6ec6bb28fa466f2958eb45ee887480e",
+      "query_sha256": "c1cde0064b669088c4b8a4643edc2ec947efdbb10bfe73e588a2032c661f42cb",
+      "required_claim_ids": [
+        "gold-cl-0b7cbb7434e502bf54dd0ed1ad7d61eb"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-0bdf238b5dfddd822694cb9f83148a42"
+          ],
+          "evidence_ids": [
+            "gold-ev-69d5817d5c65fb586045ff620d8226d5"
+          ],
+          "obligation_id": "gold-ob-5711d2fc3e14c14593c0de055fa91948",
+          "obligation_text": "完整回答问题：课堂系统怎样依据学生状态形成教学反馈？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-8c06ebb9dbe88f5bed7c7222f86a6ecf",
+      "query_sha256": "2c6444d8987bfa7e3ec48e9f9c229890ed1a14821f47d41c28da28aecfdc89fd",
+      "required_claim_ids": [
+        "gold-cl-0bdf238b5dfddd822694cb9f83148a42"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-d89c4f238245d97fefce21937c187a59",
+            "gold-cl-6e3893ded3618a15977476e197c55707",
+            "gold-cl-41cc94e9f2e5db2261a651a1116285ae",
+            "gold-cl-99f7f02f403d83621f00b81ec1c90740",
+            "gold-cl-fc034fa5ca0c90b22768030d824ed599",
+            "gold-cl-2ea7170dbd61e11531b13191524433d4"
+          ],
+          "evidence_ids": [
+            "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+          ],
+          "obligation_id": "gold-ob-f8ef61456e25f74d2888e99194cc4074",
+          "obligation_text": "完整回答问题：处理可穿戴传感数据时，教材列举了哪些算法类别？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-3ede89e996f60335d9a2ae10301b9cf5",
+      "query_sha256": "d607a8c33a53096089368c56db54574b18b672d33901326d52353bc9f8d954a5",
+      "required_claim_ids": [
+        "gold-cl-d89c4f238245d97fefce21937c187a59",
+        "gold-cl-6e3893ded3618a15977476e197c55707",
+        "gold-cl-41cc94e9f2e5db2261a651a1116285ae",
+        "gold-cl-99f7f02f403d83621f00b81ec1c90740",
+        "gold-cl-fc034fa5ca0c90b22768030d824ed599",
+        "gold-cl-2ea7170dbd61e11531b13191524433d4"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-28b25bfd34d4dcbcd1da3ca817c4b9ff"
+          ],
+          "evidence_ids": [
+            "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9"
+          ],
+          "obligation_id": "gold-ob-ecdbb08d68dee73ef11a4f935d1dbba2",
+          "obligation_text": "完整回答问题：深度学习在语音任务中承担哪些处理工作？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-25256332859b77b1cdd706b11210e56c",
+      "query_sha256": "a6399f48323dd2d9a418a705e2a270ef3cd2d228613155daa20fde6bcdc288f1",
+      "required_claim_ids": [
+        "gold-cl-28b25bfd34d4dcbcd1da3ca817c4b9ff"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-bf89063acc1fc5b30bfbea7d8e9be737"
+          ],
+          "evidence_ids": [
+            "gold-ev-750ad563b07807797cfeb7840ad3cbc1"
+          ],
+          "obligation_id": "gold-ob-0c8d846aed08464ac01cc26a689a5a4d",
+          "obligation_text": "完整回答问题：军事场景中，深度学习怎样用于目标识别？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-9386490fda8661bad07a0b6ae945917d",
+      "query_sha256": "48d566e8c6d0a799d96e1fb8ed677ae995504f532bdf27ce75894c3676477ec3",
+      "required_claim_ids": [
+        "gold-cl-bf89063acc1fc5b30bfbea7d8e9be737"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-7d98a28b19454e4abe60e1754fe980a6"
+          ],
+          "evidence_ids": [
+            "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+          ],
+          "obligation_id": "gold-ob-8f82a891054a42bdbc149bf7b51a0408",
+          "obligation_text": "完整回答问题：数据准备与预处理在大模型开发和训练中处于什么位置？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-ca48d7cefc3efe948ae2042a907af5ec",
+      "query_sha256": "81be6c8ba95b308eab80efa56304ad893b4095bc4a8d4d21eb9291d0aad53153",
+      "required_claim_ids": [
+        "gold-cl-7d98a28b19454e4abe60e1754fe980a6"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-1b128b1b4d773de908b22cfe130e94ab"
+          ],
+          "evidence_ids": [
+            "gold-ev-a99ba8f34aed9c20ccc731673de222ba"
+          ],
+          "obligation_id": "gold-ob-aaa571e601a4e81f61fdaf183c488c1f",
+          "obligation_text": "完整回答问题：能够跨领域完成接近或超过人类水平任务的系统，在教材中是什么概念？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-8d0e19580c13ed58a3fbd49f4e87d68c",
+      "query_sha256": "6c82e9e2192d2ba7fec0e1c9d83e8d1692f6c034b67167532e1620d0054e4227",
+      "required_claim_ids": [
+        "gold-cl-1b128b1b4d773de908b22cfe130e94ab"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-78afd2558653777f3f7c86d7fa589eb8"
+          ],
+          "evidence_ids": [
+            "gold-ev-baaff1e84d4d4e0415499eef709178cd"
+          ],
+          "obligation_id": "gold-ob-0cb90cf8717dee4d12b446cb20021947",
+          "obligation_text": "完整回答问题：解码端查询编码端表示时，Q、K、V 如何形成？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-54cf62defbe1fe9c59aaaf7eabbef0dc",
+      "query_sha256": "e5051604b76fc378212232620a7a470c3458c163e0fffcb71903d3b9adce8c68",
+      "required_claim_ids": [
+        "gold-cl-78afd2558653777f3f7c86d7fa589eb8"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-d1ffadee2864e09981a64d2ddd29b8ac",
+            "gold-cl-fdef4b65586a665666d2fb078fb84d2a",
+            "gold-cl-65d2e0d5ee88fe17243cadf77f4fb25c"
+          ],
+          "evidence_ids": [
+            "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+          ],
+          "obligation_id": "gold-ob-7e117c81c0d8d30ec6bcb75f64b81fa9",
+          "obligation_text": "完整回答问题：进行定位与建图时，教材如何比较不同传感器的特性？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-e67489d890fc0dd4d9dd36aab7438c8c",
+      "query_sha256": "9e16960543ac2df8a0248e33541dc5afd0793dddea26d67e3756f3334a912775",
+      "required_claim_ids": [
+        "gold-cl-d1ffadee2864e09981a64d2ddd29b8ac",
+        "gold-cl-fdef4b65586a665666d2fb078fb84d2a",
+        "gold-cl-65d2e0d5ee88fe17243cadf77f4fb25c"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-2a43f69ce1558a64c429738f1920a33b"
+          ],
+          "evidence_ids": [
+            "gold-ev-9abde4ba81915c311db9ade93789806e"
+          ],
+          "obligation_id": "gold-ob-7ce7332dc965b679e62c2cb761141d4c",
+          "obligation_text": "完整回答问题：在注意力机制里，查询向量以及键和值分别由哪里产生？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-bddb742ed9b70540fe24e93e101cc4db",
+      "query_sha256": "014d6b1f155b5daf7aabe089831006c7f67f54f01e259360dfb765045acaa938",
+      "required_claim_ids": [
+        "gold-cl-2a43f69ce1558a64c429738f1920a33b"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-e0d792cbc6514d137cff622679173bf0"
+          ],
+          "evidence_ids": [
+            "gold-ev-b9857bdc1a027788ca9043a1001e9477"
+          ],
+          "obligation_id": "gold-ob-e17bdc3cca44df4ca67c7277e4b769a3",
+          "obligation_text": "完整回答问题：早期计算机除数学计算外还被用于哪类语言任务？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-2d8b390d6ce3bf8f52469750daf83c8e",
+      "query_sha256": "d0a8ebc6d70b2b3e2f273abf64afed6bdaea5be6e357ce0008c36aa05342f270",
+      "required_claim_ids": [
+        "gold-cl-e0d792cbc6514d137cff622679173bf0"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-490aabdd65ca709d4adb65c67f50c62d"
+          ],
+          "evidence_ids": [
+            "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265"
+          ],
+          "obligation_id": "gold-ob-4f486ebdf07f9d06bc67a7155bd9c615",
+          "obligation_text": "完整回答问题：图灵如何看待模拟人的物理存在对于展示智能的必要性？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-08e3e45fa957fb061d69c7f8dacb7412",
+      "query_sha256": "6906e578ba5f7600403c0148d813118c1e52dbd514cd68b425542cfdd842de9d",
+      "required_claim_ids": [
+        "gold-cl-490aabdd65ca709d4adb65c67f50c62d"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-4d3b00104867047ff585e2ad8b295eee"
+          ],
+          "evidence_ids": [
+            "gold-ev-ce0b58d4e9bed39607616060acc59261"
+          ],
+          "obligation_id": "gold-ob-6e7ea9e33b674d0114841f959641c09f",
+          "obligation_text": "说明瓦片内如何形成深度排序列表",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-2c49af2522cb841c90266a85d0c19499"
+          ],
+          "evidence_ids": [
+            "gold-ev-ce0b58d4e9bed39607616060acc59261"
+          ],
+          "obligation_id": "gold-ob-af1f3f706859d19c4812c6fe04d1a09c",
+          "obligation_text": "说明排序如何约束最终渲染合成顺序",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-6008640bfe85562d6598e3805655f820",
+      "query_sha256": "5801081b27c180e6dbb9d95e62266de947e4cfbfbbeb7923a457085768affa0e",
+      "required_claim_ids": [
+        "gold-cl-4d3b00104867047ff585e2ad8b295eee",
+        "gold-cl-2c49af2522cb841c90266a85d0c19499"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-5f40c055818ac0464a8770dd3d8195ef"
+          ],
+          "evidence_ids": [
+            "gold-ev-615b210d350379cf26677f84c3064531"
+          ],
+          "obligation_id": "gold-ob-722269b5f525db3f143c1594113c1fc6",
+          "obligation_text": "给出算法输入",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-3edd992f92b0449b781bb1431e197d7e"
+          ],
+          "evidence_ids": [
+            "gold-ev-615b210d350379cf26677f84c3064531"
+          ],
+          "obligation_id": "gold-ob-31c424c40d0dd14763ecc293d1a6ae63",
+          "obligation_text": "给出初始化",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-b619e9645af0da22d7def1db78d254b3",
+            "gold-cl-531ebc9aea7fb8598bade0900e8b8bcc",
+            "gold-cl-706a31e2f3d420534426f1a0f538f427",
+            "gold-cl-9ddee0c90b75eb71a10fb6c8ab483d8c",
+            "gold-cl-3bb8383f1a13686f04a69c7b5473db67"
+          ],
+          "evidence_ids": [
+            "gold-ev-615b210d350379cf26677f84c3064531"
+          ],
+          "obligation_id": "gold-ob-2dc81be439c955331e81501d4a6581d4",
+          "obligation_text": "给出抽样、误分类判断、参数更新和不更新分支",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-be88944b2614e967741c02a1184baa7c",
+            "gold-cl-26d4f9d2b217efaa63073a58c632515e"
+          ],
+          "evidence_ids": [
+            "gold-ev-615b210d350379cf26677f84c3064531"
+          ],
+          "obligation_id": "gold-ob-437d83c9e6dad83540bd1274bb2df08d",
+          "obligation_text": "给出算法输出或返回值",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-f9aea3f33c261e97222b15cf5b46fddf",
+      "query_sha256": "424ad32f8d40ca7f8d5ca38826a4596fbf774dcca559802de45ec3e51cf07433",
+      "required_claim_ids": [
+        "gold-cl-5f40c055818ac0464a8770dd3d8195ef",
+        "gold-cl-be88944b2614e967741c02a1184baa7c",
+        "gold-cl-3edd992f92b0449b781bb1431e197d7e",
+        "gold-cl-b619e9645af0da22d7def1db78d254b3",
+        "gold-cl-531ebc9aea7fb8598bade0900e8b8bcc",
+        "gold-cl-706a31e2f3d420534426f1a0f538f427",
+        "gold-cl-9ddee0c90b75eb71a10fb6c8ab483d8c",
+        "gold-cl-3bb8383f1a13686f04a69c7b5473db67",
+        "gold-cl-26d4f9d2b217efaa63073a58c632515e"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-c089b8850649756e9eb6ab9d2ef6b4a2",
+            "gold-cl-ac4cf3861ec9ec9c3883db933b43b0b5",
+            "gold-cl-79b705232bda84d0e3f9703c03fbc098",
+            "gold-cl-0453f00b0122cb4420f4b7013d5da025"
+          ],
+          "evidence_ids": [
+            "gold-ev-d103c316281ffd09d95fdc5c49d6ca90"
+          ],
+          "obligation_id": "gold-ob-41f1c0651a18e50fb190bb86b82ce0a8",
+          "obligation_text": "列出快速推理方法",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-5a32f4355e3c69aaf2de46aeafdc1f2a",
+            "gold-cl-1f342271c2aa70d29ff0a722bafd1ad4",
+            "gold-cl-6b5ee09ff9cb7e889648c42d898f5507",
+            "gold-cl-a31306f5ae57a481ed753c54cf5b8c35"
+          ],
+          "evidence_ids": [
+            "gold-ev-d103c316281ffd09d95fdc5c49d6ca90"
+          ],
+          "obligation_id": "gold-ob-961098e3b1c22c7f25545f3ec20e4248",
+          "obligation_text": "列出快速训练方法",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-99efd9a4c6616176d67df56647b0348c",
+            "gold-cl-abfe65590468a18f4005a474c523bd10",
+            "gold-cl-f46afc37b2626b63e2c7a4b2c23281fe",
+            "gold-cl-ec109566ca5eb680f1ac5a9e8131f63e"
+          ],
+          "evidence_ids": [
+            "gold-ev-d103c316281ffd09d95fdc5c49d6ca90"
+          ],
+          "obligation_id": "gold-ob-3161e3066bcf57d69b201e81df1ad1a8",
+          "obligation_text": "列出模型编辑方法",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-0933de554aa21c9cad0400d13757224a",
+            "gold-cl-83f4ed6d8eb4d4a2d2e3c64874660567",
+            "gold-cl-0920d4a9f0448fb9c638f05f2d3f48e7",
+            "gold-cl-dfcd9350c616aed8cf7cd2ea1edc7398"
+          ],
+          "evidence_ids": [
+            "gold-ev-d103c316281ffd09d95fdc5c49d6ca90"
+          ],
+          "obligation_id": "gold-ob-7da24da383f4ab608950c43594b7991e",
+          "obligation_text": "列出动态场景重建方法",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-2a2684775884b34032cd3adf427ec866",
+      "query_sha256": "6f813fff2d430027c06f58047ad94a7ac3ce89cfa207c692d49775db80936355",
+      "required_claim_ids": [
+        "gold-cl-c089b8850649756e9eb6ab9d2ef6b4a2",
+        "gold-cl-ac4cf3861ec9ec9c3883db933b43b0b5",
+        "gold-cl-79b705232bda84d0e3f9703c03fbc098",
+        "gold-cl-0453f00b0122cb4420f4b7013d5da025",
+        "gold-cl-5a32f4355e3c69aaf2de46aeafdc1f2a",
+        "gold-cl-1f342271c2aa70d29ff0a722bafd1ad4",
+        "gold-cl-6b5ee09ff9cb7e889648c42d898f5507",
+        "gold-cl-a31306f5ae57a481ed753c54cf5b8c35",
+        "gold-cl-99efd9a4c6616176d67df56647b0348c",
+        "gold-cl-abfe65590468a18f4005a474c523bd10",
+        "gold-cl-f46afc37b2626b63e2c7a4b2c23281fe",
+        "gold-cl-ec109566ca5eb680f1ac5a9e8131f63e",
+        "gold-cl-0933de554aa21c9cad0400d13757224a",
+        "gold-cl-83f4ed6d8eb4d4a2d2e3c64874660567",
+        "gold-cl-0920d4a9f0448fb9c638f05f2d3f48e7",
+        "gold-cl-dfcd9350c616aed8cf7cd2ea1edc7398"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-27f2484d7e6081376ebc8c22da3b151d"
+          ],
+          "evidence_ids": [
+            "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+          ],
+          "obligation_id": "gold-ob-6d9a80fd58a92af80643031970b1e0cb",
+          "obligation_text": "说明 AGI 的类人能力边界",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-4f7faba071da180d18331c244f1c7251"
+          ],
+          "evidence_ids": [
+            "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+          ],
+          "obligation_id": "gold-ob-6b6e7875892a4c8d65315b5c06975019",
+          "obligation_text": "说明 AGI 的任务能力边界",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-6aa0fff779d46eaac7b9ab11f6afe9ef"
+          ],
+          "evidence_ids": [
+            "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+          ],
+          "obligation_id": "gold-ob-c819a42d3e9d78ddf09c8e32656af6da",
+          "obligation_text": "说明 AGI 是否要求自我意识",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-252adaf1a1cbe9d9371796e0f770889b",
+      "query_sha256": "b1316b43a59906666b8f67a296a4a7d42d0286c65c55e21f317e9e36cfc198af",
+      "required_claim_ids": [
+        "gold-cl-27f2484d7e6081376ebc8c22da3b151d",
+        "gold-cl-4f7faba071da180d18331c244f1c7251",
+        "gold-cl-6aa0fff779d46eaac7b9ab11f6afe9ef"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-325d67371ac327543438eb8705121007"
+          ],
+          "evidence_ids": [
+            "gold-ev-06bba04373bb42548483d596702e7e36"
+          ],
+          "obligation_id": "gold-ob-98e39fd6d021f849197116a85193eb69",
+          "obligation_text": "完整回答问题：教材怎样说明感知机训练从迭代到收敛的条件与过程？",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-b261cc6b50d239ec45c44c0ecdf27e41",
+      "query_sha256": "f3c388c68c468bb22beafc7c7088dfb1ac5155279310ce4e97cd6fb4d1e5ccf3",
+      "required_claim_ids": [
+        "gold-cl-325d67371ac327543438eb8705121007"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-621a961f6f50f46b753905110aecfce0"
+          ],
+          "evidence_ids": [
+            "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+          ],
+          "obligation_id": "gold-ob-2b4d948e8655de6ec7fad159e805372c",
+          "obligation_text": "列出监督式算法范围",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-480273e8556a1c97bc555673ae56fad6"
+          ],
+          "evidence_ids": [
+            "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+          ],
+          "obligation_id": "gold-ob-3c01c066b58355a6fb3f66e1eeb2e53b",
+          "obligation_text": "列出半监督式算法范围",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-a4c25d8326e4b9782d4c5ba6a091ec9d"
+          ],
+          "evidence_ids": [
+            "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+          ],
+          "obligation_id": "gold-ob-f92d0f660b4300f1daff9cb4e26ba098",
+          "obligation_text": "列出强化学习",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-f279a7dcda861df9c33cabe0db9aa6d0"
+          ],
+          "evidence_ids": [
+            "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+          ],
+          "obligation_id": "gold-ob-fec47354842e8a9f675452bef06801d8",
+          "obligation_text": "列出无监督式算法范围",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-a9d45653719933fd1bc9790cf1f0db87",
+      "query_sha256": "7b14666043711335c9bc7691a44eea9926c467b0a6df70c148f7037d72dc047b",
+      "required_claim_ids": [
+        "gold-cl-621a961f6f50f46b753905110aecfce0",
+        "gold-cl-480273e8556a1c97bc555673ae56fad6",
+        "gold-cl-a4c25d8326e4b9782d4c5ba6a091ec9d",
+        "gold-cl-f279a7dcda861df9c33cabe0db9aa6d0"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-2f302af0344bcaf7a589f63411a35978"
+          ],
+          "evidence_ids": [
+            "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+          ],
+          "obligation_id": "gold-ob-4e20ea7551ddf0ed775af697c78c0cbe",
+          "obligation_text": "说明预测 JSON 的路径配置",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-1ce1e6e063fbae0cddc732e40c74f56f"
+          ],
+          "evidence_ids": [
+            "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+          ],
+          "obligation_id": "gold-ob-205e14d29c4283a30f3debd2ba29c021",
+          "obligation_text": "说明基础模型如何执行预测",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-8c053567660f1fb630b385f622de42f0",
+            "gold-cl-912bff9446c61fcc4865eecf8c42167e"
+          ],
+          "evidence_ids": [
+            "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+          ],
+          "obligation_id": "gold-ob-68e8ae10c1ed4ee900a3c0a79a3a6897",
+          "obligation_text": "说明微调模型如何配置并执行预测",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "joint_claim_set"
+        }
+      ],
+      "qa_case_id": "gold-qa-18b8640afc285e8d4ecebec3db23684f",
+      "query_sha256": "f4e404a3ce457746a955ea3ca539880563ab0a69a99620ef4544920e0fc3471c",
+      "required_claim_ids": [
+        "gold-cl-2f302af0344bcaf7a589f63411a35978",
+        "gold-cl-1ce1e6e063fbae0cddc732e40c74f56f",
+        "gold-cl-8c053567660f1fb630b385f622de42f0",
+        "gold-cl-912bff9446c61fcc4865eecf8c42167e"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-219cf7db946f9fd6890dd11626937e3f"
+          ],
+          "evidence_ids": [
+            "gold-ev-5c3010622081949981b20043ffc9cdd4"
+          ],
+          "obligation_id": "gold-ob-d36bab33539e418c1597008b4a078158",
+          "obligation_text": "说明训练使用的计算设备规模",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-fef159b8edd107bfaf4081034afab4bd"
+          ],
+          "evidence_ids": [
+            "gold-ev-5c3010622081949981b20043ffc9cdd4"
+          ],
+          "obligation_id": "gold-ob-818bfaf4e8133a4b09798fcdb3133718",
+          "obligation_text": "说明训练持续时间",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-c25911b92dbf898e7fa0ad9a9b7ac663"
+          ],
+          "evidence_ids": [
+            "gold-ev-5c3010622081949981b20043ffc9cdd4"
+          ],
+          "obligation_id": "gold-ob-c9ecb63a2ee2dce25b20cb96dc7e56b0",
+          "obligation_text": "说明训练成本",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-09063e7caac8aa5ae1a49e6d7081b9ca",
+      "query_sha256": "f126e04ddd59db6d1f26cb08ecbfa82f6199212d38b2745622caea218620e2d4",
+      "required_claim_ids": [
+        "gold-cl-219cf7db946f9fd6890dd11626937e3f",
+        "gold-cl-fef159b8edd107bfaf4081034afab4bd",
+        "gold-cl-c25911b92dbf898e7fa0ad9a9b7ac663"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-1cdbe8edd6b3274690326d8833d5ee39"
+          ],
+          "evidence_ids": [
+            "gold-ev-365b0dc23cff9bb089df5923e2212264"
+          ],
+          "obligation_id": "gold-ob-d98725d86df5005a0813fa87b2f36a24",
+          "obligation_text": "说明训练数据提供的多样化情景与例子",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-3bc9bcf7c26e869f412843a66267a681"
+          ],
+          "evidence_ids": [
+            "gold-ev-365b0dc23cff9bb089df5923e2212264"
+          ],
+          "obligation_id": "gold-ob-1509ae5cf8a3b98d9a0fac091b6d22ba",
+          "obligation_text": "说明广泛学习经验与涌现能力的关系",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-74304d145c41aaf7ea44b17108ef39ef",
+      "query_sha256": "a3754b6e9f4d9d260ede0c8ba6b92790edbaafc0af1ab07933df29aeb032fad3",
+      "required_claim_ids": [
+        "gold-cl-1cdbe8edd6b3274690326d8833d5ee39",
+        "gold-cl-3bc9bcf7c26e869f412843a66267a681"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": true,
+      "audit_status": "complete",
+      "obligations": [
+        {
+          "claim_ids": [
+            "gold-cl-adb4f350a22e9d7270df9f8aa8011535"
+          ],
+          "evidence_ids": [
+            "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+          ],
+          "obligation_id": "gold-ob-3cb0865395e2053b930acec5a33ef134",
+          "obligation_text": "说明视频采集",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-e53373036011594ac82f5af3a349c4ad"
+          ],
+          "evidence_ids": [
+            "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+          ],
+          "obligation_id": "gold-ob-a339b3ad063a9f6cbe38c1f04412b548",
+          "obligation_text": "说明模型检测与识别",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-e36e725a5aef18643f41d4965fce5f79"
+          ],
+          "evidence_ids": [
+            "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+          ],
+          "obligation_id": "gold-ob-01f3f8d31167a64fbe0be4d10fcb419b",
+          "obligation_text": "说明专注度分析",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-27ae1133ce82874e07c7950c2f6b96ef"
+          ],
+          "evidence_ids": [
+            "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+          ],
+          "obligation_id": "gold-ob-47431ca28def203c242563e015f83ec9",
+          "obligation_text": "说明实时结果反馈",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        },
+        {
+          "claim_ids": [
+            "gold-cl-da6a8425caf922252e388b77551ea6e1"
+          ],
+          "evidence_ids": [
+            "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+          ],
+          "obligation_id": "gold-ob-c84308baf45e77739a18e4a63e041062",
+          "obligation_text": "说明课后报告生成",
+          "rationale": "该回答义务由所列 Required Claim 及其直接 Evidence/必要邻接完整覆盖。",
+          "support_mode": "single_claim"
+        }
+      ],
+      "qa_case_id": "gold-qa-10caf16efab833ad40e600359b5239c2",
+      "query_sha256": "81f3ded95c6e77a9bcdb29bd3e6832cb0b9af181be544503a338679266f0e7bb",
+      "required_claim_ids": [
+        "gold-cl-adb4f350a22e9d7270df9f8aa8011535",
+        "gold-cl-e53373036011594ac82f5af3a349c4ad",
+        "gold-cl-e36e725a5aef18643f41d4965fce5f79",
+        "gold-cl-27ae1133ce82874e07c7950c2f6b96ef",
+        "gold-cl-da6a8425caf922252e388b77551ea6e1"
+      ],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-0648404d129e3f821130335e1c50e844",
+      "query_sha256": "e6820eb3bff3836c59bf35f5fe0b177cfede43a51441a3cadc5a8b60c9448aea",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-1ee8a80dd507b611e5f3f5b777574004",
+      "query_sha256": "8671d27d7e8e287c4518a94fe4f84ce8989b331e233952e1783e818d84d7aeda",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-1ccdcf8cabf43a9200d414f646c65eb3",
+      "query_sha256": "8c8337f867a3aa8726009e309a2290cefbd46408870d858e3241d33d75733ad9",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-b12e97209c8dda78c1a6860e0a3496d0",
+      "query_sha256": "3b787e8119f578e03a1632b348d2672265bdcb7d738fadcf9973957b54577c75",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-2019ea7a364967965438d17427a04e4e",
+      "query_sha256": "4017ee23e603c6804ed13f8761745068661ae9ab74cf2974874bef2d681b57a3",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-2eb8ebc56f13e68555bc8e9f98563df2",
+      "query_sha256": "d65a35b9faa5077d8dc0db0b2d8d17f616e5506b4db131020da903d53c199fdb",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-34d323129cb0f9d11aaa51de780a44f4",
+      "query_sha256": "b56b1fe8f60f01b9a15ad85687486930e87b8d97c62ba41cccc47e926ce31087",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-b3fd5374f947ba9b44725130bf823a69",
+      "query_sha256": "f315cdf350754ab14e9c357d2f5e7f06a2a9ffa44eeb5c4903fe95d7aa23358e",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-c72c1748a719659a19d6149819689762",
+      "query_sha256": "cb971c6b5859e2173faadd6edf89945b52252157d47104ab1dea7c765c34ae48",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    },
+    {
+      "answerable": false,
+      "audit_status": "not_applicable_unanswerable",
+      "obligations": [],
+      "qa_case_id": "gold-qa-ae09dd4f25e139a88c4ed0e1749d6fc1",
+      "query_sha256": "935c7f80e4fb0a58d4e334f66d672023ca98636c3b159b1293321dbbd81649d0",
+      "required_claim_ids": [],
+      "uncovered_obligation_ids": []
+    }
+  ],
+  "dataset_id": "courserag-p09-answer-obligation-coverage",
+  "dataset_version": "r2",
+  "schema_version": "courserag.p09-coverage-audit.v1"
+}

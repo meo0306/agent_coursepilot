@@ -1,0 +1,25 @@
+{
+  "baseline_commit": "eb9b3a6aa51348cf1fba0de7a21e5d073761939b",
+  "classification": "synthetic_non_gold",
+  "command": "$env:PYTHONPATH='src'; uv run python -m coursepilot.evals.run_sample_eval --sample-dir data/coursepilot_sample --output docs/refactor/baselines/b0/04_deterministic_eval_report.json",
+  "gold_used": false,
+  "input_files": [
+    {
+      "path": "data/coursepilot_sample/教材-人工智能：从算法到系统.docx",
+      "sha256": "c93df4cb4bb533e381647e7591104ff06ecc6a486582d77b3e6d63511428066b",
+      "size_bytes": 27288237
+    },
+    {
+      "path": "data/coursepilot_sample/人工智能：从算法到系统-知识图谱.xlsx",
+      "sha256": "33ed476bfc46367300db728a8b60dabdcfce045019a9f7b89daec5059c617629",
+      "size_bytes": 13938
+    }
+  ],
+  "limitations": [
+    "Cases and expected chunk identifiers are hard-coded synthetic examples.",
+    "All reported values are runner regression signals, not product quality claims."
+  ],
+  "report_path": "docs/refactor/baselines/b0/04_deterministic_eval_report.json",
+  "report_sha256": "2f015e2f5651ad651ffe8c2e8a105d8fa324d3beba1e11096ced476198144a35",
+  "schema_version": "coursepilot.p00.deterministic-eval-manifest.v1"
+}

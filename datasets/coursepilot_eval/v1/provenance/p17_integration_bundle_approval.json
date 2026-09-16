@@ -1,0 +1,17 @@
+{
+  "approval_scope": "cp_ds8_and_sys_ds1_p17_pilot_input_only",
+  "approved_dataset_hashes": {
+    "cp_ds8": "3aa5e92ebc95456e33f0095cc295069dae34c1d5966d8bcd069a4f320ae7ff7c",
+    "sys_ds1": "ed4fad993ad64b28badfb51ac9ed3fe6ddced015db93995ea1f588ecb3a1d911"
+  },
+  "bundle_sha256": "c44c94779b83731a3a3029498703ff3929173e36637272faac548ed2662bc7d1",
+  "candidate_hashes": {
+    "cp_ds8": "115a10d51591f90627c084b6d191cbacef24fb37d2974efa8a7f7ba731ea141b",
+    "sys_ds1": "6daaeb6ff64499bd32f12388e0400ba805ac52483ef1adf6701d13adfb74e99c"
+  },
+  "record_count": 38,
+  "review_decisions_sha256": "b7f5cdfc080f8a553ff20840af7768b25bcd6feac0468cc01f85e3bccc8791e7",
+  "reviewed_at": "2026-08-21T15:02:00.947552+08:00",
+  "reviewer_id": "course_owner",
+  "schema_version": "coursepilot.p17-integration-bundle-approval.v1"
+}

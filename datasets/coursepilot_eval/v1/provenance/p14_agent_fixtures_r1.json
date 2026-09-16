@@ -1,0 +1,302 @@
+{
+  "context_fixtures": [
+    {
+      "citation_map": {
+        "gold-kp-124478c59a174f685eb27731b0777556": [
+          "gold-ev-7056e327e4d297eadf4eeb60f00fcf21"
+        ],
+        "gold-kp-66ae2b25924aac9fd92347d0a5f67061": [
+          "gold-ev-9abde4ba81915c311db9ade93789806e"
+        ],
+        "gold-kp-a4ac5b5c2b47bccc1653b1c20260c9c5": [
+          "gold-ev-baaff1e84d4d4e0415499eef709178cd"
+        ],
+        "gold-kp-ef904a521f09a778f872f0879db3a10e": [
+          "gold-ev-520d6a9a5468ceca52daee6f7de7e998"
+        ]
+      },
+      "content_hash": "882ee8f85f60d57cbf9013289267d5c5a7a91b5e0f64d73011201567901bca68",
+      "context_package_id": "ctx-p14-lesson-01-transformer",
+      "course_id": "course_ai_algorithms_systems",
+      "evidence_ids": [
+        "gold-ev-7056e327e4d297eadf4eeb60f00fcf21",
+        "gold-ev-9abde4ba81915c311db9ade93789806e",
+        "gold-ev-520d6a9a5468ceca52daee6f7de7e998",
+        "gold-ev-baaff1e84d4d4e0415499eef709178cd"
+      ],
+      "evidence_records": [
+        {
+          "content_sha256": "1c69af1a38966eafe2f5f19ae1ce7fa01e9e248010348bcf3d06751278264078",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-7056e327e4d297eadf4eeb60f00fcf21",
+          "gold_text": "在自然语言处理传统的序列到序列（Sequence-to-Sequence，seq2seq）任务中，传统的seq2seq模型在处理长句子或者长距离依赖关系时，往往会面临信息丢失和模糊化的挑战，这是由于其固定长度的隐藏状态无法有效地捕捉到长序列中的重要信息。",
+          "necessary_neighbors": [],
+          "page_end": 145,
+          "page_start": 145,
+          "record_sha256": "0cc16c391aa3608a18a02f51e82de6fc8767f9fbe4ddc1a1f322f79335537cbd",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        },
+        {
+          "content_sha256": "7fec1790bc85d5788870b7719e15383fc6b6cad6207a88a488a6a9fd9525c294",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+          "gold_text": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+          "necessary_neighbors": [],
+          "page_end": 146,
+          "page_start": 146,
+          "record_sha256": "93adc09d169ad6c349644177445042c3ded7c1c86bc31d030a9df5e06e212008",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        },
+        {
+          "content_sha256": "db76e1b2b2e0fa0f858ca49f355b2ded36a978ed289d2353b3303871edda12af",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-520d6a9a5468ceca52daee6f7de7e998",
+          "gold_text": "其中，编码器包括输入嵌入层（Input Embedding）、位置编码（Positional Encoding）和多个相同的模块，每个模块由多头自注意力机制层（Multi-Head Attention）和全连接前馈神经网络层（Feed Forward）组成。",
+          "necessary_neighbors": [
+            "Transformer的整体结构如图3.18所示，主要包括编码器（Encoder）和解码器（Decoder）两部分。"
+          ],
+          "page_end": 148,
+          "page_start": 148,
+          "record_sha256": "e4e4c87587cda46a9b36f9971521e3d5f21e7b0cbf2bafda7826bc9ab5f923ae",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        },
+        {
+          "content_sha256": "4a6a34624d6891a59bf81c8302f3ffa28075cccb28a7062a4be66b0b4386acf8",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-baaff1e84d4d4e0415499eef709178cd",
+          "gold_text": "编码器-解码器注意力机制层的Q矩阵由解码器上一个子网络的输出计算得到，K矩阵和V矩阵由编码器输出编码矩阵计算得到。",
+          "necessary_neighbors": [],
+          "page_end": 152,
+          "page_start": 152,
+          "record_sha256": "8b94eae0df4ac3b612dbd28c2dcc7710213999509c15f3b41ed0f2e1bcb33523",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        }
+      ],
+      "index_version": "eval-index-v1",
+      "purpose": "lesson_generation",
+      "retrieval_trace_summary": {
+        "fallback_applied": false,
+        "provider_calls": 0,
+        "source": "approved_courserag_dev_fixture"
+      },
+      "token_count": 205,
+      "trace_id": "trace-ctx-p14-lesson-01-transformer"
+    },
+    {
+      "citation_map": {
+        "gold-kp-015bf6265b50f25bf0679e78c21901f0": [
+          "gold-ev-475a17360c717b3221789247426a4d70"
+        ],
+        "gold-kp-39534f977f5fd0fae25105d009d1b5d9": [
+          "gold-ev-f333ceb9cf96f580ec2a714438e94d27"
+        ],
+        "gold-kp-aa2da4d3c15ccea6516e7df6436d8de1": [
+          "gold-ev-cbcdb714a5167c63838bba512eee2b4c"
+        ],
+        "gold-kp-b746208bec27a41ca899db24ea39f5b9": [
+          "gold-ev-615b210d350379cf26677f84c3064531"
+        ]
+      },
+      "content_hash": "bb485d73936e6778e3d483ed17fbc6a1e2a518c71e071d772f29913c0bf1ddec",
+      "context_package_id": "ctx-p14-lesson-02-perceptron-lab",
+      "course_id": "course_ai_algorithms_systems",
+      "evidence_ids": [
+        "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+        "gold-ev-475a17360c717b3221789247426a4d70",
+        "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+        "gold-ev-615b210d350379cf26677f84c3064531"
+      ],
+      "evidence_records": [
+        {
+          "content_sha256": "3eaf30ef25f28accb6c2e7b240316742f17ada35a2fd45f5317fd0fad890d2cb",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "gold_text": "感知机是一种有监督的二元分类器，即一个可以表明输入样本是否属于特定的一个类别的函数。",
+          "necessary_neighbors": [],
+          "page_end": 45,
+          "page_start": 45,
+          "record_sha256": "32d035442a67e296f5f6d26fa9f65165d35c3ce3a45a1e3b3c04e90a734dd2d5",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        },
+        {
+          "content_sha256": "39d9f370a72f4abf316381ce1fdc54e2c6d9713698e0386b3a1dbf0c66c3a99b",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-475a17360c717b3221789247426a4d70",
+          "gold_text": "感知机是线性分类器，下面我们从几何的角度介绍样本集的线性可分性和感知机的几何解释。",
+          "necessary_neighbors": [],
+          "page_end": 46,
+          "page_start": 46,
+          "record_sha256": "d94ab47da38741cfe5d8bf4798a96d6c158a9ef3e622e9aba541d8ca41393d5a",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        },
+        {
+          "content_sha256": "efb8838d118ef6309cc162ce15770d0bcaafb8cd74a14126267346271331e5f8",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+          "gold_text": "首先，对于空间内任意一点到感知机超平面的距离为：",
+          "necessary_neighbors": [
+            "1/||ω|| |ω·X_0+b|"
+          ],
+          "page_end": 48,
+          "page_start": 48,
+          "record_sha256": "2f0ac23d2e58087bfbb3f350d1596ee64866e011b1ee34833d3306c038b39c81",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        },
+        {
+          "content_sha256": "d5c720ace03bf2653ec0a8d191cbed1f657d8fa82591db2e8777e47e12f69be1",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-615b210d350379cf26677f84c3064531",
+          "gold_text": "输入：样本集合{(X_i,Y_i)}_{i=1}^s\n输出：分类超平面的法向量ω和b\n初始化：ω_1←0∈R^n，b_1←0\nfor t=1,2,…,T：\n    随机挑选样本序号i=1,…,s\n    if 分类错误Y_{i(t)}(ω_t^T X_{i(t)})≤0：\n        更新ω_{t+1}←ω_t+ηY_{i(t)}X_{i(t)}\n            b_{t+1}←b_t+ηY_{i(t)}\n    else：\n        ω_{t+1}←ω_t\n返回ω_{T+1}",
+          "necessary_neighbors": [],
+          "page_end": 50,
+          "page_start": 50,
+          "record_sha256": "d82f44c67e88ee757364d05b75bc07a8b28310451f7b77a0d3b4166bbadf40bd",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        }
+      ],
+      "index_version": "eval-index-v1",
+      "purpose": "lesson_generation",
+      "retrieval_trace_summary": {
+        "fallback_applied": false,
+        "provider_calls": 0,
+        "source": "approved_courserag_dev_fixture"
+      },
+      "token_count": 178,
+      "trace_id": "trace-ctx-p14-lesson-02-perceptron-lab"
+    },
+    {
+      "citation_map": {
+        "gold-kp-45eb73abb93d6175f6177512183193aa": [
+          "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1"
+        ],
+        "gold-kp-72d89298dfc07914d1f62d4a3c98eb76": [
+          "gold-ev-73452f80b793aba65cdb9b1032838d27"
+        ],
+        "gold-kp-a47837b2940d01fbf5ae0d9b83793b01": [
+          "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+        ]
+      },
+      "content_hash": "9bc27129e1c421e5c202e423a107653046c6483c0bc8eeb56146ba13c8bde816",
+      "context_package_id": "ctx-p14-lesson-03-occupation-risk-seminar",
+      "course_id": "course_ai_general_education",
+      "evidence_ids": [
+        "gold-ev-73452f80b793aba65cdb9b1032838d27",
+        "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+        "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1"
+      ],
+      "evidence_records": [
+        {
+          "content_sha256": "2a14ad582222fedd5a2981bed6f24d88a2eb91aa48ac20aedec2f25d91262e66",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-73452f80b793aba65cdb9b1032838d27",
+          "gold_text": "BBC基于剑桥大学研究者Michael Osborne和CarlFrey的数据体系分析了未来365种\n职业在英国的被淘汰概率，部分职业的被淘汰概率如表1-1所示。",
+          "necessary_neighbors": [],
+          "page_end": 20,
+          "page_start": 20,
+          "record_sha256": "0f5e849e8675c1275d01d90f2c01f17011ff6b2d2fa4b8a6a3b8519d178c26c1",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf"
+        },
+        {
+          "content_sha256": "88c3bc88b5e827bd4b5acd246944ddec00ad150965da27053118705704153916",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+          "gold_text": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+          "necessary_neighbors": [
+            "表1-1\n部分职业的被淘汰概率"
+          ],
+          "page_end": 20,
+          "page_start": 20,
+          "record_sha256": "a2ca1f7592e46410b667ea0c678bdab623713e05c17ec064b1703844bbe956e0",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf"
+        },
+        {
+          "content_sha256": "df53ddb565da547e4375cfafeebc7092445535b0058c6d04e32ecd7f0f64e1bb",
+          "course_id": "course_ai_general_education",
+          "evidence_id": "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1",
+          "gold_text": "(1)被人工智能取代可能性较小的工作具有如下特征。",
+          "necessary_neighbors": [
+            "①需要从业者具备较强的社交能力、协商能力及人际沟通能力。\n②需要从业者具备较强的同情心，并为他人提供真心实意的扶助。\n③创意性较强。"
+          ],
+          "page_end": 20,
+          "page_start": 20,
+          "record_sha256": "537d4a23106b7b324651e3016f797850e3d3ae9ea9cd884124cef16d27fa2a5b",
+          "source_document_id": "doc_ai_general_education_excerpt",
+          "source_document_version": "eval-v1-15344771664d40cf"
+        }
+      ],
+      "index_version": "eval-index-v1",
+      "purpose": "lesson_generation",
+      "retrieval_trace_summary": {
+        "fallback_applied": false,
+        "provider_calls": 0,
+        "source": "approved_courserag_dev_fixture"
+      },
+      "token_count": 279,
+      "trace_id": "trace-ctx-p14-lesson-03-occupation-risk-seminar"
+    },
+    {
+      "citation_map": {
+        "gold-kp-ef904a521f09a778f872f0879db3a10e": [
+          "gold-ev-520d6a9a5468ceca52daee6f7de7e998"
+        ]
+      },
+      "content_hash": "8de86cf646ea4c2983aee0dba1fddb545b593e9e13a7e359b7432a609b66a1fc",
+      "context_package_id": "ctx-p14-negative-missing-emergent-evidence",
+      "course_id": "course_ai_algorithms_systems",
+      "evidence_ids": [
+        "gold-ev-520d6a9a5468ceca52daee6f7de7e998"
+      ],
+      "evidence_records": [
+        {
+          "content_sha256": "db76e1b2b2e0fa0f858ca49f355b2ded36a978ed289d2353b3303871edda12af",
+          "course_id": "course_ai_algorithms_systems",
+          "evidence_id": "gold-ev-520d6a9a5468ceca52daee6f7de7e998",
+          "gold_text": "其中，编码器包括输入嵌入层（Input Embedding）、位置编码（Positional Encoding）和多个相同的模块，每个模块由多头自注意力机制层（Multi-Head Attention）和全连接前馈神经网络层（Feed Forward）组成。",
+          "necessary_neighbors": [
+            "Transformer的整体结构如图3.18所示，主要包括编码器（Encoder）和解码器（Decoder）两部分。"
+          ],
+          "page_end": 148,
+          "page_start": 148,
+          "record_sha256": "e4e4c87587cda46a9b36f9971521e3d5f21e7b0cbf2bafda7826bc9ab5f923ae",
+          "source_document_id": "doc_ai_algorithms_systems",
+          "source_document_version": "eval-v1-c93df4cb4bb533e3"
+        }
+      ],
+      "index_version": "eval-index-v1",
+      "purpose": "lesson_generation",
+      "retrieval_trace_summary": {
+        "fallback_applied": false,
+        "provider_calls": 0,
+        "source": "approved_courserag_dev_fixture"
+      },
+      "token_count": 64,
+      "trace_id": "trace-ctx-p14-negative-missing-emergent-evidence"
+    }
+  ],
+  "negative_case": {
+    "context_fixture_id": "ctx-p14-negative-missing-emergent-evidence",
+    "course_id": "course_ai_algorithms_systems",
+    "expected_failure": "context_insufficient_evidence",
+    "omitted_required_evidence_ids": [
+      "gold-ev-365b0dc23cff9bb089df5923e2212264"
+    ],
+    "provider_calls_allowed": 0,
+    "record_id": "p14-contract-negative-missing-evidence",
+    "required_knowledge_point_ids": [
+      "gold-kp-ef904a521f09a778f872f0879db3a10e",
+      "gold-kp-07c87ce697fc1dd864b09c4c99776978"
+    ],
+    "side_effects_allowed": 0
+  },
+  "schema_version": "coursepilot.cp-ds1-p14-fixtures.v1"
+}

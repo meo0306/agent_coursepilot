@@ -1,0 +1,331 @@
+{
+  "$defs": {
+    "ApprovalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approved Record Sha256",
+          "type": "string"
+        },
+        "candidate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Candidate Sha256",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Notes",
+          "type": "string"
+        },
+        "review_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Review Id",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Reviewer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewed_at",
+        "candidate_sha256",
+        "approved_record_sha256"
+      ],
+      "title": "ApprovalRecord",
+      "type": "object"
+    },
+    "P12InterruptRecoveryCase": {
+      "additionalProperties": false,
+      "description": "Deterministic P12 Pilot contract; it contains no future runtime identities.",
+      "properties": {
+        "approval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApprovalRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "approval_scope_forbidden": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approval Scope Forbidden",
+          "type": "array"
+        },
+        "approval_scope_granted": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approval Scope Granted",
+          "type": "array"
+        },
+        "artifact_ref": {
+          "pattern": "^artifact:p12:[a-z0-9-]+$",
+          "title": "Artifact Ref",
+          "type": "string"
+        },
+        "candidate_source": {
+          "default": "human",
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Candidate Source",
+          "type": "string"
+        },
+        "checkpoint_ref": {
+          "pattern": "^checkpoint:p12:[a-z0-9-]+$",
+          "title": "Checkpoint Ref",
+          "type": "string"
+        },
+        "edit_patch": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Edit Patch",
+          "type": "object"
+        },
+        "editable_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Editable Paths",
+          "type": "array"
+        },
+        "expected_artifact_version_after": {
+          "minimum": 1,
+          "title": "Expected Artifact Version After",
+          "type": "integer"
+        },
+        "expected_artifact_version_before": {
+          "minimum": 1,
+          "title": "Expected Artifact Version Before",
+          "type": "integer"
+        },
+        "expected_error_class": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Error Class"
+        },
+        "expected_invalidated_nodes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected Invalidated Nodes",
+          "type": "array"
+        },
+        "expected_reused_nodes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Expected Reused Nodes",
+          "type": "array"
+        },
+        "expected_side_effects": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "minProperties": 4,
+          "title": "Expected Side Effects",
+          "type": "object"
+        },
+        "expected_state_transitions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "title": "Expected State Transitions",
+          "type": "array"
+        },
+        "fault_sequence": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Fault Sequence",
+          "type": "array"
+        },
+        "fixture_id": {
+          "pattern": "^p12-structure-[a-z0-9-]+$",
+          "title": "Fixture Id",
+          "type": "string"
+        },
+        "human_decision": {
+          "enum": [
+            "approve",
+            "edit_resume",
+            "replan",
+            "reject"
+          ],
+          "title": "Human Decision",
+          "type": "string"
+        },
+        "initial_state": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "minProperties": 4,
+          "title": "Initial State",
+          "type": "object"
+        },
+        "interrupt_type": {
+          "enum": [
+            "lesson_session_plan_review",
+            "lesson_final_review",
+            "exam_blueprint_review",
+            "exam_global_review",
+            "ppt_architecture_review",
+            "ppt_final_review"
+          ],
+          "title": "Interrupt Type",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "resume_after_cancel_forbidden": {
+          "default": true,
+          "title": "Resume After Cancel Forbidden",
+          "type": "boolean"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "candidate"
+        },
+        "scenario_type": {
+          "enum": [
+            "approve",
+            "edit_resume",
+            "replan",
+            "reject"
+          ],
+          "title": "Scenario Type",
+          "type": "string"
+        },
+        "stale_version_detected": {
+          "title": "Stale Version Detected",
+          "type": "boolean"
+        },
+        "task_ref": {
+          "pattern": "^task:p12:[a-z0-9-]+$",
+          "title": "Task Ref",
+          "type": "string"
+        },
+        "thread_ref": {
+          "pattern": "^thread:p12:[a-z0-9-]+$",
+          "title": "Thread Ref",
+          "type": "string"
+        },
+        "workflow_type": {
+          "enum": [
+            "lesson",
+            "exam",
+            "ppt"
+          ],
+          "title": "Workflow Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "interrupt_type",
+        "workflow_type",
+        "scenario_type",
+        "fixture_id",
+        "task_ref",
+        "thread_ref",
+        "checkpoint_ref",
+        "artifact_ref",
+        "initial_state",
+        "fault_sequence",
+        "human_decision",
+        "expected_state_transitions",
+        "expected_artifact_version_before",
+        "expected_artifact_version_after",
+        "expected_side_effects",
+        "stale_version_detected"
+      ],
+      "title": "P12InterruptRecoveryCase",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "candidate",
+        "needs_review",
+        "approved",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_scope": {
+      "const": "cp_ds6_pilot_input_only",
+      "default": "cp_ds6_pilot_input_only",
+      "title": "Approval Scope",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/P12InterruptRecoveryCase"
+      },
+      "maxItems": 24,
+      "minItems": 24,
+      "title": "Cases",
+      "type": "array"
+    },
+    "dataset_id": {
+      "const": "coursepilot-eval",
+      "default": "coursepilot-eval",
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "dataset_version": {
+      "const": "p12-pilot-r1",
+      "default": "p12-pilot-r1",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "coursepilot.cp-ds6-p12.v1",
+      "default": "coursepilot.cp-ds6-p12.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "CPDS6P12PilotDataset",
+  "type": "object"
+}

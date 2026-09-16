@@ -1,0 +1,33 @@
+{
+  "approval_scope": "cp_ds1_p14_pilot_input_only",
+  "bundle_sha256": "3e47c85c624ab0c3a751b34de38a8b1147a0d6187314ef9a27210b85cc9c1708",
+  "candidate_hashes": {
+    "fixtures": "18284e62471d918be65900150c3cba3c9eefa61465d74dd3f5b3ef15eea97d57",
+    "pilot": "73d1d3e15285b35d3528ffdfd7427ef9d0f7c8eb7e0ed91e602a89ea705caaf3"
+  },
+  "counts": {
+    "context_fixtures": 4,
+    "negative_cases": 1,
+    "pilot_cases": 3
+  },
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p14-pilot-r1",
+  "external_provider_calls": 0,
+  "gold_promotion": false,
+  "negative_record_id": "p14-contract-negative-missing-evidence",
+  "record_ids": [
+    "p14-lesson-01-transformer",
+    "p14-lesson-02-perceptron-lab",
+    "p14-lesson-03-occupation-risk-seminar"
+  ],
+  "schema_version": "coursepilot.p14-cp-ds1-bundle-manifest.v1",
+  "track_b_smoke_queries": {
+    "docx": "gold-rq-ae9fe9ee546a6bff2158672fd5082657",
+    "pdf": "gold-rq-7e84566911bef14e497181d6e601dd20"
+  },
+  "upstream_hashes": {
+    "ds2": "f49d84027cde8341d906e270d29cc46e7b71eb6de4da5220188cb03894436b78",
+    "ds3": "339a51f6f8f8fedeb533b6cbe0efa3ad96783dbae9580a4309924b63358b9566",
+    "ds3_split": "de2da29ba2748777c7a0acb54c81106b0804e5980722d158b249e3e8a83e84af"
+  }
+}

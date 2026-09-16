@@ -1,0 +1,610 @@
+{
+  "cases": [
+    {
+      "allowed_paths": [
+        "$.session_plan[0].teaching_focus"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-lesson-02-schema-missing-variant",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "LESSON_SCHEMA_REQUIRED_FIELD_MISSING"
+      ],
+      "fixture_variant_id": "p13-ds4-lesson-02-schema-missing-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L0"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-lesson-01",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-lesson-02-schema-missing"
+    },
+    {
+      "allowed_paths": [
+        "$.session_plan[0].time_allocation[0].minutes"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-lesson-04-time-total-variant",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "LESSON_TIME_ALLOCATION_MISMATCH"
+      ],
+      "fixture_variant_id": "p13-ds4-lesson-04-time-total-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L1"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-lesson-02",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-lesson-04-time-total"
+    },
+    {
+      "allowed_paths": [
+        "$.sessions[0].references[0].evidence_id"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-lesson-06-grounding-missing-variant",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "GROUNDING_EVIDENCE_NOT_FOUND"
+      ],
+      "fixture_variant_id": "p13-ds4-lesson-06-grounding-missing-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L3"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-lesson-03",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-lesson-06-grounding-missing"
+    },
+    {
+      "allowed_paths": [
+        "$.sessions[0].references[0].course_id"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-lesson-08-source-tier-variant",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "GROUNDING_SOURCE_TIER_INVALID"
+      ],
+      "fixture_variant_id": "p13-ds4-lesson-08-source-tier-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L3"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-lesson-04",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-lesson-08-source-tier"
+    },
+    {
+      "allowed_paths": [
+        "$.session_plan[0].teaching_focus",
+        "$.session_plan[0].time_allocation[0].minutes"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-lesson-09-count-time-combo-variant",
+      "artifact_type": "lesson",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "LESSON_SCHEMA_REQUIRED_FIELD_MISSING",
+        "LESSON_TIME_ALLOCATION_MISMATCH"
+      ],
+      "fixture_variant_id": "p13-ds4-lesson-09-count-time-combo-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L0",
+        "L1"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-lesson-05",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-lesson-09-count-time-combo"
+    },
+    {
+      "allowed_paths": [
+        "$.blueprint.total_score"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-exam-02-schema-missing-variant",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "EXAM_SCHEMA_FIELD_MISSING"
+      ],
+      "fixture_variant_id": "p13-ds4-exam-02-schema-missing-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L0"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-exam-06",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-exam-02-schema-missing"
+    },
+    {
+      "allowed_paths": [
+        "$.blueprint.total_score"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-exam-04-score-variant",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "EXAM_SCORE_MISMATCH"
+      ],
+      "fixture_variant_id": "p13-ds4-exam-04-score-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L1"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-exam-07",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-exam-04-score"
+    },
+    {
+      "allowed_paths": [
+        "$.questions[0].knowledge_point_ids"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-exam-06-kp-coverage-variant",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "EXAM_KP_COVERAGE_MISSING"
+      ],
+      "fixture_variant_id": "p13-ds4-exam-06-kp-coverage-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L2"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-exam-08",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-exam-06-kp-coverage"
+    },
+    {
+      "allowed_paths": [
+        "$.questions[0].evidence_ids"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-exam-08-grounding-variant",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "GROUNDING_EVIDENCE_NOT_FOUND"
+      ],
+      "fixture_variant_id": "p13-ds4-exam-08-grounding-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L3"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-exam-09",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-exam-08-grounding"
+    },
+    {
+      "allowed_paths": [
+        "$.questions[0].explanation"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-exam-09-explanation-variant",
+      "artifact_type": "exam",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "EXAM_EXPLANATION_ANSWER_CONFLICT"
+      ],
+      "fixture_variant_id": "p13-ds4-exam-09-explanation-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L4"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-exam-10",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-exam-09-explanation"
+    },
+    {
+      "allowed_paths": [
+        "$.style_template"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-ppt-02-schema-missing-variant",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "PPT_SCHEMA_FIELD_MISSING"
+      ],
+      "fixture_variant_id": "p13-ds4-ppt-02-schema-missing-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L0"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-ppt-11",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-ppt-02-schema-missing"
+    },
+    {
+      "allowed_paths": [
+        "$.slides[1].slide_type"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-ppt-04-slide-type-variant",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "PPT_INVALID_SLIDE_TYPE"
+      ],
+      "fixture_variant_id": "p13-ds4-ppt-04-slide-type-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L1"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-ppt-12",
+      "repair_strategy": "deterministic_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-ppt-04-slide-type"
+    },
+    {
+      "allowed_paths": [
+        "$.slides[2].references"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-ppt-06-citation-variant",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "PPT_CITATION_MISSING"
+      ],
+      "fixture_variant_id": "p13-ds4-ppt-06-citation-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L3"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-ppt-13",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-ppt-06-citation"
+    },
+    {
+      "allowed_paths": [
+        "$.slides[1].bullet_points"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-ppt-08-overflow-variant",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "PPT_CONTENT_OVERFLOW_RISK"
+      ],
+      "fixture_variant_id": "p13-ds4-ppt-08-overflow-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L4"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-ppt-14",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-ppt-08-overflow"
+    },
+    {
+      "allowed_paths": [
+        "$.slides[3].references"
+      ],
+      "approval": null,
+      "artifact_before_id": "p13-ds4-ppt-09-references-variant",
+      "artifact_type": "ppt",
+      "candidate_source": "p13_hybrid_fixture",
+      "expected_resolved_issue_codes": [
+        "PPT_REFERENCES_SLIDE_MISSING"
+      ],
+      "fixture_variant_id": "p13-ds4-ppt-09-references-variant",
+      "forbidden_paths": [
+        "$.artifact_id",
+        "$.artifact_version",
+        "$.course_id"
+      ],
+      "issue_layers": [
+        "L3"
+      ],
+      "max_repair_rounds": 2,
+      "original_correct_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "preconditions": [
+        "source_version=1",
+        "issue_scope_matches_gold"
+      ],
+      "preservation_paths": [
+        "$.artifact_id",
+        "$.course_id",
+        "$.template_id"
+      ],
+      "record_id": "p13-ds5-ppt-15",
+      "repair_strategy": "model_patch",
+      "review_status": "candidate",
+      "source_fault_case_id": "p13-ds4-ppt-09-references"
+    }
+  ],
+  "dataset_id": "coursepilot-eval",
+  "dataset_version": "p13-pilot-r1",
+  "schema_version": "coursepilot.cp-ds5-p13.v1"
+}

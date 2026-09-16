@@ -1,0 +1,289 @@
+{
+  "$defs": {
+    "CorpusFixtureArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "course_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Course Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_role": {
+          "enum": [
+            "primary",
+            "derived_fixture"
+          ],
+          "title": "Document Role",
+          "type": "string"
+        },
+        "mime_type": {
+          "enum": [
+            "application/pdf",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          ],
+          "title": "Mime Type",
+          "type": "string"
+        },
+        "mutually_exclusive_variant_group": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Mutually Exclusive Variant Group",
+          "type": "string"
+        },
+        "page_count": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Count"
+        },
+        "page_count_basis": {
+          "enum": [
+            "verified_pdf_page_tree",
+            "derived_manifest",
+            "pending_fixed_renderer"
+          ],
+          "title": "Page Count Basis",
+          "type": "string"
+        },
+        "page_map": {
+          "items": {
+            "$ref": "#/$defs/FixturePageMap"
+          },
+          "title": "Page Map",
+          "type": "array"
+        },
+        "parent_document_id": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Document Id"
+        },
+        "repository_relative_path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Repository Relative Path",
+          "type": "string"
+        },
+        "retrieval_eligible": {
+          "title": "Retrieval Eligible",
+          "type": "boolean"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 1,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "source_unit_map": {
+          "items": {
+            "$ref": "#/$defs/FixtureSourceUnitMap"
+          },
+          "title": "Source Unit Map",
+          "type": "array"
+        },
+        "transform_parameters": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "title": "Transform Parameters",
+          "type": "object"
+        },
+        "transform_type": {
+          "enum": [
+            "identity",
+            "raster_subset_lossless",
+            "raster_subset_compressed",
+            "mixed_native_raster",
+            "docx_structure_stress"
+          ],
+          "title": "Transform Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "course_id",
+        "document_id",
+        "document_role",
+        "repository_relative_path",
+        "sha256",
+        "size_bytes",
+        "mime_type",
+        "page_count_basis",
+        "transform_type",
+        "mutually_exclusive_variant_group",
+        "retrieval_eligible"
+      ],
+      "title": "CorpusFixtureArtifact",
+      "type": "object"
+    },
+    "FixturePageMap": {
+      "additionalProperties": false,
+      "properties": {
+        "output_page_number": {
+          "minimum": 1,
+          "title": "Output Page Number",
+          "type": "integer"
+        },
+        "representation": {
+          "enum": [
+            "native",
+            "raster_lossless",
+            "raster_jpeg"
+          ],
+          "title": "Representation",
+          "type": "string"
+        },
+        "source_page_number": {
+          "minimum": 1,
+          "title": "Source Page Number",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "output_page_number",
+        "source_page_number",
+        "representation"
+      ],
+      "title": "FixturePageMap",
+      "type": "object"
+    },
+    "FixtureSourceUnitMap": {
+      "additionalProperties": false,
+      "properties": {
+        "source_index": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Source Index",
+          "type": "string"
+        },
+        "source_kind": {
+          "enum": [
+            "paragraph",
+            "table_cell"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "target_index": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Target Index",
+          "type": "string"
+        },
+        "text_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Text Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_kind",
+        "source_index",
+        "target_index",
+        "text_sha256"
+      ],
+      "title": "FixtureSourceUnitMap",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/CorpusFixtureArtifact"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "evaluation_document_count": {
+      "const": 6,
+      "default": 6,
+      "title": "Evaluation Document Count",
+      "type": "integer"
+    },
+    "generator": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Generator",
+      "type": "string"
+    },
+    "generator_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Generator Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "courserag.corpus-fixtures.v1",
+      "default": "courserag.corpus-fixtures.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_source_count": {
+      "const": 2,
+      "default": 2,
+      "title": "Semantic Source Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "generator",
+    "generator_version",
+    "artifacts"
+  ],
+  "title": "CorpusFixtureManifest",
+  "type": "object"
+}

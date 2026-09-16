@@ -44,7 +44,7 @@ def _create_course_with_kb(client):
     return course
 
 
-def test_lesson_and_question_review_write_back_are_searchable(coursepilot_client):
+def test_legacy_whole_artifacts_require_safe_writeback_selection(coursepilot_client):
     course = _create_course_with_kb(coursepilot_client)
 
     lesson = submit_and_complete(
@@ -66,14 +66,15 @@ def test_lesson_and_question_review_write_back_are_searchable(coursepilot_client
         f"/api/coursepilot/reviews/{lesson_review.json()['id']}/write-back"
     )
     assert lesson_write_back.status_code == 200
-    assert lesson_write_back.json()["written_chunk_ids"]
+    assert lesson_write_back.json()["write_back_status"] == "requires_fragment_selection"
+    assert lesson_write_back.json()["written_chunk_ids"] == []
 
     lesson_search = coursepilot_client.post(
         f"/api/coursepilot/courses/{course['id']}/kb/search",
         json={"query": "state space Search", "verified_only": True, "top_k": 10},
     )
     assert lesson_search.status_code == 200
-    assert any(
+    assert not any(
         result["source_type"] == "reviewed_lesson" for result in lesson_search.json()["results"]
     )
 
@@ -105,13 +106,14 @@ def test_lesson_and_question_review_write_back_are_searchable(coursepilot_client
         f"/api/coursepilot/reviews/{question_review.json()['id']}/write-back"
     )
     assert question_write_back.status_code == 200
-    assert question_write_back.json()["written_chunk_ids"]
+    assert question_write_back.json()["write_back_status"] == "requires_evidence_migration"
+    assert question_write_back.json()["written_chunk_ids"] == []
 
     question_search = coursepilot_client.post(
         f"/api/coursepilot/courses/{course['id']}/kb/search",
         json={"query": question["question_text"], "verified_only": True, "top_k": 10},
     )
     assert question_search.status_code == 200
-    assert any(
+    assert not any(
         result["source_type"] == "reviewed_question" for result in question_search.json()["results"]
     )

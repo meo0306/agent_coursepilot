@@ -39,6 +39,18 @@ dependencies = [
     "streamlit ~=1.52.0",
     "tokenizers ~=0.22.1",
     "uvicorn ~=0.32.1",
+    "bm25s>=0.3.10",
+    "jieba>=0.42.1",
+]
+
+[project.optional-dependencies]
+local-embedding-cu126 = [
+    "psutil==7.2.2",
+    "sentence-transformers>=5.1,<6",
+    "torch>=2.10,<2.13",
+]
+prompt-guard-onnx-cu12 = [
+    "onnxruntime-gpu==1.21.1",
 ]
 
 [dependency-groups]
@@ -63,6 +75,31 @@ client = [
     "streamlit~=1.52.0",
 ]
 
+ocr-common = [
+    "pydantic ~=2.10.1",
+    "psutil ==7.2.2",
+]
+
+ocr-rapidocr = [
+    "onnxruntime ==1.21.1",
+    "rapidocr ==3.9.1",
+]
+
+ocr-paddleocr = [
+    "paddleocr ==3.7.0",
+    "paddlepaddle ==3.3.1",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu126", extra = "local-embedding-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
@@ -71,8 +108,12 @@ target-version = "py311"
 extend-select = ["I", "U"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = [".", "src"]
+testpaths = ["tests"]
 asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "b0_sample_files: gated P00 smoke using local, owner-supplied DOCX/PDF inputs",
+]
 
 [tool.pytest_env]
 OPENAI_API_KEY = "sk-fake-openai-key"
@@ -82,5 +123,5 @@ plugins = "pydantic.mypy"
 exclude = "src/streamlit_app.py"
 
 [[tool.mypy.overrides]]
-module = ["docx2txt.*", "fitz.*", "openpyxl.*", "tokenizers.*"]
+module = ["bm25s.*", "docx2txt.*", "fitz.*", "jieba.*", "onnxruntime.*", "openpyxl.*", "psutil.*", "tokenizers.*", "torch.*", "transformers.*"]
 ignore_missing_imports = true

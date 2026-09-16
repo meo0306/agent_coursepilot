@@ -1,0 +1,11 @@
+{
+  "authority": "fixed LibreOffice 7.4.7.2 rendered PDF visual objects",
+  "profile": "courserag.ds2-rendered-formula-linearization.v1",
+  "rules": [
+    "Preserve visible mathematical identifiers, operators, subscripts and superscripts.",
+    "Use underscore-plus-braces for multi-character subscripts and caret for powers.",
+    "Use square brackets with semicolon-delimited rows for rendered matrices/vectors.",
+    "Do not repair or simplify a formula even when the source appears mathematically unusual.",
+    "Bind every display formula to its rendered-PDF BBox and formula number."
+  ]
+}

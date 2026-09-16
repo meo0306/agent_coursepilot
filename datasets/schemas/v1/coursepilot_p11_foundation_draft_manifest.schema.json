@@ -1,0 +1,128 @@
+{
+  "$defs": {
+    "HashedArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "anyOf": [
+            {
+              "maxLength": 160,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Type"
+        },
+        "path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "HashedArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "draft_artifact": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "expected_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 40,
+      "minItems": 40,
+      "title": "Expected Record Ids",
+      "type": "array"
+    },
+    "generation_strategy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Generation Strategy Sha256",
+      "type": "string"
+    },
+    "missing_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Missing Record Ids",
+      "type": "array"
+    },
+    "p10_gate_audit": {
+      "$ref": "#/$defs/HashedArtifact"
+    },
+    "present_count": {
+      "const": 37,
+      "default": 37,
+      "title": "Present Count",
+      "type": "integer"
+    },
+    "present_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 37,
+      "minItems": 37,
+      "title": "Present Record Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "coursepilot.p11-foundation-draft-manifest.v1",
+      "default": "coursepilot.p11-foundation-draft-manifest.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "state": {
+      "const": "draft_incomplete",
+      "default": "draft_incomplete",
+      "title": "State",
+      "type": "string"
+    },
+    "target_count": {
+      "const": 40,
+      "default": 40,
+      "title": "Target Count",
+      "type": "integer"
+    },
+    "unexpected_record_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 0,
+      "title": "Unexpected Record Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "expected_record_ids",
+    "present_record_ids",
+    "missing_record_ids",
+    "draft_artifact",
+    "generation_strategy_sha256",
+    "p10_gate_audit"
+  ],
+  "title": "P11DraftBundleManifest",
+  "type": "object"
+}

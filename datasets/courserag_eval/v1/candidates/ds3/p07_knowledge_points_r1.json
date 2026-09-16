@@ -1,0 +1,4616 @@
+{
+  "dataset_id": "courserag-ds3-p07-knowledge-points",
+  "dataset_version": "p07-r1",
+  "knowledge_points": [
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "图灵测试",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-8d768f09760ca8acfed4297b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+          "evidence_record_sha256": "86da370f51ed5f9f2b7e682792d62e770006332160f1bb3a35809d45fc1124bc",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "图灵测试",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "summary": "阿兰·图灵(Alan Mathison Turing)于1950年提出了图灵测试[2]，这是一种用于评估机器是否具有智能的测试方法。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "知识表达",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-18b1bf37b7c755df0f6d63df",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-a9911582c78e1c224211cd7b66f9ccbd"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-a9911582c78e1c224211cd7b66f9ccbd",
+          "evidence_record_sha256": "e9b81cef777f7d2b6ae73650ac0619430ba494e87cba1f828e51201b26a0eef0",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-4ed9afc6c0f1253f3a6f74bbd44fc276",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "知识表达",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-4ed9afc6c0f1253f3a6f74bbd44fc276",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "summary": "知识表达 (Knowledge Representation)：存储它所知道的或听到的信息；"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "图灵测试的非物理性",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-437f42870b64091837642ee6",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+          "evidence_record_sha256": "ca3c2ddb99b797a22577c9604868a2df662ea3ae7d9a589a3e1d00a58f7e996e",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-8596a77b193f44fe4079e6782bdc4664",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "图灵测试的非物理性",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-8596a77b193f44fe4079e6782bdc4664",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "summary": "图灵认为模拟一个人的物理存在对于展示智能是没有必要的。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "完整图灵测试",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-ff69c9d4ca971a1a594227b6",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-d6c42ef93972e95a95b7450032d8cadb"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-d6c42ef93972e95a95b7450032d8cadb",
+          "evidence_record_sha256": "bfaa2d33e51dd9dd90d55be0f8ae39454c442d994a898653662a02dac4a83991",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-0b6d527040d02d50b72efa829ed4800a",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "完整图灵测试",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-0b6d527040d02d50b72efa829ed4800a",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-1-1-1"
+      ],
+      "summary": "要通过完整的图灵测试，机器人需要具备：（1）计算机视觉和语音识别来感知世界；（2）机器人技术来操控物体和移动。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "感知机的提出",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-5558b7f2103223c688b217e8",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-9182152f7e279d2cba2d2883a7a7f244"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+          "evidence_record_sha256": "7959bccb5d53e9b4588069e0c7c695463ae47bbcc527a318c85b05ab6f0a8b80",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-df92c5bde4a4f7bbc9b4cd35db4bd1ef",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "感知机的提出",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-df92c5bde4a4f7bbc9b4cd35db4bd1ef",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "summary": "感知机（Perceptron）算法最初由Frank Rosenblatt 1957年在康奈尔航空实验提出。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "Scikit-Learn二分类数据构造",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-b7c8d01afe0a722792a9d4b3",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+          "evidence_record_sha256": "d4c62d41b9d16e59e5280fed8d3b5558756a4d89a9da51f43ca526cc11d0529d",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "scikit-learn二分类数据构造",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "summary": "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "感知机模型训练配置",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-915cb2d3955e170a9590f52f",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-6ecdac141332a7cb4593a131ccfc4619"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-6ecdac141332a7cb4593a131ccfc4619",
+          "evidence_record_sha256": "b0354edd068f516352abcfc3b8ef731c56b7a0cc5052ae585234885179c7d922",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-58c23fe44da0d833d1e45a4f02e2fa3e",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "感知机模型训练配置",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-58c23fe44da0d833d1e45a4f02e2fa3e",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "summary": "第一行代码表示构造一个感知机模型，fit_intercept=False表示在训练过程假设数据已经中心化，训练过程迭代20次，并且在每次循环中将样本顺序打乱；"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "感知机的线性分类局限",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-4a5f1513ce6f179a6aab0680",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-ac89df32946f7cbb44441b93711da3f5"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+          "evidence_record_sha256": "0fbe8abcb39609b54709236cd0986aca20cac9a08f3665aae2d381eb1e4c6e15",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-2056d44ef609d90ed27f02f10fea6aba",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "感知机的线性分类局限",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-2056d44ef609d90ed27f02f10fea6aba",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "summary": "感知机作为一种简单的单层神经网络模型，仅包含输入层和输出层，仅适用于处理简单的线性分类问题，然而实际应用场景通常是非线性的。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "MLP的适用范围",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-92f41e50b2d92532b75cb347dbcaa6f3"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "MLP的适用范围"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "多层感知机的适用范围",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-2d9a74ba6f78bf6750515b18",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-92f41e50b2d92532b75cb347dbcaa6f3"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-92f41e50b2d92532b75cb347dbcaa6f3",
+          "evidence_record_sha256": "7ecb4c22dda1f2929613e3ea37b4f2911a34c6183160d11cf9ed6b6ac9c5b9cc",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-05b79153870a071497b02e905537dd06",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "多层感知机的适用范围",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-05b79153870a071497b02e905537dd06",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2"
+      ],
+      "summary": "MLP适用于一般的结构化数据，如表格数据、文本数据等，且对图像等高维数据表现不佳。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "感知机",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-82611e9056f1879259e53d79",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-cbcdb714a5167c63838bba512eee2b4c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-cbcdb714a5167c63838bba512eee2b4c",
+          "evidence_record_sha256": "32d035442a67e296f5f6d26fa9f65165d35c3ce3a45a1e3b3c04e90a734dd2d5",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-aa2da4d3c15ccea6516e7df6436d8de1",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "感知机",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-aa2da4d3c15ccea6516e7df6436d8de1",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "summary": "感知机是一种有监督的二元分类器，即一个可以表明输入样本是否属于特定的一个类别的函数。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "线性可分性",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-bb29f99e7a68e41718e4bb6c",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-475a17360c717b3221789247426a4d70"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-475a17360c717b3221789247426a4d70",
+          "evidence_record_sha256": "d94ab47da38741cfe5d8bf4798a96d6c158a9ef3e622e9aba541d8ca41393d5a",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-015bf6265b50f25bf0679e78c21901f0",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "线性可分性",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-015bf6265b50f25bf0679e78c21901f0",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "summary": "感知机是线性分类器，下面我们从几何的角度介绍样本集的线性可分性和感知机的几何解释。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "点到感知机超平面的距离",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-d725f5c37d02edeb63ccfd04",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-f333ceb9cf96f580ec2a714438e94d27"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+          "evidence_record_sha256": "2f0ac23d2e58087bfbb3f350d1596ee64866e011b1ee34833d3306c038b39c81",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-39534f977f5fd0fae25105d009d1b5d9",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "点到感知机超平面的距离",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-39534f977f5fd0fae25105d009d1b5d9",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "summary": "首先，对于空间内任意一点到感知机超平面的距离为："
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "感知机原始训练算法",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-1183917808e18da77157d710",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-615b210d350379cf26677f84c3064531"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-615b210d350379cf26677f84c3064531",
+          "evidence_record_sha256": "d82f44c67e88ee757364d05b75bc07a8b28310451f7b77a0d3b4166bbadf40bd",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-b746208bec27a41ca899db24ea39f5b9",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "感知机原始训练算法",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-b746208bec27a41ca899db24ea39f5b9",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "summary": "输入：样本集合{(X_i,Y_i)}_{i=1}^s\n输出：分类超平面的法向量ω和b\n初始化：ω_1←0∈R^n，b_1←0\nfor t=1,2,…,T：\n    随机挑选样本序号i=1,…,s\n    if 分类错误Y_{i(t)}(ω_t^T X_{i(t)})≤0：\n        更新ω_{t+1}←ω_t+ηY_{i(t)}X_{i(t)}\n            b_{t+1}←b_t+ηY_{i(t)}\n    else：\n        ω_{t+1}←ω_t\n返回ω_{T+1}"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "感知机算法收敛性",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-40285822b4d91c521bf0259c",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-06bba04373bb42548483d596702e7e36"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+          "evidence_record_sha256": "ae9723ff8f8be1e82c0337e10c99f006ef0744e06d6a051f573196d9022b71ee",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-035e53095f2d3d832d751fc67073a16f",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "感知机算法收敛性",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-035e53095f2d3d832d751fc67073a16f",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-2-2-2"
+      ],
+      "summary": "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "深度学习应用领域",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-819e90fde7413b0031285071",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-040495f6fd63a4c346cdf3ac13da116d"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-040495f6fd63a4c346cdf3ac13da116d",
+          "evidence_record_sha256": "2f0314b7f496a674cf6ac9436b8407ce4be19f0c891cc5b01e1edbe51c22eda9",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-acc3fb11eb9ba9b57f43ae4a0ba1283e",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "深度学习应用领域",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-acc3fb11eb9ba9b57f43ae4a0ba1283e",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "summary": "深度学习方法在众多领域中均有所应用，且显著优于其他方法。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "深度学习在语音处理中的应用",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-835fb00f8d1f491fdf2e39d5",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-df677f4ff85b6c769ff0d151ecb5e4a9",
+          "evidence_record_sha256": "08f12e921b0108e84d2f8e7402496a71584e000b752eb714bf0f5038e860505d",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-37b7a1d9c6f2d19ce8443f3f3b21fac7",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "深度学习在语音处理中的应用",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-37b7a1d9c6f2d19ce8443f3f3b21fac7",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "summary": "语音处理\t语音识别、语音合成等"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "深度学习在推荐系统中的应用",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-430c8581484e1778528776c1",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-1b100e38a40ce3da44a2a2b530bef411"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+          "evidence_record_sha256": "c0572a0b3de3f33c96a178fde5819387b24fd9d90e003c6afa16989089bb8af2",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-13a3190a4b4e0a794089f7864ec42e55",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "深度学习在推荐系统中的应用",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-13a3190a4b4e0a794089f7864ec42e55",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "summary": "推荐系统\t商品推荐、音乐推荐、短视频推荐等"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "深度学习在金融风控中的应用",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-02ac6eadf1a392bf9692f9bf",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+          "evidence_record_sha256": "4285c7e5c35200d1af0e221732df064d00df2bd2b0822052feed62a368f54ca5",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-8ad97ba53c176889334da8cc43294319",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "深度学习在金融风控中的应用",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-8ad97ba53c176889334da8cc43294319",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-1-3"
+      ],
+      "summary": "金融风控\t信用评估、股市预测、风险控制等"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "传统Sequence-to-Sequence的长序列局限",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-7056e327e4d297eadf4eeb60f00fcf21"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "传统Sequence-to-Sequence的长序列局限"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "传统seq2seq的长序列局限",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-1b275ea42b0ef48af02e6a2b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-7056e327e4d297eadf4eeb60f00fcf21"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-7056e327e4d297eadf4eeb60f00fcf21",
+          "evidence_record_sha256": "0cc16c391aa3608a18a02f51e82de6fc8767f9fbe4ddc1a1f322f79335537cbd",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-124478c59a174f685eb27731b0777556",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "传统seq2seq的长序列局限",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-124478c59a174f685eb27731b0777556",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "summary": "在自然语言处理传统的序列到序列（Sequence-to-Sequence，seq2seq）任务中，传统的seq2seq模型在处理长句子或者长距离依赖关系时，往往会面临信息丢失和模糊化的挑战，这是由于其固定长度的隐藏状态无法有效地捕捉到长序列中的重要信息。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "注意力机制中Q、K、V的来源",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-d0936ca7439fa55df21f12bc",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-9abde4ba81915c311db9ade93789806e"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+          "evidence_record_sha256": "93adc09d169ad6c349644177445042c3ded7c1c86bc31d030a9df5e06e212008",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "注意力机制中q、k、v的来源",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "summary": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "Transformer编码器结构",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-63950df871fdc56f0642236e",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-520d6a9a5468ceca52daee6f7de7e998"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-520d6a9a5468ceca52daee6f7de7e998",
+          "evidence_record_sha256": "e4e4c87587cda46a9b36f9971521e3d5f21e7b0cbf2bafda7826bc9ab5f923ae",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-ef904a521f09a778f872f0879db3a10e",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "transformer编码器结构",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-ef904a521f09a778f872f0879db3a10e",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "summary": "其中，编码器包括输入嵌入层（Input Embedding）、位置编码（Positional Encoding）和多个相同的模块，每个模块由多头自注意力机制层（Multi-Head Attention）和全连接前馈神经网络层（Feed Forward）组成。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "Positional Encoding",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-7b34285b5785dc23f07c5cf1f076aff5"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "Positional Encoding"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "位置编码",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-fd1a6091d4f89f4fd7383277",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-7b34285b5785dc23f07c5cf1f076aff5"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-7b34285b5785dc23f07c5cf1f076aff5",
+          "evidence_record_sha256": "c5407f0a4fb97513260c677145284f032c35b22cbf46ca131355f79af73c8707",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-971fdaabc3b48934cafd2cac33433c18",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "位置编码",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-971fdaabc3b48934cafd2cac33433c18",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "summary": "位置编码与每个单词的特征向量具有相同的维数，因此可以对两者进行求和。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "编码器-解码器注意力",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-b4e8da9526ece34138fc8690",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-baaff1e84d4d4e0415499eef709178cd"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-baaff1e84d4d4e0415499eef709178cd",
+          "evidence_record_sha256": "8b94eae0df4ac3b612dbd28c2dcc7710213999509c15f3b41ed0f2e1bcb33523",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-a4ac5b5c2b47bccc1653b1c20260c9c5",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "编码器-解码器注意力",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-a4ac5b5c2b47bccc1653b1c20260c9c5",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-3-5-3"
+      ],
+      "summary": "编码器-解码器注意力机制层的Q矩阵由解码器上一个子网络的输出计算得到，K矩阵和V矩阵由编码器输出编码矩阵计算得到。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-8f092f758960ce67458523de",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+          "evidence_record_sha256": "1f22eb01d97185a63577caf75ef21dad4bc63344c64f9a42b8b5ec2ecabc72ed",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-b848f1b022a479c770521458bce143a4",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-b848f1b022a479c770521458bce143a4",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "summary": "大模型是基于深度学习技术构建的，具有高度复杂性和巨大规模的人工智能模型，通常由数十亿甚至数万亿个参数组成。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型参数规模演进",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-b0ffe95e25ab09bd99fb8d09",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-035088153234134744f10d335a333cc0"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-035088153234134744f10d335a333cc0",
+          "evidence_record_sha256": "6a4b84babefcde949d6c9b1d4c6b3f3064d5ff6c6e43ba57f54d4dd14140a126",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-02c0be5ab5dca476eed78a23ad8f3726",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型参数规模演进",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-02c0be5ab5dca476eed78a23ad8f3726",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "summary": "模型名称\t发布年份\t参数量\nBERT-Base\t2018\t110M\nBERT-Large\t2018\t340M\nGPT-1\t2018\t120M\nT5\t2019\t223M\nGPT-2\t2019\t1.5B\nChatGPT\t2022\t175B\nLLaMA2\t2023\t70B\nGPT-4\t2023\t1.8T"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大规模训练数据与涌现能力",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a4ad7e22d713ebfa994d6c06",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-365b0dc23cff9bb089df5923e2212264"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+          "evidence_record_sha256": "0ad374876c0cc334defa9f7527216aa7512059345e8141c52807cb133767c56f",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-07c87ce697fc1dd864b09c4c99776978",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大规模训练数据与涌现能力",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-07c87ce697fc1dd864b09c4c99776978",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "summary": "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型发现新知识的能力",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-9e96c670469c1f11d7e77cb7",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+          "evidence_record_sha256": "12094fb70c9e94e40b5441cb416f4de32cb15af11110c8c2bf95513207a369da",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型发现新知识的能力",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "summary": "（5）发现新知识：在某些情况下，大模型通过分析和整合其训练数据中的信息，能够\"发现\"新的知识或提出新的见解。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型训练计算成本",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-cfdeaf8c7f882b2fa0c8523c",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-5c3010622081949981b20043ffc9cdd4"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-5c3010622081949981b20043ffc9cdd4",
+          "evidence_record_sha256": "e26db1678875eca4c2a8a8b105b3f015f0df517ecead7d1d1b61e8accf8aa91f",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-c55066739a5ac77a2f2f7298840d80a6",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型训练计算成本",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-c55066739a5ac77a2f2f7298840d80a6",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-1-1"
+      ],
+      "summary": "如GPT-4在大约25000个A100上训练了90到100天，训练成本大约为6000万美元。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型训练数据准备与预处理",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-04db4a3342fb4d0fb4986576",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+          "evidence_record_sha256": "a739c4373d45a7175da46a1e3196792ffdc421d0501350e377647cbd7b181f6a",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-27811de0b82ecc5959117325f79cb544",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型训练数据准备与预处理",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-27811de0b82ecc5959117325f79cb544",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "summary": "在大模型的开发和训练过程中，数据准备与预处理是至关重要的初步步骤。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "公开文本训练数据集",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-9cbcd888231a828a3eb5678b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2",
+          "evidence_record_sha256": "f0da6315b94b370af874b8793c5b01e20b92ed2776ca41eb4013e579c64358d3",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-fc62fc1858f986fdb9c48fd5c9e7eb46",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "公开文本训练数据集",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-fc62fc1858f986fdb9c48fd5c9e7eb46",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "summary": "这些数据集通常是公开可用的，包含了大量的文本数据，覆盖了广泛的主题和领域。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大规模高维数据的计算资源消耗",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a275e7e90f3742e441b2f6b9",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-bd7d355279cc06aac5841601572cfe04"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-bd7d355279cc06aac5841601572cfe04",
+          "evidence_record_sha256": "4539e422912b001693364383c3e4cc587fa831b44140678f72bf997b3449cea4",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-3a201b005a2597cc062d5c8b79227c96",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "大规模高维数据的计算资源消耗",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-3a201b005a2597cc062d5c8b79227c96",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "summary": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "训练数据隐私保护",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-f5a9d8dadeb03f32ff7cf0af",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-f4904b4a8909b6bcd8ebb2a62422f39d",
+          "evidence_record_sha256": "b99369af233903f170c79d43473ffe62df96a176972521b1274acafe85516d87",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-cecfd411235e4765b3f234a7a466a755",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "训练数据隐私保护",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-cecfd411235e4765b3f234a7a466a755",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-2-1"
+      ],
+      "summary": "隐私保护的目的是保护数据中个人的隐私，确保数据的使用不会侵犯个人隐私权，同时遵守相关的法律法规，如2021年11月起实施的《个人信息保护法》确立个人信息保护原则，严格保护敏感个人信息，强化个人信息处理者义务。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "Fine-Tuning",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "Fine-Tuning"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "微调",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-8044505ecbbe6c4e04d949a8",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-fbcd412bf7e5e7dc3626af229b236b4f",
+          "evidence_record_sha256": "d20a386450869fa79c20475a3036b10c04dfa46e235b56f23f1665c0641a3f84",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "微调",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "summary": "微调（Fine-Tuning）是一种迁移学习（Transfer Learning）技术，旨在利用预训练模型在特定任务上的性能。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "指令微调",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-c4b68f2a5a5434dccb6a7170",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-7ca952b51845ec8726626df3371c02a6"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-7ca952b51845ec8726626df3371c02a6",
+          "evidence_record_sha256": "a977243f68b1ae5d74aac0a92209c78c96769bf67cc96d318d53250f896441f4",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-863d84db226b93cbb6c7dd9d69081d79",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "指令微调",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-863d84db226b93cbb6c7dd9d69081d79",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "summary": "指令微调旨在提升模型的泛化能力，使其能够处理各种各样的指令，即使这些指令在模型的原始预训练过程中未被直接覆盖。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型安全对齐",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-1d7ab59e9ffb522b415fd0a9",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-830849986bdfd10a7bd6767ec1a741fe"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-830849986bdfd10a7bd6767ec1a741fe",
+          "evidence_record_sha256": "487d45981470291c4d436744627462d9d40f0baefb6116f1ef61fac7f024041a",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-080644a6db95884d487495ae1597e84b",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型安全对齐",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-080644a6db95884d487495ae1597e84b",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "summary": "这一过程旨在最大程度地减少模型生成有害内容、传播偏见或误导信息的风险，同时确保模型在各种应用场景中是安全、有用和可靠的。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型对齐的有用性",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-b3148bfb07a10275f1f9f752",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-3194476eb80e21fa4c9e96b32c08065d"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-3194476eb80e21fa4c9e96b32c08065d",
+          "evidence_record_sha256": "9944837688a4eb6c6584ad2d63dc62a4c18174ef36f5e390377d1211aa61b2c0",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-ef197ec205d33d81a950294275317f25",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型对齐的有用性",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-ef197ec205d33d81a950294275317f25",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3"
+      ],
+      "summary": "有用性：有用性关注于大模型是否能够在实际应用中为用户提供准确、相关且实用的信息或服务。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "ERNIE情感分类微调流程",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-fb569397a125e0e1c338e562",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-1be29628ef3d24c8ac4e22d1e444c7fb",
+          "evidence_record_sha256": "9f6a3c733cbb6305e62eec3139522e3ed6140a36e7882d5e097941b69d424b03",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-01fac9e8c352226a5bc4f792c8965856",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "ernie情感分类微调流程",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-01fac9e8c352226a5bc4f792c8965856",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "summary": "（1）掌握对ERNIE模型进行fine-tune实现酒店住宿评价情感分类任务的全流程；"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "ERNIE微调实验环境",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-09d6f2a5cd16e1b1cf3ad4e3",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-f622172906b893ec87c367db5ea298b3"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+          "evidence_record_sha256": "1e6cc0df68d49137d73ff243991b7195a2dfe79bb1001157e5c9ec16ac110dc3",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "ernie微调实验环境",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "summary": "名称\t版本\t功能说明\nAIStudio\t经典版\t代码实现的基础平台与环境\nPaddlePaddle\t2.3.2\t在新建项目时选择\nPython\t3.7.4\t默认选择\nERNIE\t3.0\t使用git克隆代码仓库，或者直接解压本项目的ERNIE数据集"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "ERNIE预测配置",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a30b4af3ad71ce1097654bfe",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+          "evidence_record_sha256": "504858cadbc6f212b1393df7bd3e20846a0e0c4346e9a506d30783398ba096bd",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "ernie预测配置",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "summary": "首先配置预测json文件，主要修改cls_ernie_fc_ch_infer.json文件的预测模型的输入路径、预测文件的输入路径、预测结果的输出路径，如下图所示。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "微调在自有数据集上的效果",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-b6cf7cf295e5baa4eebb2030",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-33a7eeb84721f894d7224e97ba49e5f5"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+          "evidence_record_sha256": "e31290e63b9bcbbc413eb7c1b11ed5ac30bd7e9b209a973285e55afa4b3effb0",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-5e850c884a96c9624bd0bfc4832930ab",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "微调在自有数据集上的效果",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-5e850c884a96c9624bd0bfc4832930ab",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-5-3-4"
+      ],
+      "summary": "这进一步证明了通过对大模型进行微调，能够在自己的数据集上获得更好的结果。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "NeRF三维重建",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-335662f3142fb805ce0d560f4eccdd7a"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "NeRF三维重建"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "神经辐射场三维重建",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-f9f743ca0e816824f3bdd511",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-335662f3142fb805ce0d560f4eccdd7a"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-335662f3142fb805ce0d560f4eccdd7a",
+          "evidence_record_sha256": "a486e4fba130e7ce9f5efccf95e0ae193d9c9ed2de30d72d525f0aefddaa4eb7",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-6480379262a13e32e1bd3bc0e556f609",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "神经辐射场三维重建",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-6480379262a13e32e1bd3bc0e556f609",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "summary": "自2020年提出以来，神经辐射场三维重建方法以其逼真的三维场景渲染能力迅速在学术界引起了广泛关注，其核心细想在于将三维场景视作一个由神经网络逼近的辐射场。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "NeRF累积透射率",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-ccc138a205ce6f97a41bab6b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-6f70e7f62938bf78ba45c307de1adaef"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-6f70e7f62938bf78ba45c307de1adaef",
+          "evidence_record_sha256": "3915d72eb20e6f160f86d51ae5b122e13145e81d16e438d174fa7d3b3e4c5c2c",
+          "is_primary": true,
+          "role": "formula"
+        }
+      ],
+      "gold_kp_id": "gold-kp-fccb808f30813de371dd5645d2498922",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "nerf累积透射率",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-fccb808f30813de371dd5645d2498922",
+      "review_status": "candidate",
+      "roles": [
+        "formula"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "summary": "特别的，T(t)为累积透射率，表示射线从采样近平面t_n到采样远平面t_f期间射线未被阻挡的概率：\nT(t)=exp(-∫_{t_n}^{t}σ(r(s))ds)"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "NeRF渲染损失",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-dae6a19a4f756b454bcab904",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-488132baeca3f0acc28854e2d6ab51b8"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-488132baeca3f0acc28854e2d6ab51b8",
+          "evidence_record_sha256": "a0aa3fbcc8997e18a78affe15fd500e569baf33e8e7888b81a23dafbbb2f5056",
+          "is_primary": true,
+          "role": "formula"
+        }
+      ],
+      "gold_kp_id": "gold-kp-e7ed3f70cf3b923fa46d3ed2d9f37486",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "nerf渲染损失",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-e7ed3f70cf3b923fa46d3ed2d9f37486",
+      "review_status": "candidate",
+      "roles": [
+        "formula"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "summary": "L=∑_{r∈R}||Ĉ(r)-C_{gt}(r)||_2^2\n式中，C_{gt}(r)代表与r相关的训练图像像素的真实颜色，R代表与待合成图像相关的射线集合。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "NeRF技术发展方向",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-fc4b1da56c03f135cc382e20",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-9806de881bae1e17c64362810b70b556"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-9806de881bae1e17c64362810b70b556",
+          "evidence_record_sha256": "86af728a2c3e958881ae0d9f18b0cf57663547283c212b7c0e424095f6beb19d",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-27cee4af378a74b31b66d35548b74323",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "nerf技术发展方向",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-27cee4af378a74b31b66d35548b74323",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "summary": "追溯神经辐射场三维重建技术的技术发展前沿，从快速推理到模型训练的加速，从提升模型的可编辑性到生成式重建，以及动态目标重建，神经辐射场三维重建技术的发展正以前所未有的速度推进。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "NeRF快速推理、训练、编辑与动态重建方法",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-bdfe780e02a70bcff0092dd8",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-d103c316281ffd09d95fdc5c49d6ca90"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-d103c316281ffd09d95fdc5c49d6ca90",
+          "evidence_record_sha256": "cf72c4eaf7112f0c9472bb46b618b87398ba05abc83ad428545dfdd06aacc900",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-561744ea5f28b2e556227ba59039312e",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "nerf快速推理、训练、编辑与动态重建方法",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-561744ea5f28b2e556227ba59039312e",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-2"
+      ],
+      "summary": "创新层面\t提出方法\t方法性能报告及开源算法库\n模型快速推理\tKiloNeRF\thttps://github.com/creiser/kilonerf\n\tPlenOctree\thttps://github.com/sxyu/volrend\n\tDONeRF\thttps://github.com/facebookresearch/DONERF\n\tENeRF\thttps://github.com/zju3dv/ENeRF\n模型快速训练\tInstant NGP\thttps://github.com/NVlabs/instant-ngp\n\tPlenoxels\thttps://github.com/sxyu/svox2\n\tTensoRF\thttps://github.com/apchenstu/TensoRF\n\tLightning-NeRF\thttps://github.com/VISION-SJTU/Lightning-NeRF\n模型可编辑\tST-NeRF\thttps://github.com/DarlingHang/st-nerf\n\tCLIP-NeRF\thttps://github.com/cassiePython/CLIPNeRF\n\tSINE\thttps://github.com/zju3dv/SINE\n\tNeural-Gauge-Fields\thttps://github.com/fnzhan/Neural-Gauge-Fields\n生成式重建\tGRAF\thttps://github.com/autonomousvision/graf\n\tpixelNeRF\thttps://github.com/sxyu/pixel-nerf\n\tMVSNeRF\thttps://github.com/apchenstu/mvsnerf\n\tMINE\thttps://github.com/vincentfung13/MINE\n动态场景重建\tNerfies\thttps://github.com/google/nerfies\n\tD-NeRF\thttps://github.com/albertpumarola/D-NeRF\n\tTiNeuVox\thttps://github.com/hustvl/TiNeuVox\n\tHumanNeRF\thttps://github.com/chungyiweng/humannerf"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "3D高斯点染三维重建",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-6536a2c73223e8682c77b81b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-6b00087df687acba07757febbd553d19"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-6b00087df687acba07757febbd553d19",
+          "evidence_record_sha256": "7e532a5c2460118a10eed7e96edfb861e3506ceaaa9d99622c0437e64fefc7b8",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-fb9db166a268fd3b93e2b6907fd0d5ed",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "3d高斯点染三维重建",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-fb9db166a268fd3b93e2b6907fd0d5ed",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "summary": "3D高斯点染三维重建技术是一种先进的三维场景表示和渲染方法，其通过使用大量的三维高斯粒子或微粒来细致描绘复杂的三维场景，每个高斯粒子都具备位置、方向、比例、不透明度和颜色信息等属性信息，共同定义了粒子的几何和光学特性。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "3D高斯点的透视投影",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-6ba6da2cc07ea949071ff392",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+          "evidence_record_sha256": "b7b414f4d7c4ad8f5b02c377965a7c66de5897bc1015aed2eb9a6909b2660547",
+          "is_primary": true,
+          "role": "formula"
+        }
+      ],
+      "gold_kp_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "3d高斯点的透视投影",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+      "review_status": "candidate",
+      "roles": [
+        "formula"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "summary": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "3D高斯二维协方差变换",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-90d893d2ec1d819eaeaec0db",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-b4635872d741e3a6c0e764547d376516"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-b4635872d741e3a6c0e764547d376516",
+          "evidence_record_sha256": "854af7d620c893f9e67af3a701068d261c0bc2280f64ee3362a0816d6d89e232",
+          "is_primary": true,
+          "role": "formula"
+        }
+      ],
+      "gold_kp_id": "gold-kp-c8b6dd9af44af9a218029f1cd7d4d4b7",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "3d高斯二维协方差变换",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-c8b6dd9af44af9a218029f1cd7d4d4b7",
+      "review_status": "candidate",
+      "roles": [
+        "formula"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "summary": "J=[[f_x/t_z,0,-f_x·t_x/t_z^2];[0,f_y/t_z,-f_y·t_y/t_z^2]]\n式中，f_x和f_y代表摄像机焦距。根据相机坐标系到世界坐标系的视角转换矩阵W，转换后的二维协方差矩阵Σ′∈R^{2×2}也随之确定：\nΣ′=JWΣW^T J^T"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "高斯粒子瓦片深度排序",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-bd42432f97100747737c6147",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-ce0b58d4e9bed39607616060acc59261"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-ce0b58d4e9bed39607616060acc59261",
+          "evidence_record_sha256": "0e2b38d27e2145eff00c9614f2b27a87a18909ac47d316736306d09dc1d89046",
+          "is_primary": true,
+          "role": "process"
+        }
+      ],
+      "gold_kp_id": "gold-kp-0ee4716d1cd566faa82e513b9bb4526d",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "高斯粒子瓦片深度排序",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-0ee4716d1cd566faa82e513b9bb4526d",
+      "review_status": "candidate",
+      "roles": [
+        "process"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "summary": "而后，瓦片排序算法将根据每个瓦片块内高斯粒子的深度信息生成深度排序列表，以保证在最终的图像合成时，能够遵循从后到前的正确顺序。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "3D高斯点染技术拓展",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-5359428b7efa27d1858cbbed",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-1c656f4df29556da71c7217626346570"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-1c656f4df29556da71c7217626346570",
+          "evidence_record_sha256": "c898f47882d134376ed270c0da85e7f2752cd6818b31eed22d60640ce32c2cd8",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-26d6af30b85dd717b160faba9e4f1f60",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "3d高斯点染技术拓展",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-26d6af30b85dd717b160faba9e4f1f60",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-2-3"
+      ],
+      "summary": "与此同时，前沿技术的发展正在快速推进3D高斯点染三维重建技术的边界，从算法优化到应用拓展，不断解决传统三维重建的难题。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "SLAM",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-17538584dfe368014f1177acd147a2b9"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        },
+        {
+          "alias": "Simultaneous Localization and Mapping",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-17538584dfe368014f1177acd147a2b9"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "SLAM",
+        "Simultaneous Localization and Mapping"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "同时定位与建图",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-173ae7de51427a7d4557df70",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-17538584dfe368014f1177acd147a2b9"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-17538584dfe368014f1177acd147a2b9",
+          "evidence_record_sha256": "fcc993268ed8412c022b4210cdd386b33537406bb7ff3709c1a5f1ff924e6c74",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-7ca8fb663728b7b0e1b6de71e60dec44",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "同时定位与建图",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-7ca8fb663728b7b0e1b6de71e60dec44",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "summary": "同时定位与建图技术（Simultaneous Localization and Mapping，SLAM）在GNSS信号缺失时，能够提供精确的位姿信息并重建未知环境的地图。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "SLAM传感器特性比较",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-6cca2b6cdc710c8ce5db4296",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+          "evidence_record_sha256": "f3c2686bcd6cb2247718b2d2144671144cc1ef052930fd4e164b2de635784015",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-25c7891bc95308283fd3cfcad3ca7544",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "slam传感器特性比较",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-25c7891bc95308283fd3cfcad3ca7544",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "summary": "传感器\t优点\t缺点\nLiDAR\t1、不受光照变化和黑暗环境影响\n2、具有高精度的深度信息\n3、测量范围广，适用于户外\t1、对结构重复环境、玻璃材质、雨雪天气、动态环境敏感\n2、测量稀疏，垂直方向覆盖范围有限\n3、体积大，功耗高\n相机\t1、成本低，轻便，低功耗\n2、测量密集，像素信息丰富\n3、富有颜色信息\n4、语义信息便于提取\t1、对光照变化、特征稀缺、动态环境敏感\n2、单目相机尺度模糊\nIMU\t不受环境变化影响\t具有累计误差"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "多传感器异构数据处理挑战",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a82f76634716f55660e023f2",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-cb0846fb32a5dd3d31485859a0290141"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-cb0846fb32a5dd3d31485859a0290141",
+          "evidence_record_sha256": "86ea7b525a58b8847c5767325993f14e23d0423ce9dfd48b31f4ba7c950dfb7d",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-065c5ece3c3203c045afd3857f132688",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "多传感器异构数据处理挑战",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-065c5ece3c3203c045afd3857f132688",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "summary": "不同的传感器具有不同的硬件布局和输出频率，这为多传感器数据处理带来了相当大的挑战。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "LIO-SAM",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-6d283bc91835866895343ee8",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-34207553fec0fd47868ebc31e2a7b86b"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+          "evidence_record_sha256": "2d1cfde067ba5e9c28bc074dea7c3279d65226a938e08b8c6c43b72f77998700",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-8c0e8220f6fb5141bea100464036a6da",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "lio-sam",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-8c0e8220f6fb5141bea100464036a6da",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "summary": "LIO-SAM是基于图优化的LiDAR与IMU融合的SLAM算法，它将IMU预积分因子、LiDAR测量因子和闭环检测因子整合到系统中。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "视觉-IMU子系统的无特征鲁棒性",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-c8fd15db5ba60ab8e501534d",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-9f350313b9d2181d3fb13d62b08713e1"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+          "evidence_record_sha256": "b4f4a2b92dcc76ffe6cae1e6e66c88ae3e3fa9e35b4e0f51adcd6b7b6a8beb7a",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-396e44de025a03f747c2a169e7484727",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "视觉-imu子系统的无特征鲁棒性",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-396e44de025a03f747c2a169e7484727",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-6-3"
+      ],
+      "summary": "它的视觉-IMU子系统不依赖于环境中的显著视觉特征，节省了特征检测和提取的处理时间，尤其在缺少纹理的环境中提高了系统的鲁棒性。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "智能可穿戴系统的技术链路",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a25c4c7689cbf6f31e5f730b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+          "evidence_record_sha256": "ed8d09553a893baf75b4d30f1352a4a70f007e25013ec3ae158eaf4072a5e0ec",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-db9d8be9eff604770a8280294e01ed70",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "智能可穿戴系统的技术链路",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-db9d8be9eff604770a8280294e01ed70",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "summary": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "可穿戴传感器性能要求",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-3e829897fed66b6830538859",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-0a09643ff9ca8345e5659613b1f7626f"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+          "evidence_record_sha256": "aae6a192fbe6f57fd5c6140690db88cb959a14d14bb8baffe280f8a348923d6a",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-236cce2bbb400e1b8036dc942a576297",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "可穿戴传感器性能要求",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-236cce2bbb400e1b8036dc942a576297",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "summary": "可穿戴传感器必须具有较高的稳定性、专一性和灵敏度，确保其能够捕捉到脉搏跳动、汗液成分等微小信号的准确变化。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "可穿戴传感数据算法类型",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-750bc465bf26f18fbc9cb16b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-9376f75284ba93d51d39a91efd40fe3c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-9376f75284ba93d51d39a91efd40fe3c",
+          "evidence_record_sha256": "a7487a2e40b7df45d37f9ebeb91e9b099599ee4ba4452d70c71a97c22ef38006",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-c016211ffa5d73f31ce8a1e8cd3fa290",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "可穿戴传感数据算法类型",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-c016211ffa5d73f31ce8a1e8cd3fa290",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "summary": "数据\t算法类型\t计算类型\t具体算法\n传感数据\t监督式\t离散-分类\tSVM、ANN、kNN、决策树、随机森林等\n\t\t连续-回归\t线性化、SVM、ANN、贝叶斯回归等\n\t半监督式\t\t生成模型\n\t\t\t强化学习\n\t无监督式\t离散-聚类\tk-means、高斯均值、分层聚类等\n\t\t连续\t数据降维、特征提取、模式识别"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "可穿戴传感数据挖掘",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-6f36d06b3aab63395b85eb72",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-37c2653936a801fb1ace1e57b6e94fd8"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-37c2653936a801fb1ace1e57b6e94fd8",
+          "evidence_record_sha256": "33db6fb65f4972f3d14c33d5a6d70d37361baefce292f2ece58d2edb814ace33",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-ba49789e9703f280bca640ab42bdb44c",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "可穿戴传感数据挖掘",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-ba49789e9703f280bca640ab42bdb44c",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "summary": "（1）数据挖掘：人工智能算法能够对大量的传感器数据进行实时分析，识别出有意义的健康和运动模式。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "智能可穿戴系统低功耗设计",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-7d4cee5e5c8f35ccce4f36fc",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-0acd252ac0318ce3b16d8d78f916db2c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-0acd252ac0318ce3b16d8d78f916db2c",
+          "evidence_record_sha256": "170c0785b3f784750a87c034ab2d5d64ccf8509b8ad3960d70cbdd2246d68985",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-d532b608aae6257cd0215c2b2acce2f6",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "智能可穿戴系统低功耗设计",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-d532b608aae6257cd0215c2b2acce2f6",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-1-2"
+      ],
+      "summary": "为改善监测效果和使用体验，智能可穿戴系统需要在开发丰富感知功能的同时尽可能保持低功耗。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "计算机视觉在军用自动驾驶感知中的应用",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-f718da67c9d519a314af007a",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-dacfc351ae9150a5594070769c072068"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-dacfc351ae9150a5594070769c072068",
+          "evidence_record_sha256": "00a910cf16597cc10118c89445098a5db604da453fc91d2a2624772dcce955c3",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-6e2b05246ce2d5e442aa6711c47a4dc3",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "计算机视觉在军用自动驾驶感知中的应用",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-6e2b05246ce2d5e442aa6711c47a4dc3",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "summary": "针对非结构化场景的军用自动驾驶技术研究取得了较大的进展，其中发展最迅速的即是计算机视觉技术在感知系统的应用。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "深度学习军事目标识别",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-144e1d831908436758ab111a",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-750ad563b07807797cfeb7840ad3cbc1"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-750ad563b07807797cfeb7840ad3cbc1",
+          "evidence_record_sha256": "cc4d04e775e4fe519bcb48b1cdadb41a4a5784814b78850cbd9f0ca3423d1ff2",
+          "is_primary": true,
+          "role": "example"
+        }
+      ],
+      "gold_kp_id": "gold-kp-cfe0d2745d666858caa16c5f7e728570",
+      "granularity": "atomic",
+      "importance": "optional",
+      "merge_conflict_ids": [],
+      "normalized_name": "深度学习军事目标识别",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-cfe0d2745d666858caa16c5f7e728570",
+      "review_status": "candidate",
+      "roles": [
+        "example"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "summary": "针对实际作战军事目标比如坦克、装甲车辆、武装人员等通常处于室外复杂多变且空间尺度大的环境背景中，目标易受背景多变、地物遮挡、尺度变化因素干扰的问题，基于深度学习的目标图像自主识别技术不易受环境因素影响、鲁棒性好、适应能力强，可以通过图像自动学习目标特征、提取目标特征，最终实现根据识别目标特征来判断目标属性以及目标方位。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "军事目标距离与图像像素尺寸",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-ca31fd8ae366367ff5b2f3a8",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-b5848cc84a30502e827293c903043ec2"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-b5848cc84a30502e827293c903043ec2",
+          "evidence_record_sha256": "503538758caa572b3b2069e29f845d25941a9d8f4467f80a8e58f0e1ee8d3f61",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-9cda457fe0b87bf5a0d7df429f4c1622",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "军事目标距离与图像像素尺寸",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-9cda457fe0b87bf5a0d7df429f4c1622",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "summary": "种类\t中型卡车\t小轿车\t人员\n距离\t6.8m*2.7m\t4.3m*1.5m\t1.7m*0.5m\n5.5km\t27*11\t20*7\t\n3km\t50*21\t36*13\t\n1km\t150*63\t108*36\t\n800m\t\t\t48*14\n500m\t\t\t78*23"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "军事目标毁伤检测",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-8b91250cae6ad591dd79c28e",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-8e7f5191ecc55a07bf9bd0c23da8a94c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-8e7f5191ecc55a07bf9bd0c23da8a94c",
+          "evidence_record_sha256": "4d82f459be8c0b5dc019d12fed69ff13d6f72d69e381227b5866aa64e1d138dd",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-6855c860bf28dfb511d635502586e898",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "军事目标毁伤检测",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-6855c860bf28dfb511d635502586e898",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "summary": "毁伤情况的检测作为一个概念检测的任务，是对前述技术应用的系统集成，是根据实际经验迭代形成的，并且在实际应用中不断完善，不断优化以适应实际的战场需求。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "战场SLAM地图",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-41be831670d20f517690c4b2",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-98ed1e051c4b052625cc4314716bc71e"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-98ed1e051c4b052625cc4314716bc71e",
+          "evidence_record_sha256": "faf3dc8c7e26d27b74973b7f06e544f6f47b9ad266f134e24afc2074a2a0810f",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-db89c56a9cc1811da29fcd3bd89978ac",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "战场slam地图",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-db89c56a9cc1811da29fcd3bd89978ac",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-2-2"
+      ],
+      "summary": "最终呈现给操控人员准确的SLAM地图，用以判断战场形势。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "智慧服务",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-7d2f037be2d7e0335f134278",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-269e7d294a9ea10ec381845fed1c0669"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-269e7d294a9ea10ec381845fed1c0669",
+          "evidence_record_sha256": "12ee1b4b65cc45340c610ba6008abd4ee71e31df9e58f952b474897233921494",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-515ffe64786dd377d4ce267fe3a9cf51",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "智慧服务",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-515ffe64786dd377d4ce267fe3a9cf51",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "summary": "智慧服务的核心在于通过先进技术实现对环境的感知和理解，并通过智能决策和人机交互为用户提供更便捷和高效的服务。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "智慧服务机器人政策环境",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-7b002afea98dabff4809035b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-a63ff5485aa0ef4684620c1ae70da74f"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-a63ff5485aa0ef4684620c1ae70da74f",
+          "evidence_record_sha256": "3af053af452bae9084ae75f4b5a8ced025f6a251982e9d38fba0428f41629d21",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-50f6c11a81fbaacea0e8866cb726fdf4",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "智慧服务机器人政策环境",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-50f6c11a81fbaacea0e8866cb726fdf4",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "summary": "发布时间\t发布单位\t政策名称\n2021年3月\t全国人大\t《中华人民共和国国民经济和社会发展第十四个五年规划和2035年远景目标纲要》\n2021年12月\t工信部等部门\t《“十四五”智能制造发展规划》\n2021年12月\t工信部等部门\t《“十四五”机器人产业发展规划》\n2022年1月\t国务院\t《“十四五”旅游业发展规划》\n2022年12月\t发改委\t《“十四五”扩大内需战略实施方案》\n2023年1月\t工信部等部门\t《“机器人+”应用行动实施方案》\n2023年10月\t工信部\t《人形机器人创新发展指导意见》\n2024年1月\t工信部等部门\t《关于推动未来产业创新发展的实施意见》"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "无接触经济与服务机器人",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-9990444838e8668906a953d3",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-7aad9ec018e1c23c8450e4eb3eb8c8ef"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-7aad9ec018e1c23c8450e4eb3eb8c8ef",
+          "evidence_record_sha256": "06df9734860d1c587b0e6c1ef31e50b359641c27f56bf939a49bef8bad376dd9",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-a8e7628798cc8930744b96e5e171a6b5",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "无接触经济与服务机器人",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-a8e7628798cc8930744b96e5e171a6b5",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "summary": "“无接触经济”在后疫情时代也凸显出其重要性，无人配送、无人零售、智能接待等需求，为中国服务机器人市场带来了新的活力。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "服务机器人软件架构",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-834a3e7b98d421f6c14abc4b",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-8678aa8ac3b7207a105135326cdd7109"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-8678aa8ac3b7207a105135326cdd7109",
+          "evidence_record_sha256": "65c4d7b85b4ca692c8bc9a5ab3e2323f97cde280db7b00b8f82a75ebbba0204c",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-8325919b4cd8c8efac5ce859d860b9c2",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "服务机器人软件架构",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-8325919b4cd8c8efac5ce859d860b9c2",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "summary": "软件组成主要由智能算法模块、控制管理平台和用户界面等模块构成。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "服务机器人视觉交互",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-e521d947907461457ffae7df",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-45b6cf06eb11c87041e80cb332e0fb08"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-45b6cf06eb11c87041e80cb332e0fb08",
+          "evidence_record_sha256": "7e54a6f28d11f20c8f1d4cf8a38bb819961d15b1772d21ae36d8485d8f58a960",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-3dc290c217ade6e86198f39cb5750262",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "服务机器人视觉交互",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-3dc290c217ade6e86198f39cb5750262",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-5-1"
+      ],
+      "summary": "c) 视觉交互界面：通过识别用户手势、表情等交互方式进行指令输入。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能天气预报",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-12519a7344fb4a2612fe7de7",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-af3a3107e1f93c42fd335609b578ed70"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-af3a3107e1f93c42fd335609b578ed70",
+          "evidence_record_sha256": "95167913e369e543d48d6ad095900028de161201cdca5a6198f5854ff011afa2",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-95d5461ad9f59b0892efc3ce2bfd77fc",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能天气预报",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-95d5461ad9f59b0892efc3ce2bfd77fc",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-7"
+      ],
+      "summary": "天气预报是科学计算的一个重要应用，旨在预测未来的天气变化，尤其是极端天气事件的变化。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型与机器人融合",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-4ddaaf64b235d250da0c1d6f",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-cd90184e756b31b7c7d14f2eaa4860ae"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-cd90184e756b31b7c7d14f2eaa4860ae",
+          "evidence_record_sha256": "873da403fef38128776a0b0f3da92aaeb1aae86d8bd6211f37c4deaa961200e8",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-d5fc752da2ecff8fbaf8aecf030b4968",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型与机器人融合",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-d5fc752da2ecff8fbaf8aecf030b4968",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-7"
+      ],
+      "summary": "展望未来，机器人领域与人工智能领域的研究者们需紧密合作，共同发掘大模型蕴藏的无限可能，同时直面其在实际应用部署中的诸多挑战，通过协同努力寻求解决方案。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型辅助学生学业预警",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-1b1d5af5a0f27edc60c33338",
+      "course_id": "course_ai_algorithms_systems",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-4a2e9ba97e83437aff6a599a00127645"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-4a2e9ba97e83437aff6a599a00127645",
+          "evidence_record_sha256": "2f57dfebb191e0a887f6d05ce6f2b419bad4452dc5c52c970eb55aa74feb9590",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-b24d7edac0d956fb6476ea75a759a909",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型辅助学生学业预警",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-b24d7edac0d956fb6476ea75a759a909",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-docx-9-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-docx-9-7"
+      ],
+      "summary": "在综合管理方面，大模型技术通过整合学生的历史成绩数据、学习习惯、课程难度及教师评价等多源信息，能够有效分析并预测学生学业表现并及时预警，并提供针对性的学习建议和辅导资源。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "图灵机",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-acae4b964c99ff208f6cb974",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-5f615419a6355000cd637eb5bcd473a3"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-5f615419a6355000cd637eb5bcd473a3",
+          "evidence_record_sha256": "45dff2b32c12c2d4f170ced0d6de92c507b3fb778062dcaf57fd9fe4fc3df2cd",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-31bff4d251545530f9d14b3e28fc2560",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "图灵机",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-31bff4d251545530f9d14b3e28fc2560",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-1"
+      ],
+      "summary": "1936年，图灵提\n出了一种Copy抽象的计算模型——图灵机(Turing Machine)。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "思维机器公司",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-2149219544fc6010008ae38c",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-203251897a3d2eef2cfa747cbbe59fc2"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-203251897a3d2eef2cfa747cbbe59fc2",
+          "evidence_record_sha256": "96be7345342b7379c4a8295c26d660da3b0cf0175876f24a6d2114d88b34e505",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-5332dff31d6b5135944ad9e19819f610",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "思维机器公司",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-5332dff31d6b5135944ad9e19819f610",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-1"
+      ],
+      "summary": "马文·明斯基的另一重\n要贡献是创建了著名的“思维机器公司”，开发具有智能属性的计算机。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "早期计算机在数学和自然语言中的应用",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-1ad76b3c05b26c37e816f890",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-b9857bdc1a027788ca9043a1001e9477"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-b9857bdc1a027788ca9043a1001e9477",
+          "evidence_record_sha256": "834d7e35928462a62bcdc75d43ae24968d850ac0a05c3cc3530622d1df3c0061",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-9c24f4aaf5cffc5a203170f78ae9da3b",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "早期计算机在数学和自然语言中的应用",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-9c24f4aaf5cffc5a203170f78ae9da3b",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-1"
+      ],
+      "summary": "在这段长达十余年的时间里，计算\n机被广泛应用于数学和自然语言领域，用来解决代数、几何和英语等相关问题。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "AI",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        },
+        {
+          "alias": "Artificial Intelligence",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "AI",
+        "Artificial Intelligence"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-ccb800f4ed64dae32a79489d",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-47ac1a377be899cf37f3403ae7f7568d",
+          "evidence_record_sha256": "db6db04049cde3c776b1dd15fff3155777f5b540e6ec8b93660126907101a350",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-9fea9aad0349530b8fecd24d8685f488",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-9fea9aad0349530b8fecd24d8685f488",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "summary": "人工智能(Artif icial Intelligence，AI)是计算机学科的一个分支，20世纪70年代以来被\n称为世界三大尖端技术(空间技术、能源技术、人工智能)之一，也被认为是21世纪三大\n尖端技术(基因工程、纳米科学、人工智能)之一。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工与智能的概念分解",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-d7e38851a2e0d496dd260293",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-7898c01ada50d223ac64a6779dc775d3"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-7898c01ada50d223ac64a6779dc775d3",
+          "evidence_record_sha256": "48bb9bc1c96c7d9bbb5151ee68095391d4ecbfa6427ad0feab6650f27eddf646",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-159b2e8e8d4afce2bb39c5ded345b659",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工与智能的概念分解",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-159b2e8e8d4afce2bb39c5ded345b659",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "summary": "对人工智能的理解可以分为两部分，即“人工”和“智能”。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "机器智能的界定难题",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-e78fdcc11e60c2fe0265e991",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-4f40dc8586ca6829794799ceae4826cd"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-4f40dc8586ca6829794799ceae4826cd",
+          "evidence_record_sha256": "d472b0cd0c2b9c8a5226e96a286cb04aa71c25906652474ffe09f8cb0f00b212",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-fca87d1214a2b210c9224de0eac73138",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "机器智能的界定难题",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-fca87d1214a2b210c9224de0eac73138",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "summary": "因为要界定机\n器是否具有智能，必然要涉及什么是智能的问题，但这却是一个难以准确回答的问题。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "Google Duplex语音助理",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a0bd2ef9f15da1c5ef2ad235",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-38cd360af1237ea0f2ab5fa2a180c208"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-38cd360af1237ea0f2ab5fa2a180c208",
+          "evidence_record_sha256": "ec38efeb38b9f894d5a50d51ed6d5ce3ee02229f0df36b91de2a23cd4a0aa050",
+          "is_primary": true,
+          "role": "example"
+        }
+      ],
+      "gold_kp_id": "gold-kp-4e659c3501ecbb1ce06e3455ee4b9e51",
+      "granularity": "atomic",
+      "importance": "optional",
+      "merge_conflict_ids": [],
+      "normalized_name": "googleduplex语音助理",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-4e659c3501ecbb1ce06e3455ee4b9e51",
+      "review_status": "candidate",
+      "roles": [
+        "example"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-1-2"
+      ],
+      "summary": "在2018年的谷歌开发者大会上，谷歌向外界展示了其人工智能技术\n在语音通话应用上的最新进展，比如通过谷歌Duplex个人助理帮助用户\n在真实世界中预约了美发沙龙和餐馆。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "图灵测试",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-9ffa99b16924069c04f76f23",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-1e0ec0e13e609ea4919796d87c7e0dfd",
+          "evidence_record_sha256": "a2681cdb104633dd8d8d0c90f41b05d41b8bc37e5b1ae63a9b968621732084c9",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-2f1b1578adda98423fe4457e957f7d56",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "图灵测试",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-2f1b1578adda98423fe4457e957f7d56",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "summary": "1950年，著名的“图灵测试”诞生，按照图灵的定义：如果一台机器能够与人类展开\n对话(通过电传设备)而不能被辨别出其机器身份，那么称这台机器具有智能。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "IBM沃森问答系统",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-03e04adb65188820e1900fd6",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-a95425415c717538eb8e12984a3caaef"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+          "evidence_record_sha256": "caad5b639b1038dca8b1e1cc106b599dfe4a4a0d4ec7e8ce1a13abe64af07c87",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-90ccc5c8790242574c98edd956313bd0",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "ibm沃森问答系统",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-90ccc5c8790242574c98edd956313bd0",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "summary": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "深度学习平台推广",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-b475ceab0b894dacd7e68607",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-63b2a09988aa11ff3c6d483a0b162917"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-63b2a09988aa11ff3c6d483a0b162917",
+          "evidence_record_sha256": "e0f41a969802603722c0604ce78e58674272f4d19f7743df173c0cb46bf2d21a",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-dda5c1fe396a386e759d371a71e90a82",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "深度学习平台推广",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-dda5c1fe396a386e759d371a71e90a82",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "summary": "谷歌收购了语音和图像识别公司DNNResearch，推广深度\n学习平台；"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "大模型区域产业生态",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-21a746ab0e3dd5927e0128c3",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-d388ee889882727dcfcd0d06ad3e6df0"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-d388ee889882727dcfcd0d06ad3e6df0",
+          "evidence_record_sha256": "0ba3d11ae553718ab63c76d727e2d6849d4baf3671573334f809001dba4fc756",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-0589d4817d0d4c982dfc74532220cc1a",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "大模型区域产业生态",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-0589d4817d0d4c982dfc74532220cc1a",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-1"
+      ],
+      "summary": "其中，北京聚集了全国35%的大模型企业，杭\n州则依托阿里云构建了算法—算力闭环生态。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "职业自动化淘汰概率",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-7a8f295b27b2857839928626",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+          "evidence_record_sha256": "a2ca1f7592e46410b667ea0c678bdab623713e05c17ec064b1703844bbe956e0",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "职业自动化淘汰概率",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "summary": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "不易被人工智能取代的工作特征",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-fe4331563d3a96a0562a5d05",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-e3e6a8faf68b6e239ae34c4cfdda2fb1",
+          "evidence_record_sha256": "537d4a23106b7b324651e3016f797850e3d3ae9ea9cd884124cef16d27fa2a5b",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-45eb73abb93d6175f6177512183193aa",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "不易被人工智能取代的工作特征",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-45eb73abb93d6175f6177512183193aa",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "summary": "(1)被人工智能取代可能性较小的工作具有如下特征。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "职业自动化风险分析",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-432f5d90047942fa22be6680",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-73452f80b793aba65cdb9b1032838d27"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-73452f80b793aba65cdb9b1032838d27",
+          "evidence_record_sha256": "0f5e849e8675c1275d01d90f2c01f17011ff6b2d2fa4b8a6a3b8519d178c26c1",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-72d89298dfc07914d1f62d4a3c98eb76",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "职业自动化风险分析",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-72d89298dfc07914d1f62d4a3c98eb76",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "summary": "BBC基于剑桥大学研究者Michael Osborne和CarlFrey的数据体系分析了未来365种\n职业在英国的被淘汰概率，部分职业的被淘汰概率如表1-1所示。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "通用人工智能目标",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-db63e7eba687804e1dc1bbf1",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-09df817f5eea22a230d1926ee8a19036"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+          "evidence_record_sha256": "7f6bd3185dbfefbe75fc460ad199bd0363c544e9972d616b096c407778cfa663",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-4312e4de9cec49fb39d8518764bdf600",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "通用人工智能目标",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-4312e4de9cec49fb39d8518764bdf600",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-2"
+      ],
+      "summary": "AlphaGo开发团队创始人戴密斯·哈萨比斯提出，要朝着“创造解决世界上一切问题\n的通用人工智能”这一目标前进。"
+    },
+    {
+      "alias_annotations": [
+        {
+          "alias": "AGI",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-e45b2242f6d079448a93922b96e5c4d0"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        },
+        {
+          "alias": "Artificial General Intelligence",
+          "basis": "source_text",
+          "evidence_ids": [
+            "gold-ev-e45b2242f6d079448a93922b96e5c4d0"
+          ],
+          "rationale": "Alias is printed in the bound source Evidence."
+        }
+      ],
+      "aliases": [
+        "AGI",
+        "Artificial General Intelligence"
+      ],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "通用人工智能",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-42548972c66dfab2eaa9310f",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-e45b2242f6d079448a93922b96e5c4d0"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-e45b2242f6d079448a93922b96e5c4d0",
+          "evidence_record_sha256": "3ee890c3f7ea507b224aff85e0a89a93bd82ee467e62f95dfd697a2b6c9be741",
+          "is_primary": true,
+          "role": "definition"
+        }
+      ],
+      "gold_kp_id": "gold-kp-9042005569bcb8403b20f3b7e22b43db",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "通用人工智能",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-9042005569bcb8403b20f3b7e22b43db",
+      "review_status": "candidate",
+      "roles": [
+        "definition"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "summary": "通用人工智能(Artiﬁcial General Intelligence，AGI)是一种未来的计算机程序，可以执\n行相当于人类甚至超越人类智力水平的任务。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "通用人工智能的跨领域任务能力",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-c865e0b6d7d2fd985cfa519f",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-a99ba8f34aed9c20ccc731673de222ba"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+          "evidence_record_sha256": "b7c5b3aa04bd605172971dcc5fa7be3b1cb2c7e6dd28fb397bc796db1362a0a4",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-b49206a1595be66884b9d6fc3a61684f",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "通用人工智能的跨领域任务能力",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-b49206a1595be66884b9d6fc3a61684f",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "summary": "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "通用人工智能的人类能力与自我意识边界",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-6100c1f31ea9d9de649690c8",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-ae3c8bbcde5fb29d3c00dbf07a25b002",
+          "evidence_record_sha256": "04b66d46b46366f76cb14b0443f502f84bde37a1442c45f5a6b8c78bbdf3e5a3",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-178b3f85ded00640ce7ef7752cc2140a",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "通用人工智能的人类能力与自我意识边界",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-178b3f85ded00640ce7ef7752cc2140a",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "summary": "(1)通用人工智能强调的是拥有像人一样的能力，可以通过学习胜任人可以做的任何工\n作，但不要求它有自我意识。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "安全通用人工智能使命",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-0eb7d9b1f30ca449f426be04",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-e9e4e1f98f3694dcc2445c4623bb72c9",
+          "evidence_record_sha256": "c1a42bb14c8fca95be4c438ad05f3c84ab5e6e8e2e617e1e3fa8b5c97575e4b2",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-e16d29a0b1bfb3c46cddbe1fcb8000fb",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "安全通用人工智能使命",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-e16d29a0b1bfb3c46cddbe1fcb8000fb",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-2-3"
+      ],
+      "summary": "特斯拉创\n始人埃隆·马斯克参与创立并领导的OpenAI的使命是“建立安全的AGI，\n并确保AGI的好处尽可能广泛而均匀地分布”\n。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "特定领域人工智能突破条件",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-3bddcdb389a424667bb59ce1",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-e7f49db4c61d212c410a7cf2964c96d9"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+          "evidence_record_sha256": "abd57f233327af86beb4a9b6c710c042dadd403d5179195a9859dc0682609bd7",
+          "is_primary": true,
+          "role": "principle"
+        }
+      ],
+      "gold_kp_id": "gold-kp-5f7ca387331ded27517b7d64a59ec7dc",
+      "granularity": "atomic",
+      "importance": "core",
+      "merge_conflict_ids": [],
+      "normalized_name": "特定领域人工智能突破条件",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-5f7ca387331ded27517b7d64a59ec7dc",
+      "review_status": "candidate",
+      "roles": [
+        "principle"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "summary": "因为特定领域的任务相对单一、需求明确、应用边界清晰、领域知识丰富，所以建模\n相对简单，人工智能在特定领域更容易取得突破，更容易超越人类的智能水平。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能语音识别、合成与实时翻译",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-e18c69377f3f674ade8524be",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-1c9a57c874696d23336a0cf4aa6990ff"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-1c9a57c874696d23336a0cf4aa6990ff",
+          "evidence_record_sha256": "904dadf1799e34656908c707061aa5e4d063f04f28582b40d818755fc8b600b5",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-36c706993b11ac2127de9a718bf90295",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能语音识别、合成与实时翻译",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-36c706993b11ac2127de9a718bf90295",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "summary": "传媒领域存在大量跨文化、跨语言的交流和互动，应用人工智能语音识别、合成技术，\n能够根据声纹特征，将不同的声音识别成文字，同时能够根据特定人的声音特征，将文本\n转换成特定人的声音，并能在不同的语言之间进行实时翻译，将语音合成技术和视频技术\n相结合，合成虚拟主播，播报新闻。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "全仿真智能AI主持人",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-bd1610bc7d9ac46a44c76303",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+          "evidence_record_sha256": "394f8b47eb5209f8fc893f57c7295d3ddac40eb7cce01c6998b295bccda20542",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-c6cccd5082a97ff0f15d9b237abda2b9",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "全仿真智能ai主持人",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-c6cccd5082a97ff0f15d9b237abda2b9",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "summary": "在2018年11月7日开幕的第五届世界互联网大会上，搜狗与新华社联合发布了全球\n首个全仿真智能AI主持人。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "开源语音技术生态",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-e369e7d5847e18ac65821d96",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-1831686810531ef3dd015742629827e9"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-1831686810531ef3dd015742629827e9",
+          "evidence_record_sha256": "a737a197fdbf2cdbfbad2b0175a0f4791811aadf7637d701dde689671a0fb21a",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-cf474863984d8ce64418502f20a3837f",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "开源语音技术生态",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-cf474863984d8ce64418502f20a3837f",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "summary": "开源项目不断涌现，降低了技术门槛，让更多人\n能参与到技术开发和应用中，像Spark-TTS就是SparkAudio开源社区联合多个机构发布的。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能语音合成风险",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-0e539636960d98d828ce7a31",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-038b4413d51c1b35b884caf999ec92e0"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-038b4413d51c1b35b884caf999ec92e0",
+          "evidence_record_sha256": "e85d01a4af51765f83cfc9786f73e79e65bac933b06c343878eae163ed6fa1af",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-a03776e8707f7ff4cd71d6f63391351d",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能语音合成风险",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-a03776e8707f7ff4cd71d6f63391351d",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-1"
+      ],
+      "summary": "然而，AI语音合成技术在快速发展的同时，也带来了一些问题。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能个性化教育",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-5ad7b2d07fe980b707f7df42",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-2b921c5153ba3d619e3b28d184af08b1"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-2b921c5153ba3d619e3b28d184af08b1",
+          "evidence_record_sha256": "cdf71150768bbd15f5fe9f34c2c7e22c45bc2195ad16b689cc2dc3ea2b9908f6",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-1256172f9295d9f6f23a2bc44095a112",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能个性化教育",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-1256172f9295d9f6f23a2bc44095a112",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "summary": "随着人工智能的逐步成熟，个性化的教育服务将得到进一步发展，“因材施教”可能成\n为现实。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "双AI教学演练",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-af48679256f93b5ecec9cd1a",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-7a68a8df0bca457e22b2efb289d137bd"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-7a68a8df0bca457e22b2efb289d137bd",
+          "evidence_record_sha256": "7a264a0293d1915b9d0d75bfd96b8daf54e4d53a388119f6bc9f9812549c75d5",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-9b8af2a4a77376bd25da2e8790ef50d4",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "双ai教学演练",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-9b8af2a4a77376bd25da2e8790ef50d4",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "summary": "在自适应系统中，可以有一个学生身份的AI，有一个教师身份的AI，通过不断演\n练教学过程来强化AI的学习能力，为用户提供更智能的教学方案。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "智能测评阅卷",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-2df64ec91cae7b7978dbac23",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-d40e3b8c3cb7f8b0b054f7e2ae5c8992",
+          "evidence_record_sha256": "9f3fc2f6ded496bb93195a5cc639f52a88304ce8fa9a4b5fd790c2172e5cc4a9",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-3e1375d7e1a8d205d76b60a7c934a7fa",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "智能测评阅卷",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-3e1375d7e1a8d205d76b60a7c934a7fa",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "summary": "传统阅卷需要占用大量人力、物力资源，且费时费力，而借助人工智能技术，越来越\n多的阅卷工作可以交给智能测评系统来完成。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "课堂教学智能反馈",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-a8978a07cb6ba110dfaba95e",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-69d5817d5c65fb586045ff620d8226d5"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-69d5817d5c65fb586045ff620d8226d5",
+          "evidence_record_sha256": "f46594e7a0263a4c7403e536fe17de84cf78d2f7ff3b60602967c0b7506961bf",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-f810ce01880e19ad117c37b63bfa1f15",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "课堂教学智能反馈",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-f810ce01880e19ad117c37b63bfa1f15",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "summary": "课堂教学智能反馈系统可以分析学生的课堂专注度和学习状态。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "学生专注度分析流程",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-1358a9dafc0a5f3c5b8196fe",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-e300c37f5e95ad19b9c0be5e4217db4a",
+          "evidence_record_sha256": "bfb8e30bddca5d125e46bad7a03c8584071dd7e98d0101a0734e107ff7642012",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-f4381fad242d4d450c87bf8b330f59ba",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "学生专注度分析流程",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-f4381fad242d4d450c87bf8b330f59ba",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-4"
+      ],
+      "summary": "在教室正前方设置摄\n像头采集视频，通过前置计算设备或服务器集成的专注度分析模型进行检测与识别，自动\n分析学生的专注度，实时将专注度及各种行为统计结果反馈给学校管理系统，并在课后生\n成教学报告，从而实现教学与管理的联动。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "生物识别支付认证",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-f1d4b1c8d457759649526268",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-be751fca2dda9ea3000329029002714c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-be751fca2dda9ea3000329029002714c",
+          "evidence_record_sha256": "9a73c070ace6762070a729c876431f1ea44241efa01601bacc5a88de14333189",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-344713c4ac2ba2354922adc470161bb9",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "生物识别支付认证",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-344713c4ac2ba2354922adc470161bb9",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "summary": "随着人工智能的发展，出现了用生物识别替代通用的“介\n质安全认证＋密码认证”识别方式的趋势。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "刷脸支付",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-2a3ecc40147b26edd4e6835f",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-44b4860b2b3bdc81b634213a90212d8c"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-44b4860b2b3bdc81b634213a90212d8c",
+          "evidence_record_sha256": "d45c523f7b27c12453fc75aef91e5326f2766c05621db9bb8fd25e6addf8ba87",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-30518f0598711e81f18a55baec140461",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "刷脸支付",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-30518f0598711e81f18a55baec140461",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "summary": "2017年9月1日起，支付宝刷脸支付开放部分试点，实现了真正的商用。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能交易异常检测",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-9f1e74617525590f6f84d39b",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+          "evidence_record_sha256": "9f75972831c631cbaa320522f28b570e92221b38689448eb5dbf187b0a150e11",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-beb17dbcc8eb8fe7ad9aa87fe676b722",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能交易异常检测",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-beb17dbcc8eb8fe7ad9aa87fe676b722",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "summary": "AI通过分析用户画像、交易特征，可以做到异常检\n测、判断预警。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "跨境支付汇率风险",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-383fb866656b4c3612c3fd7d",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-2a2e17d197342c4a0d463f3d331b123b"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-2a2e17d197342c4a0d463f3d331b123b",
+          "evidence_record_sha256": "866d8e48870fda9f39b0d054fc9a345a5537988ee9d99f25cf1bae4a0603cf09",
+          "is_primary": true,
+          "role": "support"
+        }
+      ],
+      "gold_kp_id": "gold-kp-52cbef9575bde4af6cbdba56c933e2cc",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "跨境支付汇率风险",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-52cbef9575bde4af6cbdba56c933e2cc",
+      "review_status": "candidate",
+      "roles": [
+        "support"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "summary": "在跨境支付中，汇率波动会直接影响交易成本和结算金额。"
+    },
+    {
+      "alias_annotations": [],
+      "aliases": [],
+      "annotation_profile": "formal_ds3_v1",
+      "annotation_rationale": "The Candidate names one teachable concept, method, property, formula, or application stated by the primary Evidence; the summary is verbatim Gold text.",
+      "approval": null,
+      "candidate_source": "human",
+      "canonical_name": "人工智能支付合规监控",
+      "composite_rationale": null,
+      "concept_family_id": "kp-family-bfc916f3598e66ab8ef57126",
+      "course_id": "course_ai_general_education",
+      "cross_section_rationale": null,
+      "evidence_ids": [
+        "gold-ev-08b0d7882e524572142e7a1d5ba061ab"
+      ],
+      "evidence_links": [
+        {
+          "evidence_id": "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+          "evidence_record_sha256": "d9613db28ba21758c6063c987e7a48db7546e2f82c651becb2058e376f415406",
+          "is_primary": true,
+          "role": "application"
+        }
+      ],
+      "gold_kp_id": "gold-kp-034045e71fc83557e1700d2b6c187807",
+      "granularity": "atomic",
+      "importance": "supporting",
+      "merge_conflict_ids": [],
+      "normalized_name": "人工智能支付合规监控",
+      "parent_gold_kp_id": null,
+      "record_id": "gold-kp-034045e71fc83557e1700d2b6c187807",
+      "review_status": "candidate",
+      "roles": [
+        "application"
+      ],
+      "section_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "source_scope_ids": [
+        "ds3-scope-pdf-1-3-7"
+      ],
+      "summary": "在审查合规性时，AI可用于合规监控、风险评估、自动化报告。"
+    }
+  ],
+  "schema_version": "courserag.ds3.v1"
+}

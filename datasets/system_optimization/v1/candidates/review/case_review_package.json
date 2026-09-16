@@ -1,0 +1,5320 @@
+{
+  "schema_version": "system-optimization.case-review-package.v1",
+  "instructions": [
+    "逐条审核 Task Demand、Evidence Package 和 Candidate Adequacy。",
+    "Codex 生成的 Adequacy 只是候选，不得批量或自动批准。",
+    "reject/request_changes 必须填写 notes。"
+  ],
+  "records": [
+    {
+      "record_id": "sysopt-v1-lesson-01",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：图灵测试（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 1,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048"
+        ],
+        "required_material_types": [
+          "definition"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+            "source_record_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "fd8e69a28e73d51123b08d72b461da56f968988fab4387a39b94d9ad5ad08963",
+            "semantic_unit_type": "definition",
+            "source_type": "native_text",
+            "excerpt": "阿兰·图灵(Alan Mathison Turing)于1950年提出了图灵测试[2]，这是一种用于评估机器是否具有智能的测试方法。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-ec16b25a4afecf8ba07e2cdff51100aa"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-01-g1",
+            "knowledge_point_id": "gold-kp-e33e3c2c5c894ce2b9153bc06cd70048",
+            "evidence_ids": [
+              "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 16,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "薄 Evidence 不能支撑当前长内容规模，候选建议先补检索。",
+        "unmet_requirements": [
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:single",
+        "material:definition",
+        "quantity:1_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-02",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_general_education",
+      "title": "LESSON：职业自动化淘汰概率、人工智能（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 2,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "required_material_types": [
+          "comparison"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "source_record_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "88c3bc88b5e827bd4b5acd246944ddec00ad150965da27053118705704153916",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-4f42d60b8c7264cdba6f8df9c307bbea",
+              "gold-ctx-ae7a2fadc743507c01dc579c6a728f06"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-02-g1",
+            "knowledge_point_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+            "evidence_ids": [
+              "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-02-g2",
+            "knowledge_point_id": "gold-kp-9fea9aad0349530b8fecd24d8685f488",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          }
+        ],
+        "estimated_tokens": 113,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "薄 Evidence 不能支撑当前长内容规模，候选建议先补检索。",
+        "unmet_requirements": [
+          "missing_kp:gold-kp-9fea9aad0349530b8fecd24d8685f488",
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:adjacent",
+        "material:comparison",
+        "quantity:2_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-03",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：Scikit-Learn二分类数据构造、图灵测试的非物理性、感知机的提出（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 3,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+          "gold-kp-8596a77b193f44fe4079e6782bdc4664",
+          "gold-kp-df92c5bde4a4f7bbc9b4cd35db4bd1ef"
+        ],
+        "required_material_types": [
+          "process"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+            "source_record_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "6ea554367532476276514ec62a1f2f4b2c6f884f93ed0085ea8eb2da897f473a",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b491606999ab00176cbce9e5246e8fb8"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-03-g1",
+            "knowledge_point_id": "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+            "evidence_ids": [
+              "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-03-g2",
+            "knowledge_point_id": "gold-kp-8596a77b193f44fe4079e6782bdc4664",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          },
+          {
+            "group_id": "sysopt-v1-lesson-03-g3",
+            "knowledge_point_id": "gold-kp-df92c5bde4a4f7bbc9b4cd35db4bd1ef",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          }
+        ],
+        "estimated_tokens": 10,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [
+          "gold-kp-8596a77b193f44fe4079e6782bdc4664",
+          "gold-kp-df92c5bde4a4f7bbc9b4cd35db4bd1ef"
+        ],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "unresolvable",
+        "rationale": "非相邻主题且可见 Evidence 不完整，候选建议转人工或缩小范围。",
+        "unmet_requirements": [
+          "missing_kp:gold-kp-8596a77b193f44fe4079e6782bdc4664",
+          "missing_kp:gold-kp-df92c5bde4a4f7bbc9b4cd35db4bd1ef",
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:non_adjacent",
+        "material:process",
+        "quantity:3_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-04",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：3D高斯点的透视投影（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 1,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-ebd0de0280047285fb5153e413c9829b"
+        ],
+        "required_material_types": [
+          "formula",
+          "numeric"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+            "source_record_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e8d61560a46c1cd6250aa6ac99fa2ba15cc9ce57c1ad5d26e9cd71ff17636241",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "感知机（Perceptron）算法最初由Frank Rosenblatt 1957年在康奈尔航空实验提出。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-f287be490a3c23fdd7bc3d027b70051a"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+            "source_record_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "6ea554367532476276514ec62a1f2f4b2c6f884f93ed0085ea8eb2da897f473a",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b491606999ab00176cbce9e5246e8fb8"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-04-g1",
+            "knowledge_point_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+            "evidence_ids": [
+              "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 72,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:single",
+        "material:formula",
+        "material:numeric",
+        "quantity:1_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-05",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：ERNIE微调实验环境、Scikit-Learn二分类数据构造（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 2,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+          "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6"
+        ],
+        "required_material_types": [
+          "table"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "source_record_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e4f30fc6707abbb11c7a5e5370f3f062847f262b2082df9488483a58892c6e2a",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "名称\t版本\t功能说明\nAIStudio\t经典版\t代码实现的基础平台与环境\nPaddlePaddle\t2.3.2\t在新建项目时选择\nPython\t3.7.4\t默认选择\nERNIE\t3.0\t使用git克隆代码仓库，或者直接解压本项目的ERNIE数据集",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-3513e4ae011f3940d8b22e9133f521e6"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+            "source_record_id": "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "6ea554367532476276514ec62a1f2f4b2c6f884f93ed0085ea8eb2da897f473a",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "首先利用Scikit-Learn机器学习库来构造一个二分类数据集，如图2.5所示。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b491606999ab00176cbce9e5246e8fb8"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+            "source_record_id": "gold-ev-ac89df32946f7cbb44441b93711da3f5",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "9bd12f805b1f21df23c25173952f27f6ebc8767854c9697078efd2f19ac88d1b",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "感知机作为一种简单的单层神经网络模型，仅包含输入层和输出层，仅适用于处理简单的线性分类问题，然而实际应用场景通常是非线性的。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-c286bb50cc6faa00b887d3a0fad427b2"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-05-g1",
+            "knowledge_point_id": "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+            "evidence_ids": [
+              "gold-ev-f622172906b893ec87c367db5ea298b3"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-05-g2",
+            "knowledge_point_id": "gold-kp-88d4eea211ea691b5ce5b9da58b70dd6",
+            "evidence_ids": [
+              "gold-ev-8b932ed56da4f885f0b36b5b10ac5d0b"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 56,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "中等 Evidence 已覆盖主题，但对当前输出规模的语义多样性仍不足。",
+        "unmet_requirements": [
+          "evidence_diversity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:adjacent",
+        "material:table",
+        "quantity:2_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-06",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_general_education",
+      "title": "LESSON：通用人工智能目标、职业自动化淘汰概率、通用人工智能的跨领域任务能力（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 3,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-4312e4de9cec49fb39d8518764bdf600",
+          "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+          "gold-kp-b49206a1595be66884b9d6fc3a61684f"
+        ],
+        "required_material_types": [
+          "case"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+            "source_record_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "97eae431ead011d138fa9a9083af2374bb6e3aeff2293346bc202d1b7385ce63",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "AlphaGo开发团队创始人戴密斯·哈萨比斯提出，要朝着“创造解决世界上一切问题\n的通用人工智能”这一目标前进。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-0fa1d3d95290385e4674c30f03a6e3e3",
+              "gold-ctx-eac085c3ad6777c4ac19193774547e9c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "source_record_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "88c3bc88b5e827bd4b5acd246944ddec00ad150965da27053118705704153916",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-4f42d60b8c7264cdba6f8df9c307bbea",
+              "gold-ctx-ae7a2fadc743507c01dc579c6a728f06"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+            "source_record_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "76d61714ebc3070ea4c049032f0f9ab8efb9755fc567477985fe76654cfe12ab",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-8d0e19580c13ed58a3fbd49f4e87d68c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-06-g1",
+            "knowledge_point_id": "gold-kp-4312e4de9cec49fb39d8518764bdf600",
+            "evidence_ids": [
+              "gold-ev-09df817f5eea22a230d1926ee8a19036"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-06-g2",
+            "knowledge_point_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+            "evidence_ids": [
+              "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-06-g3",
+            "knowledge_point_id": "gold-kp-b49206a1595be66884b9d6fc3a61684f",
+            "evidence_ids": [
+              "gold-ev-a99ba8f34aed9c20ccc731673de222ba"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 151,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "中等 Evidence 已覆盖主题，但对当前输出规模的语义多样性仍不足。",
+        "unmet_requirements": [
+          "evidence_diversity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:non_adjacent",
+        "material:case",
+        "quantity:3_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-07",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：深度学习在推荐系统中的应用（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 1,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-13a3190a4b4e0a794089f7864ec42e55"
+        ],
+        "required_material_types": [
+          "case"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+            "source_record_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "75a4f7d253ffcd3d930443f4e55d8acc3b7dd4335409739f4db7b86a91702f54",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "推荐系统\t商品推荐、音乐推荐、短视频推荐等",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-2adae254c7d38fbb6099af397e0e0fd7",
+              "gold-ctx-c286bb50cc6faa00b887d3a0fad427b2"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+            "source_record_id": "gold-ev-f333ceb9cf96f580ec2a714438e94d27",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "efb8838d118ef6309cc162ce15770d0bcaafb8cd74a14126267346271331e5f8",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "首先，对于空间内任意一点到感知机超平面的距离为：",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-730f317833bc4b6f6d458f42814069be"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-615b210d350379cf26677f84c3064531",
+            "source_record_id": "gold-ev-615b210d350379cf26677f84c3064531",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "d5c720ace03bf2653ec0a8d191cbed1f657d8fa82591db2e8777e47e12f69be1",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "输入：样本集合{(X_i,Y_i)}_{i=1}^s\n输出：分类超平面的法向量ω和b\n初始化：ω_1←0∈R^n，b_1←0\nfor t=1,2,…,T：\n    随机挑选样本序号i=1,…,s\n    if 分类错误Y_{i(t)}(ω_t^T X_{i(t)})≤0：\n        更新ω_{t+1}←ω_t+ηY_{i(t)}X_{i(t)}\n            b_{t+1}←b_t+ηY_{i(t)}\n    else：\n        ω_{t+1}←ω_t\n返回ω_{T+1}",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-f9aea3f33c261e97222b15cf5b46fddf"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+            "source_record_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "3499ddbb6926ecc050dd6d81810b37c5d4d39b6de15d9eeed723c6d3b3a26dfa",
+            "semantic_unit_type": "definition",
+            "source_type": "native_text",
+            "excerpt": "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b261cc6b50d239ec45c44c0ecdf27e41"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+            "source_record_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "81eb608e3f1079a61fe9fc584ae8729c41ba8f0e433dd70b6f451843c9028a16",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "金融风控\t信用评估、股市预测、风险控制等",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-63e132b98c5aa7bb104bb01c898730aa"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+            "source_record_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "7fec1790bc85d5788870b7719e15383fc6b6cad6207a88a488a6a9fd9525c294",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-bddb742ed9b70540fe24e93e101cc4db"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-07-g1",
+            "knowledge_point_id": "gold-kp-13a3190a4b4e0a794089f7864ec42e55",
+            "evidence_ids": [
+              "gold-ev-1b100e38a40ce3da44a2a2b530bef411"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 122,
+        "distinct_semantic_units": 4,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:single",
+        "material:case",
+        "quantity:1_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-08",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：感知机原始训练算法、大模型发现新知识的能力（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 2,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-b746208bec27a41ca899db24ea39f5b9",
+          "gold-kp-c4bccb05477b6493be85edff2aeec2a4"
+        ],
+        "required_material_types": [
+          "comparison",
+          "process"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-615b210d350379cf26677f84c3064531",
+            "source_record_id": "gold-ev-615b210d350379cf26677f84c3064531",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "d5c720ace03bf2653ec0a8d191cbed1f657d8fa82591db2e8777e47e12f69be1",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "输入：样本集合{(X_i,Y_i)}_{i=1}^s\n输出：分类超平面的法向量ω和b\n初始化：ω_1←0∈R^n，b_1←0\nfor t=1,2,…,T：\n    随机挑选样本序号i=1,…,s\n    if 分类错误Y_{i(t)}(ω_t^T X_{i(t)})≤0：\n        更新ω_{t+1}←ω_t+ηY_{i(t)}X_{i(t)}\n            b_{t+1}←b_t+ηY_{i(t)}\n    else：\n        ω_{t+1}←ω_t\n返回ω_{T+1}",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-f9aea3f33c261e97222b15cf5b46fddf"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+            "source_record_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e84d008aebf81f4bd8c60f2bd85a85cbbf3f62fca90d3e00c9450e7e46c85cba",
+            "semantic_unit_type": "list",
+            "source_type": "native_text",
+            "excerpt": "（5）发现新知识：在某些情况下，大模型通过分析和整合其训练数据中的信息，能够\"发现\"新的知识或提出新的见解。",
+            "material_types": [
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b74daec0d96e5c27ee9bf853fd2f25f1"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+            "source_record_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "3499ddbb6926ecc050dd6d81810b37c5d4d39b6de15d9eeed723c6d3b3a26dfa",
+            "semantic_unit_type": "definition",
+            "source_type": "native_text",
+            "excerpt": "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b261cc6b50d239ec45c44c0ecdf27e41"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+            "source_record_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "75a4f7d253ffcd3d930443f4e55d8acc3b7dd4335409739f4db7b86a91702f54",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "推荐系统\t商品推荐、音乐推荐、短视频推荐等",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-2adae254c7d38fbb6099af397e0e0fd7",
+              "gold-ctx-c286bb50cc6faa00b887d3a0fad427b2"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+            "source_record_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "81eb608e3f1079a61fe9fc584ae8729c41ba8f0e433dd70b6f451843c9028a16",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "金融风控\t信用评估、股市预测、风险控制等",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-63e132b98c5aa7bb104bb01c898730aa"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+            "source_record_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "7fec1790bc85d5788870b7719e15383fc6b6cad6207a88a488a6a9fd9525c294",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-bddb742ed9b70540fe24e93e101cc4db"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-08-g1",
+            "knowledge_point_id": "gold-kp-b746208bec27a41ca899db24ea39f5b9",
+            "evidence_ids": [
+              "gold-ev-615b210d350379cf26677f84c3064531"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-08-g2",
+            "knowledge_point_id": "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+            "evidence_ids": [
+              "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 129,
+        "distinct_semantic_units": 5,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:adjacent",
+        "material:comparison",
+        "material:process",
+        "quantity:2_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-lesson-09",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "lesson",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "LESSON：3D高斯点的透视投影、ERNIE微调实验环境、感知机算法收敛性（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "lesson",
+        "output_count": 3,
+        "output_unit": "sessions",
+        "knowledge_point_ids": [
+          "gold-kp-ebd0de0280047285fb5153e413c9829b",
+          "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+          "gold-kp-035e53095f2d3d832d751fc67073a16f"
+        ],
+        "required_material_types": [
+          "formula",
+          "table",
+          "numeric"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "source_record_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e4f30fc6707abbb11c7a5e5370f3f062847f262b2082df9488483a58892c6e2a",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "名称\t版本\t功能说明\nAIStudio\t经典版\t代码实现的基础平台与环境\nPaddlePaddle\t2.3.2\t在新建项目时选择\nPython\t3.7.4\t默认选择\nERNIE\t3.0\t使用git克隆代码仓库，或者直接解压本项目的ERNIE数据集",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-3513e4ae011f3940d8b22e9133f521e6"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+            "source_record_id": "gold-ev-06bba04373bb42548483d596702e7e36",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "3499ddbb6926ecc050dd6d81810b37c5d4d39b6de15d9eeed723c6d3b3a26dfa",
+            "semantic_unit_type": "definition",
+            "source_type": "native_text",
+            "excerpt": "需要说明的是，以上算法称为感知机的原始形式，已经证明该算法是收敛的，即在有限次迭代中可以得到一个超平面将一个线性可分数据集完全正确地划分为两个类别。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b261cc6b50d239ec45c44c0ecdf27e41"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+            "source_record_id": "gold-ev-1b100e38a40ce3da44a2a2b530bef411",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "75a4f7d253ffcd3d930443f4e55d8acc3b7dd4335409739f4db7b86a91702f54",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "推荐系统\t商品推荐、音乐推荐、短视频推荐等",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-2adae254c7d38fbb6099af397e0e0fd7",
+              "gold-ctx-c286bb50cc6faa00b887d3a0fad427b2"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+            "source_record_id": "gold-ev-537b4cddfec78d5d8f9a9da14e9d9654",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "81eb608e3f1079a61fe9fc584ae8729c41ba8f0e433dd70b6f451843c9028a16",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "金融风控\t信用评估、股市预测、风险控制等",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-63e132b98c5aa7bb104bb01c898730aa"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+            "source_record_id": "gold-ev-9abde4ba81915c311db9ade93789806e",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "7fec1790bc85d5788870b7719e15383fc6b6cad6207a88a488a6a9fd9525c294",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "注意力机制中，Q、K、V通常来自两个不同地方，其中Q来自解码器（Decoder）中的当前位置的隐藏状态或输出，K和V通常来自编码器（Encoder）中的所有位置的隐藏状态或输出，包含了输入序列的信息；",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-bddb742ed9b70540fe24e93e101cc4db"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-lesson-09-g1",
+            "knowledge_point_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+            "evidence_ids": [
+              "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-09-g2",
+            "knowledge_point_id": "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+            "evidence_ids": [
+              "gold-ev-f622172906b893ec87c367db5ea298b3"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-lesson-09-g3",
+            "knowledge_point_id": "gold-kp-035e53095f2d3d832d751fc67073a16f",
+            "evidence_ids": [
+              "gold-ev-06bba04373bb42548483d596702e7e36"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 133,
+        "distinct_semantic_units": 5,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "lesson",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "L-H1",
+            "label": "目标一致性",
+            "description": "目标是否与章节、知识点和学生层次一致"
+          },
+          {
+            "rubric_id": "L-H2",
+            "label": "课时规划",
+            "description": "Session 划分、顺序和负担是否合理"
+          },
+          {
+            "rubric_id": "L-H3",
+            "label": "时间可执行性",
+            "description": "各活动在给定时间内是否现实"
+          },
+          {
+            "rubric_id": "L-H4",
+            "label": "知识覆盖",
+            "description": "核心知识点是否充分且不过度扩展"
+          },
+          {
+            "rubric_id": "L-H5",
+            "label": "教学活动",
+            "description": "活动是否具体、可操作并服务目标"
+          },
+          {
+            "rubric_id": "L-H6",
+            "label": "重点难点",
+            "description": "是否真正识别并处理学习难点"
+          },
+          {
+            "rubric_id": "L-H7",
+            "label": "证据忠实",
+            "description": "事实性内容是否有来源且不超出资料"
+          },
+          {
+            "rubric_id": "L-H8",
+            "label": "教师可用性",
+            "description": "教师是否能低成本修改后使用"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:non_adjacent",
+        "material:formula",
+        "material:table",
+        "material:numeric",
+        "quantity:3_sessions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-01",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_general_education",
+      "title": "EXAM：人工智能（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 10,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-9fea9aad0349530b8fecd24d8685f488"
+        ],
+        "required_material_types": [
+          "definition"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-47ac1a377be899cf37f3403ae7f7568d",
+            "source_record_id": "gold-ev-47ac1a377be899cf37f3403ae7f7568d",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "d5fb0d9b31a8c23f341d62415da9efc7dd31098b8f7d6c9def0ffe2b78353317",
+            "semantic_unit_type": "definition",
+            "source_type": "native_text",
+            "excerpt": "人工智能(Artif icial Intelligence，AI)是计算机学科的一个分支，20世纪70年代以来被\n称为世界三大尖端技术(空间技术、能源技术、人工智能)之一，也被认为是21世纪三大\n尖端技术(基因工程、纳米科学、人工智能)之一。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-27bc0decd37ef6fab8d5d1ae1c334fe0"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-01-g1",
+            "knowledge_point_id": "gold-kp-9fea9aad0349530b8fecd24d8685f488",
+            "evidence_ids": [
+              "gold-ev-47ac1a377be899cf37f3403ae7f7568d"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 30,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "薄 Evidence 不能支撑当前长内容规模，候选建议先补检索。",
+        "unmet_requirements": [
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:single",
+        "material:definition",
+        "quantity:10_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-02",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "EXAM：大模型发现新知识的能力、深度学习在金融风控中的应用（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 15,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+          "gold-kp-8ad97ba53c176889334da8cc43294319"
+        ],
+        "required_material_types": [
+          "comparison"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+            "source_record_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e84d008aebf81f4bd8c60f2bd85a85cbbf3f62fca90d3e00c9450e7e46c85cba",
+            "semantic_unit_type": "list",
+            "source_type": "native_text",
+            "excerpt": "（5）发现新知识：在某些情况下，大模型通过分析和整合其训练数据中的信息，能够\"发现\"新的知识或提出新的见解。",
+            "material_types": [
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b74daec0d96e5c27ee9bf853fd2f25f1"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-02-g1",
+            "knowledge_point_id": "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+            "evidence_ids": [
+              "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-02-g2",
+            "knowledge_point_id": "gold-kp-8ad97ba53c176889334da8cc43294319",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          }
+        ],
+        "estimated_tokens": 13,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [
+          "gold-kp-8ad97ba53c176889334da8cc43294319"
+        ],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "薄 Evidence 不能支撑当前长内容规模，候选建议先补检索。",
+        "unmet_requirements": [
+          "missing_kp:gold-kp-8ad97ba53c176889334da8cc43294319",
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:adjacent",
+        "material:comparison",
+        "quantity:15_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-03",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "EXAM：大规模训练数据与涌现能力、注意力机制中Q、K、V的来源、Transformer编码器结构（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 24,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-07c87ce697fc1dd864b09c4c99776978",
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+          "gold-kp-ef904a521f09a778f872f0879db3a10e"
+        ],
+        "required_material_types": [
+          "process"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+            "source_record_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "8187e65329a2739e5f94094b8af9153e03b50be6494585ed219bd3ca1337dca5",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-74304d145c41aaf7ea44b17108ef39ef",
+              "gold-ctx-e1454554d0dbf3b077be9a64e20c4065"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-03-g1",
+            "knowledge_point_id": "gold-kp-07c87ce697fc1dd864b09c4c99776978",
+            "evidence_ids": [
+              "gold-ev-365b0dc23cff9bb089df5923e2212264"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-03-g2",
+            "knowledge_point_id": "gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          },
+          {
+            "group_id": "sysopt-v1-exam-03-g3",
+            "knowledge_point_id": "gold-kp-ef904a521f09a778f872f0879db3a10e",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          }
+        ],
+        "estimated_tokens": 14,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [
+          "gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+          "gold-kp-ef904a521f09a778f872f0879db3a10e"
+        ],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "unresolvable",
+        "rationale": "非相邻主题且可见 Evidence 不完整，候选建议转人工或缩小范围。",
+        "unmet_requirements": [
+          "missing_kp:gold-kp-66ae2b25924aac9fd92347d0a5f67061",
+          "missing_kp:gold-kp-ef904a521f09a778f872f0879db3a10e",
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:non_adjacent",
+        "material:process",
+        "quantity:24_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-04",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "EXAM：3D高斯点的透视投影（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 10,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-ebd0de0280047285fb5153e413c9829b"
+        ],
+        "required_material_types": [
+          "formula",
+          "numeric"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "source_record_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f0a78e8fd52304f46cd284db2ce71d85dbfe99b585ec60f466730224f90abb60",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "可穿戴传感器必须具有较高的稳定性、专一性和灵敏度，确保其能够捕捉到脉搏跳动、汗液成分等微小信号的准确变化。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fb3103f59de48b7cf25d3156a1e1c397"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-750ad563b07807797cfeb7840ad3cbc1",
+            "source_record_id": "gold-ev-750ad563b07807797cfeb7840ad3cbc1",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "d23ba01be6daec8535677c63492df6f8f757622b7ef63ee3ba0e1408e43fc1a6",
+            "semantic_unit_type": "example",
+            "source_type": "native_text",
+            "excerpt": "针对实际作战军事目标比如坦克、装甲车辆、武装人员等通常处于室外复杂多变且空间尺度大的环境背景中，目标易受背景多变、地物遮挡、尺度变化因素干扰的问题，基于深度学习的目标图像自主识别技术不易受环境因素影响、鲁棒性好、适应能力强，可以通过图像自动学习目标特征、提取目标特征，最终实现根据识别目标特征来判断目标属性以及目标方位。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-9386490fda8661bad07a0b6ae945917d"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-04-g1",
+            "knowledge_point_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+            "evidence_ids": [
+              "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 102,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:single",
+        "material:formula",
+        "material:numeric",
+        "quantity:10_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-05",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_general_education",
+      "title": "EXAM：职业自动化淘汰概率、人工智能交易异常检测（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 15,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+          "gold-kp-beb17dbcc8eb8fe7ad9aa87fe676b722"
+        ],
+        "required_material_types": [
+          "table"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "source_record_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "88c3bc88b5e827bd4b5acd246944ddec00ad150965da27053118705704153916",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-4f42d60b8c7264cdba6f8df9c307bbea",
+              "gold-ctx-ae7a2fadc743507c01dc579c6a728f06"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+            "source_record_id": "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "37cbec0bc046868921af6be072568adde1f243b83dbb50d70e39c5c3dd50dfac",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "AI通过分析用户画像、交易特征，可以做到异常检\n测、判断预警。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-85f36bd95f87dee48bfbd557cf2fd8ec",
+              "gold-ctx-faaec5d3494eccd00b66b87ebd7cc1ee"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+            "source_record_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "e6ce4b033f90acc219494e9db299ac9d90c1862ae19c3615625698cafd6efaa4",
+            "semantic_unit_type": "other",
+            "source_type": "ocr_derived",
+            "excerpt": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-eac085c3ad6777c4ac19193774547e9c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-05-g1",
+            "knowledge_point_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+            "evidence_ids": [
+              "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-05-g2",
+            "knowledge_point_id": "gold-kp-beb17dbcc8eb8fe7ad9aa87fe676b722",
+            "evidence_ids": [
+              "gold-ev-94bf83ce79a50dbfd1b1230f23d1f6e3"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 140,
+        "distinct_semantic_units": 2,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "中等 Evidence 已覆盖主题，但对当前输出规模的语义多样性仍不足。",
+        "unmet_requirements": [
+          "evidence_diversity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:adjacent",
+        "material:table",
+        "quantity:15_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-06",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "EXAM：公开文本训练数据集、大模型、大规模训练数据与涌现能力（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 30,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-fc62fc1858f986fdb9c48fd5c9e7eb46",
+          "gold-kp-b848f1b022a479c770521458bce143a4",
+          "gold-kp-07c87ce697fc1dd864b09c4c99776978"
+        ],
+        "required_material_types": [
+          "case"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2",
+            "source_record_id": "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "ddaafafe663690310053ddd56382da3aed80cec328b38f5985b8c43cb098400c",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "这些数据集通常是公开可用的，包含了大量的文本数据，覆盖了广泛的主题和领域。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-574fc80decab989823e88f69bc850f15"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+            "source_record_id": "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "7d944530e4c98b2da8b4a90bde552d1dce259e4a3370506957028a75e66172bd",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "大模型是基于深度学习技术构建的，具有高度复杂性和巨大规模的人工智能模型，通常由数十亿甚至数万亿个参数组成。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b491606999ab00176cbce9e5246e8fb8",
+              "gold-ctx-be1129ed5bab0194204d61c20289052d"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+            "source_record_id": "gold-ev-365b0dc23cff9bb089df5923e2212264",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "8187e65329a2739e5f94094b8af9153e03b50be6494585ed219bd3ca1337dca5",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "最后，大规模数据的训练使得模型有机会接触到极其多样化的情景和例子，这些广泛的学习经验为涌现能力的形成提供了必要的基础。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-74304d145c41aaf7ea44b17108ef39ef",
+              "gold-ctx-e1454554d0dbf3b077be9a64e20c4065"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-b5848cc84a30502e827293c903043ec2",
+            "source_record_id": "gold-ev-b5848cc84a30502e827293c903043ec2",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "2e5699e28b672870d8fbcfe8c24a7fd2757142b1475e4357920d7b35badc0d5b",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "种类\t中型卡车\t小轿车\t人员\n距离\t6.8m*2.7m\t4.3m*1.5m\t1.7m*0.5m\n5.5km\t27*11\t20*7\t\n3km\t50*21\t36*13\t\n1km\t150*63\t108*36\t\n800m\t\t\t48*14\n500m\t\t\t78*23",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-7efcb21383c840fa94d106b878b972b1"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-06-g1",
+            "knowledge_point_id": "gold-kp-fc62fc1858f986fdb9c48fd5c9e7eb46",
+            "evidence_ids": [
+              "gold-ev-75d22d8bcfbf8c36e0066355d522c1c2"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-06-g2",
+            "knowledge_point_id": "gold-kp-b848f1b022a479c770521458bce143a4",
+            "evidence_ids": [
+              "gold-ev-3ff41ae49e326e1cc942ca04e5ed998c"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-06-g3",
+            "knowledge_point_id": "gold-kp-07c87ce697fc1dd864b09c4c99776978",
+            "evidence_ids": [
+              "gold-ev-365b0dc23cff9bb089df5923e2212264"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 69,
+        "distinct_semantic_units": 4,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "中等 Evidence 已覆盖主题，但对当前输出规模的语义多样性仍不足。",
+        "unmet_requirements": [
+          "evidence_diversity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:non_adjacent",
+        "material:case",
+        "quantity:30_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-07",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_general_education",
+      "title": "EXAM：人工智能支付合规监控（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 10,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-034045e71fc83557e1700d2b6c187807"
+        ],
+        "required_material_types": [
+          "case"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+            "source_record_id": "gold-ev-08b0d7882e524572142e7a1d5ba061ab",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "03a385ead3fc1d8ed385a2ff11570e3e576d8eb0a9de805c10db202437068019",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "在审查合规性时，AI可用于合规监控、风险评估、自动化报告。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-faaec5d3494eccd00b66b87ebd7cc1ee"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "source_record_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "88c3bc88b5e827bd4b5acd246944ddec00ad150965da27053118705704153916",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-4f42d60b8c7264cdba6f8df9c307bbea",
+              "gold-ctx-ae7a2fadc743507c01dc579c6a728f06"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+            "source_record_id": "gold-ev-09df817f5eea22a230d1926ee8a19036",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "97eae431ead011d138fa9a9083af2374bb6e3aeff2293346bc202d1b7385ce63",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "AlphaGo开发团队创始人戴密斯·哈萨比斯提出，要朝着“创造解决世界上一切问题\n的通用人工智能”这一目标前进。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-0fa1d3d95290385e4674c30f03a6e3e3",
+              "gold-ctx-eac085c3ad6777c4ac19193774547e9c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+            "source_record_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "76d61714ebc3070ea4c049032f0f9ab8efb9755fc567477985fe76654cfe12ab",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-8d0e19580c13ed58a3fbd49f4e87d68c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+            "source_record_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "4c15a77d637e32bc872756b984bd8e7f76a8a6288a5cef61abbf5f586ece8783",
+            "semantic_unit_type": "principle",
+            "source_type": "ocr_derived",
+            "excerpt": "因为特定领域的任务相对单一、需求明确、应用边界清晰、领域知识丰富，所以建模\n相对简单，人工智能在特定领域更容易取得突破，更容易超越人类的智能水平。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-bd67064e58eee9b3f2b8ae6c9038b41e"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+            "source_record_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "ab007347f9508f06991337ee09430d767e8775e989130722fd6f76678d7f5fcc",
+            "semantic_unit_type": "other",
+            "source_type": "ocr_derived",
+            "excerpt": "在2018年11月7日开幕的第五届世界互联网大会上，搜狗与新华社联合发布了全球\n首个全仿真智能AI主持人。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-78aa66e747df675f48bff6dc8bcd6426"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-07-g1",
+            "knowledge_point_id": "gold-kp-034045e71fc83557e1700d2b6c187807",
+            "evidence_ids": [
+              "gold-ev-08b0d7882e524572142e7a1d5ba061ab"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 190,
+        "distinct_semantic_units": 4,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:single",
+        "material:case",
+        "quantity:10_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-08",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "EXAM：大模型发现新知识的能力、大模型训练数据准备与预处理（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 24,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+          "gold-kp-27811de0b82ecc5959117325f79cb544"
+        ],
+        "required_material_types": [
+          "comparison",
+          "process"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+            "source_record_id": "gold-ev-c4302e898ef633d4ffb54fd4fc102e01",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e84d008aebf81f4bd8c60f2bd85a85cbbf3f62fca90d3e00c9450e7e46c85cba",
+            "semantic_unit_type": "list",
+            "source_type": "native_text",
+            "excerpt": "（5）发现新知识：在某些情况下，大模型通过分析和整合其训练数据中的信息，能够\"发现\"新的知识或提出新的见解。",
+            "material_types": [
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-b74daec0d96e5c27ee9bf853fd2f25f1"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+            "source_record_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "aa6792725fa3eec72891c7e0c312ad4bd11dfc297f3479bb56fb8380f9170b6b",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "在大模型的开发和训练过程中，数据准备与预处理是至关重要的初步步骤。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-a0720bfe30a553ba7989fccaffae4570",
+              "gold-ctx-a9539e8d3b3af73347bb749ac968222d",
+              "gold-ctx-ca48d7cefc3efe948ae2042a907af5ec"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+            "source_record_id": "gold-ev-2207b94aec4a32d1c12dbba4d33c4de0",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "fd8e69a28e73d51123b08d72b461da56f968988fab4387a39b94d9ad5ad08963",
+            "semantic_unit_type": "definition",
+            "source_type": "native_text",
+            "excerpt": "阿兰·图灵(Alan Mathison Turing)于1950年提出了图灵测试[2]，这是一种用于评估机器是否具有智能的测试方法。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-ec16b25a4afecf8ba07e2cdff51100aa"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-a9911582c78e1c224211cd7b66f9ccbd",
+            "source_record_id": "gold-ev-a9911582c78e1c224211cd7b66f9ccbd",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "4229ee5a40914f475e789c7ca8dd4b400b4a2b57a4d31dd02e12ef6a328adbd4",
+            "semantic_unit_type": "list",
+            "source_type": "native_text",
+            "excerpt": "知识表达 (Knowledge Representation)：存储它所知道的或听到的信息；",
+            "material_types": [
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-486024f248911ec6c91406ccffa2b230"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+            "source_record_id": "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "4dee3ddde98e7d97ffd44901938ccc344084eec4c8f8eb7c42a67a334ba6972d",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "图灵认为模拟一个人的物理存在对于展示智能是没有必要的。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-08e3e45fa957fb061d69c7f8dacb7412"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+            "source_record_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e8d61560a46c1cd6250aa6ac99fa2ba15cc9ce57c1ad5d26e9cd71ff17636241",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "感知机（Perceptron）算法最初由Frank Rosenblatt 1957年在康奈尔航空实验提出。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-f287be490a3c23fdd7bc3d027b70051a"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-08-g1",
+            "knowledge_point_id": "gold-kp-c4bccb05477b6493be85edff2aeec2a4",
+            "evidence_ids": [
+              "gold-ev-c4302e898ef633d4ffb54fd4fc102e01"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-08-g2",
+            "knowledge_point_id": "gold-kp-27811de0b82ecc5959117325f79cb544",
+            "evidence_ids": [
+              "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 69,
+        "distinct_semantic_units": 4,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:adjacent",
+        "material:comparison",
+        "material:process",
+        "quantity:24_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-exam-09",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "exam",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "EXAM：3D高斯点的透视投影、ERNIE微调实验环境、大模型训练数据准备与预处理（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "exam",
+        "output_count": 30,
+        "output_unit": "questions",
+        "knowledge_point_ids": [
+          "gold-kp-ebd0de0280047285fb5153e413c9829b",
+          "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+          "gold-kp-27811de0b82ecc5959117325f79cb544"
+        ],
+        "required_material_types": [
+          "formula",
+          "table",
+          "numeric"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "source_record_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e4f30fc6707abbb11c7a5e5370f3f062847f262b2082df9488483a58892c6e2a",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "名称\t版本\t功能说明\nAIStudio\t经典版\t代码实现的基础平台与环境\nPaddlePaddle\t2.3.2\t在新建项目时选择\nPython\t3.7.4\t默认选择\nERNIE\t3.0\t使用git克隆代码仓库，或者直接解压本项目的ERNIE数据集",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-3513e4ae011f3940d8b22e9133f521e6"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+            "source_record_id": "gold-ev-9e3623c3ff225b129b6e1d87ac893905",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "aa6792725fa3eec72891c7e0c312ad4bd11dfc297f3479bb56fb8380f9170b6b",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "在大模型的开发和训练过程中，数据准备与预处理是至关重要的初步步骤。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-a0720bfe30a553ba7989fccaffae4570",
+              "gold-ctx-a9539e8d3b3af73347bb749ac968222d",
+              "gold-ctx-ca48d7cefc3efe948ae2042a907af5ec"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-a9911582c78e1c224211cd7b66f9ccbd",
+            "source_record_id": "gold-ev-a9911582c78e1c224211cd7b66f9ccbd",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "4229ee5a40914f475e789c7ca8dd4b400b4a2b57a4d31dd02e12ef6a328adbd4",
+            "semantic_unit_type": "list",
+            "source_type": "native_text",
+            "excerpt": "知识表达 (Knowledge Representation)：存储它所知道的或听到的信息；",
+            "material_types": [
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-486024f248911ec6c91406ccffa2b230"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+            "source_record_id": "gold-ev-4e68a8be74dc6e6a9dbeb4c3c928e265",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "4dee3ddde98e7d97ffd44901938ccc344084eec4c8f8eb7c42a67a334ba6972d",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "图灵认为模拟一个人的物理存在对于展示智能是没有必要的。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-08e3e45fa957fb061d69c7f8dacb7412"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+            "source_record_id": "gold-ev-9182152f7e279d2cba2d2883a7a7f244",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e8d61560a46c1cd6250aa6ac99fa2ba15cc9ce57c1ad5d26e9cd71ff17636241",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "感知机（Perceptron）算法最初由Frank Rosenblatt 1957年在康奈尔航空实验提出。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-f287be490a3c23fdd7bc3d027b70051a"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-exam-09-g1",
+            "knowledge_point_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+            "evidence_ids": [
+              "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-09-g2",
+            "knowledge_point_id": "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+            "evidence_ids": [
+              "gold-ev-f622172906b893ec87c367db5ea298b3"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-exam-09-g3",
+            "knowledge_point_id": "gold-kp-27811de0b82ecc5959117325f79cb544",
+            "evidence_ids": [
+              "gold-ev-9e3623c3ff225b129b6e1d87ac893905"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 119,
+        "distinct_semantic_units": 5,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "exam",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "E-H1",
+            "label": "Blueprint 合理性",
+            "description": "题型、分值、覆盖和难度规划"
+          },
+          {
+            "rubric_id": "E-H2",
+            "label": "题干质量",
+            "description": "题干是否清晰、无歧义且条件完整"
+          },
+          {
+            "rubric_id": "E-H3",
+            "label": "正确性",
+            "description": "答案是否正确且唯一或集合合理"
+          },
+          {
+            "rubric_id": "E-H4",
+            "label": "干扰项质量",
+            "description": "干扰项是否有辨识度且不明显荒谬"
+          },
+          {
+            "rubric_id": "E-H5",
+            "label": "难度匹配",
+            "description": "实际认知要求是否符合标签"
+          },
+          {
+            "rubric_id": "E-H6",
+            "label": "覆盖与平衡",
+            "description": "知识点、内容角色和题型是否均衡"
+          },
+          {
+            "rubric_id": "E-H7",
+            "label": "重复与泄漏",
+            "description": "是否重复、互相提示或答案泄漏"
+          },
+          {
+            "rubric_id": "E-H8",
+            "label": "解析质量",
+            "description": "解析是否解释关键依据而非复述答案"
+          },
+          {
+            "rubric_id": "E-H9",
+            "label": "Grounding",
+            "description": "题目、答案和解析是否由资料支持"
+          },
+          {
+            "rubric_id": "E-H10",
+            "label": "可用性",
+            "description": "是否可直接进入教师复核流程"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:non_adjacent",
+        "material:formula",
+        "material:table",
+        "material:numeric",
+        "quantity:30_questions"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-01",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：大规模高维数据的计算资源消耗（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 8,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-3a201b005a2597cc062d5c8b79227c96"
+        ],
+        "required_material_types": [
+          "definition"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-bd7d355279cc06aac5841601572cfe04",
+            "source_record_id": "gold-ev-bd7d355279cc06aac5841601572cfe04",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "27b4f2e045bf6884b0dd81d5dae995ca9d2a1603fda44296113ef8fb17bb0190",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "这在处理大规模数据集时尤为重要，因为数据的高维度和大体量可能会导致计算资源的巨大消耗。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-a0720bfe30a553ba7989fccaffae4570"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-01-g1",
+            "knowledge_point_id": "gold-kp-3a201b005a2597cc062d5c8b79227c96",
+            "evidence_ids": [
+              "gold-ev-bd7d355279cc06aac5841601572cfe04"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 10,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "薄 Evidence 不能支撑当前长内容规模，候选建议先补检索。",
+        "unmet_requirements": [
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:single",
+        "material:definition",
+        "quantity:8_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-02",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_general_education",
+      "title": "PPT：职业自动化淘汰概率、IBM沃森问答系统（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 12,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+          "gold-kp-90ccc5c8790242574c98edd956313bd0"
+        ],
+        "required_material_types": [
+          "comparison"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "source_record_id": "gold-ev-331fa0be83528a68d9fae5234494bbd4",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "88c3bc88b5e827bd4b5acd246944ddec00ad150965da27053118705704153916",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "序号\t职业\t被淘汰概率\t序号\t职业\t被淘汰概率\n1\t电话推销员\t99%\t18\t演员和艺人\t37.4%\n2\t打字员\t98.5%\t19\t化妆师\t36.9%\n3\t会计\t97.60%\t20\t写手和翻译\t32.7%\n4\t保险业务员\t97%\t21\t理发师\t32.7%\n5\t银行职员\t96.8%\t22\t运动员\t28.3%\n6\t政府职员\t96.8%\t23\t警察\t22.4%\n7\t接线员\t96.5%\t24\t程序员\t8.5%\n8\t前台\t95.6%\t25\t健身教练\t7.5%\n9\t客服\t91%\t26\t科学家\t6.2%\n10\t人事\t89.7%\t27\t音乐家\t4.5%\n11\t保安\t89.3%\t28\t艺术家\t3.8%\n12\t房地产经纪人\t86%\t29\t牙医和理疗师\t2.1%\n13\t保洁员、司机\t80%\t30\t建筑师\t1.8%\n14\t厨师\t73.4%\t31\t公关\t1.4%\n15\tIT 工程师\t58.3%\t32\t心理医生\t0.7%\n16\t图书管理员\t51.9%\t33\t教师\t0.4%\n17\t摄影师\t50.3%\t34\t酒店管理者\t0.4%",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-4f42d60b8c7264cdba6f8df9c307bbea",
+              "gold-ctx-ae7a2fadc743507c01dc579c6a728f06"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-02-g1",
+            "knowledge_point_id": "gold-kp-a47837b2940d01fbf5ae0d9b83793b01",
+            "evidence_ids": [
+              "gold-ev-331fa0be83528a68d9fae5234494bbd4"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-02-g2",
+            "knowledge_point_id": "gold-kp-90ccc5c8790242574c98edd956313bd0",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          }
+        ],
+        "estimated_tokens": 113,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [
+          "gold-kp-90ccc5c8790242574c98edd956313bd0"
+        ],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "薄 Evidence 不能支撑当前长内容规模，候选建议先补检索。",
+        "unmet_requirements": [
+          "missing_kp:gold-kp-90ccc5c8790242574c98edd956313bd0",
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:adjacent",
+        "material:comparison",
+        "quantity:12_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-03",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：ERNIE预测配置、微调、指令微调（thin Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 16,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+          "gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+          "gold-kp-863d84db226b93cbb6c7dd9d69081d79"
+        ],
+        "required_material_types": [
+          "process"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "thin",
+        "items": [
+          {
+            "evidence_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+            "source_record_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "3b3f321c00c220b732405402fac98a98744c6de860377f0c0bc6ccc143f0aad0",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "首先配置预测json文件，主要修改cls_ernie_fc_ch_infer.json文件的预测模型的输入路径、预测文件的输入路径、预测结果的输出路径，如下图所示。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-18b8640afc285e8d4ecebec3db23684f"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-03-g1",
+            "knowledge_point_id": "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+            "evidence_ids": [
+              "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-03-g2",
+            "knowledge_point_id": "gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          },
+          {
+            "group_id": "sysopt-v1-ppt-03-g3",
+            "knowledge_point_id": "gold-kp-863d84db226b93cbb6c7dd9d69081d79",
+            "evidence_ids": [],
+            "complete": false,
+            "missing_reasons": [
+              "required knowledge point has no visible Evidence"
+            ]
+          }
+        ],
+        "estimated_tokens": 20,
+        "distinct_semantic_units": 1,
+        "missing_knowledge_point_ids": [
+          "gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+          "gold-kp-863d84db226b93cbb6c7dd9d69081d79"
+        ],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "unresolvable",
+        "rationale": "非相邻主题且可见 Evidence 不完整，候选建议转人工或缩小范围。",
+        "unmet_requirements": [
+          "missing_kp:gold-kp-ced39b30ecb88f5cf544eac7e6696229",
+          "missing_kp:gold-kp-863d84db226b93cbb6c7dd9d69081d79",
+          "evidence_capacity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "reduce_scope",
+          "human_review"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:thin",
+        "topic_relation:non_adjacent",
+        "material:process",
+        "quantity:16_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-04",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：3D高斯点的透视投影（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 8,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-ebd0de0280047285fb5153e413c9829b"
+        ],
+        "required_material_types": [
+          "formula",
+          "numeric"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9806de881bae1e17c64362810b70b556",
+            "source_record_id": "gold-ev-9806de881bae1e17c64362810b70b556",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "1cc90949e1db3eef5e7a7c7c01bcf4e63f85383205eb550bd9847c267f2ad34d",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "追溯神经辐射场三维重建技术的技术发展前沿，从快速推理到模型训练的加速，从提升模型的可编辑性到生成式重建，以及动态目标重建，神经辐射场三维重建技术的发展正以前所未有的速度推进。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-e366cc9f6394a434f442a876ae1276ed"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-ce0b58d4e9bed39607616060acc59261",
+            "source_record_id": "gold-ev-ce0b58d4e9bed39607616060acc59261",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "4cc193619c3db63c2587611bb9cb69bdcb28a3b8dfcc3df01494a7e2ad224c0d",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "而后，瓦片排序算法将根据每个瓦片块内高斯粒子的深度信息生成深度排序列表，以保证在最终的图像合成时，能够遵循从后到前的正确顺序。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-6008640bfe85562d6598e3805655f820",
+              "gold-ctx-b74daec0d96e5c27ee9bf853fd2f25f1"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-04-g1",
+            "knowledge_point_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+            "evidence_ids": [
+              "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 86,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:single",
+        "material:formula",
+        "material:numeric",
+        "quantity:8_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-05",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：ERNIE微调实验环境、大模型安全对齐（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 12,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+          "gold-kp-080644a6db95884d487495ae1597e84b"
+        ],
+        "required_material_types": [
+          "table"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "source_record_id": "gold-ev-f622172906b893ec87c367db5ea298b3",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "e4f30fc6707abbb11c7a5e5370f3f062847f262b2082df9488483a58892c6e2a",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "名称\t版本\t功能说明\nAIStudio\t经典版\t代码实现的基础平台与环境\nPaddlePaddle\t2.3.2\t在新建项目时选择\nPython\t3.7.4\t默认选择\nERNIE\t3.0\t使用git克隆代码仓库，或者直接解压本项目的ERNIE数据集",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-3513e4ae011f3940d8b22e9133f521e6"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-830849986bdfd10a7bd6767ec1a741fe",
+            "source_record_id": "gold-ev-830849986bdfd10a7bd6767ec1a741fe",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "11db0ee03cf129037c553d5e19b8fa646ea717125ad09252394f01315866a80e",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "这一过程旨在最大程度地减少模型生成有害内容、传播偏见或误导信息的风险，同时确保模型在各种应用场景中是安全、有用和可靠的。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-7c2c4e325ca18b31270a328bd7a155e9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-05-g1",
+            "knowledge_point_id": "gold-kp-c4d8dc4599f8925448d68a3767a83665",
+            "evidence_ids": [
+              "gold-ev-f622172906b893ec87c367db5ea298b3"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-05-g2",
+            "knowledge_point_id": "gold-kp-080644a6db95884d487495ae1597e84b",
+            "evidence_ids": [
+              "gold-ev-830849986bdfd10a7bd6767ec1a741fe"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 94,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "中等 Evidence 已覆盖主题，但对当前输出规模的语义多样性仍不足。",
+        "unmet_requirements": [
+          "evidence_diversity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:adjacent",
+        "material:table",
+        "quantity:12_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-06",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_general_education",
+      "title": "PPT：通用人工智能的跨领域任务能力、特定领域人工智能突破条件、全仿真智能AI主持人（medium Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 16,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-b49206a1595be66884b9d6fc3a61684f",
+          "gold-kp-5f7ca387331ded27517b7d64a59ec7dc",
+          "gold-kp-c6cccd5082a97ff0f15d9b237abda2b9"
+        ],
+        "required_material_types": [
+          "case"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "medium",
+        "items": [
+          {
+            "evidence_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+            "source_record_id": "gold-ev-a99ba8f34aed9c20ccc731673de222ba",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "76d61714ebc3070ea4c049032f0f9ab8efb9755fc567477985fe76654cfe12ab",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "通用人工智能不仅能够完成独立任务，如识\n别照片或翻译语言，还会加法、减法、下棋和讲法语，还可以理解物理论文、撰写小说、\n设计投资策略，并与陌生人进行愉快的交谈，其应用并不局限在某个特定领域。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-8d0e19580c13ed58a3fbd49f4e87d68c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+            "source_record_id": "gold-ev-e7f49db4c61d212c410a7cf2964c96d9",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "4c15a77d637e32bc872756b984bd8e7f76a8a6288a5cef61abbf5f586ece8783",
+            "semantic_unit_type": "principle",
+            "source_type": "ocr_derived",
+            "excerpt": "因为特定领域的任务相对单一、需求明确、应用边界清晰、领域知识丰富，所以建模\n相对简单，人工智能在特定领域更容易取得突破，更容易超越人类的智能水平。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-bd67064e58eee9b3f2b8ae6c9038b41e"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+            "source_record_id": "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "ab007347f9508f06991337ee09430d767e8775e989130722fd6f76678d7f5fcc",
+            "semantic_unit_type": "other",
+            "source_type": "ocr_derived",
+            "excerpt": "在2018年11月7日开幕的第五届世界互联网大会上，搜狗与新华社联合发布了全球\n首个全仿真智能AI主持人。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-78aa66e747df675f48bff6dc8bcd6426"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+            "source_record_id": "gold-ev-a95425415c717538eb8e12984a3caaef",
+            "course_id": "course_ai_general_education",
+            "content_sha256": "e6ce4b033f90acc219494e9db299ac9d90c1862ae19c3615625698cafd6efaa4",
+            "semantic_unit_type": "other",
+            "source_type": "ocr_derived",
+            "excerpt": "2011年，IBM开发出使用自然语言回答问题的人工智能程序沃森(Watson)，其参加美\n国智力问答节目，打败两位人类冠军，赢得了100万美元的奖金。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-eac085c3ad6777c4ac19193774547e9c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-06-g1",
+            "knowledge_point_id": "gold-kp-b49206a1595be66884b9d6fc3a61684f",
+            "evidence_ids": [
+              "gold-ev-a99ba8f34aed9c20ccc731673de222ba"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-06-g2",
+            "knowledge_point_id": "gold-kp-5f7ca387331ded27517b7d64a59ec7dc",
+            "evidence_ids": [
+              "gold-ev-e7f49db4c61d212c410a7cf2964c96d9"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-06-g3",
+            "knowledge_point_id": "gold-kp-c6cccd5082a97ff0f15d9b237abda2b9",
+            "evidence_ids": [
+              "gold-ev-3850c10cbd878d1a9250b5d3847ca3c0"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 74,
+        "distinct_semantic_units": 3,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "needs_more_evidence",
+        "rationale": "中等 Evidence 已覆盖主题，但对当前输出规模的语义多样性仍不足。",
+        "unmet_requirements": [
+          "evidence_diversity_below_requested_output"
+        ],
+        "allowed_actions": [
+          "supplement_retrieval",
+          "reduce_scope"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:medium",
+        "topic_relation:non_adjacent",
+        "material:case",
+        "quantity:16_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-07",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：微调在自有数据集上的效果（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 8,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-5e850c884a96c9624bd0bfc4832930ab"
+        ],
+        "required_material_types": [
+          "case"
+        ],
+        "topic_relation": "single",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+            "source_record_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "5c9f696018c93a404267f87940538f981af9d19b354aa2aaeab8f38f5e273bfb",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "这进一步证明了通过对大模型进行微调，能够在自己的数据集上获得更好的结果。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-2b8972b47de56a5b6b62e68091320557"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+            "source_record_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f3380194601ef5da70be35c5deae1f85853ef471754362f94f123cc9099f1c18",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "传感器\t优点\t缺点\nLiDAR\t1、不受光照变化和黑暗环境影响\n2、具有高精度的深度信息\n3、测量范围广，适用于户外\t1、对结构重复环境、玻璃材质、雨雪天气、动态环境敏感\n2、测量稀疏，垂直方向覆盖范围有限\n3、体积大，功耗高\n相机\t1、成本低，轻便，低功耗\n2、测量密集，像素信息丰富\n3、富有颜色信息\n4、语义信息便于提取\t1、对光照变化、特征稀缺、动态环境敏感\n2、单目相机尺度模糊\nIMU\t不受环境变化影响\t具有累计误差",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-88df7a33d6aafc988099d1a87df97201",
+              "gold-ctx-e67489d890fc0dd4d9dd36aab7438c8c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+            "source_record_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "466a58352c8f16450d2f1cbb53a073fc0120cb2902d1bc95525f385e940b4238",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "LIO-SAM是基于图优化的LiDAR与IMU融合的SLAM算法，它将IMU预积分因子、LiDAR测量因子和闭环检测因子整合到系统中。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-d5a038b9abdb2ff4f0b590e86ce43664"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "source_record_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "402e6a784cd8c605b5a5fe0c977434be55a5476f0685df6bb71db2c6ade6d8a8",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "它的视觉-IMU子系统不依赖于环境中的显著视觉特征，节省了特征检测和提取的处理时间，尤其在缺少纹理的环境中提高了系统的鲁棒性。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-88df7a33d6aafc988099d1a87df97201"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "source_record_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "2013e5c5e7d7f7816743b9f9c64d0b2c5d40869177a9be29ac1c8662b0c11fa1",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "source_record_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f0a78e8fd52304f46cd284db2ce71d85dbfe99b585ec60f466730224f90abb60",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "可穿戴传感器必须具有较高的稳定性、专一性和灵敏度，确保其能够捕捉到脉搏跳动、汗液成分等微小信号的准确变化。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fb3103f59de48b7cf25d3156a1e1c397"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-07-g1",
+            "knowledge_point_id": "gold-kp-5e850c884a96c9624bd0bfc4832930ab",
+            "evidence_ids": [
+              "gold-ev-33a7eeb84721f894d7224e97ba49e5f5"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 128,
+        "distinct_semantic_units": 4,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:single",
+        "material:case",
+        "quantity:8_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-08",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：ERNIE预测配置、SLAM传感器特性比较（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 12,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+          "gold-kp-25c7891bc95308283fd3cfcad3ca7544"
+        ],
+        "required_material_types": [
+          "comparison",
+          "process"
+        ],
+        "topic_relation": "adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+            "source_record_id": "gold-ev-03e5b59b045a42c014af9c4c1a02ce98",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "3b3f321c00c220b732405402fac98a98744c6de860377f0c0bc6ccc143f0aad0",
+            "semantic_unit_type": "procedure",
+            "source_type": "native_text",
+            "excerpt": "首先配置预测json文件，主要修改cls_ernie_fc_ch_infer.json文件的预测模型的输入路径、预测文件的输入路径、预测结果的输出路径，如下图所示。",
+            "material_types": [
+              "process"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-18b8640afc285e8d4ecebec3db23684f"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+            "source_record_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f3380194601ef5da70be35c5deae1f85853ef471754362f94f123cc9099f1c18",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "传感器\t优点\t缺点\nLiDAR\t1、不受光照变化和黑暗环境影响\n2、具有高精度的深度信息\n3、测量范围广，适用于户外\t1、对结构重复环境、玻璃材质、雨雪天气、动态环境敏感\n2、测量稀疏，垂直方向覆盖范围有限\n3、体积大，功耗高\n相机\t1、成本低，轻便，低功耗\n2、测量密集，像素信息丰富\n3、富有颜色信息\n4、语义信息便于提取\t1、对光照变化、特征稀缺、动态环境敏感\n2、单目相机尺度模糊\nIMU\t不受环境变化影响\t具有累计误差",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-88df7a33d6aafc988099d1a87df97201",
+              "gold-ctx-e67489d890fc0dd4d9dd36aab7438c8c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+            "source_record_id": "gold-ev-34207553fec0fd47868ebc31e2a7b86b",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "466a58352c8f16450d2f1cbb53a073fc0120cb2902d1bc95525f385e940b4238",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "LIO-SAM是基于图优化的LiDAR与IMU融合的SLAM算法，它将IMU预积分因子、LiDAR测量因子和闭环检测因子整合到系统中。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-d5a038b9abdb2ff4f0b590e86ce43664"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "source_record_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "402e6a784cd8c605b5a5fe0c977434be55a5476f0685df6bb71db2c6ade6d8a8",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "它的视觉-IMU子系统不依赖于环境中的显著视觉特征，节省了特征检测和提取的处理时间，尤其在缺少纹理的环境中提高了系统的鲁棒性。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-88df7a33d6aafc988099d1a87df97201"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "source_record_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "2013e5c5e7d7f7816743b9f9c64d0b2c5d40869177a9be29ac1c8662b0c11fa1",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "source_record_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f0a78e8fd52304f46cd284db2ce71d85dbfe99b585ec60f466730224f90abb60",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "可穿戴传感器必须具有较高的稳定性、专一性和灵敏度，确保其能够捕捉到脉搏跳动、汗液成分等微小信号的准确变化。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fb3103f59de48b7cf25d3156a1e1c397"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-08-g1",
+            "knowledge_point_id": "gold-kp-9712eea0c8baebc5e94ee4dbfd45cabb",
+            "evidence_ids": [
+              "gold-ev-03e5b59b045a42c014af9c4c1a02ce98"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-08-g2",
+            "knowledge_point_id": "gold-kp-25c7891bc95308283fd3cfcad3ca7544",
+            "evidence_ids": [
+              "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 139,
+        "distinct_semantic_units": 5,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:adjacent",
+        "material:comparison",
+        "material:process",
+        "quantity:12_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    },
+    {
+      "record_id": "sysopt-v1-ppt-09",
+      "review_status": "candidate",
+      "candidate_source": "codex_ep00_non_p18_approved_dev_composition",
+      "approval": null,
+      "split": "dev",
+      "artifact_type": "ppt",
+      "course_id": "course_ai_algorithms_systems",
+      "title": "PPT：3D高斯点的透视投影、SLAM传感器特性比较、微调在自有数据集上的效果（rich Evidence）",
+      "task_demand": {
+        "artifact_type": "ppt",
+        "output_count": 16,
+        "output_unit": "slides",
+        "knowledge_point_ids": [
+          "gold-kp-ebd0de0280047285fb5153e413c9829b",
+          "gold-kp-25c7891bc95308283fd3cfcad3ca7544",
+          "gold-kp-5e850c884a96c9624bd0bfc4832930ab"
+        ],
+        "required_material_types": [
+          "formula",
+          "table",
+          "numeric"
+        ],
+        "topic_relation": "non_adjacent",
+        "audience": "高校本科生",
+        "difficulty_profile": {
+          "easy": 0.3,
+          "medium": 0.5,
+          "hard": 0.2
+        }
+      },
+      "evidence_package": {
+        "capacity_tier": "rich",
+        "items": [
+          {
+            "evidence_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "source_record_id": "gold-ev-e21068d14748c7ffc033f2ec37f88501",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "528bae7e6d59bdb110481f5fe6aad23019ff880da4fdadfd4040509e86ac0d59",
+            "semantic_unit_type": "formula",
+            "source_type": "native_text",
+            "excerpt": "在3D高斯点染的高斯投影过程中，三维空间中的高斯均值的μ通过标准的透视投影方法被映射到像素空间，这需要首先将μ转换为摄像机坐标系中的齐次坐标t∈R^4、归一化设备坐标系中的归一化坐标t̃∈R^4，并最终转换到像素坐标系中的像素坐标μ′∈R^2。\nt=T_cw[μ;1]，t̃=Pt，μ′=[(1/2)(w·t̃_x/t̃_w+1)+c_x；(1/2)(h·t̃_y/t̃_w+1)+c_y]",
+            "material_types": [
+              "formula",
+              "numeric"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+            "source_record_id": "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f3380194601ef5da70be35c5deae1f85853ef471754362f94f123cc9099f1c18",
+            "semantic_unit_type": "table",
+            "source_type": "native_text",
+            "excerpt": "传感器\t优点\t缺点\nLiDAR\t1、不受光照变化和黑暗环境影响\n2、具有高精度的深度信息\n3、测量范围广，适用于户外\t1、对结构重复环境、玻璃材质、雨雪天气、动态环境敏感\n2、测量稀疏，垂直方向覆盖范围有限\n3、体积大，功耗高\n相机\t1、成本低，轻便，低功耗\n2、测量密集，像素信息丰富\n3、富有颜色信息\n4、语义信息便于提取\t1、对光照变化、特征稀缺、动态环境敏感\n2、单目相机尺度模糊\nIMU\t不受环境变化影响\t具有累计误差",
+            "material_types": [
+              "table",
+              "comparison"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-88df7a33d6aafc988099d1a87df97201",
+              "gold-ctx-e67489d890fc0dd4d9dd36aab7438c8c"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+            "source_record_id": "gold-ev-33a7eeb84721f894d7224e97ba49e5f5",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "5c9f696018c93a404267f87940538f981af9d19b354aa2aaeab8f38f5e273bfb",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "这进一步证明了通过对大模型进行微调，能够在自己的数据集上获得更好的结果。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-2b8972b47de56a5b6b62e68091320557"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "source_record_id": "gold-ev-9f350313b9d2181d3fb13d62b08713e1",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "402e6a784cd8c605b5a5fe0c977434be55a5476f0685df6bb71db2c6ade6d8a8",
+            "semantic_unit_type": "other",
+            "source_type": "native_text",
+            "excerpt": "它的视觉-IMU子系统不依赖于环境中的显著视觉特征，节省了特征检测和提取的处理时间，尤其在缺少纹理的环境中提高了系统的鲁棒性。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-88df7a33d6aafc988099d1a87df97201"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "source_record_id": "gold-ev-d582a5e418494c5dd20d1ebd93eb6f76",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "2013e5c5e7d7f7816743b9f9c64d0b2c5d40869177a9be29ac1c8662b0c11fa1",
+            "semantic_unit_type": "principle",
+            "source_type": "native_text",
+            "excerpt": "所运用的底层技术原理包含传感采集、数据分析、无线通信三大主要部分，对应于通过传感器将采集到的物理信号转化成电信号、通过智能计算分析传感信号得出体征信息两大环节。",
+            "material_types": [
+              "definition"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fe2dd70293f03568192745681ed7a6f9"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          },
+          {
+            "evidence_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "source_record_id": "gold-ev-0a09643ff9ca8345e5659613b1f7626f",
+            "course_id": "course_ai_algorithms_systems",
+            "content_sha256": "f0a78e8fd52304f46cd284db2ce71d85dbfe99b585ec60f466730224f90abb60",
+            "semantic_unit_type": "application",
+            "source_type": "native_text",
+            "excerpt": "可穿戴传感器必须具有较高的稳定性、专一性和灵敏度，确保其能够捕捉到脉搏跳动、汗液成分等微小信号的准确变化。",
+            "material_types": [
+              "case"
+            ],
+            "dev_context_ids": [
+              "gold-ctx-cf79e8f4131e0ef0d7ed61b8fc7b7c99",
+              "gold-ctx-fb3103f59de48b7cf25d3156a1e1c397"
+            ],
+            "source_origin": "courserag_approved_non_p18_dev"
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "sysopt-v1-ppt-09-g1",
+            "knowledge_point_id": "gold-kp-ebd0de0280047285fb5153e413c9829b",
+            "evidence_ids": [
+              "gold-ev-e21068d14748c7ffc033f2ec37f88501"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-09-g2",
+            "knowledge_point_id": "gold-kp-25c7891bc95308283fd3cfcad3ca7544",
+            "evidence_ids": [
+              "gold-ev-8739e43b9385b01e5b9b8ca672c5bb19"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          },
+          {
+            "group_id": "sysopt-v1-ppt-09-g3",
+            "knowledge_point_id": "gold-kp-5e850c884a96c9624bd0bfc4832930ab",
+            "evidence_ids": [
+              "gold-ev-33a7eeb84721f894d7224e97ba49e5f5"
+            ],
+            "complete": true,
+            "missing_reasons": []
+          }
+        ],
+        "estimated_tokens": 160,
+        "distinct_semantic_units": 5,
+        "missing_knowledge_point_ids": [],
+        "missing_material_types": []
+      },
+      "candidate_adequacy": {
+        "status": "adequate",
+        "rationale": "候选 Evidence 覆盖任务知识点、材料类型和当前输出规模。",
+        "unmet_requirements": [],
+        "allowed_actions": [
+          "generate"
+        ],
+        "human_approval_required": true
+      },
+      "rubric_profile": {
+        "artifact_type": "ppt",
+        "rubric_version": "coursepilot-human-rubric-frozen-v1",
+        "dimensions": [
+          {
+            "rubric_id": "P-H1",
+            "label": "Slide Architecture",
+            "description": "页序和页型是否服务教学逻辑"
+          },
+          {
+            "rubric_id": "P-H2",
+            "label": "单页聚焦",
+            "description": "每页是否有明确中心"
+          },
+          {
+            "rubric_id": "P-H3",
+            "label": "信息密度",
+            "description": "是否过载、过空或堆砌 Bullet"
+          },
+          {
+            "rubric_id": "P-H4",
+            "label": "内容连贯",
+            "description": "页面间过渡和层次是否清晰"
+          },
+          {
+            "rubric_id": "P-H5",
+            "label": "教学表达",
+            "description": "是否适合课堂讲解而非文档搬运"
+          },
+          {
+            "rubric_id": "P-H6",
+            "label": "活动与示例",
+            "description": "是否支持课堂互动和理解"
+          },
+          {
+            "rubric_id": "P-H7",
+            "label": "Notes",
+            "description": "是否提供可用讲解提示"
+          },
+          {
+            "rubric_id": "P-H8",
+            "label": "引用与来源",
+            "description": "是否准确、可解析并放置合理"
+          },
+          {
+            "rubric_id": "P-H9",
+            "label": "可编辑性",
+            "description": "教师是否可方便调整"
+          },
+          {
+            "rubric_id": "P-H10",
+            "label": "视觉可用性",
+            "description": "模板、布局和文本是否基本合格"
+          }
+        ],
+        "score_min": 1,
+        "score_max": 5,
+        "edit_burden_scale": {
+          "0": "无需修改",
+          "1": "轻微措辞或格式修改",
+          "2": "多处局部修改",
+          "3": "结构性重写",
+          "4": "无法采用"
+        }
+      },
+      "coverage_tags": [
+        "capacity:rich",
+        "topic_relation:non_adjacent",
+        "material:formula",
+        "material:table",
+        "material:numeric",
+        "quantity:16_slides"
+      ],
+      "p18_case_reused": false,
+      "formal_gold_eligible": false
+    }
+  ]
+}
