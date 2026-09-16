@@ -205,6 +205,19 @@ storage/*
 !storage/.gitkeep
 storage_eval/
 /tmp/
+/.tmp/
+
+# CoursePilot portfolio showcase
+/portfolio_showcase/node_modules/
+/portfolio_showcase/dist/
+/portfolio_showcase/coverage/
+/portfolio_showcase/.npm-cache/
+
+# Private career materials are archived separately from the project repository
+/career_package/
+
+# Accidental local duplicate; the canonical review template is already versioned
+/datasets/courserag_eval/releases/p17_1_security/reviews/calibration_review_template_r1 copy.json
 
 # Private Credentials, ignore everything in the folder but the .gitkeep file
 privatecredentials/*

@@ -1,0 +1,55 @@
+{
+  "project_identity": {
+    "owner_role": "personal_independent_project",
+    "actual_start_date": "2026-06-15",
+    "recommended_resume_periods": {
+      "course_rag": "2026.06-2026.07",
+      "course_pilot": "2026.07-2026.08"
+    }
+  },
+  "public_repositories": {
+    "course_rag": "https://github.com/meo0306/course-rag",
+    "course_pilot": "https://github.com/meo0306/course-pilot"
+  },
+  "course_rag_dev_metrics": {
+    "scope": "small_course_specific_dev_set",
+    "hybrid_recall_at_10": 0.9167,
+    "complete_evidence_group_recall_at_8": 0.8611,
+    "rerank_mrr_at_10": 0.7014,
+    "rerank_ndcg_at_10": 0.8006,
+    "qa_answer_status_accuracy": 0.9167,
+    "unanswerable_recall": 1.0,
+    "citation_resolvability": 1.0,
+    "claim_citation_completeness": 1.0
+  },
+  "p19_release": {
+    "status": "passed",
+    "course_rag_tests": "199 passed, 2 skipped",
+    "course_pilot_tests": "258 passed, 8 skipped",
+    "database": "one PostgreSQL instance, two schemas and independent migrations",
+    "demo": "local Docker, HTTP-only, deterministic, zero paid provider calls"
+  },
+  "p18_formal_test": {
+    "execution": "completed",
+    "quality_gate": "failed",
+    "human_review_items": 24,
+    "minor": 7,
+    "major": 13,
+    "reject": 4,
+    "acceptable_rate": 0.2917,
+    "mean_rubric": 2.8884,
+    "mean_edit_burden": 2.625,
+    "generation_failures": 4,
+    "contract_failures": 8,
+    "blocked_track_b_live_journeys": 7,
+    "dangerous_side_effect_counts": 0
+  },
+  "prohibited_inference": [
+    "production quality passed",
+    "automatic prompt injection detector passed",
+    "dual physical model cost reduction",
+    "all Track B journeys passed",
+    "real users or business ROI",
+    "open-domain generalization"
+  ]
+}

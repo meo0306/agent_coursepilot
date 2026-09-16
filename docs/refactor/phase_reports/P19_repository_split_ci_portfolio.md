@@ -99,3 +99,34 @@ P19 portfolio release Gate: **passed**. Both public repositories and `v0.1.0` re
 CI workflows pass from clean Linux checkouts, runtime package coupling is removed, dual-schema
 persistence is operational, and public claims preserve the failed P18 Gate. No production-readiness
 or positive formal-quality claim is made.
+
+## Interview showcase frontend extension (2026-08-29)
+
+A standalone React/Vite/TypeScript site was added under `portfolio_showcase/` without changing the
+released service repositories, database, API, Provider configuration or evaluation artifacts. It
+implements the complete long-scroll interview framework: platform positioning, the CourseRAG /
+CoursePilot split, capability cards, resumable Workflow narrative, placeholder engineering evidence,
+a deterministic no-API Trace replay, and explicit ownership/limitation sections.
+
+The initial framework marked unsupported copy and metrics with visible `示例内容` labels. The static
+runtime loads no remote font, image or API resource. A separate
+manual-only GitHub Pages workflow builds `portfolio_showcase/dist` and does not alter the existing
+Python CI workflow. Verification: ESLint passed, TypeScript passed, Vitest passed `5/5`, and the Vite
+production build passed. Microsoft Edge desktop QA completed at 1440×900 and 1920×1080. The Hero
+layout, pinned Architecture and Workflow scenes, tab switching, deterministic demo replay, skip link,
+deep-section navigation, horizontal overflow and browser console were checked. Desktop QA fixes
+covered title sizing, ScrollTrigger-safe anchor jumps, a compact short-height Workflow layout and
+overlap-free architecture crossfades. Mobile visual QA was intentionally omitted because acceptance
+is currently scoped to desktop only. This extension does not change the passed P19
+release Gate or the failed P18 formal quality Gate.
+
+### Curated material population (2026-08-29)
+
+The first content pass replaced every visible placeholder with public, traceable material from
+`showcase_materials/`. The page now presents the monolith-to-two-service story, real CourseRAG and
+CoursePilot ownership boundaries, workflow-specific Lesson/Exam/PPT steps, scoped CourseRAG Dev
+metrics, P19 repository test results, the failed P18 human-quality result, the verified 2026-08-26
+local Docker Journey and both public repository links. The deterministic replay is explicitly a
+recorded engineering result and makes no live API or model-quality claim. Raw Gold, textbook content,
+Evidence IDs, private responses and unreviewed output screenshots remain excluded. ESLint,
+TypeScript, Vitest `5/5` and the Vite production build passed after the content replacement.
