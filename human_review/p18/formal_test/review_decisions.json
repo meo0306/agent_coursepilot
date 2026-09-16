@@ -1,0 +1,149 @@
+{
+  "schema_version": "coursepilot.p18-human-review.v1",
+  "decisions": [
+    {
+      "blind_artifact_id": "p18-blind-3870bdd294115d79ef19", "artifact_type": "exam", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"E-H1": 5, "E-H2": 4, "E-H3": 4, "E-H4": 3, "E-H5": 2, "E-H6": 4, "E-H7": 1, "E-H8": 4, "E-H9": 2, "E-H10": 3},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "题量、分值和题型结构完整，答案总体正确；但24题高度围绕两条短证据重复改写，所谓难题多为直接复述，并多次把‘人工/智能’扩展为人造系统、程序设计和智能表现等未获原证据直接支持的结论。需成批重写重复题并收紧证据边界。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-3960f8af6f20db72810d", "artifact_type": "lesson", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 4, "L-H4": 3, "L-H5": 3, "L-H6": 3, "L-H7": 1, "L-H8": 2},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "课时结构和时间分配清楚，但正文把极窄证据扩展为内存/带宽、算法复杂度、指数增长、灾难性遗忘、微调层选择、LoRA/Adapter等大量课程事实，并错误地统一绑定到原证据。需删除或补充经批准证据后重写核心讲授、案例与作业。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-3985d145264895ae6c56", "artifact_type": "exam", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"E-H1": 3, "E-H2": 4, "E-H3": 4, "E-H4": 2, "E-H5": 2, "E-H6": 4, "E-H7": 2, "E-H8": 4, "E-H9": 3, "E-H10": 3},
+      "edit_burden": 2, "critical_defect": false,
+      "notes": "题量、总分和难度计数满足任务，答案总体正确；第3、4题标为多选题却均只有一个正确选项，且两题实质重复，感知机配置相关题重复度较高、难度标签偏高。需修正题型并替换若干重复题。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-3d03b4637059f4ab6c30", "artifact_type": "ppt", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"P-H1": 4, "P-H2": 4, "P-H3": 4, "P-H4": 4, "P-H5": 3, "P-H6": 4, "P-H7": 4, "P-H8": 4, "P-H9": 4, "P-H10": 3},
+      "edit_burden": 2, "critical_defect": false,
+      "notes": "结构、证据和讲稿备注完整，内容可用且无明显溢出；但整体几乎全为黑白文字列表，表格型知识未用表格或层级视觉表达，页面变化和教学视觉支持较弱。建议优化若干核心页的版式与信息图示。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-3ee18cf1934014e7f0cc", "artifact_type": "exam", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"E-H1": 3, "E-H2": 4, "E-H3": 4, "E-H4": 3, "E-H5": 2, "E-H6": 3, "E-H7": 1, "E-H8": 4, "E-H9": 2, "E-H10": 3},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "24题齐全且答案大体可判，但总分为96而非要求的100；大量题目重复考查同两句材料，难度明显虚高，并加入‘人工即人造、智能即智能行为’、自然语言定义、数值与文本处理能力等证据外解释。需重新配分并批量改写。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-55f4079f7ac32a695620", "artifact_type": "ppt", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"P-H1": 4, "P-H2": 4, "P-H3": 4, "P-H4": 4, "P-H5": 3, "P-H6": 4, "P-H7": 4, "P-H8": 4, "P-H9": 4, "P-H10": 3},
+      "edit_burden": 2, "critical_defect": false,
+      "notes": "两项核心内容、概率数据、课堂活动、备注与引用均较完整，文字可读；主要不足是以纯文本分档罗列34项职业，缺少表格/图形化比较，视觉层次和课堂呈现效率一般。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-564d75e2f1802e3557de", "artifact_type": "lesson", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 4, "L-H4": 4, "L-H5": 4, "L-H6": 3, "L-H7": 3, "L-H8": 4},
+      "edit_burden": 1, "critical_defect": false,
+      "notes": "两课时均有完整时间线、活动、互动和引用，可直接组织课堂。少量关于自动判断机制、效率/一致性以及生物特征认证原理的表述超出绑定证据，宜改为讨论假设或删除。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-675e8f58025320f02c16", "artifact_type": "ppt", "decision": "reject", "artifact_status": "reject",
+      "rubric_scores": {"P-H1": 1, "P-H2": 1, "P-H3": 1, "P-H4": 1, "P-H5": 1, "P-H6": 1, "P-H7": 1, "P-H8": 1, "P-H9": 1, "P-H10": 1},
+      "edit_burden": 4, "critical_defect": true,
+      "notes": "生成失败，未提供可审核或可授课的PPT正文与文件，必须重新生成。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-7145dc2f7f9f5912cb1d", "artifact_type": "exam", "decision": "reject", "artifact_status": "reject",
+      "rubric_scores": {"E-H1": 1, "E-H2": 1, "E-H3": 1, "E-H4": 1, "E-H5": 1, "E-H6": 1, "E-H7": 1, "E-H8": 1, "E-H9": 1, "E-H10": 1},
+      "edit_burden": 4, "critical_defect": true,
+      "notes": "生成失败，未提供30题试卷、答案与解析，必须重新生成。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-830982881dd46661d1a9", "artifact_type": "lesson", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 4, "L-H4": 4, "L-H5": 4, "L-H6": 4, "L-H7": 3, "L-H8": 4},
+      "edit_burden": 1, "critical_defect": false,
+      "notes": "三课时结构完整、时间可执行，核心结论和引用可解析。关于图灵机‘不依赖硬件、刻画本质结构’等扩展未被给定短证据直接支持，建议收紧表述；其余主要为轻量修改。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-8ec73c91387711692064", "artifact_type": "ppt", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"P-H1": 4, "P-H2": 4, "P-H3": 4, "P-H4": 4, "P-H5": 3, "P-H6": 4, "P-H7": 1, "P-H8": 4, "P-H9": 4, "P-H10": 3},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "内容结构与引用基本正确，渲染清晰；但全部内容页缺少任务明确要求的讲稿备注，且核心概念主要以纯文字列表呈现。需为各内容页补齐可讲授备注并增强关键属性/挑战关系的视觉表达。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-a1763e6d029a7bf25bcf", "artifact_type": "lesson", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 4, "L-H4": 4, "L-H5": 3, "L-H6": 3, "L-H7": 1, "L-H8": 2},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "时间与活动结构完整，但正文大量超出证据：配置字段与运行错误、NeRF颜色权重和微分方程推导、数值积分、ERNIE与NeRF系统集成等均无直接依据。第三课时尤其人为拼接两个无邻接关系的主题，需大幅删改。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-a4ea6ee9aba79379f22d", "artifact_type": "ppt", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"P-H1": 3, "P-H2": 2, "P-H3": 2, "P-H4": 2, "P-H5": 2, "P-H6": 3, "P-H7": 4, "P-H8": 3, "P-H9": 4, "P-H10": 1},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "引用与备注较全，但10页在两个知识点间反复复述，标题机械重复；将低概率归因于‘认知型、创造型’等结论缺少直接证据。实际渲染多页正文过小且留白失衡，课堂投影可读性不足，需重构叙事、删重并重新排版。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-ba8e05153ba5692d01ab", "artifact_type": "exam", "decision": "reject", "artifact_status": "reject",
+      "rubric_scores": {"E-H1": 1, "E-H2": 1, "E-H3": 1, "E-H4": 1, "E-H5": 1, "E-H6": 1, "E-H7": 1, "E-H8": 1, "E-H9": 1, "E-H10": 1},
+      "edit_burden": 4, "critical_defect": true,
+      "notes": "生成失败，未提供15题试卷、答案与解析，必须重新生成。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-bae66c19d16b6a0f1535", "artifact_type": "ppt", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"P-H1": 2, "P-H2": 2, "P-H3": 2, "P-H4": 2, "P-H5": 2, "P-H6": 3, "P-H7": 4, "P-H8": 3, "P-H9": 4, "P-H10": 1},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "备注和引用可追溯，但16页主要反复复述两条短材料，多个标题带机械编号，缺乏渐进教学结构；部分风险结论超出证据。渲染中多页出现极小正文和大面积空白，不能直接用于课堂投影，需整体删重与重排。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-c1d1ce14d65fc7be0875", "artifact_type": "lesson", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 4, "L-H4": 4, "L-H5": 3, "L-H6": 4, "L-H7": 4, "L-H8": 4},
+      "edit_burden": 1, "critical_defect": false,
+      "notes": "规划与两课时正文一致，时间合计准确，能主动标明证据与推断边界。课堂活动仍偏概括，资源估算与微调关联缺少具体材料，做少量活动单补充即可使用。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-c7cc79acafe7047fc066", "artifact_type": "ppt", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"P-H1": 3, "P-H2": 2, "P-H3": 2, "P-H4": 2, "P-H5": 2, "P-H6": 3, "P-H7": 4, "P-H8": 3, "P-H9": 4, "P-H10": 1},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "证据、备注和页数齐全，但14页反复展示同一算法表与同一句军用自动驾驶结论，个别‘核心方向、显著推动’表述超出证据。渲染存在正文极小、页面留白失衡和信息层级弱等问题，需合并重复页并重做主要版式。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-c958d76ed39c130eea58", "artifact_type": "ppt", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"P-H1": 4, "P-H2": 3, "P-H3": 4, "P-H4": 3, "P-H5": 3, "P-H6": 4, "P-H7": 4, "P-H8": 4, "P-H9": 4, "P-H10": 3},
+      "edit_burden": 2, "critical_defect": false,
+      "notes": "证据边界控制较好，16页均可读，双AI活动具备课堂操作步骤，备注和引用完整。受源材料较薄影响，语音风险与双AI内容被拆分得偏碎且多处重复；建议合并若干页面并增加非事实性的视觉组织。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-d4e97def1f6f37b76b6a", "artifact_type": "lesson", "decision": "reject", "artifact_status": "reject",
+      "rubric_scores": {"L-H1": 1, "L-H2": 1, "L-H3": 1, "L-H4": 1, "L-H5": 1, "L-H6": 1, "L-H7": 1, "L-H8": 1},
+      "edit_burden": 4, "critical_defect": true,
+      "notes": "生成失败，未提供三课时教案正文，无法授课或审核，必须重新生成。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-d9dc5cfd52d6bd44dd41", "artifact_type": "exam", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"E-H1": 5, "E-H2": 4, "E-H3": 4, "E-H4": 3, "E-H5": 2, "E-H6": 4, "E-H7": 2, "E-H8": 4, "E-H9": 3, "E-H10": 3},
+      "edit_burden": 2, "critical_defect": false,
+      "notes": "题数、分值、题型和答案完整，核心知识基本正确；但感知机收敛性判断题明显重复，难题仍是直接回忆，金融风控原理、金融数据复杂模式等解释超出给定表格证据。需替换重复题并收紧解析。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-dba8f8c15c178e5a705e", "artifact_type": "lesson", "decision": "minor", "artifact_status": "minor_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 5, "L-H4": 4, "L-H5": 4, "L-H6": 4, "L-H7": 4, "L-H8": 4},
+      "edit_burden": 1, "critical_defect": false,
+      "notes": "三课时目标、时间、活动、作业和引用完整，且对证据边界有明确提醒，具备直接授课基础。仅需校正累积透射率定义中t与t_f表述的细微不一致，并补充配置演示所需的具体示例材料。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-dc962d81393780501883", "artifact_type": "exam", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"E-H1": 2, "E-H2": 4, "E-H3": 4, "E-H4": 3, "E-H5": 2, "E-H6": 2, "E-H7": 3, "E-H8": 4, "E-H9": 4, "E-H10": 2},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "现有8题答案和解析总体正确，但任务要求10题50分，实际缺少2道判断题且仅40分，蓝图与最终试卷不一致；同时难度层次偏低。需补齐缺失题目、重新核对总分并完成全卷复核。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-e97b3aa588e87d002b2c", "artifact_type": "lesson", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"L-H1": 4, "L-H2": 4, "L-H3": 4, "L-H4": 3, "L-H5": 3, "L-H6": 3, "L-H7": 1, "L-H8": 2},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "课时与时间结构完整，但把两条趋势性证据扩展为OCR/NLP评分流程、主观题语义评分、活体检测、人脸/指纹/虹膜、OpenCV实验、隐私与攻击防护等大量事实，并全部错误绑定到原证据。需重写讲授与实验内容或补充经批准证据。"
+    },
+    {
+      "blind_artifact_id": "p18-blind-ecd1906a9b2f48ba9898", "artifact_type": "exam", "decision": "major", "artifact_status": "major_edit",
+      "rubric_scores": {"E-H1": 5, "E-H2": 4, "E-H3": 3, "E-H4": 3, "E-H5": 2, "E-H6": 4, "E-H7": 2, "E-H8": 3, "E-H9": 2, "E-H10": 3},
+      "edit_burden": 3, "critical_defect": false,
+      "notes": "30题、100分及题型难度计数完整，但材料很薄，题目大量重复；平台推广被扩展为开放服务、技术整合和推广流程，不易替代职业被扩展为多项职业判断，部分超出给定证据及必要邻接。需批量重写并删除无直接支撑的答案与解释。"
+    }
+  ]
+}

@@ -1,0 +1,2302 @@
+{
+  "status": "gate_failed",
+  "locked_test": true,
+  "l0_pass": false,
+  "automatic": {
+    "schema_version": "coursepilot.p18-automatic-summary.v1",
+    "l0": {
+      "cross_course_events": 0,
+      "unauthorized_actions": 0,
+      "secret_leaks": 0,
+      "duplicate_side_effects": 0,
+      "silent_fallbacks": 0,
+      "unresolved_citations": 0,
+      "dangerous_tool_executions": 0,
+      "generation_failures": 4,
+      "contract_failures": 8,
+      "citation_failures": 4,
+      "trace_failures": 4,
+      "render_failures": 4,
+      "fault_variant_failures": 0,
+      "track_b_blocked_journeys": 7
+    },
+    "track_a": {
+      "mode": "test",
+      "loaded_records": 92,
+      "ledger": {
+        "requests": 165,
+        "input_tokens": 666259,
+        "output_tokens": 632758,
+        "cost_cny": "1.931775"
+      },
+      "metrics": {
+        "sample_count": 24,
+        "tracks": {
+          "cp_b0": {
+            "samples": 12,
+            "succeeded": 10,
+            "failed": 2,
+            "fallback_samples": 0,
+            "contract_pass_rate": 0.5833333333333334,
+            "citation_resolvability": 0.8333333333333334,
+            "render_success_rate": null,
+            "trace_completeness": 0.8333333333333334,
+            "p50_latency_ms": 67935.0,
+            "p95_latency_ms": 515179.49999999994,
+            "input_tokens": 119389,
+            "output_tokens": 183572,
+            "cost_cny": 0.486533
+          },
+          "cp_b10": {
+            "samples": 12,
+            "succeeded": 10,
+            "failed": 2,
+            "fallback_samples": 0,
+            "contract_pass_rate": 0.75,
+            "citation_resolvability": 0.8333333333333334,
+            "render_success_rate": null,
+            "trace_completeness": 0.8333333333333334,
+            "p50_latency_ms": 137818.5,
+            "p95_latency_ms": 737684.6499999994,
+            "input_tokens": 444635,
+            "output_tokens": 378946,
+            "cost_cny": 1.202527
+          }
+        },
+        "l0": {
+          "cross_course_events": 0,
+          "unauthorized_actions": 0,
+          "secret_leaks": 0,
+          "duplicate_side_effects": 0,
+          "silent_fallbacks": 0,
+          "unresolved_citations": 0,
+          "dangerous_tool_executions": 0
+        }
+      },
+      "rows_path": "D:\\project\\agent_coursepilot\\storage_eval\\p18\\formal_test\\track_a\\rows.json"
+    },
+    "components": {
+      "schema_version": "coursepilot.p18-components.v2",
+      "split": "test",
+      "test_access": true,
+      "external_provider_calls": 0,
+      "loaded_records": 92,
+      "validation": {
+        "executed": 30,
+        "passed": 30,
+        "failed": 0,
+        "carried": 0,
+        "carried_status": "approved_p13_result_reused",
+        "rows": [
+          {
+            "record_id": "p18-ds4-lesson-test-01",
+            "predicted": [],
+            "gold": [],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-02",
+            "predicted": [
+              [
+                "citation.missing",
+                "$.citation",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "citation.missing",
+                "$.citation",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-03",
+            "predicted": [
+              [
+                "course.scope_mismatch",
+                "$.course_id",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "course.scope_mismatch",
+                "$.course_id",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-04",
+            "predicted": [
+              [
+                "source.required_kp_missing",
+                "$.required_knowledge_point_ids",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "source.required_kp_missing",
+                "$.required_knowledge_point_ids",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-05",
+            "predicted": [
+              [
+                "structure.invalid",
+                "$.content_units",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "structure.invalid",
+                "$.content_units",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-06",
+            "predicted": [
+              [
+                "contract.count_mismatch",
+                "$.contract_count",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "contract.count_mismatch",
+                "$.contract_count",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-07",
+            "predicted": [
+              [
+                "grounding.unsupported_claim",
+                "$.claim",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "grounding.unsupported_claim",
+                "$.claim",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-08",
+            "predicted": [
+              [
+                "template.placeholder_injection",
+                "$.title",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "template.placeholder_injection",
+                "$.title",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-09",
+            "predicted": [
+              [
+                "content.duplicate",
+                "$.content_units",
+                "warning",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "content.duplicate",
+                "$.content_units",
+                "warning",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-lesson-test-10",
+            "predicted": [
+              [
+                "layout.severe_overflow",
+                "$.render_status",
+                "critical",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "layout.severe_overflow",
+                "$.render_status",
+                "critical",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-01",
+            "predicted": [],
+            "gold": [],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-02",
+            "predicted": [
+              [
+                "citation.missing",
+                "$.citation",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "citation.missing",
+                "$.citation",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-03",
+            "predicted": [
+              [
+                "course.scope_mismatch",
+                "$.course_id",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "course.scope_mismatch",
+                "$.course_id",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-04",
+            "predicted": [
+              [
+                "source.required_kp_missing",
+                "$.required_knowledge_point_ids",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "source.required_kp_missing",
+                "$.required_knowledge_point_ids",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-05",
+            "predicted": [
+              [
+                "structure.invalid",
+                "$.content_units",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "structure.invalid",
+                "$.content_units",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-06",
+            "predicted": [
+              [
+                "contract.count_mismatch",
+                "$.contract_count",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "contract.count_mismatch",
+                "$.contract_count",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-07",
+            "predicted": [
+              [
+                "grounding.unsupported_claim",
+                "$.claim",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "grounding.unsupported_claim",
+                "$.claim",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-08",
+            "predicted": [
+              [
+                "template.placeholder_injection",
+                "$.title",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "template.placeholder_injection",
+                "$.title",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-09",
+            "predicted": [
+              [
+                "content.duplicate",
+                "$.content_units",
+                "warning",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "content.duplicate",
+                "$.content_units",
+                "warning",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-exam-test-10",
+            "predicted": [
+              [
+                "layout.severe_overflow",
+                "$.render_status",
+                "critical",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "layout.severe_overflow",
+                "$.render_status",
+                "critical",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-01",
+            "predicted": [],
+            "gold": [],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-02",
+            "predicted": [
+              [
+                "citation.missing",
+                "$.citation",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "citation.missing",
+                "$.citation",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-03",
+            "predicted": [
+              [
+                "course.scope_mismatch",
+                "$.course_id",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "course.scope_mismatch",
+                "$.course_id",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-04",
+            "predicted": [
+              [
+                "source.required_kp_missing",
+                "$.required_knowledge_point_ids",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "source.required_kp_missing",
+                "$.required_knowledge_point_ids",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-05",
+            "predicted": [
+              [
+                "structure.invalid",
+                "$.content_units",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "structure.invalid",
+                "$.content_units",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-06",
+            "predicted": [
+              [
+                "contract.count_mismatch",
+                "$.contract_count",
+                "error",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "contract.count_mismatch",
+                "$.contract_count",
+                "error",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-07",
+            "predicted": [
+              [
+                "grounding.unsupported_claim",
+                "$.claim",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "grounding.unsupported_claim",
+                "$.claim",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-08",
+            "predicted": [
+              [
+                "template.placeholder_injection",
+                "$.title",
+                "critical",
+                false
+              ]
+            ],
+            "gold": [
+              [
+                "template.placeholder_injection",
+                "$.title",
+                "critical",
+                false
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-09",
+            "predicted": [
+              [
+                "content.duplicate",
+                "$.content_units",
+                "warning",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "content.duplicate",
+                "$.content_units",
+                "warning",
+                true
+              ]
+            ],
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds4-ppt-test-10",
+            "predicted": [
+              [
+                "layout.severe_overflow",
+                "$.render_status",
+                "critical",
+                true
+              ]
+            ],
+            "gold": [
+              [
+                "layout.severe_overflow",
+                "$.render_status",
+                "critical",
+                true
+              ]
+            ],
+            "passed": true
+          }
+        ]
+      },
+      "repair": {
+        "executed": 18,
+        "passed": 18,
+        "failed": 0,
+        "carried": 0,
+        "carried_status": "approved_p13_result_reused",
+        "rows": [
+          {
+            "record_id": "p18-ds5-lesson-test-10",
+            "issue_code": "citation.missing",
+            "changed_paths": [
+              "$.citation"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-lesson-test-11",
+            "issue_code": "course.scope_mismatch",
+            "changed_paths": [
+              "$.course_id"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-lesson-test-12",
+            "issue_code": "source.required_kp_missing",
+            "changed_paths": [
+              "$.required_knowledge_point_ids",
+              "$.required_knowledge_point_ids[0]",
+              "$.required_knowledge_point_ids[1]"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-lesson-test-13",
+            "issue_code": "structure.invalid",
+            "changed_paths": [
+              "$.content_units[0]",
+              "$.content_units[1]"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-lesson-test-14",
+            "issue_code": "contract.count_mismatch",
+            "changed_paths": [
+              "$.contract_count"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-lesson-test-15",
+            "issue_code": "grounding.unsupported_claim",
+            "changed_paths": [
+              "$.claim"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-exam-test-25",
+            "issue_code": "citation.missing",
+            "changed_paths": [
+              "$.citation"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-exam-test-26",
+            "issue_code": "course.scope_mismatch",
+            "changed_paths": [
+              "$.course_id"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-exam-test-27",
+            "issue_code": "source.required_kp_missing",
+            "changed_paths": [
+              "$.required_knowledge_point_ids",
+              "$.required_knowledge_point_ids[0]",
+              "$.required_knowledge_point_ids[1]"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-exam-test-28",
+            "issue_code": "structure.invalid",
+            "changed_paths": [
+              "$.content_units[0]",
+              "$.content_units[1]"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-exam-test-29",
+            "issue_code": "contract.count_mismatch",
+            "changed_paths": [
+              "$.contract_count"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-exam-test-30",
+            "issue_code": "grounding.unsupported_claim",
+            "changed_paths": [
+              "$.claim"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-ppt-test-40",
+            "issue_code": "citation.missing",
+            "changed_paths": [
+              "$.citation"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-ppt-test-41",
+            "issue_code": "course.scope_mismatch",
+            "changed_paths": [
+              "$.course_id"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-ppt-test-42",
+            "issue_code": "source.required_kp_missing",
+            "changed_paths": [
+              "$.required_knowledge_point_ids",
+              "$.required_knowledge_point_ids[0]",
+              "$.required_knowledge_point_ids[1]"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-ppt-test-43",
+            "issue_code": "structure.invalid",
+            "changed_paths": [
+              "$.content_units[0]",
+              "$.content_units[1]"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-ppt-test-44",
+            "issue_code": "contract.count_mismatch",
+            "changed_paths": [
+              "$.contract_count"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds5-ppt-test-45",
+            "issue_code": "grounding.unsupported_claim",
+            "changed_paths": [
+              "$.claim"
+            ],
+            "remaining_issues": [],
+            "unauthorized_modifications": 0,
+            "regression": false,
+            "error": null,
+            "passed": true
+          }
+        ]
+      },
+      "recovery": {
+        "executed": 12,
+        "passed": 12,
+        "failed": 0,
+        "carried": 0,
+        "carried_status": null,
+        "rows": [
+          {
+            "record_id": "p18-ds6-01-edit_resume",
+            "legal_transitions": true,
+            "artifact_version_after": 2,
+            "side_effects": {
+              "artifact_versions_created": 1,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-01-reject",
+            "legal_transitions": true,
+            "artifact_version_after": 1,
+            "side_effects": {
+              "artifact_versions_created": 0,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 0,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-02-approve",
+            "legal_transitions": true,
+            "artifact_version_after": 1,
+            "side_effects": {
+              "artifact_versions_created": 0,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-02-replan",
+            "legal_transitions": true,
+            "artifact_version_after": 2,
+            "side_effects": {
+              "artifact_versions_created": 1,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-03-edit_resume",
+            "legal_transitions": true,
+            "artifact_version_after": 2,
+            "side_effects": {
+              "artifact_versions_created": 1,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-03-reject",
+            "legal_transitions": true,
+            "artifact_version_after": 1,
+            "side_effects": {
+              "artifact_versions_created": 0,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 0,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-04-approve",
+            "legal_transitions": true,
+            "artifact_version_after": 1,
+            "side_effects": {
+              "artifact_versions_created": 0,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-04-replan",
+            "legal_transitions": true,
+            "artifact_version_after": 2,
+            "side_effects": {
+              "artifact_versions_created": 1,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-05-edit_resume",
+            "legal_transitions": true,
+            "artifact_version_after": 2,
+            "side_effects": {
+              "artifact_versions_created": 1,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-05-reject",
+            "legal_transitions": true,
+            "artifact_version_after": 1,
+            "side_effects": {
+              "artifact_versions_created": 0,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 0,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-06-approve",
+            "legal_transitions": true,
+            "artifact_version_after": 1,
+            "side_effects": {
+              "artifact_versions_created": 0,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds6-06-replan",
+            "legal_transitions": true,
+            "artifact_version_after": 2,
+            "side_effects": {
+              "artifact_versions_created": 1,
+              "decision_records": 1,
+              "duplicate_side_effects": 0,
+              "exports": 1,
+              "writebacks": 0
+            },
+            "passed": true
+          }
+        ]
+      },
+      "templates": {
+        "executed": 2,
+        "passed": 2,
+        "failed": 0,
+        "carried": 0,
+        "carried_status": null,
+        "rows": [
+          {
+            "record_id": "p18-ds7-custom-docx-combined-areas",
+            "template_id": "custom_docx_combined_areas_v1",
+            "render_status": "verified_current",
+            "historical_evidence_available": true,
+            "current_render_verified": false,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds7-custom-pptx-velis",
+            "template_id": "custom_pptx_velis_v1",
+            "render_status": "prior_phase_verified",
+            "historical_evidence_available": true,
+            "current_render_verified": false,
+            "passed": true
+          }
+        ]
+      },
+      "faults": {
+        "executed": 10,
+        "passed": 10,
+        "failed": 0,
+        "carried": 0,
+        "carried_status": null,
+        "rows": [
+          {
+            "record_id": "p18-ds8-03",
+            "variant_id": "p18-ds8-03-v1",
+            "error_class": "provider_rate_limited",
+            "user_status": "failed_retryable",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-06",
+            "variant_id": "p18-ds8-06-v1",
+            "error_class": "unsupported_capability",
+            "user_status": "failed_closed",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-09",
+            "variant_id": "p18-ds8-09-v1",
+            "error_class": "stale_source",
+            "user_status": "needs_review",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-12",
+            "variant_id": "p18-ds8-12-v1",
+            "error_class": "source_conflict",
+            "user_status": "needs_review",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-15",
+            "variant_id": "p18-ds8-15-v1",
+            "error_class": "recoverable_worker_failure",
+            "user_status": "resuming",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-18",
+            "variant_id": "p18-ds8-18-v1",
+            "error_class": "writeback_unknown",
+            "user_status": "needs_reconciliation",
+            "side_effect_count": 1,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-21",
+            "variant_id": "p18-ds8-21-v1",
+            "error_class": "untrusted_context",
+            "user_status": "failed_closed",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-24",
+            "variant_id": "p18-ds8-24-v1",
+            "error_class": "authorization_denied",
+            "user_status": "failed_closed",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-27",
+            "variant_id": "p18-ds8-27-v1",
+            "error_class": "trace_redaction_failure",
+            "user_status": "failed_closed",
+            "side_effect_count": 0,
+            "passed": true
+          },
+          {
+            "record_id": "p18-ds8-30",
+            "variant_id": "p18-ds8-30-v1",
+            "error_class": "unsafe_template_content",
+            "user_status": "failed_closed",
+            "side_effect_count": 0,
+            "passed": true
+          }
+        ]
+      },
+      "all_executable_checks_passed": true
+    },
+    "exports": {
+      "schema_version": "coursepilot.p18-export-smoke.v2",
+      "test_access": true,
+      "external_provider_calls": 0,
+      "expected_artifacts": 24,
+      "executed": 24,
+      "passed": 20,
+      "failed": 4,
+      "results": [
+        {
+          "record_id": "p18-lesson-04",
+          "track": "cp_b0",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-lesson-04/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-04",
+          "track": "cp_b10",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-lesson-04/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-05",
+          "track": "cp_b0",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-lesson-05/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-05",
+          "track": "cp_b10",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-lesson-05/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-09",
+          "track": "cp_b0",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-lesson-09/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-09",
+          "track": "cp_b10",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-lesson-09/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-10",
+          "track": "cp_b0",
+          "component": "cp_ds1",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-lesson-10/lesson.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-lesson-10",
+          "track": "cp_b10",
+          "component": "cp_ds1",
+          "passed": false,
+          "reason": "generation_failed"
+        },
+        {
+          "record_id": "p18-exam-04",
+          "track": "cp_b0",
+          "component": "cp_ds2",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-04/student_exam.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-04/answer_key.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-04/detailed_explanation.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-04/answer_sheet.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-exam-04",
+          "track": "cp_b10",
+          "component": "cp_ds2",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-04/student_exam.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-04/answer_key.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-04/detailed_explanation.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-04/answer_sheet.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-exam-05",
+          "track": "cp_b0",
+          "component": "cp_ds2",
+          "passed": false,
+          "reason": "generation_failed"
+        },
+        {
+          "record_id": "p18-exam-05",
+          "track": "cp_b10",
+          "component": "cp_ds2",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-05/student_exam.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-05/answer_key.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-05/detailed_explanation.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-05/answer_sheet.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-exam-09",
+          "track": "cp_b0",
+          "component": "cp_ds2",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-09/student_exam.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-09/answer_key.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-09/detailed_explanation.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-exam-09/answer_sheet.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-exam-09",
+          "track": "cp_b10",
+          "component": "cp_ds2",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-09/student_exam.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-09/answer_key.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-09/detailed_explanation.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-09/answer_sheet.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-exam-10",
+          "track": "cp_b0",
+          "component": "cp_ds2",
+          "passed": false,
+          "reason": "generation_failed"
+        },
+        {
+          "record_id": "p18-exam-10",
+          "track": "cp_b10",
+          "component": "cp_ds2",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-10/student_exam.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-10/answer_key.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-10/detailed_explanation.docx",
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-exam-10/answer_sheet.docx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-04",
+          "track": "cp_b0",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-ppt-04/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-04",
+          "track": "cp_b10",
+          "component": "cp_ds3",
+          "passed": false,
+          "reason": "generation_failed"
+        },
+        {
+          "record_id": "p18-ppt-05",
+          "track": "cp_b0",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-ppt-05/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-05",
+          "track": "cp_b10",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-ppt-05/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-09",
+          "track": "cp_b0",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-ppt-09/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-09",
+          "track": "cp_b10",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-ppt-09/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-10",
+          "track": "cp_b0",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b0/p18-ppt-10/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        },
+        {
+          "record_id": "p18-ppt-10",
+          "track": "cp_b10",
+          "component": "cp_ds3",
+          "files": [
+            "/workspace/storage_eval/p18/formal_test/exports_docker/cp_b10/p18-ppt-10/slides.pptx"
+          ],
+          "rendered": true,
+          "warnings": [],
+          "passed": true
+        }
+      ]
+    },
+    "stability": {
+      "schema_version": "coursepilot.p18-test-stability.v1",
+      "selection_rule": "lexicographically_first_test_record_per_component",
+      "selected_records": {
+        "cp_ds1": "p18-lesson-04",
+        "cp_ds2": "p18-exam-04",
+        "cp_ds3": "p18-ppt-04"
+      },
+      "additional_runs": 6,
+      "ledger": {
+        "requests": 197,
+        "input_tokens": 761098,
+        "output_tokens": 701816,
+        "cost_cny": "2.16473"
+      },
+      "metrics": {
+        "sample_count": 6,
+        "tracks": {
+          "cp_b10": {
+            "samples": 6,
+            "succeeded": 5,
+            "failed": 1,
+            "fallback_samples": 0,
+            "contract_pass_rate": 0.5,
+            "citation_resolvability": 0.8333333333333334,
+            "render_success_rate": null,
+            "trace_completeness": 0.8333333333333334,
+            "p50_latency_ms": 72221.0,
+            "p95_latency_ms": 144035.25,
+            "input_tokens": 82068,
+            "output_tokens": 61421,
+            "cost_cny": 0.20491
+          }
+        },
+        "l0": {
+          "cross_course_events": 0,
+          "unauthorized_actions": 0,
+          "secret_leaks": 0,
+          "duplicate_side_effects": 0,
+          "silent_fallbacks": 0,
+          "unresolved_citations": 0,
+          "dangerous_tool_executions": 0
+        }
+      },
+      "fallback_allowed": false
+    },
+    "track_b": {
+      "blocker": "missing_formal_courserag_test_index",
+      "external_provider_calls": 0,
+      "faults": {
+        "passed_count": 10,
+        "records": [
+          {
+            "actual_error_class": "provider_rate_limited",
+            "actual_user_status": "failed_retryable",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-03",
+            "retryable": true,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "contract-fixture",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-03-v1",
+              "task_id": "task:p18-ds8-03",
+              "trace_id": "trace:p18-ds8-03"
+            },
+            "variant_id": "p18-ds8-03-v1"
+          },
+          {
+            "actual_error_class": "unsupported_capability",
+            "actual_user_status": "failed_closed",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-06",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "contract-fixture",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-06-v1",
+              "task_id": "task:p18-ds8-06",
+              "trace_id": "trace:p18-ds8-06"
+            },
+            "variant_id": "p18-ds8-06-v1"
+          },
+          {
+            "actual_error_class": "stale_source",
+            "actual_user_status": "needs_review",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-09",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "course_ai_general_education",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-09-v1",
+              "task_id": "task:p18-ds8-09",
+              "trace_id": "trace:p18-ds8-09"
+            },
+            "variant_id": "p18-ds8-09-v1"
+          },
+          {
+            "actual_error_class": "source_conflict",
+            "actual_user_status": "needs_review",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-12",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "course_ai_algorithms_systems",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-12-v1",
+              "task_id": "task:p18-ds8-12",
+              "trace_id": "trace:p18-ds8-12"
+            },
+            "variant_id": "p18-ds8-12-v1"
+          },
+          {
+            "actual_error_class": "recoverable_worker_failure",
+            "actual_user_status": "resuming",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-15",
+            "retryable": true,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "contract-fixture",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-15-v1",
+              "task_id": "task:p18-ds8-15",
+              "trace_id": "trace:p18-ds8-15"
+            },
+            "variant_id": "p18-ds8-15-v1"
+          },
+          {
+            "actual_error_class": "writeback_unknown",
+            "actual_user_status": "needs_reconciliation",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-18",
+            "retryable": false,
+            "side_effect_count": 1,
+            "trace": {
+              "course_id": "course_ai_algorithms_systems",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-18-v1",
+              "task_id": "task:p18-ds8-18",
+              "trace_id": "trace:p18-ds8-18"
+            },
+            "variant_id": "p18-ds8-18-v1"
+          },
+          {
+            "actual_error_class": "untrusted_context",
+            "actual_user_status": "failed_closed",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-21",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "course_ai_general_education",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-21-v1",
+              "task_id": "task:p18-ds8-21",
+              "trace_id": "trace:p18-ds8-21"
+            },
+            "variant_id": "p18-ds8-21-v1"
+          },
+          {
+            "actual_error_class": "authorization_denied",
+            "actual_user_status": "failed_closed",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-24",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "course_ai_algorithms_systems",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-24-v1",
+              "task_id": "task:p18-ds8-24",
+              "trace_id": "trace:p18-ds8-24"
+            },
+            "variant_id": "p18-ds8-24-v1"
+          },
+          {
+            "actual_error_class": "trace_redaction_failure",
+            "actual_user_status": "failed_closed",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-27",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "course_ai_general_education",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-27-v1",
+              "task_id": "task:p18-ds8-27",
+              "trace_id": "trace:p18-ds8-27"
+            },
+            "variant_id": "p18-ds8-27-v1"
+          },
+          {
+            "actual_error_class": "unsafe_template_content",
+            "actual_user_status": "failed_closed",
+            "duplicate_side_effect_count": 0,
+            "passed": true,
+            "record_id": "p18-ds8-30",
+            "retryable": false,
+            "side_effect_count": 0,
+            "trace": {
+              "course_id": "course_ai_algorithms_systems",
+              "index_version": "formal-test-or-not-applicable",
+              "profile_version": "p18-frozen-r1",
+              "request_id": "request:p18-ds8-30-v1",
+              "task_id": "task:p18-ds8-30",
+              "trace_id": "trace:p18-ds8-30"
+            },
+            "variant_id": "p18-ds8-30-v1"
+          }
+        ],
+        "variant_count": 10
+      },
+      "journeys": {
+        "blocked_count": 7,
+        "contract_passed_count": 8,
+        "journey_count": 8,
+        "live_passed_count": 1,
+        "records": [
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "lesson",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-01",
+            "steps": [
+              {
+                "action": "load_frozen_task_and_track_context",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-01:1",
+                  "task_id": "task:p18-lesson-04",
+                  "trace_id": "trace:p18-sys-ds1-01"
+                }
+              },
+              {
+                "action": "generate_validate_and_interrupt",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-01:2",
+                  "task_id": "task:p18-lesson-04",
+                  "trace_id": "trace:p18-sys-ds1-01"
+                }
+              },
+              {
+                "action": "resume_after_owner_decision_and_export",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "waiting_human",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-01:3",
+                  "task_id": "task:p18-lesson-04",
+                  "trace_id": "trace:p18-sys-ds1-01"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "exam",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-02",
+            "steps": [
+              {
+                "action": "load_frozen_task_and_track_context",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-02:1",
+                  "task_id": "task:p18-exam-04",
+                  "trace_id": "trace:p18-sys-ds1-02"
+                }
+              },
+              {
+                "action": "generate_validate_and_interrupt",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-02:2",
+                  "task_id": "task:p18-exam-04",
+                  "trace_id": "trace:p18-sys-ds1-02"
+                }
+              },
+              {
+                "action": "resume_after_owner_decision_and_export",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "waiting_human",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-02:3",
+                  "task_id": "task:p18-exam-04",
+                  "trace_id": "trace:p18-sys-ds1-02"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "ppt",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-03",
+            "steps": [
+              {
+                "action": "load_frozen_task_and_track_context",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-03:1",
+                  "task_id": "task:p18-ppt-04",
+                  "trace_id": "trace:p18-sys-ds1-03"
+                }
+              },
+              {
+                "action": "generate_validate_and_interrupt",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-03:2",
+                  "task_id": "task:p18-ppt-04",
+                  "trace_id": "trace:p18-sys-ds1-03"
+                }
+              },
+              {
+                "action": "resume_after_owner_decision_and_export",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "waiting_human",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-03:3",
+                  "task_id": "task:p18-ppt-04",
+                  "trace_id": "trace:p18-sys-ds1-03"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "writeback_loop",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-04",
+            "steps": [
+              {
+                "action": "load_frozen_task_and_track_context",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-04:1",
+                  "task_id": "task:p18-lesson-05",
+                  "trace_id": "trace:p18-sys-ds1-04"
+                }
+              },
+              {
+                "action": "generate_validate_and_interrupt",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-04:2",
+                  "task_id": "task:p18-lesson-05",
+                  "trace_id": "trace:p18-sys-ds1-04"
+                }
+              },
+              {
+                "action": "resume_with_export_scope_and_export",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "exported_pending_writeback",
+                "state_before": "waiting_human",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-04:3",
+                  "task_id": "task:p18-lesson-05",
+                  "trace_id": "trace:p18-sys-ds1-04"
+                }
+              },
+              {
+                "action": "approve_verified_content_unit_and_writeback",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "exported_pending_writeback",
+                "step_index": 4,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-04:4",
+                  "task_id": "task:p18-lesson-05",
+                  "trace_id": "trace:p18-sys-ds1-04"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "fault_recovery",
+            "live_status": "passed",
+            "passed": true,
+            "record_id": "p18-sys-ds1-05",
+            "steps": [
+              {
+                "action": "load_frozen_exam_task",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-05:1",
+                  "task_id": "task:p18-exam-05",
+                  "trace_id": "trace:p18-sys-ds1-05"
+                }
+              },
+              {
+                "action": "commit_artifact_then_inject_worker_crash_before_checkpoint",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "recovery_pending",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-05:2",
+                  "task_id": "task:p18-exam-05",
+                  "trace_id": "trace:p18-sys-ds1-05"
+                }
+              },
+              {
+                "action": "resume_from_checkpoint_and_reconcile_artifact",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "recovery_pending",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-05:3",
+                  "task_id": "task:p18-exam-05",
+                  "trace_id": "trace:p18-sys-ds1-05"
+                }
+              },
+              {
+                "action": "owner_approve_and_export_once",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "waiting_human",
+                "step_index": 4,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-05:4",
+                  "task_id": "task:p18-exam-05",
+                  "trace_id": "trace:p18-sys-ds1-05"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "needs_review",
+            "journey_type": "insufficient_evidence",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-06",
+            "steps": [
+              {
+                "action": "load_context_with_required_evidence_omitted",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-06:1",
+                  "task_id": "task:p18-lesson-09",
+                  "trace_id": "trace:p18-sys-ds1-06"
+                }
+              },
+              {
+                "action": "fail_context_completeness_before_provider",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "needs_review",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-06:2",
+                  "task_id": "task:p18-lesson-09",
+                  "trace_id": "trace:p18-sys-ds1-06"
+                }
+              },
+              {
+                "action": "preserve_needs_review_without_side_effect",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "needs_review",
+                "state_before": "needs_review",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-06:3",
+                  "task_id": "task:p18-lesson-09",
+                  "trace_id": "trace:p18-sys-ds1-06"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "malicious_material",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-07",
+            "steps": [
+              {
+                "action": "load_course_context_and_untrusted_material",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-07:1",
+                  "task_id": "task:p18-ppt-05",
+                  "trace_id": "trace:p18-sys-ds1-07"
+                }
+              },
+              {
+                "action": "apply_hard_scope_and_secret_controls",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-07:2",
+                  "task_id": "task:p18-ppt-05",
+                  "trace_id": "trace:p18-sys-ds1-07"
+                }
+              },
+              {
+                "action": "owner_review_sanitized_artifact",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "approved_for_export",
+                "state_before": "waiting_human",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-07:3",
+                  "task_id": "task:p18-ppt-05",
+                  "trace_id": "trace:p18-sys-ds1-07"
+                }
+              },
+              {
+                "action": "export_sanitized_artifact_once",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "approved_for_export",
+                "step_index": 4,
+                "trace": {
+                  "course_id": "course_ai_algorithms_systems",
+                  "request_id": "request:p18-sys-ds1-07:4",
+                  "task_id": "task:p18-ppt-05",
+                  "trace_id": "trace:p18-sys-ds1-07"
+                }
+              }
+            ]
+          },
+          {
+            "contract_passed": true,
+            "final_status": "completed",
+            "journey_type": "version_change",
+            "live_status": "blocked_missing_formal_index",
+            "passed": false,
+            "record_id": "p18-sys-ds1-08",
+            "steps": [
+              {
+                "action": "load_context_at_index_v1",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "running",
+                "state_before": "queued",
+                "step_index": 1,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-08:1",
+                  "task_id": "task:p18-ppt-09",
+                  "trace_id": "trace:p18-sys-ds1-08"
+                }
+              },
+              {
+                "action": "generate_and_interrupt_for_owner_review",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "waiting_human",
+                "state_before": "running",
+                "step_index": 2,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-08:2",
+                  "task_id": "task:p18-ppt-09",
+                  "trace_id": "trace:p18-sys-ds1-08"
+                }
+              },
+              {
+                "action": "publish_index_v2_during_interrupt",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "stale_requires_re_review",
+                "state_before": "waiting_human",
+                "step_index": 3,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-08:3",
+                  "task_id": "task:p18-ppt-09",
+                  "trace_id": "trace:p18-sys-ds1-08"
+                }
+              },
+              {
+                "action": "rebuild_context_and_owner_re_review",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 0,
+                "state": "approved_for_export",
+                "state_before": "stale_requires_re_review",
+                "step_index": 4,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-08:4",
+                  "task_id": "task:p18-ppt-09",
+                  "trace_id": "trace:p18-sys-ds1-08"
+                }
+              },
+              {
+                "action": "export_after_re_review",
+                "contract_passed": true,
+                "replay_side_effect_count": 0,
+                "side_effect_count": 1,
+                "state": "completed",
+                "state_before": "approved_for_export",
+                "step_index": 5,
+                "trace": {
+                  "course_id": "course_ai_general_education",
+                  "request_id": "request:p18-sys-ds1-08:5",
+                  "task_id": "task:p18-ppt-09",
+                  "trace_id": "trace:p18-sys-ds1-08"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "live_probe": {
+        "available_courses": [],
+        "capabilities_available": true,
+        "coursepilot_healthy": true,
+        "courserag_healthy": true,
+        "errors": [
+          "formal_index:course_ai_algorithms_systems:CourseRAGError",
+          "formal_index:course_ai_general_education:CourseRAGError"
+        ],
+        "formal_index_available": false
+      },
+      "passed": false,
+      "schema_version": "coursepilot.p18-track-b.v1",
+      "test_access": true
+    },
+    "failed_cases": [
+      {
+        "record_id": "p18-lesson-10",
+        "track": "cp_b0",
+        "component": "cp_ds1",
+        "status": "succeeded",
+        "contract_pass": false,
+        "error_class": null
+      },
+      {
+        "record_id": "p18-lesson-10",
+        "track": "cp_b10",
+        "component": "cp_ds1",
+        "status": "failed",
+        "contract_pass": false,
+        "error_class": "CoursePilotLLMCallError"
+      },
+      {
+        "record_id": "p18-exam-04",
+        "track": "cp_b0",
+        "component": "cp_ds2",
+        "status": "succeeded",
+        "contract_pass": false,
+        "error_class": null
+      },
+      {
+        "record_id": "p18-exam-04",
+        "track": "cp_b10",
+        "component": "cp_ds2",
+        "status": "succeeded",
+        "contract_pass": false,
+        "error_class": null
+      },
+      {
+        "record_id": "p18-exam-05",
+        "track": "cp_b0",
+        "component": "cp_ds2",
+        "status": "failed",
+        "contract_pass": false,
+        "error_class": "CoursePilotLLMCallError"
+      },
+      {
+        "record_id": "p18-exam-09",
+        "track": "cp_b0",
+        "component": "cp_ds2",
+        "status": "succeeded",
+        "contract_pass": false,
+        "error_class": null
+      },
+      {
+        "record_id": "p18-exam-10",
+        "track": "cp_b0",
+        "component": "cp_ds2",
+        "status": "failed",
+        "contract_pass": false,
+        "error_class": "CoursePilotLLMCallError"
+      },
+      {
+        "record_id": "p18-ppt-04",
+        "track": "cp_b10",
+        "component": "cp_ds3",
+        "status": "failed",
+        "contract_pass": false,
+        "error_class": "CoursePilotLLMCallError"
+      }
+    ],
+    "provider_budget": {
+      "requests": 197,
+      "input_tokens": 761098,
+      "output_tokens": 701816,
+      "cost_cny": "2.16473"
+    },
+    "cohere_search_units": 0
+  },
+  "human": {
+    "review_units": 24,
+    "acceptable_rate": 0.2916666666666667,
+    "mean_rubric": 2.888392857142857,
+    "mean_edit_burden": 2.625,
+    "critical_defects": 4
+  },
+  "public_metric_candidates": [],
+  "limitations": [
+    "Main and Light resolve to one physical model; no dual-model savings claim.",
+    "P17 prompt-injection automation is not a frozen capability."
+  ]
+}
