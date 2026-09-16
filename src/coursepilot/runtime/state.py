@@ -60,6 +60,10 @@ def compact_state(state: CommonGraphState, *, max_summary_chars: int = 2000) -> 
         "warnings": list(state.get("warnings", [])),
         "summaries": summaries,
     }
+    if "artifact_demand" in state:
+        compacted["artifact_demand"] = state["artifact_demand"]
+    if "feasibility_decision" in state:
+        compacted["feasibility_decision"] = state["feasibility_decision"]
     if "error" in state:
         error = _sanitize(state.get("error"), depth=0)
         compacted["error"] = error if isinstance(error, dict) else None

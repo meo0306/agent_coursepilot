@@ -8,6 +8,7 @@ from pydantic import Field
 from coursepilot.domain.artifact import ArtifactRef
 from coursepilot.domain.common import DomainModel, UTCDateTime
 from coursepilot.domain.context import ContextPackageRef
+from coursepilot.domain.feasibility import ArtifactDemand, FeasibilityDecision
 
 
 class NodeStatus(StrEnum):
@@ -57,4 +58,6 @@ class CommonGraphState(TypedDict):
     node_results: list[NodeResult]
     warnings: list[dict[str, object]]
     summaries: dict[str, str]
+    artifact_demand: NotRequired[ArtifactDemand]
+    feasibility_decision: NotRequired[FeasibilityDecision]
     error: NotRequired[dict[str, object] | None]

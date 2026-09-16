@@ -2,7 +2,10 @@ from datetime import UTC, datetime
 
 import pytest
 
+from coursepilot.application.feasibility_service import FeasibilityEvaluator, LessonDemandBuilder
 from coursepilot.domain import (
+    AdequacySnapshot,
+    AdequacyStatus,
     ArtifactRef,
     ArtifactVersion,
     BusinessTask,
@@ -17,6 +20,7 @@ from coursepilot.domain.common import canonical_sha256
 from coursepilot.domain.task import require_task_transition
 from coursepilot.runtime import compact_state, node_fingerprint, stable_thread_id
 from coursepilot.runtime.state import can_reuse_node
+from coursepilot.schemas.lesson_schema import LessonGenerationParams
 
 
 def _now() -> datetime:
@@ -85,6 +89,21 @@ def test_node_fingerprint_controls_reuse() -> None:
 
 
 def test_compaction_removes_secrets_messages_and_large_text() -> None:
+    demand = LessonDemandBuilder.build(
+        course_id="course-1",
+        params=LessonGenerationParams(chapter_range="Chapter 1", total_sessions=1),
+    )
+    decision = FeasibilityEvaluator.evaluate(
+        demand,
+        AdequacySnapshot(
+            status=AdequacyStatus.ADEQUATE,
+            requirement_unit_counts={
+                item.requirement_id: item.minimum_count for item in demand.semantic_requirements
+            },
+            distinct_sources=demand.minimum_distinct_sources,
+            distinct_semantic_units=demand.minimum_semantic_units,
+        ),
+    )
     state = {
         "run_context": RunContext(
             run_id="run-1",
@@ -110,8 +129,12 @@ def test_compaction_removes_secrets_messages_and_large_text() -> None:
         "node_results": [],
         "warnings": [],
         "summaries": {"plan": "ok"},
+        "artifact_demand": demand,
+        "feasibility_decision": decision,
     }
     compacted = compact_state(state)
     assert "api_key" not in compacted["request"]
     assert "messages" not in compacted["request"]
     assert str(compacted["request"]["payload"]).startswith("<content-ref:")
+    assert compacted["artifact_demand"] == demand
+    assert compacted["feasibility_decision"] == decision
